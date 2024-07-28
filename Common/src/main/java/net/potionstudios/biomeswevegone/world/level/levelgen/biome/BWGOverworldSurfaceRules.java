@@ -291,7 +291,7 @@ public class BWGOverworldSurfaceRules {
             CRACKED_SAND_SURFACE
     ));
 
-    private static final SurfaceRules.RuleSource SAKURA_GROVE = makeifTrueRule(BWGBiomes.SAKURA_GROVE, SurfaceRules.sequence(
+    private static final SurfaceRules.RuleSource SAKURA_GROVE = biomeAbovePreliminarySurface(BWGBiomes.SAKURA_GROVE, SurfaceRules.sequence(
             makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
                     makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.PODZOL))
     ));
