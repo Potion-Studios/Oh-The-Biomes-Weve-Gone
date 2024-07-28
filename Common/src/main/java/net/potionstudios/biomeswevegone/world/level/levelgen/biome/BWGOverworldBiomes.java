@@ -514,11 +514,10 @@ class BWGOverworldBiomes {
         addRawGeneration(generationSettings, BWGPlacedFeatures.LUSH_ROUNDED_ROCK);
         addVegetal(generationSettings, AquaticPlacements.WARM_OCEAN_VEGETATION);
         addVegetal(generationSettings, AquaticPlacements.SEAGRASS_WARM);
-        addVegetal(generationSettings, AquaticPlacements.SEA_PICKLE);
         addVegetal(generationSettings, AquaticPlacements.SEAGRASS_NORMAL);
+        addVegetal(generationSettings, AquaticPlacements.SEA_PICKLE);
         BiomeDefaultFeatures.addLushCavesVegetationFeatures(generationSettings);
 
-//        BYGDefaultBiomeFeatures.addlushStacksSpires(generationSettings);
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         addSpawn(spawnSettings, BWGEntities.MAN_O_WAR.get(), 200, 50, 50);
         BiomeDefaultFeatures.warmOceanSpawns(spawnSettings, 10, 4);

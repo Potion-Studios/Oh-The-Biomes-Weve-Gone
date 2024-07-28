@@ -5,3 +5,4 @@
 - Allow BoneMealing Allium Flower Bushes into Tall Alliums
 - Fix Crashing when going near fruit blocks on Fabric
 - Fix Podzol Floors in Cakes under Sakura Grove
+- Fix incompatibility with William Wythers' Overhauled Overworld
