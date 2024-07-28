@@ -1,0 +1,23 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "biomeswevegone:village/salem/terminators/salem_terminator_01",
+        "processors": "biomeswevegone:salem_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "biomeswevegone:village/salem/terminators/salem_terminator_02",
+        "processors": "biomeswevegone:salem_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

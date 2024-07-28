@@ -1,0 +1,6 @@
+{
+  "effects": "drowning",
+  "exhaustion": 0.3,
+  "message_id": "biomeswevegone.inQuicksand",
+  "scaling": "always"
+}

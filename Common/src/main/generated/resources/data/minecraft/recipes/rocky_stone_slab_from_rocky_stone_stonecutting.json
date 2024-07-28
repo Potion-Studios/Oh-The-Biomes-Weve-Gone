@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "biomeswevegone:rocky_stone"
+  },
+  "result": "biomeswevegone:rocky_stone_slab"
+}

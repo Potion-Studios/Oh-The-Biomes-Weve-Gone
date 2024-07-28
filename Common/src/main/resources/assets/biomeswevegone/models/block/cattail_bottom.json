@@ -1,0 +1,39 @@
+{
+    "render_type": "minecraft:cutout_mipped",
+    "textures": {
+        "cattail_bottom": "biomeswevegone:block/cattail_bottom",
+        "particle": "biomeswevegone:block/cattail_bottom"
+    },
+    "elements": [
+        {
+            "name": "PlantBottom1",
+            "from": [ 8, 0, -3 ], 
+            "to": [ 8, 16, 19 ], 
+            "shade": false,
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45.0 },
+            "faces": {
+                "north": { "texture": "#cattail_bottom", "uv": [ 0, 0, 0, 16 ] },
+                "east": { "texture": "#cattail_bottom", "uv": [ 0, 0, 16, 16 ] },
+                "south": { "texture": "#cattail_bottom", "uv": [ 0, 0, 0, 16 ] },
+                "west": { "texture": "#cattail_bottom", "uv": [ 0, 0, 16, 16 ] },
+                "up": { "texture": "#cattail_bottom", "uv": [ 0, 0, 0, 16 ] },
+                "down": { "texture": "#cattail_bottom", "uv": [ 0, 0, 0, 16 ] }
+            }
+        },
+        {
+            "name": "PlantBottom2",
+            "from": [ 8, 0, -3 ], 
+            "to": [ 8, 16, 19 ], 
+            "shade": false,
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": -45.0 },
+            "faces": {
+                "north": { "texture": "#cattail_bottom", "uv": [ 0, 0, 0, 16 ] },
+                "east": { "texture": "#cattail_bottom", "uv": [ 0, 0, 16, 16 ] },
+                "south": { "texture": "#cattail_bottom", "uv": [ 0, 0, 0, 16 ] },
+                "west": { "texture": "#cattail_bottom", "uv": [ 0, 0, 16, 16 ] },
+                "up": { "texture": "#cattail_bottom", "uv": [ 0, 0, 0, 16 ] },
+                "down": { "texture": "#cattail_bottom", "uv": [ 0, 0, 0, 16 ] }
+            }
+        }
+    ]
+}

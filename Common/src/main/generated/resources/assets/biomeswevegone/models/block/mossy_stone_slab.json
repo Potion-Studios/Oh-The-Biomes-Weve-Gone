@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "biomeswevegone:block/mossy_stone",
+    "side": "biomeswevegone:block/mossy_stone",
+    "top": "biomeswevegone:block/mossy_stone"
+  }
+}

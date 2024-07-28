@@ -1,0 +1,18 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 372893981,
+    "separation": 35,
+    "spacing": 50
+  },
+  "structures": [
+    {
+      "structure": "biomeswevegone:aspen_manor_1",
+      "weight": 1
+    },
+    {
+      "structure": "biomeswevegone:aspen_manor_2",
+      "weight": 1
+    }
+  ]
+}

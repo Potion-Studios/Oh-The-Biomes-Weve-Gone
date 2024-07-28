@@ -1,0 +1,141 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/houses/red_rock_small_house_1",
+        "processors": "biomeswevegone:red_rock_to_bricks",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/houses/red_rock_small_house_2",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/houses/red_rock_small_house_3",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/houses/red_rock_small_house_4",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/houses/red_rock_small_house_5",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/houses/red_rock_medium_house_1",
+        "processors": "biomeswevegone:red_rock_house",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/houses/red_rock_medium_house_2",
+        "processors": "biomeswevegone:red_rock_house",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/houses/red_rock_large_house_1",
+        "processors": "biomeswevegone:red_rock_house",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/houses/red_rock_shepherd_house_1",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/houses/red_rock_mason_1",
+        "processors": "biomeswevegone:red_rock_house",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/houses/red_rock_cleric",
+        "processors": "biomeswevegone:red_rock_house",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/houses/red_rock_farm_small_1",
+        "processors": "minecraft:farm_desert",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/houses/red_rock_farm_small_2",
+        "processors": "minecraft:farm_desert",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/houses/red_rock_farm_large_1",
+        "processors": "minecraft:farm_desert",
+        "projection": "rigid"
+      },
+      "weight": 3
+    }
+  ],
+  "fallback": "biomeswevegone:village/red_rock/terminators"
+}

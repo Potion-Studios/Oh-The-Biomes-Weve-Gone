@@ -1,0 +1,15 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 546451665,
+    "separation": 8,
+    "spacing": 32,
+    "spread_type": "triangular"
+  },
+  "structures": [
+    {
+      "structure": "biomeswevegone:large_cold_lake",
+      "weight": 1
+    }
+  ]
+}

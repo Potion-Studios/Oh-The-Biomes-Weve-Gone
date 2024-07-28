@@ -1,0 +1,65 @@
+{
+  "type": "ohthetreesyoullgrow:tree_from_nbt_v1",
+  "config": {
+    "base_location": "biomeswevegone:features/trees/generic_trunk",
+    "can_grow_on_filter": {
+      "type": "minecraft:matching_block_tag",
+      "tag": "minecraft:sand"
+    },
+    "can_leaves_place_filter": {
+      "type": "minecraft:replaceable"
+    },
+    "canopy_location": "biomeswevegone:features/trees/palo-verde/palo_verde_tree_canopy2",
+    "height": {
+      "type": "minecraft:biased_to_bottom",
+      "value": {
+        "max_inclusive": 4,
+        "min_inclusive": 1
+      }
+    },
+    "leaves_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "biomeswevegone:palo_verde_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "biomeswevegone:flowering_palo_verde_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 1
+        }
+      ]
+    },
+    "leaves_target": [
+      "minecraft:oak_leaves"
+    ],
+    "log_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "biomeswevegone:palo_verde_log",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    },
+    "log_target": [
+      "minecraft:oak_log"
+    ],
+    "max_log_depth": 2,
+    "place_from_nbt": []
+  }
+}

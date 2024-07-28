@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "biomeswevegone:mossy_red_rock_bricks"
+  },
+  "result": "biomeswevegone:mossy_red_rock_brick_wall"
+}

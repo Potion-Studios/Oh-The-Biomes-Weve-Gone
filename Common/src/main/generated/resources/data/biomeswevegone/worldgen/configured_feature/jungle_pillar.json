@@ -1,0 +1,195 @@
+{
+  "type": "biomeswevegone:pillar",
+  "config": {
+    "block_placement": [
+      {
+        "blockStateProvider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "minecraft:stone"
+          }
+        },
+        "check": {
+          "type": "minecraft:true"
+        }
+      },
+      {
+        "blockStateProvider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "biomeswevegone:overgrown_stone",
+            "Properties": {
+              "snowy": "false"
+            }
+          }
+        },
+        "check": {
+          "type": "minecraft:matching_blocks",
+          "blocks": [
+            "minecraft:air",
+            "minecraft:cave_air"
+          ],
+          "offset": [
+            0,
+            1,
+            0
+          ]
+        }
+      },
+      {
+        "blockStateProvider": {
+          "type": "minecraft:weighted_state_provider",
+          "entries": [
+            {
+              "data": {
+                "Name": "minecraft:mossy_cobblestone"
+              },
+              "weight": 3
+            },
+            {
+              "data": {
+                "Name": "minecraft:moss_block"
+              },
+              "weight": 1
+            }
+          ]
+        },
+        "check": {
+          "type": "minecraft:all_of",
+          "predicates": [
+            {
+              "type": "biomeswevegone:random_chance",
+              "chance": 0.4
+            },
+            {
+              "type": "minecraft:not",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "biomeswevegone:overgrown_stone"
+              }
+            },
+            {
+              "type": "minecraft:any_of",
+              "predicates": [
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air"
+                  ],
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air"
+                  ],
+                  "offset": [
+                    0,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air"
+                  ],
+                  "offset": [
+                    0,
+                    0,
+                    -1
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air"
+                  ],
+                  "offset": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air"
+                  ],
+                  "offset": [
+                    -1,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air"
+                  ],
+                  "offset": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "distance_test_type": [
+      {
+        "data": "EUCLIDEAN",
+        "weight": 20
+      },
+      {
+        "data": "MANHATTAN",
+        "weight": 2
+      },
+      {
+        "data": "CHEBYSHEV",
+        "weight": 1
+      }
+    ],
+    "height": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 75,
+        "min_inclusive": 15
+      }
+    },
+    "min_radius_scale": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_exclusive": 0.5,
+        "min_inclusive": 0.1
+      }
+    },
+    "noise_frequency": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_exclusive": 0.1,
+        "min_inclusive": 0.01
+      }
+    },
+    "radius": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 15,
+        "min_inclusive": 7
+      }
+    }
+  }
+}

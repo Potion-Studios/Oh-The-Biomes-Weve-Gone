@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "biomeswevegone:witch_hazel_planks"
+    }
+  ],
+  "result": {
+    "item": "biomeswevegone:witch_hazel_button"
+  }
+}

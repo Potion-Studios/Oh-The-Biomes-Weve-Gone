@@ -1,0 +1,15 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 596586,
+    "separation": 1,
+    "spacing": 4,
+    "spread_type": "triangular"
+  },
+  "structures": [
+    {
+      "structure": "biomeswevegone:ironwood_gour_plateau",
+      "weight": 1
+    }
+  ]
+}

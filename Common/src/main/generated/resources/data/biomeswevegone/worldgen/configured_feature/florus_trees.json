@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "biomeswevegone:florus_rose_1",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.65,
+        "feature": {
+          "feature": "biomeswevegone:florus_rose_1",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

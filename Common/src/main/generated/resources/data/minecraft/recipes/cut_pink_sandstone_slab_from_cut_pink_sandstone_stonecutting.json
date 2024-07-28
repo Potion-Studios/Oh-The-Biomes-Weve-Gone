@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "biomeswevegone:cut_pink_sandstone"
+  },
+  "result": "biomeswevegone:cut_pink_sandstone_slab"
+}

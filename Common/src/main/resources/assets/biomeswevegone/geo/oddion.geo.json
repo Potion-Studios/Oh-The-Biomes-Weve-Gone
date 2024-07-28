@@ -1,0 +1,41 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "LeftFoot",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-3, 0, -1], "size": [2, 2, 2], "uv": [0, 4]}
+					]
+				},
+				{
+					"name": "RightFoot",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [1, 0, -1], "size": [2, 2, 2], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "BodyFace",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-4, 2, -4], "size": [8, 8, 8], "uv": [0, 0]},
+						{"origin": [-3, 10, -3], "size": [6, 2, 6], "uv": [24, 0]},
+						{"origin": [0, 12, -8.5], "size": [0, 16, 16], "pivot": [0, 0, 0], "rotation": [0, -45, 0], "uv": [0, 16]},
+						{"origin": [0, 12, -8.5], "size": [0, 16, 16], "pivot": [0, 0, 0], "rotation": [0, -135, 0], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

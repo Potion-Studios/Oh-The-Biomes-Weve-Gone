@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "biomeswevegone:block/dacite_cobblestone",
+    "side": "biomeswevegone:block/dacite_cobblestone",
+    "top": "biomeswevegone:block/dacite_cobblestone"
+  }
+}

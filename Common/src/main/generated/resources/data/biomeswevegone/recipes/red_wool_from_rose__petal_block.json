@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeswevegone:rose_petal_block"
+    },
+    {
+      "item": "biomeswevegone:rose_petal_block"
+    },
+    {
+      "item": "biomeswevegone:rose_petal_block"
+    },
+    {
+      "item": "biomeswevegone:rose_petal_block"
+    },
+    {
+      "item": "biomeswevegone:rose_petal_block"
+    },
+    {
+      "item": "biomeswevegone:rose_petal_block"
+    },
+    {
+      "item": "biomeswevegone:rose_petal_block"
+    },
+    {
+      "item": "biomeswevegone:rose_petal_block"
+    },
+    {
+      "item": "biomeswevegone:rose_petal_block"
+    }
+  ],
+  "result": {
+    "item": "minecraft:red_wool"
+  }
+}

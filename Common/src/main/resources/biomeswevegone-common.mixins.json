@@ -1,0 +1,17 @@
+{
+  "required": false,
+  "package": "net.potionstudios.biomeswevegone.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "ChunkAccessMixin",
+    "ChunkStatusMixin",
+    "PrairieGrassMixin",
+    "SurfaceSystemMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

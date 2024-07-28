@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomeswevegone:block/dacite_tile_slab"
+    },
+    "type=double": {
+      "model": "biomeswevegone:block/dacite_tile"
+    },
+    "type=top": {
+      "model": "biomeswevegone:block/dacite_tile_slab_top"
+    }
+  }
+}

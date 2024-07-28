@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "biomeswevegone:block/tall_allium_bottom"
+    },
+    "half=upper": {
+      "model": "biomeswevegone:block/tall_allium_top"
+    }
+  }
+}

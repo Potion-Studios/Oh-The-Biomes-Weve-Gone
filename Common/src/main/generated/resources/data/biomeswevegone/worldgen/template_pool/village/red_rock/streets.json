@@ -1,0 +1,104 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/streets/red_rock_corner_01",
+        "processors": "biomeswevegone:red_rock_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/streets/red_rock_corner_02",
+        "processors": "biomeswevegone:red_rock_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/streets/red_rock_straight_01",
+        "processors": "biomeswevegone:red_rock_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/streets/red_rock_straight_02",
+        "processors": "biomeswevegone:red_rock_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/streets/red_rock_straight_03",
+        "processors": "biomeswevegone:red_rock_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/streets/red_rock_crossroad_01",
+        "processors": "biomeswevegone:red_rock_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/streets/red_rock_crossroad_02",
+        "processors": "biomeswevegone:red_rock_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/streets/red_rock_crossroad_03",
+        "processors": "biomeswevegone:red_rock_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/streets/red_rock_square_01",
+        "processors": "biomeswevegone:red_rock_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/streets/red_rock_square_02",
+        "processors": "biomeswevegone:red_rock_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/streets/red_rock_turn_01",
+        "processors": "biomeswevegone:red_rock_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    }
+  ],
+  "fallback": "biomeswevegone:village/red_rock/terminators"
+}

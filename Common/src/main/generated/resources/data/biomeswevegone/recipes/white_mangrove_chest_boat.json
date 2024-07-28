@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "chest_boat",
+  "ingredients": [
+    {
+      "item": "minecraft:chest"
+    },
+    {
+      "item": "biomeswevegone:white_mangrove_planks"
+    }
+  ],
+  "result": {
+    "item": "biomeswevegone:white_mangrove_chest_boat"
+  }
+}

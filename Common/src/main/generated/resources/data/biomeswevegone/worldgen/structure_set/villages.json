@@ -1,0 +1,30 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 437845874,
+    "separation": 8,
+    "spacing": 34
+  },
+  "structures": [
+    {
+      "structure": "biomeswevegone:village/forgotten",
+      "weight": 1
+    },
+    {
+      "structure": "biomeswevegone:village/skyris",
+      "weight": 1
+    },
+    {
+      "structure": "biomeswevegone:village/salem",
+      "weight": 1
+    },
+    {
+      "structure": "biomeswevegone:village/red_rock",
+      "weight": 1
+    },
+    {
+      "structure": "biomeswevegone:village/pumpkin_patch",
+      "weight": 1
+    }
+  ]
+}

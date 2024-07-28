@@ -1,0 +1,69 @@
+{
+  "type": "ohthetreesyoullgrow:tree_from_nbt_v1",
+  "config": {
+    "base_location": "biomeswevegone:features/trees/rainbow-eucalyptus/rainbow_eucalyptus_tree_large_trunk1",
+    "can_grow_on_filter": {
+      "type": "minecraft:matching_block_tag",
+      "tag": "minecraft:dirt"
+    },
+    "can_leaves_place_filter": {
+      "type": "minecraft:replaceable"
+    },
+    "canopy_location": "biomeswevegone:features/trees/rainbow-eucalyptus/rainbow_eucalyptus_tree_large_canopy1",
+    "decorators": [
+      {
+        "type": "ohthetreesyoullgrow:trunk_vine",
+        "value": {
+          "probability": 0.05,
+          "vine_block": "minecraft:vine"
+        }
+      },
+      {
+        "type": "ohthetreesyoullgrow:leave_vine",
+        "value": {
+          "probability": 0.05,
+          "vine_block": "minecraft:vine"
+        }
+      }
+    ],
+    "height": {
+      "type": "minecraft:biased_to_bottom",
+      "value": {
+        "max_inclusive": 15,
+        "min_inclusive": 5
+      }
+    },
+    "leaves_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "biomeswevegone:rainbow_eucalyptus_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 1
+        }
+      ]
+    },
+    "leaves_target": [
+      "minecraft:oak_leaves"
+    ],
+    "log_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "biomeswevegone:rainbow_eucalyptus_log",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    },
+    "log_target": [
+      "minecraft:oak_log"
+    ],
+    "place_from_nbt": []
+  }
+}

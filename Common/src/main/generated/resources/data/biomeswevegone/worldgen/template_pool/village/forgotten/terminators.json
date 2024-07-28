@@ -1,0 +1,23 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "biomeswevegone:village/forgotten/terminators/forgotten_terminator_01",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "terrain_matching"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "biomeswevegone:village/forgotten/terminators/forgotten_terminator_02",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "terrain_matching"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

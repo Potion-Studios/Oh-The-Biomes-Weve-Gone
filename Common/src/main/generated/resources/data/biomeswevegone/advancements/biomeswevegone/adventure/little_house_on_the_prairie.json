@@ -1,0 +1,62 @@
+{
+  "parent": "biomeswevegone:biomeswevegone/adventure/root",
+  "criteria": {
+    "abondoned_prairie_house": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "biomeswevegone:abandoned_prairie_house"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "prairie_house": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "biomeswevegone:prairie_house"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "biomeswevegone:textures/block/lush_dirt.png",
+    "description": {
+      "translate": "advancements.biomeswevegone.adventure.little_house_on_the_prairie.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "biomeswevegone:prairie_grass"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.biomeswevegone.adventure.little_house_on_the_prairie.title"
+    }
+  },
+  "requirements": [
+    [
+      "prairie_house"
+    ],
+    [
+      "abondoned_prairie_house"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

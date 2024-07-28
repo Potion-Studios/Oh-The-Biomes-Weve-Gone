@@ -1,0 +1,32 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/town_centers/red_rock_meeting_point_1",
+        "processors": "biomeswevegone:red_rock_meeting_point_1",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/town_centers/red_rock_meeting_point_2",
+        "processors": "biomeswevegone:red_rock_cracked_bricks_50_percent_mossy_red_rock_bricks",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/red_rock/town_centers/red_rock_meeting_point_3",
+        "processors": "biomeswevegone:red_rock_meeting_point_3",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

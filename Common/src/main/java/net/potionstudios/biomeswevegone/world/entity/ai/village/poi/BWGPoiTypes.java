@@ -1,0 +1,26 @@
+package net.potionstudios.biomeswevegone.world.entity.ai.village.poi;
+
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.ai.village.poi.PoiType;
+import net.minecraft.world.entity.ai.village.poi.PoiTypes;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.RegistrationHandler;
+import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+
+import java.util.function.Supplier;
+
+public class BWGPoiTypes {
+
+    public static final ResourceKey<PoiType> FORAGER = register("forager", () -> new PoiType(PoiTypes.getBlockStates(BWGBlocks.FORAGERS_TABLE.get()), 1, 1));
+
+
+    public static void init() {
+        BiomesWeveGone.LOGGER.info("Registering BWG Poi Types");
+    }
+
+    private static ResourceKey<PoiType> register(String id, Supplier<PoiType> poiType){
+        RegistrationHandler.registerPoiType(id, poiType);
+        return ResourceKey.create(Registries.POINT_OF_INTEREST_TYPE, BiomesWeveGone.id(id));
+    }
+}

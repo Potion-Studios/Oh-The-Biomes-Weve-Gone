@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "biomeswevegone:skyris_planks"
+    }
+  ],
+  "result": {
+    "item": "biomeswevegone:skyris_button"
+  }
+}

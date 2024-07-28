@@ -1,0 +1,156 @@
+{
+  "type": "biomeswevegone:rounded_rock",
+  "config": {
+    "blending_function": [
+      {
+        "data": {
+          "type": "corgilib:ease_out_cubic"
+        },
+        "weight": 1
+      }
+    ],
+    "block_placement": [
+      {
+        "blockStateProvider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "minecraft:stone"
+          }
+        },
+        "check": {
+          "type": "minecraft:matching_blocks",
+          "blocks": [
+            "minecraft:air",
+            "minecraft:water"
+          ]
+        }
+      },
+      {
+        "blockStateProvider": {
+          "type": "minecraft:weighted_state_provider",
+          "entries": [
+            {
+              "data": {
+                "Name": "minecraft:moss_block"
+              },
+              "weight": 1
+            },
+            {
+              "data": {
+                "Name": "minecraft:mossy_cobblestone"
+              },
+              "weight": 2
+            }
+          ]
+        },
+        "check": {
+          "type": "minecraft:all_of",
+          "predicates": [
+            {
+              "type": "biomeswevegone:random_chance",
+              "chance": 0.4
+            },
+            {
+              "type": "minecraft:any_of",
+              "predicates": [
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air"
+                  ],
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air"
+                  ],
+                  "offset": [
+                    0,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air"
+                  ],
+                  "offset": [
+                    0,
+                    0,
+                    -1
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air"
+                  ],
+                  "offset": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air"
+                  ],
+                  "offset": [
+                    -1,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air"
+                  ],
+                  "offset": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "height": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 64,
+        "min_inclusive": 33
+      }
+    },
+    "noise_frequency": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_exclusive": 0.1,
+        "min_inclusive": 0.01
+      }
+    },
+    "radius": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 11,
+        "min_inclusive": 4
+      }
+    }
+  }
+}

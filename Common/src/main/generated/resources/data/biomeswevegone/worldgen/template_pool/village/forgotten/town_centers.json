@@ -1,0 +1,32 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/forgotten/town_centers/forgotten_meeting_point_1",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/forgotten/town_centers/forgotten_meeting_point_2",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/forgotten/town_centers/forgotten_meeting_point_3",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

@@ -1,0 +1,53 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "biomeswevegone:yellow_sakura_tree7",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:yellow_sakura_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:yellow_sakura_tree2",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "biomeswevegone:yellow_sakura_tree3",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.2,
+        "feature": {
+          "feature": "biomeswevegone:yellow_sakura_tree4",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.2,
+        "feature": {
+          "feature": "biomeswevegone:yellow_sakura_tree5",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.2,
+        "feature": {
+          "feature": "biomeswevegone:yellow_sakura_tree6",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

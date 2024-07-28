@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:has_structure/village_plains",
+  "features": "biomeswevegone:vanilla/flower_plains",
+  "step": "vegetal_decoration"
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "biomeswevegone:magenta_pitcher_plant",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "half": "lower"
+              }
+            }
+          ],
+          "name": "biomeswevegone:magenta_pitcher_plant"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "biomeswevegone:blocks/magenta_pitcher_plant"
+}

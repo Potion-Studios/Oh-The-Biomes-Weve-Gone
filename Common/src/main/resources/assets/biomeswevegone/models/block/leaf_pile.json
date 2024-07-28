@@ -1,0 +1,17 @@
+{
+  "parent": "block/carpet",
+  "textures": {
+    "particle": "biomeswevegone:block/leaf_pile",
+    "wool": "biomeswevegone:block/leaf_pile"
+  },
+  "render_type": "minecraft:cutout_mipped",
+  "elements": [
+    {   "from": [  0, 0.25,  0 ],
+      "to":   [ 16, 0.25, 16 ],
+      "faces": {
+        "down":  { "uv": [  0, 16, 16,  0 ], "texture": "#wool", "tintindex": 0 },
+        "up":  { "uv": [  0,  0, 16, 16 ], "texture": "#wool", "tintindex": 0 }
+      }
+    }
+  ]
+}

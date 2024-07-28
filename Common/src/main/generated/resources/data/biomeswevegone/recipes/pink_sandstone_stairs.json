@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": [
+      {
+        "item": "biomeswevegone:pink_sandstone"
+      },
+      {
+        "item": "biomeswevegone:chiseled_pink_sandstone"
+      },
+      {
+        "item": "biomeswevegone:cut_pink_sandstone"
+      }
+    ]
+  },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "item": "biomeswevegone:pink_sandstone_stairs"
+  },
+  "show_notification": true
+}

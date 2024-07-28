@@ -1,0 +1,49 @@
+{
+  "music.overworld.crag_gardens": {
+    "sounds": [
+      "biomeswevegone:music/overworld/crag_gardens"
+    ]
+  },
+  "music.overworld.eroded_borealis": {
+    "sounds": [
+      "biomeswevegone:music/overworld/eroded_borealis"
+    ]
+  },
+  "music.overworld.forgotten_forest": {
+    "sounds": [
+      "biomeswevegone:music/overworld/forgotten_forest"
+    ]
+  },
+  "music_disc.pixie_club": {
+    "sounds": [
+      {
+        "name": "biomeswevegone:music/disc/pixie_club",
+        "stream": true
+      }
+    ]
+  },
+  "oddion.ambient": {
+    "sounds": [
+      "biomeswevegone:entity/oddion/oddion_ambient"
+    ],
+    "subtitle": "subtitles.entity.oddion_ambient"
+  },
+  "oddion.die": {
+    "sounds": [
+      "biomeswevegone:entity/oddion/oddion_death"
+    ],
+    "subtitle": "subtitles.entity.oddion_death"
+  },
+  "oddion.happy": {
+    "sounds": [
+      "biomeswevegone:entity/oddion/oddion_happy"
+    ],
+    "subtitle": "subtitles.entity.oddion_happy"
+  },
+  "oddion.hurt": {
+    "sounds": [
+      "biomeswevegone:entity/oddion/oddion_hurt"
+    ],
+    "subtitle": "subtitles.entity.oddion_hurt"
+  }
+}

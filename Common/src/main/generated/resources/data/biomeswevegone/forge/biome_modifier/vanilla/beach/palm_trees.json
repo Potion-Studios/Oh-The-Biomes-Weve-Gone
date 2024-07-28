@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#biomeswevegone:vanilla/beach",
+  "features": "biomeswevegone:palm_trees",
+  "step": "vegetal_decoration"
+}

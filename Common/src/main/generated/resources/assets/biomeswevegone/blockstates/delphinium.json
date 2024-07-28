@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "biomeswevegone:block/delphinium_bottom"
+    },
+    "half=upper": {
+      "model": "biomeswevegone:block/delphinium_top"
+    }
+  }
+}

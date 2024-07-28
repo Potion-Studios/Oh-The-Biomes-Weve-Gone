@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "biomeswevegone:green_enchanted_planks"
+    }
+  ],
+  "result": {
+    "item": "biomeswevegone:green_enchanted_button"
+  }
+}

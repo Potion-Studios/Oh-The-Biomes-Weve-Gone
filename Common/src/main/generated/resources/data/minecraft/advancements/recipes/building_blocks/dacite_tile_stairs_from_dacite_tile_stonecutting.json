@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dacite_tile": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "biomeswevegone:dacite_tile"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:dacite_tile_stairs_from_dacite_tile_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_dacite_tile",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:dacite_tile_stairs_from_dacite_tile_stonecutting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

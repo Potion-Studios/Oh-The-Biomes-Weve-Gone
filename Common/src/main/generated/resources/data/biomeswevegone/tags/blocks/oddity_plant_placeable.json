@@ -1,0 +1,10 @@
+{
+  "values": [
+    {
+      "id": "#forge:end_stones",
+      "required": false
+    },
+    "minecraft:end_stone",
+    "minecraft:end_stone_bricks"
+  ]
+}

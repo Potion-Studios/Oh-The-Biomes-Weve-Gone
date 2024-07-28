@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 682594027,
+    "separation": 6,
+    "spacing": 8
+  },
+  "structures": [
+    {
+      "structure": "biomeswevegone:rugged_fossil",
+      "weight": 5
+    }
+  ]
+}

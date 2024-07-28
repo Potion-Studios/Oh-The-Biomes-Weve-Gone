@@ -1,0 +1,149 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/forgotten/streets/forgotten_corner_01",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/forgotten/streets/forgotten_corner_02",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/forgotten/streets/forgotten_corner_03",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/forgotten/streets/forgotten_straight_01",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/forgotten/streets/forgotten_straight_02",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/forgotten/streets/forgotten_straight_03",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/forgotten/streets/forgotten_straight_04",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/forgotten/streets/forgotten_straight_05",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/forgotten/streets/forgotten_straight_06",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/forgotten/streets/forgotten_crossroad_01",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/forgotten/streets/forgotten_crossroad_02",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/forgotten/streets/forgotten_crossroad_03",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/forgotten/streets/forgotten_crossroad_04",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/forgotten/streets/forgotten_crossroad_05",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/forgotten/streets/forgotten_crossroad_06",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/forgotten/streets/forgotten_turn_01",
+        "processors": "biomeswevegone:forgotten_village_blocks",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    }
+  ],
+  "fallback": "biomeswevegone:village/forgotten/terminators"
+}

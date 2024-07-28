@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "#biomeswevegone:desert",
+      "required": false
+    },
+    {
+      "id": "#biomeswevegone:jungle",
+      "required": false
+    }
+  ]
+}

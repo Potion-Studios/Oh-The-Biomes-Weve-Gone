@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "biomeswevegone",
+  "version": "${version}",
+  "name": "Oh The Biomes We've Gone",
+  "description": "Sequel to Oh The Biomes You'll Go, this mod adds a variety of new biomes to the game.",
+  "authors": [
+    "Joseph T. McQuigg (JT122406)",
+    "AOCAWOL",
+    "YaBoiChips",
+    "Corgi Taco"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Potion-Studios",
+    "sources": "https://github.com/Potion-Studios/Oh-The-Biomes-Weve-Gone"
+  },
+  "license": "All Rights Reserved",
+  "icon": "OTBWG.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.potionstudios.biomeswevegone.fabric.BiomesWeveGoneFabric"
+    ],
+    "client": [
+      "net.potionstudios.biomeswevegone.fabric.client.BiomesWeveGoneClientFabric"
+    ],
+    "fabric-datagen": [
+      "net.potionstudios.biomeswevegone.fabric.datagen.FabricDatagen"
+    ],
+    "terrablender": [
+      "net.potionstudios.biomeswevegone.fabric.BWGTerrablenderEntry"
+    ]
+  },
+  "mixins": [
+    "biomeswevegone.mixins.json",
+    "biomeswevegone-common.mixins.json"
+  ],
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=1.20.1",
+    "terrablender": ">=3.0.1.7",
+    "corgilib": ">=4.0.2.0",
+    "ohthetreesyoullgrow": ">=1.2.0",
+    "geckolib": ">=4.4"
+  },
+  "suggests": {
+    "WTHIT": "*"
+  }
+}

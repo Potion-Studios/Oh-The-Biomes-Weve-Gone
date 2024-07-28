@@ -1,0 +1,196 @@
+{
+  "type": "biomeswevegone:arch",
+  "biomes": "#biomeswevegone:dripstone_arch",
+  "config": {
+    "arch_generator": {
+      "blending_function_picker": [
+        {
+          "data": {
+            "type": "corgilib:ease_out_cubic"
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "type": "corgilib:ease_in_circ",
+            "exponent": 2.0
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "type": "corgilib:ease_out_quint"
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "type": "corgilib:ease_out_bounce"
+          },
+          "weight": 1
+        }
+      ],
+      "generation_configs": [
+        {
+          "data": {
+            "noise_frequency": {
+              "type": "minecraft:uniform",
+              "value": {
+                "max_exclusive": 0.2,
+                "min_inclusive": 0.09
+              }
+            },
+            "thickness": {
+              "type": "minecraft:uniform",
+              "value": {
+                "max_inclusive": 30,
+                "min_inclusive": 10
+              }
+            }
+          },
+          "weight": 1
+        }
+      ],
+      "xyz_step_distance": 8,
+      "xz_step_distance": 8
+    },
+    "block_placement": [
+      {
+        "blockStateProvider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "minecraft:stone"
+          }
+        },
+        "check": {
+          "type": "minecraft:matching_blocks",
+          "blocks": [
+            "minecraft:air",
+            "minecraft:water"
+          ]
+        }
+      },
+      {
+        "blockStateProvider": {
+          "type": "minecraft:weighted_state_provider",
+          "entries": [
+            {
+              "data": {
+                "Name": "minecraft:dripstone_block"
+              },
+              "weight": 1
+            }
+          ]
+        },
+        "check": {
+          "type": "minecraft:all_of",
+          "predicates": [
+            {
+              "type": "biomeswevegone:random_chance",
+              "chance": 0.4
+            },
+            {
+              "type": "minecraft:any_of",
+              "predicates": [
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air",
+                    "minecraft:water"
+                  ],
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air",
+                    "minecraft:water"
+                  ],
+                  "offset": [
+                    0,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air",
+                    "minecraft:water"
+                  ],
+                  "offset": [
+                    0,
+                    0,
+                    -1
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air",
+                    "minecraft:water"
+                  ],
+                  "offset": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air",
+                    "minecraft:water"
+                  ],
+                  "offset": [
+                    -1,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air",
+                    "minecraft:water"
+                  ],
+                  "offset": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "height": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 150,
+        "min_inclusive": 50
+      }
+    },
+    "length": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 200,
+        "min_inclusive": 64
+      }
+    }
+  },
+  "spawn_overrides": {},
+  "step": "raw_generation"
+}

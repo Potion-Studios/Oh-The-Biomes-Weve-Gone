@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": [
+      {
+        "item": "biomeswevegone:purple_sandstone"
+      },
+      {
+        "item": "biomeswevegone:chiseled_purple_sandstone"
+      },
+      {
+        "item": "biomeswevegone:cut_purple_sandstone"
+      }
+    ]
+  },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "item": "biomeswevegone:purple_sandstone_stairs"
+  },
+  "show_notification": true
+}

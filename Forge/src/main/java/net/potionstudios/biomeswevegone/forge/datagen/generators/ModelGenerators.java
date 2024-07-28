@@ -1,0 +1,535 @@
+package net.potionstudios.biomeswevegone.forge.datagen.generators;
+
+import net.minecraft.core.Direction;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.models.model.ModelLocationUtils;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.RecordItem;
+import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraftforge.client.model.generators.*;
+import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.world.item.BWGItems;
+import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.PottedBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.bush.*;
+import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.CarvedBarrelCactusBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.LiquidType;
+import net.potionstudios.biomeswevegone.world.level.block.plants.tree.branch.TreeBranchBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.BWGFruitBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.AloeVeraBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.BoneMealGrassBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.CattailPlantBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.FlatVegetationBlock;
+import net.potionstudios.biomeswevegone.world.level.block.sand.BWGSandSet;
+import net.potionstudios.biomeswevegone.world.level.block.set.BWGBlockSet;
+import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
+import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
+
+/**
+ * Used to generate models for blocks and items.
+ * @author Joseph T. McQuigg
+ */
+public class ModelGenerators {
+
+    public static void init(DataGenerator generator, boolean run, PackOutput output, ExistingFileHelper exFileHelper) {
+        generator.addProvider(run, new BlockModelGenerators(output, exFileHelper));
+        generator.addProvider(run, new ItemModelGenerators(output, exFileHelper));
+    }
+
+    /**
+     * Used to generate models for items.
+     * @see ItemModelProvider
+     */
+    private static class ItemModelGenerators extends ItemModelProvider {
+
+        private ItemModelGenerators(PackOutput output, ExistingFileHelper exFileHelper) {
+            super(output, BiomesWeveGone.MOD_ID, exFileHelper);
+        }
+
+        @Override
+        protected void registerModels() {
+            basicItem(BWGItems.BWG_LOGO.get());
+            BWGItems.SIMPLE_ITEMS.forEach(supplier -> {
+                if (supplier.get() instanceof RecordItem)
+                    withExistingParent(key(supplier.get()).getPath(), mcLoc("minecraft:item/template_music_disc")).texture("layer0", BiomesWeveGone.id(ModelProvider.ITEM_FOLDER + "/" + key(supplier.get()).getPath()));
+                else if (supplier.get() instanceof SpawnEggItem) spawnEggItem(supplier.get());
+                else basicItem(supplier.get());
+            });
+            BWGWoodSet.woodsets().forEach(set -> {
+                simpleItem(set.door().asItem(), set.name() + "/door");
+                simpleItem(set.signItem(), set.name() + "/sign");
+                simpleItem(set.hangingSignItem(), set.name() + "/hanging_sign");
+                if (set.boatItem() != null)
+                    simpleItem(set.boatItem().get(), set.name() + "/boat");
+                if (set.chestBoatItem() != null)
+                    simpleItem(set.chestBoatItem().get(), set.name() + "/chest_boat");
+            });
+            simpleItemBlockTexture(BWGItems.TINY_LILY_PADS.get(), "tiny_lily_pads");
+            singleTexture(key(BWGItems.FLOWERING_TINY_LILY_PADS.get()).getPath(), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/tiny_lily_pads")).texture("layer1", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/tiny_lily_pads_flower_overlay"));
+            simpleItemBlockTexture(BWGItems.WATER_SILK.get(), "water_silk");
+            simpleItemBlockTexture(BWGBlocks.POISON_IVY.get().asItem(), "poison_ivy");
+            simpleItem(BWGBlocks.SKYRIS_VINE.get().asItem());
+           // simpleItem(BWGBlocks.THERIUM_LANTERN.get().asItem());
+            //simpleItemBlockTexture(BWGBlocks.WARPED_CORAL_FAN.get().asItem(), "warped_coral_fan");
+            simpleItem(BWGBlocks.ALOE_VERA.get().asItem());
+            simpleItem(BWGItems.CATTAIL_SPROUT.get(), "cattails");
+            simpleItemBlockTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get().asItem(), "witch_hazel_branch");
+        }
+
+        private void simpleItem(Item item, String texture) {
+            singleTexture(key(item).getPath(), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.ITEM_FOLDER + "/" + texture));
+        }
+
+        private void simpleItem(Item item) {
+            singleTexture(key(item).getPath(), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.ITEM_FOLDER + "/" + key(item).getPath()));
+        }
+
+        public void simpleItemBlockTexture(Item item, String texture) {
+            singleTexture(key(item).getPath(), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/" + texture));
+        }
+
+        private void spawnEggItem(Item item) {
+            withExistingParent(key(item).getPath(), "item/template_spawn_egg");
+        }
+
+        private ResourceLocation key(Item item) {
+            return ForgeRegistries.ITEMS.getKey(item);
+        }
+    }
+
+    /**
+     * Used to generate models for blocks.
+     * @see BlockStateProvider
+     */
+    private static class BlockModelGenerators extends BlockStateProvider {
+
+        private BlockModelGenerators(PackOutput output, ExistingFileHelper exFileHelper) {
+            super(output, BiomesWeveGone.MOD_ID, exFileHelper);
+        }
+
+        @Override
+        protected void registerStatesAndModels() {
+            BWGBlocks.cubeAllBlocks.forEach(block -> simpleBlockWithItem(block.get(), cubeAll(block.get())));
+            BWGBlocks.BLOCKS.forEach(entry -> {
+                Block block = entry.get();
+                if (block instanceof CattailPlantBlock) {
+                    ModelFile.ExistingModelFile bottom = models().getExistingFile(blockBWGTexture(block, "bottom"));
+                    ModelFile.ExistingModelFile top = models().getExistingFile(blockBWGTexture(block, "top"));
+                    getVariantBuilder(block)
+                            .partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)
+                            .addModels(ConfiguredModel.builder()
+                                    .modelFile(bottom)
+                                    .nextModel().modelFile(bottom).rotationY(90)
+                                    .nextModel().modelFile(bottom).rotationY(180)
+                                    .nextModel().modelFile(bottom).rotationY(270)
+                                    .build())
+                            .partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)
+                            .addModels(ConfiguredModel.builder()
+                                    .modelFile(top)
+                                    .nextModel().modelFile(top).rotationY(90)
+                                    .nextModel().modelFile(top).rotationY(180)
+                                    .nextModel().modelFile(top).rotationY(270)
+                                    .build());
+                } else if (block instanceof DoublePlantBlock)
+                    createDoubleBlock((DoublePlantBlock) block);
+                else if (block instanceof FlowerBlock)
+                    createFlowerBlock((FlowerBlock) block);
+                else if (block instanceof LeavesBlock)
+                    simpleBlockWithItem(block, models().leaves(name(block), blockBWGTexture(block)).renderType("cutout_mipped"));
+                else if (block instanceof RotatedPillarBlock)
+                    simpleBlockWithItem(block, models().cubeColumn(name(block), blockBWGTexture(block), blockBWGTexture(block, "top")));
+                else if (block instanceof WhitePuffballBlock)
+                    getVariantBuilder(block).forAllStates(state -> ConfiguredModel.builder()
+                            .modelFile(models().getExistingFile(blockBWGTexture(block, "stage" + state.getValue(WhitePuffballBlock.AGE))))
+                            .build());
+                else if (block instanceof OddionCrop)
+                    getVariantBuilder(block).forAllStates(state -> ConfiguredModel.builder()
+                            .modelFile(models().crop(name(block) + "_stage" + state.getValue(OddionCrop.AGE), blockBWGTexture(block, "stage" + state.getValue(OddionCrop.AGE))).renderType("cutout"))
+                            .build());
+                else if (block instanceof BWGFruitBlock || block instanceof SweetBerryBushBlock) {
+                    getVariantBuilder(block).forAllStates(state -> ConfiguredModel.builder()
+                            .modelFile(models().cross(name(block) + "_stage" + state.getValue(BWGFruitBlock.AGE), blockBWGTexture(block, "stage" + state.getValue(BWGFruitBlock.AGE))).renderType("cutout"))
+                            .build());
+                } /*else if (block instanceof BWGCampfireBlock) {
+                    getVariantBuilder(block).forAllStatesExcept(state ->
+                    {
+                        if (state.getValue(CampfireBlock.LIT))
+                            return ConfiguredModel.builder()
+                                    .modelFile(models().withExistingParent(name(block), new ResourceLocation("block/template_campfire"))
+                                            .texture("fire", blockBWGTexture(block, "fire"))
+                                            .texture("lit_log", blockBWGTexture(block, "log_lit")).renderType("cutout"))
+                                    .build();
+                        else
+                            return ConfiguredModel.builder()
+                                    .modelFile(models().getExistingFile(BiomesWeveGone.id("block/" + name(block) + "_off"))).build();
+                    }, CampfireBlock.WATERLOGGED, CampfireBlock.SIGNAL_FIRE);
+                    itemModels().basicItem(block.asItem());
+                } */else if (block instanceof BoneMealGrassBlock)
+                    createCrossBlock(block, "cutout");
+                else if (block instanceof HydrangeaHedgeBlock) {
+                    defaultModelFile(block);
+                    simpleBlockItemExistingModel(block);
+                } else if (block instanceof BWGPlacementBushBlock || block instanceof MushroomBlock || block instanceof AloeVeraBlock || block instanceof ShrubBlock)
+                    createCrossBlock(block, "cutout_mipped");
+                else if (block instanceof WaterlilyBlock || block instanceof DirtPathBlock)
+                    rotatableBlock(block);
+                else if (block instanceof GlassBlock)
+                    simpleBlockWithItem(block, models().cubeAll(name(block), blockBWGTexture(block)).renderType("translucent"));
+                else if (block instanceof IronBarsBlock) {
+                    paneBlockWithRenderType((IronBarsBlock) block, blockBWGTexture(name(block).replace("_pane", "")), blockBWGTexture(block, "top"), "translucent");
+                    simpleItemBlockTexture(block, name(block).replace("_pane", ""));
+                } else if (block instanceof LanternBlock) {
+                    getVariantBuilder(block).forAllStatesExcept(state -> {
+                        if (state.getValue(LanternBlock.HANGING)) return ConfiguredModel.builder()
+                                    .modelFile(models().getExistingFile(BiomesWeveGone.id("block/" + "hanging_" + name(block)))).build();
+                        else return ConfiguredModel.builder()
+                                    .modelFile(models().getExistingFile(BiomesWeveGone.id("block/" + name(block)))).build();
+                    }, LanternBlock.WATERLOGGED);
+                } else if (block instanceof FlowerPotBlock) {
+                    if (((FlowerPotBlock) block).getContent() == BWGBlocks.WHITE_PUFFBALL.getBlock())
+                        simpleBlock(block, models().getExistingFile(blockBWGTexture(BWGBlocks.WHITE_PUFFBALL.getPottedBlock())));
+                    else simpleBlock(block, models().withExistingParent(name(block), mcLoc("block/flower_pot_cross")).texture("plant", blockBWGTexture(((FlowerPotBlock) block).getContent())).renderType("cutout_mipped"));
+                } else if (block instanceof HugeMushroomBlock)
+                    itemModels().withExistingParent(name(block), blockBWGTexture(block, "inventory"));
+                else if (block instanceof PinkPetalsBlock) {
+                    for (int i = PinkPetalsBlock.MIN_FLOWERS; i <= PinkPetalsBlock.MAX_FLOWERS; i++)
+                        models().withExistingParent(name(block) + "_" + i, mcLoc("block/flowerbed_" + i))
+                                .texture("flowerbed", blockBWGTexture(block))
+                                .texture("stem", mcLoc("block/pink_petals_stem"))
+                                .renderType("cutout");
+                    itemModels().basicItem(block.asItem());
+                } else if (block instanceof BushBlock && !(block instanceof FlatVegetationBlock))
+                    getVariantBuilder(block).partialState().setModels(new ConfiguredModel(models().getExistingFile(BiomesWeveGone.id("block/" + name(block)))));
+            });
+            BWGWoodSet.woodsets().forEach(set -> {
+                ResourceLocation planksTexture = woodBlockTexture(set.name(), "planks");
+                simpleBlockWithItem(set.planks(), models().cubeAll(name(set.planks()), planksTexture));
+                ResourceLocation logTexture = woodBlockTexture(set.name(), set.logStemEnum().getName());
+                slabBlock(set.slab(), key(set.planks()), planksTexture);
+                itemModels().slab(name(set.slab()), planksTexture, planksTexture, planksTexture);
+                log(set);
+                ResourceLocation strippedLogTexture = woodBlockTexture(set.name(), "stripped_" + set.logStemEnum().getName());
+                log(set.strippedLogStem(), strippedLogTexture, woodBlockTexture(set.name(), "stripped_" + set.logStemEnum().getName() + "_top"));
+                woodBlock(set.wood(), logTexture);
+                woodBlock(set.strippedWood(), strippedLogTexture);
+                registerStairs(set.stairs(), planksTexture);
+                registerButton(set.button(), planksTexture);
+                registerFenceAndGate(set.fence(), set.fenceGate(), planksTexture);
+                signBlock(set.sign(), set.wallSign(), planksTexture);
+                ModelFile thing = models().sign(name(set.hangingSign()), strippedLogTexture);
+                simpleBlock(set.hangingSign(), thing);
+                simpleBlock(set.wallHangingSign(), thing);
+                trapdoorBlockWithRenderType(set.trapdoor(), woodBlockTexture(set.name(), "trapdoor"), true, "cutout");
+                itemModels().trapdoorBottom(name(set.trapdoor()), woodBlockTexture(set.name(), "trapdoor"));
+	            doorBlockWithRenderType(set.door(), woodBlockTexture(set.name(), "door_bottom"), woodBlockTexture(set.name(), "door_top"), set != BWGWood.MAPLE ? "cutout" : "translucent");
+                pressurePlateBlock(set.pressurePlate(), planksTexture);
+                itemModels().pressurePlate(name(set.pressurePlate()), planksTexture);
+                simpleBlockWithItem(set.bookshelf(), models().cubeColumn(name(set.bookshelf()), woodBlockTexture(set.name(), "bookshelf"), planksTexture));
+                simpleBlockWithItem(set.craftingTable(), models().cube(name(set.craftingTable()), planksTexture, woodBlockTexture(set.name(), "crafting_table_top"), woodBlockTexture(set.name(), "crafting_table_front"), woodBlockTexture(set.name(), "crafting_table_side"), woodBlockTexture(set.name(), "crafting_table_side"), woodBlockTexture(set.name(), "crafting_table_front")).texture("particle", woodBlockTexture(set.name(), "crafting_table_front")));
+                if (set.sapling() != null)
+                    registerSapling(set.sapling(), woodBlockTexture(set.name(), "sapling"));
+                if (set.leaves() != null)
+                    simpleBlockWithItem(set.leaves(), models().leaves(name(set.leaves()), woodBlockTexture(set.name(), "leaves")).renderType("cutout_mipped"));
+            });
+
+            ResourceLocation paloVerdeLog = woodBlockTexture("palo_verde", "log");
+            ResourceLocation paloVerdeStrippedLog = woodBlockTexture("palo_verde", "stripped_log");
+            log(BWGWood.PALO_VERDE_LOG.get(), paloVerdeLog, woodBlockTexture("palo_verde", "log_top"));
+            log(BWGWood.STRIPPED_PALO_VERDE_LOG.get(), paloVerdeStrippedLog, woodBlockTexture("palo_verde", "stripped_log_top"));
+            woodBlock(BWGWood.PALO_VERDE_WOOD.get(), paloVerdeLog);
+            woodBlock(BWGWood.STRIPPED_PALO_VERDE_WOOD.get(), paloVerdeStrippedLog);
+            simpleBlockWithItem(BWGWood.PALO_VERDE_LEAVES.get(), models().leaves(name(BWGWood.PALO_VERDE_LEAVES.get()), woodBlockTexture("palo_verde", "leaves")).renderType("cutout_mipped"));
+            registerSapling(BWGWood.PALO_VERDE_SAPLING, woodBlockTexture("palo_verde", "sapling"));
+            registerSapling(BWGWood.WHITE_SAKURA_SAPLING, woodBlockTexture("sakura", "white_sapling"));
+            registerSapling(BWGWood.YELLOW_SAKURA_SAPLING, woodBlockTexture("sakura", "yellow_sapling"));
+            registerSapling(BWGWood.ARAUCARIA_SAPLING, BWGWood.BLUE_SPRUCE_SAPLING, BWGWood.BROWN_BIRCH_SAPLING, BWGWood.BROWN_OAK_SAPLING, BWGWood.BROWN_ZELKOVA_SAPLING, BWGWood.INDIGO_JACARANDA_SAPLING,
+                    BWGWood.ORANGE_BIRCH_SAPLING, BWGWood.ORANGE_OAK_SAPLING, BWGWood.ORANGE_SPRUCE_SAPLING, BWGWood.ORCHARD_SAPLING, BWGWood.RED_BIRCH_SAPLING, BWGWood.RED_MAPLE_SAPLING, BWGWood.RED_OAK_SAPLING,
+                    BWGWood.RED_SPRUCE_SAPLING, BWGWood.SILVER_MAPLE_SAPLING, BWGWood.YELLOW_BIRCH_SAPLING, BWGWood.YELLOW_SPRUCE_SAPLING, BWGWood.YUCCA_SAPLING);
+            simpleBlockWithItem(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get(), models().cubeAll(name(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get()), woodBlockTexture("blue_enchanted", "imbued_wood")));
+            simpleBlockWithItem(BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get(), models().cubeAll(name(BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get()), woodBlockTexture("green_enchanted", "imbued_wood")));
+            BWGSandSet.getSandSets().forEach(set -> {
+                ResourceLocation sandStoneTopTexture = blockBWGTexture(set.getSandstone(), "top");
+                var sandstoneModel = models().cubeBottomTop(name(set.getSandstone()), blockBWGTexture(set.getSandstone()), blockBWGTexture(set.getSandstone(), "bottom"), sandStoneTopTexture);
+                simpleBlockWithItem(set.getSandstone(), sandstoneModel);
+                slabBlock(set.getSandstoneSlab(), blockBWGTexture(set.getSandstone()), blockBWGTexture(set.getSandstone()), blockBWGTexture(set.getSandstone(), "bottom"), sandStoneTopTexture);
+                itemModels().slab(name(set.getSandstoneSlab()), blockBWGTexture(set.getSandstone()), blockBWGTexture(set.getSandstone(), "bottom"), sandStoneTopTexture);
+                stairsBlock(set.getSandstoneStairs(), name(set.getSandstoneStairs()), blockBWGTexture(set.getSandstone()), blockBWGTexture(set.getSandstone(), "bottom"), sandStoneTopTexture);
+                itemModels().stairs(name(set.getSandstoneStairs()), blockBWGTexture(set.getSandstone()), blockBWGTexture(set.getSandstone(), "bottom"), sandStoneTopTexture);
+                wallBlock(set.getSandstoneWall(), blockBWGTexture(set.getSandstone()));
+                itemModels().wallInventory(name(set.getSandstoneWall()), blockBWGTexture(set.getSandstone()));
+                simpleBlockWithItem(set.getChiseledSandstone(), models().cubeColumn(name(set.getChiseledSandstone()), blockBWGTexture(set.getChiseledSandstone()), sandStoneTopTexture));
+                simpleBlockWithItem(set.getCutSandstone(), models().cubeColumn(name(set.getCutSandstone()), blockBWGTexture(set.getCutSandstone()), sandStoneTopTexture));
+                slabBlock(set.getCutSandstoneSlab(), blockBWGTexture(set.getCutSandstone()), blockBWGTexture(set.getCutSandstone()), sandStoneTopTexture, sandStoneTopTexture);
+                itemModels().slab(name(set.getCutSandstoneSlab()), blockBWGTexture(set.getCutSandstone()), blockBWGTexture(set.getCutSandstone()), sandStoneTopTexture);
+                simpleBlockWithItem(set.getSmoothSandstone(), models().cubeAll(name(set.getSmoothSandstone()), sandStoneTopTexture));
+                slabBlock(set.getSmoothSandstoneSlab(), blockBWGTexture(set.getSmoothSandstone()), sandStoneTopTexture, sandStoneTopTexture, sandStoneTopTexture);
+                itemModels().slab(name(set.getSmoothSandstoneSlab()), sandStoneTopTexture, sandStoneTopTexture, sandStoneTopTexture);
+                registerStairs(set.getSmoothSandstoneStairs(), sandStoneTopTexture);
+            });
+            simpleBlockWithItem(BWGBlocks.BLACK_ICE.get(), models().cubeAll(name(BWGBlocks.BLACK_ICE.get()), blockBWGTexture(BWGBlocks.BLACK_ICE.get())).renderType("translucent"));
+
+            simpleBlockWithItem(BWGBlocks.BOREALIS_ICE.get(), models().leaves(name(BWGBlocks.BOREALIS_ICE.get()), blockBWGTexture(BWGBlocks.BOREALIS_ICE.get())).renderType("translucent"));
+            simpleBlockWithItem(BWGBlocks.PACKED_BOREALIS_ICE.get(), models().leaves(name(BWGBlocks.PACKED_BOREALIS_ICE.get()), blockBWGTexture(BWGBlocks.PACKED_BOREALIS_ICE.get())));
+
+            simpleBlockWithItem(BWGBlocks.FORAGERS_TABLE.get(),
+                    models().cube(name(BWGBlocks.FORAGERS_TABLE.get()),
+                            mcLoc("block/beehive_end"),
+                            blockBWGTexture(BWGBlocks.FORAGERS_TABLE.get(), "top"),
+                            blockBWGTexture(BWGBlocks.FORAGERS_TABLE.get(), "front"),
+                            blockBWGTexture(BWGBlocks.FORAGERS_TABLE.get(), "front"),
+                            blockBWGTexture(BWGBlocks.FORAGERS_TABLE.get(), "side"),
+                            blockBWGTexture(BWGBlocks.FORAGERS_TABLE.get(), "side"))
+                    .texture("particle", blockBWGTexture(BWGBlocks.FORAGERS_TABLE.get(), "top"))
+            );
+
+            BWGBlockSet.getBlockSets().forEach(set -> {
+                registerSlab(set.getSlab(), set.getBase());
+                registerStairs(set.getStairs(), set.getBase());
+                registerWall(set.getWall(), set.getBase());
+            });
+
+            simpleBlockWithItem(BWGBlocks.PODZOL_DACITE.get(),
+                    models().cubeBottomTop(name(BWGBlocks.PODZOL_DACITE.get()), blockBWGTexture(BWGBlocks.PODZOL_DACITE.get()), blockBWGTexture(BWGBlocks.DACITE_SET.getBase()), mcLoc("block/podzol_top")));
+
+            /*
+            createCrossBlock(BWGBlocks.WARPED_CORAL.get(), "cutout_mipped");
+            simpleBlock(BWGBlocks.WARPED_CORAL_FAN.get(), models()
+                    .withExistingParent(name(BWGBlocks.WARPED_CORAL_FAN.get()), mcLoc("block/coral_fan"))
+                    .texture("fan", blockBWGTexture(BWGBlocks.WARPED_CORAL_FAN.get()))
+                    .renderType("cutout_mipped"));
+             */
+
+            registerSlab(BWGBlocks.CATTAIL_THATCH_SLAB.get(), BWGBlocks.CATTAIL_THATCH.get());
+            registerStairs(BWGBlocks.CATTAIL_THATCH_STAIRS.get(), BWGBlocks.CATTAIL_THATCH.get());
+
+            simpleBlockWithItem(BWGBlocks.CATTAIL_THATCH_CARPET.get(), models().carpet(name(BWGBlocks.CATTAIL_THATCH_CARPET.get()), blockBWGTexture(BWGBlocks.CATTAIL_THATCH.get(), "top")));
+
+            models().cubeBottomTop(name(BWGBlocks.OVERGROWN_DACITE.get()) + "_snowy",  blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "snow_side"), blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "bottom"), blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "top")).texture("particle", blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "bottom")).renderType("cutout_mipped");
+            snowyRotatableBlock(BWGBlocks.OVERGROWN_DACITE.get());
+            simpleBlockItemExistingModel(BWGBlocks.OVERGROWN_DACITE.get());
+
+            models().cubeBottomTop(name(BWGBlocks.OVERGROWN_STONE.get()) + "_snowy",  blockBWGTexture(BWGBlocks.OVERGROWN_STONE.get(), "snow_side"), blockTexture(Blocks.STONE), blockBWGTexture(BWGBlocks.OVERGROWN_STONE.get(), "top")).texture("particle", blockTexture(Blocks.STONE)).renderType("cutout_mipped");
+            snowyRotatableBlock(BWGBlocks.OVERGROWN_STONE.get());
+            simpleBlockItemExistingModel(BWGBlocks.OVERGROWN_STONE.get());
+
+
+            models().cubeBottomTop(name(BWGBlocks.LUSH_GRASS_BLOCK.get()) + "_snowy",  blockBWGTexture(BWGBlocks.LUSH_GRASS_BLOCK.get(), "snow_side"), blockBWGTexture(BWGBlocks.LUSH_DIRT.get()), blockBWGTexture(BWGBlocks.LUSH_GRASS_BLOCK.get(), "top")).texture("particle", blockBWGTexture(BWGBlocks.LUSH_DIRT.get())).renderType("cutout_mipped");
+            snowyRotatableBlock(BWGBlocks.LUSH_GRASS_BLOCK.get());
+            simpleBlockItemExistingModel(BWGBlocks.LUSH_GRASS_BLOCK.get());
+
+            defaultModelFile(BWGBlocks.BARREL_CACTUS.get(), BWGBlocks.FLOWERING_BARREL_CACTUS.get());
+
+            getVariantBuilder(BWGBlocks.CARVED_BARREL_CACTUS.get()).forAllStates(state -> {
+                LiquidType liquid = state.getValue(CarvedBarrelCactusBlock.LIQUID);
+               if (liquid.equals(LiquidType.EMPTY))
+                   return ConfiguredModel.builder().modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.CARVED_BARREL_CACTUS.get()))).build();
+               else if (liquid.equals(LiquidType.WATER))
+                   return ConfiguredModel.builder().modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.CARVED_BARREL_CACTUS.get(), "water"))).build();
+               else
+                   return ConfiguredModel.builder().modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.CARVED_BARREL_CACTUS.get(), "honey"))).build();
+            });
+
+            simpleBlockItemExistingModel(BWGBlocks.CARVED_BARREL_CACTUS.get());
+
+            getVariantBuilder(BWGBlocks.SANDY_FARMLAND.get()).forAllStates(state -> {
+                if (state.getValue(BWGFarmLandBlock.MOISTURE) == BWGFarmLandBlock.MAX_MOISTURE) return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(name(BWGBlocks.SANDY_FARMLAND.get()) + "_moist", "template_farmland")
+                                .texture("dirt", blockBWGTexture(BWGBlocks.SANDY_DIRT.get()))
+                                .texture("top", blockBWGTexture(BWGBlocks.SANDY_FARMLAND.get(), "moist"))).build();
+               else return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(name(BWGBlocks.SANDY_FARMLAND.get()), "template_farmland")
+                                .texture("dirt", blockBWGTexture(BWGBlocks.SANDY_DIRT.get()))
+                                .texture("top", blockBWGTexture(BWGBlocks.SANDY_FARMLAND.get()))).build();
+            });
+            simpleBlockItemExistingModel(BWGBlocks.SANDY_FARMLAND.get());
+
+            getVariantBuilder(BWGBlocks.LUSH_FARMLAND.get()).forAllStates(state -> {
+                if (state.getValue(BWGFarmLandBlock.MOISTURE) == BWGFarmLandBlock.MAX_MOISTURE) return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(name(BWGBlocks.LUSH_FARMLAND.get()) + "_moist", "template_farmland")
+                                .texture("dirt", blockBWGTexture(BWGBlocks.LUSH_DIRT.get()))
+                                .texture("top", blockBWGTexture(BWGBlocks.LUSH_FARMLAND.get(), "moist"))).build();
+                else return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(name(BWGBlocks.LUSH_FARMLAND.get()), "template_farmland")
+                                .texture("dirt", blockBWGTexture(BWGBlocks.LUSH_DIRT.get()))
+                                .texture("top", blockBWGTexture(BWGBlocks.LUSH_FARMLAND.get()))).build();
+            });
+            simpleBlockItemExistingModel(BWGBlocks.LUSH_FARMLAND.get());
+
+            rotatableBlock(BWGBlocks.CATTAIL_SPROUT.get());
+
+            simpleItemBlockTexture(BWGBlocks.LEAF_PILE.get(), name(BWGBlocks.LEAF_PILE.get()));
+            simpleItemBlockTexture(BWGBlocks.CLOVER_PATCH.get(), name(BWGBlocks.CLOVER_PATCH.get()));
+            simpleItemBlockTexture(BWGBlocks.FLOWER_PATCH.get(), name(BWGBlocks.FLOWER_PATCH.get()));
+            rotatableBlock(BWGBlocks.LEAF_PILE.get());
+
+            models().withExistingParent(name(BWGBlocks.WITCH_HAZEL_BRANCH.get()), mcLoc("block/coral_wall_fan")).texture("fan", blockBWGTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get())).renderType("cutout_mipped");
+            getVariantBuilder(BWGBlocks.WITCH_HAZEL_BRANCH.get()).forAllStatesExcept(state -> switch (state.getValue(TreeBranchBlock.FACING)) {
+                case EAST ->
+                        ConfiguredModel.builder().rotationY(90).modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get()))).build();
+                case WEST ->
+                        ConfiguredModel.builder().rotationY(270).modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get()))).build();
+                case SOUTH ->
+                        ConfiguredModel.builder().rotationY(180).modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get()))).build();
+                default ->
+                        ConfiguredModel.builder().modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get()))).build();
+            }, TreeBranchBlock.WATERLOGGED);
+            simpleBlockWithItem(BWGBlocks.WITCH_HAZEL_BLOSSOM.get(), models().getExistingFile(blockBWGTexture(BWGBlocks.WITCH_HAZEL_BLOSSOM.get())));
+        }
+
+        private void snowyRotatableBlock(Block block) {
+            ModelFile.ExistingModelFile model = models().getExistingFile(blockBWGTexture(block));
+            ModelFile.ExistingModelFile snowyModel = models().getExistingFile(blockBWGTexture(block, "snowy"));
+            getVariantBuilder(block).partialState().with(BlockStateProperties.SNOWY, false)
+                    .addModels(ConfiguredModel.builder()
+                            .modelFile(model)
+                            .nextModel().modelFile(model).rotationY(90)
+                            .nextModel().modelFile(model).rotationY(180)
+                            .nextModel().modelFile(model).rotationY(270)
+                            .build())
+                    .partialState().with(BlockStateProperties.SNOWY, true)
+                    .addModels(ConfiguredModel.builder().modelFile(snowyModel).build());
+        }
+
+        private void rotatableBlock(Block block) {
+            ModelFile.ExistingModelFile model = models().getExistingFile(blockBWGTexture(block));
+            getVariantBuilder(block).partialState()
+                    .addModels(ConfiguredModel.builder()
+                            .modelFile(model)
+                            .nextModel().modelFile(model).rotationY(90)
+                            .nextModel().modelFile(model).rotationY(180)
+                            .nextModel().modelFile(model).rotationY(270)
+                            .build());
+        }
+
+        private ResourceLocation woodBlockTexture(String type, String name) {
+            return BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/" + type + "/" + name);
+        }
+
+        private ResourceLocation blockBWGTexture(Block block) {
+            return BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/" + key(block).getPath());
+        }
+
+        private ResourceLocation blockBWGTexture(Block block, String end) {
+            return BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/" + key(block).getPath() + "_" + end);
+        }
+
+        private ResourceLocation blockBWGTexture(String block) {
+            return BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/" + block);
+        }
+
+        private void woodBlock(RotatedPillarBlock block, ResourceLocation texture) {
+            getVariantBuilder(block).forAllStates(state -> {
+                if (state.getValue(RotatedPillarBlock.AXIS).equals(Direction.Axis.X))
+                    return ConfiguredModel.builder().rotationX(90).rotationY(90).modelFile(models().cubeColumn(name(block), texture, texture)).build();
+                else if (state.getValue(RotatedPillarBlock.AXIS).equals(Direction.Axis.Y))
+                    return ConfiguredModel.builder().modelFile(models().cubeColumn(name(block), texture, texture)).build();
+                else
+                    return ConfiguredModel.builder().rotationX(90).modelFile(models().cubeColumn(name(block), texture, texture)).build();
+            });
+            simpleBlockItem(block, models().cubeColumn(name(block), texture, texture));
+        }
+
+        private void createDoubleBlock(DoublePlantBlock doubleBlock) {
+            getVariantBuilder(doubleBlock)
+                    .partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER).addModels(new ConfiguredModel(models().cross(name(doubleBlock) + "_bottom", blockBWGTexture(doubleBlock, "bottom")).texture("particle", blockBWGTexture(doubleBlock, "bottom")).renderType("cutout")))
+                    .partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER).addModels(new ConfiguredModel(models().cross(name(doubleBlock) + "_top", blockBWGTexture(doubleBlock, "top")).texture("particle", blockBWGTexture(doubleBlock, "top")).renderType("cutout")));
+            simpleItemBlockTexture(doubleBlock, name(doubleBlock) + "_top");
+        }
+
+        private void createCrossBlock(Block block, String renderType) {
+            simpleBlock(block, models().cross(name(block), blockBWGTexture(block)).renderType(renderType));
+            simpleItemBlockTexture(block, name(block));
+        }
+
+        private void createFlowerBlock(FlowerBlock block) {
+            simpleBlock(block, models().cross(name(block), blockBWGTexture(block)).renderType("cutout"));
+            simpleItemBlockTexture(block, name(block));
+        }
+
+        private void simpleItemBlockTexture(Block block, String texture) {
+            itemModels().singleTexture(key(block).getPath(), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/" + texture));
+        }
+
+        private void simpleItemBlockTexture(Block block, ResourceLocation texture) {
+            itemModels().singleTexture(key(block).getPath(), mcLoc("item/generated"), "layer0", texture);
+        }
+
+        private void registerStairs(StairBlock stairs, Block texturedBlock) {
+            registerStairs(stairs, ModelLocationUtils.getModelLocation(texturedBlock));
+        }
+
+        private void registerStairs(StairBlock stairs, ResourceLocation texture) {
+            stairsBlock(stairs, texture);
+            simpleBlockItem(stairs, itemModels().stairs("block/" + key(stairs).getPath(), texture, texture, texture));
+        }
+
+        private void registerSlab(SlabBlock slab, Block texturedBlock) {
+            ResourceLocation texture = ModelLocationUtils.getModelLocation(texturedBlock);
+            slabBlock(slab, texture, texture);
+            simpleBlockItem(slab, itemModels().slab("block/" + key(slab).getPath(), texture, texture, texture));
+        }
+
+        private void registerWall(WallBlock wall, Block texturedBlock) {
+            ResourceLocation texture = ModelLocationUtils.getModelLocation(texturedBlock);
+            wallBlock(wall, texture);
+            simpleBlockItem(wall, itemModels().wallInventory("block/" + key(wall).getPath(), texture));
+        }
+
+        private void registerButton(ButtonBlock button, ResourceLocation texture) {
+            buttonBlock(button, texture);
+            itemModels().buttonInventory(key(button).getPath(), texture);
+        }
+
+        private void registerFenceAndGate(FenceBlock fence, FenceGateBlock gate, ResourceLocation texture) {
+            fenceBlock(fence, texture);
+            itemModels().fenceInventory(key(fence).getPath(), texture);
+            fenceGateBlock(gate, texture);
+            itemModels().fenceGate(key(gate).getPath(), texture);
+        }
+
+        private void registerSapling(PottedBlock... saplings) {
+            for (PottedBlock s : saplings) registerSapling(s, blockBWGTexture(s.getBlock()));
+        }
+
+        private void registerSapling(PottedBlock sapling, ResourceLocation texture) {
+            simpleBlock(sapling.getBlock(), models().cross(name(sapling.getBlock()), texture).renderType("cutout"));
+            simpleItemBlockTexture(sapling.getBlock(), texture);
+            simpleBlock(sapling.getPottedBlock(), models().withExistingParent(name(sapling.getPottedBlock()), mcLoc("block/flower_pot_cross")).texture("plant", texture).renderType("cutout_mipped"));
+        }
+
+        private void log(BWGWoodSet set) {
+            log(set.logstem(), woodBlockTexture(set.name(), set.logStemEnum().getName()), woodBlockTexture(set.name(), set.logStemEnum().getName() + "_top"));
+        }
+
+        private void log(RotatedPillarBlock block, ResourceLocation side, ResourceLocation top) {
+            axisBlock(block, side, top);
+            itemModels().cubeColumn(name(block), side, top);
+        }
+
+        private void defaultModelFile(Block... block) {
+            for (Block b : block)
+                simpleBlock(b, models().getExistingFile(blockBWGTexture(b)));
+        }
+
+        private void simpleBlockItemExistingModel(Block block) {
+            simpleBlockItem(block, models().getExistingFile(blockBWGTexture(block)));
+        }
+
+        private String name(Block block) {
+            return key(block).getPath();
+        }
+
+        private ResourceLocation key(Block block) {
+            return ForgeRegistries.BLOCKS.getKey(block);
+        }
+    }
+}
+

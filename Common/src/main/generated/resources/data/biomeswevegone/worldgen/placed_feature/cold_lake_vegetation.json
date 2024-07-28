@@ -1,0 +1,16 @@
+{
+  "feature": "biomeswevegone:crag_water_vegetation",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 40
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "MOTION_BLOCKING_NO_LEAVES"
+    }
+  ]
+}

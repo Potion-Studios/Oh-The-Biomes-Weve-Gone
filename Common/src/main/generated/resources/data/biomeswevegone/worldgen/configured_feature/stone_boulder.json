@@ -1,0 +1,32 @@
+{
+  "type": "biomeswevegone:noise_sphere",
+  "config": {
+    "block_placement": [
+      {
+        "blockStateProvider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "minecraft:stone"
+          }
+        },
+        "check": {
+          "type": "minecraft:true"
+        }
+      }
+    ],
+    "noise_frequency": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_exclusive": 0.1,
+        "min_inclusive": 0.01
+      }
+    },
+    "radius": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 16,
+        "min_inclusive": 4
+      }
+    }
+  }
+}

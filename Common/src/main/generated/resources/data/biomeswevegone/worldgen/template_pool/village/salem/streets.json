@@ -1,0 +1,104 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/salem/streets/salem_corner_01",
+        "processors": "biomeswevegone:salem_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/salem/streets/salem_corner_02",
+        "processors": "biomeswevegone:salem_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/salem/streets/salem_straight_01",
+        "processors": "biomeswevegone:salem_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/salem/streets/salem_straight_02",
+        "processors": "biomeswevegone:salem_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/salem/streets/salem_straight_03",
+        "processors": "biomeswevegone:salem_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/salem/streets/salem_crossroad_01",
+        "processors": "biomeswevegone:salem_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/salem/streets/salem_crossroad_02",
+        "processors": "biomeswevegone:salem_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/salem/streets/salem_crossroad_03",
+        "processors": "biomeswevegone:salem_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/salem/streets/salem_square_01",
+        "processors": "biomeswevegone:salem_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/salem/streets/salem_square_02",
+        "processors": "biomeswevegone:salem_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/salem/streets/salem_turn_01",
+        "processors": "biomeswevegone:salem_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    }
+  ],
+  "fallback": "biomeswevegone:village/salem/terminators"
+}

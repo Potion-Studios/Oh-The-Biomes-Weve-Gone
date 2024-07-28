@@ -1,0 +1,18 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 703905857,
+    "separation": 20,
+    "spacing": 25
+  },
+  "structures": [
+    {
+      "structure": "biomeswevegone:prairie_house",
+      "weight": 5
+    },
+    {
+      "structure": "biomeswevegone:abandoned_prairie_house",
+      "weight": 4
+    }
+  ]
+}

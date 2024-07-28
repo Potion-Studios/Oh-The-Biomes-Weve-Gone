@@ -1,0 +1,40 @@
+{
+  "parent": "biomeswevegone:biomeswevegone/adventure/root",
+  "criteria": {
+    "inside_quicksand": {
+      "conditions": {
+        "block": "biomeswevegone:quicksand"
+      },
+      "trigger": "minecraft:enter_block"
+    },
+    "inside_red_quicksand": {
+      "conditions": {
+        "block": "biomeswevegone:red_quicksand"
+      },
+      "trigger": "minecraft:enter_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "biomeswevegone:textures/block/lush_dirt.png",
+    "description": {
+      "translate": "advancements.biomeswevegone.adventure.inside_quicksand.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "biomeswevegone:quicksand"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.biomeswevegone.adventure.inside_quicksand.title"
+    }
+  },
+  "requirements": [
+    [
+      "inside_quicksand",
+      "inside_red_quicksand"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

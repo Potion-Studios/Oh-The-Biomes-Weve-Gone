@@ -1,0 +1,35 @@
+{
+  "type": "biomeswevegone:large_lake",
+  "biomes": "#biomeswevegone:large_cold_lake",
+  "config": {
+    "depth": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 128,
+        "min_inclusive": 96
+      }
+    },
+    "features": "biomeswevegone:cold_lake_vegetation",
+    "lake_radius": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 30,
+        "min_inclusive": 20
+      }
+    }
+  },
+  "spawn_overrides": {
+    "water_ambient": {
+      "bounding_box": "piece",
+      "spawns": [
+        {
+          "type": "minecraft:salmon",
+          "maxCount": 10,
+          "minCount": 4,
+          "weight": 5
+        }
+      ]
+    }
+  },
+  "step": "raw_generation"
+}

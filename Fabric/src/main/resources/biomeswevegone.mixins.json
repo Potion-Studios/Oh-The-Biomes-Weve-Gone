@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "net.potionstudios.biomeswevegone.fabric.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "CropBlockMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "biomeswevegone:block/packed_borealis_ice"
+  }
+}

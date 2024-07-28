@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 100,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "biomeswevegone:white_puffball_cap"
+  },
+  "result": "biomeswevegone:cooked_white_puffball_cap"
+}

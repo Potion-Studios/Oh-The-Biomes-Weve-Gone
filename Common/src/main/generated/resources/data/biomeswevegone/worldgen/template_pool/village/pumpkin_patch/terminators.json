@@ -1,0 +1,23 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "biomeswevegone:village/pumpkin_patch/terminators/pumpkin_patch_terminator_01",
+        "processors": "biomeswevegone:pumpkin_patch_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "biomeswevegone:village/pumpkin_patch/terminators/pumpkin_patch_terminator_02",
+        "processors": "biomeswevegone:pumpkin_patch_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

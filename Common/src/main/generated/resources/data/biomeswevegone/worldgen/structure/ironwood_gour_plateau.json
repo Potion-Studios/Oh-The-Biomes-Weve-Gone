@@ -1,0 +1,6 @@
+{
+  "type": "biomeswevegone:overhang_plateau",
+  "biomes": "#biomeswevegone:ironwood_gour_plateau",
+  "spawn_overrides": {},
+  "step": "raw_generation"
+}

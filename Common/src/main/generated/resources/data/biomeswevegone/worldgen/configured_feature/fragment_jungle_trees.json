@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "biomeswevegone:deciduous_trees",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.3,
+        "feature": {
+          "feature": "biomeswevegone:rainbow_eucalyptus_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.2,
+        "feature": {
+          "feature": "biomeswevegone:rainbow_eucalyptus_large_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.3,
+        "feature": {
+          "feature": "biomeswevegone:ebony_trees",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

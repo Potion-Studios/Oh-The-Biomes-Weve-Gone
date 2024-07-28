@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "biomeswevegone:block/green_mushroom_block"
+  }
+}

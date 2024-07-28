@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/leaves",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "all": "biomeswevegone:block/borealis_ice"
+  }
+}

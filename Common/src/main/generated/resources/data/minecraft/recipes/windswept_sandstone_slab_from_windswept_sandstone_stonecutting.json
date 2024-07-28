@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "biomeswevegone:windswept_sandstone"
+  },
+  "result": "biomeswevegone:windswept_sandstone_slab"
+}

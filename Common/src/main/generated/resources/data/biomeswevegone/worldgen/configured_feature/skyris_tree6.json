@@ -1,0 +1,124 @@
+{
+  "type": "ohthetreesyoullgrow:tree_from_nbt_v1",
+  "config": {
+    "base_location": "biomeswevegone:features/trees/skyris/skyris_trunk_6",
+    "can_grow_on_filter": {
+      "type": "minecraft:matching_block_tag",
+      "tag": "minecraft:dirt"
+    },
+    "can_leaves_place_filter": {
+      "type": "minecraft:replaceable"
+    },
+    "canopy_location": "biomeswevegone:features/trees/skyris/skyris_canopy_6",
+    "decorators": [
+      {
+        "type": "ohthetreesyoullgrow:leave_vine",
+        "value": {
+          "probability": 0.1,
+          "vine_block": "biomeswevegone:skyris_vine"
+        }
+      },
+      {
+        "type": "ohthetreesyoullgrow:trunk_vine",
+        "value": {
+          "probability": 0.3,
+          "vine_block": "biomeswevegone:skyris_vine"
+        }
+      },
+      {
+        "type": "ohthetreesyoullgrow:attached_to_fruit_leaves",
+        "value": {
+          "block_provider": {
+            "type": "minecraft:randomized_int_state_provider",
+            "property": "age",
+            "source": {
+              "type": "minecraft:simple_state_provider",
+              "state": {
+                "Name": "biomeswevegone:green_apple_fruit",
+                "Properties": {
+                  "age": "0"
+                }
+              }
+            },
+            "values": {
+              "type": "minecraft:uniform",
+              "value": {
+                "max_inclusive": 3,
+                "min_inclusive": 0
+              }
+            }
+          },
+          "directions": [
+            "down"
+          ],
+          "exclusion_radius_xz": 2,
+          "exclusion_radius_y": 0,
+          "leaves_block": "biomeswevegone:green_apple_skyris_leaves",
+          "probability": 0.1,
+          "required_empty_blocks": 2
+        }
+      }
+    ],
+    "height": {
+      "type": "minecraft:biased_to_bottom",
+      "value": {
+        "max_inclusive": 15,
+        "min_inclusive": 5
+      }
+    },
+    "leaves_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "biomeswevegone:skyris_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 10
+        },
+        {
+          "data": {
+            "Name": "biomeswevegone:flowering_skyris_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 2
+        },
+        {
+          "data": {
+            "Name": "biomeswevegone:green_apple_skyris_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 1
+        }
+      ]
+    },
+    "leaves_target": [
+      "minecraft:oak_leaves"
+    ],
+    "log_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "biomeswevegone:skyris_log",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    },
+    "log_target": [
+      "minecraft:oak_log"
+    ],
+    "place_from_nbt": []
+  }
+}

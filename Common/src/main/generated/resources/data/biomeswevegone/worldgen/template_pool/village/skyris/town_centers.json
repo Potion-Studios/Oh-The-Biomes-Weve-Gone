@@ -1,0 +1,41 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/skyris/town_centers/skyris_meeting_point_1",
+        "processors": "biomeswevegone:skyris_streets",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/skyris/town_centers/skyris_meeting_point_2",
+        "processors": "biomeswevegone:skyris_town_centers",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/skyris/town_centers/skyris_meeting_point_3",
+        "processors": "biomeswevegone:skyris_town_centers",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/skyris/town_centers/skyris_meeting_point_4",
+        "processors": "biomeswevegone:skyris_town_centers",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

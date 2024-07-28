@@ -1,0 +1,6 @@
+{
+  "biomeswevegone:plugin": {
+	"initializer": "net.potionstudios.biomeswevegone.compat.wthit.BWGWTHITPlugin",
+	"side": "*"
+  }
+}

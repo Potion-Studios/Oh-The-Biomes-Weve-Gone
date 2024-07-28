@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "biomeswevegone:block/white_sandstone_bottom",
+    "side": "biomeswevegone:block/white_sandstone",
+    "top": "biomeswevegone:block/white_sandstone_top"
+  }
+}

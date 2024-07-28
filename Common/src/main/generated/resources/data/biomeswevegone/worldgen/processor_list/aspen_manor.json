@@ -1,0 +1,137 @@
+{
+  "processors": [
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "input_predicate": {
+            "block": "minecraft:sweet_berry_bush",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.125
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "biomeswevegone:blueberry_bush",
+            "Properties": {
+              "age": "0"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:sweet_berry_bush",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.125
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "biomeswevegone:blueberry_bush",
+            "Properties": {
+              "age": "1"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:sweet_berry_bush",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.125
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "biomeswevegone:blueberry_bush",
+            "Properties": {
+              "age": "2"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:sweet_berry_bush",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.125
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "biomeswevegone:blueberry_bush",
+            "Properties": {
+              "age": "3"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "biomeswevegone:blueberry_bush",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.125
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:sweet_berry_bush",
+            "Properties": {
+              "age": "0"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "biomeswevegone:blueberry_bush",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.125
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:sweet_berry_bush",
+            "Properties": {
+              "age": "1"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "biomeswevegone:blueberry_bush",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.125
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:sweet_berry_bush",
+            "Properties": {
+              "age": "2"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "biomeswevegone:blueberry_bush",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.125
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:sweet_berry_bush",
+            "Properties": {
+              "age": "3"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

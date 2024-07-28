@@ -1,0 +1,46 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "biomeswevegone:incan_lily",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.16666667,
+        "feature": {
+          "feature": "biomeswevegone:bistort",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.16666667,
+        "feature": {
+          "feature": "biomeswevegone:guzmania",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.16666667,
+        "feature": {
+          "feature": "biomeswevegone:begonia",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.16666667,
+        "feature": {
+          "feature": "biomeswevegone:lazarus_bellflower",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.16666667,
+        "feature": {
+          "feature": "biomeswevegone:richea",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

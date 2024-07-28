@@ -1,0 +1,8 @@
+{
+  "feature": "biomeswevegone:borealis_ice_freeze_top_layer",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}
