@@ -5,6 +5,10 @@
 
 ## The Sequel to Oh The Biomes You'll Go
 
+### Official Downloads
+* Curseforge: https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-weve-gone
+* Modrinth: https://modrinth.com/project/oh-the-biomes-weve-gone/
+
 ### Maven Information
 - Releases: https://maven.jt-dev.tech/releases
 - Snapshots: https://maven.jt-dev.tech/snapshots
