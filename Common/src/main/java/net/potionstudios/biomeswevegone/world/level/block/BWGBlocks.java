@@ -22,6 +22,7 @@ import net.potionstudios.biomeswevegone.world.level.block.plants.PottedBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.*;
 import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.BarrelCactusBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.CarvedBarrelCactusBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.flower.BWGBonemealableFlowerBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.flower.BWGFlowerBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.flower.BWGTallFlowerBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.flower.FlowerBlockFeature;
@@ -116,15 +117,15 @@ public class BWGBlocks {
 
     /** Alliums */
     public static final Supplier<TallFlowerBlock> TALL_ALLIUM = registerTallFlower("tall_allium", MapColor.COLOR_PURPLE);
-    public static final FlowerBlockFeature ALLIUM_FLOWER_BUSH = registerFlower("allium_flower_bush", MapColor.COLOR_PURPLE, Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0));
+    public static final FlowerBlockFeature ALLIUM_FLOWER_BUSH = registerFlower("allium_flower_bush", MapColor.COLOR_PURPLE, Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0), TALL_ALLIUM);
     public static final Supplier<Block> ALLIUM_PETAL_BLOCK = registerCubeAllBlockItem("allium_petal_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).mapColor(MapColor.COLOR_PURPLE).sound(SoundType.AZALEA)));
     public static final FlowerBlockFeature PINK_ALLIUM = registerFlower("pink_allium", MapColor.COLOR_PINK, Block.box(5.0, 0.0, 5.0, 11.0, 14.0, 11.0));
     public static final Supplier<TallFlowerBlock> TALL_PINK_ALLIUM = registerTallFlower("tall_pink_allium", MapColor.COLOR_PINK);
-    public static final FlowerBlockFeature PINK_ALLIUM_FLOWER_BUSH = registerFlower("pink_allium_flower_bush", MapColor.COLOR_PINK, Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0));
+    public static final FlowerBlockFeature PINK_ALLIUM_FLOWER_BUSH = registerFlower("pink_allium_flower_bush", MapColor.COLOR_PINK, Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0), TALL_PINK_ALLIUM);
     public static final Supplier<Block> PINK_ALLIUM_PETAL_BLOCK = registerCubeAllBlockItem("pink_allium_petal_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).mapColor(MapColor.COLOR_PINK).sound(SoundType.AZALEA)));
     public static final FlowerBlockFeature WHITE_ALLIUM = registerFlower("white_allium", MapColor.TERRACOTTA_WHITE, Block.box(5.0, 0.0, 5.0, 11.0, 14.0, 11.0));
     public static final Supplier<TallFlowerBlock> TALL_WHITE_ALLIUM = registerTallFlower("tall_white_allium", MapColor.TERRACOTTA_WHITE);
-    public static final FlowerBlockFeature WHITE_ALLIUM_FLOWER_BUSH = registerFlower("white_allium_flower_bush", MapColor.TERRACOTTA_WHITE, Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0));
+    public static final FlowerBlockFeature WHITE_ALLIUM_FLOWER_BUSH = registerFlower("white_allium_flower_bush", MapColor.TERRACOTTA_WHITE, Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0), TALL_WHITE_ALLIUM);
     public static final Supplier<Block> WHITE_ALLIUM_PETAL_BLOCK = registerCubeAllBlockItem("white_allium_petal_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK).mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.AZALEA)));
 
     /** Glowing Pitcher Plants */
@@ -381,6 +382,11 @@ public class BWGBlocks {
 
     private static FlowerBlockFeature registerFlower(String key, MapColor mapColor, VoxelShape shape) {
         Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGFlowerBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_TULIP).mapColor(mapColor), BlockTags.DIRT, shape));
+        return new FlowerBlockFeature(key, flower);
+    }
+
+    private static FlowerBlockFeature registerFlower(String key, MapColor mapColor, VoxelShape shape, Supplier<? extends Block> growAble) {
+        Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGBonemealableFlowerBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_TULIP).mapColor(mapColor), BlockTags.DIRT, shape, growAble));
         return new FlowerBlockFeature(key, flower);
     }
 
