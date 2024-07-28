@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
+import org.jetbrains.annotations.NotNull;
 
 public class GlowBerryDecorator extends TreeDecorator {
 
@@ -35,7 +36,7 @@ public class GlowBerryDecorator extends TreeDecorator {
     }
 
     @Override
-    protected TreeDecoratorType<?> type() {
+    protected @NotNull TreeDecoratorType<?> type() {
         return BWGTreeDecorators.GLOW_BERRY_DECORATOR.get();
     }
 

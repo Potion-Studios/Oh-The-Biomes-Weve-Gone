@@ -19,6 +19,7 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGStructurePieceTypes;
+import org.jetbrains.annotations.NotNull;
 import org.joml.Quaterniond;
 
 public class SharpenedRockPiece extends StructurePiece {
@@ -53,7 +54,7 @@ public class SharpenedRockPiece extends StructurePiece {
     }
 
     @Override
-    protected void addAdditionalSaveData(StructurePieceSerializationContext structurePieceSerializationContext, CompoundTag compoundTag) {
+    protected void addAdditionalSaveData(@NotNull StructurePieceSerializationContext structurePieceSerializationContext, CompoundTag compoundTag) {
         compoundTag.put("origin", NbtUtils.writeBlockPos(this.origin));
         compoundTag.putInt("radius", this.radius);
         compoundTag.putBoolean("foundation", this.hasFoundation);
@@ -64,7 +65,7 @@ public class SharpenedRockPiece extends StructurePiece {
     }
 
     @Override
-    public void postProcess(WorldGenLevel worldGenLevel, StructureManager structureManager, ChunkGenerator chunkGenerator, RandomSource r, BoundingBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
+    public void postProcess(WorldGenLevel worldGenLevel, @NotNull StructureManager structureManager, @NotNull ChunkGenerator chunkGenerator, @NotNull RandomSource r, @NotNull BoundingBox boundingBox, @NotNull ChunkPos chunkPos, @NotNull BlockPos blockPos) {
         RandomSource randomSource = RandomSource.create(worldGenLevel.getLevel().getServer().getWorldData().worldGenOptions().seed() + origin.asLong());
 
 

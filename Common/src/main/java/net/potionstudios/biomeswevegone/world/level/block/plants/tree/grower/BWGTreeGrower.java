@@ -5,6 +5,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class BWGTreeGrower extends AbstractTreeGrower {
@@ -18,7 +19,7 @@ public class BWGTreeGrower extends AbstractTreeGrower {
 
     @Nullable
     @Override
-    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean hasFlowers) {
+    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(@NotNull RandomSource random, boolean hasFlowers) {
         return this.keys.getRandomValue(random).orElse(null);
     }
 }

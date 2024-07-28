@@ -33,7 +33,7 @@ public class BWGBoatItem extends Item {
         this.type = type;
     }
 
-    public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, Player player, @NotNull InteractionHand usedHand) {
         ItemStack itemStack = player.getItemInHand(usedHand);
         HitResult hitResult = getPlayerPOVHitResult(level, player, ClipContext.Fluid.ANY);
         if (hitResult.getType() == HitResult.Type.MISS) {

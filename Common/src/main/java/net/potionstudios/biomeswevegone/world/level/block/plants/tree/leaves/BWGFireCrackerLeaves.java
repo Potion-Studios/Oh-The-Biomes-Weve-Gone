@@ -23,7 +23,7 @@ public class BWGFireCrackerLeaves extends LeavesBlock {
     }
 
     @Override
-    public @NotNull InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    public @NotNull InteractionResult use(@NotNull BlockState state, Level level, @NotNull BlockPos pos, Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
         RandomSource random = level.getRandom();
         if (player.getItemInHand(hand).is(BWGItemTags.SHEARS) && level.getBlockState(pos.below()).is(BlockTags.DIRT)) {
             level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);

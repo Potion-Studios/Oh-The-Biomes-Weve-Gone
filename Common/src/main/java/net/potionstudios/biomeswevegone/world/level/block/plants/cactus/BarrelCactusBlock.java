@@ -33,7 +33,7 @@ public class BarrelCactusBlock extends BWGCactusBlock implements BonemealableBlo
 	}
 
 	@Override
-	public @NotNull InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+	public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
 		ItemStack itemStack = player.getItemInHand(hand);
 		if (itemStack.is(BWGItemTags.SHEARS)) {
 			if (!level.isClientSide()) {
@@ -49,7 +49,7 @@ public class BarrelCactusBlock extends BWGCactusBlock implements BonemealableBlo
 	}
 
 	@Override
-	public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+	public void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity) {
 		super.entityInside(state, level, pos, entity);
 	}
 
@@ -58,29 +58,29 @@ public class BarrelCactusBlock extends BWGCactusBlock implements BonemealableBlo
 	}
 
 	@Override
-	public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+	public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos) {
 		return mayPlaceOn(level.getBlockState(pos.above()), level, pos);
 	}
 
 	@Override
-	public @NotNull BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+	public @NotNull BlockState updateShape(BlockState state, @NotNull Direction direction, @NotNull BlockState neighborState, @NotNull LevelAccessor level, @NotNull BlockPos pos, @NotNull BlockPos neighborPos) {
 		if (!state.canSurvive(level, pos))
 			return Blocks.AIR.defaultBlockState();
 		return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean isClient) {
+	public boolean isValidBonemealTarget(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state, boolean isClient) {
 		return true;
 	}
 
 	@Override
-	public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
+	public boolean isBonemealSuccess(@NotNull Level level, @NotNull RandomSource random, @NotNull BlockPos pos, @NotNull BlockState state) {
 		return true;
 	}
 
 	@Override
-	public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+	public void performBonemeal(@NotNull ServerLevel level, @NotNull RandomSource random, @NotNull BlockPos pos, BlockState state) {
 		if (!state.is(BWGBlocks.FLOWERING_BARREL_CACTUS.get()))
 			level.setBlockAndUpdate(pos, BWGBlocks.FLOWERING_BARREL_CACTUS.get().defaultBlockState());
 	}

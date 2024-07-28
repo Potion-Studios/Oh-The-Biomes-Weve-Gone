@@ -27,7 +27,7 @@ public class HydrangeaHedgeBlock extends BWGPlacementBushBlock{
     }
 
     @Override
-    public @NotNull InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
         if (player.getItemInHand(hand).is(BWGItemTags.SHEARS)) {
             level.setBlockAndUpdate(pos, BWGBlocks.HYDRANGEA_BUSH.getBlockState());
             level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);

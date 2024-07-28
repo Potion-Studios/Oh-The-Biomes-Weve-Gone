@@ -22,7 +22,7 @@ public class GreenAppleProcessor extends StructureProcessor {
 
 	@Nullable
 	@Override
-	public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos offset, BlockPos pos, StructureTemplate.StructureBlockInfo blockInfo, StructureTemplate.StructureBlockInfo relativeBlockInfo, StructurePlaceSettings settings) {
+	public StructureTemplate.StructureBlockInfo processBlock(@NotNull LevelReader level, @NotNull BlockPos offset, @NotNull BlockPos pos, StructureTemplate.StructureBlockInfo blockInfo, StructureTemplate.@NotNull StructureBlockInfo relativeBlockInfo, @NotNull StructurePlaceSettings settings) {
 		if (blockInfo.state().getBlock() == BWGBlocks.GREEN_APPLE_FRUIT_BLOCK.get() && level.getBlockState(pos.below()).isAir()) {
 			BiomesWeveGone.LOGGER.info("Green Apple Processor: Placing green apple fruit block at {}", pos.below());
 			return new StructureTemplate.StructureBlockInfo(pos.below(), BWGBlocks.GREEN_APPLE_FRUIT_BLOCK.get().defaultBlockState().setValue(BWGFruitBlock.AGE, ((Level) level).getRandom().nextInt(3)), relativeBlockInfo.nbt());

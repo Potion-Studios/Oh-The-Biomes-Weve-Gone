@@ -22,18 +22,18 @@ public class BWGPlacementBushBlock extends BushBlock {
     }
 
     @Override
-    public @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    public @NotNull VoxelShape getShape(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         Vec3 Vector3d = state.getOffset(level, pos);
         return SHAPE.move(Vector3d.x(), Vector3d.y(), Vector3d.z());
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
         return state.is(validGround);
     }
 
     @Override
-    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+    public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos) {
         return this.mayPlaceOn(level.getBlockState(pos.below()), level, pos);
     }
 }

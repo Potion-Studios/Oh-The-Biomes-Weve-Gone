@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+import org.jetbrains.annotations.NotNull;
 
 public class AloeVeraBlock extends BushBlock implements BonemealableBlock {
     public AloeVeraBlock() {
@@ -24,33 +25,33 @@ public class AloeVeraBlock extends BushBlock implements BonemealableBlock {
     }
 
     @Override
-    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, RandomSource random) {
         if (random.nextInt(5) == 4)
             growBloomingAloeVera(level, pos);
     }
 
     @Override
-    public boolean isRandomlyTicking(BlockState state) {
+    public boolean isRandomlyTicking(@NotNull BlockState state) {
         return true;
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
         return state.is(BlockTags.SAND);
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state, boolean isClient) {
         return true;
     }
 
     @Override
-    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(@NotNull Level level, @NotNull RandomSource random, @NotNull BlockPos pos, @NotNull BlockState state) {
         return true;
     }
 
     @Override
-    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+    public void performBonemeal(@NotNull ServerLevel level, @NotNull RandomSource random, @NotNull BlockPos pos, @NotNull BlockState state) {
         growBloomingAloeVera(level, pos);
     }
 

@@ -23,7 +23,7 @@ public class BWGDispenseItemBehavior {
 			private final DefaultDispenseItemBehavior defaultDispenseItemBehavior = new DefaultDispenseItemBehavior();
 
 			@Override
-			public @NotNull ItemStack execute(BlockSource source, ItemStack stack) {
+			public @NotNull ItemStack execute(@NotNull BlockSource source, @NotNull ItemStack stack) {
 				DispensibleContainerItem dispensibleContainerItem = (DispensibleContainerItem) stack.getItem();
 				BlockPos blockPos = source.getPos().relative(source.getBlockState().getValue(DispenserBlock.FACING));
 				Level level = source.getLevel();

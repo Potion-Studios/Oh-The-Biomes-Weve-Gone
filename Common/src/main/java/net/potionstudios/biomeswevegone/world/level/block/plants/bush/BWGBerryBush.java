@@ -40,12 +40,12 @@ public class BWGBerryBush extends SweetBerryBushBlock {
     }
 
     @Override
-    public @NotNull ItemStack getCloneItemStack(BlockGetter level, BlockPos pos, BlockState state) {
+    public @NotNull ItemStack getCloneItemStack(@NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull BlockState state) {
         return item.get().get().getDefaultInstance();
     }
 
     @Override
-    public @NotNull InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    public @NotNull InteractionResult use(BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
         int age = state.getValue(AGE);
         boolean isMaxAge = age == MAX_AGE;
         if (!isMaxAge && player.getItemInHand(hand).getItem() == Items.BONE_MEAL) {
@@ -62,7 +62,7 @@ public class BWGBerryBush extends SweetBerryBushBlock {
     }
 
     @Override
-    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+    public void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity) {
         if (hurtEntityInside) super.entityInside(state, level, pos, entity);
     }
 }

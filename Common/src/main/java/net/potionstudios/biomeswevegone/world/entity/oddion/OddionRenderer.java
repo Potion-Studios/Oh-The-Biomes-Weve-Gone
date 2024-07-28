@@ -23,7 +23,7 @@ public class OddionRenderer<T extends Oddion> extends GeoEntityRenderer<T> {
     }
 
     @Override
-    public void render(@NotNull T entity, float entityYaw, float partialTicks, PoseStack stack, @NotNull MultiBufferSource bufferIn, int packedLightIn) {
+    public void render(@NotNull T entity, float entityYaw, float partialTicks, @NotNull PoseStack stack, @NotNull MultiBufferSource bufferIn, int packedLightIn) {
         shadowRadius = 0.4f;
         super.render(entity, entityYaw, partialTicks, stack, bufferIn, packedLightIn);
     }

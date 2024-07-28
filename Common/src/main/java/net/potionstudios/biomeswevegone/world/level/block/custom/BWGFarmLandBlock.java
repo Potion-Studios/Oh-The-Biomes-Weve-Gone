@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
@@ -40,13 +41,13 @@ public class BWGFarmLandBlock extends FarmBlock {
     }
 
     @Override
-    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    public void tick(BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
         if (!state.canSurvive(level, pos))
             turnToDirtBlock(null, state, level, pos);
     }
 
     @Override
-    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    public void randomTick(BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
         //if (isNearby(level, pos))
           //  level.setBlock(pos, state.setValue(MOISTURE, 7), 2);
         //else {
@@ -75,7 +76,7 @@ public class BWGFarmLandBlock extends FarmBlock {
      */
 
     @Override
-    public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
+    public void fallOn(Level level, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull Entity entity, float fallDistance) {
         if (!level.isClientSide
                 && level.random.nextFloat() < fallDistance - 0.5F
                 && entity instanceof LivingEntity

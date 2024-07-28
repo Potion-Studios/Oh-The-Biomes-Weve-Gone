@@ -20,6 +20,7 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.world.level.levelgen.CheckedBlockPlacement;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGStructurePieceTypes;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -68,7 +69,7 @@ public class ArchPiece extends StructurePiece {
     }
 
     @Override
-    public void postProcess(WorldGenLevel level, StructureManager structureManager, ChunkGenerator generator, RandomSource random, BoundingBox box, ChunkPos chunkPos, BlockPos pos) {
+    public void postProcess(WorldGenLevel level, @NotNull StructureManager structureManager, @NotNull ChunkGenerator generator, @NotNull RandomSource random, @NotNull BoundingBox box, ChunkPos chunkPos, @NotNull BlockPos pos) {
         ChunkAccess chunk = level.getChunk(chunkPos.x, chunkPos.z); // Minimize getChunk calls
 
         LongSet cache = new LongOpenHashSet();

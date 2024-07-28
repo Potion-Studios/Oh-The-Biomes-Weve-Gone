@@ -30,17 +30,17 @@ public class WhitePuffballBlock extends BWGBerryBush {
 	}
 
 	@Override
-	public @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+	public @NotNull VoxelShape getShape(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
 		return state.getValue(AGE) == 0 ? BABY_SHAPE : state.getValue(AGE) < 3 ? MID_GROWTH_SHAPE : super.getShape(state, level, pos, context);
 	}
 
 	@Override
-	protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
+	protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
 		return state.isSolidRender(level, pos);
 	}
 
 	@Override
-	public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+	public boolean canSurvive(@NotNull BlockState state, LevelReader level, BlockPos pos) {
 		BlockState blockState = level.getBlockState(pos.below());
 		return blockState.is(BlockTags.MUSHROOM_GROW_BLOCK) || (level.getRawBrightness(pos, 0) < 13 && this.mayPlaceOn(blockState, level, pos.below()));
 	}

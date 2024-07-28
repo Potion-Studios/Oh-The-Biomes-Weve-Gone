@@ -5,6 +5,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BaseFireBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
@@ -18,12 +19,12 @@ public class BWGFireBlock extends BaseFireBlock {
     }
 
     @Override
-    protected boolean canBurn(BlockState state) {
+    protected boolean canBurn(@NotNull BlockState state) {
         return true;
     }
 
     @Override
-    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+    public boolean canSurvive(@NotNull BlockState state, LevelReader level, BlockPos pos) {
         return this.survivorBlock.get() == level.getBlockState(pos.below()).getBlock();
     }
 }

@@ -8,6 +8,7 @@ import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.SurfaceRules;
+import org.jetbrains.annotations.NotNull;
 
 public class BandsRuleSource implements SurfaceRules.RuleSource {
 
@@ -39,7 +40,7 @@ public class BandsRuleSource implements SurfaceRules.RuleSource {
 
 
     @Override
-    public KeyDispatchDataCodec<? extends SurfaceRules.RuleSource> codec() {
+    public @NotNull KeyDispatchDataCodec<? extends SurfaceRules.RuleSource> codec() {
         return CODEC;
     }
 

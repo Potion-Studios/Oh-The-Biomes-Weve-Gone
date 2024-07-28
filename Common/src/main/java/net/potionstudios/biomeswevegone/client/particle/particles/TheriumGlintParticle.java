@@ -57,7 +57,7 @@ public class TheriumGlintParticle extends TextureSheetParticle {
 
         @Nullable
         @Override
-        public Particle createParticle(SimpleParticleType var1, ClientLevel world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+        public Particle createParticle(@NotNull SimpleParticleType var1, @NotNull ClientLevel world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
             TheriumGlintParticle glint = new TheriumGlintParticle(world, x, y, z, xSpeed, ySpeed, zSpeed);
             glint.setColor(1.0f, 1.0f, 1.0f);
             glint.setSpriteFromAge(this.sprite);

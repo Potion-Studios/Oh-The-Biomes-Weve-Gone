@@ -108,20 +108,20 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag compound) {
+    public void addAdditionalSaveData(@NotNull CompoundTag compound) {
         super.addAdditionalSaveData(compound);
         compound.putInt("Variant", this.getVariant().getId());
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag compound) {
+    public void readAdditionalSaveData(@NotNull CompoundTag compound) {
         super.readAdditionalSaveData(compound);
         this.setVariant(Variant.byId(compound.getInt("Variant")));
     }
 
     @Nullable
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData spawnData, @Nullable CompoundTag dataTag) {
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType reason, @Nullable SpawnGroupData spawnData, @Nullable CompoundTag dataTag) {
         this.setVariant(Variant.getSpawnVariant(level.getRandom()));
         return super.finalizeSpawn(level, difficulty, reason, spawnData, dataTag);
     }
@@ -137,7 +137,7 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
 
     @Nullable
     @Override
-    protected SoundEvent getHurtSound(DamageSource damageSource) {
+    protected SoundEvent getHurtSound(@NotNull DamageSource damageSource) {
         return BWGSounds.ODDION_HURT.get();
     }
 
@@ -204,7 +204,7 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
     }
 
     @Override
-    protected InteractionResult mobInteract(Player player, InteractionHand hand) {
+    protected @NotNull InteractionResult mobInteract(@NotNull Player player, @NotNull InteractionHand hand) {
         if (!isGrounded()) {
             petOddion();
             return InteractionResult.SUCCESS;
@@ -267,7 +267,7 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
     }
 
     @Override
-    public void setRecordPlayingNearby(BlockPos jukebox, boolean partying) {
+    public void setRecordPlayingNearby(@NotNull BlockPos jukebox, boolean partying) {
         this.jukebox = jukebox;
         this.setPartying(partying);
         this.goalSelector.removeGoal(movementGoal);

@@ -26,12 +26,12 @@ public class WarpedCoralPlantBlock extends BaseCoralPlantBlock {
     }
 
     @Override
-    public @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return SHAPE;
     }
 
     @Override
-    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+    public boolean canSurvive(@NotNull BlockState state, LevelReader level, BlockPos pos) {
         return level.getBlockState(pos.below()).is(BWGBlockTags.WARPED_CORAL_PLACEABLE);
     }
 }

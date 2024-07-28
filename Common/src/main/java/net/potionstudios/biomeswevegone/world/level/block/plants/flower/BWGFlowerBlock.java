@@ -67,7 +67,7 @@ public class BWGFlowerBlock extends FlowerBlock {
      * @return The shape of the block.
      */
     @Override
-    public @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    public @NotNull VoxelShape getShape(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         Vec3 vec3 = state.getOffset(level, pos);
         return SHAPE.move(vec3.x, vec3.y, vec3.z);
     }

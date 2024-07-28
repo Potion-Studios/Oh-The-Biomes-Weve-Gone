@@ -48,7 +48,7 @@ public class FallingLeafParticle extends TextureSheetParticle {
 
         @Nullable
         @Override
-        public Particle createParticle(SimpleParticleType var1, ClientLevel world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+        public Particle createParticle(@NotNull SimpleParticleType var1, @NotNull ClientLevel world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
             FallingLeafParticle leaf = new FallingLeafParticle(world, x, y, z, xSpeed, ySpeed, zSpeed);
             leaf.lifetime = Mth.randomBetweenInclusive(world.random, 500, 1000);
             leaf.setColor(1.0f, 1.0f, 1.0f);

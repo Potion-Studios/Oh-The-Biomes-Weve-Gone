@@ -18,6 +18,7 @@ import net.minecraft.world.level.levelgen.synth.ImprovedNoise;
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.util.UnsafeBoundingBox;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGStructureTypes;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -40,7 +41,7 @@ public class ArchStructure extends Structure {
     }
 
     @Override
-    protected Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
+    protected @NotNull Optional<GenerationStub> findGenerationPoint(@NotNull GenerationContext context) {
         return onTopOfChunkCenter(context, Heightmap.Types.OCEAN_FLOOR, structurePiecesBuilder -> {
             ChunkPos chunkPos = context.chunkPos();
             WorldgenRandom random = context.random();
@@ -149,7 +150,7 @@ public class ArchStructure extends Structure {
     }
 
     @Override
-    public StructureType<?> type() {
+    public @NotNull StructureType<?> type() {
         return BWGStructureTypes.ARCH.get();
     }
 }

@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
+import org.jetbrains.annotations.NotNull;
 
 public class WitchHazelBlossomBlock extends SporeBlossomBlock {
     public WitchHazelBlossomBlock() {
@@ -17,7 +18,7 @@ public class WitchHazelBlossomBlock extends SporeBlossomBlock {
     }
 
     @Override
-    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+    public void animateTick(@NotNull BlockState state, Level level, BlockPos pos, RandomSource random) {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();

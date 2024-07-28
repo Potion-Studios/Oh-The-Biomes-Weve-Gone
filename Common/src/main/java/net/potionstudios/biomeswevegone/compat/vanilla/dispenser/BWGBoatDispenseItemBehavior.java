@@ -33,7 +33,7 @@ public class BWGBoatDispenseItemBehavior extends DefaultDispenseItemBehavior {
 	}
 
 	@Override
-	public @NotNull ItemStack execute(BlockSource source, ItemStack stack) {
+	public @NotNull ItemStack execute(BlockSource source, @NotNull ItemStack stack) {
 		Direction direction = source.getBlockState().getValue(DispenserBlock.FACING);
 		Level level = source.getLevel();
 		double d = 0.5625 + (double) BWGEntities.BWG_BOAT.get().getWidth() / 2.0;

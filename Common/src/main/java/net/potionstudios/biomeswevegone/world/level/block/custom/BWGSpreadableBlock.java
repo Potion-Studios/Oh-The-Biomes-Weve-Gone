@@ -5,6 +5,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
@@ -18,7 +19,7 @@ public class BWGSpreadableBlock extends GrassBlock implements BonemealableBlock 
 	}
 
 	@Override
-	public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+	public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
 		if (!SpreadingSnowyDirtBlock.canBeGrass(state, level, pos))
 			level.setBlockAndUpdate(pos, this.spreadable.get().defaultBlockState());
 		else if (level.getMaxLocalRawBrightness(pos.above()) >= 9) {

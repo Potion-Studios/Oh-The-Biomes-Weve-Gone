@@ -51,12 +51,12 @@ public class OddionCrop extends BWGBerryBush {
     }
 
     @Override
-    public boolean isRandomlyTicking(BlockState state) {
+    public boolean isRandomlyTicking(@NotNull BlockState state) {
         return true;
     }
 
     @Override
-    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    public void randomTick(BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
         if (state.getValue(HATCHING)) {
             if (shouldHatch(level, state)) {
                 spawnOddion(level, pos);
@@ -78,7 +78,7 @@ public class OddionCrop extends BWGBerryBush {
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
         return state.getBlock() instanceof FarmBlock;
     }
 

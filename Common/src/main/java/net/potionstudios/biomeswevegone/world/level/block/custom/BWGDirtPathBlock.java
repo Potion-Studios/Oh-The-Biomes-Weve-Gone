@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.DirtPathBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
@@ -30,7 +31,7 @@ public class BWGDirtPathBlock extends DirtPathBlock {
     }
 
     @Override
-    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    public void tick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
         BlockState blockState = pushEntitiesUp(state, dirtBlock.get().defaultBlockState(), level, pos);
         level.setBlockAndUpdate(pos, blockState);
         level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(null, blockState));

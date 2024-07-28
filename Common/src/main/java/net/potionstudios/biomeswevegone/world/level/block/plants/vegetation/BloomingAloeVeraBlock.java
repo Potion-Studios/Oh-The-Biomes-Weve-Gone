@@ -29,7 +29,7 @@ public class BloomingAloeVeraBlock extends DoublePlantBlock {
     }
 
     @Override
-    public @NotNull InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
         if (player.getItemInHand(hand).isEmpty() || player.getItemInHand(hand).is(BWGItemTags.SHEARS)) {
             level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1, 0.8f + level.random.nextFloat() * 0.4f);
             popResource(level, pos, new ItemStack(BWGBlocks.ALOE_VERA.get().asItem(), level.random.nextInt(1, 3)));
@@ -41,12 +41,12 @@ public class BloomingAloeVeraBlock extends DoublePlantBlock {
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
         return state.is(BlockTags.SAND);
     }
 
     @Override
-    public @NotNull ItemStack getCloneItemStack(BlockGetter level, BlockPos pos, BlockState state) {
+    public @NotNull ItemStack getCloneItemStack(@NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull BlockState state) {
         return BWGBlocks.ALOE_VERA.get().asItem().getDefaultInstance();
     }
 }

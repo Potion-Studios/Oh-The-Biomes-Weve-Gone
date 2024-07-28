@@ -37,7 +37,7 @@ public class MediumPumpkinFeature extends Feature<NoneFeatureConfiguration> {
                     mutable.setWithOffset(origin, x, y, z);
                     if(level.getBlockState(mutable).canOcclude()) {
                         return false;
-                    };
+                    }
                 }
             }
         }

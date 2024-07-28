@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.MushroomBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import org.jetbrains.annotations.NotNull;
 
 public class BWGMushroomBlock extends MushroomBlock {
 
@@ -24,7 +25,7 @@ public class BWGMushroomBlock extends MushroomBlock {
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
         return state.is(this.groundTag) && super.mayPlaceOn(state, level, pos);
     }
 }

@@ -29,6 +29,7 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 import net.minecraft.world.level.levelgen.synth.ImprovedNoise;
 import net.potionstudios.biomeswevegone.tags.BWGBiomeTags;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGStructurePieceTypes;
+import org.jetbrains.annotations.NotNull;
 import org.joml.Vector2d;
 
 import java.util.Arrays;
@@ -59,7 +60,7 @@ public class CanyonPiece extends StructurePiece {
     }
 
     @Override
-    protected void addAdditionalSaveData(StructurePieceSerializationContext context, CompoundTag tag) {
+    protected void addAdditionalSaveData(@NotNull StructurePieceSerializationContext context, CompoundTag tag) {
         tag.put("origin", NbtUtils.writeBlockPos(this.origin));
         tag.putInt("radius", this.radius);
         tag.putInt("topY", this.topY);
@@ -67,7 +68,7 @@ public class CanyonPiece extends StructurePiece {
     }
 
     @Override
-    public void postProcess(WorldGenLevel worldGenLevel, StructureManager structureManager, ChunkGenerator generator, RandomSource unused, BoundingBox box, ChunkPos chunkPos, BlockPos pos) {
+    public void postProcess(@NotNull WorldGenLevel worldGenLevel, @NotNull StructureManager structureManager, @NotNull ChunkGenerator generator, @NotNull RandomSource unused, @NotNull BoundingBox box, @NotNull ChunkPos chunkPos, @NotNull BlockPos pos) {
         generate(worldGenLevel, generator, chunkPos, this.packedCanyonPositions);
     }
 

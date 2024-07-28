@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 public class BWGSaplingBlock extends SaplingBlock {
 
@@ -20,7 +21,7 @@ public class BWGSaplingBlock extends SaplingBlock {
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
         return state.is(groundTag);
     }
 }

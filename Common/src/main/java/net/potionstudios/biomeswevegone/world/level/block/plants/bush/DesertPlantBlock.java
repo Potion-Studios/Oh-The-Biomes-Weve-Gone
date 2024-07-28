@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 
 public class DesertPlantBlock extends BWGPlacementBushBlock {
 
@@ -18,7 +19,7 @@ public class DesertPlantBlock extends BWGPlacementBushBlock {
 	}
 
 	@Override
-	public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+	public void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity) {
 		if (entity instanceof LivingEntity && entity.getType() != EntityType.CAT && entity.getType() != EntityType.RABBIT) {
 			entity.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
 			double d0 = Math.abs(entity.getX() - entity.xOld);

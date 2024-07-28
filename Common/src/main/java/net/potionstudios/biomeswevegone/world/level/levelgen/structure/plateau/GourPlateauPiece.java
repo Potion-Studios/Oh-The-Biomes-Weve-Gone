@@ -23,6 +23,7 @@ import net.minecraft.world.level.levelgen.synth.ImprovedNoise;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGStructurePieceTypes;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.List;
@@ -49,14 +50,14 @@ public class GourPlateauPiece extends StructurePiece {
     }
 
     @Override
-    protected void addAdditionalSaveData(StructurePieceSerializationContext context, CompoundTag tag) {
+    protected void addAdditionalSaveData(@NotNull StructurePieceSerializationContext context, CompoundTag tag) {
         tag.put("origin", NbtUtils.writeBlockPos(this.origin));
         tag.putInt("radius", this.radius);
         tag.putInt("topY", this.topY);
     }
 
     @Override
-    public void postProcess(WorldGenLevel worldGenLevel, StructureManager structureManager, ChunkGenerator generator, RandomSource random, BoundingBox box, ChunkPos chunkPos, BlockPos pos) {
+    public void postProcess(WorldGenLevel worldGenLevel, @NotNull StructureManager structureManager, @NotNull ChunkGenerator generator, @NotNull RandomSource random, @NotNull BoundingBox box, @NotNull ChunkPos chunkPos, @NotNull BlockPos pos) {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
         XoroshiroRandomSource randomSource = new XoroshiroRandomSource(worldGenLevel.getSeed() + origin.asLong());

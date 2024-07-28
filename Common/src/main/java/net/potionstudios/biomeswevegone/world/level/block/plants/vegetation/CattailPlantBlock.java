@@ -33,7 +33,7 @@ public class CattailPlantBlock extends DoublePlantBlock implements SimpleWaterlo
     }
 
     @Override
-    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+    public boolean canSurvive(BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos) {
         DoubleBlockHalf half = state.getValue(HALF);
         if (half.equals(DoubleBlockHalf.UPPER) && state.getValue(WATERLOGGED)) return false;
         else if (half.equals(DoubleBlockHalf.LOWER)) {
@@ -53,7 +53,7 @@ public class CattailPlantBlock extends DoublePlantBlock implements SimpleWaterlo
     }
 
     @Override
-    public void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighborBlock, BlockPos neighborPos, boolean movedByPiston) {
+    public void neighborChanged(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Block neighborBlock, @NotNull BlockPos neighborPos, boolean movedByPiston) {
         if (!canSurvive(state, level, pos)) {
             if (state.getValue(WATERLOGGED)) level.setBlockAndUpdate(pos, Fluids.WATER.defaultFluidState().createLegacyBlock());
             else level.destroyBlock(pos, false);
@@ -62,12 +62,12 @@ public class CattailPlantBlock extends DoublePlantBlock implements SimpleWaterlo
     }
 
     @Override
-    public @NotNull ItemStack getCloneItemStack(BlockGetter level, BlockPos pos, BlockState state) {
+    public @NotNull ItemStack getCloneItemStack(@NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull BlockState state) {
         return BWGItems.CATTAIL_SPROUT.get().getDefaultInstance();
     }
 
     @Override
-    public @NotNull BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+    public @NotNull BlockState updateShape(BlockState state, @NotNull Direction direction, @NotNull BlockState neighborState, @NotNull LevelAccessor level, @NotNull BlockPos pos, @NotNull BlockPos neighborPos) {
         if (state.getValue(WATERLOGGED))
             level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
 
@@ -76,7 +76,7 @@ public class CattailPlantBlock extends DoublePlantBlock implements SimpleWaterlo
 
     @Nullable
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
+    public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
         return super.getStateForPlacement(context);
     }
 

@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
@@ -34,12 +35,12 @@ public class ShrubBlock extends BushBlock implements BonemealableBlock {
 	}
 
 	@Override
-	protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
+	protected boolean mayPlaceOn(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
 		return super.mayPlaceOn(state, level, pos) || state.is(BlockTags.SAND);
 	}
 
 	@Override
-	public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+	public void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, Entity entity) {
 		EntityType<?> entityType = entity.getType();
 		if (entity instanceof LivingEntity && entityType != EntityType.FOX && entityType != EntityType.BEE)
 			entity.makeStuckInBlock(state, new Vec3(0.8D, 0.75D, 0.8D));
@@ -51,17 +52,17 @@ public class ShrubBlock extends BushBlock implements BonemealableBlock {
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean isClient) {
+	public boolean isValidBonemealTarget(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state, boolean isClient) {
 		return true;
 	}
 
 	@Override
-	public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
+	public boolean isBonemealSuccess(@NotNull Level level, RandomSource random, @NotNull BlockPos pos, @NotNull BlockState state) {
 		return random.nextBoolean();
 	}
 
 	@Override
-	public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+	public void performBonemeal(@NotNull ServerLevel level, @NotNull RandomSource random, @NotNull BlockPos pos, @NotNull BlockState state) {
 		if (treeGrower != null) treeGrower.get().growTree(level, level.getChunkSource().getGenerator(), pos, state, random);
 		else level.setBlockAndUpdate(pos, state.cycle(STAGE));
 	}

@@ -43,7 +43,7 @@ public class BWGBoatRenderer extends EntityRenderer<Boat> {
     }
 
     @Override
-    public void render(Boat boat, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
+    public void render(Boat boat, float entityYaw, float partialTicks, PoseStack poseStack, @NotNull MultiBufferSource buffer, int packedLight) {
         poseStack.pushPose();
         poseStack.translate(0.0F, 0.375F, 0.0F);
         poseStack.mulPose(Axis.YP.rotationDegrees(180.0F - entityYaw));
@@ -108,7 +108,7 @@ public class BWGBoatRenderer extends EntityRenderer<Boat> {
     }
 
     @Override
-    public @NotNull ResourceLocation getTextureLocation(Boat entity) {
+    public @NotNull ResourceLocation getTextureLocation(@NotNull Boat entity) {
         return this.getModelWithLocation(entity).getFirst();
     }
 }

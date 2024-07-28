@@ -145,7 +145,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     }
 
     @Override
-    public @NotNull InteractionResult mobInteract(Player player, InteractionHand hand) {
+    public @NotNull InteractionResult mobInteract(@NotNull Player player, @NotNull InteractionHand hand) {
         if (this.isBaby())
             return Bucketable.bucketMobPickup(player, hand, this).orElse(super.mobInteract(player, hand));
         return super.mobInteract(player, hand);

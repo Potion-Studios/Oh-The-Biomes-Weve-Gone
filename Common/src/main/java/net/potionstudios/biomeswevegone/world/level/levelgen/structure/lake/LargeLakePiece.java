@@ -79,7 +79,7 @@ public class LargeLakePiece extends StructurePiece {
     }
 
     @Override
-    public void postProcess(WorldGenLevel worldGenLevel, StructureManager structureManager, ChunkGenerator generator, RandomSource random, BoundingBox box, ChunkPos chunkPos, BlockPos pos) {
+    public void postProcess(WorldGenLevel worldGenLevel, @NotNull StructureManager structureManager, @NotNull ChunkGenerator generator, @NotNull RandomSource random, @NotNull BoundingBox box, ChunkPos chunkPos, @NotNull BlockPos pos) {
 
         ImprovedNoise noiseSampler = new ImprovedNoise(new XoroshiroRandomSource(worldGenLevel.getSeed()));
 

@@ -31,12 +31,12 @@ public class BWGQuickSand extends SandBlock {
 	}
 
 	@Override
-	public @NotNull VoxelShape getOcclusionShape(BlockState state, BlockGetter level, BlockPos pos) {
+	public @NotNull VoxelShape getOcclusionShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
 		return Shapes.empty();
 	}
 
 	@Override
-	public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+	public void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity) {
 		if (entity instanceof LivingEntity) {
 			entity.makeStuckInBlock(state, new Vec3(0.9F, 1.5, 0.9F));
 			if (level.isClientSide) {
@@ -69,7 +69,7 @@ public class BWGQuickSand extends SandBlock {
 	}
 
 	@Override
-	public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
+	public void fallOn(@NotNull Level level, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull Entity entity, float fallDistance) {
 		if (!((double)fallDistance < 4.0) && entity instanceof LivingEntity livingEntity) {
 			LivingEntity.Fallsounds fallsounds = livingEntity.getFallSounds();
 			SoundEvent soundEvent = (double)fallDistance < 7.0 ? fallsounds.small() : fallsounds.big();
@@ -78,7 +78,7 @@ public class BWGQuickSand extends SandBlock {
 	}
 
 	@Override
-	public @NotNull VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+	public @NotNull VoxelShape getVisualShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
 		return Shapes.empty();
 	}
 }

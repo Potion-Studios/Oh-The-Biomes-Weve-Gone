@@ -36,7 +36,7 @@ public class CattailSproutBlock extends Block implements SimpleWaterloggedBlock,
     }
 
     @Override
-    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, RandomSource random) {
         if (random.nextInt(5) == 4)
             if (level.isEmptyBlock(pos.above()))
                 growCattail(level, pos);
@@ -56,12 +56,12 @@ public class CattailSproutBlock extends Block implements SimpleWaterloggedBlock,
     }
 
     @Override
-    public @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return Block.box(4.0, 0.0, 4.0, 12.0, 12.0, 12.0);
     }
 
     @Override
-    public @NotNull BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+    public @NotNull BlockState updateShape(BlockState state, @NotNull Direction direction, @NotNull BlockState neighborState, @NotNull LevelAccessor level, @NotNull BlockPos pos, @NotNull BlockPos neighborPos) {
         if (state.getValue(WATERLOGGED))
             level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
 
@@ -70,7 +70,7 @@ public class CattailSproutBlock extends Block implements SimpleWaterloggedBlock,
     }
 
     @Override
-    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+    public boolean canSurvive(@NotNull BlockState state, LevelReader level, BlockPos pos) {
         BlockState below = level.getBlockState(pos.below());
         if (below.is(BlockTags.DIRT) || below.is(BlockTags.SAND)) {
             if (level.isEmptyBlock(pos.above()) && state.getFluidState().is(FluidTags.WATER))
@@ -86,17 +86,17 @@ public class CattailSproutBlock extends Block implements SimpleWaterloggedBlock,
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state, boolean isClient) {
         return true;
     }
 
     @Override
-    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(@NotNull Level level, @NotNull RandomSource random, @NotNull BlockPos pos, @NotNull BlockState state) {
         return true;
     }
 
     @Override
-    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel level, @NotNull RandomSource random, BlockPos pos, @NotNull BlockState state) {
         if (level.isEmptyBlock(pos.above()))
             growCattail(level, pos);
     }

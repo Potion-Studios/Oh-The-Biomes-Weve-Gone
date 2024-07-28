@@ -58,12 +58,12 @@ public class CarvedBarrelCactusBlock extends BWGCactusBlock {
 	}
 
 	@Override
-	public @NotNull VoxelShape getInteractionShape(BlockState state, BlockGetter level, BlockPos pos) {
+	public @NotNull VoxelShape getInteractionShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
 		return makeShape();
 	}
 
 	@Override
-	public @NotNull InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+	public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
 		ItemStack itemStack = player.getItemInHand(hand);
 		if (itemStack.is(Items.WATER_BUCKET)) {
 			player.setItemInHand(hand, new ItemStack(Items.BUCKET));
@@ -94,7 +94,7 @@ public class CarvedBarrelCactusBlock extends BWGCactusBlock {
 	}
 
 	@Override
-	public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+	public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
 		super.randomTick(state, level, pos, random);
 		if (level.isRainingAt(pos)) {
 			level.setBlockAndUpdate(pos, state.setValue(LIQUID, LiquidType.WATER));
@@ -103,7 +103,7 @@ public class CarvedBarrelCactusBlock extends BWGCactusBlock {
 	}
 
 	@Override
-	public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+	public boolean canSurvive(@NotNull BlockState state, LevelReader level, BlockPos pos) {
 		BlockState below = level.getBlockState(pos.below());
 		return !below.getCollisionShape(level, pos.below()).getFaceShape(Direction.UP).isEmpty() || below.isFaceSturdy(level, pos.below(), Direction.UP);
 	}

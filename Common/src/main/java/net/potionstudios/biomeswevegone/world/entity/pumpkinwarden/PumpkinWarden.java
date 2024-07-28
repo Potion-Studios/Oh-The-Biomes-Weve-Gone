@@ -434,7 +434,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         }
 
         @Override
-        protected boolean isValidTarget(LevelReader level, BlockPos pos) {
+        protected boolean isValidTarget(LevelReader level, @NotNull BlockPos pos) {
             return level.getBlockState(pos).is(Blocks.CARVED_PUMPKIN);
         }
     }
@@ -448,7 +448,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         }
 
         @Override
-        protected boolean isValidTarget(LevelReader level, BlockPos pos) {
+        protected boolean isValidTarget(LevelReader level, @NotNull BlockPos pos) {
             List<BlockState> blockStates = level.getBlockStates(new AABB(warden.blockPosition()).inflate(30)).toList();
             return !blockStates.get(warden.random.nextInt(blockStates.size())).isAir();
         }

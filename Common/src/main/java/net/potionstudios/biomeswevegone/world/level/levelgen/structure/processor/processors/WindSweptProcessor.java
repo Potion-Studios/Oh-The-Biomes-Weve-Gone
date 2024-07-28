@@ -22,7 +22,7 @@ public class WindSweptProcessor extends StructureProcessor {
 
     @Nullable
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos offset, BlockPos pos, StructureTemplate.StructureBlockInfo blockInfo, StructureTemplate.StructureBlockInfo relativeBlockInfo, StructurePlaceSettings settings) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, @NotNull BlockPos offset, @NotNull BlockPos pos, StructureTemplate.@NotNull StructureBlockInfo blockInfo, StructureTemplate.@NotNull StructureBlockInfo relativeBlockInfo, @NotNull StructurePlaceSettings settings) {
         if (level.getBiome(pos).is(BWGBiomes.WINDSWEPT_DESERT)) {
             Block block = blockInfo.state().getBlock();
             BWGSandSet sandSet = BWGBlocks.WINDSWEPT_SAND_SET;

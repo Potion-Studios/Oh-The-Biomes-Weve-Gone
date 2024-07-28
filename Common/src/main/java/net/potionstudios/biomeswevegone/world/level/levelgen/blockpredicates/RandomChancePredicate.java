@@ -8,6 +8,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicateType;
+import org.jetbrains.annotations.NotNull;
 
 public class RandomChancePredicate implements BlockPredicate {
 
@@ -24,7 +25,7 @@ public class RandomChancePredicate implements BlockPredicate {
     }
 
     @Override
-    public BlockPredicateType<?> type() {
+    public @NotNull BlockPredicateType<?> type() {
         return BWGBlockPredicateTypes.RANDOM_CHANCE.get();
     }
 

@@ -15,6 +15,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import net.minecraft.world.level.levelgen.synth.ImprovedNoise;
 import net.potionstudios.biomeswevegone.util.MathUtil;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
+import org.jetbrains.annotations.NotNull;
 import org.joml.Vector2d;
 import org.joml.Vector4d;
 
@@ -26,7 +27,7 @@ public class CragFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
+    public boolean place(@NotNull FeaturePlaceContext<NoneFeatureConfiguration> context) {
 
         if (true) {
             return true;

@@ -17,6 +17,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGOverworldVegationPlacedFeatures;
+import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
@@ -35,7 +36,7 @@ public abstract class PrairieGrassMixin extends SpreadingSnowyDirtBlock implemen
      * @reason Used to generate Prairie grass when bonemeal is used on a grassblock in the Prairie biome.
      */
     @Overwrite
-    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel level, @NotNull RandomSource random, BlockPos pos, @NotNull BlockState state) {
         BlockPos blockPos = pos.above();
         BlockState blockState = Blocks.GRASS.defaultBlockState();
         Optional<Holder.Reference<PlacedFeature>> optional = level.registryAccess()

@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.VineBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 public class PoisonIvyBlock extends VineBlock {
     public PoisonIvyBlock(Properties properties) {
@@ -22,7 +23,7 @@ public class PoisonIvyBlock extends VineBlock {
     }
 
     @Override
-    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+    public void entityInside(@NotNull BlockState state, Level level, @NotNull BlockPos pos, @NotNull Entity entity) {
         if (level.getDifficulty() != Difficulty.PEACEFUL)
             if (entity instanceof LivingEntity livingentity)
                 if (!livingentity.isInvulnerableTo(entity.damageSources().magic()) && !livingentity.hasEffect(MobEffects.POISON))

@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.BWGFruitBlock;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
@@ -23,7 +24,7 @@ public class BWGFruitLeavesBlock extends LeavesBlock implements BonemealableBloc
     }
 
     @Override
-    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
         super.randomTick(state, level, pos, random);
         BlockPos fruitPos = pos.below();
 
@@ -41,12 +42,12 @@ public class BWGFruitLeavesBlock extends LeavesBlock implements BonemealableBloc
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state, boolean isClient) {
         return true;
     }
 
     @Override
-    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(Level level, @NotNull RandomSource random, BlockPos pos, @NotNull BlockState state) {
         BlockState below = level.getBlockState(pos.below());
             if (below.isAir() || below.getBlock() instanceof BWGFruitBlock && below.getValue(BWGFruitBlock.AGE) < 3)
                 return random.nextBoolean();
@@ -54,7 +55,7 @@ public class BWGFruitLeavesBlock extends LeavesBlock implements BonemealableBloc
     }
 
     @Override
-    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel level, @NotNull RandomSource random, BlockPos pos, @NotNull BlockState state) {
         if (level.getBlockState(pos.below()).isAir())
             placeFruit(level, pos.below());
         else if (level.getBlockState(pos.below()).getBlock() instanceof BWGFruitBlock)

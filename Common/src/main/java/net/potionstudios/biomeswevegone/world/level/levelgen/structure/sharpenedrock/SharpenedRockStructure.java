@@ -45,7 +45,7 @@ public class SharpenedRockStructure extends Structure {
     }
 
     @Override
-    protected @NotNull Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
+    protected @NotNull Optional<GenerationStub> findGenerationPoint(@NotNull GenerationContext context) {
         return onTopOfChunkCenter(context, Heightmap.Types.OCEAN_FLOOR_WG, (piecesBuilder) -> {
 
             WorldgenRandom random = context.random();
