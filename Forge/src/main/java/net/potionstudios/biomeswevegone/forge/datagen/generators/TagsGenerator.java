@@ -91,6 +91,7 @@ public class TagsGenerator {
                 if (set.leaves() != null) tag(BlockTags.LEAVES).add(set.leaves());
                 tag(set.logBlockTag()).add(set.logstem(), set.wood(), set.strippedLogStem(), set.strippedWood());
                 tag(BlockTags.LOGS).addTag(set.logBlockTag());
+                tag(BlockTags.LOGS_THAT_BURN).addTag(set.logBlockTag());
             });
 
             tag(BlockTags.LEAVES).add(BWGWood.PALO_VERDE_LEAVES.get());
@@ -198,6 +199,7 @@ public class TagsGenerator {
             copy(BlockTags.CEILING_HANGING_SIGNS, ItemTags.HANGING_SIGNS);
             copy(Tags.Blocks.BOOKSHELVES, Tags.Items.BOOKSHELVES);
             copy(BlockTags.LOGS, ItemTags.LOGS);
+            copy(BlockTags.LOGS_THAT_BURN, ItemTags.LOGS_THAT_BURN);
             copy(BlockTags.SAND, ItemTags.SAND);
             copy(BlockTags.SMALL_FLOWERS, ItemTags.SMALL_FLOWERS);
             copy(BlockTags.TALL_FLOWERS, ItemTags.TALL_FLOWERS);
