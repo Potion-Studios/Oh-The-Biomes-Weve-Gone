@@ -11,3 +11,4 @@
 - Remove Surface Lava Pools from Forest like biomes
 - Fix ores not genning in Eroded Borealis
 - BoneMealing Tall Alliums Makes Giant Alliums 
+- Increase rate of Pumpkin in Pumpkin Valley
