@@ -395,4 +395,25 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.FIRECRACKER_SHRUB, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.FIRECRACKER_SHRUB2, 1)
                     .build());
+
+    public static final Supplier<AbstractTreeGrower> GIANT_ALLIUM = () -> new BWGTreeGrower(
+            new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
+                    .add(BWGOverworldTreeConfiguredFeatures.GIANT_ALLIUM_1, 1)
+                    .add(BWGOverworldTreeConfiguredFeatures.GIANT_ALLIUM_2, 1)
+                    .add(BWGOverworldTreeConfiguredFeatures.GIANT_ALLIUM_3, 1)
+                    .build());
+
+    public static final Supplier<AbstractTreeGrower> GIANT_PINK_ALLIUM = () -> new BWGTreeGrower(
+            new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
+                    .add(BWGOverworldTreeConfiguredFeatures.GIANT_PINK_ALLIUM_1, 1)
+                    .add(BWGOverworldTreeConfiguredFeatures.GIANT_PINK_ALLIUM_2, 1)
+                    .add(BWGOverworldTreeConfiguredFeatures.GIANT_PINK_ALLIUM_3, 1)
+                    .build());
+
+    public static final Supplier<AbstractTreeGrower> GIANT_WHITE_ALLIUM = () -> new BWGTreeGrower(
+            new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
+                    .add(BWGOverworldTreeConfiguredFeatures.GIANT_WHITE_ALLIUM_1, 1)
+                    .add(BWGOverworldTreeConfiguredFeatures.GIANT_WHITE_ALLIUM_2, 1)
+                    .add(BWGOverworldTreeConfiguredFeatures.GIANT_WHITE_ALLIUM_3, 1)
+                    .build());
 }
