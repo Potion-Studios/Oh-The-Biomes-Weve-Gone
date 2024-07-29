@@ -122,7 +122,7 @@ class BWGOverworldBiomes {
     }
 
     protected static Biome aspenBoreal(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
-        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
+        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
         BiomeDefaultFeatures.addDefaultGrass(generationSettings);
@@ -243,7 +243,7 @@ class BWGOverworldBiomes {
     }
 
     protected static Biome blackForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
-        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
+        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
 
         BiomeDefaultFeatures.addMossyStoneBlock(generationSettings);
         BiomeDefaultFeatures.addFerns(generationSettings);
@@ -340,7 +340,7 @@ class BWGOverworldBiomes {
     }
 
     protected static Biome sakuraGrove(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
-        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
+        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
@@ -371,7 +371,7 @@ class BWGOverworldBiomes {
     }
 
     protected static Biome cikaWoods(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
-        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
+        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
 
         BiomeDefaultFeatures.addDefaultGrass(generationSettings);
         BiomeDefaultFeatures.addForestGrass(generationSettings);
@@ -401,7 +401,7 @@ class BWGOverworldBiomes {
     }
 
     protected static Biome coniferousForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean snowy) {
-        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
+        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
 
         BiomeDefaultFeatures.addMossyStoneBlock(generationSettings);
         BiomeDefaultFeatures.addFerns(generationSettings);
@@ -622,7 +622,7 @@ class BWGOverworldBiomes {
     }
 
     protected static Biome ebonyWoods(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
-        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
+        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
         BWGOverworldDefaultFeatures.addHugeMushrooms(generationSettings);
 
         BiomeDefaultFeatures.addDefaultGrass(generationSettings);
@@ -717,7 +717,7 @@ class BWGOverworldBiomes {
     }
 
     protected static Biome temperateGrove(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
-        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
+        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
 
         BiomeDefaultFeatures.addPlainGrass(generationSettings);
         addVegetal(generationSettings, VegetationPlacements.PATCH_SUNFLOWER);
@@ -878,7 +878,6 @@ class BWGOverworldBiomes {
     }
 
     protected static Biome deadSea(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
-        MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
 
         addRawGeneration(generationSettings, BWGPlacedFeatures.DRIPSTONE_ROUNDED_ROCK);
@@ -886,8 +885,8 @@ class BWGOverworldBiomes {
         addVegetal(generationSettings, AquaticPlacements.SEAGRASS_NORMAL);
         BiomeDefaultFeatures.addDripstone(generationSettings);
 
-//        BYGDefaultBiomeFeatures.addDeadSeaSpires(generationSettings);
 
+        MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         addSpawn(spawnSettings, EntityType.BAT, 10, 8, 8);
         BiomeDefaultFeatures.monsters(spawnSettings, 95, 5, 100, true);
 
@@ -922,8 +921,7 @@ class BWGOverworldBiomes {
     }
 
     protected static Biome orchard(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
-        MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
+        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
 
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
@@ -939,6 +937,7 @@ class BWGOverworldBiomes {
 //        BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
 
+        MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.plainsSpawns(spawnSettings);
 
         float temperature = 0.8F;
@@ -979,7 +978,7 @@ class BWGOverworldBiomes {
     }
 
     protected static Biome overgrowthWoodlands(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
-        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
+        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
         BiomeDefaultFeatures.addFerns(generationSettings);
@@ -1018,7 +1017,6 @@ class BWGOverworldBiomes {
     protected static Biome redRockValley(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         BiomeDefaultFeatures.addFossilDecoration(generationSettings);
-//        generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.RED_ROCK_SPIKES);
         addDefaultOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
@@ -1048,7 +1046,7 @@ class BWGOverworldBiomes {
     }
 
     protected static Biome redwoodThicket(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
-        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
+        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
 
         addRawGeneration(generationSettings, BWGPlacedFeatures.BOULDER);
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
@@ -1269,16 +1267,8 @@ class BWGOverworldBiomes {
         return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.1F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10855786).foliageColorOverride(10855786).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
-    //TODO: Configure properties
     protected static Biome erodedBorealis(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
-
-        BiomeDefaultFeatures.addDefaultCarversAndLakes(generationSettings);
-        BiomeDefaultFeatures.addDefaultCrystalFormations(generationSettings);
-        BiomeDefaultFeatures.addDefaultMonsterRoom(generationSettings);
-        BiomeDefaultFeatures.addDefaultUndergroundVariety(generationSettings);
-        BiomeDefaultFeatures.addDefaultSprings(generationSettings);
-        generationSettings.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, MiscOverworldPlacements.FREEZE_TOP_LAYER);
+        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
 
         addRawGeneration(generationSettings, BWGPlacedFeatures.BOREALIS_ICE_SHARPENED_SPIKE);
         BiomeDefaultFeatures.addFerns(generationSettings);
@@ -1472,7 +1462,7 @@ class BWGOverworldBiomes {
     }
 
     protected static Biome weepingWitchForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
-        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
+        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
         BWGOverworldDefaultFeatures.addHugeMushrooms(generationSettings);
 
         BiomeDefaultFeatures.addForestGrass(generationSettings);
@@ -1504,7 +1494,7 @@ class BWGOverworldBiomes {
     }
 
     protected static Biome forgottenForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
-        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
+        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
         BWGOverworldDefaultFeatures.addHugeMushrooms(generationSettings);
 
         BiomeDefaultFeatures.addJungleGrass(generationSettings);
@@ -1537,7 +1527,7 @@ class BWGOverworldBiomes {
     }
 
     protected static Biome zelkovaForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
-        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
+        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
 
         BiomeDefaultFeatures.addFerns(generationSettings);
 

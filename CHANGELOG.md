@@ -8,3 +8,5 @@
 - Fix incompatibility with William Wythers' Overhauled Overworld
 - Add BWG Logs to Logs That Burn Tag
 - Fix a bunch of incorrect rendertypes around Plant like blocks
+- Remove Surface Lava Pools from Forest like biomes
+- Fix ores not genning in Eroded Borealis
