@@ -1,6 +1,6 @@
 {
   "ambientocclusion": false,
-  "render_type": "minecraft:cutout_mipped",
+  "render_type": "minecraft:cutout",
   "textures": {
     "particle": "biomeswevegone:block/water_silk",
     "texture": "biomeswevegone:block/water_silk"

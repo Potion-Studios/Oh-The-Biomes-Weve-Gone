@@ -1,5 +1,5 @@
 {
-    "render_type": "minecraft:cutout_mipped",
+    "render_type": "minecraft:cutout",
     "textures": {
         "cattail_bottom": "biomeswevegone:block/cattail_bottom",
         "particle": "biomeswevegone:block/cattail_bottom"

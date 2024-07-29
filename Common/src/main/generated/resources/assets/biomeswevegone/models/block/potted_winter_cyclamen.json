@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/flower_pot_cross",
-  "render_type": "minecraft:cutout_mipped",
+  "render_type": "minecraft:cutout",
   "textures": {
     "plant": "biomeswevegone:block/winter_cyclamen"
   }

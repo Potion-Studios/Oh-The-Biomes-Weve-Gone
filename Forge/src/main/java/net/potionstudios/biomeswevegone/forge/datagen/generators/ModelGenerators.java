@@ -178,7 +178,7 @@ public class ModelGenerators {
                     defaultModelFile(block);
                     simpleBlockItemExistingModel(block);
                 } else if (block instanceof BWGPlacementBushBlock || block instanceof MushroomBlock || block instanceof AloeVeraBlock || block instanceof ShrubBlock)
-                    createCrossBlock(block, "cutout_mipped");
+                    createCrossBlock(block, "cutout");
                 else if (block instanceof WaterlilyBlock || block instanceof DirtPathBlock)
                     rotatableBlock(block);
                 else if (block instanceof GlassBlock)
@@ -196,7 +196,7 @@ public class ModelGenerators {
                 } else if (block instanceof FlowerPotBlock) {
                     if (((FlowerPotBlock) block).getContent() == BWGBlocks.WHITE_PUFFBALL.getBlock())
                         simpleBlock(block, models().getExistingFile(blockBWGTexture(BWGBlocks.WHITE_PUFFBALL.getPottedBlock())));
-                    else simpleBlock(block, models().withExistingParent(name(block), mcLoc("block/flower_pot_cross")).texture("plant", blockBWGTexture(((FlowerPotBlock) block).getContent())).renderType("cutout_mipped"));
+                    else simpleBlock(block, models().withExistingParent(name(block), mcLoc("block/flower_pot_cross")).texture("plant", blockBWGTexture(((FlowerPotBlock) block).getContent())).renderType("cutout"));
                 } else if (block instanceof HugeMushroomBlock)
                     itemModels().withExistingParent(name(block), blockBWGTexture(block, "inventory"));
                 else if (block instanceof PinkPetalsBlock) {
@@ -502,7 +502,7 @@ public class ModelGenerators {
         private void registerSapling(PottedBlock sapling, ResourceLocation texture) {
             simpleBlock(sapling.getBlock(), models().cross(name(sapling.getBlock()), texture).renderType("cutout"));
             simpleItemBlockTexture(sapling.getBlock(), texture);
-            simpleBlock(sapling.getPottedBlock(), models().withExistingParent(name(sapling.getPottedBlock()), mcLoc("block/flower_pot_cross")).texture("plant", texture).renderType("cutout_mipped"));
+            simpleBlock(sapling.getPottedBlock(), models().withExistingParent(name(sapling.getPottedBlock()), mcLoc("block/flower_pot_cross")).texture("plant", texture).renderType("cutout"));
         }
 
         private void log(BWGWoodSet set) {

@@ -1,6 +1,6 @@
 {
 	"credit": "Made with Blockbench",
-  	"render_type": "minecraft:cutout_mipped",
+  	"render_type": "minecraft:cutout",
 	"textures": {
 		"0": "minecraft:block/cactus_bottom",
 		"1": "minecraft:block/cactus_side",

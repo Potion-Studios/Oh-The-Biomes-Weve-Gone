@@ -1,7 +1,7 @@
 {
 	"credit": "Made with Blockbench",
 	"ambientocclusion": false,
-  	"render_type": "minecraft:cutout_mipped",
+  	"render_type": "minecraft:cutout",
 	"textures": {
 		"1": "biomeswevegone:block/flower_patch_stem",
 		"2": "biomeswevegone:block/clover_patch_overlay",

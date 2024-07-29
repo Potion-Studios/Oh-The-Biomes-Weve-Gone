@@ -6,3 +6,5 @@
 - Fix Crashing when going near fruit blocks on Fabric
 - Fix Podzol Floors in Cakes under Sakura Grove
 - Fix incompatibility with William Wythers' Overhauled Overworld
+- Add BWG Logs to Logs That Burn Tag
+- Fix a bunch of incorrect rendertypes around Plant like blocks

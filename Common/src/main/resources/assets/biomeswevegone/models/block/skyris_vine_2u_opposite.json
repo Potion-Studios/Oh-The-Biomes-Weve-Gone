@@ -1,5 +1,5 @@
 {
-  "render_type": "minecraft:cutout_mipped",
+  "render_type": "minecraft:cutout",
   "ambientocclusion": false,
   "textures": {
     "particle": "biomeswevegone:block/skyris_vine_flowering",

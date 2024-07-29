@@ -1,5 +1,5 @@
 {
-    "render_type": "minecraft:cutout_mipped",
+    "render_type": "minecraft:cutout",
     "textures": {
         "cattail_sprout_base": "biomeswevegone:block/cattail_sprout",
         "cattail_sprout_roots": "biomeswevegone:block/cattail_sprout_roots",
