@@ -13,7 +13,6 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.RegistrationHandler;
 import net.potionstudios.biomeswevegone.RegistrationHandlerA;
 import net.potionstudios.biomeswevegone.client.BWGSounds;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
@@ -82,7 +81,6 @@ public class BWGItems {
     private static Supplier<SpawnEggItem> registerSpawnEgg(String id, Supplier<EntityType<? extends Mob>> entity, int backgroundColor, int highlightColor) {
         Supplier<SpawnEggItem> supplier = RegistrationHandlerA.REGISTRATION.createSpawnEgg(entity, backgroundColor, highlightColor);
         supplier = registerItem(id, supplier);
-        ITEMS.add(supplier);
         SIMPLE_ITEMS.add(supplier);
         return supplier;
     }
@@ -90,7 +88,6 @@ public class BWGItems {
     private static Supplier<MobBucketItem> registerMobBucket(String id, Supplier<EntityType<? extends Mob>> entity, Supplier<Fluid> fluid, Supplier<SoundEvent> sound) {
         Supplier<MobBucketItem> supplier = RegistrationHandlerA.REGISTRATION.createMobBucket(entity, fluid, sound);
         supplier = registerItem(id, supplier);
-        ITEMS.add(supplier);
         SIMPLE_ITEMS.add(supplier);
         return supplier;
     }
