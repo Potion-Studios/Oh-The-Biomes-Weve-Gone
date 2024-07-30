@@ -30,7 +30,6 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
-import net.minecraft.world.level.material.Fluid;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
 import org.jetbrains.annotations.NotNull;
@@ -87,18 +86,8 @@ public class RegistrationHandlerImpl {
         return () -> blockEntity;
     }
 
-    public static <I extends Item> Supplier<I> registerItem(String id, Supplier<I> item) {
-        I item1 = Registry.register(BuiltInRegistries.ITEM, BiomesWeveGone.id(id), item.get());
-        return () -> item1;
-    }
-
     public static Supplier<SpawnEggItem> createSpawnEgg(String id, Supplier<EntityType<? extends Mob>> entity, int backgroundColor, int highlightColor) {
         SpawnEggItem item1 = Registry.register(BuiltInRegistries.ITEM, BiomesWeveGone.id(id), new SpawnEggItem(entity.get(), backgroundColor, highlightColor, new Item.Properties()));
-        return () -> item1;
-    }
-
-    public static Supplier<MobBucketItem> createMobBucket(String id, Supplier<EntityType<? extends Mob>> entity, Supplier<Fluid> fluid, Supplier<SoundEvent> sound) {
-        MobBucketItem item1 = Registry.register(BuiltInRegistries.ITEM, BiomesWeveGone.id(id), new MobBucketItem(entity.get(), fluid.get(), sound.get(), new Item.Properties().stacksTo(1)));
         return () -> item1;
     }
 
@@ -135,11 +124,6 @@ public class RegistrationHandlerImpl {
         return () -> treeDecoratorType;
     }
 
-    public static Supplier<SoundEvent> registerSoundEvent(String id, Supplier<SoundEvent> soundEvent) {
-        SoundEvent soundEvent1 = Registry.register(BuiltInRegistries.SOUND_EVENT, BiomesWeveGone.id(id), soundEvent.get());
-        return () -> soundEvent1;
-    }
-
     public static Supplier<Holder.Reference<SoundEvent>> registerSoundEventHolder(String name) {
         Holder.Reference<SoundEvent> event = Registry.registerForHolder(BuiltInRegistries.SOUND_EVENT, BiomesWeveGone.id(name), SoundEvent.createVariableRangeEvent(BiomesWeveGone.id(name)));
         return () -> event;
@@ -149,7 +133,4 @@ public class RegistrationHandlerImpl {
         return () -> new BWGFarmLandBlock(dirt);
     }
 
-	public static Supplier<RecordItem> createRecordItem(int comparatorValue, Supplier<SoundEvent> sound, int lengthInSeconds) {
-	    return () -> new RecordItem(comparatorValue, sound.get(), new Item.Properties().stacksTo(1).rarity(Rarity.RARE), lengthInSeconds);
-    }
 }

@@ -87,7 +87,8 @@ public class BWGItems {
     }
 
     private static Supplier<MobBucketItem> registerMobBucket(String id, Supplier<EntityType<? extends Mob>> entity, Supplier<Fluid> fluid, Supplier<SoundEvent> sound) {
-        Supplier<MobBucketItem> supplier = RegistrationHandler.createMobBucket(id, entity, fluid, sound);
+        Supplier<MobBucketItem> supplier = RegistrationHandlerA.REGISTRATION.createMobBucket(entity, fluid, sound);
+        supplier = registerItem(id, supplier);
         ITEMS.add(supplier);
         SIMPLE_ITEMS.add(supplier);
         return supplier;

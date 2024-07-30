@@ -5,9 +5,13 @@ import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.MobBucketItem;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.RecordItem;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
@@ -21,6 +25,11 @@ public class ForgeRegistrationHandler implements RegistrationHandlerA {
 	@Override
 	public String getPlatformName() {
 		return "Forge";
+	}
+
+	@Override
+	public Supplier<MobBucketItem> createMobBucket(Supplier<EntityType<? extends Mob>> entity, Supplier<Fluid> fluid, Supplier<SoundEvent> sound) {
+		return () -> new MobBucketItem(entity, fluid, sound, new Item.Properties().stacksTo(1));
 	}
 
 	@Override

@@ -29,7 +29,6 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -102,10 +101,6 @@ public class RegistrationHandlerImpl {
         return registerItem(id, () -> new ForgeSpawnEggItem(entity, backgroundColor, highlightColor, new Item.Properties()));
     }
 
-    public static Supplier<MobBucketItem> createMobBucket(String id, Supplier<EntityType<? extends Mob>> entity, Supplier<Fluid> fluid, Supplier<SoundEvent> sound) {
-        return registerItem(id, () -> new MobBucketItem(entity, fluid, sound, new Item.Properties().stacksTo(1)));
-    }
-
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BiomesWeveGone.MOD_ID);
 
     public static Supplier<FlowerPotBlock> createPottedBlock(Supplier<? extends Block> block) {
@@ -172,9 +167,5 @@ public class RegistrationHandlerImpl {
 
     public static Supplier<BWGFarmLandBlock> bwgFarmLandBlock(Supplier<Block> dirt) {
         return () -> new BWGFarmLandBlock(dirt);
-    }
-
-	public static Supplier<RecordItem> createRecordItem(int comparatorValue, Supplier<SoundEvent> sound, int lengthInSeconds) {
-	    return () -> new RecordItem(comparatorValue, sound, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), lengthInSeconds * 20);
     }
 }

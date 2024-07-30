@@ -23,7 +23,6 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
-import net.minecraft.world.level.material.Fluid;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
 import org.jetbrains.annotations.NotNull;
 
@@ -119,20 +118,6 @@ public class RegistrationHandler {
     }
 
     /**
-     * Creates a mob bucket with the specified parameters
-     * @see MobBucketItem
-     * @param id The id/name of the mob bucket
-     * @param entity The entity to be spawned from the mob bucket
-     * @param fluid The fluid to be stored in the mob bucket
-     * @param sound The sound to be played when the mob bucket is used
-     * @return Supplier of the MobBucketItem
-     */
-    @ExpectPlatform
-    public static Supplier<MobBucketItem> createMobBucket(String id, Supplier<EntityType<? extends Mob>> entity, Supplier<Fluid> fluid, Supplier<SoundEvent> sound) {
-        throw new AssertionError("Failed to register Biomes We've Gone Mob Buckets");
-    }
-
-    /**
      * Registers a potted block with the specified block
      * @see FlowerPotBlock
      * @param block The block to be potted
@@ -199,15 +184,9 @@ public class RegistrationHandler {
         throw new AssertionError("Failed to register Biomes We've Gone Tree Decorator");
     }
 
-
     @ExpectPlatform
     public static Supplier<Holder.Reference<SoundEvent>> registerSoundEventHolder(String name) {
         throw new AssertionError("Failed to register Biomes We've Gone Sound");
-    }
-
-    @ExpectPlatform
-    public static Supplier<RecordItem> createRecordItem(int comparatorValue, Supplier<SoundEvent> sound, int lengthInSeconds) {
-        throw new AssertionError("Failed to register Biomes We've Gone Record Item");
     }
 
     @ExpectPlatform
