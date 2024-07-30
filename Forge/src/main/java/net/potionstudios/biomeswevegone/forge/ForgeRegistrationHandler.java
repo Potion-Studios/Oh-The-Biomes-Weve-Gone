@@ -143,7 +143,7 @@ public class ForgeRegistrationHandler implements RegistrationHandlerA {
 	public static void register(IEventBus bus) {
 		ENTITY_TYPES.register(bus);
 		PARTICLES.register(bus);
-		CACHED.values().forEach(bus::register);
+		CACHED.values().forEach(deferredRegister -> deferredRegister.register(bus));
 		BLOCK_ENTITIES.register(bus);
 	}
 }
