@@ -6,9 +6,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.datafix.fixes.References;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -41,15 +38,6 @@ import java.util.function.Supplier;
  * @see ForgeRegistries
  */
 public class RegistrationHandlerImpl {
-    private static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, BiomesWeveGone.MOD_ID);
-
-    public static <E extends Entity> Supplier<EntityType<E>> createEntity(String id, EntityType.EntityFactory<E> factory, MobCategory category, float width, float height) {
-        return ENTITY_TYPES.register(id, () -> EntityType.Builder.of(factory, category).sized(width, height).build(BiomesWeveGone.id(id).toString()));
-    }
-
-    public static <E extends Entity> Supplier<EntityType<E>> createEntity(String id, EntityType.EntityFactory<E> factory, MobCategory category, float width, float height, int trackingRange) {
-        return ENTITY_TYPES.register(id, () -> EntityType.Builder.of(factory, category).sized(width, height).clientTrackingRange(trackingRange).build(BiomesWeveGone.id(id).toString()));
-    }
 
 	private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, BiomesWeveGone.MOD_ID);
 
@@ -104,7 +92,6 @@ public class RegistrationHandlerImpl {
     }
 
     public static void init(IEventBus bus) {
-        ENTITY_TYPES.register(bus);
         BLOCK_ENTITIES.register(bus);
         BLOCKS.register(bus);
         MATERIAL_RULES.register(bus);

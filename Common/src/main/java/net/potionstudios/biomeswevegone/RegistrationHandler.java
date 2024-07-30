@@ -4,9 +4,6 @@ import com.mojang.serialization.Codec;
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -30,36 +27,6 @@ import java.util.function.Supplier;
  * @see ExpectPlatform
  */
 public class RegistrationHandler {
-
-    /**
-     * Registers an entity with the specified parameters
-     * @see EntityType
-     * @param id The id/name of the entity
-     * @param factory The factory for the entity
-     * @param category The category of the entity
-     * @param width The width of the entity
-     * @param height The height of the entity
-     * @return Supplier of the EntityType
-     */
-    @ExpectPlatform
-    public static <E extends Entity> Supplier<EntityType<E>> createEntity(String id, EntityType.EntityFactory<E> factory, MobCategory category, float width, float height) {
-        throw new AssertionError("Failed to register Biomes We've Gone Entities");
-    }
-
-    /**
-     * Registers an entity with the specified parameters
-     * @see EntityType
-     * @param id The id/name of the entity
-     * @param factory The factory for the entity
-     * @param category The category of the entity
-     * @param width The width of the entity
-     * @param height The height of the entity
-     * @return Supplier of the EntityType
-     */
-    @ExpectPlatform
-    public static <E extends Entity> Supplier<EntityType<E>> createEntity(String id, EntityType.EntityFactory<E> factory, MobCategory category, float width, float height, int trackingRange) {
-        throw new AssertionError("Failed to register Biomes We've Gone Entities");
-    }
 
     /**
      * Registers a block entity with the specified parameters
