@@ -1,16 +1,12 @@
 package net.potionstudios.biomeswevegone.fabric;
 
 import com.mojang.serialization.Codec;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
-import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.datafix.fixes.References;
@@ -32,7 +28,6 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.function.Supplier;
 
 /**
@@ -43,10 +38,6 @@ import java.util.function.Supplier;
  * @see BuiltInRegistries
  */
 public class RegistrationHandlerImpl {
-    public static Supplier<SimpleParticleType> registerParticle(String id) {
-        SimpleParticleType particleMaker = Registry.register(BuiltInRegistries.PARTICLE_TYPE, BiomesWeveGone.id(id), FabricParticleTypes.simple());
-        return () -> particleMaker;
-    }
 
     public static <E extends Entity> Supplier<EntityType<E>> createEntity(String id, EntityType.EntityFactory<E> factory, MobCategory category, float width, float height) {
         EntityType<E> entity = FabricEntityTypeBuilder.create(category, factory).dimensions(EntityDimensions.scalable(width, height)).build();
@@ -58,23 +49,6 @@ public class RegistrationHandlerImpl {
         EntityType<E> entity = FabricEntityTypeBuilder.create(category, factory).dimensions(EntityDimensions.scalable(width, height)).trackRangeChunks(trackingRange).build();
         Registry.register(BuiltInRegistries.ENTITY_TYPE, BiomesWeveGone.id(id), entity);
         return () -> entity;
-    }
-
-    @SafeVarargs
-    public static Supplier<CreativeModeTab> createCreativeTab(String name, Supplier<ItemStack> icon, ArrayList<Supplier<? extends Item>>... items) {
-        return register(name, FabricItemGroup.builder()
-                .title(Component.translatable("itemGroup." + BiomesWeveGone.MOD_ID + "." + name))
-                .icon(icon)
-                .displayItems((entry, context) -> {
-                    for (ArrayList<Supplier<? extends Item>> item : items)
-                        item.forEach((item1) -> context.accept(item1.get()));
-                })
-                .build());
-    }
-
-    private static Supplier<CreativeModeTab> register(String name, CreativeModeTab tab) {
-        CreativeModeTab tab1 = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, BiomesWeveGone.id(name), tab);
-        return () -> tab1;
     }
 
     public static <T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(String key, Supplier<BlockEntityType.Builder<T>> builder) {

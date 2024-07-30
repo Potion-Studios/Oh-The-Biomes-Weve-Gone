@@ -1,18 +1,17 @@
 package net.potionstudios.biomeswevegone;
 
 import net.minecraft.core.Registry;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.MobBucketItem;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.RecordItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.material.Fluid;
 
+import java.util.ArrayList;
 import java.util.ServiceLoader;
 import java.util.function.Supplier;
 
@@ -37,6 +36,10 @@ public interface RegistrationHandlerA {
 	default Supplier<RecordItem> createRecordItem(int comparatorValue, Supplier<SoundEvent> sound, int lengthInSeconds) {
 		return () -> new RecordItem(comparatorValue, sound.get(), new Item.Properties().stacksTo(1).rarity(Rarity.RARE), lengthInSeconds);
 	}
+
+	Supplier<SimpleParticleType> registerCreateParticle(String name);
+
+	Supplier<CreativeModeTab> createCreativeTab(String name, Supplier<ItemStack> icon, ArrayList<Supplier<? extends Item>>... items);
 
 	private static <T> T load(Class<T> clazz) {
 

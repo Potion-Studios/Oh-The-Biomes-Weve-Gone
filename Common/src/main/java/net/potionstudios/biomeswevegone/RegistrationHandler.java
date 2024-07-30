@@ -3,7 +3,6 @@ package net.potionstudios.biomeswevegone;
 import com.mojang.serialization.Codec;
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.core.Holder;
-import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -25,7 +24,6 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorTy
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.function.Supplier;
 
 /**
@@ -63,31 +61,6 @@ public class RegistrationHandler {
     @ExpectPlatform
     public static <E extends Entity> Supplier<EntityType<E>> createEntity(String id, EntityType.EntityFactory<E> factory, MobCategory category, float width, float height, int trackingRange) {
         throw new AssertionError("Failed to register Biomes We've Gone Entities");
-    }
-
-    /**
-     * Registers a particle with the specified id
-     * @see SimpleParticleType
-     * @param id The id/name of the particle
-     * @return Supplier of the SimpleParticleType
-     */
-    @ExpectPlatform
-    public static Supplier<SimpleParticleType> registerParticle(String id) {
-        throw new AssertionError("Failed to register Biomes We've Gone Particle type");
-    }
-
-    /**
-     * Creates and Registers a creative tab
-     * @see CreativeModeTab
-     * @param name The name of the creative tab
-     * @param icon The icon of the creative tab
-     * @param items The items to be added to the creative tab
-     * @return Supplier of the CreativeModeTab
-     */
-    @SafeVarargs
-    @ExpectPlatform
-    public static Supplier<CreativeModeTab> createCreativeTab(String name, Supplier<ItemStack> icon, ArrayList<Supplier<? extends Item>>... items) {
-        throw new AssertionError("Failed to make Creative Tab");
     }
 
     /**
