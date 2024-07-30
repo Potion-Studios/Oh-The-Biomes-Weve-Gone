@@ -1,6 +1,10 @@
 package net.potionstudios.biomeswevegone;
 
 import net.minecraft.core.Registry;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.RecordItem;
 
 import java.util.ServiceLoader;
 import java.util.function.Supplier;
@@ -14,6 +18,10 @@ public interface RegistrationHandlerA {
 	 * @return The name of the current platform.
 	 */
 	String getPlatformName();
+
+	default Supplier<RecordItem> createRecordItem(int comparatorValue, Supplier<SoundEvent> sound, int lengthInSeconds) {
+		return () -> new RecordItem(comparatorValue, sound.get(), new Item.Properties().stacksTo(1).rarity(Rarity.RARE), lengthInSeconds);
+	}
 
 	private static <T> T load(Class<T> clazz) {
 
