@@ -1,5 +1,6 @@
 # 1.0.2-Beta
 - Fix Golden Apple from Green Apple Recipe overriding Vanilla Recipe
+- Fix Jacaranda Bushes Missing Collision
 
 # 1.0.1-Beta
 - Allow BoneMealing Allium Flower Bushes into Tall Alliums
