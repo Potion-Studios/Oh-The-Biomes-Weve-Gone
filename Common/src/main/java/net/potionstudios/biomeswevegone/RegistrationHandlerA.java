@@ -1,8 +1,8 @@
 package net.potionstudios.biomeswevegone;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -89,4 +89,6 @@ public interface RegistrationHandlerA {
 	}
 
 	<T> Supplier<T> register(Registry<? super T> registry, String name, Supplier<T> value);
+
+	<T> Supplier<Holder.Reference<T>> registerForHolder(Registry<T> registry, String name, Supplier<T> value);
 }

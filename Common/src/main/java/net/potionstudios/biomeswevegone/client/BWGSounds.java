@@ -31,7 +31,7 @@ public class BWGSounds {
     }
 
     private static Supplier<Holder.Reference<SoundEvent>> registerSoundEventHolder(String id) {
-        return RegistrationHandler.registerSoundEventHolder(id);
+        return RegistrationHandlerA.REGISTRATION.registerForHolder(BuiltInRegistries.SOUND_EVENT, id, () -> SoundEvent.createVariableRangeEvent(BiomesWeveGone.id(id)));
     }
 
     public static void sounds() {

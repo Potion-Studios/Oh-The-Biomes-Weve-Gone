@@ -1,9 +1,7 @@
 package net.potionstudios.biomeswevegone.forge;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicateType;
@@ -35,18 +33,9 @@ public class RegistrationHandlerImpl {
         return BLOCK_PREDICATE_TYPE.register(id, () -> codec::get);
     }
 
-    private static final DeferredRegister<SoundEvent> SOUND_EVENT = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, BiomesWeveGone.MOD_ID);
-
-
-    public static Supplier<Holder.Reference<SoundEvent>> registerSoundEventHolder(String name) {
-        var one = SOUND_EVENT.register(name, () -> SoundEvent.createVariableRangeEvent(BiomesWeveGone.id(name)));
-        return () -> (Holder.Reference<SoundEvent>) one.getHolder().get();
-    }
-
     public static void init(IEventBus bus) {
         MATERIAL_RULES.register(bus);
         BLOCK_PREDICATE_TYPE.register(bus);
-        SOUND_EVENT.register(bus);
     }
 
 }

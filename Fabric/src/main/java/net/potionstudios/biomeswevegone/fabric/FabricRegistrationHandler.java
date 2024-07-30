@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.Util;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -88,5 +89,11 @@ public class FabricRegistrationHandler implements RegistrationHandlerA {
 	public <T> Supplier<T> register(Registry<? super T> registry, String name, Supplier<T> value) {
 		T value1 = Registry.register(registry, BiomesWeveGone.id(name), value.get());
 		return () -> value1;
+	}
+
+	@Override
+	public <T> Supplier<Holder.Reference<T>> registerForHolder(Registry<T> registry, String name, Supplier<T> value) {
+		Holder.Reference<T> reference = Registry.registerForHolder(registry, BiomesWeveGone.id(name), value.get());
+		return () -> reference;
 	}
 }

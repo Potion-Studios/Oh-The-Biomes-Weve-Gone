@@ -2,8 +2,6 @@ package net.potionstudios.biomeswevegone;
 
 import com.mojang.serialization.Codec;
 import dev.architectury.injectables.annotations.ExpectPlatform;
-import net.minecraft.core.Holder;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicateType;
@@ -39,8 +37,4 @@ public class RegistrationHandler {
         throw new AssertionError("Failed to register Biomes We've Gone Block Predicate");
     }
 
-    @ExpectPlatform
-    public static Supplier<Holder.Reference<SoundEvent>> registerSoundEventHolder(String name) {
-        throw new AssertionError("Failed to register Biomes We've Gone Sound");
-    }
 }

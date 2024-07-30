@@ -54,7 +54,7 @@ public class BiomesWeveGoneForge {
             BiomesWeveGone.commonSetup();
             VanillaCompatForge.init();
             BWGTerraBlenderRegion.registerTerrablenderRegions();
-            //RegistrationHandlerImpl.registerPottedPlants();
+            ForgeRegistrationHandler.registerPottedPlants();
             SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BiomesWeveGone.MOD_ID, BWGOverworldSurfaceRules.makeRules());
         });
     }

@@ -1,10 +1,8 @@
 package net.potionstudios.biomeswevegone.fabric;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicateType;
@@ -33,8 +31,4 @@ public class RegistrationHandlerImpl {
     }
 
 
-    public static Supplier<Holder.Reference<SoundEvent>> registerSoundEventHolder(String name) {
-        Holder.Reference<SoundEvent> event = Registry.registerForHolder(BuiltInRegistries.SOUND_EVENT, BiomesWeveGone.id(name), SoundEvent.createVariableRangeEvent(BiomesWeveGone.id(name)));
-        return () -> event;
-    }
 }
