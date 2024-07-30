@@ -1,14 +1,11 @@
 package net.potionstudios.biomeswevegone.fabric;
 
 import com.mojang.serialization.Codec;
-import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.properties.BlockSetType;
-import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicateType;
@@ -18,7 +15,6 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
@@ -30,10 +26,6 @@ import java.util.function.Supplier;
  * @see BuiltInRegistries
  */
 public class RegistrationHandlerImpl {
-
-    public static WoodType createWoodType(String id, @NotNull BlockSetType setType) {
-        return new WoodTypeBuilder().register(BiomesWeveGone.id(id), setType);
-    }
 
     public static Supplier<Codec<? extends SurfaceRules.RuleSource>> registerMaterialRule(String id, Supplier<Codec<? extends SurfaceRules.RuleSource>> codec) {
         Codec<? extends SurfaceRules.RuleSource> codec1 = Registry.register(BuiltInRegistries.MATERIAL_RULE, BiomesWeveGone.id(id), codec.get());

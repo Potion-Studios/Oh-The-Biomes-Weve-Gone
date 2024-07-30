@@ -5,8 +5,6 @@ import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.properties.BlockSetType;
-import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicateType;
@@ -15,7 +13,6 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
@@ -25,18 +22,6 @@ import java.util.function.Supplier;
  * @see ExpectPlatform
  */
 public class RegistrationHandler {
-
-    /**
-     * Registers a wood type with the specified id and block set type
-     * @see WoodType
-     * @param id The id/name of the wood type
-     * @param setType The block set type of the wood type
-     * @return WoodType
-     */
-    @ExpectPlatform
-    public static WoodType createWoodType(String id, @NotNull BlockSetType setType) {
-        throw new AssertionError("Failed to register Biomes We've Gone Wood Types");
-    }
 
     /**
      * Registers a custom rule source with the specified id and codec

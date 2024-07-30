@@ -18,7 +18,7 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.RegistrationHandler;
+import net.potionstudios.biomeswevegone.RegistrationHandlerA;
 import net.potionstudios.biomeswevegone.world.entity.boats.BWGBoatEntity;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.item.boat.BWGBoatItem;
@@ -85,7 +85,7 @@ public class BWGWoodSet {
      * @param glowLeaves
      */
     protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, LogStem logstem, @Nullable Supplier<AbstractTreeGrower> saplingGrower, boolean leaves, boolean boats, boolean glowLeaves) {
-        this.woodType = RegistrationHandler.createWoodType(blockSetType.name(), blockSetType);
+        this.woodType = RegistrationHandlerA.REGISTRATION.createWoodType(blockSetType.name(), blockSetType);
         this.name = blockSetType.name().replace(BiomesWeveGone.MOD_ID + ":", "");
         this.planks = BWGWood.registerBlockItem(name + "_planks", () -> new Block(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD).ignitedByLava()));
         this.slab = BWGWood.registerBlockItem(name + "_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD).ignitedByLava()));

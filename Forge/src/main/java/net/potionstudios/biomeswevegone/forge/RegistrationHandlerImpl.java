@@ -5,10 +5,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraft.world.level.block.state.properties.BlockSetType;
-import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicateType;
@@ -21,9 +17,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.forge.world.level.block.BWGFarmLandBlock;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.Objects;
 import java.util.function.Supplier;
 
 /**
@@ -34,10 +28,6 @@ import java.util.function.Supplier;
  * @see ForgeRegistries
  */
 public class RegistrationHandlerImpl {
-
-    public static WoodType createWoodType(String id, @NotNull BlockSetType setType) {
-        return WoodType.register(new WoodType(BiomesWeveGone.MOD_ID + ":" + id, setType));
-    }
 
     private static final DeferredRegister<Codec<? extends SurfaceRules.RuleSource>> MATERIAL_RULES = DeferredRegister.create(Registries.MATERIAL_RULE, BiomesWeveGone.MOD_ID);
 

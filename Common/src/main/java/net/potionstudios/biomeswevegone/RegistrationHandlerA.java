@@ -14,7 +14,10 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.Fluid;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.ServiceLoader;
@@ -58,6 +61,15 @@ public interface RegistrationHandlerA {
 	default Supplier<RecordItem> createRecordItem(int comparatorValue, Supplier<SoundEvent> sound, int lengthInSeconds) {
 		return () -> new RecordItem(comparatorValue, sound.get(), new Item.Properties().stacksTo(1).rarity(Rarity.RARE), lengthInSeconds);
 	}
+
+	/**
+	 * Registers a wood type with the specified id and block set type
+	 * @see WoodType
+	 * @param id The id/name of the wood type
+	 * @param setType The block set type of the wood type
+	 * @return WoodType
+	 */
+	WoodType createWoodType(String id, @NotNull BlockSetType setType);
 
 	Supplier<SimpleParticleType> registerCreateParticle(String name);
 

@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.fabric;
 
 import com.google.auto.service.AutoService;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.Util;
@@ -20,8 +21,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.RegistrationHandlerA;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.function.Supplier;
@@ -53,6 +57,11 @@ public class FabricRegistrationHandler implements RegistrationHandlerA {
 		BlockEntityType<T> blockEntity = builder.get().build(Util.fetchChoiceType(References.BLOCK_ENTITY, resourceLocation.toString()));
 		Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, resourceLocation, blockEntity);
 		return () -> blockEntity;
+	}
+
+	@Override
+	public WoodType createWoodType(String id, @NotNull BlockSetType setType) {
+		return new WoodTypeBuilder().register(BiomesWeveGone.id(id), setType);
 	}
 
 	@Override
