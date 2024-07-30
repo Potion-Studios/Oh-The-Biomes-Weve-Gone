@@ -6,9 +6,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -73,20 +71,6 @@ public class RegistrationHandler {
     @ExpectPlatform
     public static <T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(String key, Supplier<BlockEntityType.Builder<T>> builder) {
         throw new AssertionError();
-    }
-
-    /**
-     * Creates a spawn egg with the specified parameters
-     * @see SpawnEggItem
-     * @param id The id/name of the spawn egg
-     * @param entity The entity to be spawned from the spawn egg
-     * @param backgroundColor The background color of the spawn egg
-     * @param highlightColor The highlight color of the spawn egg
-     * @return Supplier of the SpawnEggItem
-     */
-    @ExpectPlatform
-    public static Supplier<SpawnEggItem> createSpawnEgg(String id, Supplier<EntityType<? extends Mob>> entity, int backgroundColor, int highlightColor) {
-        throw new AssertionError("Failed to register Biomes We've Gone Spawn Eggs");
     }
 
     /**

@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -32,6 +33,11 @@ public class ForgeRegistrationHandler implements RegistrationHandlerA {
 	@Override
 	public String getPlatformName() {
 		return "Forge";
+	}
+
+	@Override
+	public Supplier<SpawnEggItem> createSpawnEgg(Supplier<EntityType<? extends Mob>> entity, int backgroundColor, int highlightColor) {
+		return () -> new ForgeSpawnEggItem(entity, backgroundColor, highlightColor, new Item.Properties());
 	}
 
 	@Override

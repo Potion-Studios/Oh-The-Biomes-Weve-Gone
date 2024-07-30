@@ -8,9 +8,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.datafix.fixes.References;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -25,7 +23,6 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
-import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -58,16 +55,6 @@ public class RegistrationHandlerImpl {
 
     public static <T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(String key, Supplier<BlockEntityType.Builder<T>> builder) {
         return BLOCK_ENTITIES.register(key, () -> builder.get().build(Util.fetchChoiceType(References.BLOCK_ENTITY, key)));
-    }
-
-    private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, BiomesWeveGone.MOD_ID);
-
-    public static <I extends Item> Supplier<I> registerItem(String id, Supplier<I> item) {
-        return ITEMS.register(id, item);
-    }
-
-    public static Supplier<SpawnEggItem> createSpawnEgg(String id, Supplier<EntityType<? extends Mob>> entity, int backgroundColor, int highlightColor) {
-        return registerItem(id, () -> new ForgeSpawnEggItem(entity, backgroundColor, highlightColor, new Item.Properties()));
     }
 
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BiomesWeveGone.MOD_ID);
@@ -119,7 +106,6 @@ public class RegistrationHandlerImpl {
     public static void init(IEventBus bus) {
         ENTITY_TYPES.register(bus);
         BLOCK_ENTITIES.register(bus);
-        ITEMS.register(bus);
         BLOCKS.register(bus);
         MATERIAL_RULES.register(bus);
         STATE_PROVIDERS.register(bus);

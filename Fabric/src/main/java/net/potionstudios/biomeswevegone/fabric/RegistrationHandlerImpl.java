@@ -11,7 +11,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.datafix.fixes.References;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -58,17 +57,10 @@ public class RegistrationHandlerImpl {
         return () -> blockEntity;
     }
 
-    public static Supplier<SpawnEggItem> createSpawnEgg(String id, Supplier<EntityType<? extends Mob>> entity, int backgroundColor, int highlightColor) {
-        SpawnEggItem item1 = Registry.register(BuiltInRegistries.ITEM, BiomesWeveGone.id(id), new SpawnEggItem(entity.get(), backgroundColor, highlightColor, new Item.Properties()));
-        return () -> item1;
-    }
-
 
     public static WoodType createWoodType(String id, @NotNull BlockSetType setType) {
         return new WoodTypeBuilder().register(BiomesWeveGone.id(id), setType);
     }
-
-
 
     public static Supplier<Codec<? extends SurfaceRules.RuleSource>> registerMaterialRule(String id, Supplier<Codec<? extends SurfaceRules.RuleSource>> codec) {
         Codec<? extends SurfaceRules.RuleSource> codec1 = Registry.register(BuiltInRegistries.MATERIAL_RULE, BiomesWeveGone.id(id), codec.get());

@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -24,6 +25,10 @@ public interface RegistrationHandlerA {
 	 * @return The name of the current platform.
 	 */
 	String getPlatformName();
+
+	default Supplier<SpawnEggItem> createSpawnEgg(Supplier<EntityType<? extends Mob>> entity, int backgroundColor, int highlightColor) {
+		return () -> new SpawnEggItem(entity.get(), backgroundColor, highlightColor, new Item.Properties());
+	}
 
 	default Supplier<FlowerPotBlock> createPottedBlock(Supplier<? extends Block> block) {
 		return () -> new FlowerPotBlock(block.get(), FlowerPotBlock.Properties.copy(Blocks.FLOWER_POT));

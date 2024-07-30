@@ -80,7 +80,8 @@ public class BWGItems {
     public static final Supplier<RecordItem> MUSIC_DISC_PIXIE_CLUB = registerSimpleItemNoLang("music_disc_pixie_club", RegistrationHandlerA.REGISTRATION.createRecordItem(4, BWGSounds.MUSIC_DISC_PIXIE_CLUB, 213));
 
     private static Supplier<SpawnEggItem> registerSpawnEgg(String id, Supplier<EntityType<? extends Mob>> entity, int backgroundColor, int highlightColor) {
-        Supplier<SpawnEggItem> supplier = RegistrationHandler.createSpawnEgg(id, entity, backgroundColor, highlightColor);
+        Supplier<SpawnEggItem> supplier = RegistrationHandlerA.REGISTRATION.createSpawnEgg(entity, backgroundColor, highlightColor);
+        supplier = registerItem(id, supplier);
         ITEMS.add(supplier);
         SIMPLE_ITEMS.add(supplier);
         return supplier;
