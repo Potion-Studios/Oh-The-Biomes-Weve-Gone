@@ -4,15 +4,9 @@ import com.mojang.serialization.Codec;
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicateType;
-import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
-import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
-import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
-import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
 
 import java.util.function.Supplier;
 
@@ -35,17 +29,6 @@ public class RegistrationHandler {
     }
 
     /**
-     * Registers a custom block state provider with the specified id and codec
-     * @param id The id/name of the block state provider
-     * @param codec The codec of the block state provider
-     * @return Supplier of the BlockStateProviderType
-     */
-    @ExpectPlatform
-    public static <P extends BlockStateProvider> Supplier<BlockStateProviderType<P>> registerStateProvider(String id, Supplier<Codec<P>> codec) {
-        throw new AssertionError("Failed to register Biomes We've Gone State Providers");
-    }
-
-    /**
      * Registers a custom block predicate type with the specified id and codec
      * @param id The id/name of the block predicate type
      * @param codec The codec of the block predicate type
@@ -56,24 +39,8 @@ public class RegistrationHandler {
         throw new AssertionError("Failed to register Biomes We've Gone Block Predicate");
     }
 
-    /**
-     * Registers a custom tree decorator type with the specified id and codec
-     * @param id The id/name of the tree decorator type
-     * @param codec The codec of the tree decorator type
-     * @return Supplier of the TreeDecoratorType
-     */
-    @ExpectPlatform
-    public static <P extends TreeDecorator> Supplier<TreeDecoratorType<P>> registerTreeDecoratorType(String id, Supplier<Codec<P>> codec) {
-        throw new AssertionError("Failed to register Biomes We've Gone Tree Decorator");
-    }
-
     @ExpectPlatform
     public static Supplier<Holder.Reference<SoundEvent>> registerSoundEventHolder(String name) {
         throw new AssertionError("Failed to register Biomes We've Gone Sound");
-    }
-
-    @ExpectPlatform
-    public static Supplier<BWGFarmLandBlock> bwgFarmLandBlock(Supplier<Block> dirt) {
-        throw new AssertionError("Failed to register Biomes We've Gone blocks");
     }
 }

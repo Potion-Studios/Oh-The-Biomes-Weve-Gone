@@ -98,11 +98,11 @@ public class BWGWoodSet {
         this.sign = BWGWood.register(name + "_sign", () ->  new BWGStandingSignBlock(BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava(), woodType));
         this.wallSign = BWGWood.register(name + "_wall_sign", () -> new BWGWallSignBlock(BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).dropsLike(sign.get()).ignitedByLava(), woodType));
         this.signItem = BWGItems.register(name + "_sign", () -> new SignItem(new Item.Properties().stacksTo(16), sign.get(), wallSign.get()));
-        BWGWood.WOOD_BLOCK_ITEMS.add(signItem::get);
+        BWGWood.WOOD_BLOCK_ITEMS.add(signItem);
         this.hangingSign = BWGWood.register(name + "_hanging_sign", () -> new BWGCeilingHangingSignBlock(BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava(), woodType));
         this.wallHangingSign = BWGWood.register(name + "_wall_hanging_sign", () -> new BWGWallHangingSignBlock(BlockBehaviour.Properties.of().mapColor(mapColor).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).dropsLike(hangingSign.get()).ignitedByLava(), woodType));
         this.hangingSignItem = BWGItems.register(name + "_hanging_sign", () -> new HangingSignItem(hangingSign.get(), wallHangingSign.get(), new Item.Properties().stacksTo(16)));
-        BWGWood.WOOD_BLOCK_ITEMS.add(hangingSignItem::get);
+        BWGWood.WOOD_BLOCK_ITEMS.add(hangingSignItem);
         this.pressurePlate = BWGWood.registerBlockItem(name + "_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(0.5F).ignitedByLava().pushReaction(PushReaction.DESTROY), woodType.setType()));
         this.trapdoor = BWGWood.registerBlockItem(name + "_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().isValidSpawn(Blocks::never).ignitedByLava(), woodType.setType()));
         this.button = BWGWood.registerBlockItem(name + "_button", () -> Blocks.woodenButton(woodType.setType()));

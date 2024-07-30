@@ -1,9 +1,10 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.feature.treedecorators;
 
 import com.mojang.serialization.Codec;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
-import net.potionstudios.biomeswevegone.RegistrationHandler;
+import net.potionstudios.biomeswevegone.RegistrationHandlerA;
 
 import java.util.function.Supplier;
 
@@ -12,7 +13,7 @@ public class BWGTreeDecorators {
     public static final Supplier<TreeDecoratorType<GlowBerryDecorator>> GLOW_BERRY_DECORATOR = register("glow_berry_decorator", GlowBerryDecorator.CODEC);
 
     private static <P extends TreeDecorator> Supplier<TreeDecoratorType<P>> register(String id, Codec<P> codec) {
-        return RegistrationHandler.registerTreeDecoratorType(id, () -> codec);
+        return RegistrationHandlerA.REGISTRATION.register(BuiltInRegistries.TREE_DECORATOR_TYPE, id, () -> new TreeDecoratorType<>(codec));
     }
 
     public static void init() {

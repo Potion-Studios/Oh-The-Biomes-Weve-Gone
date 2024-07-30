@@ -31,6 +31,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.RegistrationHandlerA;
+import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -84,6 +85,11 @@ public class ForgeRegistrationHandler implements RegistrationHandlerA {
 	}
 
 	@Override
+	public Supplier<BWGFarmLandBlock> bwgFarmLandBlock(Supplier<Block> dirt) {
+		return () -> new net.potionstudios.biomeswevegone.forge.world.level.block.BWGFarmLandBlock(dirt);
+	}
+
+	@Override
 	public WoodType createWoodType(String id, @NotNull BlockSetType setType) {
 		return WoodType.register(new WoodType(BiomesWeveGone.MOD_ID + ":" + id, setType));
 	}
@@ -118,8 +124,8 @@ public class ForgeRegistrationHandler implements RegistrationHandlerA {
 
 	public static void register(IEventBus bus) {
 		ENTITY_TYPES.register(bus);
-		BLOCK_ENTITIES.register(bus);
 		PARTICLES.register(bus);
 		CACHED.values().forEach(bus::register);
+		BLOCK_ENTITIES.register(bus);
 	}
 }

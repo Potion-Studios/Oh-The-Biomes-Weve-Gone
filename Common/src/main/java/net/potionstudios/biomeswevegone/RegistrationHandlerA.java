@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.Fluid;
+import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -60,6 +61,10 @@ public interface RegistrationHandlerA {
 
 	default Supplier<RecordItem> createRecordItem(int comparatorValue, Supplier<SoundEvent> sound, int lengthInSeconds) {
 		return () -> new RecordItem(comparatorValue, sound.get(), new Item.Properties().stacksTo(1).rarity(Rarity.RARE), lengthInSeconds);
+	}
+
+	default Supplier<BWGFarmLandBlock> bwgFarmLandBlock(Supplier<Block> dirt) {
+		return () -> new BWGFarmLandBlock(dirt);
 	}
 
 	/**
