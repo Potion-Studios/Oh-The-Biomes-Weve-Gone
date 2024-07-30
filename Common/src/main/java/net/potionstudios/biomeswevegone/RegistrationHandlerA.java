@@ -12,6 +12,8 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.material.Fluid;
 
 import java.util.ArrayList;
@@ -31,6 +33,15 @@ public interface RegistrationHandlerA {
 	<E extends Entity> Supplier<EntityType<E>> registerEntity(String id, EntityType.EntityFactory<E> factory, MobCategory category, float width, float height);
 
 	<E extends Entity> Supplier<EntityType<E>> registerEntity(String id, EntityType.EntityFactory<E> factory, MobCategory category, float width, float height, int trackingRange);
+
+	/**
+	 * Registers a block entity with the specified parameters
+	 * @see BlockEntityType
+	 * @param key The id/name of the block entity
+	 * @param builder The builder for the block entity
+	 * @return Supplier of the BlockEntityType
+	 */
+	<T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(String key, Supplier<BlockEntityType.Builder<T>> builder);
 
 	default Supplier<SpawnEggItem> createSpawnEgg(Supplier<EntityType<? extends Mob>> entity, int backgroundColor, int highlightColor) {
 		return () -> new SpawnEggItem(entity.get(), backgroundColor, highlightColor, new Item.Properties());
@@ -53,7 +64,6 @@ public interface RegistrationHandlerA {
 	Supplier<CreativeModeTab> createCreativeTab(String name, Supplier<ItemStack> icon, ArrayList<Supplier<? extends Item>>... items);
 
 	private static <T> T load(Class<T> clazz) {
-
 		final T loadedService = ServiceLoader.load(clazz)
 				.findFirst()
 				.orElseThrow(() -> new NullPointerException("Failed to load service for " + clazz.getName()));

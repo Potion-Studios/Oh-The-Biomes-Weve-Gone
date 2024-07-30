@@ -3,7 +3,7 @@ package net.potionstudios.biomeswevegone.world.level.block.entities;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.RegistrationHandler;
+import net.potionstudios.biomeswevegone.RegistrationHandlerA;
 import net.potionstudios.biomeswevegone.world.level.block.entities.sign.BWGHangingSignBlockEntity;
 import net.potionstudios.biomeswevegone.world.level.block.entities.sign.BWGSignBlockEntity;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
@@ -83,7 +83,7 @@ public class BWGBlockEntities {
      */
 
     private static <T extends BlockEntity> Supplier<BlockEntityType<T>> register(String key, Supplier<BlockEntityType.Builder<T>> builder) {
-        return RegistrationHandler.registerBlockEntity(key, builder);
+        return RegistrationHandlerA.REGISTRATION.registerBlockEntity(key, builder);
     }
 
     public static void blockEntities() {

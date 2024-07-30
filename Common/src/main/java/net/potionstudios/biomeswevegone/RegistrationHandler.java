@@ -5,8 +5,6 @@ import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.levelgen.SurfaceRules;
@@ -27,18 +25,6 @@ import java.util.function.Supplier;
  * @see ExpectPlatform
  */
 public class RegistrationHandler {
-
-    /**
-     * Registers a block entity with the specified parameters
-     * @see BlockEntityType
-     * @param key The id/name of the block entity
-     * @param builder The builder for the block entity
-     * @return Supplier of the BlockEntityType
-     */
-    @ExpectPlatform
-    public static <T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(String key, Supplier<BlockEntityType.Builder<T>> builder) {
-        throw new AssertionError();
-    }
 
     /**
      * Registers a wood type with the specified id and block set type

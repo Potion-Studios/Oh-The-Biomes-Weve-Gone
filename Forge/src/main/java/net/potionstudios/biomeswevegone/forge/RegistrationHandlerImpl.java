@@ -1,16 +1,12 @@
 package net.potionstudios.biomeswevegone.forge;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.util.datafix.fixes.References;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.levelgen.SurfaceRules;
@@ -38,12 +34,6 @@ import java.util.function.Supplier;
  * @see ForgeRegistries
  */
 public class RegistrationHandlerImpl {
-
-	private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, BiomesWeveGone.MOD_ID);
-
-    public static <T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(String key, Supplier<BlockEntityType.Builder<T>> builder) {
-        return BLOCK_ENTITIES.register(key, () -> builder.get().build(Util.fetchChoiceType(References.BLOCK_ENTITY, key)));
-    }
 
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BiomesWeveGone.MOD_ID);
 
@@ -92,7 +82,6 @@ public class RegistrationHandlerImpl {
     }
 
     public static void init(IEventBus bus) {
-        BLOCK_ENTITIES.register(bus);
         BLOCKS.register(bus);
         MATERIAL_RULES.register(bus);
         STATE_PROVIDERS.register(bus);

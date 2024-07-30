@@ -2,16 +2,11 @@ package net.potionstudios.biomeswevegone.fabric;
 
 import com.mojang.serialization.Codec;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
-import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.util.datafix.fixes.References;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.levelgen.SurfaceRules;
@@ -35,14 +30,6 @@ import java.util.function.Supplier;
  * @see BuiltInRegistries
  */
 public class RegistrationHandlerImpl {
-
-    public static <T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(String key, Supplier<BlockEntityType.Builder<T>> builder) {
-        ResourceLocation resourceLocation = BiomesWeveGone.id(key);
-        BlockEntityType<T> blockEntity = builder.get().build(Util.fetchChoiceType(References.BLOCK_ENTITY, resourceLocation.toString()));
-        Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, resourceLocation, blockEntity);
-        return () -> blockEntity;
-    }
-
 
     public static WoodType createWoodType(String id, @NotNull BlockSetType setType) {
         return new WoodTypeBuilder().register(BiomesWeveGone.id(id), setType);
