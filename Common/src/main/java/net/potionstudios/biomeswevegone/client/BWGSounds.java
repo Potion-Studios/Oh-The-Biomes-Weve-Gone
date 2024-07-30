@@ -4,7 +4,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvent;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.RegistrationHandler;
 import net.potionstudios.biomeswevegone.RegistrationHandlerA;
 
 import java.util.function.Supplier;
@@ -22,7 +21,7 @@ public class BWGSounds {
 
     public static final Supplier<SoundEvent> MUSIC_DISC_PIXIE_CLUB = RegistrationHandlerA.REGISTRATION.register(BuiltInRegistries.SOUND_EVENT,"music_disc.pixie_club", () -> SoundEvent.createVariableRangeEvent(BiomesWeveGone.id("music_disc.pixie_club")));
 
-    public static final Supplier<Holder.Reference<SoundEvent>> MUSIC_BIOME_CRAG_GARDENS =   registerSoundEventHolder("music.overworld.crag_gardens");
+    public static final Supplier<Holder.Reference<SoundEvent>> MUSIC_BIOME_CRAG_GARDENS = registerSoundEventHolder("music.overworld.crag_gardens");
     public static final Supplier<Holder.Reference<SoundEvent>> MUSIC_BIOME_ERODED_BOREALIS = registerSoundEventHolder("music.overworld.eroded_borealis");
     public static final Supplier<Holder.Reference<SoundEvent>> MUSIC_BIOME_FORGOTTEN_FOREST = registerSoundEventHolder("music.overworld.forgotten_forest");
 

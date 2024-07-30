@@ -2,7 +2,6 @@ package net.potionstudios.biomeswevegone;
 
 import com.mojang.serialization.Codec;
 import dev.architectury.injectables.annotations.ExpectPlatform;
-import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicateType;
 
@@ -14,17 +13,6 @@ import java.util.function.Supplier;
  * @see ExpectPlatform
  */
 public class RegistrationHandler {
-
-    /**
-     * Registers a custom rule source with the specified id and codec
-     * @param id The id/name of the rule source
-     * @param codec The codec of the rule source
-     * @return Supplier of the Codec
-     */
-    @ExpectPlatform
-    public static Supplier<Codec<? extends SurfaceRules.RuleSource>> registerMaterialRule(String id, Supplier<Codec<? extends SurfaceRules.RuleSource>> codec) {
-        throw new AssertionError("Failed to register Biomes We've Gone Material Rule");
-    }
 
     /**
      * Registers a custom block predicate type with the specified id and codec

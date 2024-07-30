@@ -1,9 +1,10 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.surfacerules;
 
 import com.mojang.serialization.Codec;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.levelgen.SurfaceRules;
-import net.potionstudios.biomeswevegone.RegistrationHandler;
+import net.potionstudios.biomeswevegone.RegistrationHandlerA;
 
 import java.util.function.Supplier;
 
@@ -20,6 +21,6 @@ public class BWGRuleSources {
 	}
 
 	private static void register(String id, Supplier<Codec<? extends SurfaceRules.RuleSource>> codec) {
-		RegistrationHandler.registerMaterialRule(id, codec);
+		RegistrationHandlerA.REGISTRATION.register(BuiltInRegistries.MATERIAL_RULE, id, codec);
 	}
 }
