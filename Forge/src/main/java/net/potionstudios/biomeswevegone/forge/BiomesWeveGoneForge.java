@@ -34,6 +34,7 @@ public class BiomesWeveGoneForge {
         IEventBus EVENT_BUS = MinecraftForge.EVENT_BUS;
         BiomesWeveGone.init();
         RegistrationHandlerImpl.init(MOD_BUS);
+        ForgeRegistrationHandler.register(MOD_BUS);
         MOD_BUS.addListener(this::onInitialize);
         MOD_BUS.addListener(this::onPostInitialize);
         EVENT_BUS.addListener(this::onServerStarting);
