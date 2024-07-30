@@ -1,5 +1,5 @@
-# 1.0.0-Beta
-- Initial release
+# 1.0.2-Beta
+- Fix Golden Apple from Green Apple Recipe overriding Vanilla Recipe
 
 # 1.0.1-Beta
 - Allow BoneMealing Allium Flower Bushes into Tall Alliums
@@ -10,5 +10,8 @@
 - Fix a bunch of incorrect rendertypes around Plant like blocks
 - Remove Surface Lava Pools from Forest like biomes
 - Fix ores not genning in Eroded Borealis
-- BoneMealing Tall Alliums Makes Giant Alliums 
+- BoneMealing Tall Alliums Makes Giant Alliums
 - Increase rate of Pumpkin in Pumpkin Valley
+
+# 1.0.0-Beta
+- Initial release

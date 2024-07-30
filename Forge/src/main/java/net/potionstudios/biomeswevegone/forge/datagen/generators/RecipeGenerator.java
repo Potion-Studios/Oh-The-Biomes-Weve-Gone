@@ -258,7 +258,7 @@ public class RecipeGenerator extends RecipeProvider {
                 .pattern("#X#")
                 .pattern("###")
                 .unlockedBy(getHasName(Items.GOLD_INGOT), has(Items.GOLD_INGOT))
-                .save(writer);
+                .save(writer, BiomesWeveGone.id("golden_apple_from_green_apple"));
 
         //stainedGlassPaneFromStainedGlass(writer, BWGBlocks.THERIUM_GLASS_PANE.get(), BWGBlocks.THERIUM_GLASS.get());
         sandToGlass(writer, BWGBlocks.BLACK_SAND_SET, Items.BLACK_STAINED_GLASS);

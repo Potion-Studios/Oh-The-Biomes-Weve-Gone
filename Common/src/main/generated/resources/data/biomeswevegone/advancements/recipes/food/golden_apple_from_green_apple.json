@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:golden_apple"
+        "recipe": "biomeswevegone:golden_apple_from_green_apple"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:golden_apple"
+      "biomeswevegone:golden_apple_from_green_apple"
     ]
   },
   "sends_telemetry_event": false
