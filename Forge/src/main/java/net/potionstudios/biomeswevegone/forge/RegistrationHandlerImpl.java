@@ -35,16 +35,6 @@ import java.util.function.Supplier;
  */
 public class RegistrationHandlerImpl {
 
-    private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BiomesWeveGone.MOD_ID);
-
-    public static void registerPottedPlants() {
-        BLOCKS.getEntries().forEach(entry -> {
-            if (entry.get() instanceof FlowerPotBlock)
-                ((FlowerPotBlock) Blocks.FLOWER_POT)
-                        .addPlant(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(((FlowerPotBlock) entry.get()).getContent())), entry);
-        });
-    }
-
     public static WoodType createWoodType(String id, @NotNull BlockSetType setType) {
         return WoodType.register(new WoodType(BiomesWeveGone.MOD_ID + ":" + id, setType));
     }
@@ -82,7 +72,6 @@ public class RegistrationHandlerImpl {
     }
 
     public static void init(IEventBus bus) {
-        BLOCKS.register(bus);
         MATERIAL_RULES.register(bus);
         STATE_PROVIDERS.register(bus);
         BLOCK_PREDICATE_TYPE.register(bus);
