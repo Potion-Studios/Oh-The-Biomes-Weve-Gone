@@ -17,8 +17,6 @@ import net.minecraft.util.datafix.fixes.References;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
@@ -89,10 +87,6 @@ public class RegistrationHandlerImpl {
     public static Supplier<SpawnEggItem> createSpawnEgg(String id, Supplier<EntityType<? extends Mob>> entity, int backgroundColor, int highlightColor) {
         SpawnEggItem item1 = Registry.register(BuiltInRegistries.ITEM, BiomesWeveGone.id(id), new SpawnEggItem(entity.get(), backgroundColor, highlightColor, new Item.Properties()));
         return () -> item1;
-    }
-
-    public static Supplier<FlowerPotBlock> createPottedBlock(Supplier<? extends Block> block) {
-        return () -> new FlowerPotBlock(block.get(), FlowerPotBlock.Properties.copy(Blocks.FLOWER_POT));
     }
 
 

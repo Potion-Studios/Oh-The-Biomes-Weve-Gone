@@ -11,6 +11,10 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.MobBucketItem;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.RecordItem;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -25,6 +29,11 @@ public class ForgeRegistrationHandler implements RegistrationHandlerA {
 	@Override
 	public String getPlatformName() {
 		return "Forge";
+	}
+
+	@Override
+	public Supplier<FlowerPotBlock> createPottedBlock(Supplier<? extends Block> block) {
+		return () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, block, BlockBehaviour.Properties.copy(Blocks.FLOWER_POT));
 	}
 
 	@Override

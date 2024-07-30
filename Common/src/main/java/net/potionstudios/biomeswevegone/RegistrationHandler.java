@@ -11,7 +11,6 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
@@ -115,17 +114,6 @@ public class RegistrationHandler {
     @ExpectPlatform
     public static Supplier<SpawnEggItem> createSpawnEgg(String id, Supplier<EntityType<? extends Mob>> entity, int backgroundColor, int highlightColor) {
         throw new AssertionError("Failed to register Biomes We've Gone Spawn Eggs");
-    }
-
-    /**
-     * Registers a potted block with the specified block
-     * @see FlowerPotBlock
-     * @param block The block to be potted
-     * @return Supplier of the FlowerPotBlock
-     */
-    @ExpectPlatform
-    public static Supplier<FlowerPotBlock> createPottedBlock(Supplier<? extends Block> block) {
-        throw new AssertionError("Failed to make Potted Block");
     }
 
     /**
