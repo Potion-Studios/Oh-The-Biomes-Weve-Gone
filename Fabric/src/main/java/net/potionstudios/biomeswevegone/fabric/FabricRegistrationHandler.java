@@ -15,7 +15,7 @@ public class FabricRegistrationHandler implements RegistrationHandlerA {
 	}
 
 	@Override
-	public <T> Supplier<T> register(Registry<T> registry, String name, Supplier<T> value) {
+	public <T> Supplier<T> register(Registry<? super T> registry, String name, Supplier<T> value) {
 		T value1 = Registry.register(registry, BiomesWeveGone.id(name), value.get());
 		return () -> value1;
 	}

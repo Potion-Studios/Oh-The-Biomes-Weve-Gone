@@ -15,8 +15,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.datafix.fixes.References;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.village.poi.PoiType;
-import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -28,15 +26,10 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicateType;
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
-import net.minecraft.world.level.levelgen.structure.Structure;
-import net.minecraft.world.level.levelgen.structure.StructureType;
-import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.material.Fluid;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
@@ -109,33 +102,15 @@ public class RegistrationHandlerImpl {
         return () -> item1;
     }
 
-    public static <B extends Block> Supplier<B> registerBlock(String id, Supplier<B> block) {
-        B blockObject = Registry.register(BuiltInRegistries.BLOCK, BiomesWeveGone.id(id), block.get());
-        return () -> blockObject;
-    }
-
     public static Supplier<FlowerPotBlock> createPottedBlock(Supplier<? extends Block> block) {
         return () -> new FlowerPotBlock(block.get(), FlowerPotBlock.Properties.copy(Blocks.FLOWER_POT));
     }
 
-    public static <C extends FeatureConfiguration, F extends Feature<C>> Supplier<F> registerFeature(String id, Supplier<? extends F> feature) {
-        F feature1 = Registry.register(BuiltInRegistries.FEATURE, BiomesWeveGone.id(id), feature.get());
-        return () -> feature1;
-    }
 
     public static WoodType createWoodType(String id, @NotNull BlockSetType setType) {
         return new WoodTypeBuilder().register(BiomesWeveGone.id(id), setType);
     }
 
-    public static <SPT extends StructurePieceType> Supplier<SPT> registerStructurePieceType(String id, Supplier<SPT> structurePieceType) {
-        SPT structurePieceType1 = Registry.register(BuiltInRegistries.STRUCTURE_PIECE, BiomesWeveGone.id(id), structurePieceType.get());
-        return () -> structurePieceType1;
-    }
-
-    public static <S extends Structure, ST extends StructureType<S>> Supplier<ST> registerStructureType(String id, Supplier<ST> structureType) {
-        ST structureType1 = Registry.register(BuiltInRegistries.STRUCTURE_TYPE, BiomesWeveGone.id(id), structureType.get());
-        return () -> structureType1;
-    }
 
 
     public static Supplier<Codec<? extends SurfaceRules.RuleSource>> registerMaterialRule(String id, Supplier<Codec<? extends SurfaceRules.RuleSource>> codec) {
@@ -143,15 +118,6 @@ public class RegistrationHandlerImpl {
         return () -> codec1;
     }
 
-    public static <T extends PoiType> Supplier<T> registerPoiType(String id, Supplier<T> poiType) {
-        T poiType1 = Registry.register(BuiltInRegistries.POINT_OF_INTEREST_TYPE, BiomesWeveGone.id(id), poiType.get());
-        return () -> poiType1;
-    }
-
-    public static <VP extends VillagerProfession> Supplier<VP> registerVillagerProfession(String id, Supplier<VP> villagerProfession) {
-        VP villagerProfession1 = Registry.register(BuiltInRegistries.VILLAGER_PROFESSION, BiomesWeveGone.id(id), villagerProfession.get());
-        return () -> villagerProfession1;
-    }
 
     public static <P extends BlockStateProvider> Supplier<BlockStateProviderType<P>> registerStateProvider(String id, Supplier<Codec<P>> codec) {
         BlockStateProviderType<P> blockStateProvider = Registry.register(BuiltInRegistries.BLOCKSTATE_PROVIDER_TYPE, BiomesWeveGone.id(id), new BlockStateProviderType<>(codec.get()));

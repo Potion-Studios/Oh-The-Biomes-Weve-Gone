@@ -13,8 +13,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.ai.village.poi.PoiType;
-import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -27,15 +25,10 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicateType;
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
-import net.minecraft.world.level.levelgen.structure.Structure;
-import net.minecraft.world.level.levelgen.structure.StructureType;
-import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -115,10 +108,6 @@ public class RegistrationHandlerImpl {
 
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BiomesWeveGone.MOD_ID);
 
-    public static <B extends Block> Supplier<B> registerBlock(String id, Supplier<B> block) {
-        return BLOCKS.register(id, block);
-    }
-
     public static Supplier<FlowerPotBlock> createPottedBlock(Supplier<? extends Block> block) {
         return () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, block, BlockBehaviour.Properties.copy(Blocks.FLOWER_POT));
     }
@@ -131,46 +120,14 @@ public class RegistrationHandlerImpl {
         });
     }
 
-    private static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, BiomesWeveGone.MOD_ID);
-
-    public static <C extends FeatureConfiguration, F extends Feature<C>> Supplier<F> registerFeature(String id, Supplier<? extends F> feature) {
-        return FEATURES.register(id, feature);
-    }
-
     public static WoodType createWoodType(String id, @NotNull BlockSetType setType) {
         return WoodType.register(new WoodType(BiomesWeveGone.MOD_ID + ":" + id, setType));
-    }
-
-    private static final DeferredRegister<StructurePieceType> STRUCTURE_PIECE_TYPE = DeferredRegister.create(Registries.STRUCTURE_PIECE, BiomesWeveGone.MOD_ID);
-
-
-    public static <SPT extends StructurePieceType> Supplier<SPT> registerStructurePieceType(String id, Supplier<SPT> structurePieceType) {
-        return STRUCTURE_PIECE_TYPE.register(id, structurePieceType);
-    }
-
-    private static final DeferredRegister<StructureType<?>> STRUCTURE_TYPE = DeferredRegister.create(Registries.STRUCTURE_TYPE, BiomesWeveGone.MOD_ID);
-
-
-    public static <S extends Structure, ST extends StructureType<S>> Supplier<ST> registerStructureType(String id, Supplier<ST> structureType) {
-        return STRUCTURE_TYPE.register(id, structureType);
     }
 
     private static final DeferredRegister<Codec<? extends SurfaceRules.RuleSource>> MATERIAL_RULES = DeferredRegister.create(Registries.MATERIAL_RULE, BiomesWeveGone.MOD_ID);
 
     public static Supplier<Codec<? extends SurfaceRules.RuleSource>> registerMaterialRule(String id, Supplier<Codec<? extends SurfaceRules.RuleSource>> codec) {
         return MATERIAL_RULES.register(id, codec);
-    }
-
-    private static final DeferredRegister<PoiType> POI_TYPES = DeferredRegister.create(ForgeRegistries.POI_TYPES, BiomesWeveGone.MOD_ID);
-
-    public static <T extends PoiType> Supplier<T> registerPoiType(String id, Supplier<T> poiType) {
-        return POI_TYPES.register(id, poiType);
-    }
-
-    private static final DeferredRegister<VillagerProfession> VILLAGER_PROFESSIONS = DeferredRegister.create(ForgeRegistries.VILLAGER_PROFESSIONS, BiomesWeveGone.MOD_ID);
-
-    public static <VP extends VillagerProfession> Supplier<VP> registerVillagerProfession(String id, Supplier<VP> villagerProfession) {
-        return VILLAGER_PROFESSIONS.register(id, villagerProfession);
     }
 
     private static final DeferredRegister<BlockStateProviderType<?>> STATE_PROVIDERS = DeferredRegister.create(ForgeRegistries.BLOCK_STATE_PROVIDER_TYPES, BiomesWeveGone.MOD_ID);
@@ -193,9 +150,6 @@ public class RegistrationHandlerImpl {
 
     private static final DeferredRegister<SoundEvent> SOUND_EVENT = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, BiomesWeveGone.MOD_ID);
 
-    public static Supplier<SoundEvent> registerSoundEvent(String id, Supplier<SoundEvent> soundEvent) {
-        return SOUND_EVENT.register(id, soundEvent);
-    }
 
     public static Supplier<Holder.Reference<SoundEvent>> registerSoundEventHolder(String name) {
         var one = SOUND_EVENT.register(name, () -> SoundEvent.createVariableRangeEvent(BiomesWeveGone.id(name)));
@@ -209,12 +163,7 @@ public class RegistrationHandlerImpl {
         BLOCK_ENTITIES.register(bus);
         ITEMS.register(bus);
         BLOCKS.register(bus);
-        FEATURES.register(bus);
-        STRUCTURE_PIECE_TYPE.register(bus);
-        STRUCTURE_TYPE.register(bus);
         MATERIAL_RULES.register(bus);
-        POI_TYPES.register(bus);
-        VILLAGER_PROFESSIONS.register(bus);
         STATE_PROVIDERS.register(bus);
         BLOCK_PREDICATE_TYPE.register(bus);
         TREE_DECORATOR_TYPE.register(bus);

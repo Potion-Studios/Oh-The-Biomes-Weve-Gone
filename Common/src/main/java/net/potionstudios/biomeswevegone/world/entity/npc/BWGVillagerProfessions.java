@@ -1,13 +1,14 @@
 package net.potionstudios.biomeswevegone.world.entity.npc;
 
 import com.google.common.collect.ImmutableSet;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.Item;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.RegistrationHandler;
+import net.potionstudios.biomeswevegone.RegistrationHandlerA;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -32,6 +33,6 @@ public class BWGVillagerProfessions {
     }
 
     private static Supplier<VillagerProfession> register(String id, Supplier<VillagerProfession> villagerProfession){
-        return RegistrationHandler.registerVillagerProfession(id, villagerProfession);
+        return RegistrationHandlerA.REGISTRATION.register(BuiltInRegistries.VILLAGER_PROFESSION, id, villagerProfession);
     }
 }

@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.world.level.block;
 
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.BlockItem;
@@ -15,6 +16,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.RegistrationHandler;
+import net.potionstudios.biomeswevegone.RegistrationHandlerA;
 import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
 import net.potionstudios.biomeswevegone.tags.BWGBlockTags;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
@@ -440,7 +442,7 @@ public class BWGBlocks {
     }
 
     public static <B extends Block> Supplier<B> register(String id, Supplier<B> block) {
-        return RegistrationHandler.registerBlock(id, block);
+        return RegistrationHandlerA.REGISTRATION.register(BuiltInRegistries.BLOCK, id, block);
     }
 
     public static void blocks() {

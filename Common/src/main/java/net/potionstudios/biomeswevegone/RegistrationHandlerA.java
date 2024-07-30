@@ -7,13 +7,15 @@ import java.util.function.Supplier;
 
 public interface RegistrationHandlerA {
 
+	RegistrationHandlerA REGISTRATION = load(RegistrationHandlerA.class);
+
 	/**
 	 * Gets the name of the current platform
 	 * @return The name of the current platform.
 	 */
 	String getPlatformName();
 
-	static <T> T load(Class<T> clazz) {
+	private static <T> T load(Class<T> clazz) {
 
 		final T loadedService = ServiceLoader.load(clazz)
 				.findFirst()
@@ -22,6 +24,5 @@ public interface RegistrationHandlerA {
 		return loadedService;
 	}
 
-	<T> Supplier<T> register(Registry<T> registry, String name, Supplier<T> value);
-
+	<T> Supplier<T> register(Registry<? super T> registry, String name, Supplier<T> value);
 }

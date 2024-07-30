@@ -9,8 +9,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.ai.village.poi.PoiType;
-import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -21,15 +19,10 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicateType;
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
-import net.minecraft.world.level.levelgen.structure.Structure;
-import net.minecraft.world.level.levelgen.structure.StructureType;
-import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.material.Fluid;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
 import org.jetbrains.annotations.NotNull;
@@ -112,18 +105,6 @@ public class RegistrationHandler {
     }
 
     /**
-     * Registers an item with the specified id
-     * @see Item
-     * @param id The id/name of the item
-     * @param item The item to be registered
-     * @return Supplier of the Item
-     */
-    @ExpectPlatform
-    public static <I extends Item> Supplier<I> registerItem(String id, Supplier<I> item) {
-        throw new AssertionError("Failed to register Biomes We've Gone Items");
-    }
-
-    /**
      * Creates a spawn egg with the specified parameters
      * @see SpawnEggItem
      * @param id The id/name of the spawn egg
@@ -152,18 +133,6 @@ public class RegistrationHandler {
     }
 
     /**
-     * Registers a block with the specified id
-     * @see Block
-     * @param id The id/name of the block
-     * @param block The block to be registered
-     * @return Supplier of the Block
-     */
-    @ExpectPlatform
-    public static <B extends Block> Supplier<B> registerBlock(String id, Supplier<B> block) {
-        throw new AssertionError("Failed to register Biomes We've Gone blocks");
-    }
-
-    /**
      * Registers a potted block with the specified block
      * @see FlowerPotBlock
      * @param block The block to be potted
@@ -172,18 +141,6 @@ public class RegistrationHandler {
     @ExpectPlatform
     public static Supplier<FlowerPotBlock> createPottedBlock(Supplier<? extends Block> block) {
         throw new AssertionError("Failed to make Potted Block");
-    }
-
-    /**
-     * Registers a feature with the specified id and feature
-     * @see Feature
-     * @param id The id/name of the feature
-     * @param feature The feature to be registered
-     * @return Supplier of the Feature
-     */
-    @ExpectPlatform
-    public static <C extends FeatureConfiguration, F extends Feature<C>> Supplier<F> registerFeature(String id, Supplier<? extends F> feature) {
-        throw new AssertionError("Failed to register Biomes We've Gone Features");
     }
 
     /**
@@ -199,28 +156,6 @@ public class RegistrationHandler {
     }
 
     /**
-     * Registers a custom structure piece type with the specified id and structure piece type
-     * @param id The id/name of the structure piece type
-     * @param structurePieceType The structure piece type to be registered
-     * @return Supplier of the StructurePieceType
-     */
-    @ExpectPlatform
-    public static <SPT extends StructurePieceType> Supplier<SPT> registerStructurePieceType(String id, Supplier<SPT> structurePieceType) {
-        throw new AssertionError("Failed to register Biomes We've Gone Structure Piece Type");
-    }
-
-    /**
-     * Registers a custom structure type with the specified id and structure type
-     * @param id The id/name of the structure type
-     * @param structureType The structure type to be registered
-     * @return Supplier of the StructureType
-     */
-    @ExpectPlatform
-    public static <S extends Structure, ST extends StructureType<S>> Supplier<ST> registerStructureType(String id, Supplier<ST> structureType) {
-        throw new AssertionError("Failed to register Biomes We've Gone Structure Type");
-    }
-
-    /**
      * Registers a custom rule source with the specified id and codec
      * @param id The id/name of the rule source
      * @param codec The codec of the rule source
@@ -229,28 +164,6 @@ public class RegistrationHandler {
     @ExpectPlatform
     public static Supplier<Codec<? extends SurfaceRules.RuleSource>> registerMaterialRule(String id, Supplier<Codec<? extends SurfaceRules.RuleSource>> codec) {
         throw new AssertionError("Failed to register Biomes We've Gone Material Rule");
-    }
-
-    /**
-     * Registers a custom poi type with the specified id and poi type
-     * @param id The id/name of the poi type
-     * @param poiType The poi type to be registered
-     * @return Supplier of the PoiType
-     */
-    @ExpectPlatform
-    public static <T extends PoiType> Supplier<T> registerPoiType(String id, Supplier<T> poiType) {
-        throw new AssertionError("Failed to register Biomes We've Gone Poi Type");
-    }
-
-    /**
-     * Registers a custom villager profession with the specified id and villager profession
-     * @param id The id/name of the villager profession
-     * @param villagerProfession The villager profession to be registered
-     * @return Supplier of the VillagerProfession
-     */
-    @ExpectPlatform
-    public static <VP extends VillagerProfession> Supplier<VP> registerVillagerProfession(String id, Supplier<VP> villagerProfession) {
-        throw new AssertionError("Failed to register Biomes We've Gone Villager Profession");
     }
 
     /**
@@ -286,11 +199,6 @@ public class RegistrationHandler {
         throw new AssertionError("Failed to register Biomes We've Gone Tree Decorator");
     }
 
-
-    @ExpectPlatform
-    public static Supplier<SoundEvent> registerSoundEvent(String id, Supplier<SoundEvent> soundEvent) {
-        throw new AssertionError("Failed to register Biomes We've Gone Sound");
-    }
 
     @ExpectPlatform
     public static Supplier<Holder.Reference<SoundEvent>> registerSoundEventHolder(String name) {

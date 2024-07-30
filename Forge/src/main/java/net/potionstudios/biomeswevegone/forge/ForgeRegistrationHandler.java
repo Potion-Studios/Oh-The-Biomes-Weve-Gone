@@ -22,7 +22,7 @@ public class ForgeRegistrationHandler implements RegistrationHandlerA {
 	public static final Map<ResourceKey<?>, DeferredRegister> CACHED = new Reference2ObjectOpenHashMap<>();
 
 	@Override
-	public <T> Supplier<T> register(Registry<T> registry, String name, Supplier<T> value) {
+	public <T> Supplier<T> register(Registry<? super T> registry, String name, Supplier<T> value) {
 		return CACHED.computeIfAbsent(registry.key(), key -> DeferredRegister.create(registry.key().location(), BiomesWeveGone.MOD_ID)).register(name, value);
 	}
 

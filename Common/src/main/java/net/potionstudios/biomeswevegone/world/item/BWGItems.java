@@ -1,5 +1,6 @@
 package net.potionstudios.biomeswevegone.world.item;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -13,6 +14,7 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.RegistrationHandler;
+import net.potionstudios.biomeswevegone.RegistrationHandlerA;
 import net.potionstudios.biomeswevegone.client.BWGSounds;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.item.custom.CampfireExplodingBlockItem;
@@ -117,7 +119,7 @@ public class BWGItems {
     }
 
     public static <I extends Item> Supplier<I> register(String id, Supplier<I> item) {
-        return RegistrationHandler.registerItem(id, item);
+        return RegistrationHandlerA.REGISTRATION.register(BuiltInRegistries.ITEM, id, item);
     }
 
     public static void items() {
