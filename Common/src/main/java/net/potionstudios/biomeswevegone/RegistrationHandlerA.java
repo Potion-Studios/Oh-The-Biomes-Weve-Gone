@@ -1,5 +1,6 @@
 package net.potionstudios.biomeswevegone;
 
+import com.mojang.serialization.Codec;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.SimpleParticleType;
@@ -16,6 +17,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicateType;
 import net.minecraft.world.level.material.Fluid;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
 import org.jetbrains.annotations.NotNull;
@@ -156,6 +159,8 @@ public interface RegistrationHandlerA {
 		BiomesWeveGone.LOGGER.debug("Loaded {} for service {}", loadedService, clazz);
 		return loadedService;
 	}
+
+	<P extends BlockPredicate> Supplier<BlockPredicateType<P>> registerBlockPredicate(String id, Supplier<Codec<P>> codec);
 
 	<T> Supplier<T> register(Registry<? super T> registry, String name, Supplier<T> value);
 

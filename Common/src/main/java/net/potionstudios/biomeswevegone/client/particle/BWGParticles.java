@@ -1,7 +1,6 @@
 package net.potionstudios.biomeswevegone.client.particle;
 
 import net.minecraft.core.particles.SimpleParticleType;
-import net.potionstudios.biomeswevegone.RegistrationHandler;
 import net.potionstudios.biomeswevegone.RegistrationHandlerA;
 
 import java.util.function.Supplier;
