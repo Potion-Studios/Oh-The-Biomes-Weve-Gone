@@ -37,7 +37,7 @@
                   ]
                 }
               ],
-              "name": "biomeswevegone:brown_zelkova_leaves"
+              "name": "biomeswevegone:brown_zelkova_sapling"
             },
             {
               "type": "minecraft:item",
@@ -53,7 +53,7 @@
                   "enchantment": "minecraft:fortune"
                 }
               ],
-              "name": "biomeswevegone:zelkova_sapling"
+              "name": "biomeswevegone:brown_zelkova_sapling"
             }
           ]
         }
