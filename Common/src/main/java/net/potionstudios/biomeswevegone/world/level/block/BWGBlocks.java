@@ -36,6 +36,7 @@ import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.*;
 import net.potionstudios.biomeswevegone.world.level.block.sand.BWGQuickSand;
 import net.potionstudios.biomeswevegone.world.level.block.sand.BWGSandSet;
 import net.potionstudios.biomeswevegone.world.level.block.set.BWGBlockSet;
+import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.configured.BWGOverworldVegetationConfiguredFeatures;
 
 import java.util.ArrayList;
@@ -446,5 +447,6 @@ public class BWGBlocks {
 
     public static void blocks() {
         BiomesWeveGone.LOGGER.info("Registering Oh The Biomes We've Gone Blocks");
+        BWGWood.wood();
     }
 }
