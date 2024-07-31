@@ -1,6 +1,5 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.biome;
 
-
 import com.google.common.base.Suppliers;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
@@ -18,7 +17,7 @@ import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
-import net.potionstudios.biomeswevegone.platform.ModPlatform;
+import net.potionstudios.biomeswevegone.PlatformHandler;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -29,7 +28,7 @@ import java.util.function.Supplier;
 
 public record BWGWorldGenConfig(Map<ResourceKey<Biome>, Boolean> enabledBiomes, int regionWeight) {
 
-    public static final Path PATH = ModPlatform.INSTANCE.configPath().resolve("world_generation.json5");
+    public static final Path PATH = PlatformHandler.PLATFORM_HANDLER.configPath().resolve("world_generation.json5");
 
     @NotNull
     public static Supplier<BWGWorldGenConfig> INSTANCE = Suppliers.memoize(BWGWorldGenConfig::getOrCreateConfigFromDisk);
@@ -107,6 +106,4 @@ public record BWGWorldGenConfig(Map<ResourceKey<Biome>, Boolean> enabledBiomes, 
             throw new RuntimeException(e);
         }
     }
-
-
 }

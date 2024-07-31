@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
@@ -31,6 +32,7 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
 import org.jetbrains.annotations.NotNull;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.function.Supplier;
 
@@ -39,6 +41,11 @@ public class FabricPlatformHandler implements PlatformHandler {
 	@Override
 	public String getPlatformName() {
 		return "Fabric";
+	}
+
+	@Override
+	public Path configPath() {
+		return FabricLoader.getInstance().getConfigDir().resolve(BiomesWeveGone.MOD_ID);
 	}
 
 	@Override

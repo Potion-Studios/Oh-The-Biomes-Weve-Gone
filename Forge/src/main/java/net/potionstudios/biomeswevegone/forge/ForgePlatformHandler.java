@@ -32,6 +32,7 @@ import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicateType;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -42,6 +43,7 @@ import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBloc
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import org.jetbrains.annotations.NotNull;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
@@ -52,6 +54,11 @@ public class ForgePlatformHandler implements PlatformHandler {
 	@Override
 	public String getPlatformName() {
 		return "Forge";
+	}
+
+	@Override
+	public Path configPath() {
+		return FMLPaths.CONFIGDIR.get().resolve(BiomesWeveGone.MOD_ID);
 	}
 
 	private static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, BiomesWeveGone.MOD_ID);

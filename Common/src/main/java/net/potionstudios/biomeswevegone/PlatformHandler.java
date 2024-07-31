@@ -23,6 +23,7 @@ import net.minecraft.world.level.material.Fluid;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
 import org.jetbrains.annotations.NotNull;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.ServiceLoader;
 import java.util.function.Supplier;
@@ -41,6 +42,12 @@ public interface PlatformHandler {
 	 * @return The name of the current platform.
 	 */
 	String getPlatformName();
+
+	/**
+	 * Gets the path to the config directory
+	 * @return The path to the config directory
+	 */
+	Path configPath();
 
 	/**
 	 * Registers an entity with the specified parameters
