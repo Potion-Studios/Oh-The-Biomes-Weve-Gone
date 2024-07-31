@@ -2,7 +2,6 @@ package net.potionstudios.biomeswevegone.world.level.levelgen.feature;
 
 import com.mojang.serialization.Codec;
 import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
-import corgitaco.corgilib.world.level.RandomTickScheduler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;

@@ -4698,8 +4698,7 @@ public class BWGOverworldTreeConfiguredFeatures {
             }
     );
 
-
-
     public static void init() {
+        BiomesWeveGone.LOGGER.info("Registering Oh The Biomes We've Gone Tree Configured Features");
     }
 }

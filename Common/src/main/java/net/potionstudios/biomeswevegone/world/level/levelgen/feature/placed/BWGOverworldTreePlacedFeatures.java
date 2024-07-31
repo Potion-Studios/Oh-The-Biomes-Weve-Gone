@@ -1,7 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed;
 
 import com.google.common.collect.ImmutableList;
-import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;

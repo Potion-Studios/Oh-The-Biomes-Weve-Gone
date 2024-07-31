@@ -19,8 +19,6 @@ import org.jetbrains.annotations.NotNull;
 import org.joml.Vector2d;
 import org.joml.Vector4d;
 
-import java.util.Random;
-
 public class CragFeature extends Feature<NoneFeatureConfiguration> {
     public CragFeature(Codec<NoneFeatureConfiguration> codec) {
         super(codec);

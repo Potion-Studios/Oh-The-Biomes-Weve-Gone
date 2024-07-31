@@ -22,7 +22,6 @@ import net.potionstudios.biomeswevegone.world.level.levelgen.CheckedBlockPlaceme
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGStructurePieceTypes;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
 import java.util.function.Consumer;
 
 public class ArchPiece extends StructurePiece {

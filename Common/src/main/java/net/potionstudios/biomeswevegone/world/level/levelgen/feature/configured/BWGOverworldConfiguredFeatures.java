@@ -15,6 +15,7 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.levelgen.BWGWorldGenerationUtil;
 import net.potionstudios.biomeswevegone.world.level.levelgen.CheckedBlockPlacement;
@@ -150,5 +151,6 @@ public class BWGOverworldConfiguredFeatures {
     );
 
     public static void init() {
+        BiomesWeveGone.LOGGER.info("Registering Oh The Biomes You'll Go Overworld Configured Features");
     }
 }

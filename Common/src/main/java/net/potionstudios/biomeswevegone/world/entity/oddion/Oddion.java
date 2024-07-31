@@ -1,7 +1,6 @@
 package net.potionstudios.biomeswevegone.world.entity.oddion;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.commands.arguments.EntityAnchorArgument;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;

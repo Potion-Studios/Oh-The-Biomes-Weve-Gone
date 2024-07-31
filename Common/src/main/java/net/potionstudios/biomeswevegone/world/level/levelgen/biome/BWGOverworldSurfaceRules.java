@@ -54,7 +54,7 @@ public class BWGOverworldSurfaceRules {
     private static final SurfaceRules.RuleSource RED_QUICKSAND_SURFACE = makeifTrueRule(SurfaceRules.noiseCondition(Noises.POWDER_SNOW, 0.45, 0.5), makeifTrueRule(WATER_CHECK, SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, makeStateRule(BWGBlocks.RED_QUICKSAND.get())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, makeStateRule(BWGBlocks.RED_QUICKSAND.get())))));
     private static final SurfaceRules.RuleSource ROOTED_DIRT_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.ROOTED_DIRT)), makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.ROOTED_DIRT));
     private static final SurfaceRules.RuleSource GRASS_DIRT_DIRT_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.GRASS_BLOCK)), makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT));
-    public static final SurfaceRules.RuleSource MUD_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.MUD)), makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.MUD));
+    private static final SurfaceRules.RuleSource MUD_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.MUD)), makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.MUD));
     private static final SurfaceRules.RuleSource PACKED_MUD_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.PACKED_MUD)), makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.PACKED_MUD));
     private static final SurfaceRules.RuleSource SAND_SURFACE = SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_CEILING, Blocks.SANDSTONE), makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.SAND)), makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.SAND));
     private static final SurfaceRules.RuleSource SEA_LEVEL_WATER_NOISE = makeifTrueRule(SurfaceRules.ON_FLOOR,
@@ -93,14 +93,12 @@ public class BWGOverworldSurfaceRules {
                     makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.COARSE_DIRT))
     ));
 
-    public static final SurfaceRules.RuleSource BASALT = SurfaceRules.sequence(
+    private static final SurfaceRules.RuleSource BASALT_BARRERA = biomeAbovePreliminarySurface(BWGBiomes.BASALT_BARRERA, SurfaceRules.sequence(
             SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.BASALT.defaultBlockState())),
             SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(Blocks.BASALT.defaultBlockState())),
             SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), SurfaceRules.state(Blocks.BASALT.defaultBlockState())),
             SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), SurfaceRules.state(Blocks.BASALT.defaultBlockState()))
-    );
-
-    private static final SurfaceRules.RuleSource BASALT_BARRERA = biomeAbovePreliminarySurface(BWGBiomes.BASALT_BARRERA, BASALT);
+    ));
 
     private static final SurfaceRules.RuleSource BAYOU = biomeAbovePreliminarySurface(BWGBiomes.BAYOU, SEA_LEVEL_WATER_NOISE);
 
@@ -358,7 +356,7 @@ public class BWGOverworldSurfaceRules {
 //            LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE
 //    ));
 
-    public static final SurfaceRules.RuleSource BLACK_ICE_BANDS = biomeAbovePreliminarySurface(BWGBiomes.SHATTERED_GLACIER, new BandsRuleSource(SimpleWeightedRandomList.<BlockState>builder().add(BWGBlocks.PACKED_BLACK_ICE.get().defaultBlockState(), 3).add(BWGBlocks.BLACK_ICE.get().defaultBlockState(), 1).build(), UniformInt.of(1, 5), UniformInt.of(20, 40), 1, 10));
+    private static final SurfaceRules.RuleSource BLACK_ICE_BANDS = biomeAbovePreliminarySurface(BWGBiomes.SHATTERED_GLACIER, new BandsRuleSource(SimpleWeightedRandomList.<BlockState>builder().add(BWGBlocks.PACKED_BLACK_ICE.get().defaultBlockState(), 3).add(BWGBlocks.BLACK_ICE.get().defaultBlockState(), 1).build(), UniformInt.of(1, 5), UniformInt.of(20, 40), 1, 10));
 //    public static final SurfaceRules.RuleSource BOREALIS_ICE_BANDS = biomeAbovePreliminarySurface(BWGBiomes.ERODED_BOREALIS, new BandsRuleSource(SimpleWeightedRandomList.<BlockState>builder().add(BWGBlocks.PACKED_BOREALIS_ICE.get().defaultBlockState(), 3).add(BWGBlocks.BOREALIS_ICE.get().defaultBlockState(), 1).build(), UniformInt.of(1, 5), UniformInt.of(20, 40), 1, 10));
 
     private static final SurfaceRules.RuleSource WINDSWEPT_DESERT = biomeAbovePreliminarySurface(BWGBiomes.WINDSWEPT_DESERT, makeSandRule(BWGBlocks.WINDSWEPT_SAND_SET));
