@@ -103,6 +103,8 @@ public class TagsGenerator {
                     tag(BlockTags.FLOWER_POTS).add(blocks.get());
                 else if (blocks.get() instanceof SaplingBlock)
                     tag(BlockTags.SAPLINGS).add(blocks.get());
+                else if (blocks.get() instanceof LeavesBlock)
+                    tag(BlockTags.MINEABLE_WITH_HOE).add(blocks.get());
                 else tag(BlockTags.MINEABLE_WITH_AXE).add(blocks.get());
             });
             BWGSandSet.getSandSets().forEach(set -> {
