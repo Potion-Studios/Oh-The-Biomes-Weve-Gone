@@ -22,10 +22,6 @@ public class BWGVillagerProfessions {
             BWGItems.WHITE_PUFFBALL_SPORES.get(), BWGBlocks.WHITE_PUFFBALL.getBlock().asItem()
     )));
 
-    public static void init() {
-        BiomesWeveGone.LOGGER.info("Registering BWG Villager Professions");
-    }
-
     private static VillagerProfession create(String name, ResourceKey<PoiType> poiType, @Nullable SoundEvent soundEvent, ImmutableSet<Item> requestedItems) {
         return new VillagerProfession(name, poiTypeHolder -> poiTypeHolder.is(poiType), (poiTypeHolder) -> poiTypeHolder.is(poiType),
                 requestedItems, ImmutableSet.of(), soundEvent);
@@ -34,5 +30,9 @@ public class BWGVillagerProfessions {
 
     private static Supplier<VillagerProfession> register(String id, Supplier<VillagerProfession> villagerProfession){
         return RegistrationHandlerA.REGISTRATION.register(BuiltInRegistries.VILLAGER_PROFESSION, id, villagerProfession);
+    }
+
+    public static void professions() {
+        BiomesWeveGone.LOGGER.info("Registering Oh The Biomes We've Gone Villager Professions");
     }
 }

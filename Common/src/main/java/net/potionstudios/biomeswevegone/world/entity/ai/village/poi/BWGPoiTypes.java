@@ -15,13 +15,12 @@ public class BWGPoiTypes {
 
     public static final ResourceKey<PoiType> FORAGER = register("forager", () -> new PoiType(PoiTypes.getBlockStates(BWGBlocks.FORAGERS_TABLE.get()), 1, 1));
 
-
-    public static void init() {
-        BiomesWeveGone.LOGGER.info("Registering BWG Poi Types");
-    }
-
     private static ResourceKey<PoiType> register(String id, Supplier<PoiType> poiType){
         RegistrationHandlerA.REGISTRATION.register(BuiltInRegistries.POINT_OF_INTEREST_TYPE, id, poiType);
         return ResourceKey.create(Registries.POINT_OF_INTEREST_TYPE, BiomesWeveGone.id(id));
+    }
+
+    public static void poiTypes() {
+        BiomesWeveGone.LOGGER.info("Registering Oh The Biomes We've Gone Poi Types");
     }
 }

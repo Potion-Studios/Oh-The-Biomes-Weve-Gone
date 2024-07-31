@@ -35,8 +35,8 @@ public class BWGPlacedFeatures {
     public static final ResourceKey<PlacedFeature> SWAMP_GRASS_BLOCK_DELTA = PlacedFeaturesUtil.createPlacedFeature("swamp_grass_block_delta", BWGConfiguredFeatures.SWAMP_GRASS_BLOCK_DELTA, PlacedFeaturesUtil.oceanFloorSquaredWithCount(1, RandomOffsetPlacement.vertical(ConstantInt.of(-1))));
     public static final ResourceKey<PlacedFeature> BOREALIS_ICE_FREEZE_TOP_LAYER = PlacedFeaturesUtil.createPlacedFeature("borealis_ice_freeze_top_layer", BWGOverworldConfiguredFeatures.BOREALIS_ICE_FREEZE_TOP_LAYER,() -> Collections.singletonList(BiomeFilter.biome()));
 
-    public static void init() {
-        BiomesWeveGone.LOGGER.info("Creating and Registering Placed Features");
+    public static void placedFeatures() {
+        BiomesWeveGone.LOGGER.info("Registering Oh The Biomes We've Gone Placed Features");
         BWGOverworldTreePlacedFeatures.init();
         BWGOverworldVegationPlacedFeatures.init();
         BWGVanillaPlacedFeatures.init();

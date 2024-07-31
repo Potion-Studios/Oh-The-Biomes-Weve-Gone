@@ -50,6 +50,6 @@ public class BWGEntities {
 	}
 
 	public static void entities() {
-		BiomesWeveGone.LOGGER.info("Registering Biomes We've Gone Entities");
+		BiomesWeveGone.LOGGER.info("Registering Oh The Biomes We've Gone Entities");
 	}
 }

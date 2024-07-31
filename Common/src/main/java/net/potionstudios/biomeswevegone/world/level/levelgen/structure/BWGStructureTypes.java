@@ -3,6 +3,7 @@ package net.potionstudios.biomeswevegone.world.level.levelgen.structure;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.RegistrationHandlerA;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.arch.ArchStructure;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.canyon.CanyonStructure;
@@ -24,5 +25,7 @@ public class BWGStructureTypes {
         return RegistrationHandlerA.REGISTRATION.register(BuiltInRegistries.STRUCTURE_TYPE, id, structureTypeSupplier);
     }
 
-    public static void init() {}
+    public static void structureTypes() {
+        BiomesWeveGone.LOGGER.info("Registering Oh The Biomes We've Gone Custom Structure Types");
+    }
 }

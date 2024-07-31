@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.RegistrationHandlerA;
 
 import java.util.function.Supplier;
@@ -16,6 +17,7 @@ public class BWGTreeDecorators {
         return RegistrationHandlerA.REGISTRATION.register(BuiltInRegistries.TREE_DECORATOR_TYPE, id, () -> new TreeDecoratorType<>(codec));
     }
 
-    public static void init() {
+    public static void treeDecorators() {
+        BiomesWeveGone.LOGGER.info("Registering Oh The Biomes We've Gone Tree Decorators");
     }
 }

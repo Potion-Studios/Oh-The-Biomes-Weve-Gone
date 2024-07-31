@@ -34,6 +34,6 @@ public class BWGSounds {
     }
 
     public static void sounds() {
-        BiomesWeveGone.LOGGER.info("Registering Biomes We've Gone Sounds");
+        BiomesWeveGone.LOGGER.info("Registering Oh The Biomes We've Gone Sounds");
     }
 }

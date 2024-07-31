@@ -4,6 +4,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.RegistrationHandlerA;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.config.NoiseSphereConfig;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.config.RoundedRockConfig;
@@ -29,6 +30,7 @@ public class BWGFeatures {
         return RegistrationHandlerA.REGISTRATION.register(BuiltInRegistries.FEATURE, id, supplier);
     }
 
-    public static void init() {
+    public static void features() {
+        BiomesWeveGone.LOGGER.info("Registering Oh The Biomes We've Gone Custom Features");
     }
 }

@@ -50,18 +50,18 @@ public class BiomesWeveGone {
         BWGEntities.entities();
         BWGCreativeTabs.tabs();
         BWGSounds.sounds();
-        BWGBlockPredicateTypes.init();
-        BWGStateProviders.init();
-        BWGTreeDecorators.init();
-        BWGFeatures.init();
-        BWGStructurePieceTypes.init();
-        BWGStructureTypes.init();
-        BWGConfiguredFeatures.init();
-        BWGPlacedFeatures.init();
-        BWGRuleSources.init();
-        BWGTemplatePools.init();
-        BWGPoiTypes.init();
-        BWGVillagerProfessions.init();
+        BWGBlockPredicateTypes.blockPredicateTypes();
+        BWGStateProviders.stateProviders();
+        BWGTreeDecorators.treeDecorators();
+        BWGFeatures.features();
+        BWGStructurePieceTypes.structurePieceTypes();
+        BWGStructureTypes.structureTypes();
+        BWGConfiguredFeatures.configuredFeatures();
+        BWGPlacedFeatures.placedFeatures();
+        BWGRuleSources.ruleSources();
+        BWGTemplatePools.templatePools();
+        BWGPoiTypes.poiTypes();
+        BWGVillagerProfessions.professions();
         GeckoLib.initialize();
     }
 
