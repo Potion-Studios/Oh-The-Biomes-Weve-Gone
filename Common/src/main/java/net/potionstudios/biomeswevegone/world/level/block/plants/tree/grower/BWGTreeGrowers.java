@@ -128,7 +128,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.MAPLE_TREE4, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> PALM = () -> new BWGMegaTreeGrower(SimpleWeightedRandomList.empty(),
+    public static final Supplier<AbstractTreeGrower> PALM = () -> new BWGTreeGrower(
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.PALM_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.PALM_TREE2, 1)

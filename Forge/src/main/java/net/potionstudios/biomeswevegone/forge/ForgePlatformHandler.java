@@ -39,6 +39,7 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
+import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -145,6 +146,11 @@ public class ForgePlatformHandler implements PlatformHandler {
 
 	public static void registerPottedPlants() {
 		BWGBlocks.BLOCKS.forEach(entry -> {
+			if (entry.get() instanceof FlowerPotBlock)
+				((FlowerPotBlock) Blocks.FLOWER_POT)
+						.addPlant(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(((FlowerPotBlock) entry.get()).getContent())), entry);
+		});
+		BWGWood.WOOD.forEach(entry -> {
 			if (entry.get() instanceof FlowerPotBlock)
 				((FlowerPotBlock) Blocks.FLOWER_POT)
 						.addPlant(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(((FlowerPotBlock) entry.get()).getContent())), entry);

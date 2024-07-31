@@ -44,7 +44,7 @@ public class BWGWood {
     //public static final BWGWoodSet EMBUR = new BWGWoodSet("embur", MapColor.COLOR_BROWN, false, false);
     //public static final BWGWoodSet ETHER = new BWGWoodSet("ether", MapColor.COLOR_LIGHT_BLUE, true, false);
     public static final BWGWoodSet FIR = new BWGWoodSet("fir", MapColor.TERRACOTTA_WHITE,BWGTreeGrowers.FIR);
-    public static final BWGWoodSet FLORUS = new BWGWoodSet(new BlockSetType("florus"), MapColor.COLOR_GREEN, BWGWoodSet.LogStem.STEM, null, false, true, false);
+    public static final BWGWoodSet FLORUS = new BWGWoodSet(new BlockSetType("florus"), MapColor.COLOR_GREEN, BWGWoodSet.LogStem.STEM, null, false, true, false, null);
     public static final BWGWoodSet GREEN_ENCHANTED = new BWGWoodSet("green_enchanted", MapColor.COLOR_LIGHT_GREEN, BWGTreeGrowers.GREEN_ENCHANTED, true);
     public static final Supplier<ImbuedBlock> IMBUED_GREEN_ENCHANTED_WOOD = registerBlockItem("imbued_green_enchanted_wood", () -> new ImbuedBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN)));
     public static final BWGWoodSet HOLLY = new BWGWoodSet("holly", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.HOLLY);
@@ -54,7 +54,7 @@ public class BWGWood {
     public static final BWGWoodSet MAHOGANY = new BWGWoodSet("mahogany", MapColor.COLOR_PINK, BWGTreeGrowers.MAHOGANY);
     public static final BWGWoodSet MAPLE = new BWGWoodSet("maple", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.MAPLE);
     //public static final BWGWoodSet NIGHTSHADE = new BWGWoodSet("nightshade", MapColor.COLOR_ORANGE, true, false);
-    public static final BWGWoodSet PALM = new BWGWoodSet("palm", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.PALM);
+    public static final BWGWoodSet PALM = new BWGWoodSet("palm", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.PALM, BlockTags.SAND);
     public static final BWGWoodSet PINE = new BWGWoodSet("pine", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.PINE);
     public static final BWGWoodSet RAINBOW_EUCALYPTUS = new BWGWoodSet("rainbow_eucalyptus", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.RAINBOW_EUCALYPTUS);
     public static final BWGWoodSet REDWOOD = new BWGWoodSet("redwood", MapColor.COLOR_RED, BWGTreeGrowers.REDWOOD);
