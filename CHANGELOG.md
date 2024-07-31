@@ -1,6 +1,7 @@
 # 1.0.3-Beta
 - Fix Lush Farmland and grass not having loottables
 - Fix sandy farmland not having a loottable
+- Remove Vanilla Igloos from Shattered Glacier
 
 # 1.0.2-Beta
 - Fix Golden Apple from Green Apple Recipe overriding Vanilla Recipe
