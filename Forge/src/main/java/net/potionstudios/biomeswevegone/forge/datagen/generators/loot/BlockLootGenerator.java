@@ -11,10 +11,10 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
-import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.functions.*;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemConditions;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -112,6 +112,7 @@ class BlockLootGenerator extends BlockLootSubProvider {
         add(BWGBlocks.RIPE_YUCCA_LEAVES.get(), createLeavesDrops(BWGWood.YUCCA_SAPLING.getBlock(), BWGWood.YUCCA_SAPLING.getBlock(), 0.05F));
         add(BWGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.get(), createLeavesDrops(BWGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.get(), BWGWood.WITCH_HAZEL.sapling().getBlock(), 0.05F));
         add(BWGBlocks.FLOWERING_IRONWOOD_LEAVES.get(), createLeavesDrops(BWGBlocks.FLOWERING_IRONWOOD_LEAVES.get(), BWGWood.IRONWOOD.sapling().getBlock(), 0.05F));
+        add(BWGBlocks.FIRECRACKER_LEAVES.get(), createLeavesDrops(BWGBlocks.FIRECRACKER_LEAVES.get(), BWGBlocks.FIRECRACKER_LEAVES.get()));
 
         dropSelf(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get());
         dropSelf(BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get());
@@ -143,7 +144,7 @@ class BlockLootGenerator extends BlockLootSubProvider {
                 add(block, createPetalsDrops(block));
             else if (block instanceof LeavesBlock) {
                 BWGWoodSet.woodsets().forEach(set -> {
-                    if (ForgeRegistries.BLOCKS.getKey(block).getPath().contains(set.name().toLowerCase()))
+                    if (ForgeRegistries.BLOCKS.getKey(block).getPath().contains(set.name().toLowerCase() + "_"))
                         if (set.sapling() != null) add(block, createLeavesDrops(block, set.sapling().getBlock(), 0.05F));
                 });
             } else dropSelf(block);

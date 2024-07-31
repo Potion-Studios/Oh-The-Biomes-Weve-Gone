@@ -1,6 +1,11 @@
 # 1.0.2-Beta
 - Fix Golden Apple from Green Apple Recipe overriding Vanilla Recipe
 - Fix Jacaranda Bushes Missing Collision
+- Move Platform based things to AutoService
+- Fix Wood Leaves being in Axe Mineable instead of Hoe Mineable
+- Fix Fruitblocks not dropping when the leaf above them decays
+- Fix palm saplings requiring 2x2 and dirt and not sand
+- Fix Firecracker Leaves dropping fir saplings
 
 # 1.0.1-Beta
 - Allow BoneMealing Allium Flower Bushes into Tall Alliums
