@@ -3,7 +3,7 @@ package net.potionstudios.biomeswevegone.world.level.levelgen.structure;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.RegistrationHandlerA;
+import net.potionstudios.biomeswevegone.PlatformHandler;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.arch.ArchPiece;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.canyon.CanyonPiece;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.lake.LargeLakePiece;
@@ -21,7 +21,7 @@ public class BWGStructurePieceTypes {
     public static final Supplier<StructurePieceType> ARCH_PIECE = create("arch_piece", () -> ArchPiece::new);
 
     public static Supplier<StructurePieceType> create(String id, Supplier<StructurePieceType> structureTypeSupplier) {
-        return RegistrationHandlerA.REGISTRATION.register(BuiltInRegistries.STRUCTURE_PIECE, id, structureTypeSupplier);
+        return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.STRUCTURE_PIECE, id, structureTypeSupplier);
     }
 
     public static void structurePieceTypes() {

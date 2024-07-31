@@ -28,14 +28,14 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicateType;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.RegistrationHandlerA;
+import net.potionstudios.biomeswevegone.PlatformHandler;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.function.Supplier;
 
-@AutoService(RegistrationHandlerA.class)
-public class FabricRegistrationHandler implements RegistrationHandlerA {
+@AutoService(PlatformHandler.class)
+public class FabricPlatformHandler implements PlatformHandler {
 	@Override
 	public String getPlatformName() {
 		return "Fabric";

@@ -32,9 +32,9 @@ import java.util.function.Supplier;
  * Also handles making custom objects that are needed for each platforms
  * @author Joseph T. McQuigg
  */
-public interface RegistrationHandlerA {
+public interface PlatformHandler {
 
-	RegistrationHandlerA REGISTRATION = load(RegistrationHandlerA.class);
+	PlatformHandler PLATFORM_HANDLER = load(PlatformHandler.class);
 
 	/**
 	 * Gets the name of the current platform

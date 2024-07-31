@@ -36,7 +36,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.RegistrationHandlerA;
+import net.potionstudios.biomeswevegone.PlatformHandler;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
 import org.jetbrains.annotations.NotNull;
@@ -46,8 +46,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.Supplier;
 
-@AutoService(RegistrationHandlerA.class)
-public class ForgeRegistrationHandler implements RegistrationHandlerA {
+@AutoService(PlatformHandler.class)
+public class ForgePlatformHandler implements PlatformHandler {
 	@Override
 	public String getPlatformName() {
 		return "Forge";

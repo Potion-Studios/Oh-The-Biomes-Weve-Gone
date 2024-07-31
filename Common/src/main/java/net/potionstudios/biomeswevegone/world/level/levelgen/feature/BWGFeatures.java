@@ -5,7 +5,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.RegistrationHandlerA;
+import net.potionstudios.biomeswevegone.PlatformHandler;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.config.NoiseSphereConfig;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.config.RoundedRockConfig;
 
@@ -27,7 +27,7 @@ public class BWGFeatures {
 
 
     public static <C extends FeatureConfiguration, F extends Feature<C>> Supplier<F> create(String id, Supplier<F> supplier) {
-        return RegistrationHandlerA.REGISTRATION.register(BuiltInRegistries.FEATURE, id, supplier);
+        return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.FEATURE, id, supplier);
     }
 
     public static void features() {

@@ -13,7 +13,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.RegistrationHandlerA;
+import net.potionstudios.biomeswevegone.PlatformHandler;
 import net.potionstudios.biomeswevegone.client.BWGSounds;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.item.custom.CampfireExplodingBlockItem;
@@ -76,17 +76,17 @@ public class BWGItems {
     public static final Supplier<PlaceOnWaterBlockItem> FLOWERING_TINY_LILY_PADS = registerItemNoLang("flowering_tiny_lily_pads", () -> new PlaceOnWaterBlockItem(BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), new Item.Properties()));
     public static final Supplier<PlaceOnWaterBlockItem> WATER_SILK = registerItemNoLang("water_silk", () -> new PlaceOnWaterBlockItem(BWGBlocks.WATER_SILK.get(), new Item.Properties()));
 
-    public static final Supplier<RecordItem> MUSIC_DISC_PIXIE_CLUB = registerSimpleItemNoLang("music_disc_pixie_club", RegistrationHandlerA.REGISTRATION.createRecordItem(4, BWGSounds.MUSIC_DISC_PIXIE_CLUB, 213));
+    public static final Supplier<RecordItem> MUSIC_DISC_PIXIE_CLUB = registerSimpleItemNoLang("music_disc_pixie_club", PlatformHandler.PLATFORM_HANDLER.createRecordItem(4, BWGSounds.MUSIC_DISC_PIXIE_CLUB, 213));
 
     private static Supplier<SpawnEggItem> registerSpawnEgg(String id, Supplier<EntityType<? extends Mob>> entity, int backgroundColor, int highlightColor) {
-        Supplier<SpawnEggItem> supplier = RegistrationHandlerA.REGISTRATION.createSpawnEgg(entity, backgroundColor, highlightColor);
+        Supplier<SpawnEggItem> supplier = PlatformHandler.PLATFORM_HANDLER.createSpawnEgg(entity, backgroundColor, highlightColor);
         supplier = registerItem(id, supplier);
         SIMPLE_ITEMS.add(supplier);
         return supplier;
     }
 
     private static Supplier<MobBucketItem> registerMobBucket(String id, Supplier<EntityType<? extends Mob>> entity, Supplier<Fluid> fluid, Supplier<SoundEvent> sound) {
-        Supplier<MobBucketItem> supplier = RegistrationHandlerA.REGISTRATION.createMobBucket(entity, fluid, sound);
+        Supplier<MobBucketItem> supplier = PlatformHandler.PLATFORM_HANDLER.createMobBucket(entity, fluid, sound);
         supplier = registerItem(id, supplier);
         SIMPLE_ITEMS.add(supplier);
         return supplier;
@@ -118,7 +118,7 @@ public class BWGItems {
     }
 
     public static <I extends Item> Supplier<I> register(String id, Supplier<I> item) {
-        return RegistrationHandlerA.REGISTRATION.register(BuiltInRegistries.ITEM, id, item);
+        return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.ITEM, id, item);
     }
 
     public static void items() {

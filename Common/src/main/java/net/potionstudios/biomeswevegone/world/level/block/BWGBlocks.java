@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.RegistrationHandlerA;
+import net.potionstudios.biomeswevegone.PlatformHandler;
 import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
 import net.potionstudios.biomeswevegone.tags.BWGBlockTags;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
@@ -61,13 +61,13 @@ public class BWGBlocks {
     public static final Supplier<Block> PEAT = registerBasicBlockWithItem("peat", BlockBehaviour.Properties.copy(Blocks.DIRT));
     public static final Supplier<Block> SANDY_DIRT = registerBasicBlockWithItem("sandy_dirt", BlockBehaviour.Properties.copy(Blocks.DIRT));
     public static final Supplier<DirtPathBlock> SANDY_DIRT_PATH = registerBlockItem("sandy_dirt_path", () -> new BWGDirtPathBlock(SANDY_DIRT));
-    public static final Supplier<BWGFarmLandBlock> SANDY_FARMLAND = registerBlockItem("sandy_farmland", RegistrationHandlerA.REGISTRATION.bwgFarmLandBlock(SANDY_DIRT));
+    public static final Supplier<BWGFarmLandBlock> SANDY_FARMLAND = registerBlockItem("sandy_farmland", PlatformHandler.PLATFORM_HANDLER.bwgFarmLandBlock(SANDY_DIRT));
 
     public static final Supplier<Block> LUSH_DIRT = registerBasicBlockWithItem("lush_dirt", BlockBehaviour.Properties.copy(Blocks.DIRT));
     public static final Supplier<BWGSpreadableBlock> LUSH_GRASS_BLOCK = registerBlockItem("lush_grass_block", () -> new BWGSpreadableBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK), LUSH_DIRT));
     public static final Supplier<DirtPathBlock> LUSH_DIRT_PATH = registerBlockItem("lush_dirt_path", () -> new BWGDirtPathBlock(LUSH_DIRT));
 //    public static final Supplier<Block> ETHER_SOIL = registerBasicBlockWithItem("ether_soil", BlockBehaviour.Properties.copy(Blocks.DIRT));
-    public static final Supplier<BWGFarmLandBlock> LUSH_FARMLAND = registerBlockItem("lush_farmland", RegistrationHandlerA.REGISTRATION.bwgFarmLandBlock(LUSH_DIRT));
+    public static final Supplier<BWGFarmLandBlock> LUSH_FARMLAND = registerBlockItem("lush_farmland", PlatformHandler.PLATFORM_HANDLER.bwgFarmLandBlock(LUSH_DIRT));
 
 
     public static final BWGSandSet BLACK_SAND_SET = new BWGSandSet("black", 5197647);
@@ -442,7 +442,7 @@ public class BWGBlocks {
     }
 
     public static <B extends Block> Supplier<B> register(String id, Supplier<B> block) {
-        return RegistrationHandlerA.REGISTRATION.register(BuiltInRegistries.BLOCK, id, block);
+        return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.BLOCK, id, block);
     }
 
     public static void blocks() {

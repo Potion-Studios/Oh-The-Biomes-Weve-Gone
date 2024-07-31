@@ -5,7 +5,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.RegistrationHandlerA;
+import net.potionstudios.biomeswevegone.PlatformHandler;
 
 import java.util.function.Supplier;
 
@@ -16,7 +16,7 @@ public class BWGRuleSources {
 	}
 
 	private static void register(String id, Supplier<Codec<? extends SurfaceRules.RuleSource>> codec) {
-		RegistrationHandlerA.REGISTRATION.register(BuiltInRegistries.MATERIAL_RULE, id, codec);
+		PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.MATERIAL_RULE, id, codec);
 	}
 
 	public static void ruleSources() {

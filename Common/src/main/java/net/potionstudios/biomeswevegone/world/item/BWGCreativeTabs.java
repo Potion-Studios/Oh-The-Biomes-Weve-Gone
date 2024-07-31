@@ -5,7 +5,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.RegistrationHandlerA;
+import net.potionstudios.biomeswevegone.PlatformHandler;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 
@@ -23,7 +23,7 @@ public class BWGCreativeTabs {
 
     @SafeVarargs
     private static Supplier<CreativeModeTab> createCreativeTab(String name, Supplier<ItemStack> icon, ArrayList<Supplier<? extends Item>>... items) {
-        return RegistrationHandlerA.REGISTRATION.createCreativeTab(name, icon, items);
+        return PlatformHandler.PLATFORM_HANDLER.createCreativeTab(name, icon, items);
     }
 
     public static void tabs() {
