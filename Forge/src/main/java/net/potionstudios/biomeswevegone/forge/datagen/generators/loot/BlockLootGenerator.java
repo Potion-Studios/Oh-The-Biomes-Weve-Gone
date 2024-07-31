@@ -149,7 +149,10 @@ class BlockLootGenerator extends BlockLootSubProvider {
             } else dropSelf(block);
         });
 
+        add(BWGBlocks.LUSH_GRASS_BLOCK.get(), block -> createSingleItemTableWithSilkTouch(block, BWGBlocks.LUSH_DIRT.get()));
+        dropOther(BWGBlocks.LUSH_FARMLAND.get(), BWGBlocks.LUSH_DIRT.get());
         dropOther(BWGBlocks.LUSH_DIRT_PATH.get(), BWGBlocks.LUSH_DIRT.get());
+        dropOther(BWGBlocks.SANDY_FARMLAND.get(), BWGBlocks.SANDY_DIRT.get());
         dropOther(BWGBlocks.SANDY_DIRT_PATH.get(), BWGBlocks.SANDY_DIRT.get());
 
         add(BWGBlocks.DACITE_SET.getBase(), createSingleItemTableWithSilkTouch(BWGBlocks.DACITE_SET.getBase(), BWGBlocks.DACITE_COBBLESTONE_SET.getBase()));

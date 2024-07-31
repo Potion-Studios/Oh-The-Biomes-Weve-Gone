@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "biomeswevegone:lush_farmland"
+          "name": "biomeswevegone:lush_dirt"
         }
       ],
       "rolls": 1.0

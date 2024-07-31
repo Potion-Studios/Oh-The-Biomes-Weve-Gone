@@ -13,8 +13,13 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "items": [
-                      "minecraft:shears"
+                    "enchantments": [
+                      {
+                        "enchantment": "minecraft:silk_touch",
+                        "levels": {
+                          "min": 1
+                        }
+                      }
                     ]
                   }
                 }
@@ -25,24 +30,10 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "chance": 0.125,
-                  "condition": "minecraft:random_chance"
+                  "condition": "minecraft:survives_explosion"
                 }
               ],
-              "functions": [
-                {
-                  "enchantment": "minecraft:fortune",
-                  "formula": "minecraft:uniform_bonus_count",
-                  "function": "minecraft:apply_bonus",
-                  "parameters": {
-                    "bonusMultiplier": 2
-                  }
-                },
-                {
-                  "function": "minecraft:explosion_decay"
-                }
-              ],
-              "name": "minecraft:wheat_seeds"
+              "name": "biomeswevegone:lush_dirt"
             }
           ]
         }
