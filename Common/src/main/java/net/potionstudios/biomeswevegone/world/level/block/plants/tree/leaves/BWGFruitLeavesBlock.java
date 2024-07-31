@@ -25,10 +25,13 @@ public class BWGFruitLeavesBlock extends LeavesBlock implements BonemealableBloc
 
     @Override
     public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
-        super.randomTick(state, level, pos, random);
         BlockPos fruitPos = pos.below();
-
-        if (level.getBlockState(fruitPos).isAir() && random.nextFloat() < this.tickSpawnChance)
+        if (this.decaying(state)) {
+            dropResources(state, level, pos);
+            level.removeBlock(pos, false);
+            if (level.getBlockState(fruitPos).is(fruitBlock.get().getBlock()))
+                level.destroyBlock(fruitPos, true);
+        } else if (level.getBlockState(fruitPos).isAir() && random.nextFloat() < this.tickSpawnChance)
             placeFruit(level, fruitPos);
     }
 
