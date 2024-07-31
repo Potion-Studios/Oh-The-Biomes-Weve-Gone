@@ -88,7 +88,7 @@ public class BWGOverworldSurfaceRules {
             PODZOL_DIRT_SURFACE
     ));
 
-    private static final SurfaceRules.RuleSource BAOBAB_SAVANNA = makeifTrueRule(BWGBiomes.BAOBAB_SAVANNA, SurfaceRules.sequence(
+    private static final SurfaceRules.RuleSource BAOBAB_SAVANNA = biomeAbovePreliminarySurface(BWGBiomes.BAOBAB_SAVANNA, SurfaceRules.sequence(
             makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
                     makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.COARSE_DIRT))
     ));

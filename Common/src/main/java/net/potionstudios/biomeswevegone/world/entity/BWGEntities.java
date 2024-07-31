@@ -4,7 +4,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.RegistrationHandler;
+import net.potionstudios.biomeswevegone.PlatformHandler;
 import net.potionstudios.biomeswevegone.world.entity.boats.BWGBoatEntity;
 import net.potionstudios.biomeswevegone.world.entity.boats.BWGChestBoatEntity;
 import net.potionstudios.biomeswevegone.world.entity.manowar.ManOWar;
@@ -29,11 +29,11 @@ public class BWGEntities {
 	public static final Supplier<EntityType<BWGChestBoatEntity>> BWG_CHEST_BOAT = createEntity("chest_boat", BWGChestBoatEntity::new, MobCategory.MISC, EntityType.CHEST_BOAT.getWidth(), EntityType.CHEST_BOAT.getHeight(), 10);
 
 	private static <E extends Entity> Supplier<EntityType<E>> createEntity(String id, EntityType.EntityFactory<E> factory, MobCategory category, float width, float height) {
-		return RegistrationHandler.createEntity(id, factory, category, width, height);
+		return PlatformHandler.PLATFORM_HANDLER.registerEntity(id, factory, category, width, height);
 	}
 
 	private static <E extends Entity> Supplier<EntityType<E>> createEntity(String id, EntityType.EntityFactory<E> factory, MobCategory category, float width, float height, int trackingRange) {
-		return RegistrationHandler.createEntity(id, factory, category, width, height, trackingRange);
+		return PlatformHandler.PLATFORM_HANDLER.registerEntity(id, factory, category, width, height, trackingRange);
 	}
 
 	public static void registerSpawnPlacements() {
@@ -50,6 +50,6 @@ public class BWGEntities {
 	}
 
 	public static void entities() {
-		BiomesWeveGone.LOGGER.info("Registering Biomes We've Gone Entities");
+		BiomesWeveGone.LOGGER.info("Registering Oh The Biomes We've Gone Entities");
 	}
 }

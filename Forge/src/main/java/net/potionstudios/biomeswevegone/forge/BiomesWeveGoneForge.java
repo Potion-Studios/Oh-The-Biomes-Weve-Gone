@@ -33,7 +33,7 @@ public class BiomesWeveGoneForge {
         IEventBus MOD_BUS = FMLJavaModLoadingContext.get().getModEventBus();
         IEventBus EVENT_BUS = MinecraftForge.EVENT_BUS;
         BiomesWeveGone.init();
-        RegistrationHandlerImpl.init(MOD_BUS);
+        ForgePlatformHandler.register(MOD_BUS);
         MOD_BUS.addListener(this::onInitialize);
         MOD_BUS.addListener(this::onPostInitialize);
         EVENT_BUS.addListener(this::onServerStarting);
@@ -53,7 +53,7 @@ public class BiomesWeveGoneForge {
             BiomesWeveGone.commonSetup();
             VanillaCompatForge.init();
             BWGTerraBlenderRegion.registerTerrablenderRegions();
-            RegistrationHandlerImpl.registerPottedPlants();
+            ForgePlatformHandler.registerPottedPlants();
             SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BiomesWeveGone.MOD_ID, BWGOverworldSurfaceRules.makeRules());
         });
     }

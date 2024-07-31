@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.world.level.block;
 
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.BlockItem;
@@ -14,7 +15,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.RegistrationHandler;
+import net.potionstudios.biomeswevegone.PlatformHandler;
 import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
 import net.potionstudios.biomeswevegone.tags.BWGBlockTags;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
@@ -35,6 +36,7 @@ import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.*;
 import net.potionstudios.biomeswevegone.world.level.block.sand.BWGQuickSand;
 import net.potionstudios.biomeswevegone.world.level.block.sand.BWGSandSet;
 import net.potionstudios.biomeswevegone.world.level.block.set.BWGBlockSet;
+import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.configured.BWGOverworldVegetationConfiguredFeatures;
 
 import java.util.ArrayList;
@@ -59,13 +61,13 @@ public class BWGBlocks {
     public static final Supplier<Block> PEAT = registerBasicBlockWithItem("peat", BlockBehaviour.Properties.copy(Blocks.DIRT));
     public static final Supplier<Block> SANDY_DIRT = registerBasicBlockWithItem("sandy_dirt", BlockBehaviour.Properties.copy(Blocks.DIRT));
     public static final Supplier<DirtPathBlock> SANDY_DIRT_PATH = registerBlockItem("sandy_dirt_path", () -> new BWGDirtPathBlock(SANDY_DIRT));
-    public static final Supplier<BWGFarmLandBlock> SANDY_FARMLAND = registerBlockItem("sandy_farmland", RegistrationHandler.bwgFarmLandBlock(SANDY_DIRT));
+    public static final Supplier<BWGFarmLandBlock> SANDY_FARMLAND = registerBlockItem("sandy_farmland", PlatformHandler.PLATFORM_HANDLER.bwgFarmLandBlock(SANDY_DIRT));
 
     public static final Supplier<Block> LUSH_DIRT = registerBasicBlockWithItem("lush_dirt", BlockBehaviour.Properties.copy(Blocks.DIRT));
     public static final Supplier<BWGSpreadableBlock> LUSH_GRASS_BLOCK = registerBlockItem("lush_grass_block", () -> new BWGSpreadableBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK), LUSH_DIRT));
     public static final Supplier<DirtPathBlock> LUSH_DIRT_PATH = registerBlockItem("lush_dirt_path", () -> new BWGDirtPathBlock(LUSH_DIRT));
 //    public static final Supplier<Block> ETHER_SOIL = registerBasicBlockWithItem("ether_soil", BlockBehaviour.Properties.copy(Blocks.DIRT));
-    public static final Supplier<BWGFarmLandBlock> LUSH_FARMLAND = registerBlockItem("lush_farmland", RegistrationHandler.bwgFarmLandBlock(LUSH_DIRT));
+    public static final Supplier<BWGFarmLandBlock> LUSH_FARMLAND = registerBlockItem("lush_farmland", PlatformHandler.PLATFORM_HANDLER.bwgFarmLandBlock(LUSH_DIRT));
 
 
     public static final BWGSandSet BLACK_SAND_SET = new BWGSandSet("black", 5197647);
@@ -440,10 +442,11 @@ public class BWGBlocks {
     }
 
     public static <B extends Block> Supplier<B> register(String id, Supplier<B> block) {
-        return RegistrationHandler.registerBlock(id, block);
+        return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.BLOCK, id, block);
     }
 
     public static void blocks() {
         BiomesWeveGone.LOGGER.info("Registering Oh The Biomes We've Gone Blocks");
+        BWGWood.wood();
     }
 }

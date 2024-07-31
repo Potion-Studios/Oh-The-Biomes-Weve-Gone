@@ -1,7 +1,7 @@
 package net.potionstudios.biomeswevegone.client.particle;
 
 import net.minecraft.core.particles.SimpleParticleType;
-import net.potionstudios.biomeswevegone.RegistrationHandler;
+import net.potionstudios.biomeswevegone.PlatformHandler;
 
 import java.util.function.Supplier;
 
@@ -19,6 +19,6 @@ public class BWGParticles {
 
 
     private static Supplier<SimpleParticleType> register(String id) {
-        return RegistrationHandler.registerParticle(id);
+        return PlatformHandler.PLATFORM_HANDLER.registerCreateParticle(id);
     }
 }

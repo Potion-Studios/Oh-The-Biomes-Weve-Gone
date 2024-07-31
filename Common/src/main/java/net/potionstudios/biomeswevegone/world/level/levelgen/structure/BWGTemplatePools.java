@@ -72,9 +72,9 @@ public class BWGTemplatePools {
 		return templatePoolResourceKey;
 	}
 
-	public static void init() {
-		BiomesWeveGone.LOGGER.info("Registering BWG Template Pools");
-		BWGVillageTemplatePools.init();
+	public static void templatePools() {
+		BiomesWeveGone.LOGGER.info("Registering Oh The Biomes We've Gone Template Pools");
+		BWGVillageTemplatePools.villageTemplatePools();
 	}
 
 	@FunctionalInterface

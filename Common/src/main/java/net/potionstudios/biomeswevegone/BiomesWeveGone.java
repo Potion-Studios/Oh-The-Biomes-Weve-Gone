@@ -13,7 +13,6 @@ import net.potionstudios.biomeswevegone.world.item.BWGCreativeTabs;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.entities.BWGBlockEntities;
-import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.levelgen.blockpredicates.BWGBlockPredicateTypes;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.BWGFeatures;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.configured.BWGConfiguredFeatures;
@@ -47,23 +46,22 @@ public class BiomesWeveGone {
     public static void init() {
         BWGItems.items();
         BWGBlocks.blocks();
-        BWGBlockPredicateTypes.init();
-        BWGStateProviders.init();
-        BWGTreeDecorators.init();
-        BWGFeatures.init();
-        BWGStructurePieceTypes.init();
-        BWGStructureTypes.init();
-        BWGWood.wood();
+        BWGBlockEntities.blockEntities();
         BWGEntities.entities();
         BWGCreativeTabs.tabs();
-        BWGBlockEntities.blockEntities();
-        BWGConfiguredFeatures.init();
-        BWGPlacedFeatures.init();
-        BWGRuleSources.init();
         BWGSounds.sounds();
-        BWGTemplatePools.init();
-        BWGPoiTypes.init();
-        BWGVillagerProfessions.init();
+        BWGBlockPredicateTypes.blockPredicateTypes();
+        BWGStateProviders.stateProviders();
+        BWGTreeDecorators.treeDecorators();
+        BWGFeatures.features();
+        BWGStructurePieceTypes.structurePieceTypes();
+        BWGStructureTypes.structureTypes();
+        BWGConfiguredFeatures.configuredFeatures();
+        BWGPlacedFeatures.placedFeatures();
+        BWGRuleSources.ruleSources();
+        BWGTemplatePools.templatePools();
+        BWGPoiTypes.poiTypes();
+        BWGVillagerProfessions.professions();
         GeckoLib.initialize();
     }
 

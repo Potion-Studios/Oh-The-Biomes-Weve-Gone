@@ -423,7 +423,7 @@ public class BWGVillageTemplatePools {
         return templatePoolResourceKey;
     }
 
-    public static void init() {
-        BiomesWeveGone.LOGGER.info("Registering BWG Village Template Pools");
+    public static void villageTemplatePools() {
+        BiomesWeveGone.LOGGER.info("Registering Oh The Biome's We've Gone Village Template Pools");
     }
 }

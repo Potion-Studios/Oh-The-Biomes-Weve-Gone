@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.RegistrationHandler;
+import net.potionstudios.biomeswevegone.PlatformHandler;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.plants.PottedBlock;
@@ -100,7 +100,7 @@ public class BWGWood {
 
     protected static PottedBlock createSapling(String key, Supplier<AbstractTreeGrower> grower, TagKey<Block> ground) {
         Supplier<SaplingBlock> sapling = registerBlockItem(key + "_sapling", () -> new BWGSaplingBlock(ground, grower.get()));
-        return new PottedBlock(sapling, register("potted_" + key + "_sapling", RegistrationHandler.createPottedBlock(sapling)));
+        return new PottedBlock(sapling, register("potted_" + key + "_sapling", PlatformHandler.PLATFORM_HANDLER.createPottedBlock(sapling)));
     }
 
     protected static <B extends Block> Supplier<B> registerBlockItem(String key, Supplier<B> blockSupplier) {

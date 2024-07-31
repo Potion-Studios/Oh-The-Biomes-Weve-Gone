@@ -38,8 +38,8 @@ public class BWGConfiguredFeatures {
         return ConfiguredFeaturesUtil.createConfiguredFeature(name, Feature.FOREST_ROCK, () -> new BlockStateConfiguration(block.get().defaultBlockState()));
     }
 
-    public static void init() {
-        BiomesWeveGone.LOGGER.info("Creating and Registering Configured Features");
+    public static void configuredFeatures() {
+        BiomesWeveGone.LOGGER.info("Registering Oh The Biomes We've Gone Configured Features");
         BWGOverworldVegetationConfiguredFeatures.init();
         BWGOverworldTreeConfiguredFeatures.init();
         BWGVanillaConfiguredFeatures.init();

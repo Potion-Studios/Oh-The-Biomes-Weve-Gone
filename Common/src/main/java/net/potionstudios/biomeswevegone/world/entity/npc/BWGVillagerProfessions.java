@@ -1,13 +1,14 @@
 package net.potionstudios.biomeswevegone.world.entity.npc;
 
 import com.google.common.collect.ImmutableSet;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.Item;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.RegistrationHandler;
+import net.potionstudios.biomeswevegone.PlatformHandler;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -21,10 +22,6 @@ public class BWGVillagerProfessions {
             BWGItems.WHITE_PUFFBALL_SPORES.get(), BWGBlocks.WHITE_PUFFBALL.getBlock().asItem()
     )));
 
-    public static void init() {
-        BiomesWeveGone.LOGGER.info("Registering BWG Villager Professions");
-    }
-
     private static VillagerProfession create(String name, ResourceKey<PoiType> poiType, @Nullable SoundEvent soundEvent, ImmutableSet<Item> requestedItems) {
         return new VillagerProfession(name, poiTypeHolder -> poiTypeHolder.is(poiType), (poiTypeHolder) -> poiTypeHolder.is(poiType),
                 requestedItems, ImmutableSet.of(), soundEvent);
@@ -32,6 +29,10 @@ public class BWGVillagerProfessions {
     }
 
     private static Supplier<VillagerProfession> register(String id, Supplier<VillagerProfession> villagerProfession){
-        return RegistrationHandler.registerVillagerProfession(id, villagerProfession);
+        return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.VILLAGER_PROFESSION, id, villagerProfession);
+    }
+
+    public static void professions() {
+        BiomesWeveGone.LOGGER.info("Registering Oh The Biomes We've Gone Villager Professions");
     }
 }
