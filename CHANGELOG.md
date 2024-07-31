@@ -6,6 +6,7 @@
 - Fix Fruitblocks not dropping when the leaf above them decays
 - Fix palm saplings requiring 2x2 and dirt and not sand
 - Fix Firecracker Leaves dropping fir saplings
+- Remove the need for PrairieGrassMixin.java on Forge Side by using BoneMealEvent
 
 # 1.0.1-Beta
 - Allow BoneMealing Allium Flower Bushes into Tall Alliums

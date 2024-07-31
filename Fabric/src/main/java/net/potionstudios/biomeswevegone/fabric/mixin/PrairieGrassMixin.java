@@ -1,4 +1,4 @@
-package net.potionstudios.biomeswevegone.mixin;
+package net.potionstudios.biomeswevegone.fabric.mixin;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;

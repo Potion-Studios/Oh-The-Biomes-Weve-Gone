@@ -8,7 +8,6 @@
   "mixins": [
     "ChunkAccessMixin",
     "ChunkStatusMixin",
-    "PrairieGrassMixin",
     "SurfaceSystemMixin"
   ],
   "injectors": {

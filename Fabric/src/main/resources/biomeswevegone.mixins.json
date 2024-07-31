@@ -6,7 +6,8 @@
   "client": [
   ],
   "mixins": [
-    "CropBlockMixin"
+    "CropBlockMixin",
+    "PrairieGrassMixin"
   ],
   "injectors": {
     "defaultRequire": 1
