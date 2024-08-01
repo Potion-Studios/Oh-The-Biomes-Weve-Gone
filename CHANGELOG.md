@@ -6,6 +6,7 @@
 - Remove Extra ModPlatform Classes, Add getConfigPath to PlatformHandler
 - Custom Mushroom Sizes
 - Add Huge Mushroom growers to mushrooms blocks
+- Add Hanging Sign Recipes
 
 # 1.0.2-Beta
 - Fix Golden Apple from Green Apple Recipe overriding Vanilla Recipe

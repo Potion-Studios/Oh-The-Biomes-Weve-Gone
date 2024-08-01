@@ -49,6 +49,7 @@ public class RecipeGenerator extends RecipeProvider {
                     .group("planks")
                     .unlockedBy(getHasName(set.planks()), has(set.planks()))
                     .save(writer);
+            hangingSign(writer, set.hangingSignItem(), set.strippedLogStem());
             if (set.boatItem() != null)
                 woodenBoat(writer, set.boatItem().get(), set.planks());
             if (set.chestBoatItem() != null)
