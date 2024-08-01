@@ -30,7 +30,7 @@
     "description": {
       "translate": "advancements.biomeswevegone.husbandry.hot_diggity_not_dog.description"
     },
-    "frame": "challenge",
+    "frame": "task",
     "hidden": false,
     "icon": {
       "item": "biomeswevegone:cattail_sprout"

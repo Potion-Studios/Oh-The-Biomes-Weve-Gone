@@ -19,7 +19,7 @@
     "description": {
       "translate": "advancements.biomeswevegone.husbandry.forager.description"
     },
-    "frame": "challenge",
+    "frame": "task",
     "hidden": false,
     "icon": {
       "item": "biomeswevegone:white_puffball_cap"

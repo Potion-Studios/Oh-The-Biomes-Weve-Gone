@@ -840,7 +840,7 @@
     "description": {
       "translate": "advancements.biomeswevegone.adventure.root.description"
     },
-    "frame": "challenge",
+    "frame": "task",
     "hidden": false,
     "icon": {
       "item": "biomeswevegone:bwg_logo"

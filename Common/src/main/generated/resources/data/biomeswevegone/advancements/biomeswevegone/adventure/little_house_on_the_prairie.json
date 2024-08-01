@@ -40,7 +40,7 @@
     "description": {
       "translate": "advancements.biomeswevegone.adventure.little_house_on_the_prairie.description"
     },
-    "frame": "challenge",
+    "frame": "task",
     "hidden": false,
     "icon": {
       "item": "biomeswevegone:prairie_grass"

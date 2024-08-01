@@ -19,7 +19,7 @@
     "description": {
       "translate": "advancements.biomeswevegone.husbandry.berrily_alive.description"
     },
-    "frame": "challenge",
+    "frame": "task",
     "hidden": false,
     "icon": {
       "item": "biomeswevegone:blueberries"

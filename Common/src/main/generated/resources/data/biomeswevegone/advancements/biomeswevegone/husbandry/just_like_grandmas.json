@@ -31,7 +31,7 @@
     "description": {
       "translate": "advancements.biomeswevegone.husbandry.just_like_grandmas.description"
     },
-    "frame": "challenge",
+    "frame": "goal",
     "hidden": false,
     "icon": {
       "item": "biomeswevegone:green_apple_pie"

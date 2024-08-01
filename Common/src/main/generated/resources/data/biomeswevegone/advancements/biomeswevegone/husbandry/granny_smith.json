@@ -19,7 +19,7 @@
     "description": {
       "translate": "advancements.biomeswevegone.husbandry.granny_smith.description"
     },
-    "frame": "challenge",
+    "frame": "task",
     "hidden": false,
     "icon": {
       "item": "biomeswevegone:green_apple"

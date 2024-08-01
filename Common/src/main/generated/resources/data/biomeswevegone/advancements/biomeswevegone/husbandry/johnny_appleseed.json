@@ -43,7 +43,7 @@
     "description": {
       "translate": "advancements.biomeswevegone.husbandry.johnny_appleseed.description"
     },
-    "frame": "challenge",
+    "frame": "task",
     "hidden": false,
     "icon": {
       "item": "minecraft:golden_apple"

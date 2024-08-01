@@ -45,7 +45,7 @@ public class AdvancementGenerator implements ForgeAdvancementProvider.Advancemen
                             translateAble("adventure.root.title"),
                             translateAble("adventure.root.description"),
                             BiomesWeveGone.id("textures/block/lush_dirt.png"),
-                            FrameType.CHALLENGE, false, false, false
+                            FrameType.TASK, false, false, false
                     ).save(consumer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/adventure/root"), existingFileHelper);
 
         VanillaAdventureAdvancements.addBiomes(Advancement.Builder.advancement(), BWGBiomes.BIOME_FACTORIES.keySet().stream().sorted().toList())
@@ -70,10 +70,8 @@ public class AdvancementGenerator implements ForgeAdvancementProvider.Advancemen
                         translateAble("adventure.inside_quicksand.title"),
                         translateAble("adventure.inside_quicksand.description"),
                         BiomesWeveGone.id("textures/block/lush_dirt.png"),
-                        FrameType.CHALLENGE,
-                        true,
-                        true,
-                        false
+                        FrameType.TASK,
+                        true, true, false
                 )
                 .save(consumer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/adventure/inside_quicksand"), existingFileHelper);
 
@@ -87,7 +85,7 @@ public class AdvancementGenerator implements ForgeAdvancementProvider.Advancemen
                         translateAble("adventure.little_house_on_the_prairie.title"),
                         translateAble("adventure.little_house_on_the_prairie.description"),
                         BiomesWeveGone.id("textures/block/lush_dirt.png"),
-                        FrameType.CHALLENGE, true, true, false
+                        FrameType.TASK, true, true, false
                 )
                 .save(consumer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/adventure/little_house_on_the_prairie"), existingFileHelper);
 
@@ -109,7 +107,7 @@ public class AdvancementGenerator implements ForgeAdvancementProvider.Advancemen
                         BWGItems.GREEN_APPLE.get(),
                         translateAble("husbandry.granny_smith.title"),
                         translateAble("husbandry.granny_smith.description"),
-                        null, FrameType.CHALLENGE, true, true, false)
+                        null, FrameType.TASK, true, true, false)
                 .save(consumer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/husbandry/granny_smith"), existingFileHelper);
 
         Advancement.Builder.advancement()
@@ -119,7 +117,7 @@ public class AdvancementGenerator implements ForgeAdvancementProvider.Advancemen
                         BWGItems.WHITE_PUFFBALL_CAP.get(),
                         translateAble("husbandry.forager.title"),
                         translateAble("husbandry.forager.description"),
-                        null, FrameType.CHALLENGE, true, true, false)
+                        null, FrameType.TASK, true, true, false)
                 .save(consumer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/husbandry/forager"), existingFileHelper);
 
         Advancement.Builder.advancement()
@@ -129,7 +127,7 @@ public class AdvancementGenerator implements ForgeAdvancementProvider.Advancemen
                         BWGItems.BLUEBERRIES.get(),
                         translateAble("husbandry.berrily_alive.title"),
                         translateAble("husbandry.berrily_alive.description"),
-                        null, FrameType.CHALLENGE, true, true, false)
+                        null, FrameType.TASK, true, true, false)
                 .save(consumer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/husbandry/berrily_alive"), existingFileHelper);
 
         Advancement.Builder.advancement()
@@ -143,7 +141,7 @@ public class AdvancementGenerator implements ForgeAdvancementProvider.Advancemen
                         BWGItems.GREEN_APPLE_PIE.get(),
                         translateAble("husbandry.just_like_grandmas.title"),
                         translateAble("husbandry.just_like_grandmas.description"),
-                        null, FrameType.CHALLENGE, true, true, false)
+                        null, FrameType.GOAL, true, true, false)
                 .save(consumer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/husbandry/just_like_grandmas"), existingFileHelper);
 
         Advancement.Builder.advancement()
@@ -156,7 +154,7 @@ public class AdvancementGenerator implements ForgeAdvancementProvider.Advancemen
                         Items.GOLDEN_APPLE,
                         translateAble("husbandry.johnny_appleseed.title"),
                         translateAble("husbandry.johnny_appleseed.description"),
-                        null, FrameType.CHALLENGE, true, true, false)
+                        null, FrameType.TASK, true, true, false)
                 .save(consumer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/husbandry/johnny_appleseed"), existingFileHelper);
 
         Advancement.Builder.advancement()
@@ -166,7 +164,7 @@ public class AdvancementGenerator implements ForgeAdvancementProvider.Advancemen
                         BWGItems.CATTAIL_SPROUT.get(),
                         translateAble("husbandry.hot_diggity_not_dog.title"),
                         translateAble("husbandry.hot_diggity_not_dog.description"),
-                        null, FrameType.CHALLENGE, true, true, false)
+                        null, FrameType.TASK, true, true, false)
                 .save(consumer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/husbandry/hot_diggity_not_dog"), existingFileHelper);
     }
 

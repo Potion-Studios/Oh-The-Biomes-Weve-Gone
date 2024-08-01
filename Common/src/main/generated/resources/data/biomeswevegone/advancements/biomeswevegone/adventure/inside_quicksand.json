@@ -20,7 +20,7 @@
     "description": {
       "translate": "advancements.biomeswevegone.adventure.inside_quicksand.description"
     },
-    "frame": "challenge",
+    "frame": "task",
     "hidden": false,
     "icon": {
       "item": "biomeswevegone:quicksand"
