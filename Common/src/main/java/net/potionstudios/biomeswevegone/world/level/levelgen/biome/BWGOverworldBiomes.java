@@ -104,8 +104,8 @@ class BWGOverworldBiomes {
 
     protected static Biome araucariaSavanna(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
-        BiomeDefaultFeatures.addDefaultGrass(generationSettings);
         BiomeDefaultFeatures.addSavannaTrees(generationSettings);
+        BiomeDefaultFeatures.addDefaultGrass(generationSettings);
         BiomeDefaultFeatures.addWarmFlowers(generationSettings);
         BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
