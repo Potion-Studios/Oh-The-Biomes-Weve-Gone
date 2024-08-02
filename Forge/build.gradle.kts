@@ -34,7 +34,6 @@ loom {
         mixinConfig("biomeswevegone.mixins.json")
     }
 
-    // Forge Datagen Gradle config.  Remove if not using Forge datagen
     runs.create("datagen") {
         data()
         programArgs("--all", "--mod", "biomeswevegone")
@@ -120,7 +119,7 @@ publisher {
     githubRepo.set("https://github.com/Potion-Studios/Oh-The-Biomes-Weve-Gone")
     setReleaseType(ReleaseType.BETA)
     projectVersion.set(project.version.toString() + "-Forge")
-    displayName.set("$jarName-${projectVersion.get()}")
+    displayName.set("$jarName-${project.version}")
     changelog.set(projectDir.toPath().parent.resolve("CHANGELOG.md").toFile().readText())
     artifact.set(tasks.remapJar)
     setGameVersions(minecraftVersion)

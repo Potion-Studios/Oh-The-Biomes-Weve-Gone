@@ -100,7 +100,7 @@ publisher {
     githubRepo.set("https://github.com/Potion-Studios/Oh-The-Biomes-Weve-Gone")
     setReleaseType(ReleaseType.BETA)
     projectVersion.set(project.version.toString() + "-Fabric")
-    displayName.set("$jarName-${projectVersion.get()}")
+    displayName.set("$jarName-${project.version}")
     changelog.set(projectDir.toPath().parent.resolve("CHANGELOG.md").toFile().readText())
     artifact.set(tasks.remapJar)
     setGameVersions(minecraftVersion)
@@ -111,7 +111,7 @@ publisher {
     val softDepends = mutableListOf("wthit")
     curseDepends.required.set(depends)
     curseDepends.optional.set(softDepends)
-    modrinthDepends.required.set(depends)
+    modrinthDepends.required.set(mutableListOf("fabric-api", "terrablender", "geckolib", "corgilib", "oh-the-trees-youll-grow"))
     modrinthDepends.optional.set(softDepends)
 }
 
