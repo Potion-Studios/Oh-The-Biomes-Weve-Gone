@@ -99,7 +99,7 @@ publisher {
     modrinthID.set("NTi7d3Xc")
     githubRepo.set("https://github.com/Potion-Studios/Oh-The-Biomes-Weve-Gone")
     setReleaseType(ReleaseType.BETA)
-    projectVersion.set(project.version.toString())
+    projectVersion.set(project.version.toString() + "-Fabric")
     displayName.set("$jarName-${projectVersion.get()}")
     changelog.set(projectDir.toPath().parent.resolve("CHANGELOG.md").toFile().readText())
     artifact.set(tasks.remapJar)
