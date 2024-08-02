@@ -1,3 +1,7 @@
+# 1.0.4-Beta
+- Use Chunk Seeded Random for Crag Gardens Extensions
+- Fix Palo Verde Logs and Wood not having drops
+
 # 1.0.3-Beta
 - Fix Lush Farmland and grass not having loottables
 - Fix sandy farmland not having a loottable

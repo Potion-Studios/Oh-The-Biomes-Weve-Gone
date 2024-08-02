@@ -83,6 +83,10 @@ class BlockLootGenerator extends BlockLootSubProvider {
 
         dropSelf(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get());
         dropSelf(BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get());
+        dropSelf(BWGWood.PALO_VERDE_LOG.get());
+        dropSelf(BWGWood.PALO_VERDE_WOOD.get());
+        dropSelf(BWGWood.STRIPPED_PALO_VERDE_LOG.get());
+        dropSelf(BWGWood.STRIPPED_PALO_VERDE_WOOD.get());
 
         BWGBlocks.BLOCKS.forEach(entry -> {
             Block block = entry.get();
