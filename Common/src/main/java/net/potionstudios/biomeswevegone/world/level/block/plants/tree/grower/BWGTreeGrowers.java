@@ -307,7 +307,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.SPRUCE_ORANGE_TREE_LARGE1, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> ORCHARD = () -> new BWGMegaTreeGrower(SimpleWeightedRandomList.empty(),
+    public static final Supplier<AbstractTreeGrower> ORCHARD = () -> new BWGTreeGrower(
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.ORCHARD_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.ORCHARD_TREE2, 1)
