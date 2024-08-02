@@ -843,8 +843,8 @@ class BWGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
-        addVegetal(generationSettings, VegetationPlacements.PATCH_GRASS_NORMAL);
         BiomeDefaultFeatures.addPlainGrass(generationSettings);
+        addVegetal(generationSettings, VegetationPlacements.PATCH_GRASS_NORMAL);
         addVegetal(generationSettings, VegetationPlacements.PATCH_SUNFLOWER);
 
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
