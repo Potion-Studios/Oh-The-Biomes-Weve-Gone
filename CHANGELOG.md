@@ -1,3 +1,5 @@
+# 1.0.5-Beta
+
 # 1.0.4-Beta
 - Use Chunk Seeded Random for Crag Gardens Extensions
 - Fix Palo Verde Logs and Wood not having drops
