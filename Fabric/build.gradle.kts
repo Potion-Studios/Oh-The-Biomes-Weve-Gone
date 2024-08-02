@@ -34,18 +34,18 @@ dependencies {
     "common"(project(":Common", "namedElements")) { isTransitive = false }
     "shadowCommon"(project(":Common", "transformProductionFabric")) { isTransitive = false }
 
-    modRuntimeOnly("me.djtheredstoner:DevAuth-fabric:${project.properties["devauth_version"]}")
+    modRuntimeOnly("me.djtheredstoner:DevAuth-fabric:${project.properties["devauth_version"]}")  { isTransitive = false }
 
     modApi("com.github.glitchfiend:TerraBlender-fabric:$minecraftVersion-${project.properties["terrablender_version"]}")
     modApi("corgitaco.corgilib:corgilib-fabric:$minecraftVersion-${project.properties["corgilib_version"]}")
     modApi("dev.corgitaco:Oh-The-Trees-Youll-Grow-fabric:$minecraftVersion-${project.properties["ohthetreesyoullgrow_version"]}")
     modApi("software.bernie.geckolib:geckolib-fabric-$minecraftVersion:${project.properties["geckolib_version"]}")
 
-    modCompileOnly("mcp.mobius.waila:wthit-api:fabric-${project.properties["WTHIT"]}")
-    modRuntimeOnly("mcp.mobius.waila:wthit:fabric-${project.properties["WTHIT"]}")
-    modRuntimeOnly("lol.bai:badpackets:fabric-${project.properties["badPackets"]}")
+    modCompileOnly("mcp.mobius.waila:wthit-api:fabric-${project.properties["WTHIT"]}")  { isTransitive = false }
+    modRuntimeOnly("mcp.mobius.waila:wthit:fabric-${project.properties["WTHIT"]}")  { isTransitive = false }
+    modRuntimeOnly("lol.bai:badpackets:fabric-${project.properties["badPackets"]}")  { isTransitive = false }
 
-    modRuntimeOnly("maven.modrinth:cyanide:jCWZy4Gl")
+    modRuntimeOnly("maven.modrinth:cyanide:jCWZy4Gl")  { isTransitive = false }
 }
 
 tasks {

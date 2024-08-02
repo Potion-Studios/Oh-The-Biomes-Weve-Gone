@@ -19,7 +19,7 @@ dependencies {
     modCompileOnly("dev.corgitaco:Oh-The-Trees-Youll-Grow-common:$minecraftVersion-${project.properties["ohthetreesyoullgrow_version"]}")
     modCompileOnly("software.bernie.geckolib:geckolib-fabric-$minecraftVersion:${project.properties["geckolib_version"]}")
 
-    modCompileOnly("mcp.mobius.waila:wthit-api:fabric-${project.properties["WTHIT"]}")
+    modCompileOnly("mcp.mobius.waila:wthit-api:fabric-${project.properties["WTHIT"]}") { isTransitive = false }
 }
 
 publishing {
