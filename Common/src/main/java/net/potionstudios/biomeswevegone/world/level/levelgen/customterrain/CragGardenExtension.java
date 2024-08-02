@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -22,8 +23,10 @@ import java.util.function.Function;
 
 public class CragGardenExtension {
 
-    public static void runCragGardenExtension(Function<BlockPos, Holder<Biome>> biomeGetter, ChunkAccess chunk, RandomSource randomSource, NormalNoise.NoiseParameters noiseParameters, NormalNoise.NoiseParameters cliffSpacingParams) {
+    public static void runCragGardenExtension(Function<BlockPos, Holder<Biome>> biomeGetter, ChunkAccess chunk, long worldSeed, NormalNoise.NoiseParameters noiseParameters, NormalNoise.NoiseParameters cliffSpacingParams) {
         ChunkPos pos = chunk.getPos();
+        RandomSource randomSource = new XoroshiroRandomSource(worldSeed);
+        RandomSource chunkRandom = new XoroshiroRandomSource(pos.toLong() + worldSeed);
 
         NormalNoise normalNoise = NormalNoise.create(randomSource, noiseParameters);
         NormalNoise cliffJumpNoise = NormalNoise.create(randomSource, cliffSpacingParams);
@@ -59,10 +62,10 @@ public class CragGardenExtension {
 
                 for (int y = -5; y <= currentSurfaceHeight; y++) {
                     mutable.set(worldX, y + landHeight, worldZ);
-                    BlockState state = stonesProvider.getState(randomSource, mutable);
+                    BlockState state = stonesProvider.getState(chunkRandom, mutable);
 
                     if (y == currentSurfaceHeight && chunk.getBlockState(mutable.move(Direction.UP)).getFluidState().isEmpty()) {
-                        state = topBlocksProvider.getState(randomSource, mutable);
+                        state = topBlocksProvider.getState(chunkRandom, mutable);
                         mutable.move(Direction.DOWN);
                     }
 
