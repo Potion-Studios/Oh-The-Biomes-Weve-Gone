@@ -1,10 +1,7 @@
-import com.hypherionmc.modpublisher.properties.CurseEnvironment
 import com.hypherionmc.modpublisher.properties.ModLoader
-import com.hypherionmc.modpublisher.properties.ReleaseType
 
 plugins {
-    id("com.github.johnrengelman.shadow") version "8.1.1"
-    id("com.hypherionmc.modutils.modpublisher") version "2.+"
+    id("com.github.johnrengelman.shadow")
 }
 
 architectury {
@@ -13,14 +10,21 @@ architectury {
 }
 
 val minecraftVersion = project.properties["minecraft_version"] as String
-val jarName = base.archivesName.get() + "-Fabric"
 
 configurations {
     create("common")
-    create("shadowCommon")
+    "common" {
+        isCanBeResolved = true
+        isCanBeConsumed = false
+    }
+    create("shadowBundle")
     compileClasspath.get().extendsFrom(configurations["common"])
     runtimeClasspath.get().extendsFrom(configurations["common"])
     getByName("developmentFabric").extendsFrom(configurations["common"])
+    "shadowBundle" {
+        isCanBeResolved = true
+        isCanBeConsumed = false
+    }
 }
 
 loom.accessWidenerPath.set(project(":Common").loom.accessWidenerPath)
@@ -32,7 +36,7 @@ dependencies {
     modApi("net.fabricmc.fabric-api:fabric-api:${project.properties["fabric_api_version"]}+$minecraftVersion")
 
     "common"(project(":Common", "namedElements")) { isTransitive = false }
-    "shadowCommon"(project(":Common", "transformProductionFabric")) { isTransitive = false }
+    "shadowBundle"(project(":Common", "transformProductionFabric"))
 
     modRuntimeOnly("me.djtheredstoner:DevAuth-fabric:${project.properties["devauth_version"]}")  { isTransitive = false }
 
@@ -49,7 +53,6 @@ dependencies {
 }
 
 tasks {
-    base.archivesName.set(jarName)
     processResources {
         inputs.property("version", project.version)
 
@@ -62,7 +65,7 @@ tasks {
         exclude("net/potionstudios/biomeswevegone/fabric/datagen/**",
             "architectury.common.json", ".cache/**", "data/biomeswevegone/forge/**",
             "data/forge/**")
-        configurations = listOf(project.configurations.getByName("shadowCommon"))
+        configurations = listOf(project.configurations.getByName("shadowBundle"))
         archiveClassifier.set("dev-shadow")
     }
 
@@ -71,73 +74,10 @@ tasks {
         inputFile.set(shadowJar.get().archiveFile)
         dependsOn(shadowJar)
     }
-
-    jar.get().archiveClassifier.set("dev")
-
-    sourcesJar {
-        val commonSources = project(":Common").tasks.sourcesJar
-        dependsOn(commonSources)
-        from(commonSources.get().archiveFile.map { zipTree(it) })
-    }
-}
-
-components {
-    java.run {
-        if (this is AdhocComponentWithVariants)
-            withVariantsFromConfiguration(project.configurations.shadowRuntimeElements.get()) { skip() }
-    }
 }
 
 publisher {
-    apiKeys {
-        curseforge(getPublishingCredentials().first)
-        modrinth(getPublishingCredentials().second)
-        github(project.properties["github_token"].toString())
-    }
-
-    curseID.set("1070751")
-    modrinthID.set("NTi7d3Xc")
-    githubRepo.set("https://github.com/Potion-Studios/Oh-The-Biomes-Weve-Gone")
-    setReleaseType(ReleaseType.BETA)
-    projectVersion.set(project.version.toString() + "-Fabric")
-    displayName.set("$jarName-${project.version}")
-    changelog.set(projectDir.toPath().parent.resolve("CHANGELOG.md").toFile().readText())
-    artifact.set(tasks.remapJar)
-    setGameVersions(minecraftVersion)
     setLoaders(ModLoader.FABRIC, ModLoader.QUILT)
-    setCurseEnvironment(CurseEnvironment.BOTH)
-    setJavaVersions(JavaVersion.VERSION_17, JavaVersion.VERSION_18, JavaVersion.VERSION_19, JavaVersion.VERSION_20, JavaVersion.VERSION_21, JavaVersion.VERSION_22)
-    val depends = mutableListOf("fabric-api", "terrablender-fabric", "geckolib", "corgilib", "oh-the-trees-youll-grow")
-    val softDepends = mutableListOf("wthit")
-    curseDepends.required.set(depends)
-    curseDepends.optional.set(softDepends)
+    curseDepends.required.set(mutableListOf("fabric-api", "terrablender-fabric", "geckolib", "corgilib", "oh-the-trees-youll-grow"))
     modrinthDepends.required.set(mutableListOf("fabric-api", "terrablender", "geckolib", "corgilib", "oh-the-trees-youll-grow"))
-    modrinthDepends.optional.set(softDepends)
-}
-
-publishing {
-    publications.create<MavenPublication>("mavenFabric") {
-        artifactId = jarName
-        from(components["java"])
-    }
-
-    repositories {
-        mavenLocal()
-        maven {
-            val releasesRepoUrl = "https://maven.jt-dev.tech/releases"
-            val snapshotsRepoUrl = "https://maven.jt-dev.tech/snapshots"
-            url = uri(if (project.version.toString().endsWith("SNAPSHOT") || project.version.toString().startsWith("0")) snapshotsRepoUrl else releasesRepoUrl)
-            name = "JTDev-Maven-Repository"
-            credentials {
-                username = project.properties["repoLogin"]?.toString()
-                password = project.properties["repoPassword"]?.toString()
-            }
-        }
-    }
-}
-
-private fun getPublishingCredentials(): Pair<String?, String?> {
-    val curseForgeToken = (project.findProperty("curseforge_token") ?: System.getenv("CURSEFORGE_TOKEN") ?: "") as String?
-    val modrinthToken = (project.findProperty("modrinth_token") ?: System.getenv("MODRINTH_TOKEN") ?: "") as String?
-    return Pair(curseForgeToken, modrinthToken)
 }
