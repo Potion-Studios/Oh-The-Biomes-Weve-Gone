@@ -1,3 +1,5 @@
+# 1.0.6-Beta
+
 # 1.0.5-Beta
 - Workaround for a crash involving fruit leaves decay (No Drops)
 - Change in how decaying leaves drop there fruit
