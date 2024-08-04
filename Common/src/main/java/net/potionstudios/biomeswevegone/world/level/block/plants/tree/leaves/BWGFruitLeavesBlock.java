@@ -25,19 +25,14 @@ public class BWGFruitLeavesBlock extends LeavesBlock implements BonemealableBloc
 
     @Override
     public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
+        super.randomTick(state, level, pos, random);
         BlockPos fruitPos = pos.below();
         if (this.decaying(state)) {
-            dropResources(state, level, pos);
-            level.removeBlock(pos, false);
-            if (level.getBlockState(fruitPos).is(fruitBlock.get().getBlock()))
-                level.destroyBlock(fruitPos, true);
+            BlockState below = level.getBlockState(fruitPos);
+            if (below.is(fruitBlock.get().getBlock()))
+                level.destroyBlock(fruitPos, below.getValue(BWGFruitBlock.AGE) == BWGFruitBlock.MAX_AGE || random.nextBoolean());
         } else if (level.getBlockState(fruitPos).isAir() && random.nextFloat() < this.tickSpawnChance)
             placeFruit(level, fruitPos);
-    }
-
-    @Override
-    public boolean isRandomlyTicking(BlockState state) {
-        return !state.getValue(PERSISTENT);
     }
 
     private void placeFruit(Level level, BlockPos pos) {
@@ -59,9 +54,9 @@ public class BWGFruitLeavesBlock extends LeavesBlock implements BonemealableBloc
 
     @Override
     public void performBonemeal(ServerLevel level, @NotNull RandomSource random, BlockPos pos, @NotNull BlockState state) {
-        if (level.getBlockState(pos.below()).isAir())
-            placeFruit(level, pos.below());
-        else if (level.getBlockState(pos.below()).getBlock() instanceof BWGFruitBlock)
-            level.setBlock(pos.below(), level.getBlockState(pos.below()).cycle(BWGFruitBlock.AGE), 2);
+        BlockState below = level.getBlockState(pos.below());
+        if (below.isAir()) placeFruit(level, pos.below());
+        else if (below.is(fruitBlock.get().getBlock()))
+            level.setBlock(pos.below(), below.cycle(BWGFruitBlock.AGE), 2);
     }
 }

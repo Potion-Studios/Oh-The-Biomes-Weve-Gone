@@ -1,4 +1,6 @@
 # 1.0.5-Beta
+- Workaround for a crash involving fruit leaves decay (No Drops)
+- Change in how decaying leaves drop there fruit
 
 # 1.0.4-Beta
 - Use Chunk Seeded Random for Crag Gardens Extensions

@@ -124,7 +124,8 @@ class BlockLootGenerator extends BlockLootSubProvider {
         add(BWGWood.PALO_VERDE_LEAVES.get(), createLeavesDrops(BWGWood.PALO_VERDE_LEAVES.get(), BWGWood.PALO_VERDE_SAPLING.getBlock(), 0.05F));
         add(BWGBlocks.FLOWERING_PALO_VERDE_LEAVES.get(), createLeavesDrops(BWGBlocks.FLOWERING_PALO_VERDE_LEAVES.get(), BWGWood.PALO_VERDE_SAPLING.getBlock(), 0.05F));
         add(BWGBlocks.FLOWERING_BAOBAB_LEAVES.get(), createLeavesDrops(BWGBlocks.FLOWERING_BAOBAB_LEAVES.get(), BWGWood.BAOBAB.sapling().getBlock(), 0.05F));
-        add(BWGBlocks.RIPE_BAOBAB_LEAVES.get(), createFruitLeavesDrops(BWGBlocks.RIPE_BAOBAB_LEAVES.get(), BWGWood.BAOBAB.sapling().getBlock(), BWGItems.BAOBAB_FRUIT.get()));
+        add(BWGBlocks.RIPE_BAOBAB_LEAVES.get(), noDrop());
+        //add(BWGBlocks.RIPE_BAOBAB_LEAVES.get(), createFruitLeavesDrops(BWGBlocks.RIPE_BAOBAB_LEAVES.get(), BWGWood.BAOBAB.sapling().getBlock(), BWGItems.BAOBAB_FRUIT.get()));
         add(BWGBlocks.WHITE_SAKURA_LEAVES.get(), createLeavesDrops(BWGBlocks.WHITE_SAKURA_LEAVES.get(), BWGWood.WHITE_SAKURA_SAPLING.getBlock(), 0.05F));
         add(BWGBlocks.YELLOW_SAKURA_LEAVES.get(), createLeavesDrops(BWGBlocks.YELLOW_SAKURA_LEAVES.get(), BWGWood.YELLOW_SAKURA_SAPLING.getBlock(), 0.05F));
         add(BWGBlocks.ARAUCARIA_LEAVES.get(), createLeavesDrops(BWGWood.ARAUCARIA_SAPLING.getBlock(), BWGWood.ARAUCARIA_SAPLING.getBlock(), 0.05F));
@@ -141,7 +142,8 @@ class BlockLootGenerator extends BlockLootSubProvider {
         add(BWGBlocks.ORANGE_SPRUCE_LEAVES.get(), createLeavesDrops(BWGWood.ORANGE_SPRUCE_SAPLING.getBlock(), BWGWood.ORANGE_SPRUCE_SAPLING.getBlock(), 0.05F));
         add(BWGBlocks.ORCHARD_LEAVES.get(), createLeavesDrops(BWGWood.ORCHARD_SAPLING.getBlock(), BWGWood.ORCHARD_SAPLING.getBlock(), 0.05F));
         add(BWGBlocks.FLOWERING_ORCHARD_LEAVES.get(), createLeavesDrops(BWGWood.ORCHARD_SAPLING.getBlock(), BWGWood.ORCHARD_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.RIPE_ORCHARD_LEAVES.get(), createFruitLeavesDrops(BWGBlocks.RIPE_ORCHARD_LEAVES.get(), BWGWood.ORCHARD_SAPLING.getBlock(), Items.APPLE));
+        add(BWGBlocks.RIPE_ORCHARD_LEAVES.get(), noDrop());
+        //add(BWGBlocks.RIPE_ORCHARD_LEAVES.get(), createFruitLeavesDrops(BWGBlocks.RIPE_ORCHARD_LEAVES.get(), BWGWood.ORCHARD_SAPLING.getBlock(), Items.APPLE));
         add(BWGBlocks.RED_BIRCH_LEAVES.get(), createLeavesDrops(BWGWood.RED_BIRCH_SAPLING.getBlock(), BWGWood.RED_BIRCH_SAPLING.getBlock(), 0.05F));
         add(BWGBlocks.RED_MAPLE_LEAVES.get(), createLeavesDrops(BWGWood.RED_MAPLE_SAPLING.getBlock(), BWGWood.RED_MAPLE_SAPLING.getBlock(), 0.05F));
         add(BWGBlocks.RED_OAK_LEAVES.get(), createLeavesDrops(BWGWood.RED_OAK_SAPLING.getBlock(), BWGWood.RED_OAK_SAPLING.getBlock(), 0.05F));
@@ -151,7 +153,8 @@ class BlockLootGenerator extends BlockLootSubProvider {
         add(BWGBlocks.YELLOW_SPRUCE_LEAVES.get(), createLeavesDrops(BWGWood.YELLOW_SPRUCE_SAPLING.getBlock(), BWGWood.YELLOW_SPRUCE_SAPLING.getBlock(), 0.05F));
         add(BWGBlocks.YUCCA_LEAVES.get(), createLeavesDrops(BWGWood.YUCCA_SAPLING.getBlock(), BWGWood.YUCCA_SAPLING.getBlock(), 0.05F));
         add(BWGBlocks.FLOWERING_YUCCA_LEAVES.get(), createLeavesDrops(BWGWood.YUCCA_SAPLING.getBlock(), BWGWood.YUCCA_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.RIPE_YUCCA_LEAVES.get(), createFruitLeavesDrops(BWGBlocks.RIPE_YUCCA_LEAVES.get(), BWGWood.YUCCA_SAPLING.getBlock(), BWGItems.YUCCA_FRUIT.get()));
+        add(BWGBlocks.RIPE_YUCCA_LEAVES.get(), noDrop());
+        //add(BWGBlocks.RIPE_YUCCA_LEAVES.get(), createFruitLeavesDrops(BWGBlocks.RIPE_YUCCA_LEAVES.get(), BWGWood.YUCCA_SAPLING.getBlock(), BWGItems.YUCCA_FRUIT.get()));
         add(BWGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.get(), createLeavesDrops(BWGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.get(), BWGWood.WITCH_HAZEL.sapling().getBlock(), 0.05F));
         add(BWGBlocks.FLOWERING_IRONWOOD_LEAVES.get(), createLeavesDrops(BWGBlocks.FLOWERING_IRONWOOD_LEAVES.get(), BWGWood.IRONWOOD.sapling().getBlock(), 0.05F));
         add(BWGBlocks.FIRECRACKER_LEAVES.get(), createLeavesDrops(BWGBlocks.FIRECRACKER_LEAVES.get(), BWGBlocks.FIRECRACKER_LEAVES.get()));
