@@ -1,6 +1,7 @@
 # 1.0.5-Beta
 - Workaround for a crash involving fruit leaves decay (No Drops)
 - Change in how decaying leaves drop there fruit
+- Change PrairieGrassMixin.java to use Inject to be more compatible with other mods
 
 # 1.0.4-Beta
 - Use Chunk Seeded Random for Crag Gardens Extensions

@@ -3,10 +3,8 @@ package net.potionstudios.biomeswevegone.fabric.mixin;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.GrassBlock;
 import net.minecraft.world.level.block.SpreadingSnowyDirtBlock;
@@ -17,9 +15,10 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGOverworldVegationPlacedFeatures;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,54 +30,52 @@ public abstract class PrairieGrassMixin extends SpreadingSnowyDirtBlock implemen
         super(properties);
     }
 
-    /**
-     * @author Joseph T. McQuigg
-     * @reason Used to generate Prairie grass when bonemeal is used on a grassblock in the Prairie biome.
-     */
-    @Overwrite
-    public void performBonemeal(ServerLevel level, @NotNull RandomSource random, BlockPos pos, @NotNull BlockState state) {
-        BlockPos blockPos = pos.above();
-        BlockState blockState = Blocks.GRASS.defaultBlockState();
-        Optional<Holder.Reference<PlacedFeature>> optional = level.registryAccess()
-                .registryOrThrow(Registries.PLACED_FEATURE)
-                .getHolder(VegetationPlacements.GRASS_BONEMEAL);
-
+    @Inject(method = "performBonemeal", at = @At("HEAD"), cancellable = true)
+    private void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state, CallbackInfo ci) {
         if (level.getBiome(pos).is(BWGBiomes.PRAIRIE)) {
-            blockState = BWGBlocks.PRAIRIE_GRASS.get().defaultBlockState();
-            optional = level.registryAccess().registryOrThrow(Registries.PLACED_FEATURE).getHolder(BWGOverworldVegationPlacedFeatures.PRAIRIE_GRASS_BONEMEAL);
-        }
+            BlockPos blockPos = pos.above();
+            BlockState blockState = BWGBlocks.PRAIRIE_GRASS.get().defaultBlockState();
+            Optional<Holder.Reference<PlacedFeature>> optional = level.registryAccess()
+                    .registryOrThrow(Registries.PLACED_FEATURE)
+                    .getHolder(BWGOverworldVegationPlacedFeatures.PRAIRIE_GRASS_BONEMEAL);
 
-        label49:
-        for(int i = 0; i < 128; ++i) {
-            BlockPos blockPos2 = blockPos;
+            label49:
+            for (int i = 0; i < 128; i++) {
+                BlockPos blockPos2 = blockPos;
 
-            for(int j = 0; j < i / 16; ++j) {
-                blockPos2 = blockPos2.offset(random.nextInt(3) - 1, (random.nextInt(3) - 1) * random.nextInt(3) / 2, random.nextInt(3) - 1);
-                if (!level.getBlockState(blockPos2.below()).is(this) || level.getBlockState(blockPos2).isCollisionShapeFullBlock(level, blockPos2))
-                    continue label49;
-            }
-
-            BlockState blockState2 = level.getBlockState(blockPos2);
-            if (blockState2.is(blockState.getBlock()) && random.nextInt(10) == 0)
-                ((BonemealableBlock)blockState.getBlock()).performBonemeal(level, random, blockPos2, blockState2);
-
-
-            if (blockState2.isAir()) {
-                Holder<PlacedFeature> holder;
-                if (random.nextInt(8) == 0) {
-                    List<ConfiguredFeature<?, ?>> list = level.getBiome(blockPos2).value().getGenerationSettings().getFlowerFeatures();
-                    if (list.isEmpty()) continue;
-
-                    holder = ((RandomPatchConfiguration) list.get(0).config()).feature();
-                } else {
-                    if (!optional.isPresent()) continue;
-
-                    holder = optional.get();
+                for (int j = 0; j < i / 16; j++) {
+                    blockPos2 = blockPos2.offset(random.nextInt(3) - 1, (random.nextInt(3) - 1) * random.nextInt(3) / 2, random.nextInt(3) - 1);
+                    if (!level.getBlockState(blockPos2.below()).is(this) || level.getBlockState(blockPos2).isCollisionShapeFullBlock(level, blockPos2)) {
+                        continue label49;
+                    }
                 }
 
-                holder.value().place(level, level.getChunkSource().getGenerator(), random, blockPos2);
+                BlockState blockState2 = level.getBlockState(blockPos2);
+                if (blockState2.is(blockState.getBlock()) && random.nextInt(10) == 0) {
+                    ((BonemealableBlock)blockState.getBlock()).performBonemeal(level, random, blockPos2, blockState2);
+                }
+
+                if (blockState2.isAir()) {
+                    Holder<PlacedFeature> holder;
+                    if (random.nextInt(8) == 0) {
+                        List<ConfiguredFeature<?, ?>> list = level.getBiome(blockPos2).value().getGenerationSettings().getFlowerFeatures();
+                        if (list.isEmpty()) {
+                            continue;
+                        }
+
+                        holder = ((RandomPatchConfiguration) list.get(0).config()).feature();
+                    } else {
+                        if (!optional.isPresent()) {
+                            continue;
+                        }
+
+                        holder = optional.get();
+                    }
+
+                    holder.value().place(level, level.getChunkSource().getGenerator(), random, blockPos2);
+                }
             }
+            ci.cancel();
         }
     }
-
 }
