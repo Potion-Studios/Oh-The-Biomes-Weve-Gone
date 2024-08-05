@@ -142,7 +142,7 @@ public class BWGWoodSet {
     }
 
     protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, @Nullable Supplier<AbstractTreeGrower> saplingGrower, boolean leaves, boolean boats, boolean glowLeaves) {
-        this(blockSetType, mapColor, LogStem.LOG, saplingGrower, leaves, boats, glowLeaves, null);
+        this(blockSetType, mapColor, LogStem.LOG, saplingGrower, leaves, boats, glowLeaves, BlockTags.DIRT);
     }
 
     protected BWGWoodSet(String name, MapColor mapColor, boolean leaves, boolean boats) {

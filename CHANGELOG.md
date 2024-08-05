@@ -1,5 +1,6 @@
 # 1.0.6-Beta
 - Fix Skyris Hanging Sign Textures being swapped
+- Fix Blue Enchanted Sapling Crashing on place
 
 # 1.0.5-Beta
 - Workaround for a crash involving fruit leaves decay (No Drops)

@@ -13,9 +13,9 @@ import org.jetbrains.annotations.NotNull;
 
 public class BWGSaplingBlock extends SaplingBlock {
 
-    private final TagKey<Block> groundTag;
+    private final @NotNull TagKey<Block> groundTag;
 
-    public BWGSaplingBlock(TagKey<Block> groundTag, AbstractTreeGrower treeGrower) {
+    public BWGSaplingBlock(@NotNull TagKey<Block> groundTag, AbstractTreeGrower treeGrower) {
         super(treeGrower, BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING));
 	    this.groundTag = groundTag;
     }
