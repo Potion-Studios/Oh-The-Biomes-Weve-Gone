@@ -1,6 +1,10 @@
 # 1.0.6-Beta
 - Fix Skyris Hanging Sign Textures being swapped
 - Fix Blue Enchanted Sapling Crashing on place
+- Changes to Fruit Leaves
+  - Pass Supplier of BWGFruitBlock to BWGFruitLeavesBlock instead of supplier of blockstate
+  - Prevent Bonemealing when leaves are placed by players/decayable/Persistence Value
+    - Reason for this is fruit should only really be growing when the leaves are attached to a tree
 
 # 1.0.5-Beta
 - Workaround for a crash involving fruit leaves decay (No Drops)
