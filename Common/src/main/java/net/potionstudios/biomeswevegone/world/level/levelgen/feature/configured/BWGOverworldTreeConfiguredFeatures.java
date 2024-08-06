@@ -1587,7 +1587,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 4, ImmutableList.of(YUCCA_FRUIT.get())
+                    BlockTags.SAND, 4, ImmutableList.of(YUCCA_FRUIT.get())
             )
     );
 
@@ -1605,7 +1605,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 6, ImmutableList.of(YUCCA_FRUIT.get())
+                    BlockTags.SAND, 6, ImmutableList.of(YUCCA_FRUIT.get())
             )
     );
 

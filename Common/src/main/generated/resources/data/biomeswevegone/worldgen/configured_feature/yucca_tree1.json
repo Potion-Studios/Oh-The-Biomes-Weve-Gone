@@ -4,7 +4,7 @@
     "base_location": "biomeswevegone:features/trees/yucca/yucca_trunk1",
     "can_grow_on_filter": {
       "type": "minecraft:matching_block_tag",
-      "tag": "minecraft:dirt"
+      "tag": "minecraft:sand"
     },
     "can_leaves_place_filter": {
       "type": "minecraft:replaceable"
