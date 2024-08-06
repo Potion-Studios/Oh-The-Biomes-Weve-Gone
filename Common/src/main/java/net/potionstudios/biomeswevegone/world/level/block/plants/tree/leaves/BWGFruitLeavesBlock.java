@@ -31,7 +31,7 @@ public class BWGFruitLeavesBlock extends LeavesBlock implements BonemealableBloc
             BlockState below = level.getBlockState(fruitPos);
             if (below.is(fruitBlock.get()))
                 level.destroyBlock(fruitPos, below.getValue(BWGFruitBlock.AGE) == BWGFruitBlock.MAX_AGE || random.nextBoolean());
-        } else if (level.getBlockState(fruitPos).isAir() && random.nextFloat() < this.tickSpawnChance)
+        } else if (level.getBlockState(fruitPos).isAir() && random.nextFloat() <= this.tickSpawnChance)
             placeFruit(level, fruitPos);
     }
 

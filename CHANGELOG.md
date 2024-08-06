@@ -8,6 +8,7 @@
 - Fix Fruit Leaves Crash
 - Fix Yucca Trees not being growable on sand tagged blocks
 - Add Cracked Sand and Sandy Dirt to Sand Block and item tags
+- Make Cypress Saplings use 2 by 2
 
 # 1.0.5-Beta
 - Workaround for a crash involving fruit leaves decay (No Drops)

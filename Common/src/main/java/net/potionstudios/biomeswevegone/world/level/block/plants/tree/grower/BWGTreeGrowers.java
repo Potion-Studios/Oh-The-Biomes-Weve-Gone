@@ -47,7 +47,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.CIKA_TREE3, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> CYPRESS = () -> new BWGTreeGrower(
+    public static final Supplier<AbstractTreeGrower> CYPRESS = () -> new BWGMegaTreeGrower(SimpleWeightedRandomList.empty(),
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.CYPRESS_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.CYPRESS_TREE2, 1)
