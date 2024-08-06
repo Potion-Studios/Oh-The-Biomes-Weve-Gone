@@ -56,7 +56,7 @@ public class ArchStructure extends Structure {
             BlockPos structureCenter = new BlockPos(blockX, blockY, blockZ);
             Vec3 originVec3 = Vec3.atCenterOf(structureCenter);
 
-            BlockPos offset = new BlockPos(this.config.length().sample(random) / 2, 0, this.config.length().sample(random) / 2);
+            BlockPos offset = new BlockPos((this.config.length().sample(random) / 2) * (random.nextBoolean() ? 1 : -1), 0, (this.config.length().sample(random) / 2) * (random.nextBoolean() ? 1 : -1));
 
             BlockPos first = structureCenter.offset(offset);
             first = first.atY(chunkGenerator.getBaseHeight(first.getX(), first.getZ(), Heightmap.Types.OCEAN_FLOOR_WG, context.heightAccessor(), context.randomState()) - 10);
