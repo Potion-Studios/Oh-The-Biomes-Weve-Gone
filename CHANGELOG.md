@@ -5,6 +5,7 @@
   - Pass Supplier of BWGFruitBlock to BWGFruitLeavesBlock instead of supplier of blockstate
   - Prevent Bonemealing when leaves are placed by players/decayable/Persistence Value
     - Reason for this is fruit should only really be growing when the leaves are attached to a tree
+- Fix Fruit Leaves Crash
 
 # 1.0.5-Beta
 - Workaround for a crash involving fruit leaves decay (No Drops)

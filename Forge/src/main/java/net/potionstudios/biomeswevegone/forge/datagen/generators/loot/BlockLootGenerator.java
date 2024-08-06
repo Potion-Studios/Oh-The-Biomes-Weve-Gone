@@ -1,5 +1,6 @@
 package net.potionstudios.biomeswevegone.forge.datagen.generators.loot;
 
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
@@ -16,10 +17,12 @@ import net.minecraft.world.level.storage.loot.functions.*;
 import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.tags.BWGItemTags;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.BWGBerryBush;
@@ -40,6 +43,8 @@ import java.util.Objects;
 class BlockLootGenerator extends BlockLootSubProvider {
 
     private final List<Block> knownBlocks = new ArrayList<>();
+    private static final LootItemCondition.Builder HAS_SHEARS = MatchTool.toolMatches(ItemPredicate.Builder.item().of(BWGItemTags.SHEARS));
+
 
     public BlockLootGenerator() {
         super(Collections.emptySet(), FeatureFlags.REGISTRY.allFlags());
@@ -68,7 +73,7 @@ class BlockLootGenerator extends BlockLootSubProvider {
             dropSelf(set.wood());
             dropSelf(set.strippedWood());
             if (set.sapling() != null && set.leaves() != null) {
-                add(set.leaves(), createLeavesDrops(set.leaves(), set.sapling().getBlock(), 0.05F));
+                add(set.leaves(), createLeavesDrops(set.leaves(), set.sapling().getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
                 dropSelf(set.sapling().getBlock());
                 dropPottedContents(set.sapling().getPottedBlock());
             }
@@ -116,50 +121,47 @@ class BlockLootGenerator extends BlockLootSubProvider {
             else if (block instanceof LeavesBlock) {
                 BWGWoodSet.woodsets().forEach(set -> {
                     if (ForgeRegistries.BLOCKS.getKey(block).getPath().contains(set.name().toLowerCase() + "_"))
-                        if (set.sapling() != null) add(block, createLeavesDrops(block, set.sapling().getBlock(), 0.05F));
+                        if (set.sapling() != null) add(block, createLeavesDrops(block, set.sapling().getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
                 });
             } else dropSelf(block);
         });
 
-        add(BWGWood.PALO_VERDE_LEAVES.get(), createLeavesDrops(BWGWood.PALO_VERDE_LEAVES.get(), BWGWood.PALO_VERDE_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.FLOWERING_PALO_VERDE_LEAVES.get(), createLeavesDrops(BWGBlocks.FLOWERING_PALO_VERDE_LEAVES.get(), BWGWood.PALO_VERDE_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.FLOWERING_BAOBAB_LEAVES.get(), createLeavesDrops(BWGBlocks.FLOWERING_BAOBAB_LEAVES.get(), BWGWood.BAOBAB.sapling().getBlock(), 0.05F));
-        add(BWGBlocks.RIPE_BAOBAB_LEAVES.get(), noDrop());
-        //add(BWGBlocks.RIPE_BAOBAB_LEAVES.get(), createFruitLeavesDrops(BWGBlocks.RIPE_BAOBAB_LEAVES.get(), BWGWood.BAOBAB.sapling().getBlock(), BWGItems.BAOBAB_FRUIT.get()));
-        add(BWGBlocks.WHITE_SAKURA_LEAVES.get(), createLeavesDrops(BWGBlocks.WHITE_SAKURA_LEAVES.get(), BWGWood.WHITE_SAKURA_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.YELLOW_SAKURA_LEAVES.get(), createLeavesDrops(BWGBlocks.YELLOW_SAKURA_LEAVES.get(), BWGWood.YELLOW_SAKURA_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.ARAUCARIA_LEAVES.get(), createLeavesDrops(BWGWood.ARAUCARIA_SAPLING.getBlock(), BWGWood.ARAUCARIA_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.BLUE_SPRUCE_LEAVES.get(), createLeavesDrops(BWGWood.BLUE_SPRUCE_SAPLING.getBlock(), BWGWood.BLUE_SPRUCE_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.BROWN_BIRCH_LEAVES.get(), createLeavesDrops(BWGWood.BROWN_BIRCH_SAPLING.getBlock(), BWGWood.BROWN_BIRCH_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.BROWN_OAK_LEAVES.get(), createLeavesDrops(BWGWood.BROWN_OAK_SAPLING.getBlock(), BWGWood.BROWN_OAK_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.BROWN_ZELKOVA_LEAVES.get(), createLeavesDrops(BWGWood.BROWN_ZELKOVA_SAPLING.getBlock(), BWGWood.BROWN_ZELKOVA_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.BROWN_ZELKOVA_LEAVES.get(), createLeavesDrops(BWGWood.BROWN_ZELKOVA_SAPLING.getBlock(), BWGWood.BROWN_ZELKOVA_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.FLOWERING_JACARANDA_LEAVES.get(), createLeavesDrops(BWGBlocks.FLOWERING_JACARANDA_LEAVES.get(), BWGWood.JACARANDA.sapling().getBlock(), 0.05F));
-        add(BWGBlocks.INDIGO_JACARANDA_LEAVES.get(), createLeavesDrops(BWGWood.INDIGO_JACARANDA_SAPLING.getBlock(), BWGWood.INDIGO_JACARANDA_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.FLOWERING_INDIGO_JACARANDA_LEAVES.get(), createLeavesDrops(BWGWood.INDIGO_JACARANDA_SAPLING.getBlock(), BWGWood.INDIGO_JACARANDA_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.ORANGE_BIRCH_LEAVES.get(), createLeavesDrops(BWGWood.ORANGE_BIRCH_SAPLING.getBlock(), BWGWood.ORANGE_BIRCH_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.ORANGE_OAK_LEAVES.get(), createLeavesDrops(BWGWood.ORANGE_OAK_SAPLING.getBlock(), BWGWood.ORANGE_OAK_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.ORANGE_SPRUCE_LEAVES.get(), createLeavesDrops(BWGWood.ORANGE_SPRUCE_SAPLING.getBlock(), BWGWood.ORANGE_SPRUCE_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.ORCHARD_LEAVES.get(), createLeavesDrops(BWGWood.ORCHARD_SAPLING.getBlock(), BWGWood.ORCHARD_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.FLOWERING_ORCHARD_LEAVES.get(), createLeavesDrops(BWGWood.ORCHARD_SAPLING.getBlock(), BWGWood.ORCHARD_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.RIPE_ORCHARD_LEAVES.get(), noDrop());
-        //add(BWGBlocks.RIPE_ORCHARD_LEAVES.get(), createFruitLeavesDrops(BWGBlocks.RIPE_ORCHARD_LEAVES.get(), BWGWood.ORCHARD_SAPLING.getBlock(), Items.APPLE));
-        add(BWGBlocks.RED_BIRCH_LEAVES.get(), createLeavesDrops(BWGWood.RED_BIRCH_SAPLING.getBlock(), BWGWood.RED_BIRCH_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.RED_MAPLE_LEAVES.get(), createLeavesDrops(BWGWood.RED_MAPLE_SAPLING.getBlock(), BWGWood.RED_MAPLE_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.RED_OAK_LEAVES.get(), createLeavesDrops(BWGWood.RED_OAK_SAPLING.getBlock(), BWGWood.RED_OAK_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.RED_SPRUCE_LEAVES.get(), createLeavesDrops(BWGWood.RED_SPRUCE_SAPLING.getBlock(), BWGWood.RED_SPRUCE_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.SILVER_MAPLE_LEAVES.get(), createLeavesDrops(BWGWood.SILVER_MAPLE_SAPLING.getBlock(), BWGWood.SILVER_MAPLE_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.YELLOW_BIRCH_LEAVES.get(), createLeavesDrops(BWGWood.YELLOW_BIRCH_SAPLING.getBlock(), BWGWood.YELLOW_BIRCH_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.YELLOW_SPRUCE_LEAVES.get(), createLeavesDrops(BWGWood.YELLOW_SPRUCE_SAPLING.getBlock(), BWGWood.YELLOW_SPRUCE_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.YUCCA_LEAVES.get(), createLeavesDrops(BWGWood.YUCCA_SAPLING.getBlock(), BWGWood.YUCCA_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.FLOWERING_YUCCA_LEAVES.get(), createLeavesDrops(BWGWood.YUCCA_SAPLING.getBlock(), BWGWood.YUCCA_SAPLING.getBlock(), 0.05F));
-        add(BWGBlocks.RIPE_YUCCA_LEAVES.get(), noDrop());
-        //add(BWGBlocks.RIPE_YUCCA_LEAVES.get(), createFruitLeavesDrops(BWGBlocks.RIPE_YUCCA_LEAVES.get(), BWGWood.YUCCA_SAPLING.getBlock(), BWGItems.YUCCA_FRUIT.get()));
-        add(BWGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.get(), createLeavesDrops(BWGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.get(), BWGWood.WITCH_HAZEL.sapling().getBlock(), 0.05F));
-        add(BWGBlocks.FLOWERING_IRONWOOD_LEAVES.get(), createLeavesDrops(BWGBlocks.FLOWERING_IRONWOOD_LEAVES.get(), BWGWood.IRONWOOD.sapling().getBlock(), 0.05F));
-        add(BWGBlocks.FIRECRACKER_LEAVES.get(), createLeavesDrops(BWGBlocks.FIRECRACKER_LEAVES.get(), BWGBlocks.FIRECRACKER_LEAVES.get()));
-        add(BWGBlocks.FLOWERING_SKYRIS_LEAVES.get(), createLeavesDrops(BWGBlocks.FLOWERING_SKYRIS_LEAVES.get(), BWGWood.SKYRIS.sapling().getBlock(), 0.05F));
-        add(BWGBlocks.SKYRIS_LEAVES_GREEN_APPLE.get(), createFruitLeavesDrops(BWGBlocks.SKYRIS_LEAVES_GREEN_APPLE.get(), BWGWood.SKYRIS.sapling().getBlock(), BWGItems.GREEN_APPLE.get()));
+        add(BWGWood.PALO_VERDE_LEAVES.get(), createLeavesDrops(BWGWood.PALO_VERDE_LEAVES.get(), BWGWood.PALO_VERDE_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.FLOWERING_PALO_VERDE_LEAVES.get(), createLeavesDrops(BWGBlocks.FLOWERING_PALO_VERDE_LEAVES.get(), BWGWood.PALO_VERDE_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.FLOWERING_BAOBAB_LEAVES.get(), createLeavesDrops(BWGBlocks.FLOWERING_BAOBAB_LEAVES.get(), BWGWood.BAOBAB.sapling().getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.RIPE_BAOBAB_LEAVES.get(), createFruitLeavesDrops(BWGBlocks.RIPE_BAOBAB_LEAVES.get(), BWGWood.BAOBAB.sapling().getBlock(), BWGItems.BAOBAB_FRUIT.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.WHITE_SAKURA_LEAVES.get(), createLeavesDrops(BWGBlocks.WHITE_SAKURA_LEAVES.get(), BWGWood.WHITE_SAKURA_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.YELLOW_SAKURA_LEAVES.get(), createLeavesDrops(BWGBlocks.YELLOW_SAKURA_LEAVES.get(), BWGWood.YELLOW_SAKURA_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.ARAUCARIA_LEAVES.get(), createLeavesDrops(BWGWood.ARAUCARIA_SAPLING.getBlock(), BWGWood.ARAUCARIA_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.BLUE_SPRUCE_LEAVES.get(), createLeavesDrops(BWGWood.BLUE_SPRUCE_SAPLING.getBlock(), BWGWood.BLUE_SPRUCE_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.BROWN_BIRCH_LEAVES.get(), createLeavesDrops(BWGWood.BROWN_BIRCH_SAPLING.getBlock(), BWGWood.BROWN_BIRCH_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.BROWN_OAK_LEAVES.get(), createLeavesDrops(BWGWood.BROWN_OAK_SAPLING.getBlock(), BWGWood.BROWN_OAK_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.BROWN_ZELKOVA_LEAVES.get(), createLeavesDrops(BWGWood.BROWN_ZELKOVA_SAPLING.getBlock(), BWGWood.BROWN_ZELKOVA_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.BROWN_ZELKOVA_LEAVES.get(), createLeavesDrops(BWGWood.BROWN_ZELKOVA_SAPLING.getBlock(), BWGWood.BROWN_ZELKOVA_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.FLOWERING_JACARANDA_LEAVES.get(), createLeavesDrops(BWGBlocks.FLOWERING_JACARANDA_LEAVES.get(), BWGWood.JACARANDA.sapling().getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.INDIGO_JACARANDA_LEAVES.get(), createLeavesDrops(BWGWood.INDIGO_JACARANDA_SAPLING.getBlock(), BWGWood.INDIGO_JACARANDA_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.FLOWERING_INDIGO_JACARANDA_LEAVES.get(), createLeavesDrops(BWGWood.INDIGO_JACARANDA_SAPLING.getBlock(), BWGWood.INDIGO_JACARANDA_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.ORANGE_BIRCH_LEAVES.get(), createLeavesDrops(BWGWood.ORANGE_BIRCH_SAPLING.getBlock(), BWGWood.ORANGE_BIRCH_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.ORANGE_OAK_LEAVES.get(), createLeavesDrops(BWGWood.ORANGE_OAK_SAPLING.getBlock(), BWGWood.ORANGE_OAK_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.ORANGE_SPRUCE_LEAVES.get(), createLeavesDrops(BWGWood.ORANGE_SPRUCE_SAPLING.getBlock(), BWGWood.ORANGE_SPRUCE_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.ORCHARD_LEAVES.get(), createLeavesDrops(BWGWood.ORCHARD_SAPLING.getBlock(), BWGWood.ORCHARD_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.FLOWERING_ORCHARD_LEAVES.get(), createLeavesDrops(BWGWood.ORCHARD_SAPLING.getBlock(), BWGWood.ORCHARD_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.RIPE_ORCHARD_LEAVES.get(), createFruitLeavesDrops(BWGBlocks.RIPE_ORCHARD_LEAVES.get(), BWGWood.ORCHARD_SAPLING.getBlock(), Items.APPLE, NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.RED_BIRCH_LEAVES.get(), createLeavesDrops(BWGWood.RED_BIRCH_SAPLING.getBlock(), BWGWood.RED_BIRCH_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.RED_MAPLE_LEAVES.get(), createLeavesDrops(BWGWood.RED_MAPLE_SAPLING.getBlock(), BWGWood.RED_MAPLE_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.RED_OAK_LEAVES.get(), createLeavesDrops(BWGWood.RED_OAK_SAPLING.getBlock(), BWGWood.RED_OAK_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.RED_SPRUCE_LEAVES.get(), createLeavesDrops(BWGWood.RED_SPRUCE_SAPLING.getBlock(), BWGWood.RED_SPRUCE_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.SILVER_MAPLE_LEAVES.get(), createLeavesDrops(BWGWood.SILVER_MAPLE_SAPLING.getBlock(), BWGWood.SILVER_MAPLE_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.YELLOW_BIRCH_LEAVES.get(), createLeavesDrops(BWGWood.YELLOW_BIRCH_SAPLING.getBlock(), BWGWood.YELLOW_BIRCH_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.YELLOW_SPRUCE_LEAVES.get(), createLeavesDrops(BWGWood.YELLOW_SPRUCE_SAPLING.getBlock(), BWGWood.YELLOW_SPRUCE_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.YUCCA_LEAVES.get(), createLeavesDrops(BWGWood.YUCCA_SAPLING.getBlock(), BWGWood.YUCCA_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.FLOWERING_YUCCA_LEAVES.get(), createLeavesDrops(BWGWood.YUCCA_SAPLING.getBlock(), BWGWood.YUCCA_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.RIPE_YUCCA_LEAVES.get(), createFruitLeavesDrops(BWGBlocks.RIPE_YUCCA_LEAVES.get(), BWGWood.YUCCA_SAPLING.getBlock(), BWGItems.YUCCA_FRUIT.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.get(), createLeavesDrops(BWGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.get(), BWGWood.WITCH_HAZEL.sapling().getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.FLOWERING_IRONWOOD_LEAVES.get(), createLeavesDrops(BWGBlocks.FLOWERING_IRONWOOD_LEAVES.get(), BWGWood.IRONWOOD.sapling().getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.FIRECRACKER_LEAVES.get(), createLeavesDrops(BWGBlocks.FIRECRACKER_LEAVES.get(), BWGBlocks.FIRECRACKER_LEAVES.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.FLOWERING_SKYRIS_LEAVES.get(), createLeavesDrops(BWGBlocks.FLOWERING_SKYRIS_LEAVES.get(), BWGWood.SKYRIS.sapling().getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGBlocks.SKYRIS_LEAVES_GREEN_APPLE.get(), createFruitLeavesDrops(BWGBlocks.SKYRIS_LEAVES_GREEN_APPLE.get(), BWGWood.SKYRIS.sapling().getBlock(), BWGItems.GREEN_APPLE.get(),NORMAL_LEAVES_SAPLING_CHANCES));
 
 
         add(BWGBlocks.LUSH_GRASS_BLOCK.get(), block -> createSingleItemTableWithSilkTouch(block, BWGBlocks.LUSH_DIRT.get()));
@@ -213,8 +215,8 @@ class BlockLootGenerator extends BlockLootSubProvider {
         this.add(BWGBlocks.BLOOMING_ALOE_VERA.get(), this.createDoublePlantWithSeedDrops(BWGBlocks.BLOOMING_ALOE_VERA.get(), BWGBlocks.ALOE_VERA.get()));
     }
 
-    private LootTable.Builder createFruitLeavesDrops(LeavesBlock leaves, Block saplingBlock, Item fruit) {
-        return this.createLeavesDrops(leaves, saplingBlock)
+    private LootTable.Builder createFruitLeavesDrops(LeavesBlock leaves, Block saplingBlock, Item fruit, float... chances) {
+        return this.createLeavesDrops(leaves, saplingBlock, chances)
                 .withPool(
                         LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1.0F))
