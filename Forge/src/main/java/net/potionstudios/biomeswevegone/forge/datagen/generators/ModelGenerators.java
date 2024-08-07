@@ -5,6 +5,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.models.model.ModelLocationUtils;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.RecordItem;
 import net.minecraft.world.item.SpawnEggItem;
@@ -142,9 +143,13 @@ public class ModelGenerators {
                     createDoubleBlock((DoublePlantBlock) block);
                 else if (block instanceof FlowerBlock)
                     createFlowerBlock((FlowerBlock) block);
-                else if (block instanceof LeavesBlock)
-                    simpleBlockWithItem(block, models().leaves(name(block), blockBWGTexture(block)).renderType("cutout_mipped"));
-                else if (block instanceof RotatedPillarBlock)
+                else if (block instanceof LeavesBlock) {
+                    if (models().existingFileHelper.exists(blockBWGTexture(block), PackType.CLIENT_RESOURCES, ".json", "models")) {
+                        defaultModelFile(block);
+                        simpleBlockItemExistingModel(block);
+                    } else
+                        simpleBlockWithItem(block, models().leaves(name(block), blockBWGTexture(block)).renderType("cutout_mipped"));
+                } else if (block instanceof RotatedPillarBlock)
                     simpleBlockWithItem(block, models().cubeColumn(name(block), blockBWGTexture(block), blockBWGTexture(block, "top")));
                 else if (block instanceof WhitePuffballBlock)
                     getVariantBuilder(block).forAllStates(state -> ConfiguredModel.builder()
