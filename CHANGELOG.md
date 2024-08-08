@@ -11,6 +11,7 @@
 - Make Cypress Saplings use 2 by 2
 - Fix Yucca Leaves Models
 - Add Light to Fairy Slipper
+- Make all BWG flowers have No Occlusion 
 
 # 1.0.5-Beta
 - Workaround for a crash involving fruit leaves decay (No Drops)
