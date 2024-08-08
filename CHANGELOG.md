@@ -1,4 +1,5 @@
 # 1.0.7-Beta
+- Fix some leaves having incorrect drops and not dropping leaves when sheared
 
 # 1.0.6-Beta
 - Fix Skyris Hanging Sign Textures being swapped
