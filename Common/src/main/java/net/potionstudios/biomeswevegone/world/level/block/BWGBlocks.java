@@ -184,7 +184,7 @@ public class BWGBlocks {
     public static final FlowerBlockFeature CALIFORNIA_POPPY = registerFlower("california_poppy", MapColor.COLOR_ORANGE);
     public static final FlowerBlockFeature CROCUS = registerFlower("crocus", MapColor.COLOR_PURPLE, Block.box(0.0, 0.0, 0.0, 16.0, 12.0, 16.0));
     public static final Supplier<TallFlowerBlock> DELPHINIUM = registerTallFlower("delphinium", MapColor.COLOR_PURPLE);
-    public static final FlowerBlockFeature FAIRY_SLIPPER = registerFlower("fairy_slipper", MapColor.COLOR_PINK, Block.box(1.0, 0.0, 1.0, 15.0, 14.0, 15.0));
+    public static final FlowerBlockFeature FAIRY_SLIPPER = registerFlower("fairy_slipper", BlockBehaviour.Properties.copy(Blocks.WHITE_TULIP).noOcclusion().mapColor(MapColor.COLOR_PINK).lightLevel((level) -> 8), Block.box(1.0, 0.0, 1.0, 15.0, 14.0, 15.0));
     public static final Supplier<TallFlowerBlock> FOXGLOVE = registerTallFlower("foxglove", MapColor.COLOR_ORANGE);
     public static final FlowerBlockFeature GUZMANIA = registerFlower("guzmania", MapColor.COLOR_YELLOW, Block.box(4.0, 0.0, 4.0, 12.0, 15.0, 12.0));
     public static final FlowerBlockFeature INCAN_LILY = registerFlower("incan_lily", MapColor.COLOR_PINK);
@@ -387,6 +387,11 @@ public class BWGBlocks {
 
     private static FlowerBlockFeature registerFlower(String key, MapColor mapColor, VoxelShape shape, Supplier<? extends Block> growAble) {
         Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGBonemealableFlowerBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_TULIP).mapColor(mapColor), BlockTags.DIRT, shape, growAble));
+        return new FlowerBlockFeature(key, flower);
+    }
+
+    private static FlowerBlockFeature registerFlower(String key, BlockBehaviour.Properties properties, VoxelShape shape) {
+        Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGFlowerBlock(properties, BlockTags.DIRT, shape));
         return new FlowerBlockFeature(key, flower);
     }
 
