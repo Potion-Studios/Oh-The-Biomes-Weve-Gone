@@ -212,7 +212,7 @@ public class BWGBlocks {
     public static final PottedBlock WHITE_PUFFBALL = createPottedVariantWithoutItem("white_puffball", WhitePuffballBlock::new);
 
     /** Grasses */
-    public static final Supplier<DoublePlantBlock> TALL_PRAIRIE_GRASS = registerBlockItem("tall_prairie_grass", () -> new DoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS).mapColor(MapColor.COLOR_GREEN)));
+    public static final Supplier<DoublePlantBlock> TALL_PRAIRIE_GRASS = registerBlockItem("tall_prairie_grass", () -> new BWGDoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS).mapColor(MapColor.COLOR_GREEN), BlockTags.DIRT));
     public static final Supplier<BoneMealGrassBlock> PRAIRIE_GRASS = registerBlockItem("prairie_grass", () -> new BoneMealGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS), TALL_PRAIRIE_GRASS, BlockTags.DIRT));
     public static final Supplier<DoublePlantBlock> TALL_BEACH_GRASS = registerBlockItem("tall_beach_grass", () -> new BWGDoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS).mapColor(MapColor.COLOR_GREEN), BlockTags.SAND));
     public static final Supplier<BoneMealGrassBlock> BEACH_GRASS = registerBlockItem("beach_grass", () -> new BoneMealGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS), TALL_BEACH_GRASS, BlockTags.SAND));
