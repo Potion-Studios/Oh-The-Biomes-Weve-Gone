@@ -39,8 +39,8 @@ import java.util.function.Supplier;
 @AutoService(PlatformHandler.class)
 public class FabricPlatformHandler implements PlatformHandler {
 	@Override
-	public String getPlatformName() {
-		return "Fabric";
+	public Platform getPlatform() {
+		return Platform.FABRIC;
 	}
 
 	@Override

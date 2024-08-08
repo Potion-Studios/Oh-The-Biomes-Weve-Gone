@@ -52,8 +52,8 @@ import java.util.function.Supplier;
 @AutoService(PlatformHandler.class)
 public class ForgePlatformHandler implements PlatformHandler {
 	@Override
-	public String getPlatformName() {
-		return "Forge";
+	public Platform getPlatform() {
+		return Platform.FORGE;
 	}
 
 	@Override

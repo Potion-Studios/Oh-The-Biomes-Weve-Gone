@@ -39,9 +39,10 @@ public interface PlatformHandler {
 
 	/**
 	 * Gets the name of the current platform
+	 *
 	 * @return The name of the current platform.
 	 */
-	String getPlatformName();
+	Platform getPlatform();
 
 	/**
 	 * Gets the path to the config directory
@@ -172,4 +173,9 @@ public interface PlatformHandler {
 	<T> Supplier<T> register(Registry<? super T> registry, String name, Supplier<T> value);
 
 	<T> Supplier<Holder.Reference<T>> registerForHolder(Registry<T> registry, String name, Supplier<T> value);
+
+	enum Platform {
+		FORGE,
+		FABRIC
+	}
 }
