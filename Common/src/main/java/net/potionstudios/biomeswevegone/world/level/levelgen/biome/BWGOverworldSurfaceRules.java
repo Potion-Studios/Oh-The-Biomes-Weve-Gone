@@ -65,8 +65,6 @@ public class BWGOverworldSurfaceRules {
             )
     );
 
-    private static final SurfaceRules.RuleSource ALLIUM_SHRUBLAND = makeifTrueRule(BWGBiomes.ALLIUM_SHRUBLAND, makeifTrueRule(SurfaceRules.hole(), Blocks.GRASS_BLOCK));
-
     private static final SurfaceRules.RuleSource ATACAMA_OUTBACK = biomeAbovePreliminarySurface(BWGBiomes.ATACAMA_OUTBACK, SurfaceRules.sequence(
         makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
                 SurfaceRules.sequence(
@@ -367,7 +365,6 @@ public class BWGOverworldSurfaceRules {
      */
     public static SurfaceRules.RuleSource makeRules() {
         return SurfaceRules.sequence(
-                ALLIUM_SHRUBLAND,
                 ATACAMA_OUTBACK,
                 ASPEN_BOREAL,
                 BAOBAB_SAVANNA,

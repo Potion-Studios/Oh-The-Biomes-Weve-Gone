@@ -4,6 +4,7 @@
 - Make All VineBlocks Compostable and Climbable
 - Move All leaves into Wood Class/Creative Tab
 - Fix Holly Berry Leaves Drops
+- Fix Grass Generating in caves in Allium Shrubland
 
 # 1.0.6-Beta
 - Fix Skyris Hanging Sign Textures being swapped
