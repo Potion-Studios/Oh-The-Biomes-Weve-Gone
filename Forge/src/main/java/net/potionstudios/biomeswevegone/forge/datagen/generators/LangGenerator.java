@@ -64,7 +64,7 @@ public class LangGenerator extends LanguageProvider {
         add(advancement("husbandry.berrily_alive.title"), "Berrily Alive");
         add(advancement("husbandry.berrily_alive.description"), "Obtain Blueberries");
         add(advancement("husbandry.just_like_grandmas.title"), "Just Like Grandma's");
-        add(advancement("husbandry.just_like_grandmas.description"), "Craft all of the 4 BWG pies.");
+        add(advancement("husbandry.just_like_grandmas.description"), "Craft both of the BWG pies.");
         add(advancement("husbandry.johnny_appleseed.title"), "Johnny Appleseed");
         add(advancement("husbandry.johnny_appleseed.description"), "Find All 3 Apples");
         add(advancement("husbandry.hot_diggity_not_dog.title"), "Hot Diggity Not Dog");

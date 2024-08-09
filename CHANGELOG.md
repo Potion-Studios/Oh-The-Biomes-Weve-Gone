@@ -5,6 +5,7 @@
 - Move All leaves into Wood Class/Creative Tab
 - Fix Holly Berry Leaves Drops
 - Fix Grass Generating in caves in Allium Shrubland
+- Adjust Just Like Grandma's Lang to say both pies
 
 # 1.0.6-Beta
 - Fix Skyris Hanging Sign Textures being swapped
