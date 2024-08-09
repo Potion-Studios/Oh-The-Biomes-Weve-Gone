@@ -78,7 +78,7 @@ public class ModelGenerators {
             simpleItemBlockTexture(BWGItems.WATER_SILK.get(), "water_silk");
             simpleItemBlockTexture(BWGBlocks.POISON_IVY.get().asItem(), "poison_ivy");
             simpleItem(BWGBlocks.SKYRIS_VINE.get().asItem());
-           // simpleItem(BWGBlocks.THERIUM_LANTERN.get().asItem());
+            //simpleItem(BWGBlocks.THERIUM_LANTERN.get().asItem());
             //simpleItemBlockTexture(BWGBlocks.WARPED_CORAL_FAN.get().asItem(), "warped_coral_fan");
             simpleItem(BWGBlocks.ALOE_VERA.get().asItem());
             simpleItem(BWGItems.CATTAIL_SPROUT.get(), "cattails");
@@ -143,13 +143,7 @@ public class ModelGenerators {
                     createDoubleBlock((DoublePlantBlock) block);
                 else if (block instanceof FlowerBlock)
                     createFlowerBlock((FlowerBlock) block);
-                else if (block instanceof LeavesBlock) {
-                    if (models().existingFileHelper.exists(blockBWGTexture(block), PackType.CLIENT_RESOURCES, ".json", "models")) {
-                        defaultModelFile(block);
-                        simpleBlockItemExistingModel(block);
-                    } else
-                        simpleBlockWithItem(block, models().leaves(name(block), blockBWGTexture(block)).renderType("cutout_mipped"));
-                } else if (block instanceof RotatedPillarBlock)
+                else if (block instanceof RotatedPillarBlock)
                     simpleBlockWithItem(block, models().cubeColumn(name(block), blockBWGTexture(block), blockBWGTexture(block, "top")));
                 else if (block instanceof WhitePuffballBlock)
                     getVariantBuilder(block).forAllStates(state -> ConfiguredModel.builder()
@@ -245,6 +239,18 @@ public class ModelGenerators {
                     simpleBlockWithItem(set.leaves(), models().leaves(name(set.leaves()), woodBlockTexture(set.name(), "leaves")).renderType("cutout_mipped"));
             });
 
+            BWGWood.NONSET_WOOD.forEach(object -> {
+                Block block = object.get();
+                if (models().existingFileHelper.exists(blockBWGTexture(block), PackType.CLIENT_RESOURCES, ".json", "models")) {
+                    defaultModelFile(block);
+                    simpleBlockItemExistingModel(block);
+                } else {
+                    if (block instanceof SaplingBlock) registerSaplingBlock(object.get(), blockBWGTexture(block));
+                    else if (block instanceof FlowerPotBlock) registerPottedSapling(object.get(), blockBWGTexture(((FlowerPotBlock) block).getContent()));
+                    else if (block instanceof LeavesBlock) simpleBlockWithItem(block, models().leaves(name(block), blockBWGTexture(block)).renderType("cutout_mipped"));
+                }
+            });
+
             ResourceLocation paloVerdeLog = woodBlockTexture("palo_verde", "log");
             ResourceLocation paloVerdeStrippedLog = woodBlockTexture("palo_verde", "stripped_log");
             log(BWGWood.PALO_VERDE_LOG.get(), paloVerdeLog, woodBlockTexture("palo_verde", "log_top"));
@@ -255,9 +261,6 @@ public class ModelGenerators {
             registerSapling(BWGWood.PALO_VERDE_SAPLING, woodBlockTexture("palo_verde", "sapling"));
             registerSapling(BWGWood.WHITE_SAKURA_SAPLING, woodBlockTexture("sakura", "white_sapling"));
             registerSapling(BWGWood.YELLOW_SAKURA_SAPLING, woodBlockTexture("sakura", "yellow_sapling"));
-            registerSapling(BWGWood.ARAUCARIA_SAPLING, BWGWood.BLUE_SPRUCE_SAPLING, BWGWood.BROWN_BIRCH_SAPLING, BWGWood.BROWN_OAK_SAPLING, BWGWood.BROWN_ZELKOVA_SAPLING, BWGWood.INDIGO_JACARANDA_SAPLING,
-                    BWGWood.ORANGE_BIRCH_SAPLING, BWGWood.ORANGE_OAK_SAPLING, BWGWood.ORANGE_SPRUCE_SAPLING, BWGWood.ORCHARD_SAPLING, BWGWood.RED_BIRCH_SAPLING, BWGWood.RED_MAPLE_SAPLING, BWGWood.RED_OAK_SAPLING,
-                    BWGWood.RED_SPRUCE_SAPLING, BWGWood.SILVER_MAPLE_SAPLING, BWGWood.YELLOW_BIRCH_SAPLING, BWGWood.YELLOW_SPRUCE_SAPLING, BWGWood.YUCCA_SAPLING);
             simpleBlockWithItem(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get(), models().cubeAll(name(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get()), woodBlockTexture("blue_enchanted", "imbued_wood")));
             simpleBlockWithItem(BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get(), models().cubeAll(name(BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get()), woodBlockTexture("green_enchanted", "imbued_wood")));
             BWGSandSet.getSandSets().forEach(set -> {
@@ -500,14 +503,18 @@ public class ModelGenerators {
             itemModels().fenceGate(key(gate).getPath(), texture);
         }
 
-        private void registerSapling(PottedBlock... saplings) {
-            for (PottedBlock s : saplings) registerSapling(s, blockBWGTexture(s.getBlock()));
+        private void registerSaplingBlock(Block saplingBlock, ResourceLocation texture) {
+            simpleBlock(saplingBlock, models().cross(name(saplingBlock), texture).renderType("cutout"));
+            simpleItemBlockTexture(saplingBlock, texture);
+        }
+
+        private void registerPottedSapling(Block block, ResourceLocation texture) {
+            simpleBlock(block, models().withExistingParent(name(block), mcLoc("block/flower_pot_cross")).texture("plant", texture).renderType("cutout"));
         }
 
         private void registerSapling(PottedBlock sapling, ResourceLocation texture) {
-            simpleBlock(sapling.getBlock(), models().cross(name(sapling.getBlock()), texture).renderType("cutout"));
-            simpleItemBlockTexture(sapling.getBlock(), texture);
-            simpleBlock(sapling.getPottedBlock(), models().withExistingParent(name(sapling.getPottedBlock()), mcLoc("block/flower_pot_cross")).texture("plant", texture).renderType("cutout"));
+            registerSaplingBlock(sapling.getBlock(), texture);
+            registerPottedSapling(sapling.getPottedBlock(), texture);
         }
 
         private void log(BWGWoodSet set) {

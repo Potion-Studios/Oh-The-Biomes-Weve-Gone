@@ -88,13 +88,11 @@ public class TagsGenerator {
                 tag(BlockTags.WALL_HANGING_SIGNS).add(set.wallHangingSign());
                 tag(Tags.Blocks.BOOKSHELVES).add(set.bookshelf());
                 tag(BlockTags.ENCHANTMENT_POWER_PROVIDER).add(set.bookshelf());
-                if (set.leaves() != null) tag(BlockTags.LEAVES).add(set.leaves());
                 tag(set.logBlockTag()).add(set.logstem(), set.wood(), set.strippedLogStem(), set.strippedWood());
                 tag(BlockTags.LOGS).addTag(set.logBlockTag());
                 tag(BlockTags.LOGS_THAT_BURN).addTag(set.logBlockTag());
             });
 
-            tag(BlockTags.LEAVES).add(BWGWood.PALO_VERDE_LEAVES.get());
             tag(BWGBlockTags.PALO_VERDE_LOGS).add(BWGWood.PALO_VERDE_LOG.get(), BWGWood.STRIPPED_PALO_VERDE_LOG.get(), BWGWood.PALO_VERDE_WOOD.get(), BWGWood.STRIPPED_PALO_VERDE_WOOD.get());
             tag(BlockTags.LOGS).addTag(BWGBlockTags.PALO_VERDE_LOGS);
 
@@ -103,8 +101,10 @@ public class TagsGenerator {
                     tag(BlockTags.FLOWER_POTS).add(blocks.get());
                 else if (blocks.get() instanceof SaplingBlock)
                     tag(BlockTags.SAPLINGS).add(blocks.get());
-                else if (blocks.get() instanceof LeavesBlock)
+                else if (blocks.get() instanceof LeavesBlock) {
                     tag(BlockTags.MINEABLE_WITH_HOE).add(blocks.get());
+                    tag(BlockTags.LEAVES).add(blocks.get());
+                }
                 else tag(BlockTags.MINEABLE_WITH_AXE).add(blocks.get());
             });
             BWGSandSet.getSandSets().forEach(set -> {

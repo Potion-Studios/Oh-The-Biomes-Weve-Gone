@@ -51,7 +51,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/araucaria/araucaria_tree_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.PINE.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ARAUCARIA_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ARAUCARIA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -65,7 +65,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/araucaria/araucaria_tree_canopy2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.PINE.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ARAUCARIA_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ARAUCARIA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -111,7 +111,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/ancient/ancient_tree_canopy3"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.MAPLE.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of(GLOW_BERRY_DECORATOR.get(), new TrunkVineDecorator(), MOSS_CARPET.get(), SHELF_FUNGI.get())
@@ -212,7 +212,7 @@ public class BWGOverworldTreeConfiguredFeatures {
             )
     );
 
-    public static final Supplier<AttachedToLeavesDecorator> BAOBAB_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.2F, 2, 0, BWGBlocks.RIPE_BAOBAB_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.BAOBAB_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+    public static final Supplier<AttachedToLeavesDecorator> BAOBAB_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.2F, 2, 0, BWGWood.RIPE_BAOBAB_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.BAOBAB_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BAOBAB_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("baobab_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
@@ -223,8 +223,8 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.BAOBAB.logstem().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
                             .add(BWGWood.BAOBAB.leaves().defaultBlockState(), 10)
-                            .add(BWGBlocks.FLOWERING_BAOBAB_LEAVES.get().defaultBlockState(), 2)
-                            .add(BWGBlocks.RIPE_BAOBAB_LEAVES.get().defaultBlockState(), 1).build()
+                            .add(BWGWood.FLOWERING_BAOBAB_LEAVES.get().defaultBlockState(), 2)
+                            .add(BWGWood.RIPE_BAOBAB_LEAVES.get().defaultBlockState(), 1).build()
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
@@ -240,8 +240,8 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.BAOBAB.logstem().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
                             .add(BWGWood.BAOBAB.leaves().defaultBlockState(), 10)
-                            .add(BWGBlocks.FLOWERING_BAOBAB_LEAVES.get().defaultBlockState(), 2)
-                            .add(BWGBlocks.RIPE_BAOBAB_LEAVES.get().defaultBlockState(), 1).build()
+                            .add(BWGWood.FLOWERING_BAOBAB_LEAVES.get().defaultBlockState(), 2)
+                            .add(BWGWood.RIPE_BAOBAB_LEAVES.get().defaultBlockState(), 1).build()
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
@@ -257,8 +257,8 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.BAOBAB.logstem().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
                             .add(BWGWood.BAOBAB.leaves().defaultBlockState(), 10)
-                            .add(BWGBlocks.FLOWERING_BAOBAB_LEAVES.get().defaultBlockState(), 2)
-                            .add(BWGBlocks.RIPE_BAOBAB_LEAVES.get().defaultBlockState(), 1).build()
+                            .add(BWGWood.FLOWERING_BAOBAB_LEAVES.get().defaultBlockState(), 2)
+                            .add(BWGWood.RIPE_BAOBAB_LEAVES.get().defaultBlockState(), 1).build()
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
@@ -327,7 +327,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/birch/birch_tree_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BROWN_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BROWN_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -340,7 +340,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/birch/birch_tree_canopy2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BROWN_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BROWN_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -353,7 +353,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/birch/birch_tree_canopy3"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BROWN_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BROWN_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -366,7 +366,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/birch/birch_tree_canopy4"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BROWN_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BROWN_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -381,7 +381,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/birch/birch_tree_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ORANGE_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -394,7 +394,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/birch/birch_tree_canopy2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ORANGE_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -407,7 +407,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/birch/birch_tree_canopy3"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ORANGE_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -420,7 +420,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/birch/birch_tree_canopy4"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ORANGE_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -435,7 +435,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/birch/birch_tree_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -448,7 +448,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/birch/birch_tree_canopy2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -461,7 +461,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/birch/birch_tree_canopy3"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -474,7 +474,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/birch/birch_tree_canopy4"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -489,7 +489,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/birch/birch_tree_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -502,7 +502,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/birch/birch_tree_canopy2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -515,7 +515,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/birch/birch_tree_canopy3"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -528,7 +528,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/birch/birch_tree_canopy4"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -583,7 +583,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/birch/birch_boreal_canopy1"),
                     BiasedToBottomInt.of(3, 5),
                     BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -625,7 +625,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/sakura/sakura_canopy1"),
                     BiasedToBottomInt.of(1, 3),
                     BlockStateProvider.simple(BWGWood.SAKURA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -638,7 +638,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/sakura/sakura_canopy2"),
                     BiasedToBottomInt.of(1, 4),
                     BlockStateProvider.simple(BWGWood.SAKURA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -651,7 +651,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/sakura/sakura_canopy3"),
                     BiasedToBottomInt.of(4, 9),
                     BlockStateProvider.simple(BWGWood.SAKURA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -664,7 +664,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/sakura/sakura_canopy4"),
                     BiasedToBottomInt.of(6, 16),
                     BlockStateProvider.simple(BWGWood.SAKURA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -677,7 +677,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/sakura/sakura_canopy5"),
                     BiasedToBottomInt.of(7, 16),
                     BlockStateProvider.simple(BWGWood.SAKURA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -690,7 +690,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/sakura/sakura_canopy6"),
                     BiasedToBottomInt.of(7, 16),
                     BlockStateProvider.simple(BWGWood.SAKURA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -703,7 +703,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/sakura/sakura_canopy7"),
                     BiasedToBottomInt.of(5, 14),
                     BlockStateProvider.simple(BWGWood.SAKURA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -717,7 +717,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/sakura/sakura_canopy1"),
                     BiasedToBottomInt.of(1, 3),
                     BlockStateProvider.simple(BWGWood.SAKURA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -730,7 +730,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/sakura/sakura_canopy2"),
                     BiasedToBottomInt.of(1, 4),
                     BlockStateProvider.simple(BWGWood.SAKURA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -743,7 +743,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/sakura/sakura_canopy3"),
                     BiasedToBottomInt.of(4, 9),
                     BlockStateProvider.simple(BWGWood.SAKURA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -756,7 +756,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/sakura/sakura_canopy4"),
                     BiasedToBottomInt.of(7, 16),
                     BlockStateProvider.simple(BWGWood.SAKURA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -769,7 +769,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/sakura/sakura_canopy5"),
                     BiasedToBottomInt.of(7, 16),
                     BlockStateProvider.simple(BWGWood.SAKURA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -782,7 +782,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/sakura/sakura_canopy6"),
                     BiasedToBottomInt.of(6, 16),
                     BlockStateProvider.simple(BWGWood.SAKURA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -795,7 +795,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/sakura/sakura_canopy7"),
                     BiasedToBottomInt.of(6, 13),
                     BlockStateProvider.simple(BWGWood.SAKURA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1005,7 +1005,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_canopy_1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.WITCH_HAZEL.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.get().defaultBlockState(), 1).add(BWGWood.WITCH_HAZEL.leaves().defaultBlockState(), 4).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLOOMING_WITCH_HAZEL_LEAVES.get().defaultBlockState(), 1).add(BWGWood.WITCH_HAZEL.leaves().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get())
@@ -1020,7 +1020,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_canopy_2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.WITCH_HAZEL.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.get().defaultBlockState(), 1).add(BWGWood.WITCH_HAZEL.leaves().defaultBlockState(), 4).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLOOMING_WITCH_HAZEL_LEAVES.get().defaultBlockState(), 1).add(BWGWood.WITCH_HAZEL.leaves().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get())
@@ -1034,7 +1034,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_canopy_3"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.WITCH_HAZEL.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.get().defaultBlockState(), 1).add(BWGWood.WITCH_HAZEL.leaves().defaultBlockState(), 4).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLOOMING_WITCH_HAZEL_LEAVES.get().defaultBlockState(), 1).add(BWGWood.WITCH_HAZEL.leaves().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get())
@@ -1048,7 +1048,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_canopy_4"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.WITCH_HAZEL.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.get().defaultBlockState(), 1).add(BWGWood.WITCH_HAZEL.leaves().defaultBlockState(), 4).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLOOMING_WITCH_HAZEL_LEAVES.get().defaultBlockState(), 1).add(BWGWood.WITCH_HAZEL.leaves().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get())
@@ -1062,7 +1062,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_canopy_5"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.WITCH_HAZEL.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.get().defaultBlockState(), 1).add(BWGWood.WITCH_HAZEL.leaves().defaultBlockState(), 4).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLOOMING_WITCH_HAZEL_LEAVES.get().defaultBlockState(), 1).add(BWGWood.WITCH_HAZEL.leaves().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get())
@@ -1076,7 +1076,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/meadow/meadow_shrub_canopy1"),
                     ConstantInt.of(0),
                     BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
-                    BlockStateProvider.simple(BWGBlocks.FIRECRACKER_LEAVES.get().defaultBlockState()),
+                    BlockStateProvider.simple(BWGWood.FIRECRACKER_LEAVES.get().defaultBlockState()),
                     Blocks.DARK_OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1090,7 +1090,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/meadow/meadow_shrub_canopy1"),
                     ConstantInt.of(0),
                     BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
-                    BlockStateProvider.simple(BWGBlocks.FIRECRACKER_LEAVES.get().defaultBlockState()),
+                    BlockStateProvider.simple(BWGWood.FIRECRACKER_LEAVES.get().defaultBlockState()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT,  5, ImmutableList.of()
@@ -1104,7 +1104,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/bush/canopy_bush1"),
                     BiasedToBottomInt.of(1, 2),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
-                    BlockStateProvider.simple(BWGBlocks.FIRECRACKER_LEAVES.get().defaultBlockState()),
+                    BlockStateProvider.simple(BWGWood.FIRECRACKER_LEAVES.get().defaultBlockState()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1215,7 +1215,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/holly/holly_canopy1"),
                     BiasedToBottomInt.of(10, 16),
                     BlockStateProvider.simple(BWGWood.HOLLY.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.HOLLY.leaves().defaultBlockState(), 7).add(BWGBlocks.HOLLY_BERRY_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.HOLLY.leaves().defaultBlockState(), 7).add(BWGWood.HOLLY_BERRY_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 6, ImmutableList.of()
@@ -1228,7 +1228,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/holly/holly_canopy2"),
                     BiasedToBottomInt.of(8, 14),
                     BlockStateProvider.simple(BWGWood.HOLLY.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.HOLLY.leaves().defaultBlockState(), 7).add(BWGBlocks.HOLLY_BERRY_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.HOLLY.leaves().defaultBlockState(), 7).add(BWGWood.HOLLY_BERRY_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 6, ImmutableList.of()
@@ -1241,7 +1241,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/holly/holly_canopy3"),
                     BiasedToBottomInt.of(2, 12),
                     BlockStateProvider.simple(BWGWood.HOLLY.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.HOLLY.leaves().defaultBlockState(), 7).add(BWGBlocks.HOLLY_BERRY_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.HOLLY.leaves().defaultBlockState(), 7).add(BWGWood.HOLLY_BERRY_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 6, ImmutableList.of()
@@ -1254,7 +1254,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/holly/holly_canopy4"),
                     BiasedToBottomInt.of(10, 16),
                     BlockStateProvider.simple(BWGWood.HOLLY.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.HOLLY.leaves().defaultBlockState(), 7).add(BWGBlocks.HOLLY_BERRY_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.HOLLY.leaves().defaultBlockState(), 7).add(BWGWood.HOLLY_BERRY_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 6, ImmutableList.of()
@@ -1466,7 +1466,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.JACARANDA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGWood.JACARANDA.leaves().defaultBlockState(), 4).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGWood.JACARANDA.leaves().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1480,7 +1480,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.JACARANDA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGWood.JACARANDA.leaves().defaultBlockState(), 4).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGWood.JACARANDA.leaves().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1494,7 +1494,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_3"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.JACARANDA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGWood.JACARANDA.leaves().defaultBlockState(), 4).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGWood.JACARANDA.leaves().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1508,7 +1508,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_4"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.JACARANDA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGWood.JACARANDA.leaves().defaultBlockState(), 4).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGWood.JACARANDA.leaves().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1522,7 +1522,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.JACARANDA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.FLOWERING_INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGBlocks.INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 4).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGWood.INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1536,7 +1536,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.JACARANDA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.FLOWERING_INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGBlocks.INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 4).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGWood.INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1550,7 +1550,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_3"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.JACARANDA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.FLOWERING_INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGBlocks.INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 4).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGWood.INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1564,14 +1564,14 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_4"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.JACARANDA.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.FLOWERING_INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGBlocks.INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 4).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGWood.INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
     );
 
-    public static final Supplier<AttachedToLeavesDecorator> YUCCA_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.1F, 2, 0, BWGBlocks.RIPE_YUCCA_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.YUCCA_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+    public static final Supplier<AttachedToLeavesDecorator> YUCCA_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.1F, 2, 0, BWGWood.RIPE_YUCCA_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.YUCCA_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> YUCCA_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("yucca_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
@@ -1581,9 +1581,9 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiasedToBottomInt.of(1, 2),
                     BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(BWGBlocks.YUCCA_LEAVES.get().defaultBlockState(), 10)
-                            .add(BWGBlocks.FLOWERING_YUCCA_LEAVES.get().defaultBlockState(), 2)
-                            .add(BWGBlocks.RIPE_YUCCA_LEAVES.get().defaultBlockState(), 1).build()
+                            .add(BWGWood.YUCCA_LEAVES.get().defaultBlockState(), 10)
+                            .add(BWGWood.FLOWERING_YUCCA_LEAVES.get().defaultBlockState(), 2)
+                            .add(BWGWood.RIPE_YUCCA_LEAVES.get().defaultBlockState(), 1).build()
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
@@ -1599,9 +1599,9 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiasedToBottomInt.of(5, 8),
                     BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(BWGBlocks.YUCCA_LEAVES.get().defaultBlockState(), 10)
-                            .add(BWGBlocks.FLOWERING_YUCCA_LEAVES.get().defaultBlockState(), 2)
-                            .add(BWGBlocks.RIPE_YUCCA_LEAVES.get().defaultBlockState(), 1).build()
+                            .add(BWGWood.YUCCA_LEAVES.get().defaultBlockState(), 10)
+                            .add(BWGWood.FLOWERING_YUCCA_LEAVES.get().defaultBlockState(), 2)
+                            .add(BWGWood.RIPE_YUCCA_LEAVES.get().defaultBlockState(), 1).build()
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
@@ -1750,7 +1750,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy1"),
                     BiasedToBottomInt.of(5, 10),
                     BlockStateProvider.simple(BWGWood.IRONWOOD.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IRONWOOD.leaves().defaultBlockState(), 2).add(BWGBlocks.FLOWERING_IRONWOOD_LEAVES.get().defaultBlockState(), 3).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IRONWOOD.leaves().defaultBlockState(), 2).add(BWGWood.FLOWERING_IRONWOOD_LEAVES.get().defaultBlockState(), 3).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.AZALEA_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1764,7 +1764,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy2"),
                     BiasedToBottomInt.of(5, 10),
                     BlockStateProvider.simple(BWGWood.IRONWOOD.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IRONWOOD.leaves().defaultBlockState(), 2).add(BWGBlocks.FLOWERING_IRONWOOD_LEAVES.get().defaultBlockState(), 3).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IRONWOOD.leaves().defaultBlockState(), 2).add(BWGWood.FLOWERING_IRONWOOD_LEAVES.get().defaultBlockState(), 3).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.AZALEA_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1778,7 +1778,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy3"),
                     BiasedToBottomInt.of(5, 10),
                     BlockStateProvider.simple(BWGWood.IRONWOOD.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IRONWOOD.leaves().defaultBlockState(), 2).add(BWGBlocks.FLOWERING_IRONWOOD_LEAVES.get().defaultBlockState(), 3).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IRONWOOD.leaves().defaultBlockState(), 2).add(BWGWood.FLOWERING_IRONWOOD_LEAVES.get().defaultBlockState(), 3).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.AZALEA_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1792,7 +1792,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy4"),
                     BiasedToBottomInt.of(5, 10),
                     BlockStateProvider.simple(BWGWood.IRONWOOD.logstem().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IRONWOOD.leaves().defaultBlockState(), 2).add(BWGBlocks.FLOWERING_IRONWOOD_LEAVES.get().defaultBlockState(), 3).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IRONWOOD.leaves().defaultBlockState(), 2).add(BWGWood.FLOWERING_IRONWOOD_LEAVES.get().defaultBlockState(), 3).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.AZALEA_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1876,7 +1876,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/maple/maple_canopy1"),
                     BiasedToBottomInt.of(4, 6),
                     BlockStateProvider.simple(BWGWood.MAPLE.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1890,7 +1890,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/maple/maple_canopy2"),
                     BiasedToBottomInt.of(4, 6),
                     BlockStateProvider.simple(BWGWood.MAPLE.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1904,7 +1904,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/maple/maple_canopy3"),
                     BiasedToBottomInt.of(4, 6),
                     BlockStateProvider.simple(BWGWood.MAPLE.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1918,7 +1918,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/maple/maple_canopy4"),
                     BiasedToBottomInt.of(4, 6),
                     BlockStateProvider.simple(BWGWood.MAPLE.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1932,7 +1932,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/maple/maple_canopy5"),
                     BiasedToBottomInt.of(4, 6),
                     BlockStateProvider.simple(BWGWood.MAPLE.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1946,7 +1946,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/maple/maple_canopy1"),
                     BiasedToBottomInt.of(4, 6),
                     BlockStateProvider.simple(BWGWood.MAPLE.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1960,7 +1960,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/maple/maple_canopy2"),
                     BiasedToBottomInt.of(4, 6),
                     BlockStateProvider.simple(BWGWood.MAPLE.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1974,7 +1974,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/maple/maple_canopy3"),
                     BiasedToBottomInt.of(4, 6),
                     BlockStateProvider.simple(BWGWood.MAPLE.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -1988,7 +1988,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/maple/maple_canopy4"),
                     BiasedToBottomInt.of(4, 6),
                     BlockStateProvider.simple(BWGWood.MAPLE.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2002,7 +2002,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/maple/maple_canopy5"),
                     BiasedToBottomInt.of(4, 6),
                     BlockStateProvider.simple(BWGWood.MAPLE.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2135,7 +2135,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/oak/red_oak_canopy1"),
                     BiasedToBottomInt.of(1, 2),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2148,7 +2148,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/oak/red_oak_canopy2"),
                     BiasedToBottomInt.of(1, 2),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2161,7 +2161,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/oak/red_oak_canopy3"),
                     BiasedToBottomInt.of(5, 6),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2174,7 +2174,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/oak/large_red_oak_canopy1"),
                     BiasedToBottomInt.of(2, 4),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2187,7 +2187,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/oak/large_red_oak_canopy2"),
                     BiasedToBottomInt.of(1, 3),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2200,7 +2200,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/oak/large_red_oak_canopy3"),
                     BiasedToBottomInt.of(1, 3),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2214,7 +2214,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/oak/brown_oak_canopy1"),
                     BiasedToBottomInt.of(1, 2),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2227,7 +2227,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/oak/brown_oak_canopy2"),
                     BiasedToBottomInt.of(1, 2),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2240,7 +2240,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/oak/brown_oak_canopy3"),
                     BiasedToBottomInt.of(5, 6),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2253,7 +2253,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/oak/large_brown_oak_canopy1"),
                     BiasedToBottomInt.of(2, 4),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2266,7 +2266,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/oak/large_brown_oak_canopy2"),
                     BiasedToBottomInt.of(1, 3),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2279,7 +2279,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/oak/large_brown_oak_canopy3"),
                     BiasedToBottomInt.of(1, 3),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2293,7 +2293,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/oak/orange_oak_canopy1"),
                     BiasedToBottomInt.of(1, 2),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2306,7 +2306,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/oak/orange_oak_canopy2"),
                     BiasedToBottomInt.of(1, 2),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2319,7 +2319,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/oak/orange_oak_canopy3"),
                     BiasedToBottomInt.of(5, 6),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2332,7 +2332,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/oak/large_orange_oak_canopy1"),
                     BiasedToBottomInt.of(2, 4),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2345,7 +2345,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/oak/large_orange_oak_canopy2"),
                     BiasedToBottomInt.of(1, 3),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2358,7 +2358,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/oak/large_orange_oak_canopy2"),
                     BiasedToBottomInt.of(1, 3),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2373,9 +2373,9 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiasedToBottomInt.of(6, 10),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(BWGBlocks.ORCHARD_LEAVES.get().defaultBlockState(), 10)
-                            .add(BWGBlocks.FLOWERING_ORCHARD_LEAVES.get().defaultBlockState(), 1)
-                            .add(BWGBlocks.RIPE_ORCHARD_LEAVES.get().defaultBlockState(), 1).build()
+                            .add(BWGWood.ORCHARD_LEAVES.get().defaultBlockState(), 10)
+                            .add(BWGWood.FLOWERING_ORCHARD_LEAVES.get().defaultBlockState(), 1)
+                            .add(BWGWood.RIPE_ORCHARD_LEAVES.get().defaultBlockState(), 1).build()
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
@@ -2390,9 +2390,9 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiasedToBottomInt.of(6, 11),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(BWGBlocks.ORCHARD_LEAVES.get().defaultBlockState(), 10)
-                            .add(BWGBlocks.FLOWERING_ORCHARD_LEAVES.get().defaultBlockState(), 1)
-                            .add(BWGBlocks.RIPE_ORCHARD_LEAVES.get().defaultBlockState(), 1).build()
+                            .add(BWGWood.ORCHARD_LEAVES.get().defaultBlockState(), 10)
+                            .add(BWGWood.FLOWERING_ORCHARD_LEAVES.get().defaultBlockState(), 1)
+                            .add(BWGWood.RIPE_ORCHARD_LEAVES.get().defaultBlockState(), 1).build()
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
@@ -2407,9 +2407,9 @@ public class BWGOverworldTreeConfiguredFeatures {
                     UniformInt.of(8, 11),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(BWGBlocks.ORCHARD_LEAVES.get().defaultBlockState(), 10)
-                            .add(BWGBlocks.FLOWERING_ORCHARD_LEAVES.get().defaultBlockState(), 1)
-                            .add(BWGBlocks.RIPE_ORCHARD_LEAVES.get().defaultBlockState(), 1).build()
+                            .add(BWGWood.ORCHARD_LEAVES.get().defaultBlockState(), 10)
+                            .add(BWGWood.FLOWERING_ORCHARD_LEAVES.get().defaultBlockState(), 1)
+                            .add(BWGWood.RIPE_ORCHARD_LEAVES.get().defaultBlockState(), 1).build()
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
@@ -2425,9 +2425,9 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiasedToBottomInt.of(2, 4),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(BWGBlocks.ORCHARD_LEAVES.get().defaultBlockState(), 10)
-                            .add(BWGBlocks.FLOWERING_ORCHARD_LEAVES.get().defaultBlockState(), 1)
-                            .add(BWGBlocks.RIPE_ORCHARD_LEAVES.get().defaultBlockState(), 1).build()
+                            .add(BWGWood.ORCHARD_LEAVES.get().defaultBlockState(), 10)
+                            .add(BWGWood.FLOWERING_ORCHARD_LEAVES.get().defaultBlockState(), 1)
+                            .add(BWGWood.RIPE_ORCHARD_LEAVES.get().defaultBlockState(), 1).build()
                     ),                    Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2441,9 +2441,9 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiasedToBottomInt.of(1, 3),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(BWGBlocks.ORCHARD_LEAVES.get().defaultBlockState(), 10)
-                            .add(BWGBlocks.FLOWERING_ORCHARD_LEAVES.get().defaultBlockState(), 1)
-                            .add(BWGBlocks.RIPE_ORCHARD_LEAVES.get().defaultBlockState(), 1).build()
+                            .add(BWGWood.ORCHARD_LEAVES.get().defaultBlockState(), 10)
+                            .add(BWGWood.FLOWERING_ORCHARD_LEAVES.get().defaultBlockState(), 1)
+                            .add(BWGWood.RIPE_ORCHARD_LEAVES.get().defaultBlockState(), 1).build()
                     ),                    Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2564,7 +2564,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.PALO_VERDE_LOG.get()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
                             .add(BWGWood.PALO_VERDE_LEAVES.get().defaultBlockState(), 10)
-                            .add(BWGBlocks.FLOWERING_PALO_VERDE_LEAVES.get().defaultBlockState(), 1)
+                            .add(BWGWood.FLOWERING_PALO_VERDE_LEAVES.get().defaultBlockState(), 1)
                             .build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
@@ -2580,7 +2580,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.PALO_VERDE_LOG.get()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
                             .add(BWGWood.PALO_VERDE_LEAVES.get().defaultBlockState(), 1)
-                            .add(BWGBlocks.FLOWERING_PALO_VERDE_LEAVES.get().defaultBlockState(), 1)
+                            .add(BWGWood.FLOWERING_PALO_VERDE_LEAVES.get().defaultBlockState(), 1)
                             .build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
@@ -2710,7 +2710,7 @@ public class BWGOverworldTreeConfiguredFeatures {
             )
     );
 
-    public static final Supplier<AttachedToLeavesDecorator> GREEN_APPLE_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.1F, 2, 0, BWGBlocks.SKYRIS_LEAVES_GREEN_APPLE.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.GREEN_APPLE_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+    public static final Supplier<AttachedToLeavesDecorator> GREEN_APPLE_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.1F, 2, 0, BWGWood.SKYRIS_LEAVES_GREEN_APPLE.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.GREEN_APPLE_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYRIS_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("skyris_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
@@ -2721,8 +2721,8 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.SKYRIS.logstem().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
                             .add(BWGWood.SKYRIS.leaves().defaultBlockState(), 10)
-                            .add(BWGBlocks.FLOWERING_SKYRIS_LEAVES.get().defaultBlockState(), 2)
-                            .add(BWGBlocks.SKYRIS_LEAVES_GREEN_APPLE.get().defaultBlockState(), 1).build()
+                            .add(BWGWood.FLOWERING_SKYRIS_LEAVES.get().defaultBlockState(), 2)
+                            .add(BWGWood.SKYRIS_LEAVES_GREEN_APPLE.get().defaultBlockState(), 1).build()
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
@@ -2739,8 +2739,8 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.SKYRIS.logstem().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
                             .add(BWGWood.SKYRIS.leaves().defaultBlockState(), 10)
-                            .add(BWGBlocks.FLOWERING_SKYRIS_LEAVES.get().defaultBlockState(), 2)
-                            .add(BWGBlocks.SKYRIS_LEAVES_GREEN_APPLE.get().defaultBlockState(), 1).build()
+                            .add(BWGWood.FLOWERING_SKYRIS_LEAVES.get().defaultBlockState(), 2)
+                            .add(BWGWood.SKYRIS_LEAVES_GREEN_APPLE.get().defaultBlockState(), 1).build()
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
@@ -2757,8 +2757,8 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.SKYRIS.logstem().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
                             .add(BWGWood.SKYRIS.leaves().defaultBlockState(), 10)
-                            .add(BWGBlocks.FLOWERING_SKYRIS_LEAVES.get().defaultBlockState(), 2)
-                            .add(BWGBlocks.SKYRIS_LEAVES_GREEN_APPLE.get().defaultBlockState(), 1).build()
+                            .add(BWGWood.FLOWERING_SKYRIS_LEAVES.get().defaultBlockState(), 2)
+                            .add(BWGWood.SKYRIS_LEAVES_GREEN_APPLE.get().defaultBlockState(), 1).build()
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
@@ -2774,8 +2774,8 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.SKYRIS.logstem().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
                             .add(BWGWood.SKYRIS.leaves().defaultBlockState(), 10)
-                            .add(BWGBlocks.FLOWERING_SKYRIS_LEAVES.get().defaultBlockState(), 2)
-                            .add(BWGBlocks.SKYRIS_LEAVES_GREEN_APPLE.get().defaultBlockState(), 1).build()
+                            .add(BWGWood.FLOWERING_SKYRIS_LEAVES.get().defaultBlockState(), 2)
+                            .add(BWGWood.SKYRIS_LEAVES_GREEN_APPLE.get().defaultBlockState(), 1).build()
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
@@ -2791,8 +2791,8 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.SKYRIS.logstem().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
                             .add(BWGWood.SKYRIS.leaves().defaultBlockState(), 10)
-                            .add(BWGBlocks.FLOWERING_SKYRIS_LEAVES.get().defaultBlockState(), 2)
-                            .add(BWGBlocks.SKYRIS_LEAVES_GREEN_APPLE.get().defaultBlockState(), 1).build()
+                            .add(BWGWood.FLOWERING_SKYRIS_LEAVES.get().defaultBlockState(), 2)
+                            .add(BWGWood.SKYRIS_LEAVES_GREEN_APPLE.get().defaultBlockState(), 1).build()
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
@@ -2809,8 +2809,8 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.SKYRIS.logstem().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
                             .add(BWGWood.SKYRIS.leaves().defaultBlockState(), 10)
-                            .add(BWGBlocks.FLOWERING_SKYRIS_LEAVES.get().defaultBlockState(), 2)
-                            .add(BWGBlocks.SKYRIS_LEAVES_GREEN_APPLE.get().defaultBlockState(), 1).build()
+                            .add(BWGWood.FLOWERING_SKYRIS_LEAVES.get().defaultBlockState(), 2)
+                            .add(BWGWood.SKYRIS_LEAVES_GREEN_APPLE.get().defaultBlockState(), 1).build()
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
@@ -2946,7 +2946,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2959,7 +2959,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2972,7 +2972,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy3"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2985,7 +2985,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy4"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -2999,7 +2999,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3012,7 +3012,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3025,7 +3025,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy3"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3038,7 +3038,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy4"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3052,7 +3052,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_large_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3066,7 +3066,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3079,7 +3079,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3092,7 +3092,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy3"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3105,7 +3105,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy4"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3119,7 +3119,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3132,7 +3132,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3145,7 +3145,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy3"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3158,7 +3158,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy4"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3172,7 +3172,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_large_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3187,7 +3187,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3200,7 +3200,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3213,7 +3213,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy3"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3226,7 +3226,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy4"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3240,7 +3240,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3253,7 +3253,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3266,7 +3266,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy3"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3279,7 +3279,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy4"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3293,7 +3293,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_large_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3307,7 +3307,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3320,7 +3320,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3333,7 +3333,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy3"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3346,7 +3346,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy4"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3360,7 +3360,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3373,7 +3373,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3386,7 +3386,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy3"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3399,7 +3399,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy4"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3413,7 +3413,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/spruce/spruce_tree_large_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3538,7 +3538,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/woodlands/woodlands_tree_large_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.BIRCH_LOG),
-                    BlockStateProvider.simple(BWGBlocks.YELLOW_BIRCH_LEAVES.get()),
+                    BlockStateProvider.simple(BWGWood.YELLOW_BIRCH_LEAVES.get()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of(GLOW_BERRY_DECORATOR.get(), MOSS_CARPET.get(), SHELF_FUNGI.get())
@@ -3672,7 +3672,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/zelkova/zelkova_tree_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.ZELKOVA.logstem()),
-                    BlockStateProvider.simple(BWGBlocks.BROWN_ZELKOVA_LEAVES.get()),
+                    BlockStateProvider.simple(BWGWood.BROWN_ZELKOVA_LEAVES.get()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3685,7 +3685,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/zelkova/zelkova_tree_canopy2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.ZELKOVA.logstem()),
-                    BlockStateProvider.simple(BWGBlocks.BROWN_ZELKOVA_LEAVES.get()),
+                    BlockStateProvider.simple(BWGWood.BROWN_ZELKOVA_LEAVES.get()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
@@ -3698,7 +3698,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BiomesWeveGone.id("features/trees/zelkova/zelkova_tree_canopy3"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.ZELKOVA.logstem()),
-                    BlockStateProvider.simple(BWGBlocks.BROWN_ZELKOVA_LEAVES.get()),
+                    BlockStateProvider.simple(BWGWood.BROWN_ZELKOVA_LEAVES.get()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()

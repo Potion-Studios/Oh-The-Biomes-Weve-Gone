@@ -166,11 +166,11 @@ class BWGRuleProcessors {
 	);
 
 	protected static RuleProcessor skyrisLeavesToGreenAppleLeaves(float chance) {
-		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(BWGWood.SKYRIS.leaves(), chance, BWGBlocks.SKYRIS_LEAVES_GREEN_APPLE.get()));
+		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(BWGWood.SKYRIS.leaves(), chance, BWGWood.SKYRIS_LEAVES_GREEN_APPLE.get()));
 	}
 
 	protected static RuleProcessor skyrisLeavesToFlowering(float chance) {
-		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(BWGWood.SKYRIS.leaves(), chance, BWGBlocks.FLOWERING_SKYRIS_LEAVES.get()));
+		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(BWGWood.SKYRIS.leaves(), chance, BWGWood.FLOWERING_SKYRIS_LEAVES.get()));
 	}
 
 	private static ProcessorRule createAlwaysTrueRandomBlockMatchTest(Block start, float chance, Block newBlock) {

@@ -2,6 +2,8 @@
 - Fix some leaves having incorrect drops and not dropping leaves when sheared
 - Make Tall Prairie Grass only placeable on BlockTag Dirt to be the same as normal prairie grass
 - Make All VineBlocks Compostable and Climbable
+- Move All leaves into Wood Class/Creative Tab
+- Fix Holly Berry Leaves Drops
 
 # 1.0.6-Beta
 - Fix Skyris Hanging Sign Textures being swapped

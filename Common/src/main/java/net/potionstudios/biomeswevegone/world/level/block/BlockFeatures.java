@@ -18,7 +18,7 @@ public class BlockFeatures {
     public static void registerCompostables(BiConsumer<ItemLike, Float> consumer) {
         BWGBlocks.BLOCKS.forEach(object -> {
             Block block = object.get();
-            if (block instanceof LeavesBlock || block instanceof TallGrassBlock)
+            if (block instanceof TallGrassBlock)
                 consumer.accept(block, 0.3F);
             else if (block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof WaterlilyBlock || block instanceof MushroomBlock)
                 consumer.accept(block, 0.65F);
@@ -49,13 +49,15 @@ public class BlockFeatures {
             consumer.accept(set.wood(), 5, 5);
             consumer.accept(set.strippedWood(), 5, 5);
             consumer.accept(set.bookshelf(), 30, 20);
-            if (set.leaves() != null) consumer.accept(set.leaves(), 30, 60);
+        });
+        BWGWood.WOOD.forEach(block -> {
+            if (block.get() instanceof LeavesBlock)
+                consumer.accept(block.get(), 30, 60);
         });
         consumer.accept(BWGWood.PALO_VERDE_LOG.get(), 5, 5);
         consumer.accept(BWGWood.STRIPPED_PALO_VERDE_LOG.get(), 5, 5);
         consumer.accept(BWGWood.PALO_VERDE_WOOD.get(), 5, 5);
         consumer.accept(BWGWood.STRIPPED_PALO_VERDE_WOOD.get(), 5, 5);
-        consumer.accept(BWGWood.PALO_VERDE_LEAVES.get(), 30, 60);
         consumer.accept(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get(), 5, 5);
         consumer.accept(BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get(), 5, 5);
         BWGBlocks.BLOCKS.forEach(entry -> {
