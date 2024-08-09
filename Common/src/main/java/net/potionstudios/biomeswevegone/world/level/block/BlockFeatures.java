@@ -16,11 +16,14 @@ import java.util.function.BiConsumer;
 public class BlockFeatures {
 
     public static void registerCompostables(BiConsumer<ItemLike, Float> consumer) {
-        BWGBlocks.BLOCKS.forEach(block -> {
-            if (block.get() instanceof LeavesBlock || block.get() instanceof TallGrassBlock)
-                consumer.accept(block.get(), 0.3F);
-            else if (block.get() instanceof FlowerBlock || block.get() instanceof TallFlowerBlock || block.get() instanceof WaterlilyBlock || block.get() instanceof MushroomBlock)
-                consumer.accept(block.get(), 0.65F);
+        BWGBlocks.BLOCKS.forEach(object -> {
+            Block block = object.get();
+            if (block instanceof LeavesBlock || block instanceof TallGrassBlock)
+                consumer.accept(block, 0.3F);
+            else if (block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof WaterlilyBlock || block instanceof MushroomBlock)
+                consumer.accept(block, 0.65F);
+            else if (block instanceof VineBlock)
+                consumer.accept(block, 0.5F);
         });
 
         BWGWood.WOOD.forEach(entry -> {
@@ -29,7 +32,6 @@ public class BlockFeatures {
         });
 
         BWGItems.ITEMS.stream().filter(item -> item.get().isEdible()).forEach(item -> consumer.accept(item.get(), 0.85F));
-        consumer.accept(BWGBlocks.POISON_IVY.get(), 0.5F);
     }
 
     /**
