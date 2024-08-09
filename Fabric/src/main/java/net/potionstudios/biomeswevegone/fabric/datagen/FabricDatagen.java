@@ -44,7 +44,11 @@ public class FabricDatagen implements DataGeneratorEntrypoint {
         @Override
         protected void addTags(HolderLookup.Provider arg) {
             BWGWoodSet.woodsets().forEach(set -> getOrCreateTagBuilder(ConventionalBlockTags.BOOKSHELVES).add(set.bookshelf()));
-            BWGSandSet.getSandSets().forEach(set -> getOrCreateTagBuilder(ConventionalBlockTags.SANDSTONE_BLOCKS).forceAddTag(set.getSandstoneBlocksTag()));
+            BWGSandSet.getSandSets().forEach(set -> {
+                getOrCreateTagBuilder(ConventionalBlockTags.SANDSTONE_BLOCKS).forceAddTag(set.getSandstoneBlocksTag());
+                getOrCreateTagBuilder(ConventionalBlockTags.SANDSTONE_SLABS).forceAddTag(set.getSandstoneSlabsTag());
+                getOrCreateTagBuilder(ConventionalBlockTags.SANDSTONE_STAIRS).forceAddTag(set.getSandstoneStairsTag());
+            });
             getOrCreateTagBuilder(ConventionalBlockTags.VILLAGER_JOB_SITES).add(BWGBlocks.FORAGERS_TABLE.get());
             //getOrCreateTagBuilder(ConventionalBlockTags.GLASS_BLOCKS).add(BWGBlocks.THERIUM_GLASS.get());
             //getOrCreateTagBuilder(ConventionalBlockTags.GLASS_PANES).add(BWGBlocks.THERIUM_GLASS_PANE.get());
@@ -61,6 +65,8 @@ public class FabricDatagen implements DataGeneratorEntrypoint {
         protected void addTags(HolderLookup.Provider arg) {
             copy(ConventionalBlockTags.BOOKSHELVES, ConventionalItemTags.BOOKSHELVES);
             copy(ConventionalBlockTags.SANDSTONE_BLOCKS, ConventionalItemTags.SANDSTONE_BLOCKS);
+            copy(ConventionalBlockTags.SANDSTONE_SLABS, ConventionalItemTags.SANDSTONE_SLABS);
+            copy(ConventionalBlockTags.SANDSTONE_STAIRS, ConventionalItemTags.SANDSTONE_STAIRS);
             copy(ConventionalBlockTags.VILLAGER_JOB_SITES, ConventionalItemTags.VILLAGER_JOB_SITES);
             //copy(ConventionalBlockTags.GLASS_BLOCKS, ConventionalItemTags.GLASS_BLOCKS);
             //copy(ConventionalBlockTags.GLASS_PANES, ConventionalItemTags.GLASS_PANES);

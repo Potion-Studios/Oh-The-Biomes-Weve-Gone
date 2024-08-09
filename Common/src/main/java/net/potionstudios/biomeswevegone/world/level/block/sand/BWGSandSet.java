@@ -36,6 +36,10 @@ public class BWGSandSet {
     private final TagKey<Item> sandstoneBlocksItemTag;
     private final TagKey<Block> sandBlockTag;
     private final TagKey<Item> sandItemTag;
+    private final TagKey<Block> sandstoneSlabsTag;
+    private final TagKey<Item> sandstoneSlabsItemTag;
+    private final TagKey<Block> sandstoneStairsTag;
+    private final TagKey<Item> sandstoneStairsItemTag;
 
 
     public BWGSandSet(String name, int dustColor) {
@@ -55,6 +59,10 @@ public class BWGSandSet {
         this.sandstoneBlocksItemTag = TagKey.create(Registries.ITEM, BiomesWeveGone.id(name + "_sandstone_blocks"));
         this.sandBlockTag = TagKey.create(Registries.BLOCK, BiomesWeveGone.id("sand/" + name));
         this.sandItemTag = TagKey.create(Registries.ITEM, BiomesWeveGone.id("sand/" + name));
+        this.sandstoneSlabsTag = TagKey.create(Registries.BLOCK, BiomesWeveGone.id(name + "_sandstone_slabs"));
+        this.sandstoneSlabsItemTag = TagKey.create(Registries.ITEM, BiomesWeveGone.id(name + "_sandstone_slabs"));
+        this.sandstoneStairsTag = TagKey.create(Registries.BLOCK, BiomesWeveGone.id(name + "_sandstone_stairs"));
+        this.sandstoneStairsItemTag = TagKey.create(Registries.ITEM, BiomesWeveGone.id(name + "_sandstone_stairs"));
         sandSets.add(this);
     }
 
@@ -120,6 +128,22 @@ public class BWGSandSet {
 
     public TagKey<Item> getSandItemTag() {
         return sandItemTag;
+    }
+
+    public TagKey<Block> getSandstoneSlabsTag() {
+        return sandstoneSlabsTag;
+    }
+
+    public TagKey<Item> getSandstoneSlabsItemTag() {
+        return sandstoneSlabsItemTag;
+    }
+
+    public TagKey<Block> getSandstoneStairsTag() {
+        return sandstoneStairsTag;
+    }
+
+    public TagKey<Item> getSandstoneStairsItemTag() {
+        return sandstoneStairsItemTag;
     }
 
     public BlockFamily getSandStoneFamily() {

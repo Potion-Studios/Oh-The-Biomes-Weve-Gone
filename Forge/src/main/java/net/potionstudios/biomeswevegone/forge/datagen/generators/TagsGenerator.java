@@ -109,9 +109,12 @@ public class TagsGenerator {
             });
             BWGSandSet.getSandSets().forEach(set -> {
                 tag(set.getSandstoneBlocksTag()).add(set.getSandstone(), set.getChiseledSandstone(), set.getCutSandstone(), set.getSmoothSandstone());
+                tag(set.getSandstoneSlabsTag()).add(set.getSandstoneSlab(), set.getSmoothSandstoneSlab(), set.getCutSandstoneSlab());
+                tag(set.getSandstoneStairsTag()).add(set.getSandstoneStairs(), set.getSmoothSandstoneStairs());
                 tag(set.getSandBlockTag()).add(set.getSand());
                 tag(Tags.Blocks.SANDSTONE).addTag(set.getSandstoneBlocksTag());
                 tag(Tags.Blocks.SAND).addTag(set.getSandBlockTag());
+
             });
             tag(BWGBlockTags.BLACK_ICE).add(BWGBlocks.BLACK_ICE.get(), BWGBlocks.PACKED_BLACK_ICE.get());
             tag(BWGBlockTags.BOREALIS_ICE).add(BWGBlocks.BOREALIS_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get());
@@ -212,6 +215,8 @@ public class TagsGenerator {
             BWGSandSet.getSandSets().forEach(set -> {
                 copy(set.getSandstoneBlocksTag(), set.getSandstoneBlocksItemTag());
                 copy(set.getSandBlockTag(), set.getSandItemTag());
+                copy(set.getSandstoneSlabsTag(), set.getSandstoneSlabsItemTag());
+                copy(set.getSandstoneStairsTag(), set.getSandstoneStairsItemTag());
             });
             copy(Tags.Blocks.SANDSTONE, Tags.Items.SANDSTONE);
             copy(Tags.Blocks.SAND, Tags.Items.SAND);
