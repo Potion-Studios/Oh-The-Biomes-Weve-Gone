@@ -8,6 +8,7 @@
 - Adjust Just Like Grandma's Lang to say both pies
 - Make Stairs and Slabs Tags for BWG SandStone Sets and add to Respected Fabric Tags
 - Make BWG Desert Plants, Leaf Piles, Flower and Clover patches Compostable
+- Add Imbued wood to Fabric Budding Blocks Tags
 
 # 1.0.6-Beta
 - Fix Skyris Hanging Sign Textures being swapped

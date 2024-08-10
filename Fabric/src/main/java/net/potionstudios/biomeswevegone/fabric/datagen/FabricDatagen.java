@@ -16,6 +16,7 @@ import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.sand.BWGSandSet;
+import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 
 import java.util.concurrent.CompletableFuture;
@@ -50,6 +51,7 @@ public class FabricDatagen implements DataGeneratorEntrypoint {
                 getOrCreateTagBuilder(ConventionalBlockTags.SANDSTONE_STAIRS).forceAddTag(set.getSandstoneStairsTag());
             });
             getOrCreateTagBuilder(ConventionalBlockTags.VILLAGER_JOB_SITES).add(BWGBlocks.FORAGERS_TABLE.get());
+            getOrCreateTagBuilder(ConventionalBlockTags.BUDDING_BLOCKS).add(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get(), BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get());
             //getOrCreateTagBuilder(ConventionalBlockTags.GLASS_BLOCKS).add(BWGBlocks.THERIUM_GLASS.get());
             //getOrCreateTagBuilder(ConventionalBlockTags.GLASS_PANES).add(BWGBlocks.THERIUM_GLASS_PANE.get());
         }
@@ -68,6 +70,7 @@ public class FabricDatagen implements DataGeneratorEntrypoint {
             copy(ConventionalBlockTags.SANDSTONE_SLABS, ConventionalItemTags.SANDSTONE_SLABS);
             copy(ConventionalBlockTags.SANDSTONE_STAIRS, ConventionalItemTags.SANDSTONE_STAIRS);
             copy(ConventionalBlockTags.VILLAGER_JOB_SITES, ConventionalItemTags.VILLAGER_JOB_SITES);
+            copy(ConventionalBlockTags.BUDDING_BLOCKS, ConventionalItemTags.BUDDING_BLOCKS);
             //copy(ConventionalBlockTags.GLASS_BLOCKS, ConventionalItemTags.GLASS_BLOCKS);
             //copy(ConventionalBlockTags.GLASS_PANES, ConventionalItemTags.GLASS_PANES);
             BWGItems.ITEMS.stream()
