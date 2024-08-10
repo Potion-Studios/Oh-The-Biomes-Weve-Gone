@@ -1,7 +1,5 @@
 package net.potionstudios.biomeswevegone.world.level.block;
 
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
@@ -16,7 +14,6 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
-import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
 import net.potionstudios.biomeswevegone.tags.BWGBlockTags;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.custom.*;
@@ -28,10 +25,6 @@ import net.potionstudios.biomeswevegone.world.level.block.plants.flower.*;
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.branch.TreeBranchBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.BWGFruitBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.grower.BWGTreeGrowers;
-import net.potionstudios.biomeswevegone.world.level.block.plants.tree.leaves.BWGChangingLeavesBlock;
-import net.potionstudios.biomeswevegone.world.level.block.plants.tree.leaves.BWGFireCrackerLeaves;
-import net.potionstudios.biomeswevegone.world.level.block.plants.tree.leaves.BWGFruitLeavesBlock;
-import net.potionstudios.biomeswevegone.world.level.block.plants.tree.leaves.BWGLeavesBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.*;
 import net.potionstudios.biomeswevegone.world.level.block.sand.BWGQuickSand;
 import net.potionstudios.biomeswevegone.world.level.block.sand.BWGSandSet;
@@ -77,12 +70,12 @@ public class BWGBlocks {
     public static final BWGSandSet PINK_SAND_SET = new BWGSandSet("pink", 15585004);
     public static final BWGSandSet WINDSWEPT_SAND_SET = new BWGSandSet("windswept", 15585004);
     public static final Supplier<RotatedPillarBlock> WINDSWEPT_SANDSTONE_PILLAR = registerBlockItem("windswept_sandstone_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_YELLOW)));
-    public static final Supplier<SandBlock> CRACKED_RED_SAND = registerCubeAllBlockItem("cracked_red_sand", () -> new SandBlock(11098145, BlockBehaviour.Properties.copy(Blocks.RED_SAND)));
     public static final Supplier<SandBlock> CRACKED_SAND = registerCubeAllBlockItem("cracked_sand", () -> new SandBlock(14406560, BlockBehaviour.Properties.copy(Blocks.SAND)));
+    public static final Supplier<SandBlock> CRACKED_RED_SAND = registerCubeAllBlockItem("cracked_red_sand", () -> new SandBlock(11098145, BlockBehaviour.Properties.copy(Blocks.RED_SAND)));
 
-    public static final Supplier<SandBlock> END_SAND = registerCubeAllBlockItem("end_sand", () -> new SandBlock(16053687, BlockBehaviour.Properties.copy(Blocks.SAND)));
     public static final Supplier<BWGQuickSand> QUICKSAND = registerCubeAllBlockItem("quicksand", () -> new BWGQuickSand(16777215));
     public static final Supplier<BWGQuickSand> RED_QUICKSAND = registerCubeAllBlockItem("red_quicksand", () -> new BWGQuickSand(11098145));
+    public static final Supplier<SandBlock> END_SAND = registerCubeAllBlockItem("end_sand", () -> new SandBlock(16053687, BlockBehaviour.Properties.copy(Blocks.SAND)));
 
     public static final Supplier<IceBlock> BLACK_ICE = registerBlockItem("black_ice", () -> new IceBlock(BlockBehaviour.Properties.copy(Blocks.ICE)));
     public static final Supplier<IceBlock> PACKED_BLACK_ICE = registerCubeAllBlockItem("packed_black_ice", () -> new IceBlock(BlockBehaviour.Properties.copy(Blocks.PACKED_ICE)));

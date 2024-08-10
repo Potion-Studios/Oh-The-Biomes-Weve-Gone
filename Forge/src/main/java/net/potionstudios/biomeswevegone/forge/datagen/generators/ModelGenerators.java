@@ -122,23 +122,11 @@ public class ModelGenerators {
             BWGBlocks.BLOCKS.forEach(entry -> {
                 Block block = entry.get();
                 if (block instanceof CattailPlantBlock) {
-                    ModelFile.ExistingModelFile bottom = models().getExistingFile(blockBWGTexture(block, "bottom"));
-                    ModelFile.ExistingModelFile top = models().getExistingFile(blockBWGTexture(block, "top"));
                     getVariantBuilder(block)
                             .partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)
-                            .addModels(ConfiguredModel.builder()
-                                    .modelFile(bottom)
-                                    .nextModel().modelFile(bottom).rotationY(90)
-                                    .nextModel().modelFile(bottom).rotationY(180)
-                                    .nextModel().modelFile(bottom).rotationY(270)
-                                    .build())
+                            .addModels(createRotatedModels(models().getExistingFile(blockBWGTexture(block, "bottom"))))
                             .partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)
-                            .addModels(ConfiguredModel.builder()
-                                    .modelFile(top)
-                                    .nextModel().modelFile(top).rotationY(90)
-                                    .nextModel().modelFile(top).rotationY(180)
-                                    .nextModel().modelFile(top).rotationY(270)
-                                    .build());
+                            .addModels(createRotatedModels(models().getExistingFile(blockBWGTexture(block, "top"))));
                 } else if (block instanceof DoublePlantBlock)
                     createDoubleBlock((DoublePlantBlock) block);
                 else if (block instanceof FlowerBlock)
@@ -393,28 +381,23 @@ public class ModelGenerators {
         }
 
         private void snowyRotatableBlock(Block block) {
-            ModelFile.ExistingModelFile model = models().getExistingFile(blockBWGTexture(block));
-            ModelFile.ExistingModelFile snowyModel = models().getExistingFile(blockBWGTexture(block, "snowy"));
             getVariantBuilder(block).partialState().with(BlockStateProperties.SNOWY, false)
-                    .addModels(ConfiguredModel.builder()
-                            .modelFile(model)
-                            .nextModel().modelFile(model).rotationY(90)
-                            .nextModel().modelFile(model).rotationY(180)
-                            .nextModel().modelFile(model).rotationY(270)
-                            .build())
+                    .addModels(createRotatedModels(models().getExistingFile(blockBWGTexture(block))))
                     .partialState().with(BlockStateProperties.SNOWY, true)
-                    .addModels(ConfiguredModel.builder().modelFile(snowyModel).build());
+                    .addModels(ConfiguredModel.builder().modelFile(models().getExistingFile(blockBWGTexture(block, "snowy"))).build());
         }
 
         private void rotatableBlock(Block block) {
-            ModelFile.ExistingModelFile model = models().getExistingFile(blockBWGTexture(block));
-            getVariantBuilder(block).partialState()
-                    .addModels(ConfiguredModel.builder()
-                            .modelFile(model)
-                            .nextModel().modelFile(model).rotationY(90)
-                            .nextModel().modelFile(model).rotationY(180)
-                            .nextModel().modelFile(model).rotationY(270)
-                            .build());
+            getVariantBuilder(block).partialState().addModels(createRotatedModels(models().getExistingFile(blockBWGTexture(block))));
+        }
+
+        private ConfiguredModel[] createRotatedModels(ModelFile model) {
+            return ConfiguredModel.builder()
+                    .modelFile(model)
+                    .nextModel().modelFile(model).rotationY(90)
+                    .nextModel().modelFile(model).rotationY(180)
+                    .nextModel().modelFile(model).rotationY(270)
+                    .build();
         }
 
         private ResourceLocation woodBlockTexture(String type, String name) {
