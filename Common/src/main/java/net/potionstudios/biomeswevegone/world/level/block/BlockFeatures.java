@@ -7,6 +7,7 @@ import net.potionstudios.biomeswevegone.world.level.block.plants.bush.DesertPlan
 import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.BWGCactusBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.AloeVeraBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.BWGDoublePlantBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.FlatVegetationBlock;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 import org.apache.logging.log4j.util.TriConsumer;
@@ -24,7 +25,7 @@ public class BlockFeatures {
             Block block = object.get();
             if (block instanceof TallGrassBlock || block instanceof BWGDoublePlantBlock)
                 consumer.accept(block, 0.3F);
-            else if (block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof WaterlilyBlock || block instanceof MushroomBlock || block instanceof AloeVeraBlock)
+            else if (block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof WaterlilyBlock || block instanceof MushroomBlock || block instanceof AloeVeraBlock || block instanceof FlatVegetationBlock)
                 consumer.accept(block, 0.65F);
             else if (block instanceof VineBlock || block instanceof DesertPlantBlock || block instanceof BWGCactusBlock)
                 consumer.accept(block, 0.5F);
