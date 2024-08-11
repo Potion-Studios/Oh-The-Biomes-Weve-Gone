@@ -1,13 +1,16 @@
 package net.potionstudios.biomeswevegone.tags;
 
 import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 
 /**
  * Holds Custom Biome Tags for Biomes We've Gone
- * @see net.minecraft.tags.BlockTags
+ * @see BiomeTags
+ * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags
+ * @see net.minecraftforge.common.Tags.Biomes
  * @author Joseph T. McQuigg
  */
 public class BWGBiomeTags {
@@ -21,15 +24,45 @@ public class BWGBiomeTags {
     public static final TagKey<Biome> CANYON = create("canyon");
     public static final TagKey<Biome> HAS_TERRAIN_ADDITIONS = create("has_terrain_additions");
 
+    /** Correlates to
+     * @see BiomeTags#IS_OVERWORLD
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#IN_OVERWORLD,
+     **/
     public static final TagKey<Biome> OVERWORLD = create("overworld");
 
+    /** Correlates to
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#CLIMATE_HOT
+     * @see net.minecraftforge.common.Tags.Biomes#IS_HOT_OVERWORLD
+     **/
     public static final TagKey<Biome> HOT = create("climate/hot");
+    /** Correlates to
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#CLIMATE_TEMPERATE*/
     public static final TagKey<Biome> TEMPERATE = create("climate/temperate");
+    /** Correlates to
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#CLIMATE_COLD
+     * @see net.minecraftforge.common.Tags.Biomes#IS_COLD_OVERWORLD
+     **/
     public static final TagKey<Biome> COLD = create("climate/cold");
+    /** Correlates to
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#CLIMATE_WET
+     * @see net.minecraftforge.common.Tags.Biomes#IS_WET_OVERWORLD
+     */
     public static final TagKey<Biome> WET = create("climate/wet");
+    /** Correlates to
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#CLIMATE_DRY
+     * @see net.minecraftforge.common.Tags.Biomes#IS_DRY_OVERWORLD
+     */
     public static final TagKey<Biome> DRY = create("climate/dry");
 
+    /** Correlates to
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#VEGETATION_SPARSE
+     * @see net.minecraftforge.common.Tags.Biomes#IS_SPARSE_OVERWORLD
+     **/
     public static final TagKey<Biome> SPARSE = create("density/sparse");
+    /** Correlates to
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#VEGETATION_DENSE
+     * @see net.minecraftforge.common.Tags.Biomes#IS_DENSE_OVERWORLD
+     */
     public static final TagKey<Biome> DENSE = create("density/dense");
 
     public static final TagKey<Biome> PLAINS = create("plains");
