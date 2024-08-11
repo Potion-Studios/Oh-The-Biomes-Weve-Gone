@@ -13,6 +13,7 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
  * @see net.minecraftforge.common.Tags.Biomes
  * @author Joseph T. McQuigg
  */
+@SuppressWarnings("JavadocReference")
 public class BWGBiomeTags {
 
     public static final TagKey<Biome> SHARPENED_ROCKS = create("sharpened_rocks");
@@ -65,23 +66,91 @@ public class BWGBiomeTags {
      */
     public static final TagKey<Biome> DENSE = create("density/dense");
 
+    /** Correlates to
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#PLAINS
+     * @see net.minecraftforge.common.Tags.Biomes#IS_PLAINS
+     */
     public static final TagKey<Biome> PLAINS = create("plains");
+    /** Correlates to
+     * @see BiomeTags#IS_FOREST
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#FOREST
+     */
     public static final TagKey<Biome> FOREST = create("forest");
+    /** Correlates to
+     * @see BiomeTags#IS_TAIGA
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#TAIGA
+     */
     public static final TagKey<Biome> TAIGA = create("taiga");
+    /** Correlates to
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#DESERT
+     * @see net.minecraftforge.common.Tags.Biomes#IS_DESERT
+     */
     public static final TagKey<Biome> DESERT = create("desert");
+    /** Correlates to
+     * @see BiomeTags#IS_SAVANNA
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#SAVANNA
+     */
     public static final TagKey<Biome> SAVANNA = create("savanna");
+    /** Correlates to
+     * @see BiomeTags#IS_JUNGLE
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#JUNGLE
+     */
     public static final TagKey<Biome> JUNGLE = create("jungle");
+    /** Correlates to
+     * @see BiomeTags#IS_BEACH
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#BEACH
+     */
     public static final TagKey<Biome> BEACH = create("beach");
+    /** Correlates to
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#SWAMP
+     * @see net.minecraftforge.common.Tags.Biomes#IS_SWAMP
+     */
     public static final TagKey<Biome> SWAMP = create("swamp");
+    /** Correlates to
+     * @see BiomeTags#IS_MOUNTAIN
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#MOUNTAIN
+     * @see net.minecraftforge.common.Tags.Biomes#IS_MOUNTAIN
+     */
     public static final TagKey<Biome> MOUNTAIN = create("mountain");
+    /** Correlates to
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#SNOWY
+     * @see net.minecraftforge.common.Tags.Biomes#IS_SNOWY
+     */
     public static final TagKey<Biome> SNOWY = create("snowy");
+    /** Correlates to
+     * @see BiomeTags#IS_BADLANDS
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#BADLANDS
+     */
     public static final TagKey<Biome> BADLANDS = create("badlands");
+    /** Correlates to
+     * @see net.minecraftforge.common.Tags.Biomes#IS_SANDY
+     */
     public static final TagKey<Biome> SANDY = create("sandy");
+    /** Correlates to
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#FLORAL
+     */
     public static final TagKey<Biome> FLORAL = create("floral");
+    /** Correlates to
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#TREE_CONIFEROUS
+     * @see net.minecraftforge.common.Tags.Biomes#IS_CONIFEROUS
+     */
     public static final TagKey<Biome> CONIFEROUS = create("coniferous");
+    /** Correlates to
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#DEAD
+     * @see net.minecraftforge.common.Tags.Biomes#IS_DEAD
+     */
     public static final TagKey<Biome> DEAD = create("dead");
+    /** Correlates to
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#WASTELAND
+     * @see net.minecraftforge.common.Tags.Biomes#IS_WASTELAND
+     */
     public static final TagKey<Biome> WASTELAND = create("wasteland");
 
+    /**
+     * Correlates to
+     * @see BiomeTags#IS_OCEAN
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#OCEAN
+     */
     public static final TagKey<Biome> OCEAN = create("ocean");
 
     public static class StructureHasTags {
