@@ -109,6 +109,8 @@ public class FabricDatagen implements DataGeneratorEntrypoint {
 
         @Override
         protected void addTags(HolderLookup.Provider arg) {
+            getOrCreateTagBuilder(ConventionalBiomeTags.IN_OVERWORLD).forceAddTag(BWGBiomeTags.OVERWORLD);
+
             /*
             getOrCreateTagBuilder(ConventionalBiomeTags.CLIMATE_HOT).addTag(BWGBiomeTags.HOT_OVERWORLD);
             getOrCreateTagBuilder(ConventionalBiomeTags.CLIMATE_WET).addTag(BWGBiomeTags.WET_OVERWORLD);

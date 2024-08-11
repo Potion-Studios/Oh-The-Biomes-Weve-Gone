@@ -21,6 +21,8 @@ public class BWGBiomeTags {
     public static final TagKey<Biome> CANYON = create("canyon");
     public static final TagKey<Biome> HAS_TERRAIN_ADDITIONS = create("has_terrain_additions");
 
+    public static final TagKey<Biome> OVERWORLD = create("overworld");
+
     public static final TagKey<Biome> HOT_OVERWORLD = create("climate/hot/overworld");
     public static final TagKey<Biome> WET_OVERWORLD = create("climate/wet/overworld");
     public static final TagKey<Biome> DRY_OVERWORLD = create("climate/dry/overworld");

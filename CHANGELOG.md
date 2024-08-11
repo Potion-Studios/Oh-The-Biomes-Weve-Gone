@@ -9,6 +9,7 @@
 - Make Stairs and Slabs Tags for BWG SandStone Sets and add to Respected Fabric Tags
 - Make BWG Desert Plants, Leaf Piles, Flower and Clover patches Compostable
 - Add Imbued wood to Fabric Budding Blocks Tags
+- Add all BWG Biomes to Minecraft IS_OVERWORLD tag and fabric IN_OVERWORLD tag
 
 # 1.0.6-Beta
 - Fix Skyris Hanging Sign Textures being swapped

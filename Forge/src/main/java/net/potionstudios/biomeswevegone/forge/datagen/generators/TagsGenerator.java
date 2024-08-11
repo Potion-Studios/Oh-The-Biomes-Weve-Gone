@@ -276,7 +276,10 @@ public class TagsGenerator {
 
         @Override
         protected void addTags(HolderLookup.@NotNull Provider provider) {
+            BWGBiomes.BIOME_FACTORIES.keySet().stream().sorted().toList().forEach(biome -> tag(BWGBiomeTags.OVERWORLD).add(biome));
             BWGBiomes.BIOMES_BY_TAG.forEach((tag, biome) -> tag(tag).add(biome));
+
+            tag(BiomeTags.IS_OVERWORLD).addTag(BWGBiomeTags.OVERWORLD);
 
             //tag(Tags.Biomes.IS_HOT_OVERWORLD).addOptionalTag(BWGBiomeTags.HOT_OVERWORLD);
             tag(Tags.Biomes.IS_WET_OVERWORLD).addOptionalTag(BWGBiomeTags.WET_OVERWORLD);
