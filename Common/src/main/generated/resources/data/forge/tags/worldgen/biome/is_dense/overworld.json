@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "#biomeswevegone:density/dense/overworld",
-      "required": false
-    }
+    "#biomeswevegone:density/dense/overworld"
   ]
 }

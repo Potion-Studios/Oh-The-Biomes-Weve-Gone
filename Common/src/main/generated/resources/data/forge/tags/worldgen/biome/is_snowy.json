@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "#biomeswevegone:snowy",
-      "required": false
-    }
+    "#biomeswevegone:snowy"
   ]
 }

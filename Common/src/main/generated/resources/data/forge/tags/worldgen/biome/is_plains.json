@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "#biomeswevegone:plains",
-      "required": false
-    }
+    "#biomeswevegone:plains"
   ]
 }

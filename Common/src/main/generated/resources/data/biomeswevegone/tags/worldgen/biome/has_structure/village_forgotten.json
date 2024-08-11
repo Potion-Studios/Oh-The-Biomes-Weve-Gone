@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "biomeswevegone:forgotten_forest",
-      "required": false
-    }
+    "biomeswevegone:forgotten_forest"
   ]
 }

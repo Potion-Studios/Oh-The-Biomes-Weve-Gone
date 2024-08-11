@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "#biomeswevegone:mountain",
-      "required": false
-    }
+    "#biomeswevegone:mountain"
   ]
 }

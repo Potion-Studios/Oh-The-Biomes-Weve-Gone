@@ -1,9 +1,6 @@
 {
   "replace": false,
   "values": [
-    {
-      "id": "#biomeswevegone:snowy",
-      "required": false
-    }
+    "#biomeswevegone:snowy"
   ]
 }

@@ -1,12 +1,10 @@
 {
   "values": [
-    {
-      "id": "#biomeswevegone:forest",
-      "required": false
-    },
-    {
-      "id": "#biomeswevegone:jungle",
-      "required": false
-    }
+    "#biomeswevegone:forest",
+    "#biomeswevegone:jungle",
+    "#biomeswevegone:swamp",
+    "biomeswevegone:bayou",
+    "biomeswevegone:crag_gardens",
+    "biomeswevegone:cypress_swamplands"
   ]
 }

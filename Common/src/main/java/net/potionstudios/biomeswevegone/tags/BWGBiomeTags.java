@@ -44,7 +44,10 @@ public class BWGBiomeTags {
     public static final TagKey<Biome> SNOWY = create("snowy");
     public static final TagKey<Biome> BADLANDS = create("badlands");
     public static final TagKey<Biome> SANDY = create("sandy");
+    public static final TagKey<Biome> FLORAL = create("floral");
+    public static final TagKey<Biome> CONIFEROUS = create("coniferous");
     public static final TagKey<Biome> DEAD = create("dead");
+    public static final TagKey<Biome> WASTELAND = create("wasteland");
 
     public static final TagKey<Biome> OCEAN = create("ocean");
 
