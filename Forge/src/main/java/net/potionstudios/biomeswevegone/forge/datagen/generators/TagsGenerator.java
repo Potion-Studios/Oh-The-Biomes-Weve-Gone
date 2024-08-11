@@ -282,12 +282,12 @@ public class TagsGenerator {
 
             tag(BiomeTags.IS_OVERWORLD).addTag(BWGBiomeTags.OVERWORLD);
 
-            tag(Tags.Biomes.IS_HOT_OVERWORLD).addTag(BWGBiomeTags.HOT_OVERWORLD);
-            tag(Tags.Biomes.IS_WET_OVERWORLD).addTag(BWGBiomeTags.WET_OVERWORLD);
-            tag(Tags.Biomes.IS_DRY_OVERWORLD).addTag(BWGBiomeTags.DRY_OVERWORLD);
-            tag(Tags.Biomes.IS_COLD_OVERWORLD).addTag(BWGBiomeTags.COLD_OVERWORLD);
-            tag(Tags.Biomes.IS_SPARSE_OVERWORLD).addTag(BWGBiomeTags.SPARSE_OVERWORLD);
-            tag(Tags.Biomes.IS_DENSE_OVERWORLD).addTag(BWGBiomeTags.DENSE_OVERWORLD);
+            tag(Tags.Biomes.IS_HOT_OVERWORLD).addTag(BWGBiomeTags.HOT);
+            tag(Tags.Biomes.IS_COLD_OVERWORLD).addTag(BWGBiomeTags.COLD);
+            tag(Tags.Biomes.IS_WET_OVERWORLD).addTag(BWGBiomeTags.WET);
+            tag(Tags.Biomes.IS_DRY_OVERWORLD).addTag(BWGBiomeTags.DRY);
+            tag(Tags.Biomes.IS_SPARSE_OVERWORLD).addTag(BWGBiomeTags.SPARSE);
+            tag(Tags.Biomes.IS_DENSE_OVERWORLD).addTag(BWGBiomeTags.DENSE);
 
             tag(Tags.Biomes.IS_PLAINS).addTag(BWGBiomeTags.PLAINS);
             tag(BiomeTags.IS_FOREST).addTag(BWGBiomeTags.FOREST);
@@ -301,14 +301,13 @@ public class TagsGenerator {
             tag(BiomeTags.IS_BADLANDS).addTag(BWGBiomeTags.BADLANDS);
             tag(Tags.Biomes.IS_SWAMP).addTag(BWGBiomeTags.SWAMP);
             tag(Tags.Biomes.IS_SANDY).addTag(BWGBiomeTags.SANDY);
-            //tag(Tags.Biomes.IS_CAVE).addTag(BWGBiomeTags.CAVE);
             tag(Tags.Biomes.IS_SNOWY).addTag(BWGBiomeTags.SNOWY);
             tag(BiomeTags.IS_OCEAN).addTag(BWGBiomeTags.OCEAN);
             tag(Tags.Biomes.IS_CONIFEROUS).addTag(BWGBiomeTags.CONIFEROUS);
             tag(Tags.Biomes.IS_WASTELAND).addTag(BWGBiomeTags.WASTELAND);
 
-            tag(BWGBiomeTags.WET_OVERWORLD).addTag(BWGBiomeTags.SWAMP);
-            tag(BWGBiomeTags.DENSE_OVERWORLD).addTag(BWGBiomeTags.FOREST).addTag(BWGBiomeTags.JUNGLE).addTag(BWGBiomeTags.SWAMP);
+            tag(BWGBiomeTags.WET).addTag(BWGBiomeTags.SWAMP);
+            tag(BWGBiomeTags.DENSE).addTag(BWGBiomeTags.FOREST).addTag(BWGBiomeTags.JUNGLE).addTag(BWGBiomeTags.SWAMP);
 
             tag(BWGBiomeTags.SHARPENED_ROCKS).add(BWGBiomes.RUGGED_BADLANDS);
             tag(BWGBiomeTags.IRONWOOD_GOUR_PLATEAU).add(BWGBiomes.IRONWOOD_GOUR);

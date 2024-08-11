@@ -1,6 +1,6 @@
 {
   "replace": false,
   "values": [
-    "#biomeswevegone:density/sparse/overworld"
+    "#biomeswevegone:density/sparse"
   ]
 }

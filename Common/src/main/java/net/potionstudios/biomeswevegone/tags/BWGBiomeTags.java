@@ -23,13 +23,14 @@ public class BWGBiomeTags {
 
     public static final TagKey<Biome> OVERWORLD = create("overworld");
 
-    public static final TagKey<Biome> HOT_OVERWORLD = create("climate/hot/overworld");
-    public static final TagKey<Biome> WET_OVERWORLD = create("climate/wet/overworld");
-    public static final TagKey<Biome> DRY_OVERWORLD = create("climate/dry/overworld");
-    public static final TagKey<Biome> COLD_OVERWORLD = create("climate/cold/overworld");
+    public static final TagKey<Biome> HOT = create("climate/hot");
+    public static final TagKey<Biome> TEMPERATE = create("climate/temperate");
+    public static final TagKey<Biome> COLD = create("climate/cold");
+    public static final TagKey<Biome> WET = create("climate/wet");
+    public static final TagKey<Biome> DRY = create("climate/dry");
 
-    public static final TagKey<Biome> SPARSE_OVERWORLD = create("density/sparse/overworld");
-    public static final TagKey<Biome> DENSE_OVERWORLD = create("density/dense/overworld");
+    public static final TagKey<Biome> SPARSE = create("density/sparse");
+    public static final TagKey<Biome> DENSE = create("density/dense");
 
     public static final TagKey<Biome> PLAINS = create("plains");
     public static final TagKey<Biome> FOREST = create("forest");
@@ -40,7 +41,6 @@ public class BWGBiomeTags {
     public static final TagKey<Biome> BEACH = create("beach");
     public static final TagKey<Biome> SWAMP = create("swamp");
     public static final TagKey<Biome> MOUNTAIN = create("mountain");
-    public static final TagKey<Biome> CAVE = create("cave");
     public static final TagKey<Biome> SNOWY = create("snowy");
     public static final TagKey<Biome> BADLANDS = create("badlands");
     public static final TagKey<Biome> SANDY = create("sandy");

@@ -111,13 +111,15 @@ public class FabricDatagen implements DataGeneratorEntrypoint {
         protected void addTags(HolderLookup.Provider arg) {
             getOrCreateTagBuilder(ConventionalBiomeTags.IN_OVERWORLD).forceAddTag(BWGBiomeTags.OVERWORLD);
 
-            getOrCreateTagBuilder(ConventionalBiomeTags.CLIMATE_HOT).forceAddTag(BWGBiomeTags.HOT_OVERWORLD);
-            getOrCreateTagBuilder(ConventionalBiomeTags.CLIMATE_WET).forceAddTag(BWGBiomeTags.WET_OVERWORLD);
-            getOrCreateTagBuilder(ConventionalBiomeTags.CLIMATE_DRY).forceAddTag(BWGBiomeTags.DRY_OVERWORLD);
-            getOrCreateTagBuilder(ConventionalBiomeTags.CLIMATE_COLD).forceAddTag(BWGBiomeTags.COLD_OVERWORLD);
+            getOrCreateTagBuilder(ConventionalBiomeTags.CLIMATE_HOT).forceAddTag(BWGBiomeTags.HOT);
+            getOrCreateTagBuilder(ConventionalBiomeTags.CLIMATE_TEMPERATE).forceAddTag(BWGBiomeTags.TEMPERATE);
+            getOrCreateTagBuilder(ConventionalBiomeTags.CLIMATE_COLD).forceAddTag(BWGBiomeTags.COLD);
 
-            getOrCreateTagBuilder(ConventionalBiomeTags.VEGETATION_SPARSE).forceAddTag(BWGBiomeTags.SPARSE_OVERWORLD);
-            getOrCreateTagBuilder(ConventionalBiomeTags.VEGETATION_DENSE).forceAddTag(BWGBiomeTags.DENSE_OVERWORLD);
+            getOrCreateTagBuilder(ConventionalBiomeTags.CLIMATE_WET).forceAddTag(BWGBiomeTags.WET);
+            getOrCreateTagBuilder(ConventionalBiomeTags.CLIMATE_DRY).forceAddTag(BWGBiomeTags.DRY);
+
+            getOrCreateTagBuilder(ConventionalBiomeTags.VEGETATION_SPARSE).forceAddTag(BWGBiomeTags.SPARSE);
+            getOrCreateTagBuilder(ConventionalBiomeTags.VEGETATION_DENSE).forceAddTag(BWGBiomeTags.DENSE);
 
             getOrCreateTagBuilder(ConventionalBiomeTags.PLAINS).forceAddTag(BWGBiomeTags.PLAINS);
             getOrCreateTagBuilder(ConventionalBiomeTags.FOREST).forceAddTag(BWGBiomeTags.FOREST);
@@ -135,7 +137,6 @@ public class FabricDatagen implements DataGeneratorEntrypoint {
             getOrCreateTagBuilder(ConventionalBiomeTags.TREE_CONIFEROUS).forceAddTag(BWGBiomeTags.CONIFEROUS);
             getOrCreateTagBuilder(ConventionalBiomeTags.DEAD).forceAddTag(BWGBiomeTags.DEAD);
             getOrCreateTagBuilder(ConventionalBiomeTags.WASTELAND).forceAddTag(BWGBiomeTags.WASTELAND);
-            //getOrCreateTagBuilder(ConventionalBiomeTags.CAVES).addTag(BWGBiomeTags.CAVE);
         }
     }
 }
