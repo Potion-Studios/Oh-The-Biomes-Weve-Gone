@@ -13,25 +13,33 @@ import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGV
 
 import java.util.Map;
 
+/**
+ * Used to register BWG Biome Modifiers for Vanilla Biomes
+ * @author Joseph T. McQuigg
+ */
 public class BWGBiomeModifiers {
 	public static final Map<ResourceLocation, BWGBiomeModifier> BIOME_MODIFIERS_FACTORIES = new Reference2ObjectOpenHashMap<>();
 
 	@SafeVarargs
-	private static void registerModifier(String id, ResourceKey<PlacedFeature> feature, GenerationStep.Decoration step, ResourceKey<Biome>... biomes) {
-		BWGBiomeModifier modifier = new BWGBiomeModifier(feature, step, biomes);
-		BIOME_MODIFIERS_FACTORIES.put(BiomesWeveGone.id(id), modifier);
+	private static void registerModifierVegetalDecoration(String id, ResourceKey<PlacedFeature> feature, ResourceKey<Biome>... biomes) {
+		BIOME_MODIFIERS_FACTORIES.put(BiomesWeveGone.id(id), new BWGBiomeModifier(feature, GenerationStep.Decoration.VEGETAL_DECORATION, biomes));
 	}
 
+	/**
+	 * Represents a BWG Biome Modifier
+	 * @param feature The feature to add
+	 * @param step The generation step to add the feature to
+	 * @param biomes The biomes to add the feature to
+	 */
 	public record BWGBiomeModifier(ResourceKey<PlacedFeature> feature, GenerationStep.Decoration step, ResourceKey<Biome>... biomes) {
-		@SafeVarargs
-		public BWGBiomeModifier {}
+		@SafeVarargs public BWGBiomeModifier {}
 	}
 
 	public static void init() {
 		BiomesWeveGone.LOGGER.info("Creating and Registering BWG Biome Modifiers for Vanilla Biomes");
-		registerModifier("vanilla/flower_plains", BWGVanillaPlacedFeatures.FLOWER_PLAINS, GenerationStep.Decoration.VEGETAL_DECORATION, Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS);
-		registerModifier("vanilla/forest_flowers", BWGVanillaPlacedFeatures.FOREST_FLOWERS, GenerationStep.Decoration.VEGETAL_DECORATION, Biomes.FOREST, Biomes.DARK_FOREST);
-		registerModifier("vanilla/beach/palm_trees", BWGOverworldTreePlacedFeatures.PALM_TREES, GenerationStep.Decoration.VEGETAL_DECORATION, Biomes.BEACH);
+		registerModifierVegetalDecoration("vanilla/flower_plains", BWGVanillaPlacedFeatures.FLOWER_PLAINS, Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS);
+		registerModifierVegetalDecoration("vanilla/forest_flowers", BWGVanillaPlacedFeatures.FOREST_FLOWERS, Biomes.FOREST, Biomes.DARK_FOREST);
+		registerModifierVegetalDecoration("vanilla/beach/palm_trees", BWGOverworldTreePlacedFeatures.PALM_TREES, Biomes.BEACH);
 	}
 }
 
