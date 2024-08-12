@@ -137,6 +137,7 @@ public class FabricDatagen implements DataGeneratorEntrypoint {
             getOrCreateTagBuilder(ConventionalBiomeTags.TREE_CONIFEROUS).forceAddTag(BWGBiomeTags.CONIFEROUS);
             getOrCreateTagBuilder(ConventionalBiomeTags.DEAD).forceAddTag(BWGBiomeTags.DEAD);
             getOrCreateTagBuilder(ConventionalBiomeTags.WASTELAND).forceAddTag(BWGBiomeTags.WASTELAND);
+            getOrCreateTagBuilder(ConventionalBiomeTags.WINDSWEPT).forceAddTag(BWGBiomeTags.WINDSWEPT);
         }
     }
 }

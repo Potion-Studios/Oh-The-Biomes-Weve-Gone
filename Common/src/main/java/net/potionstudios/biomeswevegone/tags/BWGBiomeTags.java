@@ -151,6 +151,11 @@ public class BWGBiomeTags {
      */
     public static final TagKey<Biome> MAGICAL = create("magical");
 
+    /** Correlates to
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#WINDSWEPT
+     */
+    public static final TagKey<Biome> WINDSWEPT = create("windswept");
+
     /**
      * Correlates to
      * @see BiomeTags#IS_OCEAN

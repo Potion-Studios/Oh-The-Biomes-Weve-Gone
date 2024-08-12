@@ -2,6 +2,10 @@
   "values": [
     "biomeswevegone:allium_shrubland",
     "biomeswevegone:amaranth_grassland",
-    "biomeswevegone:coconino_meadow"
+    "biomeswevegone:coconino_meadow",
+    "biomeswevegone:enchanted_tangle",
+    "biomeswevegone:lush_stacks",
+    "biomeswevegone:orchard",
+    "biomeswevegone:sakura_grove"
   ]
 }
