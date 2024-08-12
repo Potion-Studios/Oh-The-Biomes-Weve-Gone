@@ -343,10 +343,8 @@ class BWGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
-        BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BiomeDefaultFeatures.addCherryGroveVegetation(generationSettings);
-        BiomeDefaultFeatures.addDefaultGrass(generationSettings);
-        BiomeDefaultFeatures.addForestGrass(generationSettings);
+        BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
@@ -1337,7 +1335,6 @@ class BWGOverworldBiomes {
 
         BiomeDefaultFeatures.addExtraEmeralds(generationSettings);
         BiomeDefaultFeatures.addGiantTaigaVegetation(generationSettings);
-        BiomeDefaultFeatures.addTaigaGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
         addRawGeneration(generationSettings, BWGPlacedFeatures.BOULDER);
 
