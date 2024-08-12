@@ -38,6 +38,7 @@ public class BWGEntities {
 
 	public static void registerSpawnPlacements() {
 		SpawnPlacements.register(MAN_O_WAR.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ManOWar::checkManOWarSpawnRules);
+		SpawnPlacements.register(ODDION.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE, Oddion::checkOddionSpawnRules);
 	}
 
 	/**
