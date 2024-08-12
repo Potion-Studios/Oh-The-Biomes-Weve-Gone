@@ -1,4 +1,4 @@
-# 1.0.7-Beta
+# 1.1.0-Beta
 - Fix some leaves having incorrect drops and not dropping leaves when sheared
 - Make Tall Prairie Grass only placeable on BlockTag Dirt to be the same as normal prairie grass
 - Make All VineBlocks Compostable and Climbable
@@ -12,6 +12,7 @@
 - Add all BWG Biomes to Minecraft IS_OVERWORLD tag and fabric IN_OVERWORLD tag
 - Fix the disabling of some biomes not working
 - Fix Cattail Drops
+- Change the way we do Biome Modifiers to use biomes and not tags to prevent accidentally adding our features to non-vanilla biomes
 
 # 1.0.6-Beta
 - Fix Skyris Hanging Sign Textures being swapped

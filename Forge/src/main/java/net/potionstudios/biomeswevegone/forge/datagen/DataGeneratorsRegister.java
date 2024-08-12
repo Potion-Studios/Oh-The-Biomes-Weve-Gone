@@ -30,8 +30,10 @@ import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGStruct
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGTemplatePools;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.processor.BWGStructureProcessorLists;
 
+import java.util.Arrays;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 /**
  * This class is used to register the data generators for the mod.
@@ -72,7 +74,7 @@ class DataGeneratorsRegister {
             .add(Registries.PROCESSOR_LIST, pContext -> BWGStructureProcessorLists.STRUCTURE_PROCESSOR_LIST_FACTORIES.forEach((structureProcessorListResourceKey, processorListFactory) -> pContext.register(structureProcessorListResourceKey, processorListFactory.generate(pContext.lookup(Registries.PROCESSOR_LIST)))))
             .add(Registries.DAMAGE_TYPE, pContext -> BWGDamageTypes.DAMAGE_TYPE_FACTORIES.forEach(((damageTypeResourceKey, damageTypeFactory) -> pContext.register(damageTypeResourceKey, damageTypeFactory.generate(pContext)))))
             .add(ForgeRegistries.Keys.BIOME_MODIFIERS, pContext -> BWGBiomeModifiers.BIOME_MODIFIERS_FACTORIES.forEach((id, modifier) -> pContext.register(ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, id), new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
-                    pContext.lookup(Registries.BIOME).getOrThrow(modifier.biomes()),
+                    HolderSet.direct(Arrays.stream(modifier.biomes()).map(biome -> pContext.lookup(Registries.BIOME).getOrThrow(biome)).collect(Collectors.toList())),
                     HolderSet.direct(pContext.lookup(Registries.PLACED_FEATURE).getOrThrow(modifier.feature())),
                     modifier.step()
             ))));

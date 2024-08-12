@@ -6,7 +6,6 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.*;
-import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.common.Tags;
@@ -310,9 +309,6 @@ public class TagsGenerator {
             tag(BWGBiomeTags.SHARPENED_ROCKS).add(BWGBiomes.RUGGED_BADLANDS);
             tag(BWGBiomeTags.IRONWOOD_GOUR_PLATEAU).add(BWGBiomes.IRONWOOD_GOUR);
             tag(BWGBiomeTags.LARGE_COLD_LAKE).add(BWGBiomes.MAPLE_TAIGA).add(BWGBiomes.CRIMSON_TUNDRA).add(BWGBiomes.OVERGROWTH_WOODLANDS);
-
-            tag(BWGBiomeTags.VanillaOnlyTags.BEACH).add(Biomes.BEACH);
-
 
             /**
              * Structure Location Biome Tags

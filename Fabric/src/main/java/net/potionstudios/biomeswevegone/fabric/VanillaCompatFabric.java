@@ -36,7 +36,7 @@ public class VanillaCompatFabric {
 
     private static void registerBiomeModifiers() {
         BWGBiomeModifiers.init();
-        BWGBiomeModifiers.BIOME_MODIFIERS_FACTORIES.forEach((id, modifier) -> BiomeModifications.addFeature(BiomeSelectors.tag(modifier.biomes()), modifier.step(), modifier.feature()));
+        BWGBiomeModifiers.BIOME_MODIFIERS_FACTORIES.forEach((id, modifier) -> BiomeModifications.addFeature(BiomeSelectors.includeByKey(modifier.biomes()), modifier.step(), modifier.feature()));
     }
 
     private static void registerLootModifiers() {
