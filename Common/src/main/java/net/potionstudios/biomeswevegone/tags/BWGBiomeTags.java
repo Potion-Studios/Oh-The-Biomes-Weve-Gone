@@ -146,6 +146,11 @@ public class BWGBiomeTags {
      */
     public static final TagKey<Biome> WASTELAND = create("wasteland");
 
+    /** Correlates to
+     * @see net.minecraftforge.common.Tags.Biomes#IS_MAGICAL
+     */
+    public static final TagKey<Biome> MAGICAL = create("magical");
+
     /**
      * Correlates to
      * @see BiomeTags#IS_OCEAN

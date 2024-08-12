@@ -305,6 +305,7 @@ public class TagsGenerator {
             tag(BiomeTags.IS_OCEAN).addTag(BWGBiomeTags.OCEAN);
             tag(Tags.Biomes.IS_CONIFEROUS).addTag(BWGBiomeTags.CONIFEROUS);
             tag(Tags.Biomes.IS_WASTELAND).addTag(BWGBiomeTags.WASTELAND);
+            tag(Tags.Biomes.IS_MAGICAL).addTag(BWGBiomeTags.MAGICAL);
 
             tag(BWGBiomeTags.WET).addTag(BWGBiomeTags.SWAMP);
             tag(BWGBiomeTags.DENSE).addTag(BWGBiomeTags.FOREST).addTag(BWGBiomeTags.JUNGLE).addTag(BWGBiomeTags.SWAMP);

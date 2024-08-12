@@ -46,11 +46,11 @@ public class BWGBiomes {
     public static final ResourceKey<Biome> DACITE_SHORE = createBiome("dacite_shore", BWGOverworldBiomes::daciteShore, BWGBiomeTags.BEACH, BiomeTags.HAS_BURIED_TREASURE);
     public static final ResourceKey<Biome> DEAD_SEA = createBiome("dead_sea", BWGOverworldBiomes::deadSea, BWGBiomeTags.OCEAN, BWGBiomeTags.DRIPSTONE_ARCH);
     public static final ResourceKey<Biome> EBONY_WOODS = createBiome("ebony_woods", BWGOverworldBiomes::ebonyWoods, BWGBiomeTags.FOREST);
-    public static final ResourceKey<Biome> ENCHANTED_TANGLE = createBiome("enchanted_tangle", BWGOverworldBiomes::enchantedTangle, BWGBiomeTags.JUNGLE);
+    public static final ResourceKey<Biome> ENCHANTED_TANGLE = createBiome("enchanted_tangle", BWGOverworldBiomes::enchantedTangle, BWGBiomeTags.JUNGLE, BWGBiomeTags.MAGICAL);
 
     public static final ResourceKey<Biome> ERODED_BOREALIS = createBiome("eroded_borealis", BWGOverworldBiomes::erodedBorealis, BWGBiomeTags.COLD, BWGBiomeTags.SNOWY,  BWGBiomeTags.FOREST, BiomeTags.HAS_IGLOO, BiomeTags.HAS_VILLAGE_SNOWY, BiomeTags.HAS_PILLAGER_OUTPOST);
     public static final ResourceKey<Biome> FIRECRACKER_CHAPARRAL = createBiome("firecracker_chaparral", BWGOverworldBiomes::firecrackerChaparral, BWGBiomeTags.PLAINS);
-    public static final ResourceKey<Biome> FORGOTTEN_FOREST = createBiome("forgotten_forest", BWGOverworldBiomes::forgottenForest, BWGBiomeTags.FOREST, BiomeTags.HAS_WOODLAND_MANSION, BWGBiomeTags.StructureHasTags.HAS_VILLAGE_FORGOTTEN);
+    public static final ResourceKey<Biome> FORGOTTEN_FOREST = createBiome("forgotten_forest", BWGOverworldBiomes::forgottenForest, BWGBiomeTags.FOREST, BWGBiomeTags.MAGICAL, BiomeTags.HAS_WOODLAND_MANSION, BWGBiomeTags.StructureHasTags.HAS_VILLAGE_FORGOTTEN);
     public static final ResourceKey<Biome> FRAGMENT_JUNGLE = createBiome("fragment_jungle", BWGOverworldBiomes::fragmentJungle, BWGBiomeTags.JUNGLE);
     public static final ResourceKey<Biome> FROSTED_CONIFEROUS_FOREST = createBiome("frosted_coniferous_forest", (placedFeatureHolderGetter, carverHolderGetter) -> BWGOverworldBiomes.coniferousForest(placedFeatureHolderGetter, carverHolderGetter, true), BWGBiomeTags.FOREST, BWGBiomeTags.SNOWY);
     public static final ResourceKey<Biome> FROSTED_TAIGA = createBiome("frosted_taiga", BWGOverworldBiomes::frostedTaiga, BWGBiomeTags.TAIGA, BWGBiomeTags.SNOWY, BiomeTags.HAS_IGLOO, BiomeTags.HAS_VILLAGE_SNOWY, BiomeTags.HAS_PILLAGER_OUTPOST);
@@ -73,11 +73,11 @@ public class BWGBiomes {
     public static final ResourceKey<Biome> SAKURA_GROVE = createBiome("sakura_grove", BWGOverworldBiomes::sakuraGrove, BWGBiomeTags.FOREST);
     public static final ResourceKey<Biome> SHATTERED_GLACIER = createBiome("shattered_glacier", BWGOverworldBiomes::shatteredGlacier, BWGBiomeTags.COLD);
     public static final ResourceKey<Biome> SIERRA_BADLANDS = createBiome("sierra_badlands", BWGOverworldBiomes::sierraBadlands, BWGBiomeTags.BADLANDS);
-    public static final ResourceKey<Biome> SKYRIS_VALE = createBiome("skyrise_vale", BWGOverworldBiomes::skyrisVale, BWGBiomeTags.StructureHasTags.HAS_VILLAGE_SKYRIS);
+    public static final ResourceKey<Biome> SKYRIS_VALE = createBiome("skyrise_vale", BWGOverworldBiomes::skyrisVale, BWGBiomeTags.MAGICAL, BWGBiomeTags.StructureHasTags.HAS_VILLAGE_SKYRIS);
     public static final ResourceKey<Biome> TROPICAL_RAINFOREST = createBiome("tropical_rainforest", BWGOverworldBiomes::tropicalRainforest, BWGBiomeTags.JUNGLE, BiomeTags.HAS_BURIED_TREASURE);
 //    public static final ResourceKey<Biome> TROPICAL_ISLAND = createBiome("tropical_island", BWGOverworldBiomes::tropicalIsland, BWGBiomeTags.JUNGLE);
     public static final ResourceKey<Biome> TEMPERATE_GROVE = createBiome("temperate_grove", BWGOverworldBiomes::temperateGrove, BWGBiomeTags.FOREST, BiomeTags.HAS_VILLAGE_PLAINS, BiomeTags.HAS_PILLAGER_OUTPOST);
-    public static final ResourceKey<Biome> WEEPING_WITCH_FOREST = createBiome("weeping_witch_forest", BWGOverworldBiomes::weepingWitchForest, BWGBiomeTags.FOREST, BiomeTags.HAS_WOODLAND_MANSION, BWGBiomeTags.StructureHasTags.HAS_VILLAGE_SALEM);
+    public static final ResourceKey<Biome> WEEPING_WITCH_FOREST = createBiome("weeping_witch_forest", BWGOverworldBiomes::weepingWitchForest, BWGBiomeTags.FOREST, BWGBiomeTags.MAGICAL, BiomeTags.HAS_WOODLAND_MANSION, BWGBiomeTags.StructureHasTags.HAS_VILLAGE_SALEM);
     public static final ResourceKey<Biome> WHITE_MANGROVE_MARSHES = createBiome("white_mangrove_marshes", BWGOverworldBiomes::whiteMangroveMarshes, BWGBiomeTags.SWAMP);
     public static final ResourceKey<Biome> WINDSWEPT_DESERT = createBiome("windswept_desert", BWGOverworldBiomes::windsweptDesert, BWGBiomeTags.DESERT, BWGBiomeTags.SANDY);
     public static final ResourceKey<Biome> ZELKOVA_FOREST = createBiome("zelkova_forest", BWGOverworldBiomes::zelkovaForest, BWGBiomeTags.FOREST);
