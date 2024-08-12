@@ -1,6 +1,9 @@
 {
   "type": "forge:add_features",
-  "biomes": "#minecraft:is_forest",
+  "biomes": [
+    "minecraft:forest",
+    "minecraft:dark_forest"
+  ],
   "features": "biomeswevegone:vanilla/forest_flowers",
   "step": "vegetal_decoration"
 }

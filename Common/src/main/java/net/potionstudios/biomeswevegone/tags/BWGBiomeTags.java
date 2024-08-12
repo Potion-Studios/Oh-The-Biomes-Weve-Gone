@@ -48,10 +48,6 @@ public class BWGBiomeTags {
 
     public static final TagKey<Biome> OCEAN = create("ocean");
 
-    public static class VanillaOnlyTags {
-        public static final TagKey<Biome> BEACH = create("vanilla/beach");
-    }
-
     public static class StructureHasTags {
         public static final TagKey<Biome> HAS_PRAIRIE_HOUSE = create("has_structure/prairie_house");
         public static final TagKey<Biome> HAS_RUGGED_FOSSIL = create("has_structure/rugged_fossil");
