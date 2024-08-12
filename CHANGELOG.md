@@ -13,6 +13,7 @@
 - Fix the disabling of some biomes not working
 - Fix Cattail Drops
 - Change the way we do Biome Modifiers to use biomes and not tags to prevent accidentally adding our features to non-vanilla biomes
+- Fix Incompatibilities with Excessive Building, Blooming Biosphere, and Slayer's Beasts
 
 # 1.0.6-Beta
 - Fix Skyris Hanging Sign Textures being swapped
