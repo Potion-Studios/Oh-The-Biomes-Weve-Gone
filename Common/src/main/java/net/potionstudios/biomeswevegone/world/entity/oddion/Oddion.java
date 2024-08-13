@@ -10,6 +10,8 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.ByIdMap;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -26,11 +28,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.potionstudios.biomeswevegone.client.BWGSounds;
+import net.potionstudios.biomeswevegone.world.entity.manowar.ManOWar;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -116,6 +120,10 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
     public void readAdditionalSaveData(@NotNull CompoundTag compound) {
         super.readAdditionalSaveData(compound);
         this.setVariant(Variant.byId(compound.getInt("Variant")));
+    }
+
+    public static boolean checkOddionSpawnRules(EntityType<? extends Oddion> entity, LevelAccessor world, MobSpawnType spawnType, BlockPos pos, RandomSource rand) {
+        return world.getBlockState(pos.below()).is(BlockTags.DIRT);
     }
 
     @Nullable

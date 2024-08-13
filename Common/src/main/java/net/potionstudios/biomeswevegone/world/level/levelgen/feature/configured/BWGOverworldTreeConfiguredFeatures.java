@@ -54,7 +54,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ARAUCARIA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -68,7 +68,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ARAUCARIA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -128,7 +128,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ASPEN.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 1, ImmutableList.of()
+                    BlockTags.DIRT, 1
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ASPEN_SHRUB2 = ConfiguredFeaturesUtil.createConfiguredFeature("aspen_shrub2",
@@ -141,7 +141,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ASPEN.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 1, ImmutableList.of()
+                    BlockTags.DIRT, 1
             )
     );
 
@@ -330,7 +330,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BROWN_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_BIRCH_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_birch_tree2",
@@ -343,7 +343,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BROWN_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_BIRCH_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_birch_tree3",
@@ -356,7 +356,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BROWN_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_BIRCH_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_birch_tree4",
@@ -369,7 +369,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BROWN_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -384,7 +384,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_ORANGE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("orange_birch_tree2",
@@ -397,7 +397,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_ORANGE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("orange_birch_tree3",
@@ -410,7 +410,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_ORANGE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("orange_birch_tree4",
@@ -423,7 +423,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -438,7 +438,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_BIRCH_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("red_birch_tree2",
@@ -451,7 +451,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_BIRCH_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("red_birch_tree3",
@@ -464,7 +464,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_BIRCH_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("red_birch_tree4",
@@ -477,7 +477,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -492,7 +492,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_BIRCH_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_birch_tree2",
@@ -505,7 +505,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_BIRCH_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_birch_tree3",
@@ -518,7 +518,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_BIRCH_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_birch_tree4",
@@ -531,7 +531,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -545,7 +545,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUFF_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("bluff_tree2",
@@ -558,7 +558,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -572,7 +572,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.BIRCH_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.BIRCH_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -586,7 +586,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -600,7 +600,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(Blocks.OAK_LEAVES),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -614,7 +614,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(Blocks.JUNGLE_LEAVES),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -628,7 +628,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_WHITE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("white_sakura_tree2",
@@ -641,7 +641,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_WHITE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("white_sakura_tree3",
@@ -654,7 +654,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_WHITE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("white_sakura_tree4",
@@ -667,7 +667,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_WHITE_TREE5 = ConfiguredFeaturesUtil.createConfiguredFeature("white_sakura_tree5",
@@ -680,7 +680,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_WHITE_TREE6 = ConfiguredFeaturesUtil.createConfiguredFeature("white_sakura_tree6",
@@ -693,7 +693,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_WHITE_TREE7 = ConfiguredFeaturesUtil.createConfiguredFeature("white_sakura_tree7",
@@ -706,7 +706,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.WHITE_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -720,7 +720,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_YELLOW_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_sakura_tree2",
@@ -733,7 +733,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_YELLOW_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_sakura_tree3",
@@ -746,7 +746,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_YELLOW_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_sakura_tree4",
@@ -759,7 +759,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_YELLOW_TREE5 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_sakura_tree5",
@@ -772,7 +772,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_YELLOW_TREE6 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_sakura_tree6",
@@ -785,7 +785,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_YELLOW_TREE7 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_sakura_tree7",
@@ -798,7 +798,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SAKURA_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -812,7 +812,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.CIKA.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 14, ImmutableList.of()
+                    BlockTags.DIRT, 14
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> CIKA_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("cika_tree2",
@@ -825,7 +825,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.CIKA.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 12, ImmutableList.of()
+                    BlockTags.DIRT, 12
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> CIKA_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("cika_tree3",
@@ -838,7 +838,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.CIKA.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 14, ImmutableList.of()
+                    BlockTags.DIRT, 14
             )
     );
 
@@ -852,7 +852,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FIR.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 14, ImmutableList.of()
+                    BlockTags.DIRT, 14
             )
 
     );
@@ -866,7 +866,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FIR.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 14, ImmutableList.of()
+                    BlockTags.DIRT, 14
             )
 
     );
@@ -880,7 +880,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FIR.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 14, ImmutableList.of()
+                    BlockTags.DIRT, 14
             )
 
     );
@@ -894,7 +894,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FIR.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 14, ImmutableList.of()
+                    BlockTags.DIRT, 14
             )
 
     );
@@ -908,7 +908,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FIR.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 14, ImmutableList.of()
+                    BlockTags.DIRT, 14
             )
 
     );
@@ -922,7 +922,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FIR.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 14, ImmutableList.of()
+                    BlockTags.DIRT, 14
             )
 
     );
@@ -936,7 +936,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FIR.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 14, ImmutableList.of()
+                    BlockTags.DIRT, 14
             )
 
     );
@@ -950,7 +950,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FIR.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 14, ImmutableList.of()
+                    BlockTags.DIRT, 14
             )
     );
 
@@ -1079,7 +1079,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.FIRECRACKER_LEAVES.get().defaultBlockState()),
                     Blocks.DARK_OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1093,7 +1093,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.FIRECRACKER_LEAVES.get().defaultBlockState()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT,  5, ImmutableList.of()
+                    BlockTags.DIRT,  5
             )
     );
 
@@ -1107,7 +1107,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.FIRECRACKER_LEAVES.get().defaultBlockState()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1178,7 +1178,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.EBONY.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 6, ImmutableList.of()
+                    BlockTags.DIRT, 6
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> EBONY_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("ebony_tree1",
@@ -1191,7 +1191,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.EBONY.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 6, ImmutableList.of()
+                    BlockTags.DIRT, 6
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> EBONY_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("ebony_tree2",
@@ -1204,7 +1204,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.EBONY.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 6, ImmutableList.of()
+                    BlockTags.DIRT, 6
             )
     );
 
@@ -1218,7 +1218,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.HOLLY.leaves().defaultBlockState(), 7).add(BWGWood.HOLLY_BERRY_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 6, ImmutableList.of()
+                    BlockTags.DIRT, 6
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("holly_tree2",
@@ -1231,7 +1231,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.HOLLY.leaves().defaultBlockState(), 7).add(BWGWood.HOLLY_BERRY_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 6, ImmutableList.of()
+                    BlockTags.DIRT, 6
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("holly_tree3",
@@ -1244,7 +1244,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.HOLLY.leaves().defaultBlockState(), 7).add(BWGWood.HOLLY_BERRY_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 6, ImmutableList.of()
+                    BlockTags.DIRT, 6
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("holly_tree4",
@@ -1257,7 +1257,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.HOLLY.leaves().defaultBlockState(), 7).add(BWGWood.HOLLY_BERRY_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 6, ImmutableList.of()
+                    BlockTags.DIRT, 6
             )
     );
 
@@ -1271,7 +1271,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves().defaultBlockState()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1285,7 +1285,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves().defaultBlockState()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1299,7 +1299,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves().defaultBlockState()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1313,7 +1313,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves().defaultBlockState()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1327,7 +1327,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves().defaultBlockState()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1341,7 +1341,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves().defaultBlockState()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1356,7 +1356,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves().defaultBlockState()),
                     BWGWood.BLUE_ENCHANTED.wood(),
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1371,7 +1371,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.GREEN_ENCHANTED.leaves().defaultBlockState()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1385,7 +1385,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.GREEN_ENCHANTED.leaves().defaultBlockState()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1399,7 +1399,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.GREEN_ENCHANTED.leaves().defaultBlockState()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1455,7 +1455,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.GREEN_ENCHANTED.leaves().defaultBlockState()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1469,7 +1469,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGWood.JACARANDA.leaves().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1483,7 +1483,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGWood.JACARANDA.leaves().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1497,7 +1497,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGWood.JACARANDA.leaves().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1511,7 +1511,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGWood.JACARANDA.leaves().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1525,7 +1525,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGWood.INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1539,7 +1539,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGWood.INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1553,7 +1553,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGWood.INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1567,7 +1567,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 1).add(BWGWood.INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1690,7 +1690,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                             .build()),
                     Blocks.BIRCH_LOG,
                     Blocks.AZALEA_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1706,7 +1706,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                             .build()),
                     Blocks.BIRCH_LOG,
                     Blocks.AZALEA_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1722,7 +1722,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                             .build()),
                     Blocks.BIRCH_LOG,
                     Blocks.AZALEA_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1738,7 +1738,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                             .build()),
                     Blocks.BIRCH_LOG,
                     Blocks.AZALEA_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1753,7 +1753,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IRONWOOD.leaves().defaultBlockState(), 2).add(BWGWood.FLOWERING_IRONWOOD_LEAVES.get().defaultBlockState(), 3).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.AZALEA_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1767,7 +1767,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IRONWOOD.leaves().defaultBlockState(), 2).add(BWGWood.FLOWERING_IRONWOOD_LEAVES.get().defaultBlockState(), 3).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.AZALEA_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1781,7 +1781,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IRONWOOD.leaves().defaultBlockState(), 2).add(BWGWood.FLOWERING_IRONWOOD_LEAVES.get().defaultBlockState(), 3).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.AZALEA_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1795,7 +1795,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IRONWOOD.leaves().defaultBlockState(), 2).add(BWGWood.FLOWERING_IRONWOOD_LEAVES.get().defaultBlockState(), 3).build()),
                     Blocks.BIRCH_LOG,
                     Blocks.AZALEA_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1809,7 +1809,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.MAPLE.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1823,7 +1823,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.MAPLE.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1837,7 +1837,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.MAPLE.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1851,7 +1851,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.MAPLE.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1865,7 +1865,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.MAPLE.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1879,7 +1879,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1893,7 +1893,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1907,7 +1907,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1921,7 +1921,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1935,7 +1935,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1949,7 +1949,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1963,7 +1963,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1977,7 +1977,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -1991,7 +1991,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -2005,7 +2005,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -2019,7 +2019,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> MEADOW_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("meadow_tree2",
@@ -2032,7 +2032,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.DARK_OAK_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.DARK_OAK_LOG,
                     Blocks.DARK_OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> MEADOW_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("meadow_tree3",
@@ -2045,7 +2045,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.DARK_OAK_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.DARK_OAK_LOG,
                     Blocks.DARK_OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -2138,7 +2138,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_OAK_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("red_oak_tree2",
@@ -2151,7 +2151,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_OAK_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("red_oak_tree3",
@@ -2164,7 +2164,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_OAK_TREE_LARGE1 = ConfiguredFeaturesUtil.createConfiguredFeature("large_red_oak_tree1",
@@ -2177,7 +2177,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_OAK_TREE_LARGE2 = ConfiguredFeaturesUtil.createConfiguredFeature("large_red_oak_tree2",
@@ -2190,7 +2190,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_OAK_TREE_LARGE3 = ConfiguredFeaturesUtil.createConfiguredFeature("large_red_oak_tree3",
@@ -2203,7 +2203,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -2217,7 +2217,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_OAK_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_oak_tree2",
@@ -2230,7 +2230,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_OAK_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_oak_tree3",
@@ -2243,7 +2243,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_OAK_TREE_LARGE1 = ConfiguredFeaturesUtil.createConfiguredFeature("large_brown_oak_tree1",
@@ -2256,7 +2256,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_OAK_TREE_LARGE2 = ConfiguredFeaturesUtil.createConfiguredFeature("large_brown_oak_tree2",
@@ -2269,7 +2269,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_OAK_TREE_LARGE3 = ConfiguredFeaturesUtil.createConfiguredFeature("large_brown_oak_tree3",
@@ -2282,7 +2282,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -2296,7 +2296,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_OAK_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("orange_oak_tree2",
@@ -2309,7 +2309,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_OAK_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("orange_oak_tree3",
@@ -2322,7 +2322,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_OAK_TREE_LARGE1 = ConfiguredFeaturesUtil.createConfiguredFeature("large_orange_oak_tree1",
@@ -2335,7 +2335,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_OAK_TREE_LARGE2 = ConfiguredFeaturesUtil.createConfiguredFeature("large_orange_oak_tree2",
@@ -2348,7 +2348,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_OAK_TREE_LARGE3 = ConfiguredFeaturesUtil.createConfiguredFeature("large_orange_oak_tree3",
@@ -2361,7 +2361,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -2379,7 +2379,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORCHARD_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("orchard_tree2",
@@ -2396,7 +2396,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORCHARD_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("orchard_tree3",
@@ -2413,7 +2413,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     ),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -2430,7 +2430,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                             .add(BWGWood.RIPE_ORCHARD_LEAVES.get().defaultBlockState(), 1).build()
                     ),                    Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORCHARD_TREE5 = ConfiguredFeaturesUtil.createConfiguredFeature("orchard_tree5",
@@ -2446,7 +2446,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                             .add(BWGWood.RIPE_ORCHARD_LEAVES.get().defaultBlockState(), 1).build()
                     ),                    Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALM_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("palm_tree1",
@@ -2459,7 +2459,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.PALM.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.SAND, 5, ImmutableList.of()
+                    BlockTags.SAND, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALM_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("palm_tree2",
@@ -2472,7 +2472,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.PALM.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.SAND, 5, ImmutableList.of()
+                    BlockTags.SAND, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALM_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("palm_tree3",
@@ -2485,7 +2485,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.PALM.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.SAND, 5, ImmutableList.of()
+                    BlockTags.SAND, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALM_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("palm_tree4",
@@ -2498,7 +2498,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.PALM.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.SAND, 5, ImmutableList.of()
+                    BlockTags.SAND, 5
             )
     );
 
@@ -2512,7 +2512,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.PINE.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> PINE_LARGE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("large_pine_tree2",
@@ -2525,7 +2525,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.PINE.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> PINE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("pine_tree1",
@@ -2538,7 +2538,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.PINE.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> PINE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("pine_tree2",
@@ -2551,7 +2551,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.PINE.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -2568,7 +2568,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                             .build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.SAND, 2, ImmutableList.of()
+                    BlockTags.SAND, 2
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALO_VERDE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("palo_verde_tree2",
@@ -2584,7 +2584,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                             .build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.SAND, 2, ImmutableList.of()
+                    BlockTags.SAND, 2
             )
     );
 
@@ -2625,7 +2625,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.REDWOOD.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> REDWOOD_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("redwood_tree2",
@@ -2638,7 +2638,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.REDWOOD.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> REDWOOD_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("redwood_tree3",
@@ -2651,7 +2651,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.REDWOOD.leaves().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -2665,7 +2665,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.DARK_OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -2679,7 +2679,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.DARK_OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -2693,7 +2693,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 0, ImmutableList.of()
+                    BlockTags.DIRT, 0
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SHRUB_PRAIRIE2 = ConfiguredFeaturesUtil.createConfiguredFeature("prairie_shrub2",
@@ -2706,7 +2706,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 0, ImmutableList.of()
+                    BlockTags.DIRT, 0
             )
     );
 
@@ -2829,7 +2829,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_tree2",
@@ -2842,7 +2842,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_tree3",
@@ -2855,7 +2855,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_tree4",
@@ -2868,7 +2868,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -2882,7 +2882,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_TREE_MEDIUM2 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_tree_medium2",
@@ -2895,7 +2895,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_TREE_MEDIUM3 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_tree_medium3",
@@ -2908,7 +2908,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_TREE_MEDIUM4 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_tree_medium4",
@@ -2921,7 +2921,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -2935,7 +2935,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     //Yellow Spruce
@@ -2949,7 +2949,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_YELLOW_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_yellow_tree2",
@@ -2962,7 +2962,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_YELLOW_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_yellow_tree3",
@@ -2975,7 +2975,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_YELLOW_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_yellow_tree4",
@@ -2988,7 +2988,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3002,7 +3002,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_YELLOW_TREE_MEDIUM2 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_yellow_tree_medium2",
@@ -3015,7 +3015,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_YELLOW_TREE_MEDIUM3 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_yellow_tree_medium3",
@@ -3028,7 +3028,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_YELLOW_TREE_MEDIUM4 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_yellow_tree_medium4",
@@ -3041,7 +3041,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3055,7 +3055,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.YELLOW_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     //Orange Spruce
@@ -3069,7 +3069,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_ORANGE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_orange_tree2",
@@ -3082,7 +3082,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_ORANGE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_orange_tree3",
@@ -3095,7 +3095,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_ORANGE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_orange_tree4",
@@ -3108,7 +3108,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3122,7 +3122,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_ORANGE_TREE_MEDIUM2 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_orange_tree_medium2",
@@ -3135,7 +3135,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_ORANGE_TREE_MEDIUM3 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_orange_tree_medium3",
@@ -3148,7 +3148,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_ORANGE_TREE_MEDIUM4 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_orange_tree_medium4",
@@ -3161,7 +3161,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3175,7 +3175,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.ORANGE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3190,7 +3190,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_SPRUCE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_red_tree2",
@@ -3203,7 +3203,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_SPRUCE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_red_tree3",
@@ -3216,7 +3216,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_SPRUCE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_red_tree4",
@@ -3229,7 +3229,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3243,7 +3243,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_SPRUCE_TREE_MEDIUM2 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_red_tree_medium2",
@@ -3256,7 +3256,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_SPRUCE_TREE_MEDIUM3 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_red_tree_medium3",
@@ -3269,7 +3269,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_SPRUCE_TREE_MEDIUM4 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_red_tree_medium4",
@@ -3282,7 +3282,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3296,7 +3296,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.RED_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3310,7 +3310,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_SPRUCE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_blue_tree2",
@@ -3323,7 +3323,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_SPRUCE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_blue_tree3",
@@ -3336,7 +3336,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_SPRUCE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_blue_tree4",
@@ -3349,7 +3349,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3363,7 +3363,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_SPRUCE_TREE_MEDIUM2 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_blue_tree_medium2",
@@ -3376,7 +3376,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_SPRUCE_TREE_MEDIUM3 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_blue_tree_medium3",
@@ -3389,7 +3389,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_SPRUCE_TREE_MEDIUM4 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_blue_tree_medium4",
@@ -3402,7 +3402,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3416,7 +3416,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLUE_SPRUCE_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> TROPICAL_SHRUB1 = ConfiguredFeaturesUtil.createConfiguredFeature("tropical_shrub1",
@@ -3569,7 +3569,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.WILLOW.leaves()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 10, ImmutableList.of()
+                    BlockTags.DIRT, 10
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILLOW_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("willow_tree1",
@@ -3635,7 +3635,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.ZELKOVA.leaves()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZELKOVA_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("zelkova_tree2",
@@ -3648,7 +3648,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.ZELKOVA.leaves()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZELKOVA_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("zelkova_tree3",
@@ -3661,7 +3661,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.ZELKOVA.leaves()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3675,7 +3675,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.BROWN_ZELKOVA_LEAVES.get()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZELKOVA_BROWN_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_zelkova_tree2",
@@ -3688,7 +3688,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.BROWN_ZELKOVA_LEAVES.get()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZELKOVA_BROWN_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_zelkova_tree3",
@@ -3701,7 +3701,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGWood.BROWN_ZELKOVA_LEAVES.get()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3715,7 +3715,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGBlocks.ALLIUM_PETAL_BLOCK.get()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3729,7 +3729,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGBlocks.ALLIUM_PETAL_BLOCK.get()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3743,7 +3743,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGBlocks.ALLIUM_PETAL_BLOCK.get()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3757,7 +3757,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGBlocks.PINK_ALLIUM_PETAL_BLOCK.get()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3771,7 +3771,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGBlocks.PINK_ALLIUM_PETAL_BLOCK.get()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3785,7 +3785,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGBlocks.PINK_ALLIUM_PETAL_BLOCK.get()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3799,7 +3799,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGBlocks.WHITE_ALLIUM_PETAL_BLOCK.get()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3813,7 +3813,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGBlocks.WHITE_ALLIUM_PETAL_BLOCK.get()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3827,7 +3827,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGBlocks.WHITE_ALLIUM_PETAL_BLOCK.get()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
@@ -3841,7 +3841,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGBlocks.ROSE_PETAL_BLOCK.get()),
                     BWGWood.FLORUS.logstem(),
                     BWGBlocks.WHITE_ALLIUM_PETAL_BLOCK.get(),
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLORUS_THORN_1 = ConfiguredFeaturesUtil.createConfiguredFeature("florus_thorn_1",
@@ -3854,7 +3854,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     BlockStateProvider.simple(BWGBlocks.ROSE_PETAL_BLOCK.get()),
                     BWGWood.FLORUS.logstem(),
                     BWGBlocks.WHITE_ALLIUM_PETAL_BLOCK.get(),
-                    BlockTags.DIRT, 5, ImmutableList.of()
+                    BlockTags.DIRT, 5
             )
     );
 
