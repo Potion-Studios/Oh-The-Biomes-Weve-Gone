@@ -106,6 +106,20 @@ public class BWGBiomeTags {
      * @see net.minecraftforge.common.Tags.Biomes#IS_SWAMP
      */
     public static final TagKey<Biome> SWAMP = create("swamp");
+
+    /**
+     * Correlates to
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#MOUNTAIN_SLOPE
+     * @see net.minecraftforge.common.Tags.Biomes#IS_SLOPE
+     */
+    public static final TagKey<Biome> SLOPE = create("slope");
+    /** Correlates to
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#MOUNTAIN_PEAK
+     * @see net.minecraftforge.common.Tags.Biomes#IS_PEAK
+     */
+    public static final TagKey<Biome> PEAK = create("peak");
+
+
     /** Correlates to
      * @see BiomeTags#IS_MOUNTAIN
      * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#MOUNTAIN

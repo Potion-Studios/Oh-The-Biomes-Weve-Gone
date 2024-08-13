@@ -299,6 +299,8 @@ public class TagsGenerator {
             tag(Tags.Biomes.IS_MOUNTAIN).addTag(BWGBiomeTags.MOUNTAIN);
             tag(BiomeTags.IS_BEACH).addTag(BWGBiomeTags.BEACH);
             tag(BiomeTags.IS_BADLANDS).addTag(BWGBiomeTags.BADLANDS);
+            tag(Tags.Biomes.IS_SLOPE).addTag(BWGBiomeTags.SLOPE);
+            tag(Tags.Biomes.IS_PEAK).addTag(BWGBiomeTags.PEAK);
             tag(Tags.Biomes.IS_SWAMP).addTag(BWGBiomeTags.SWAMP);
             tag(Tags.Biomes.IS_SANDY).addTag(BWGBiomeTags.SANDY);
             tag(Tags.Biomes.IS_SNOWY).addTag(BWGBiomeTags.SNOWY);
