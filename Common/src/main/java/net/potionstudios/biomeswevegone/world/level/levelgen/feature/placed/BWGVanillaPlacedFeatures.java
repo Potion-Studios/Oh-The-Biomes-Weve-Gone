@@ -11,6 +11,27 @@ import net.potionstudios.biomeswevegone.world.level.levelgen.feature.configured.
 import java.util.List;
 
 public class BWGVanillaPlacedFeatures {
+
+    public static final ResourceKey<PlacedFeature> FLOWER_DEFAULT = PlacedFeaturesUtil.createPlacedFeature("vanilla/flower_default",
+            BWGVanillaConfiguredFeatures.FLOWER_DEFAULT,
+            () -> List.of(
+                    RarityFilter.onAverageOnceEvery(32),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome()
+            )
+    );
+
+    public static final ResourceKey<PlacedFeature> FLOWER_WARM = PlacedFeaturesUtil.createPlacedFeature("vanilla/flower_default",
+            BWGVanillaConfiguredFeatures.FLOWER_DEFAULT,
+            () -> List.of(
+                    RarityFilter.onAverageOnceEvery(16),
+                    InSquarePlacement.spread(),
+                    PlacementUtils.HEIGHTMAP,
+                    BiomeFilter.biome()
+            )
+    );
+
     public static final ResourceKey<PlacedFeature> FLOWER_PLAINS = PlacedFeaturesUtil.createPlacedFeature("vanilla/flower_plains",
             BWGVanillaConfiguredFeatures.FLOWER_PLAINS,
             () -> List.of(

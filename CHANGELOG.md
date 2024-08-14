@@ -16,6 +16,7 @@
 - Fix Incompatibilities with Excessive Building, Blooming Biosphere, and Slayer's Beasts
 - Update Oh The Trees You'll Grow to 1.3.0 (Required)
 - Fix Winter Flowers not being compostable
+- Add BWG Flower Default/Warm Feature Equivalents to Vanilla Biomes
 
 # 1.0.6-Beta
 - Fix Skyris Hanging Sign Textures being swapped

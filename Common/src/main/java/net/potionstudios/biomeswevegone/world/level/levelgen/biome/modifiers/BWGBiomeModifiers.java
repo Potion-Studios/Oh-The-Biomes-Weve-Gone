@@ -32,11 +32,15 @@ public class BWGBiomeModifiers {
 	 * @param biomes The biomes to add the feature to
 	 */
 	public record BWGBiomeModifier(ResourceKey<PlacedFeature> feature, GenerationStep.Decoration step, ResourceKey<Biome>... biomes) {
-		@SafeVarargs public BWGBiomeModifier {}
+		@SafeVarargs
+        public BWGBiomeModifier {}
 	}
 
 	public static void init() {
 		BiomesWeveGone.LOGGER.info("Creating and Registering BWG Biome Modifiers for Vanilla Biomes");
+		registerModifierVegetalDecoration("vanilla/flower_default", BWGVanillaPlacedFeatures.FLOWER_DEFAULT, Biomes.OLD_GROWTH_PINE_TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA, Biomes.WINDSWEPT_HILLS, Biomes.WINDSWEPT_GRAVELLY_HILLS, Biomes.WINDSWEPT_FOREST, Biomes.DESERT, Biomes.SNOWY_PLAINS, Biomes.ICE_SPIKES,
+				Biomes.WINDSWEPT_SAVANNA, Biomes.FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST, Biomes.BIRCH_FOREST, Biomes.TAIGA, Biomes.SNOWY_TAIGA, Biomes.DARK_FOREST);
+		registerModifierVegetalDecoration("vanilla/flower_warm", BWGVanillaPlacedFeatures.FLOWER_WARM, Biomes.SPARSE_JUNGLE, Biomes.JUNGLE, Biomes.BAMBOO_JUNGLE, Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU);
 		registerModifierVegetalDecoration("vanilla/flower_plains", BWGVanillaPlacedFeatures.FLOWER_PLAINS, Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS);
 		registerModifierVegetalDecoration("vanilla/forest_flowers", BWGVanillaPlacedFeatures.FOREST_FLOWERS, Biomes.FOREST, Biomes.DARK_FOREST);
 		registerModifierVegetalDecoration("vanilla/beach/palm_trees", BWGOverworldTreePlacedFeatures.PALM_TREES, Biomes.BEACH);

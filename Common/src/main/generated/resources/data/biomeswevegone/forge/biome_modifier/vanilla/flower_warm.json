@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:sparse_jungle",
+    "minecraft:jungle",
+    "minecraft:bamboo_jungle",
+    "minecraft:savanna",
+    "minecraft:savanna_plateau"
+  ],
+  "features": "biomeswevegone:vanilla/flower_default",
+  "step": "vegetal_decoration"
+}

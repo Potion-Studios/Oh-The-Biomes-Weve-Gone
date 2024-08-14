@@ -125,7 +125,7 @@ class BWGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
-        BiomeDefaultFeatures.addDefaultGrass(generationSettings);
+        BiomeDefaultFeatures.addDefaultGrass(generationSettings); //TODO: Remove One of the grasses
         BiomeDefaultFeatures.addForestGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
