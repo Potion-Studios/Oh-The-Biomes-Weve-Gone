@@ -17,6 +17,7 @@
 - Update Oh The Trees You'll Grow to 1.3.0 (Required)
 - Fix Winter Flowers not being compostable
 - Add BWG Flower Default/Warm Feature Equivalents to Vanilla Biomes
+- Make Vanilla Additions configurable on Fabric (Not available on forge due to it being in json and not in code)
 
 # 1.0.6-Beta
 - Fix Skyris Hanging Sign Textures being swapped

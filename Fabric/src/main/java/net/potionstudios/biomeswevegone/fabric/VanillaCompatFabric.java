@@ -11,6 +11,7 @@ import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
+import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGWorldGenConfig;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.modifiers.BWGBiomeModifiers;
 
 /**
@@ -35,8 +36,10 @@ public class VanillaCompatFabric {
     }
 
     private static void registerBiomeModifiers() {
-        BWGBiomeModifiers.init();
-        BWGBiomeModifiers.BIOME_MODIFIERS_FACTORIES.forEach((id, modifier) -> BiomeModifications.addFeature(BiomeSelectors.includeByKey(modifier.biomes()), modifier.step(), modifier.feature()));
+        if (BWGWorldGenConfig.INSTANCE.get().vanillaAdditions()) {
+            BWGBiomeModifiers.init();
+            BWGBiomeModifiers.BIOME_MODIFIERS_FACTORIES.forEach((id, modifier) -> BiomeModifications.addFeature(BiomeSelectors.includeByKey(modifier.biomes()), modifier.step(), modifier.feature()));
+        }
     }
 
     private static void registerLootModifiers() {
