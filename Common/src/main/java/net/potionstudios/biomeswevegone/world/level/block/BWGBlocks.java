@@ -189,7 +189,7 @@ public class BWGBlocks {
     public static final FlowerBlockFeature PROTEA_FLOWER = registerFlower("protea_flower", MapColor.COLOR_RED, Block.box(5.0, 0.0, 5.0, 11.0, 13.0, 11.0));
     public static final FlowerBlockFeature RICHEA = registerFlower("richea", MapColor.COLOR_RED);
     public static final FlowerBlockFeature SILVER_VASE_FLOWER = registerFlower("silver_vase_flower", MapColor.TERRACOTTA_WHITE);
-    public static final FlowerBlockFeature HORSEWEED = registerFlower("horseweed", MapColor.COLOR_YELLOW);
+    public static final FlowerBlockFeature HORSEWEED = registerFlower("horseweed", MapColor.COLOR_YELLOW, Block.box(4.0, 0.0, 4.0, 12.0, 15.0, 12.0));
     public static final FlowerBlockFeature WINTER_SUCCULENT = registerFlower("winter_succulent", MapColor.COLOR_GREEN);
 
     /** Snowy Plants */
