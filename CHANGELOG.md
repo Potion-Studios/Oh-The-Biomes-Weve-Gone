@@ -19,6 +19,8 @@
 - Add BWG Flower Default/Warm Feature Equivalents to Vanilla Biomes
 - Make Vanilla Additions configurable on Fabric (Not available on forge due to it being in json and not in code)
 - Give Horseweed correct box shape
+- Add Oddion Bulb to Villager Plantable Seeds ItemTag
+- Add Mushrooms to Forge Mushroom ItemTag
 
 # 1.0.6-Beta
 - Fix Skyris Hanging Sign Textures being swapped
