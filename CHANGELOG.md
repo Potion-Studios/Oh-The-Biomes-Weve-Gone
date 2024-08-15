@@ -1,3 +1,5 @@
+# 1.1.1-Beta
+
 # 1.1.0-Beta
 - Fix some leaves having incorrect drops and not dropping leaves when sheared
 - Make Tall Prairie Grass only placeable on BlockTag Dirt to be the same as normal prairie grass

@@ -25,7 +25,7 @@ public class BiomesWeveGoneFabric implements ModInitializer {
     public static void initializeBiomesWeveGone(String initializedFrom) {
         CorgiLibFabric.initializeCorgiLib(initializedFrom);
         if (firstInitializedFrom != null) {
-            BiomesWeveGone.LOGGER.debug(String.format("Attempted to Initialize Oh The Biomes We've Gone (BWG) from \"%s\" but BWG already was initialized from \"%s\", this should not be a problem.", initializedFrom, firstInitializedFrom));
+            BiomesWeveGone.LOGGER.debug("Attempted to Initialize Oh The Biomes We've Gone (BWG) from \"{}\" but BWG already was initialized from \"{}\", this should not be a problem.", initializedFrom, firstInitializedFrom);
             return;
         }
         firstInitializedFrom = initializedFrom;

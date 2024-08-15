@@ -144,21 +144,7 @@ public class ModelGenerators {
                     getVariantBuilder(block).forAllStates(state -> ConfiguredModel.builder()
                             .modelFile(models().cross(name(block) + "_stage" + state.getValue(BWGFruitBlock.AGE), blockBWGTexture(block, "stage" + state.getValue(BWGFruitBlock.AGE))).renderType("cutout"))
                             .build());
-                } /*else if (block instanceof BWGCampfireBlock) {
-                    getVariantBuilder(block).forAllStatesExcept(state ->
-                    {
-                        if (state.getValue(CampfireBlock.LIT))
-                            return ConfiguredModel.builder()
-                                    .modelFile(models().withExistingParent(name(block), new ResourceLocation("block/template_campfire"))
-                                            .texture("fire", blockBWGTexture(block, "fire"))
-                                            .texture("lit_log", blockBWGTexture(block, "log_lit")).renderType("cutout"))
-                                    .build();
-                        else
-                            return ConfiguredModel.builder()
-                                    .modelFile(models().getExistingFile(BiomesWeveGone.id("block/" + name(block) + "_off"))).build();
-                    }, CampfireBlock.WATERLOGGED, CampfireBlock.SIGNAL_FIRE);
-                    itemModels().basicItem(block.asItem());
-                } */else if (block instanceof BoneMealGrassBlock)
+                } else if (block instanceof BoneMealGrassBlock)
                     createCrossBlock(block, "cutout");
                 else if (block instanceof HydrangeaHedgeBlock) {
                     defaultModelFile(block);

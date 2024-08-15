@@ -82,8 +82,8 @@ public class BWGWoodSet {
      * @param mapColor           The map color
      * @param saplingGrower      Whether to include a sapling
      * @param boats              Whether to include a boat
-     * @param glowLeaves
-     * @param saplingPlantAbleOn
+     * @param glowLeaves         Whether leaves should glow
+     * @param saplingPlantAbleOn The tag for what the sapling can be planted on
      */
     protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, LogStem logstem, @Nullable Supplier<AbstractTreeGrower> saplingGrower, boolean leaves, boolean boats, boolean glowLeaves, @Nullable TagKey<Block> saplingPlantAbleOn) {
         this.woodType = PlatformHandler.PLATFORM_HANDLER.createWoodType(blockSetType.name(), blockSetType);

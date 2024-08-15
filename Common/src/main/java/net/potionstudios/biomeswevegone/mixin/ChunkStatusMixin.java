@@ -7,7 +7,6 @@ import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.chunk.ChunkStatus;
 import net.minecraft.world.level.levelgen.Noises;
-import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.potionstudios.biomeswevegone.world.level.levelgen.customterrain.BasaltBarreraExtension;
 import net.potionstudios.biomeswevegone.world.level.levelgen.customterrain.CragGardenExtension;
 import org.spongepowered.asm.mixin.Mixin;

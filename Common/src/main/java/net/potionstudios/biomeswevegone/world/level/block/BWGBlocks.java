@@ -289,10 +289,7 @@ public class BWGBlocks {
 
     /*
     public static final BWGBlockSet BRIMSTONE_SET = new BWGBlockSet("brimstone", BlockBehaviour.Properties.copy(Blocks.NETHERRACK).mapColor(MapColor.COLOR_YELLOW));
-    public static final Supplier<CampfireBlock> BORIC_CAMPFIRE = registerBlockItem("boric_campfire", () -> new BWGCampfireBlock(3, BlockBehaviour.Properties.copy(Blocks.CAMPFIRE)));
-
     public static final BWGBlockSet CRYPTIC_STONE_SET = new BWGBlockSet("cryptic_stone", MapColor.COLOR_PINK);
-    public static final Supplier<CampfireBlock> CRYPTIC_CAMPFIRE = registerBlockItem("cryptic_campfire", () -> new BWGCampfireBlock(4, BlockBehaviour.Properties.copy(Blocks.CAMPFIRE)));
      */
 //    public static final BWGBlockSet MAGMATIC_STONE_SET = new BWGBlockSet("magmatic_stone", BlockBehaviour.Properties.copy(Blocks.NETHERRACK).mapColor(MapColor.COLOR_RED));
 

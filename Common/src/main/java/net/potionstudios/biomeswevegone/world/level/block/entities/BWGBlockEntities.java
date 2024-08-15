@@ -75,13 +75,6 @@ public class BWGBlockEntities {
        BWGWood.WITCH_HAZEL.hangingSign(), BWGWood.WITCH_HAZEL.wallHangingSign(),
        BWGWood.ZELKOVA.hangingSign(), BWGWood.ZELKOVA.wallHangingSign()));
 
-    /*
-    public static final Supplier<BlockEntityType<BWGCampfireBlockEntity>> CAMPFIRES = register("campfire", () -> BlockEntityType.Builder.of(
-       BWGCampfireBlockEntity::new,
-            BWGBlocks.BORIC_CAMPFIRE.get(), BWGBlocks.CRYPTIC_CAMPFIRE.get()
-    ));
-     */
-
     private static <T extends BlockEntity> Supplier<BlockEntityType<T>> register(String key, Supplier<BlockEntityType.Builder<T>> builder) {
         return PlatformHandler.PLATFORM_HANDLER.registerBlockEntity(key, builder);
     }

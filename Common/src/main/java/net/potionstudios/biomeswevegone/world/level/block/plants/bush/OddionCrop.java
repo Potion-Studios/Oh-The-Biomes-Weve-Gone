@@ -35,7 +35,7 @@ public class OddionCrop extends BWGBerryBush {
     }
 
     @Override
-    public @NotNull InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    public @NotNull InteractionResult use(BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
         if (player.getItemInHand(hand).getItem() == Items.BONE_MEAL)
             if (state.getValue(AGE) == MAX_AGE && !state.getValue(HATCHING)) {
                 level.setBlockAndUpdate(pos, state.cycle(HATCHING));

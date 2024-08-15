@@ -47,7 +47,7 @@ public class WhitePuffballBlock extends BWGBerryBush {
 
 
 	@Override
-	public @NotNull InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+	public @NotNull InteractionResult use(BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
 		int age = state.getValue(AGE);
 		boolean isMaxAge = age == MAX_AGE;
 		if (!isMaxAge && player.getItemInHand(hand).getItem() == Items.BONE_MEAL) {
