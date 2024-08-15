@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "biomeswevegone:aspen_boreal",
-      "required": false
-    }
+    "biomeswevegone:aspen_boreal"
   ]
 }

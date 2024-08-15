@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "#biomeswevegone:taiga",
-      "required": false
-    }
+    "#biomeswevegone:taiga"
   ]
 }

@@ -21,6 +21,7 @@
 - Give Horseweed correct box shape
 - Add Oddion Bulb to Villager Plantable Seeds ItemTag
 - Add Mushrooms to Forge Mushroom ItemTag
+- Add a bunch of BiomeTags
 
 # 1.0.6-Beta
 - Fix Skyris Hanging Sign Textures being swapped

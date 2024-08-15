@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "#biomeswevegone:ocean",
-      "required": false
-    }
+    "#biomeswevegone:ocean"
   ]
 }

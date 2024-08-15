@@ -282,31 +282,36 @@ public class TagsGenerator {
 
             tag(BiomeTags.IS_OVERWORLD).addTag(BWGBiomeTags.OVERWORLD);
 
-            //tag(Tags.Biomes.IS_HOT_OVERWORLD).addOptionalTag(BWGBiomeTags.HOT_OVERWORLD);
-            tag(Tags.Biomes.IS_WET_OVERWORLD).addOptionalTag(BWGBiomeTags.WET_OVERWORLD);
-            //tag(Tags.Biomes.IS_DRY_OVERWORLD).addOptionalTag(BWGBiomeTags.DRY_OVERWORLD);
-            tag(Tags.Biomes.IS_COLD_OVERWORLD).addOptionalTag(BWGBiomeTags.COLD_OVERWORLD);
-            //tag(Tags.Biomes.IS_SPARSE_OVERWORLD).addOptionalTag(BWGBiomeTags.SPARSE_OVERWORLD);
-            tag(Tags.Biomes.IS_DENSE_OVERWORLD).addOptionalTag(BWGBiomeTags.DENSE_OVERWORLD);
+            tag(Tags.Biomes.IS_HOT_OVERWORLD).addTag(BWGBiomeTags.HOT);
+            tag(Tags.Biomes.IS_COLD_OVERWORLD).addTag(BWGBiomeTags.COLD);
+            tag(Tags.Biomes.IS_WET_OVERWORLD).addTag(BWGBiomeTags.WET);
+            tag(Tags.Biomes.IS_DRY_OVERWORLD).addTag(BWGBiomeTags.DRY);
+            tag(Tags.Biomes.IS_SPARSE_OVERWORLD).addTag(BWGBiomeTags.SPARSE);
+            tag(Tags.Biomes.IS_DENSE_OVERWORLD).addTag(BWGBiomeTags.DENSE);
 
-            tag(Tags.Biomes.IS_PLAINS).addOptionalTag(BWGBiomeTags.PLAINS);
-            tag(BiomeTags.IS_FOREST).addOptionalTag(BWGBiomeTags.FOREST);
-            tag(BiomeTags.IS_TAIGA).addOptionalTag(BWGBiomeTags.TAIGA);
-            tag(Tags.Biomes.IS_DESERT).addOptionalTag(BWGBiomeTags.DESERT);
-            tag(BiomeTags.IS_SAVANNA).addOptionalTag(BWGBiomeTags.SAVANNA);
-            tag(BiomeTags.IS_JUNGLE).addOptionalTag(BWGBiomeTags.JUNGLE);
-            tag(BiomeTags.IS_MOUNTAIN).addOptionalTag(BWGBiomeTags.MOUNTAIN);
-            tag(Tags.Biomes.IS_MOUNTAIN).addOptionalTag(BWGBiomeTags.MOUNTAIN);
-            tag(BiomeTags.IS_BEACH).addOptionalTag(BWGBiomeTags.BEACH);
-            tag(BiomeTags.IS_BADLANDS).addOptionalTag(BWGBiomeTags.BADLANDS);
-            tag(Tags.Biomes.IS_SWAMP).addOptionalTag(BWGBiomeTags.SWAMP);
-            tag(Tags.Biomes.IS_SANDY).addOptionalTag(BWGBiomeTags.SANDY);
-            //tag(Tags.Biomes.IS_CAVE).addTag(BWGBiomeTags.CAVE);
-            tag(Tags.Biomes.IS_SNOWY).addOptionalTag(BWGBiomeTags.SNOWY);
-            tag(BiomeTags.IS_OCEAN).addOptionalTag(BWGBiomeTags.OCEAN);
+            tag(Tags.Biomes.IS_PLAINS).addTag(BWGBiomeTags.PLAINS);
+            tag(BiomeTags.IS_FOREST).addTag(BWGBiomeTags.FOREST);
+            tag(BiomeTags.IS_TAIGA).addTag(BWGBiomeTags.TAIGA);
+            tag(Tags.Biomes.IS_DESERT).addTag(BWGBiomeTags.DESERT);
+            tag(BiomeTags.IS_SAVANNA).addTag(BWGBiomeTags.SAVANNA);
+            tag(BiomeTags.IS_JUNGLE).addTag(BWGBiomeTags.JUNGLE);
+            tag(BiomeTags.IS_MOUNTAIN).addTag(BWGBiomeTags.MOUNTAIN);
+            tag(Tags.Biomes.IS_MOUNTAIN).addTag(BWGBiomeTags.MOUNTAIN);
+            tag(BiomeTags.IS_BEACH).addTag(BWGBiomeTags.BEACH);
+            tag(BiomeTags.IS_BADLANDS).addTag(BWGBiomeTags.BADLANDS);
+            tag(Tags.Biomes.IS_SLOPE).addTag(BWGBiomeTags.SLOPE);
+            tag(Tags.Biomes.IS_PEAK).addTag(BWGBiomeTags.PEAK);
+            tag(Tags.Biomes.IS_SWAMP).addTag(BWGBiomeTags.SWAMP);
+            tag(Tags.Biomes.IS_SANDY).addTag(BWGBiomeTags.SANDY);
+            tag(Tags.Biomes.IS_SNOWY).addTag(BWGBiomeTags.SNOWY);
+            tag(BiomeTags.IS_OCEAN).addTag(BWGBiomeTags.OCEAN);
+            tag(Tags.Biomes.IS_CONIFEROUS).addTag(BWGBiomeTags.CONIFEROUS);
+            tag(Tags.Biomes.IS_WASTELAND).addTag(BWGBiomeTags.WASTELAND);
+            tag(Tags.Biomes.IS_MAGICAL).addTag(BWGBiomeTags.MAGICAL);
 
-            tag(BWGBiomeTags.WET_OVERWORLD).addOptionalTag(BWGBiomeTags.SWAMP);
-            tag(BWGBiomeTags.DENSE_OVERWORLD).addOptionalTag(BWGBiomeTags.FOREST).addOptionalTag(BWGBiomeTags.JUNGLE);
+            tag(BWGBiomeTags.WET).addTag(BWGBiomeTags.SWAMP).addTag(BWGBiomeTags.BEACH);
+            tag(BWGBiomeTags.DENSE).addTag(BWGBiomeTags.FOREST).addTag(BWGBiomeTags.JUNGLE).addTag(BWGBiomeTags.SWAMP);
+            tag(BWGBiomeTags.DRY).addTag(BWGBiomeTags.DESERT);
 
             tag(BWGBiomeTags.SHARPENED_ROCKS).add(BWGBiomes.RUGGED_BADLANDS);
             tag(BWGBiomeTags.IRONWOOD_GOUR_PLATEAU).add(BWGBiomes.IRONWOOD_GOUR);
@@ -315,16 +320,6 @@ public class TagsGenerator {
             /**
              * Structure Location Biome Tags
              */
-            tag(BWGBiomeTags.StructureHasTags.HAS_PRAIRIE_HOUSE).addOptional(BWGBiomes.PRAIRIE.location());
-            tag(BWGBiomeTags.StructureHasTags.HAS_RUGGED_FOSSIL).addOptional(BWGBiomes.RUGGED_BADLANDS.location());
-            tag(BWGBiomeTags.StructureHasTags.HAS_ASPEN_MANOR).addOptional(BWGBiomes.ASPEN_BOREAL.location());
-            tag(BWGBiomeTags.StructureHasTags.HAS_VILLAGE_FORGOTTEN).addOptional(BWGBiomes.FORGOTTEN_FOREST.location());
-            tag(BWGBiomeTags.StructureHasTags.HAS_VILLAGE_SKYRIS).addOptional(BWGBiomes.SKYRIS_VALE.location());
-            tag(BWGBiomeTags.StructureHasTags.HAS_VILLAGE_SALEM).addOptional(BWGBiomes.WEEPING_WITCH_FOREST.location());
-            tag(BWGBiomeTags.StructureHasTags.HAS_VILLAGE_RED_ROCK).addOptional(BWGBiomes.RED_ROCK_VALLEY.location());
-            tag(BWGBiomeTags.StructureHasTags.HAS_VILLAGE_PUMPKIN_PATCH)
-                    .addOptional(BWGBiomes.PUMPKIN_VALLEY.location())
-                    .addOptional(BWGBiomes.CIKA_WOODS.location());
             tag(BiomeTags.HAS_SWAMP_HUT).addTag(BWGBiomeTags.SWAMP);
             tag(BiomeTags.HAS_JUNGLE_TEMPLE).addTag(BWGBiomeTags.JUNGLE);
             tag(BiomeTags.HAS_RUINED_PORTAL_OCEAN).addTag(BWGBiomeTags.OCEAN);
@@ -335,11 +330,11 @@ public class TagsGenerator {
 
             // Serene Seasons Support
             tag(ModTags.Biomes.TROPICAL_BIOMES)
-                    .addOptionalTag(BWGBiomeTags.DESERT).addOptionalTag(BWGBiomeTags.JUNGLE);
+                    .addTag(BWGBiomeTags.DESERT).addTag(BWGBiomeTags.JUNGLE);
             tag(ModTags.Biomes.INFERTILE_BIOMES)
-                    .addOptional(BWGBiomes.DEAD_SEA.location());
+                    .add(BWGBiomes.DEAD_SEA);
             tag(ModTags.Biomes.BLACKLISTED_BIOMES)
-                    .addOptionalTag(BWGBiomeTags.OCEAN);
+                    .addTag(BWGBiomeTags.OCEAN);
             sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
         }
     }

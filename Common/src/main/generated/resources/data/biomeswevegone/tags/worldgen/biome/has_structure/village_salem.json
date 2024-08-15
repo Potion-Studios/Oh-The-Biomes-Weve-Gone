@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "biomeswevegone:weeping_witch_forest",
-      "required": false
-    }
+    "biomeswevegone:weeping_witch_forest"
   ]
 }

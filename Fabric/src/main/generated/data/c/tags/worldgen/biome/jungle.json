@@ -1,9 +1,6 @@
 {
   "replace": false,
   "values": [
-    {
-      "id": "#biomeswevegone:jungle",
-      "required": false
-    }
+    "#biomeswevegone:jungle"
   ]
 }

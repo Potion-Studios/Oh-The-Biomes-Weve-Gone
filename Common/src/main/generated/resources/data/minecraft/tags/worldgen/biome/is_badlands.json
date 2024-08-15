@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "#biomeswevegone:badlands",
-      "required": false
-    }
+    "#biomeswevegone:badlands"
   ]
 }

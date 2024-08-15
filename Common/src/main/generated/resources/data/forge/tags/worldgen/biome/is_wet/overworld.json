@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "#biomeswevegone:climate/wet/overworld",
-      "required": false
-    }
+    "#biomeswevegone:climate/wet"
   ]
 }

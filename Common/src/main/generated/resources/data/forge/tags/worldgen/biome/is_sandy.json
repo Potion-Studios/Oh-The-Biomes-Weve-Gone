@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "#biomeswevegone:sandy",
-      "required": false
-    }
+    "#biomeswevegone:sandy"
   ]
 }
