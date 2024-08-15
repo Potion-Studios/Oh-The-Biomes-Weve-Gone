@@ -9,6 +9,7 @@ import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.RecordItem;
 import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
@@ -65,40 +66,38 @@ public class ModelGenerators {
                 else basicItem(supplier.get());
             });
             BWGWoodSet.woodsets().forEach(set -> {
-                simpleItem(set.door().asItem(), set.name() + "/door");
+                simpleItem(set.door(), set.name() + "/door");
                 simpleItem(set.signItem(), set.name() + "/sign");
                 simpleItem(set.hangingSignItem(), set.name() + "/hanging_sign");
-                if (set.boatItem() != null)
-                    simpleItem(set.boatItem().get(), set.name() + "/boat");
-                if (set.chestBoatItem() != null)
-                    simpleItem(set.chestBoatItem().get(), set.name() + "/chest_boat");
+                if (set.boatItem() != null) simpleItem(set.boatItem().get(), set.name() + "/boat");
+                if (set.chestBoatItem() != null) simpleItem(set.chestBoatItem().get(), set.name() + "/chest_boat");
             });
-            simpleItemBlockTexture(BWGItems.TINY_LILY_PADS.get(), "tiny_lily_pads");
+            simpleItemBlockTexture(BWGItems.TINY_LILY_PADS.get());
             singleTexture(key(BWGItems.FLOWERING_TINY_LILY_PADS.get()).getPath(), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/tiny_lily_pads")).texture("layer1", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/tiny_lily_pads_flower_overlay"));
-            simpleItemBlockTexture(BWGItems.WATER_SILK.get(), "water_silk");
-            simpleItemBlockTexture(BWGBlocks.POISON_IVY.get().asItem(), "poison_ivy");
-            simpleItem(BWGBlocks.SKYRIS_VINE.get().asItem());
+            simpleItemBlockTexture(BWGItems.WATER_SILK.get());
+            simpleItemBlockTexture(BWGBlocks.POISON_IVY.get());
+            basicItem(BWGBlocks.SKYRIS_VINE.get().asItem());
             //simpleItem(BWGBlocks.THERIUM_LANTERN.get().asItem());
             //simpleItemBlockTexture(BWGBlocks.WARPED_CORAL_FAN.get().asItem(), "warped_coral_fan");
-            simpleItem(BWGBlocks.ALOE_VERA.get().asItem());
+            basicItem(BWGBlocks.ALOE_VERA.get().asItem());
             simpleItem(BWGItems.CATTAIL_SPROUT.get(), "cattails");
-            simpleItemBlockTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get().asItem(), "witch_hazel_branch");
+            simpleItemBlockTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get());
         }
 
-        private void simpleItem(Item item, String texture) {
-            singleTexture(key(item).getPath(), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.ITEM_FOLDER + "/" + texture));
+        private void simpleItem(ItemLike item, String texture) {
+            singleTexture(name(item), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.ITEM_FOLDER + "/" + texture));
         }
 
-        private void simpleItem(Item item) {
-            singleTexture(key(item).getPath(), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.ITEM_FOLDER + "/" + key(item).getPath()));
-        }
-
-        public void simpleItemBlockTexture(Item item, String texture) {
-            singleTexture(key(item).getPath(), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/" + texture));
+        private void simpleItemBlockTexture(ItemLike item) {
+            singleTexture(name(item), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/" + name(item)));
         }
 
         private void spawnEggItem(Item item) {
-            withExistingParent(key(item).getPath(), "item/template_spawn_egg");
+            withExistingParent(name(item), "item/template_spawn_egg");
+        }
+
+        private String name(ItemLike item) {
+            return key(item.asItem()).getPath();
         }
 
         private ResourceLocation key(Item item) {
