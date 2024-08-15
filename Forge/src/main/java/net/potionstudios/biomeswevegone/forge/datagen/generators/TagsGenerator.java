@@ -309,8 +309,9 @@ public class TagsGenerator {
             tag(Tags.Biomes.IS_WASTELAND).addTag(BWGBiomeTags.WASTELAND);
             tag(Tags.Biomes.IS_MAGICAL).addTag(BWGBiomeTags.MAGICAL);
 
-            tag(BWGBiomeTags.WET).addTag(BWGBiomeTags.SWAMP);
+            tag(BWGBiomeTags.WET).addTag(BWGBiomeTags.SWAMP).addTag(BWGBiomeTags.BEACH);
             tag(BWGBiomeTags.DENSE).addTag(BWGBiomeTags.FOREST).addTag(BWGBiomeTags.JUNGLE).addTag(BWGBiomeTags.SWAMP);
+            tag(BWGBiomeTags.DRY).addTag(BWGBiomeTags.DESERT);
 
             tag(BWGBiomeTags.SHARPENED_ROCKS).add(BWGBiomes.RUGGED_BADLANDS);
             tag(BWGBiomeTags.IRONWOOD_GOUR_PLATEAU).add(BWGBiomes.IRONWOOD_GOUR);

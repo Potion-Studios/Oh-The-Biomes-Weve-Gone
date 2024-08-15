@@ -1,8 +1,10 @@
 {
   "values": [
-    "biomeswevegone:araucaria_savanna",
     "biomeswevegone:atacama_outback",
-    "biomeswevegone:baobab_savanna",
-    "biomeswevegone:bayou"
+    "biomeswevegone:mojave_desert",
+    "biomeswevegone:red_rock_valley",
+    "biomeswevegone:rugged_badlands",
+    "biomeswevegone:sierra_badlands",
+    "biomeswevegone:windswept_desert"
   ]
 }
