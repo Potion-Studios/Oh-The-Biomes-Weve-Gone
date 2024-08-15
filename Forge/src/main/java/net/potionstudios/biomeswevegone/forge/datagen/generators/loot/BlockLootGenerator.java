@@ -170,14 +170,12 @@ class BlockLootGenerator extends BlockLootSubProvider {
         dropOther(BWGBlocks.SANDY_DIRT_PATH.get(), BWGBlocks.SANDY_DIRT.get());
 
         add(BWGBlocks.DACITE_SET.getBase(), createSingleItemTableWithSilkTouch(BWGBlocks.DACITE_SET.getBase(), BWGBlocks.DACITE_COBBLESTONE_SET.getBase()));
-        //add(BWGBlocks.ETHER_STONE_SET.getBase(), createSingleItemTableWithSilkTouch(BWGBlocks.ETHER_STONE_SET.getBase(), BWGBlocks.COBBLED_ETHER_STONE_SET.getBase()));
 
         add(BWGBlocks.GREEN_MUSHROOM_BLOCK.get(), createMushroomBlockDrop(BWGBlocks.GREEN_MUSHROOM_BLOCK.get(), BWGBlocks.GREEN_MUSHROOM.get()));
         add(BWGBlocks.WEEPING_MILKCAP_MUSHROOM_BLOCK.get(), createMushroomBlockDrop(BWGBlocks.WEEPING_MILKCAP_MUSHROOM_BLOCK.get(), BWGBlocks.WEEPING_MILKCAP.get()));
         add(BWGBlocks.WOOD_BLEWIT_MUSHROOM_BLOCK.get(), createMushroomBlockDrop(BWGBlocks.WOOD_BLEWIT_MUSHROOM_BLOCK.get(), BWGBlocks.WOOD_BLEWIT.get()));
 
         fruitBush(BWGBlocks.BLUEBERRY_BUSH.get(), BWGItems.BLUEBERRIES.get());
-        //fruitBush(BWGBlocks.NIGHTSHADE_BERRY_BUSH.get(), BWGItems.NIGHTSHADE_BERRIES.get());
 
         LootItemCondition.Builder holder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(BWGBlocks.ODDION_CROP.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(OddionCrop.AGE, 3));

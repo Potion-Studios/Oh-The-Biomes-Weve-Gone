@@ -190,11 +190,6 @@ public class RecipeGenerator extends RecipeProvider {
         dyeTagRecipe(writer, Items.YELLOW_DYE, BWGItemTags.MAKES_YELLOW_DYE);
         dyeTagRecipe(writer, Items.PINK_DYE, BWGItemTags.MAKES_PINK_DYE);
 
-/*
-        twoByTwoPackertoFourWithStoneCutting(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.POLISHED_SOAPSTONE_SET.getBase(), BWGBlocks.SOAPSTONE_SET.getBase());
-        twoByTwoPackertoFourWithStoneCutting(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.SOAPSTONE_BRICKS_SET.getBase(), BWGBlocks.POLISHED_SOAPSTONE_SET.getBase());
-        twoByTwoPackertoFourWithStoneCutting(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.SOAPSTONE_TILE_SET.getBase(), BWGBlocks.SOAPSTONE_BRICKS_SET.getBase());
- */
         twoByTwoPackertoFourWithStoneCutting(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.RED_ROCK_BRICKS_SET.getBase(), BWGBlocks.RED_ROCK_SET.getBase());
         chiseled(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_RED_ROCK_BRICKS_SET.getBase(), BWGBlocks.RED_ROCK_BRICKS_SET.getBase());
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.ROCKY_STONE_SET.getBase(), 2)
@@ -209,17 +204,6 @@ public class RecipeGenerator extends RecipeProvider {
                 .unlockedBy(getHasName(Items.STONE), has(Items.STONE))
                 .unlockedBy(getHasName(Items.VINE), has(Items.VINE))
                 .save(writer);
-
-        /*
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.PURPUR_STONE_SET.getBase(), 4)
-                .define('#', Items.POPPED_CHORUS_FRUIT)
-                .define('X', Items.COBBLESTONE)
-                .pattern("#X")
-                .pattern("X#")
-                .unlockedBy(getHasName(Items.POPPED_CHORUS_FRUIT), has(Items.POPPED_CHORUS_FRUIT))
-                .save(writer);
-
-        twoByTwoPackertoFourWithStoneCutting(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CARVED_ETHER_STONE_SET.getBase(), BWGBlocks.ETHER_STONE_SET.getBase()); */
 
         smeltingResultFromBase(writer, BWGBlocks.DACITE_SET.getBase(), BWGBlocks.DACITE_COBBLESTONE_SET.getBase());
         twoByTwoPackertoFourWithStoneCutting(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.DACITE_BRICKS_SET.getBase(), BWGBlocks.DACITE_SET.getBase());
@@ -238,20 +222,6 @@ public class RecipeGenerator extends RecipeProvider {
                 .unlockedBy(getHasName(BWGBlocks.WINDSWEPT_SAND_SET.getSandstone()), has(BWGBlocks.WINDSWEPT_SAND_SET.getSandstone()))
                 .save(writer);
 
-        /*
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGBlocks.BORIC_CAMPFIRE.get())
-                .define('L', ItemTags.LOGS)
-                .define('S', Items.STICK)
-                .define('C', BWGItems.BRIM_POWDER.get())
-                .pattern(" S ")
-                .pattern("SCS")
-                .pattern("LLL")
-                .unlockedBy(getHasName(Items.STICK), has(Items.STICK))
-                .unlockedBy(getHasName(BWGItems.BRIM_POWDER.get()), has(BWGItems.BRIM_POWDER.get()))
-                .save(writer);
-
-        stonecutterResultFromBase(writer, RecipeCategory.REDSTONE, BWGItems.BRIM_POWDER.get(), BWGBlocks.BRIMSTONE_SET.getBase()); */
-
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, Items.GOLDEN_APPLE)
                 .define('#', Items.GOLD_INGOT)
                 .define('X', BWGItems.GREEN_APPLE.get())
@@ -261,7 +231,6 @@ public class RecipeGenerator extends RecipeProvider {
                 .unlockedBy(getHasName(Items.GOLD_INGOT), has(Items.GOLD_INGOT))
                 .save(writer, BiomesWeveGone.id("golden_apple_from_green_apple"));
 
-        //stainedGlassPaneFromStainedGlass(writer, BWGBlocks.THERIUM_GLASS_PANE.get(), BWGBlocks.THERIUM_GLASS.get());
         sandToGlass(writer, BWGBlocks.BLACK_SAND_SET, Items.BLACK_STAINED_GLASS);
         sandToGlass(writer, BWGBlocks.BLUE_SAND_SET, Items.BLUE_STAINED_GLASS);
         sandToGlass(writer, BWGBlocks.PINK_SAND_SET, Items.PINK_STAINED_GLASS);
@@ -281,22 +250,6 @@ public class RecipeGenerator extends RecipeProvider {
                 .requires(Items.EGG)
                 .unlockedBy(getHasName(BWGItems.BLUEBERRIES.get()), has(BWGItems.BLUEBERRIES.get()))
                 .save(writer);
-/*
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BWGItems.NIGHTSHADE_BERRY_PIE.get())
-                .requires(BWGItems.NIGHTSHADE_BERRIES.get())
-                .requires(Items.SUGAR)
-                .requires(Items.EGG)
-                .unlockedBy(getHasName(BWGItems.NIGHTSHADE_BERRIES.get()), has(BWGItems.NIGHTSHADE_BERRIES.get()))
-                .save(writer);*/
-
-//        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.MAGMATIC_STONE_SET.getBase(), 8)
-//                .define('#', Items.BLACKSTONE)
-//                .define('X', Items.LAVA_BUCKET)
-//                .pattern("###")
-//                .pattern("#X#")
-//                .pattern("###")
-//                .unlockedBy(getHasName(Items.BLACKSTONE), has(Items.BLACKSTONE))
-//                .save(writer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BWGBlocks.CATTAIL_THATCH.get(), 4)
                 .define('#', BWGItems.CATTAIL_SPROUT.get())

@@ -59,7 +59,6 @@ public class BWGBlocks {
     public static final Supplier<Block> LUSH_DIRT = registerBasicBlockWithItem("lush_dirt", BlockBehaviour.Properties.copy(Blocks.DIRT));
     public static final Supplier<BWGSpreadableBlock> LUSH_GRASS_BLOCK = registerBlockItem("lush_grass_block", () -> new BWGSpreadableBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK), LUSH_DIRT));
     public static final Supplier<DirtPathBlock> LUSH_DIRT_PATH = registerBlockItem("lush_dirt_path", () -> new BWGDirtPathBlock(LUSH_DIRT));
-//    public static final Supplier<Block> ETHER_SOIL = registerBasicBlockWithItem("ether_soil", BlockBehaviour.Properties.copy(Blocks.DIRT));
     public static final Supplier<BWGFarmLandBlock> LUSH_FARMLAND = registerBlockItem("lush_farmland", PlatformHandler.PLATFORM_HANDLER.bwgFarmLandBlock(LUSH_DIRT));
 
 
@@ -84,7 +83,6 @@ public class BWGBlocks {
     public static final Supplier<IceBlock> PACKED_BOREALIS_ICE = registerBlockItem("packed_borealis_ice", () -> new IceBlock(BlockBehaviour.Properties.copy(Blocks.PACKED_ICE).lightLevel(state -> 10)));
 
     public static final Supplier<BWGBerryBush> BLUEBERRY_BUSH = registerBlock("blueberry_bush", () -> new BWGBerryBush(() -> BWGItems.BLUEBERRIES, true));
-    //public static final Supplier<NightshadeBerryBush> NIGHTSHADE_BERRY_BUSH = registerBlock("nightshade_berry_bush", NightshadeBerryBush::new);
     public static final Supplier<FloweringBushBlock> FLOWERING_JACARANDA_BUSH = registerBlockItem("flowering_jacaranda_bush", () -> new FloweringBushBlock(BlockBehaviour.Properties.copy(Blocks.AZALEA)));
     public static final PottedBlock JACARANDA_BUSH = createPottedVariant("jacaranda_bush",  () -> new FlowerableBushBlock(BlockBehaviour.Properties.copy(Blocks.AZALEA), FLOWERING_JACARANDA_BUSH));
     public static final Supplier<FloweringBushBlock> FLOWERING_INDIGO_JACARANDA_BUSH = registerBlockItem("flowering_indigo_jacaranda_bush", () -> new FloweringBushBlock(BlockBehaviour.Properties.copy(Blocks.AZALEA)));
@@ -100,9 +98,6 @@ public class BWGBlocks {
     public static final Supplier<HugeMushroomBlock> WOOD_BLEWIT_MUSHROOM_BLOCK = registerBlockItem("wood_blewit_mushroom_block", () -> new HugeMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).sound(SoundType.STEM).strength(0.2F)));
     public static final Supplier<HugeMushroomBlock> WHITE_MUSHROOM_STEM = registerBlockItem("white_mushroom_stem", () -> new HugeMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).sound(SoundType.STEM).strength(0.2F)));
     public static final Supplier<HugeMushroomBlock> BROWN_MUSHROOM_STEM = registerBlockItem("brown_mushroom_stem", () -> new HugeMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).sound(SoundType.STEM).strength(0.2F)));
-//    public static final Supplier<HugeMushroomBlock> SOUL_SHROOM_STEM = registerBlockItem("soul_shroom_stem", () -> new HugeMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).sound(SoundType.STEM).strength(0.2F)));
-//    public static final Supplier<HugeMushroomBlock> SOUL_SHROOM_BLOCK = registerBlockItem("soul_shroom_block", () -> new HugeMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).sound(SoundType.STEM).strength(0.2F).lightLevel((state) -> 12)));
-//    public static final Supplier<HugeMushroomBlock> DEATH_CAP_MUSHROOM_BLOCK = registerBlockItem("death_cap_mushroom_block", () -> new HugeMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).sound(SoundType.STEM).strength(0.2F).lightLevel((state) -> 12)));
 
     public static final Supplier<MushroomBlock> GREEN_MUSHROOM = registerBlockItem("green_mushroom", () -> new BWGMushroomBlock(BlockBehaviour.Properties.of().noCollission().mapColor(MapColor.DIRT).sound(SoundType.STEM).strength(0.2F), BWGBlockTags.BWG_MUSHROOM_PLACEABLE, BWGOverworldVegetationConfiguredFeatures.HUGE_GREEN_MUSHROOM1, Block.box(1.0, 0.0, 1.0, 15.0, 13.0, 15.0)));
     public static final Supplier<MushroomBlock> WEEPING_MILKCAP = registerBlockItem("weeping_milkcap", () -> new BWGMushroomBlock(BlockBehaviour.Properties.of().noCollission().mapColor(MapColor.DIRT).sound(SoundType.STEM).strength(0.2F), BWGBlockTags.BWG_MUSHROOM_PLACEABLE, BWGOverworldVegetationConfiguredFeatures.HUGE_WEEPING_MILKCAP1, Block.box(3.0, 0.0, 3.0, 14.0, 6.0, 14.0)));
@@ -261,48 +256,9 @@ public class BWGBlocks {
 
     public static final BWGBlockSet MOSSY_STONE_SET = new BWGBlockSet("mossy_stone", BlockBehaviour.Properties.copy(Blocks.MOSSY_COBBLESTONE));
     public static final BWGBlockSet ROCKY_STONE_SET = new BWGBlockSet("rocky_stone", BlockBehaviour.Properties.copy(Blocks.COBBLESTONE));
-    /*
-    public static final BWGBlockSet DUSTED_POLISHED_BLACKSTONE_BRICKS_SET = new BWGBlockSet("dusted_polished_blackstone_bricks", "dusted_polished_blackstone_brick", BlockBehaviour.Properties.copy(Blocks.POLISHED_BLACKSTONE_BRICKS));
 
-    public static final BWGBlockSet SOAPSTONE_SET = new BWGBlockSet("soapstone", MapColor.COLOR_GREEN);
-    public static final BWGBlockSet POLISHED_SOAPSTONE_SET = new BWGBlockSet("polished_soapstone", BlockBehaviour.Properties.copy(Blocks.POLISHED_GRANITE).mapColor(MapColor.COLOR_GREEN));
-    public static final BWGBlockSet SOAPSTONE_BRICKS_SET = new BWGBlockSet("soapstone_bricks", "soapstone_brick", BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).mapColor(MapColor.COLOR_GREEN));
-    public static final Supplier<RotatedPillarBlock> SOAPSTONE_PILLAR = registerBlockItem("soapstone_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STONE).mapColor(MapColor.COLOR_GREEN)));
-    public static final BWGBlockSet SOAPSTONE_TILE_SET = new BWGBlockSet("soapstone_tile", MapColor.COLOR_GREEN);
-
-    public static final BWGBlockSet PURPUR_STONE_SET = new BWGBlockSet("purpur_stone", MapColor.COLOR_PURPLE);
-    public static final BWGBlockSet ETHER_STONE_SET = new BWGBlockSet("ether_stone", MapColor.COLOR_PURPLE);
-    public static final BWGBlockSet COBBLED_ETHER_STONE_SET = new BWGBlockSet("cobbled_ether_stone", BlockBehaviour.Properties.copy(Blocks.COBBLESTONE).mapColor(MapColor.COLOR_PURPLE));
-    public static final BWGBlockSet CARVED_ETHER_STONE_SET = new BWGBlockSet("carved_ether_stone", BlockBehaviour.Properties.copy(Blocks.CHISELED_STONE_BRICKS).mapColor(MapColor.COLOR_PURPLE));
-
-    public static final Supplier<LanternBlock> THERIUM_LANTERN = registerBlockItem("therium_lantern", () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).mapColor(MapColor.COLOR_CYAN).lightLevel((state) -> 15)));
-    public static final Supplier<Block> THERIUM_LAMP = registerBasicBlockWithItem("therium_lamp", BlockBehaviour.Properties.copy(Blocks.SEA_LANTERN));
-    public static final BWGBlockSet CHISELED_THERIUM_SET = new BWGBlockSet("chiseled_therium", BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).requiresCorrectToolForDrops().sound(SoundType.GLASS).strength(1.5f, 9.0f));
-    public static final BWGBlockSet SHINY_CHISELED_THRIUM_SET = new BWGBlockSet("shiny_chiseled_therium", BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).requiresCorrectToolForDrops().sound(SoundType.GLASS).lightLevel((state) -> 12).strength(1.5f, 9.0f));
-    public static final Supplier<GlassBlock> THERIUM_GLASS = registerBlockItem("therium_glass", () -> new GlassBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).mapColor(MapColor.COLOR_CYAN).lightLevel((state) -> 12).strength(0.4f, 8.0f)));
-    public static final Supplier<StainedGlassPaneBlock> THERIUM_GLASS_PANE = registerBlockItem("therium_glass_pane", () -> new StainedGlassPaneBlock(DyeColor.YELLOW, BlockBehaviour.Properties.copy(Blocks.GLASS_PANE).mapColor(MapColor.COLOR_CYAN).lightLevel((state) -> 12).strength(0.3f, 8.0f)));
-
-    public static final Supplier<Block> QUARTZITE_SAND = registerCubeAllBlockItem("quartzite_sand", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.SAND).strength(0.2f)));
-    public static final Supplier<Block> RAW_QUARTZ_BLOCK = registerCubeAllBlockItem("raw_quartz_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.QUARTZ_BLOCK)));
- */
     public static final Supplier<Block> WATER_SILK = registerBlock("water_silk", () -> new WaterlilyBlock(BlockBehaviour.Properties.copy(Blocks.LILY_PAD).noCollission().mapColor(MapColor.COLOR_GREEN)));
 
-    /*
-    public static final BWGBlockSet BRIMSTONE_SET = new BWGBlockSet("brimstone", BlockBehaviour.Properties.copy(Blocks.NETHERRACK).mapColor(MapColor.COLOR_YELLOW));
-    public static final BWGBlockSet CRYPTIC_STONE_SET = new BWGBlockSet("cryptic_stone", MapColor.COLOR_PINK);
-     */
-//    public static final BWGBlockSet MAGMATIC_STONE_SET = new BWGBlockSet("magmatic_stone", BlockBehaviour.Properties.copy(Blocks.NETHERRACK).mapColor(MapColor.COLOR_RED));
-
-    /*
-    public static final Supplier<BWGPlacementBushBlock> SCORCHED_BUSH = registerBlockItem("scorched_bush", () -> new BWGPlacementBushBlock(BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.0F).noCollission().noOcclusion(), Block.box(4.0D, 0.0D, 4.0D, 12.0D, 10.0D, 12.0D), BWGBlockTags.SCORCHED_PLANT_PLACEABLE));
-    public static final Supplier<BWGPlacementBushBlock> SCORCHED_GRASS = registerBlockItem("scorched_grass", () -> new BWGPlacementBushBlock(BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.0F).noCollission().noOcclusion(), Block.box(1.0D, 0.0D, 1.0D, 15.0D, 10.0D, 15.0D), BWGBlockTags.SCORCHED_PLANT_PLACEABLE));
-    public static final Supplier<BWGPlacementBushBlock> WARPED_BUSH = registerBlockItem("warped_bush", () -> new BWGPlacementBushBlock(BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion().lightLevel((state) -> 8), Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D), BWGBlockTags.WARPED_BUSH_PLACEABLE));
-    public static final Supplier<Block> WARPED_CORAL_BLOCK = registerCubeAllBlockItem("warped_coral_block", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.CORAL_BLOCK).strength(0.2f).lightLevel((state) -> 8)));
-    public static final Supplier<WarpedCoralPlantBlock> WARPED_CORAL = registerBlockItem("warped_coral", () -> new WarpedCoralPlantBlock(Block.box(2.0D, 0.0D, 2.0D, 14.0D, 15.0D, 14.0D)));
-    public static final Supplier<WarpedCoralPlantBlock> WARPED_CORAL_FAN = registerBlockItem("warped_coral_fan", () -> new WarpedCoralPlantBlock(Block.box(2.0D, 0.0D, 2.0D, 14.0D, 8.0D, 14.0D)));
-    public static final Supplier<Block> WARPED_SOUL_SAND = registerCubeAllBlockItem("warped_soul_sand", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SOUL_SAND)));
-    public static final Supplier<Block> WARPED_SOUL_SOIL = registerCubeAllBlockItem("warped_soul_soil", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SOUL_SOIL)));
- */
     public static final Supplier<HayBlock> CATTAIL_THATCH = registerBlockItem("cattail_thatch", () -> new HayBlock(BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.5f)));
     public static final Supplier<SlabBlock> CATTAIL_THATCH_SLAB = registerBlockItem("cattail_thatch_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(CATTAIL_THATCH.get())));
     public static final Supplier<StairBlock> CATTAIL_THATCH_STAIRS = registerBlockItem("cattail_thatch_stairs", () -> new StairBlock(CATTAIL_THATCH.get().defaultBlockState(), BlockBehaviour.Properties.copy(CATTAIL_THATCH.get())));

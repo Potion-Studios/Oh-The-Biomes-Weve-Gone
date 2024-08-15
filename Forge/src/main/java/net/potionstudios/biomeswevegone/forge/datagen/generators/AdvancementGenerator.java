@@ -135,8 +135,6 @@ public class AdvancementGenerator implements ForgeAdvancementProvider.Advancemen
                 .requirements(RequirementsStrategy.AND)
                 .addCriterion("blueberry_pie", InventoryChangeTrigger.TriggerInstance.hasItems(BWGItems.BLUEBERRY_PIE.get()))
                 .addCriterion("green_apple_pie", InventoryChangeTrigger.TriggerInstance.hasItems(BWGItems.GREEN_APPLE_PIE.get()))
-                //.addCriterion("crimson_berry_pie", InventoryChangeTrigger.TriggerInstance.hasItems(BWGItems.CRIMSON_BERRY_PIE.get()))
-                //.addCriterion("nightshade_berry_pie", InventoryChangeTrigger.TriggerInstance.hasItems(BYGItems.NIGHTSHADE_BERRY_PIE.get()))
                 .display(
                         BWGItems.GREEN_APPLE_PIE.get(),
                         translateAble("husbandry.just_like_grandmas.title"),

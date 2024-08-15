@@ -10,7 +10,6 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
@@ -46,11 +45,6 @@ public class BarrelCactusBlock extends BWGCactusBlock implements BonemealableBlo
 			return InteractionResult.sidedSuccess(level.isClientSide());
 		}
 		return super.use(state, level, pos, player, hand, hit);
-	}
-
-	@Override
-	public void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity) {
-		super.entityInside(state, level, pos, entity);
 	}
 
 	protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {

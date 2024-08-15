@@ -50,19 +50,15 @@ public class BWGWood {
     public static final BWGWoodSet CIKA = new BWGWoodSet("cika", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.CIKA);
     public static final BWGWoodSet CYPRESS = new BWGWoodSet("cypress", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.CYPRESS);
     public static final BWGWoodSet EBONY = new BWGWoodSet("ebony", MapColor.COLOR_BLACK, BWGTreeGrowers.EBONY);
-    //public static final BWGWoodSet EMBUR = new BWGWoodSet("embur", MapColor.COLOR_BROWN, false, false);
-    //public static final BWGWoodSet ETHER = new BWGWoodSet("ether", MapColor.COLOR_LIGHT_BLUE, true, false);
     public static final BWGWoodSet FIR = new BWGWoodSet("fir", MapColor.TERRACOTTA_WHITE,BWGTreeGrowers.FIR);
     public static final BWGWoodSet FLORUS = new BWGWoodSet(new BlockSetType("florus"), MapColor.COLOR_GREEN, BWGWoodSet.LogStem.STEM, null, false, true, false, null);
     public static final BWGWoodSet GREEN_ENCHANTED = new BWGWoodSet("green_enchanted", MapColor.COLOR_LIGHT_GREEN, BWGTreeGrowers.GREEN_ENCHANTED, true);
     public static final Supplier<ImbuedBlock> IMBUED_GREEN_ENCHANTED_WOOD = registerBlockItem("imbued_green_enchanted_wood", () -> new ImbuedBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN)));
     public static final BWGWoodSet HOLLY = new BWGWoodSet("holly", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.HOLLY);
     public static final BWGWoodSet IRONWOOD = new BWGWoodSet("ironwood", MapColor.COLOR_GRAY, BWGTreeGrowers.IRONWOOD);
-    //public static final BiomesWeveGoneWoodSet IMPARIUS = new BiomesWeveGoneWoodSet(BiomesWeveGoneWoodType.IMPARIUS, MapColor.TERRACOTTA_WHITE);
     public static final BWGWoodSet JACARANDA = new BWGWoodSet("jacaranda", MapColor.COLOR_PINK, BWGTreeGrowers.JACARANDA);
     public static final BWGWoodSet MAHOGANY = new BWGWoodSet("mahogany", MapColor.COLOR_PINK, BWGTreeGrowers.MAHOGANY);
     public static final BWGWoodSet MAPLE = new BWGWoodSet("maple", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.MAPLE);
-    //public static final BWGWoodSet NIGHTSHADE = new BWGWoodSet("nightshade", MapColor.COLOR_ORANGE, true, false);
     public static final BWGWoodSet PALM = new BWGWoodSet("palm", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.PALM, BlockTags.SAND);
     public static final BWGWoodSet PINE = new BWGWoodSet("pine", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.PINE);
     public static final BWGWoodSet RAINBOW_EUCALYPTUS = new BWGWoodSet("rainbow_eucalyptus", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.RAINBOW_EUCALYPTUS);
@@ -72,7 +68,6 @@ public class BWGWood {
     public static final PottedBlock WHITE_SAKURA_SAPLING = createSapling("white_sakura", BWGTreeGrowers.WHITE_SAKURA, BlockTags.DIRT);
     public static final PottedBlock YELLOW_SAKURA_SAPLING = createSapling("yellow_sakura", BWGTreeGrowers.YELLOW_SAKURA, BlockTags.DIRT);
     public static final BWGWoodSet SKYRIS = new BWGWoodSet("skyris", MapColor.COLOR_LIGHT_BLUE, BWGTreeGrowers.SKYRIS);
-    //public static final BWGWoodSet SYTHIAN = new BWGWoodSet("sythian", MapColor.COLOR_YELLOW, true, false);
     public static final BWGWoodSet WHITE_MANGROVE = new BWGWoodSet("white_mangrove", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.WHITE_MANGROVE);
     public static final BWGWoodSet WILLOW = new BWGWoodSet("willow", MapColor.COLOR_GREEN, BWGTreeGrowers.WILLOW);
     public static final BWGWoodSet WITCH_HAZEL = new BWGWoodSet("witch_hazel", MapColor.COLOR_GREEN, BWGTreeGrowers.WITCH_HAZEL);
@@ -141,7 +136,6 @@ public class BWGWood {
     public static final Supplier<LeavesBlock> YELLOW_SAKURA_LEAVES = registerLeaves("yellow_sakura", BWGParticles.YELLOW_SAKURA_LEAVES, MapColor.COLOR_YELLOW);
     public static final Supplier<LeavesBlock> YELLOW_BIRCH_LEAVES = registerLeaves("yellow_birch", MapColor.COLOR_YELLOW);
     public static final Supplier<LeavesBlock> YELLOW_SPRUCE_LEAVES = registerLeaves("yellow_spruce", MapColor.COLOR_YELLOW);
-    //public static final Supplier<LeavesBlock> FLOWERING_NIGHTSHADE_LEAVES = registerBlockItem("flowering_nightshade_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES).mapColor(MapColor.COLOR_PURPLE).lightLevel((state) -> 15)));
     public static final Supplier<LeavesBlock> FIRECRACKER_LEAVES = registerNonSetBlockItem("firecracker_leaves", () -> new BWGFireCrackerLeaves(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES).mapColor(MapColor.COLOR_GREEN)));
 
     private static Supplier<LeavesBlock> registerGlowingLeaves(String key, MapColor mapColor) {

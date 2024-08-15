@@ -43,8 +43,6 @@ public class BWGItems {
 
     public static final Supplier<MobBucketItem> MAN_O_WAR_BUCKET = registerMobBucket("man_o_war_bucket", BWGEntities.MAN_O_WAR::get, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH);
 
-    //public static final Supplier<Item> BRIM_POWDER = registerSimpleItem("brim_powder", () -> new Item(new Item.Properties()));
-
     public static final Supplier<Item> CATTAIL_SPROUT = registerItemNoLang("cattail_sprout", () -> new CampfireExplodingBlockItem(BWGBlocks.CATTAIL_SPROUT, new Item.Properties()));
 
     public static final Supplier<Item> BAOBAB_FRUIT = registerSimpleItem("baobab_fruit", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationMod(0.35f).build())));
@@ -56,10 +54,6 @@ public class BWGItems {
     public static final Supplier<Item> BLUEBERRIES = registerSimpleItem("blueberries", () -> new ItemNameBlockItem(BWGBlocks.BLUEBERRY_BUSH.get() , new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationMod(0.1f).build())));
     public static final Supplier<Item> BLUEBERRY_PIE = registerSimpleItem("blueberry_pie", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationMod(0.3f).effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0), 1.0F).build())));
 
-    /*
-    public static final Supplier<Item> NIGHTSHADE_BERRIES = registerSimpleItem("nightshade_berries", () -> new ItemNameBlockItem(BWGBlocks.NIGHTSHADE_BERRY_BUSH.get(), new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationMod(0.4f).build())));
-    public static final Supplier<Item> NIGHTSHADE_BERRY_PIE = registerSimpleItem("nightshade_berry_pie", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationMod(0.3f).effect(new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 0), 1.0F).build())));
-     */
     public static final Supplier<Item> ODDION_BULB = registerSimpleItem("oddion_bulb", () -> new ItemNameBlockItem(BWGBlocks.ODDION_CROP.get(), new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.6f).build())));
     public static final Supplier<Item> COOKED_ODDION_BULB = registerSimpleItem("cooked_oddion_bulb", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationMod(5.5f).build())));
     public static final Supplier<Item> ALLIUM_ODDION_SOUP = registerSimpleItem("allium_oddion_soup", () -> new BowlFoodItem((new Item.Properties()).stacksTo(1).food(new FoodProperties.Builder().nutrition(4).saturationMod(6.5f).build())));
