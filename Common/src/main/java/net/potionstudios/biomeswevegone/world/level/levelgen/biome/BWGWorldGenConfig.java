@@ -26,7 +26,8 @@ import java.nio.file.Path;
 import java.util.Map;
 import java.util.function.Supplier;
 
-public record BWGWorldGenConfig(Map<ResourceKey<Biome>, Boolean> enabledBiomes, int regionWeight, boolean vanillaAdditions) {
+public record BWGWorldGenConfig(Map<ResourceKey<Biome>, Boolean> enabledBiomes, int regionWeight,
+                                boolean vanillaAdditions) {
 
     public static final Path PATH = PlatformHandler.PLATFORM_HANDLER.configPath().resolve("world_generation.json5");
 
@@ -35,21 +36,26 @@ public record BWGWorldGenConfig(Map<ResourceKey<Biome>, Boolean> enabledBiomes, 
 
     public static final Codec<BWGWorldGenConfig> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
-                    CommentedCodec.of(Codec.unboundedMap(ResourceKey.codec(Registries.BIOME), Codec.BOOL), "enabled_biomes", "Which biomes are enabled, if disabled the biome will default to its vanilla counterpart for the given region").forGetter(BWGWorldGenConfig::enabledBiomes),
-                    CommentedCodec.of(Codec.INT, "region_weight", "How much each BWG region weighs. This weight applies to all 3 BWG Regions").forGetter(BWGWorldGenConfig::regionWeight),
-                    CommentedCodec.of(Codec.BOOL, "vanilla_additons", "Whether to add bwg flowers and features to Vanilla Biomes (Config Option for Fabric Only)").forGetter(config -> true)
+                    CommentedCodec.of(Codec.unboundedMap(ResourceKey.codec(Registries.BIOME), Codec.BOOL), "enabled_biomes", "Which biomes are enabled, if disabled the biome will default to its vanilla counterpart for the given region").orElse(getDefaultBiomes()).forGetter(BWGWorldGenConfig::enabledBiomes),
+                    CommentedCodec.of(Codec.INT, "region_weight", "How much each BWG region weighs. This weight applies to all 3 BWG Regions").orElse(8).forGetter(BWGWorldGenConfig::regionWeight),
+                    CommentedCodec.of(Codec.BOOL, "vanilla_additions", "Whether to add bwg flowers and features to Vanilla Biomes (Config Option for Fabric Only)").orElse(true).forGetter(config -> true)
             ).apply(instance, BWGWorldGenConfig::new)
     );
 
     public static BWGWorldGenConfig createDefault() {
+        Object2BooleanMap<ResourceKey<Biome>> enabledBiomes = getDefaultBiomes();
+
+        return new BWGWorldGenConfig(enabledBiomes, 8, true);
+    }
+
+    private static @NotNull Object2BooleanMap<ResourceKey<Biome>> getDefaultBiomes() {
         Object2BooleanMap<ResourceKey<Biome>> enabledBiomes = new Object2BooleanOpenHashMap<>();
         for (ResourceKey<Biome> biomeResourceKey : BWGBiomes.BIOME_FACTORIES.keySet()) {
             enabledBiomes.put(biomeResourceKey, true);
         }
 
         enabledBiomes.put(BWGBiomes.ERODED_BOREALIS, false);
-
-        return new BWGWorldGenConfig(enabledBiomes, 8, true);
+        return enabledBiomes;
     }
 
     public static BWGWorldGenConfig getOrCreateConfigFromDisk() {
@@ -68,28 +74,16 @@ public record BWGWorldGenConfig(Map<ResourceKey<Biome>, Boolean> enabledBiomes, 
                 BWGWorldGenConfig config = configResult.getFirst();
 
 
-                boolean rewrite = false;
-                for (ResourceKey<Biome> biomeResourceKey : defaultWorldGenConfig.enabledBiomes.keySet()) {
-                    if (!config.enabledBiomes.containsKey(biomeResourceKey)) {
-                        rewrite = true;
-                        break;
-                    }
-                }
+                Map<ResourceKey<Biome>, Boolean> temporary = new Reference2ObjectOpenHashMap<>();
 
-                if (rewrite) {
-                    Map<ResourceKey<Biome>, Boolean> temporary = new Reference2ObjectOpenHashMap<>();
+                temporary.putAll(defaultWorldGenConfig.enabledBiomes);
+                temporary.putAll(config.enabledBiomes);
 
-                    temporary.putAll(defaultWorldGenConfig.enabledBiomes);
-                    temporary.putAll(config.enabledBiomes);
+                BWGWorldGenConfig toCreate = new BWGWorldGenConfig(temporary, config.regionWeight, config.vanillaAdditions);
 
-                    BWGWorldGenConfig toCreate = new BWGWorldGenConfig(temporary, config.regionWeight, config.vanillaAdditions);
+                createDefaultFile(toCreate);
 
-                    createDefaultFile(toCreate);
-
-                    return toCreate;
-                } else {
-                    return config;
-                }
+                return toCreate;
 
             } catch (IOException | SyntaxError e) {
                 throw new RuntimeException(e);
