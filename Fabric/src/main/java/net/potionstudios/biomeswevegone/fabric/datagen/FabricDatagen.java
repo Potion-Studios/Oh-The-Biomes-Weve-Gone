@@ -69,8 +69,6 @@ public class FabricDatagen implements DataGeneratorEntrypoint {
             copy(ConventionalBlockTags.SANDSTONE_STAIRS, ConventionalItemTags.SANDSTONE_STAIRS);
             copy(ConventionalBlockTags.VILLAGER_JOB_SITES, ConventionalItemTags.VILLAGER_JOB_SITES);
             copy(ConventionalBlockTags.BUDDING_BLOCKS, ConventionalItemTags.BUDDING_BLOCKS);
-            //copy(ConventionalBlockTags.GLASS_BLOCKS, ConventionalItemTags.GLASS_BLOCKS);
-            //copy(ConventionalBlockTags.GLASS_PANES, ConventionalItemTags.GLASS_PANES);
             BWGItems.ITEMS.stream()
                     .filter(item -> item.get().isEdible())
                     .forEach(item -> getOrCreateTagBuilder(ConventionalItemTags.FOODS).add(item.get()));
