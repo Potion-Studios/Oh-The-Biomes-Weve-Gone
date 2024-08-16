@@ -46,7 +46,6 @@ public class BWGWood {
     public static final BWGWoodSet BAOBAB = new BWGWoodSet("baobab", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.BAOBAB);
     public static final BWGWoodSet BLUE_ENCHANTED = new BWGWoodSet("blue_enchanted", MapColor.COLOR_BLUE, BWGTreeGrowers.BLUE_ENCHANTED, true);
     public static final Supplier<ImbuedBlock> IMBUED_BLUE_ENCHANTED_WOOD = registerBlockItem("imbued_blue_enchanted_wood", () -> new ImbuedBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE)));
-    //public static final BWGWoodSet BULBIS = new BWGWoodSet("bulbis", MapColor.COLOR_PURPLE, false, false);
     public static final BWGWoodSet CIKA = new BWGWoodSet("cika", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.CIKA);
     public static final BWGWoodSet CYPRESS = new BWGWoodSet("cypress", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.CYPRESS);
     public static final BWGWoodSet EBONY = new BWGWoodSet("ebony", MapColor.COLOR_BLACK, BWGTreeGrowers.EBONY);
