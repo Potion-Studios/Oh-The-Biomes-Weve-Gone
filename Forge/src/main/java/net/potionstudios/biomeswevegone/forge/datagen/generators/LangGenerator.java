@@ -15,6 +15,7 @@ import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
@@ -90,40 +91,26 @@ public class LangGenerator extends LanguageProvider {
     }
 
 
-    protected String getBlockName(Supplier<? extends Block> item) {
-        String name = String.valueOf(ForgeRegistries.BLOCKS.getKey(item.get()));
-        name = name.substring(name.indexOf(":") + 1);  //Removes Mod Tag from front of name
-        name = name.replace('_', ' ');
-        name = name.substring(0, 1).toUpperCase() + name.substring(1);
-        for (int i = 0; i < name.length(); i++)
-            if (name.charAt(i) == ' ')
-                name = name.substring(0, i + 1) + name.substring(i + 1, i + 2).toUpperCase() + name.substring(i + 2);
-
-        return name;
+    private String getBlockName(Supplier<? extends Block> item) {
+        return getId((ForgeRegistries.BLOCKS.getKey(item.get()).getPath()));
     }
 
-
-    protected String getItemName(Supplier<? extends ItemLike> item) {
-        String name = ForgeRegistries.ITEMS.getKey(item.get().asItem()).getPath();
-        name = name.substring(name.indexOf(":") + 1);  //Removes Mod Tag from front of name
-        name = name.replace('_', ' ');
-        name = name.substring(0, 1).toUpperCase() + name.substring(1);
-        for (int i = 0; i < name.length(); i++)
-            if (name.charAt(i) == ' ')
-                name = name.substring(0, i + 1) + name.substring(i + 1, i + 2).toUpperCase() + name.substring(i + 2);
-
-        return name;
+    private String getItemName(Supplier<? extends ItemLike> item) {
+        return getId(ForgeRegistries.ITEMS.getKey(item.get().asItem()).getPath());
     }
 
-    protected String getBiomeName(ResourceKey<Biome> biome) {
-        String name = biome.location().getPath();
+    private String getBiomeName(ResourceKey<Biome> biome) {
+        return getId(biome.location().getPath());
+    }
+
+    @NotNull
+    private String getId(String name) {
         name = name.substring(name.indexOf(":") + 1);  //Removes Mod Tag from front of name
         name = name.replace('_', ' ');
         name = name.substring(0, 1).toUpperCase() + name.substring(1);
         for (int i = 0; i < name.length(); i++)
             if (name.charAt(i) == ' ')
                 name = name.substring(0, i + 1) + name.substring(i + 1, i + 2).toUpperCase() + name.substring(i + 2);
-
         return name;
     }
 }
