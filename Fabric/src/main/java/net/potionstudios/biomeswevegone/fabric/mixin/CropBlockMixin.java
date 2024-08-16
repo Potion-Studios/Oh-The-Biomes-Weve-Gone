@@ -16,7 +16,7 @@ public abstract class CropBlockMixin extends BushBlock implements BonemealableBl
     }
 
     /**
-     * @reason Allows crops to be placed on Lush Farmland.
+     * @reason Allows crops to be placed on Blocks that extend FarmBlock
      * @author Joseph T. McQuigg
      */
     @Inject(method = "mayPlaceOn", at = @At("RETURN"), cancellable = true)

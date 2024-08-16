@@ -30,6 +30,11 @@ public abstract class PrairieGrassMixin extends SpreadingSnowyDirtBlock implemen
         super(properties);
     }
 
+    /**
+     * @reason Allows for Bonemealing of Prairie Grass to spawn Prairie Grass and other features.
+     * @see GrassBlock#performBonemeal(ServerLevel, RandomSource, BlockPos, BlockState)
+     * @author Joseph T. McQuigg
+     */
     @Inject(method = "performBonemeal", at = @At("HEAD"), cancellable = true)
     private void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state, CallbackInfo ci) {
         if (level.getBiome(pos).is(BWGBiomes.PRAIRIE)) {

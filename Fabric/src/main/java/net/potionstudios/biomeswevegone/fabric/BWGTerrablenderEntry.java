@@ -6,6 +6,11 @@ import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGTerraBlend
 import terrablender.api.SurfaceRuleManager;
 import terrablender.api.TerraBlenderApi;
 
+/**
+ * Handles the initialization of TerraBlender for Biomes We've Gone
+ * @see TerraBlenderApi
+ * @author CorgiTaco
+ */
 public class BWGTerrablenderEntry implements TerraBlenderApi {
 
     @Override

@@ -68,7 +68,7 @@ public class BiomesWeveGoneForge {
 
     /**
      * Initializes server-side things.
-     * @param event The server about to start event.
+     * @see ServerAboutToStartEvent
      */
     private void onServerStarting(final ServerAboutToStartEvent event) {
         BiomesWeveGone.serverStart(event.getServer());

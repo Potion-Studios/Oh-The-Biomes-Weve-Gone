@@ -37,6 +37,8 @@ import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 
 /**
  * Used to generate models for blocks and items.
+ * @see ItemModelProvider
+ * @see BlockModelProvider
  * @author Joseph T. McQuigg
  */
 public class ModelGenerators {

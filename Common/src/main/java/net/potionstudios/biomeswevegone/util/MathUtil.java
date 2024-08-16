@@ -3,6 +3,9 @@ package net.potionstudios.biomeswevegone.util;
 import org.joml.Vector2d;
 import org.joml.Vector4d;
 
+/**
+ * @author CorgiTaco
+ */
 public class MathUtil {
 
     private static final Vector2d s = new Vector2d(1.0, 1.7320508); // sqrt(3)

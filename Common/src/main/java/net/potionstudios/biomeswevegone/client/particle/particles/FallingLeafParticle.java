@@ -7,6 +7,12 @@ import net.minecraft.util.Mth;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * Falling Leaf Particle for Oh The Biomes We've Gone.
+ * @see TextureSheetParticle
+ * @see SimpleParticleType
+ * @author Joseph T. McQuigg
+ */
 public class FallingLeafParticle extends TextureSheetParticle {
     protected FallingLeafParticle(ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
         super(level, x, y, z, xSpeed, ySpeed, zSpeed);

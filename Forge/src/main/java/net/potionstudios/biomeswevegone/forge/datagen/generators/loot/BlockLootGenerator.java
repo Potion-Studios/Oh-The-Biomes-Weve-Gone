@@ -21,7 +21,6 @@ import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -52,9 +51,7 @@ class BlockLootGenerator extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        BiomesWeveGone.LOGGER.info("Generating loot tables for " + BiomesWeveGone.MOD_ID + "...");
         BWGWoodSet.woodsets().forEach(set -> {
-	        BiomesWeveGone.LOGGER.info("Generating loot tables for {}...", set.name());
             dropSelf(set.planks());
             add(set.slab(), createSlabItemTable(set.slab()));
             dropSelf(set.stairs());

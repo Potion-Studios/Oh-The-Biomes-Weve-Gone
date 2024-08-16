@@ -5,6 +5,11 @@ import net.potionstudios.biomeswevegone.PlatformHandler;
 
 import java.util.function.Supplier;
 
+/**
+ * Particles for Oh The Biomes We've Gone.
+ * @see SimpleParticleType
+ * @author Joseph T. McQuigg
+ */
 public class BWGParticles {
 
     public static final Supplier<SimpleParticleType> WITCH_HAZEL_LEAVES = register("witch_hazel_leaves");

@@ -6,6 +6,11 @@ import net.minecraftforge.common.data.SoundDefinitionsProvider;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.client.BWGSounds;
 
+/**
+ * Generates the Sounds.json file
+ * @see SoundDefinitionsProvider
+ * @author Joseph T. McQuigg
+ */
 public class SoundDefinitionsGenerator extends SoundDefinitionsProvider {
     /**
      * Creates a new instance of this data provider.

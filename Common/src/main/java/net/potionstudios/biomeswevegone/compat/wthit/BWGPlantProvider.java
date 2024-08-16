@@ -5,7 +5,6 @@ import mcp.mobius.waila.api.component.PairComponent;
 import net.minecraft.network.chat.Component;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.BWGBerryBush;
 
-
 /**
  * Allows seeing bwg plant information in Waila.
  * @see IBlockComponentProvider

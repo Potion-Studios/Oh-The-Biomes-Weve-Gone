@@ -20,6 +20,11 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
 
+/**
+ * Generates recipes for the mod.
+ * @see RecipeProvider
+ * @author Joseph T. McQuigg
+ */
 public class RecipeGenerator extends RecipeProvider {
     public RecipeGenerator(PackOutput output) {
         super(output);

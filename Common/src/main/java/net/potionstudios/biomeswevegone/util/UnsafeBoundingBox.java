@@ -5,6 +5,9 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 
 import java.util.Objects;
 
+/**
+ * @author CorgiTaco
+ */
 public final class UnsafeBoundingBox {
     private int minX;
     private int minY;

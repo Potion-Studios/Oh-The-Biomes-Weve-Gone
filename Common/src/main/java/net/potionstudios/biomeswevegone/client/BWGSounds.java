@@ -10,7 +10,7 @@ import java.util.function.Supplier;
 
 /**
  * Sounds for Oh The Biomes We've Gone.
- * @author YaBoiChips
+ * @author YaBoiChips, Joseph T. McQuigg
  */
 public class BWGSounds {
 

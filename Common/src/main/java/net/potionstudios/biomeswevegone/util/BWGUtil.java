@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author CorgiTaco
+ */
 public class BWGUtil {
 
     public static boolean useTagReplacements = false;

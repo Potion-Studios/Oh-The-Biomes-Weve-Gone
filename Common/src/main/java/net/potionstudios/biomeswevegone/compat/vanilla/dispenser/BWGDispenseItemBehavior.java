@@ -12,6 +12,11 @@ import net.potionstudios.biomeswevegone.world.entity.boats.BWGBoatEntity;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Dispense Item Behavior for BWG Blocks and Items.
+ * @see net.minecraft.core.dispenser.BoatDispenseItemBehavior
+ * @author Joseph T. McQuigg
+ */
 public class BWGDispenseItemBehavior {
 	public static void registerDispenseItemBehavior() {
 		for (BWGBoatEntity.Type type : BWGBoatEntity.Type.values()) {

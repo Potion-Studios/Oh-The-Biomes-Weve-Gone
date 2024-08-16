@@ -6,6 +6,11 @@ import net.minecraftforge.common.data.ParticleDescriptionProvider;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
 
+/**
+ * Generates the particles description file
+ * @see ParticleDescriptionProvider
+ * @author Joseph T. McQuigg
+ */
 public class ParticleDescriptionGenerator extends ParticleDescriptionProvider {
 	/**
 	 * Creates an instance of the data provider.
