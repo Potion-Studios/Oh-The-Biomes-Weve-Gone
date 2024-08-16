@@ -44,7 +44,7 @@ import java.util.stream.Collectors;
 class DataGeneratorsRegister {
 
     @SubscribeEvent
-    private static void gatherData(final GatherDataEvent event) {
+    protected static void gatherData(final GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         PackOutput output = generator.getPackOutput();

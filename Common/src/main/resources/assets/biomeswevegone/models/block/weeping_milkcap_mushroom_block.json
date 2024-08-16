@@ -1,7 +1,7 @@
 {
   "textures": {
-    "texture": "biomeswevegone:block/milkcap_mushroom_block",
-    "particle": "biomeswevegone:block/milkcap_mushroom_block"
+    "texture": "biomeswevegone:block/weeping_milkcap_mushroom_block",
+    "particle": "biomeswevegone:block/weeping_milkcap_mushroom_block"
   },
   "elements": [
     {

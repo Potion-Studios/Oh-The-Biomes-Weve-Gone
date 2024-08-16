@@ -1,7 +1,7 @@
 {
   "textures": {
-    "texture": "biomeswevegone:block/blewit_mushroom_block",
-    "particle": "biomeswevegone:block/blewit_mushroom_block"
+    "texture": "biomeswevegone:block/wood_blewit_mushroom_block",
+    "particle": "biomeswevegone:block/wood_blewit_mushroom_block"
   },
   "elements": [
     {

@@ -170,7 +170,7 @@ public class ModelGenerators {
                         simpleBlock(block, models().getExistingFile(blockBWGTexture(BWGBlocks.WHITE_PUFFBALL.getPottedBlock())));
                     else simpleBlock(block, models().withExistingParent(name(block), mcLoc("block/flower_pot_cross")).texture("plant", blockBWGTexture(((FlowerPotBlock) block).getContent())).renderType("cutout"));
                 } else if (block instanceof HugeMushroomBlock)
-                    itemModels().withExistingParent(name(block), blockBWGTexture(block, "inventory"));
+                    simpleBlockItem(block, models().cubeAll(name(block) + "_inventory", blockBWGTexture(block)));
                 else if (block instanceof PinkPetalsBlock) {
                     for (int i = PinkPetalsBlock.MIN_FLOWERS; i <= PinkPetalsBlock.MAX_FLOWERS; i++)
                         models().withExistingParent(name(block) + "_" + i, mcLoc("block/flowerbed_" + i))
