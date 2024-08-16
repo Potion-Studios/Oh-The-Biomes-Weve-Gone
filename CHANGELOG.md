@@ -1,6 +1,7 @@
 # 1.1.1-Beta
 - Remove a bunch of unneeded stuff
 - Remove End Sand
+- Fix Flower Patch Item being dull
 
 # 1.1.0-Beta
 - Fix some leaves having incorrect drops and not dropping leaves when sheared
