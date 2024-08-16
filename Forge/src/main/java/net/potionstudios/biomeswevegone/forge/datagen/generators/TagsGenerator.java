@@ -81,6 +81,7 @@ public class TagsGenerator {
                 tag(BlockTags.WOODEN_DOORS).add(set.door());
                 tag(BlockTags.WOODEN_FENCES).add(set.fence());
                 tag(BlockTags.FENCE_GATES).add(set.fenceGate());
+                tag(Tags.Blocks.FENCE_GATES_WOODEN).add(set.fenceGate());
                 tag(BlockTags.STANDING_SIGNS).add(set.sign());
                 tag(BlockTags.WALL_SIGNS).add(set.wallSign());
                 tag(BlockTags.CEILING_HANGING_SIGNS).add(set.hangingSign());
@@ -194,6 +195,7 @@ public class TagsGenerator {
             copy(BlockTags.WOODEN_DOORS, ItemTags.WOODEN_DOORS);
             copy(BlockTags.WOODEN_FENCES, ItemTags.WOODEN_FENCES);
             copy(BlockTags.FENCE_GATES, ItemTags.FENCE_GATES);
+            copy(Tags.Blocks.FENCE_GATES_WOODEN, Tags.Items.FENCE_GATES_WOODEN);
             copy(BlockTags.STANDING_SIGNS, ItemTags.SIGNS);
             copy(BlockTags.CEILING_HANGING_SIGNS, ItemTags.HANGING_SIGNS);
             copy(Tags.Blocks.BOOKSHELVES, Tags.Items.BOOKSHELVES);
