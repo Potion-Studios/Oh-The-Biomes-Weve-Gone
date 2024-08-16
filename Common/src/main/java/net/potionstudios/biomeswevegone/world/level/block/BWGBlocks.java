@@ -74,7 +74,6 @@ public class BWGBlocks {
 
     public static final Supplier<BWGQuickSand> QUICKSAND = registerCubeAllBlockItem("quicksand", () -> new BWGQuickSand(16777215));
     public static final Supplier<BWGQuickSand> RED_QUICKSAND = registerCubeAllBlockItem("red_quicksand", () -> new BWGQuickSand(11098145));
-    public static final Supplier<SandBlock> END_SAND = registerCubeAllBlockItem("end_sand", () -> new SandBlock(16053687, BlockBehaviour.Properties.copy(Blocks.SAND)));
 
     public static final Supplier<IceBlock> BLACK_ICE = registerBlockItem("black_ice", () -> new IceBlock(BlockBehaviour.Properties.copy(Blocks.ICE)));
     public static final Supplier<IceBlock> PACKED_BLACK_ICE = registerCubeAllBlockItem("packed_black_ice", () -> new IceBlock(BlockBehaviour.Properties.copy(Blocks.PACKED_ICE)));
