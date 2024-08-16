@@ -119,16 +119,12 @@ public class TagsGenerator {
             tag(BWGBlockTags.BOREALIS_ICE).add(BWGBlocks.BOREALIS_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get());
             tag(BlockTags.SNOW_LAYER_CANNOT_SURVIVE_ON).addTag(BWGBlockTags.BLACK_ICE).addTag(BWGBlockTags.BOREALIS_ICE);
             tag(BlockTags.ICE).addTag(BWGBlockTags.BLACK_ICE).addTag(BWGBlockTags.BOREALIS_ICE);
-            //tag(Tags.Blocks.GLASS).add(BWGBlocks.THERIUM_GLASS.get());
-            //tag(Tags.Blocks.GLASS_PANES).add(BWGBlocks.THERIUM_GLASS_PANE.get());
             tag(BlockTags.FROG_PREFER_JUMP_TO).add(BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), BWGBlocks.TINY_LILY_PADS.get());
             tag(BlockTags.WOOL_CARPETS).add(BWGBlocks.CATTAIL_THATCH_CARPET.get());
             tag(BlockTags.MUSHROOM_GROW_BLOCK).add(BWGBlocks.PODZOL_DACITE.get());
             tag(BWGBlockTags.SCORCHED_PLANT_PLACEABLE).addTag(BlockTags.NYLIUM).addTag(BlockTags.BASE_STONE_NETHER).add(Blocks.SOUL_SAND, Blocks.MYCELIUM).addOptionalTag(Tags.Blocks.END_STONES);
             tag(BWGBlockTags.SNOWY_PLANT_PLACEABLE).add(Blocks.SNOW, Blocks.SNOW_BLOCK, Blocks.POWDER_SNOW).addTag(BlockTags.DIRT);
             tag(BWGBlockTags.ODDITY_PLANT_PLACEABLE).add(Blocks.END_STONE, Blocks.END_STONE_BRICKS).addOptionalTag(Tags.Blocks.END_STONES);
-            //tag(BWGBlockTags.WARPED_BUSH_PLACEABLE).add(BWGBlocks.WARPED_SOUL_SAND.get(), BWGBlocks.WARPED_SOUL_SOIL.get());
-            //tag(BWGBlockTags.WARPED_CORAL_PLACEABLE).add(BWGBlocks.WARPED_SOUL_SAND.get(), BWGBlocks.WARPED_SOUL_SOIL.get());
             tag(BWGBlockTags.BWG_MUSHROOM_PLACEABLE).addTag(BlockTags.MUSHROOM_GROW_BLOCK).addTag(BlockTags.BASE_STONE_OVERWORLD).addTag(BlockTags.DIRT);
             tag(BWGBlockTags.HYDRANGEA_BUSH_PLACEABLE).addTag(BlockTags.DIRT);
             tag(BlockTags.DIRT).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.PEAT.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.PODZOL_DACITE.get());

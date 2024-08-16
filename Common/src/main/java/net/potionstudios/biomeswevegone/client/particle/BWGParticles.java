@@ -7,7 +7,6 @@ import java.util.function.Supplier;
 
 public class BWGParticles {
 
-    public static final Supplier<SimpleParticleType> THERIUM_GLINT = register("therium_glint");
     public static final Supplier<SimpleParticleType> WITCH_HAZEL_LEAVES = register("witch_hazel_leaves");
     public static final Supplier<SimpleParticleType> WHITE_SAKURA_LEAVES = register("white_sakura_leaves");
     public static final Supplier<SimpleParticleType> YELLOW_SAKURA_LEAVES = register("yellow_sakura_leaves");

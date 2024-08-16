@@ -77,8 +77,6 @@ public class ModelGenerators {
             simpleItemBlockTexture(BWGItems.WATER_SILK.get());
             simpleItemBlockTexture(BWGBlocks.POISON_IVY.get());
             basicItem(BWGBlocks.SKYRIS_VINE.get().asItem());
-            //simpleItem(BWGBlocks.THERIUM_LANTERN.get().asItem());
-            //simpleItemBlockTexture(BWGBlocks.WARPED_CORAL_FAN.get().asItem(), "warped_coral_fan");
             basicItem(BWGBlocks.ALOE_VERA.get().asItem());
             simpleItem(BWGItems.CATTAIL_SPROUT.get(), "cattails");
             simpleItemBlockTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get());

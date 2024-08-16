@@ -52,8 +52,6 @@ public class FabricDatagen implements DataGeneratorEntrypoint {
             });
             getOrCreateTagBuilder(ConventionalBlockTags.VILLAGER_JOB_SITES).add(BWGBlocks.FORAGERS_TABLE.get());
             getOrCreateTagBuilder(ConventionalBlockTags.BUDDING_BLOCKS).add(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get(), BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get());
-            //getOrCreateTagBuilder(ConventionalBlockTags.GLASS_BLOCKS).add(BWGBlocks.THERIUM_GLASS.get());
-            //getOrCreateTagBuilder(ConventionalBlockTags.GLASS_PANES).add(BWGBlocks.THERIUM_GLASS_PANE.get());
         }
     }
 

@@ -22,7 +22,6 @@ public class ParticleDescriptionGenerator extends ParticleDescriptionProvider {
 		sprite(BWGParticles.FIREFLY.get(), BiomesWeveGone.id("firefly"));
 		sprite(BWGParticles.BOREALIS_GLINT.get(), BiomesWeveGone.id("borealis_glint"));
 		sprite(BWGParticles.IRONWOOD_LEAVES.get(), BiomesWeveGone.id("ironwood_leaves"));
-		sprite(BWGParticles.THERIUM_GLINT.get(), BiomesWeveGone.id("therium_glint"));
 		spriteSet(BWGParticles.RED_MAPLE_LEAVES.get(), BiomesWeveGone.id("red_maple"), 4, false);
 		spriteSet(BWGParticles.SILVER_MAPLE_LEAVES.get(), BiomesWeveGone.id("silver_maple"), 4, false);
 		spriteSet(BWGParticles.YELLOW_SAKURA_LEAVES.get(), BiomesWeveGone.id("yellow_sakura"), 8, false);

@@ -17,7 +17,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.potionstudios.biomeswevegone.client.BiomesWeveGoneClient;
 import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
 import net.potionstudios.biomeswevegone.client.particle.particles.FallingLeafParticle;
-import net.potionstudios.biomeswevegone.client.particle.particles.TheriumGlintParticle;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 
@@ -64,7 +63,6 @@ public class BiomesWeveGoneClientForge {
     private static void registerParticles(final RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(BWGParticles.FIREFLY.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(BWGParticles.BOREALIS_GLINT.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(BWGParticles.THERIUM_GLINT.get(), TheriumGlintParticle.Provider::new);
         event.registerSpriteSet(BWGParticles.WITCH_HAZEL_LEAVES.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(BWGParticles.WHITE_SAKURA_LEAVES.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(BWGParticles.YELLOW_SAKURA_LEAVES.get(), FallingLeafParticle.Provider::new);
