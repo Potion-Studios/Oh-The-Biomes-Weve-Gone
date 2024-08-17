@@ -132,6 +132,10 @@ public class BWGBiomeTags {
      */
     public static final TagKey<Biome> SNOWY = create("snowy");
     /** Correlates to
+     * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#ICY
+     */
+    public static final TagKey<Biome> ICY = create("icy");
+    /** Correlates to
      * @see BiomeTags#IS_BADLANDS
      * @see net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags#BADLANDS
      */

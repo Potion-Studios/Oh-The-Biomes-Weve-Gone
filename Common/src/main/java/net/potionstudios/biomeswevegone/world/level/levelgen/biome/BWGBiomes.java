@@ -71,7 +71,7 @@ public class BWGBiomes {
     public static final ResourceKey<Biome> ROSE_FIELDS = createBiome("rose_fields", BWGOverworldBiomes::roseFields, BWGBiomeTags.PLAINS, BWGBiomeTags.DENSE, BiomeTags.HAS_VILLAGE_TAIGA, BiomeTags.HAS_PILLAGER_OUTPOST);
     public static final ResourceKey<Biome> RUGGED_BADLANDS = createBiome("rugged_badlands", BWGOverworldBiomes::ruggedBadlands, BWGBiomeTags.BADLANDS, BWGBiomeTags.SANDY, BWGBiomeTags.SPARSE, BWGBiomeTags.SHARPENED_ROCKS, BiomeTags.HAS_DESERT_PYRAMID, BiomeTags.HAS_VILLAGE_DESERT, BWGBiomeTags.StructureHasTags.HAS_RUGGED_FOSSIL, BWGBiomeTags.DRY, BWGBiomeTags.HOT);
     public static final ResourceKey<Biome> SAKURA_GROVE = createBiome("sakura_grove", BWGOverworldBiomes::sakuraGrove, BWGBiomeTags.FOREST, BWGBiomeTags.FLORAL, BWGBiomeTags.DENSE);
-    public static final ResourceKey<Biome> SHATTERED_GLACIER = createBiome("shattered_glacier", BWGOverworldBiomes::shatteredGlacier, BWGBiomeTags.COLD, BWGBiomeTags.SLOPE);
+    public static final ResourceKey<Biome> SHATTERED_GLACIER = createBiome("shattered_glacier", BWGOverworldBiomes::shatteredGlacier, BWGBiomeTags.COLD, BWGBiomeTags.SLOPE, BWGBiomeTags.ICY);
     public static final ResourceKey<Biome> SIERRA_BADLANDS = createBiome("sierra_badlands", BWGOverworldBiomes::sierraBadlands, BWGBiomeTags.BADLANDS, BWGBiomeTags.HOT);
     public static final ResourceKey<Biome> SKYRIS_VALE = createBiome("skyrise_vale", BWGOverworldBiomes::skyrisVale, BWGBiomeTags.FOREST, BWGBiomeTags.MAGICAL, BWGBiomeTags.DENSE, BWGBiomeTags.StructureHasTags.HAS_VILLAGE_SKYRIS);
     public static final ResourceKey<Biome> TROPICAL_RAINFOREST = createBiome("tropical_rainforest", BWGOverworldBiomes::tropicalRainforest, BWGBiomeTags.JUNGLE, BiomeTags.HAS_BURIED_TREASURE);
