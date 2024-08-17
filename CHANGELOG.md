@@ -5,6 +5,7 @@
 - Add Wooden Fence Gates to Forge Wooden Fence Gates Tag
 - Add Icy BiomeTag
 - Remove Crimson Tundra, Frosted Taiga, and Frosted Coniferous Forest from Snowy BiomeTag
+- Add Other Types of Flowers to Vanilla Flower Tag
 
 # 1.1.0-Beta
 - Fix some leaves having incorrect drops and not dropping leaves when sheared

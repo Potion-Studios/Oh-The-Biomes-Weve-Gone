@@ -116,6 +116,7 @@ public class TagsGenerator {
                 tag(Tags.Blocks.SAND).addTag(set.getSandBlockTag());
 
             });
+            tag(BlockTags.FLOWERS).add(BWGBlocks.FLOWER_PATCH.get(), BWGBlocks.WHITE_SAKURA_PETALS.get(), BWGBlocks.YELLOW_SAKURA_PETALS.get(), BWGBlocks.FLOWERING_BARREL_CACTUS.get(), BWGBlocks.FLOWERING_TINY_LILY_PADS.get());
             tag(BWGBlockTags.BLACK_ICE).add(BWGBlocks.BLACK_ICE.get(), BWGBlocks.PACKED_BLACK_ICE.get());
             tag(BWGBlockTags.BOREALIS_ICE).add(BWGBlocks.BOREALIS_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get());
             tag(BlockTags.SNOW_LAYER_CANNOT_SURVIVE_ON).addTag(BWGBlockTags.BLACK_ICE).addTag(BWGBlockTags.BOREALIS_ICE);
@@ -129,7 +130,7 @@ public class TagsGenerator {
             tag(BlockTags.DIRT).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.PEAT.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.PODZOL_DACITE.get());
             tag(BlockTags.CLIMBABLE).add(BWGBlocks.SKYRIS_VINE.get()).add(BWGBlocks.POISON_IVY.get());
             tag(BlockTags.OVERWORLD_CARVER_REPLACEABLES)
-                    .add(BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.PODZOL_DACITE.get(), //BWGBlocks.SOAPSTONE_SET.getBase(),
+                    .add(BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.PODZOL_DACITE.get(),
                             BWGBlocks.ROCKY_STONE_SET.getBase(), BWGBlocks.MOSSY_STONE_SET.getBase(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.PEAT.get());
             tag(BlockTags.CROPS).add(BWGBlocks.ODDION_CROP.get());
             tag(BlockTags.BEE_GROWABLES).add(BWGBlocks.BLUEBERRY_BUSH.get());
@@ -202,6 +203,7 @@ public class TagsGenerator {
             copy(BlockTags.LOGS, ItemTags.LOGS);
             copy(BlockTags.LOGS_THAT_BURN, ItemTags.LOGS_THAT_BURN);
             copy(BlockTags.SAND, ItemTags.SAND);
+            copy(BlockTags.FLOWERS, ItemTags.FLOWERS);
             copy(BlockTags.SMALL_FLOWERS, ItemTags.SMALL_FLOWERS);
             copy(BlockTags.TALL_FLOWERS, ItemTags.TALL_FLOWERS);
             copy(BlockTags.SAPLINGS, ItemTags.SAPLINGS);

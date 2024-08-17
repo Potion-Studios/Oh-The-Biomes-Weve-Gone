@@ -75,7 +75,6 @@ public class BiomesWeveGoneClient {
     public static void registerBlockEntityRenderers(BiConsumer<BlockEntityType<? extends BlockEntity>, BlockEntityRendererProvider> consumer) {
         consumer.accept(BWGBlockEntities.SIGNS.get(), SignRenderer::new);
         consumer.accept(BWGBlockEntities.HANGING_SIGNS.get(), HangingSignRenderer::new);
-        //consumer.accept(BWGBlockEntities.CAMPFIRES.get(), CampfireRenderer::new);
     }
 
     /**
