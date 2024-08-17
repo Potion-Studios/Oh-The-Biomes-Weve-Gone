@@ -4,6 +4,7 @@
 - Fix Flower Patch Item being dull
 - Add Wooden Fence Gates to Forge Wooden Fence Gates Tag
 - Add Icy BiomeTag
+- Remove Crimson Tundra, Frosted Taiga, and Frosted Coniferous Forest from Snowy BiomeTag
 
 # 1.1.0-Beta
 - Fix some leaves having incorrect drops and not dropping leaves when sheared
