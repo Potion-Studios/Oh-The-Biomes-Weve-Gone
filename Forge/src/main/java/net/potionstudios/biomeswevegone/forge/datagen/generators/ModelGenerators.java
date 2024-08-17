@@ -158,13 +158,6 @@ public class ModelGenerators {
                 else if (block instanceof IronBarsBlock) {
                     paneBlockWithRenderType((IronBarsBlock) block, blockBWGTexture(name(block).replace("_pane", "")), blockBWGTexture(block, "top"), "translucent");
                     simpleItemBlockTexture(block, name(block).replace("_pane", ""));
-                } else if (block instanceof LanternBlock) {
-                    getVariantBuilder(block).forAllStatesExcept(state -> {
-                        if (state.getValue(LanternBlock.HANGING)) return ConfiguredModel.builder()
-                                    .modelFile(models().getExistingFile(BiomesWeveGone.id("block/" + "hanging_" + name(block)))).build();
-                        else return ConfiguredModel.builder()
-                                    .modelFile(models().getExistingFile(BiomesWeveGone.id("block/" + name(block)))).build();
-                    }, LanternBlock.WATERLOGGED);
                 } else if (block instanceof FlowerPotBlock) {
                     if (((FlowerPotBlock) block).getContent() == BWGBlocks.WHITE_PUFFBALL.getBlock())
                         simpleBlock(block, models().getExistingFile(blockBWGTexture(BWGBlocks.WHITE_PUFFBALL.getPottedBlock())));
@@ -279,14 +272,6 @@ public class ModelGenerators {
 
             simpleBlockWithItem(BWGBlocks.PODZOL_DACITE.get(),
                     models().cubeBottomTop(name(BWGBlocks.PODZOL_DACITE.get()), blockBWGTexture(BWGBlocks.PODZOL_DACITE.get()), blockBWGTexture(BWGBlocks.DACITE_SET.getBase()), mcLoc("block/podzol_top")));
-
-            /*
-            createCrossBlock(BWGBlocks.WARPED_CORAL.get(), "cutout_mipped");
-            simpleBlock(BWGBlocks.WARPED_CORAL_FAN.get(), models()
-                    .withExistingParent(name(BWGBlocks.WARPED_CORAL_FAN.get()), mcLoc("block/coral_fan"))
-                    .texture("fan", blockBWGTexture(BWGBlocks.WARPED_CORAL_FAN.get()))
-                    .renderType("cutout_mipped"));
-             */
 
             registerSlab(BWGBlocks.CATTAIL_THATCH_SLAB.get(), BWGBlocks.CATTAIL_THATCH.get());
             registerStairs(BWGBlocks.CATTAIL_THATCH_STAIRS.get(), BWGBlocks.CATTAIL_THATCH.get());
