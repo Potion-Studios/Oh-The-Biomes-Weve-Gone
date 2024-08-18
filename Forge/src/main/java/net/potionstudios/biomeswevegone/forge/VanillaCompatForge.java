@@ -13,8 +13,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraftforge.common.ToolAction;
+import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
@@ -40,12 +43,24 @@ public class VanillaCompatForge {
         BlockFeatures.registerFlammable(((FireBlock) Blocks.FIRE)::setFlammable);
         BlockFeatures.registerCompostables((item, chance) -> ComposterBlock.add(chance, item));
         ToolInteractions.registerFlattenables(ShovelItem.FLATTENABLES::put);
-        ToolInteractions.registerTillables(HoeItem.TILLABLES::put);
     }
 
     public static void registerVanillaCompatEvents(IEventBus bus) {
+        bus.addListener(VanillaCompatForge::registerTillables);
         bus.addListener(VanillaCompatForge::registerFuels);
         bus.addListener(VanillaCompatForge::onBoneMealUse);
+    }
+
+    private static void registerTillables(final BlockEvent.BlockToolModificationEvent event) {
+        if (event.getToolAction() == ToolActions.HOE_TILL && event.getLevel().getBlockState(event.getPos().above()).isAir()) {
+            BlockState state = event.getState();
+            if (state.is(BWGBlocks.LUSH_GRASS_BLOCK.get()) || state.is(BWGBlocks.LUSH_DIRT.get()))
+                event.setFinalState(BWGBlocks.LUSH_FARMLAND.get().defaultBlockState());
+            else if (state.is(BWGBlocks.SANDY_DIRT.get()))
+                event.setFinalState(BWGBlocks.SANDY_FARMLAND.get().defaultBlockState());
+            else if (state.is(BWGBlocks.PEAT.get()))
+                event.setFinalState(Blocks.FARMLAND.defaultBlockState());
+        }
     }
 
     /**

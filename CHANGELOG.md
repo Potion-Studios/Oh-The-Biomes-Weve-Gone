@@ -6,6 +6,7 @@
 - Add Icy BiomeTag
 - Remove Crimson Tundra, Frosted Taiga, and Frosted Coniferous Forest from Snowy BiomeTag
 - Add Other Types of Flowers to Vanilla Flower Tag
+- Fix Tillables not working on Forge
 
 # 1.1.0-Beta
 - Fix some leaves having incorrect drops and not dropping leaves when sheared
