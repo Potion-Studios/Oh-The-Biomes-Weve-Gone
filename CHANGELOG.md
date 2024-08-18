@@ -7,6 +7,8 @@
 - Remove Crimson Tundra, Frosted Taiga, and Frosted Coniferous Forest from Snowy BiomeTag
 - Add Other Types of Flowers to Vanilla Flower Tag
 - Fix Tillables not working on Forge
+- Use Sided Success on Bush like blocks at end of use method
+- Call GameEvent#BLOCK_CHANGE on Bush like blocks when they are updated
 
 # 1.1.0-Beta
 - Fix some leaves having incorrect drops and not dropping leaves when sheared

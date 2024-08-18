@@ -14,6 +14,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -50,15 +51,17 @@ public class WhitePuffballBlock extends BWGBerryBush {
 	public @NotNull InteractionResult use(BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
 		int age = state.getValue(AGE);
 		boolean isMaxAge = age == MAX_AGE;
-		if (!isMaxAge && player.getItemInHand(hand).getItem() == Items.BONE_MEAL) {
+		if (!isMaxAge && player.getItemInHand(hand).is(Items.BONE_MEAL)) {
 			return InteractionResult.PASS;
 		} else if (age > 1) {
 			int numberOfItems = 1 + level.random.nextInt(2);
 			popResource(level, pos, new ItemStack(item.get().get(), numberOfItems + (isMaxAge ? 1 : 0)));
 			popResource(level, pos, BWGItems.WHITE_PUFFBALL_CAP.get().getDefaultInstance());
 			level.playSound(player, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
-			level.setBlock(pos, state.setValue(AGE, 1), 2);
-			return InteractionResult.SUCCESS;
+			BlockState blockState = state.setValue(AGE, 1);
+			level.setBlock(pos, state, 2);
+			level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, blockState));
+			return InteractionResult.sidedSuccess(level.isClientSide());
 		} else {
 			return super.use(state, level, pos, player, hand, hit);
 		}
