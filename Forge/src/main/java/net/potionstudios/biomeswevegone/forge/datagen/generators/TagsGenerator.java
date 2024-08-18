@@ -153,8 +153,6 @@ public class TagsGenerator {
             else if (object instanceof LeavesBlock) tag(BlockTags.LEAVES).add(object);
             else if (object instanceof CampfireBlock) tag(BlockTags.CAMPFIRES).add(object);
             else if (object instanceof FlowerPotBlock) tag(BlockTags.FLOWER_POTS).add(object);
-            //else if (object instanceof ButtonBlock) tag(BlockTags.BUTTONS).add(object);
-            //else if (object instanceof PressurePlateBlock) tag(BlockTags.PRESSURE_PLATES).add(object);
             SoundType type = object.defaultBlockState().getSoundType();
             if (type == SoundType.STONE || type == SoundType.DEEPSLATE)
                 tag(BlockTags.MINEABLE_WITH_PICKAXE).add(object);
@@ -219,8 +217,6 @@ public class TagsGenerator {
             copy(Tags.Blocks.SAND, Tags.Items.SAND);
             copy(BWGBlockTags.BLACK_ICE, BWGItemTags.BLACK_ICE);
             copy(BWGBlockTags.BOREALIS_ICE, BWGItemTags.BOREALIS_ICE);
-            //copy(Tags.Blocks.GLASS, Tags.Items.GLASS);
-            //copy(Tags.Blocks.GLASS_PANES, Tags.Items.GLASS_PANES);
 
             BWGBlocks.BLOCKS.stream().filter(entry -> entry.get() instanceof FlowerBlock).forEach(
                     entry -> {

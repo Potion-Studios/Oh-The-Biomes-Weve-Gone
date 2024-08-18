@@ -153,8 +153,6 @@ public class ModelGenerators {
                     createCrossBlock(block, "cutout");
                 else if (block instanceof WaterlilyBlock || block instanceof DirtPathBlock)
                     rotatableBlock(block);
-                else if (block instanceof GlassBlock)
-                    simpleBlockWithItem(block, models().cubeAll(name(block), blockBWGTexture(block)).renderType("translucent"));
                 else if (block instanceof IronBarsBlock) {
                     paneBlockWithRenderType((IronBarsBlock) block, blockBWGTexture(name(block).replace("_pane", "")), blockBWGTexture(block, "top"), "translucent");
                     simpleItemBlockTexture(block, name(block).replace("_pane", ""));
