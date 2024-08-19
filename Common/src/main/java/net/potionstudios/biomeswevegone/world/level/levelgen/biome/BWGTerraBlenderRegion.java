@@ -170,7 +170,7 @@ public class BWGTerraBlenderRegion extends Region {
                         throw new UnsupportedOperationException(String.format("Attempting to assign a biome resource key in both the swapper and biome selectors. We're crashing your game to let you know that \"%s\" was put in the biome selectors but will always be swapped by \"%s\" due to the swapper. In region \"%s\".", biomeKey.location(), this.swapper.get(biomeKey).location(), this.getName().toString()));
                     }
                     ResourceKey<Biome> replacement = this.swapper.get(biomeKey);
-                    ResourceKey<Biome> biomeResourceKey = BWGWorldGenConfig.INSTANCE.get().enabledBiomes().containsKey(replacement) ? Region.DEFERRED_PLACEHOLDER : replacement;
+                    ResourceKey<Biome> biomeResourceKey = BWGWorldGenConfig.INSTANCE.get().enabledBiomes().getOrDefault(replacement, true) ? replacement : Region.DEFERRED_PLACEHOLDER;
                     mapper.accept(new Pair<>(parameterPoint, this.globalSwapper.getOrDefault(biomeResourceKey, biomeResourceKey)));
                     bygMapperAccepted.increment();
                     mapped = true;
