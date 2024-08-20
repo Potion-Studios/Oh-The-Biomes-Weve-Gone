@@ -1,4 +1,5 @@
 # 1.1.2-Beta
+- Set getBucketItemStack in ManOWar.java to correct Item
 
 # 1.1.1-Beta
 - Remove a bunch of unneeded stuff

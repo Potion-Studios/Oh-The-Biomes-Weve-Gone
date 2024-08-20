@@ -33,6 +33,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
@@ -413,7 +414,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
     @Override
     public @NotNull ItemStack getBucketItemStack() {
-        return Items.MILK_BUCKET.getDefaultInstance();
+        return BWGItems.MAN_O_WAR_BUCKET.get().getDefaultInstance();
     }
 
 
