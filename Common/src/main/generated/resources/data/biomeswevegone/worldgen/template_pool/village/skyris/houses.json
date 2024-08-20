@@ -168,11 +168,9 @@
     },
     {
       "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
+        "element_type": "minecraft:single_pool_element",
         "location": "biomeswevegone:village/skyris/houses/skyris_mason_1",
-        "processors": {
-          "processors": []
-        },
+        "processors": "biomeswevegone:skyris_streets",
         "projection": "rigid"
       },
       "weight": 2

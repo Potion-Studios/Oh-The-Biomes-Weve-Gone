@@ -84,7 +84,7 @@ public class BWGVillageTemplatePools {
                     singlePoolElement("skyris/houses/skyris_fisher_1", 2),
                     singlePoolElement("skyris/houses/skyris_cartographer_house_1", 2, templatePoolFactoryContext, BWGStructureProcessorLists.SKYRIS_STREETS),
                     singlePoolElement("skyris/houses/skyris_library_1", 2, templatePoolFactoryContext, BWGStructureProcessorLists.SKYRIS_LIBRARY),
-                    legacyPoolElement("skyris/houses/skyris_mason_1", 2),
+                    singlePoolElement("skyris/houses/skyris_mason_1", 2, templatePoolFactoryContext, BWGStructureProcessorLists.SKYRIS_STREETS),
                     singlePoolElement("skyris/houses/skyris_weaponsmith_1", 2),
                     singlePoolElement("skyris/houses/skyris_temple_1", 2, templatePoolFactoryContext, BWGStructureProcessorLists.SKYRIS_TEMPLE),
                     legacyPoolElement("skyris/houses/skyris_animal_pen_1", 2),
