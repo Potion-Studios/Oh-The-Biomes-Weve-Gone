@@ -2,6 +2,7 @@
 - Set getBucketItemStack in ManOWar.java to correct Item
 - Update Skyris Mason and Weaponsmith to non-legacy
 - Use Processor on Skyris Mason
+- Remove Duplicate Skyris Butcher Shop Entry from Template Pool
 
 # 1.1.1-Beta
 - Remove a bunch of unneeded stuff

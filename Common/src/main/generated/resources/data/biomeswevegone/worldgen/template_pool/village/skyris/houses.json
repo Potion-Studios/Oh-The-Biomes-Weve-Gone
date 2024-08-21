@@ -118,17 +118,6 @@
     {
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
-        "location": "biomeswevegone:village/skyris/houses/skyris_butcher_shop_1",
-        "processors": {
-          "processors": []
-        },
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
         "location": "biomeswevegone:village/skyris/houses/skyris_armorer_1",
         "processors": {
           "processors": []
