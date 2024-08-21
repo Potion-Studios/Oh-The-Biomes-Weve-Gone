@@ -1,7 +1,7 @@
 # 1.1.2-Beta
 - Set getBucketItemStack in ManOWar.java to correct Item
-- Update Skyris Mason and Weaponsmith to non-legacy
-- Use Processor on Skyris Mason
+- Update Skyris Mason, Weaponsmith, Fletcher House and Armorer to non-legacy
+- Use Processor on Skyris Mason, Skyris Fletcher House
 - Remove Duplicate Skyris Butcher Shop Entry from Template Pool
 - Update Chinese Language File (ZH_CN)
 

@@ -165,6 +165,19 @@ class BWGRuleProcessors {
 			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE_BRICKS, 0.3f, BWGBlocks.MOSSY_STONE_SET.getBase())
 	);
 
+	protected static RuleProcessor PODZOL_25_PERCENT_COARSE_DIRT = createRuleProcessor(
+			createAlwaysTrueRandomBlockMatchTest(Blocks.PODZOL, 0.25f, Blocks.COARSE_DIRT)
+	);
+
+	protected static RuleProcessor PODZOL_10_PERCENT_GRAVEL = createRuleProcessor(
+			createAlwaysTrueRandomBlockMatchTest(Blocks.PODZOL, 0.1f, Blocks.GRAVEL)
+	);
+
+	protected static RuleProcessor PODZOL_10_PERCENT_ANDESITE = createRuleProcessor(
+			createAlwaysTrueRandomBlockMatchTest(Blocks.PODZOL, 0.1f, Blocks.ANDESITE),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.PODZOL, 0.1f, Blocks.POLISHED_ANDESITE)
+	);
+
 	protected static RuleProcessor skyrisLeavesToGreenAppleLeaves(float chance) {
 		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(BWGWood.SKYRIS.leaves(), chance, BWGWood.SKYRIS_LEAVES_GREEN_APPLE.get()));
 	}

@@ -67,6 +67,14 @@ public class BWGStructureProcessorLists {
             )
     ));
 
+    public static final ResourceKey<StructureProcessorList> SKYRIS_FLETCHER_HOUSE = register("skyris_fletcher_house", structureProcessorListHolderGetter -> new StructureProcessorList(
+            ImmutableList.of(
+                BWGRuleProcessors.PODZOL_25_PERCENT_COARSE_DIRT,
+                BWGRuleProcessors.PODZOL_10_PERCENT_GRAVEL,
+                BWGRuleProcessors.PODZOL_10_PERCENT_ANDESITE
+            )
+    ));
+
     public static final ResourceKey<StructureProcessorList> SKYRIS_TOWN_CENTERS = register("skyris_town_centers", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
                     BWGRuleProcessors.POLISHED_ANDESITE_RANDOM_ANDESITE_GRAVEL,
