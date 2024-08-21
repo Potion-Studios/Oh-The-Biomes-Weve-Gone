@@ -3,6 +3,7 @@
 - Update Skyris Mason and Weaponsmith to non-legacy
 - Use Processor on Skyris Mason
 - Remove Duplicate Skyris Butcher Shop Entry from Template Pool
+- Update Chinese Language File (ZH_CN)
 
 # 1.1.1-Beta
 - Remove a bunch of unneeded stuff
