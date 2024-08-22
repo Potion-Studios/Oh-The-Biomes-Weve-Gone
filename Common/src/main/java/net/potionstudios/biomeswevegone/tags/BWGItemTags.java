@@ -17,6 +17,16 @@ public class BWGItemTags {
     public static final TagKey<Item> BOREALIS_ICE = create("borealis_ice");
     public static final TagKey<Item> PALO_VERDE_LOGS = create("palo_verde_logs");
 
+    public static final TagKey<Item> TALL_ALLIUMS = create("flowers/alliums/tall");
+    public static final TagKey<Item> SHORT_ALLIUMS = create("flowers/alliums/short");
+    public static final TagKey<Item> ALLIUM_FLOWER_BUSHES = create("flowers/alliums/flower_bushes");
+    public static final TagKey<Item> ALLIUMS = create("flowers/alliums");
+    public static final TagKey<Item> ROSES = create("flowers/roses");
+    public static final TagKey<Item> TULIPS = create("flowers/tulips");
+    public static final TagKey<Item> AMARANTH = create("flowers/amaranth");
+    public static final TagKey<Item> SAGES = create("flowers/sages");
+    public static final TagKey<Item> DAFFODILS = create("flowers/daffodils");
+    
     public static final TagKey<Item> MAKES_BLACK_DYE = create("dye/makes_black_dye");
     public static final TagKey<Item> MAKES_BLUE_DYE = create("dye/makes_blue_dye");
     public static final TagKey<Item> MAKES_BROWN_DYE = create("dye/makes_brown_dye");

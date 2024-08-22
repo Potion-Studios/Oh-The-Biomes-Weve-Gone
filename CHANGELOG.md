@@ -4,6 +4,9 @@
 - Use Processor on Skyris Mason, Skyris Fletcher House
 - Remove Duplicate Skyris Butcher Shop Entry from Template Pool
 - Update Chinese Language File (ZH_CN)
+- Add Block and Item Tags for Alliums, Roses, Tulips, Amaranth, Sages and Daffodils
+- Remove Winter Succulent and HorseWeed from small flowers tag
+- Add Flowering Leaves and Flowering Bushes to Minecraft FlowerTag
 
 # 1.1.1-Beta
 - Remove a bunch of unneeded stuff

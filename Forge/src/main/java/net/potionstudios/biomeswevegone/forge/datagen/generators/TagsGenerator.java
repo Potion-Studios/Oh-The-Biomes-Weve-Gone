@@ -116,7 +116,25 @@ public class TagsGenerator {
                 tag(Tags.Blocks.SAND).addTag(set.getSandBlockTag());
 
             });
-            tag(BlockTags.FLOWERS).add(BWGBlocks.FLOWER_PATCH.get(), BWGBlocks.WHITE_SAKURA_PETALS.get(), BWGBlocks.YELLOW_SAKURA_PETALS.get(), BWGBlocks.FLOWERING_BARREL_CACTUS.get(), BWGBlocks.FLOWERING_TINY_LILY_PADS.get());
+            tag(BWGBlockTags.TALL_ALLIUMS).add(BWGBlocks.TALL_ALLIUM.get(), BWGBlocks.TALL_PINK_ALLIUM.get(), BWGBlocks.TALL_WHITE_ALLIUM.get());
+            tag(BWGBlockTags.SHORT_ALLIUMS).add(Blocks.ALLIUM, BWGBlocks.PINK_ALLIUM.getBlock(), BWGBlocks.WHITE_ALLIUM.getBlock());
+            tag(BWGBlockTags.ALLIUM_FLOWER_BUSHES).add(BWGBlocks.ALLIUM_FLOWER_BUSH.getBlock(), BWGBlocks.PINK_ALLIUM_FLOWER_BUSH.getBlock(), BWGBlocks.WHITE_ALLIUM_FLOWER_BUSH.getBlock());
+            tag(BWGBlockTags.ALLIUMS).addTag(BWGBlockTags.TALL_ALLIUMS).addTag(BWGBlockTags.SHORT_ALLIUMS).addTag(BWGBlockTags.ALLIUM_FLOWER_BUSHES);
+            tag(BWGBlockTags.ROSES).add(BWGBlocks.ROSE.getBlock(), BWGBlocks.OSIRIA_ROSE.getBlock(), BWGBlocks.BLACK_ROSE.getBlock(), BWGBlocks.CYAN_ROSE.getBlock(), BWGBlocks.WINTER_ROSE.getBlock());
+            tag(BWGBlockTags.TULIPS).add(Blocks.ORANGE_TULIP, Blocks.PINK_TULIP, Blocks.RED_TULIP, Blocks.WHITE_TULIP, BWGBlocks.CYAN_TULIP.getBlock(), BWGBlocks.GREEN_TULIP.getBlock(), BWGBlocks.MAGENTA_TULIP.getBlock(), BWGBlocks.PURPLE_TULIP.getBlock(), BWGBlocks.YELLOW_TULIP.getBlock());
+            tag(BWGBlockTags.AMARANTH).add(BWGBlocks.AMARANTH.getBlock(), BWGBlocks.CYAN_AMARANTH.getBlock(), BWGBlocks.MAGENTA_AMARANTH.getBlock(), BWGBlocks.ORANGE_AMARANTH.getBlock(), BWGBlocks.PURPLE_AMARANTH.getBlock());
+            tag(BWGBlockTags.SAGES).add(BWGBlocks.BLUE_SAGE.getBlock(), BWGBlocks.PURPLE_SAGE.getBlock(), BWGBlocks.WHITE_SAGE.getBlock());
+            tag(BWGBlockTags.DAFFODILS).add(BWGBlocks.DAFFODIL.getBlock(), BWGBlocks.PINK_DAFFODIL.getBlock(), BWGBlocks.YELLOW_DAFFODIL.getBlock());
+            tag(BlockTags.SMALL_FLOWERS).addTag(BWGBlockTags.SHORT_ALLIUMS).addTag(BWGBlockTags.ROSES).addTag(BWGBlockTags.TULIPS).addTag(BWGBlockTags.AMARANTH).addTag(BWGBlockTags.SAGES).addTag(BWGBlockTags.DAFFODILS)
+                    .add(BWGBlocks.PINK_ANEMONE.getBlock(), BWGBlocks.WHITE_ANEMONE.getBlock(), BWGBlocks.ALPINE_BELLFLOWER.getBlock(), BWGBlocks.LAZARUS_BELLFLOWER.getBlock(), BWGBlocks.PEACH_LEATHER_FLOWER.getBlock(),
+                            BWGBlocks.VIOLET_LEATHER_FLOWER.getBlock(), BWGBlocks.ANGELICA.getBlock(), BWGBlocks.BEGONIA.getBlock(), BWGBlocks.BISTORT.getBlock(), BWGBlocks.CALIFORNIA_POPPY.getBlock(), BWGBlocks.CROCUS.getBlock(),
+                            BWGBlocks.FAIRY_SLIPPER.getBlock(), BWGBlocks.GUZMANIA.getBlock(), BWGBlocks.INCAN_LILY.getBlock(), BWGBlocks.IRIS.getBlock(), BWGBlocks.KOVAN_FLOWER.getBlock(), BWGBlocks.LOLLIPOP_FLOWER.getBlock(),
+                            BWGBlocks.ORANGE_DAISY.getBlock(), BWGBlocks.PROTEA_FLOWER.getBlock(), BWGBlocks.PROTEA_FLOWER.getBlock(), BWGBlocks.SILVER_VASE_FLOWER.getBlock(), BWGBlocks.RICHEA.getBlock(), BWGBlocks.SNOWDROPS.getBlock(),
+                            BWGBlocks.WINTER_CYCLAMEN.getBlock(), BWGBlocks.WINTER_SCILLA.getBlock());
+            tag(BlockTags.FLOWERS).add(BWGBlocks.FLOWER_PATCH.get(), BWGBlocks.WHITE_SAKURA_PETALS.get(), BWGBlocks.YELLOW_SAKURA_PETALS.get(), BWGBlocks.FLOWERING_BARREL_CACTUS.get(), BWGBlocks.FLOWERING_TINY_LILY_PADS.get(),
+                    BWGBlocks.FLOWERING_JACARANDA_BUSH.get(), BWGBlocks.FLOWERING_INDIGO_JACARANDA_BUSH.get(), BWGWood.FLOWERING_PALO_VERDE_LEAVES.get(), BWGWood.FLOWERING_SKYRIS_LEAVES.get(), BWGWood.FLOWERING_IRONWOOD_LEAVES.get(),
+                    BWGWood.FLOWERING_INDIGO_JACARANDA_LEAVES.get(), BWGWood.FLOWERING_JACARANDA_LEAVES.get(), BWGWood.FLOWERING_YUCCA_LEAVES.get(), BWGWood.FLOWERING_ORCHARD_LEAVES.get(), BWGWood.FLOWERING_BAOBAB_LEAVES.get());
+
             tag(BWGBlockTags.BLACK_ICE).add(BWGBlocks.BLACK_ICE.get(), BWGBlocks.PACKED_BLACK_ICE.get());
             tag(BWGBlockTags.BOREALIS_ICE).add(BWGBlocks.BOREALIS_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get());
             tag(BlockTags.SNOW_LAYER_CANNOT_SURVIVE_ON).addTag(BWGBlockTags.BLACK_ICE).addTag(BWGBlockTags.BOREALIS_ICE);
@@ -148,7 +166,7 @@ public class TagsGenerator {
             else if (object instanceof StairBlock) tag(BlockTags.STAIRS).add(object);
             else if (object instanceof WallBlock) tag(BlockTags.WALLS).add(object);
             else if (object instanceof SandBlock) tag(BlockTags.SAND).add(object);
-            else if (object instanceof FlowerBlock) tag(BlockTags.SMALL_FLOWERS).add(object);
+            //else if (object instanceof FlowerBlock) tag(BlockTags.SMALL_FLOWERS).add(object);
             else if (object instanceof TallFlowerBlock) tag(BlockTags.TALL_FLOWERS).add(object);
             else if (object instanceof LeavesBlock) tag(BlockTags.LEAVES).add(object);
             else if (object instanceof CampfireBlock) tag(BlockTags.CAMPFIRES).add(object);
@@ -201,6 +219,15 @@ public class TagsGenerator {
             copy(BlockTags.LOGS, ItemTags.LOGS);
             copy(BlockTags.LOGS_THAT_BURN, ItemTags.LOGS_THAT_BURN);
             copy(BlockTags.SAND, ItemTags.SAND);
+            copy(BWGBlockTags.ALLIUM_FLOWER_BUSHES, BWGItemTags.ALLIUM_FLOWER_BUSHES);
+            copy(BWGBlockTags.SHORT_ALLIUMS, BWGItemTags.SHORT_ALLIUMS);
+            copy(BWGBlockTags.TALL_ALLIUMS, BWGItemTags.TALL_ALLIUMS);
+            copy(BWGBlockTags.ALLIUMS, BWGItemTags.ALLIUMS);
+            copy(BWGBlockTags.ROSES, BWGItemTags.ROSES);
+            copy(BWGBlockTags.TULIPS, BWGItemTags.TULIPS);
+            copy(BWGBlockTags.AMARANTH, BWGItemTags.AMARANTH);
+            copy(BWGBlockTags.SAGES, BWGItemTags.SAGES);
+            copy(BWGBlockTags.DAFFODILS, BWGItemTags.DAFFODILS);
             copy(BlockTags.FLOWERS, ItemTags.FLOWERS);
             copy(BlockTags.SMALL_FLOWERS, ItemTags.SMALL_FLOWERS);
             copy(BlockTags.TALL_FLOWERS, ItemTags.TALL_FLOWERS);
