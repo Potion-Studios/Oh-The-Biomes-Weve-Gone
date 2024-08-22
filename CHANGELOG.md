@@ -1,3 +1,5 @@
+# 1.1.3-Beta
+
 # 1.1.2-Beta
 - Set getBucketItemStack in ManOWar.java to correct Item
 - Update Skyris Mason, Weaponsmith, Fletcher House and Armorer to non-legacy
