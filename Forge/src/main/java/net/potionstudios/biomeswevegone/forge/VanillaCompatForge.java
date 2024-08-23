@@ -1,5 +1,6 @@
 package net.potionstudios.biomeswevegone.forge;
 
+import com.mojang.datafixers.util.Pair;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -82,26 +83,16 @@ public class VanillaCompatForge {
             event.setBurnTime(1200);
     }
 
+    /**
+     * Register villager trades.
+     * @see VillagerTradesEvent
+     */
     private static void onVillagerTrade(final VillagerTradesEvent event) {
-        /*
-        BWGVillagerTrades.TRADES.forEach((consumer, merchantOffer) -> {
-
-        });
-
-        BWGVillagerTrades.TRADES.containsKey((BiConsumer<VillagerProfession, Integer>) (villagerProfession, integer) -> {
-        })
-        if (event.getType() == BWGVillagerProfessions.FORAGER.get()) {
+        if (BWGVillagerTrades.TRADES.containsKey(event.getType())) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
-            trades.get(1).add((trader, random) -> new MerchantOffer(
-                    new ItemStack(Items.EMERALD, 1),
-                    new ItemStack(BWGBlocks.PEAT.get(), 1),
-                    16,
-                    2,
-                    0.05F
-            ));
+            BWGVillagerTrades.TRADES.get(event.getType())
+                    .forEach(pair -> trades.get(pair.getFirst().intValue()).add((trader, random) -> pair.getSecond()));
         }
-
-         */
     }
 
     private static void onBoneMealUse(final BonemealEvent event) {

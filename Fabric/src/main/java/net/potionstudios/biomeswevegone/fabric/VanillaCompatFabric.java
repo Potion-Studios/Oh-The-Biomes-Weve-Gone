@@ -9,6 +9,7 @@ import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
@@ -58,6 +59,8 @@ public class VanillaCompatFabric {
     }
 
     private static void registerTrades() {
-        //TradeOfferHelper.registerVillagerOffers();
+        BWGVillagerTrades.TRADES.forEach(((villagerProfession, pairs) -> pairs.forEach(pair -> {
+            TradeOfferHelper.registerVillagerOffers(villagerProfession, pair.getFirst(), factory -> factory.add(((trader, random) -> pair.getSecond())));
+        })));
     }
 }
