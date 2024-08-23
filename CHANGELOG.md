@@ -1,5 +1,6 @@
 # 1.1.3-Beta
 - Update/Add To French Language File (FR_FR)
+- Fix Dacite Variants not dropping cobbled dacite when minned and overgrown stone not dropping cobblestone
 
 # 1.1.2-Beta
 - Set getBucketItemStack in ManOWar.java to correct Item

@@ -167,6 +167,9 @@ class BlockLootGenerator extends BlockLootSubProvider {
         dropOther(BWGBlocks.SANDY_DIRT_PATH.get(), BWGBlocks.SANDY_DIRT.get());
 
         add(BWGBlocks.DACITE_SET.getBase(), createSingleItemTableWithSilkTouch(BWGBlocks.DACITE_SET.getBase(), BWGBlocks.DACITE_COBBLESTONE_SET.getBase()));
+        add(BWGBlocks.PODZOL_DACITE.get(), createSingleItemTableWithSilkTouch(BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.DACITE_COBBLESTONE_SET.getBase()));
+        add(BWGBlocks.OVERGROWN_DACITE.get(), createSingleItemTableWithSilkTouch(BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.DACITE_COBBLESTONE_SET.getBase()));
+        add(BWGBlocks.OVERGROWN_STONE.get(), createSingleItemTableWithSilkTouch(BWGBlocks.OVERGROWN_STONE.get(), Blocks.COBBLESTONE));
 
         add(BWGBlocks.GREEN_MUSHROOM_BLOCK.get(), createMushroomBlockDrop(BWGBlocks.GREEN_MUSHROOM_BLOCK.get(), BWGBlocks.GREEN_MUSHROOM.get()));
         add(BWGBlocks.WEEPING_MILKCAP_MUSHROOM_BLOCK.get(), createMushroomBlockDrop(BWGBlocks.WEEPING_MILKCAP_MUSHROOM_BLOCK.get(), BWGBlocks.WEEPING_MILKCAP.get()));
