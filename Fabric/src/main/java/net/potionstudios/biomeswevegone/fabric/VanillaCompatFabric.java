@@ -3,6 +3,7 @@ package net.potionstudios.biomeswevegone.fabric;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.*;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -29,6 +30,7 @@ public class VanillaCompatFabric {
         ToolInteractions.registerTillables((block, pair) -> TillableBlockRegistry.register(block, pair.getFirst(), pair.getSecond()));
         registerBiomeModifiers();
         registerLootModifiers();
+        registerTrades();
     }
 
     private static void registerFuels() {
@@ -53,5 +55,9 @@ public class VanillaCompatFabric {
                 builder.withPool(pool);
             }
         });
+    }
+
+    private static void registerTrades() {
+        //TradeOfferHelper.registerVillagerOffers();
     }
 }

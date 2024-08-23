@@ -1,12 +1,18 @@
 package net.potionstudios.biomeswevegone.forge;
 
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -16,8 +22,12 @@ import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerProfessions;
+import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
+import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerType;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
@@ -27,6 +37,7 @@ import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGO
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.BiConsumer;
 
 /**
  * Used for Vanilla compatibility on the Forge platform.
@@ -46,6 +57,7 @@ public class VanillaCompatForge {
     public static void registerVanillaCompatEvents(IEventBus bus) {
         bus.addListener(VanillaCompatForge::registerTillables);
         bus.addListener(VanillaCompatForge::registerFuels);
+        bus.addListener(VanillaCompatForge::onVillagerTrade);
         bus.addListener(VanillaCompatForge::onBoneMealUse);
     }
 
@@ -68,6 +80,28 @@ public class VanillaCompatForge {
     private static void registerFuels(final FurnaceFuelBurnTimeEvent event) {
         if (event.getItemStack().is(BWGBlocks.PEAT.get().asItem()))
             event.setBurnTime(1200);
+    }
+
+    private static void onVillagerTrade(final VillagerTradesEvent event) {
+        /*
+        BWGVillagerTrades.TRADES.forEach((consumer, merchantOffer) -> {
+
+        });
+
+        BWGVillagerTrades.TRADES.containsKey((BiConsumer<VillagerProfession, Integer>) (villagerProfession, integer) -> {
+        })
+        if (event.getType() == BWGVillagerProfessions.FORAGER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            trades.get(1).add((trader, random) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 1),
+                    new ItemStack(BWGBlocks.PEAT.get(), 1),
+                    16,
+                    2,
+                    0.05F
+            ));
+        }
+
+         */
     }
 
     private static void onBoneMealUse(final BonemealEvent event) {
