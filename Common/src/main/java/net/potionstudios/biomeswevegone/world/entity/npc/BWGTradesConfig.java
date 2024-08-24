@@ -36,10 +36,10 @@ public record BWGTradesConfig(boolean enableTrades, boolean enableVanillaTradeAd
     }
 
     private static BWGTradesConfig getOrCreateConfigFromDisk() {
-        BWGTradesConfig defaultConfig = BWGTradesConfig.createDefault();
+        BWGTradesConfig defaultConfig = createDefault();
 
         if (!PATH.toFile().exists()) {
-            createDefault();
+            createDefaultFile(defaultConfig);
             return defaultConfig;
         }
 
