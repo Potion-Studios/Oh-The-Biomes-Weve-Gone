@@ -72,6 +72,7 @@ public class LangGenerator extends LanguageProvider {
         add(advancement("husbandry.hot_diggity_not_dog.description"), "Cook a Cattail on a campfire, you might wanna back away...");
 
         add("entity.minecraft.villager.biomeswevegone.forager", "Forager");
+        add("entity.minecraft.villager.forager", "Forager");
 
         add("subtitles.entity.oddion_ambient", "Oddion purrs");
         add("subtitles.entity.oddion_hurt", "Oddion hurts");
