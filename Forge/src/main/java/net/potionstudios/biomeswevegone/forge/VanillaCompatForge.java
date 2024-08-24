@@ -59,10 +59,7 @@ public class VanillaCompatForge {
     public static void registerVanillaCompatEvents(IEventBus bus) {
         bus.addListener(VanillaCompatForge::registerTillables);
         bus.addListener(VanillaCompatForge::registerFuels);
-        if (BWGTradesConfig.INSTANCE.get().enableTrades()) {
-            BWGVillagerTrades.makeTrades();
-            bus.addListener(VanillaCompatForge::onVillagerTrade);
-        }
+        if (BWGTradesConfig.INSTANCE.get().enableTrades()) bus.addListener(VanillaCompatForge::onVillagerTrade);
         bus.addListener(VanillaCompatForge::onBoneMealUse);
     }
 
