@@ -26,7 +26,10 @@ public class BWGVillagerTrades {
             Pair.of(2, createItemsForEmeraldsOffer(BWGItems.WHITE_PUFFBALL_CAP.get(), 4, 5, 4, 2, 0.05f)),
             Pair.of(3, createEmeraldForItemsOffer(BWGItems.WHITE_PUFFBALL_SPORES.get(), 4, 5, 4)),
             Pair.of(4, createItemsForEmeraldsOffer(BWGBlocks.WITCH_HAZEL_BRANCH.get(),4, 9, 4, 3, 0.05f)),
-            Pair.of(4, createItemsForEmeraldsOffer(BWGBlocks.WITCH_HAZEL_BLOSSOM.get(), 10, 1, 10, 3, 0.05f))
+            Pair.of(4, createItemsForEmeraldsOffer(BWGBlocks.WITCH_HAZEL_BLOSSOM.get(), 10, 1, 10, 3, 0.05f)),
+            Pair.of(5, createItemsForEmeraldsOffer(BWGBlocks.SHELF_FUNGI.get(), 3, 9, 4, 4, 0.05f)),
+            Pair.of(5, createEmeraldForItemsOffer(Items.SWEET_BERRIES, 16, 4, 2)),
+            Pair.of(5, createEmeraldForItemsOffer(BWGItems.BLUEBERRIES.get(), 16, 4, 2))
         ));
         /*
         if (!BWGTradesConfig.INSTANCE.get().enableVanillaTradeAdditions()) return;
