@@ -28,6 +28,15 @@ public class BWGVillagerTrades {
             Pair.of(4, createItemsForEmeraldsOffer(BWGBlocks.WITCH_HAZEL_BRANCH.get(),4, 9, 4, 3, 0.05f)),
             Pair.of(4, createItemsForEmeraldsOffer(BWGBlocks.WITCH_HAZEL_BLOSSOM.get(), 10, 1, 10, 3, 0.05f))
         ));
+        /*
+        if (!BWGTradesConfig.INSTANCE.get().enableVanillaTradeAdditions()) return;
+        TRADES.put(VillagerProfession.FARMER, List.of(
+           Pair.of(1, createEmeraldForItemsOffer(BWGItems.CATTAIL_SPROUT.get(), 24, 12, 2)),
+           Pair.of(2, createEmeraldForItemsOffer(BWGItems.BAOBAB_FRUIT.get(), 10, 12, 2)),
+           Pair.of(2, createEmeraldForItemsOffer(BWGItems.GREEN_APPLE.get(), 24, 12, 2)),
+           Pair.of(2, createEmeraldForItemsOffer(BWGBlocks.ALOE_VERA.get(), 16, 12, 2)),
+           Pair.of(3, createEmeraldForItemsOffer(BWGItems.YUCCA_FRUIT.get(), 10, 12, 2))
+        ));*/
     }
 
     private static MerchantOffer createEmeraldForItemsOffer(ItemLike item, int cost, int maxUses, int villagerXp) {

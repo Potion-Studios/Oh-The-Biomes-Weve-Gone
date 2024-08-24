@@ -62,8 +62,7 @@ public class VanillaCompatFabric {
     private static void registerTrades() {
         if (!BWGTradesConfig.INSTANCE.get().enableTrades()) return;
         BWGVillagerTrades.makeTrades();
-        BWGVillagerTrades.TRADES.forEach(((villagerProfession, pairs) -> pairs.forEach(pair -> {
-            TradeOfferHelper.registerVillagerOffers(villagerProfession, pair.getFirst(), factory -> factory.add(((trader, random) -> pair.getSecond())));
-        })));
+        BWGVillagerTrades.TRADES.forEach(((villagerProfession, pairs) -> pairs.forEach(pair ->
+                TradeOfferHelper.registerVillagerOffers(villagerProfession, pair.getFirst(), factory -> factory.add(((trader, random) -> pair.getSecond()))))));
     }
 }
