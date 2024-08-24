@@ -26,6 +26,7 @@ import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.potionstudios.biomeswevegone.world.entity.npc.BWGTradesConfig;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerProfessions;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerType;
@@ -58,7 +59,10 @@ public class VanillaCompatForge {
     public static void registerVanillaCompatEvents(IEventBus bus) {
         bus.addListener(VanillaCompatForge::registerTillables);
         bus.addListener(VanillaCompatForge::registerFuels);
-        bus.addListener(VanillaCompatForge::onVillagerTrade);
+        if (BWGTradesConfig.INSTANCE.get().enableTrades()) {
+            BWGVillagerTrades.makeTrades();
+            bus.addListener(VanillaCompatForge::onVillagerTrade);
+        }
         bus.addListener(VanillaCompatForge::onBoneMealUse);
     }
 
