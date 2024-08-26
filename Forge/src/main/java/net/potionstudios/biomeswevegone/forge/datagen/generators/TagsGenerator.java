@@ -245,9 +245,9 @@ public class TagsGenerator {
             copy(BWGBlockTags.BLACK_ICE, BWGItemTags.BLACK_ICE);
             copy(BWGBlockTags.BOREALIS_ICE, BWGItemTags.BOREALIS_ICE);
 
-            BWGBlocks.BLOCKS.stream().filter(entry -> entry.get() instanceof FlowerBlock).forEach(
+            BWGBlocks.BLOCKS.stream().filter(entry -> entry.get() instanceof FlowerBlock || entry.get() instanceof TallFlowerBlock).forEach(
                     entry -> {
-                        FlowerBlock block = (FlowerBlock) entry.get();
+                        Block block = entry.get();
                         if (block.defaultMapColor() == MapColor.COLOR_BLACK)
                             tag(BWGItemTags.MAKES_BLACK_DYE).add(block.asItem());
                         else if (block.defaultMapColor() == MapColor.COLOR_BLUE)

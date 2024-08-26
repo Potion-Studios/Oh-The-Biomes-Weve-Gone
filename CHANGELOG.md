@@ -2,6 +2,7 @@
 - Update/Add To French Language File (FR_FR)
 - Fix Dacite Variants not dropping cobbled dacite when minned and overgrown stone not dropping cobblestone
 - Give Sakura Leaves Cherry sound on break
+- Fix tall flowers not being able to be used to craft dyes
 
 # 1.1.2-Beta
 - Set getBucketItemStack in ManOWar.java to correct Item
