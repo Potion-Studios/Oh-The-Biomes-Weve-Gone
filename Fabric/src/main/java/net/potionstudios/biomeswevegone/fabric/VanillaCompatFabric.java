@@ -3,11 +3,14 @@ package net.potionstudios.biomeswevegone.fabric;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.*;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.potionstudios.biomeswevegone.world.entity.npc.BWGTradesConfig;
+import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
@@ -29,6 +32,7 @@ public class VanillaCompatFabric {
         ToolInteractions.registerTillables((block, pair) -> TillableBlockRegistry.register(block, pair.getFirst(), pair.getSecond()));
         registerBiomeModifiers();
         registerLootModifiers();
+        registerTrades();
     }
 
     private static void registerFuels() {
@@ -53,5 +57,12 @@ public class VanillaCompatFabric {
                 builder.withPool(pool);
             }
         });
+    }
+
+    private static void registerTrades() {
+        if (!BWGTradesConfig.INSTANCE.get().enableTrades()) return;
+        BWGVillagerTrades.makeTrades();
+        BWGVillagerTrades.TRADES.forEach(((villagerProfession, pairs) -> pairs.forEach(pair ->
+                TradeOfferHelper.registerVillagerOffers(villagerProfession, pair.getFirst(), factory -> factory.add(((trader, random) -> pair.getSecond()))))));
     }
 }

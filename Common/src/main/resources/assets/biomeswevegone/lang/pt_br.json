@@ -913,6 +913,7 @@
   "itemGroup.biomeswevegone.biomes_weve_gone": "Biomes We've Gone",
   "itemGroup.biomeswevegone.biomes_weve_gone_wood": "Madeiras de Biomes We've Gone",
   "entity.minecraft.villager.biomeswevegone.forager": "Forager",
+  "entity.minecraft.villager.forager": "Forager",
   "biome.biomeswevegone.crag_gardens": "Crag Gardens",
   "biome.biomeswevegone.enchanted_tangle": "Enchanted Tangle",
   "biome.biomeswevegone.lush_stacks": "Lush Stacks",
