@@ -4,6 +4,7 @@
 - Give Sakura Leaves Cherry sound on break
 - Fix tall flowers not being able to be used to craft dyes
 - Add Forager Trades and Config
+- Add Vanilla Trades and Disable Option
 
 # 1.1.2-Beta
 - Set getBucketItemStack in ManOWar.java to correct Item

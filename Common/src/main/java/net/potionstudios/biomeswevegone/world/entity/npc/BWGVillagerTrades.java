@@ -31,15 +31,27 @@ public class BWGVillagerTrades {
             Pair.of(5, createEmeraldForItemsOffer(Items.SWEET_BERRIES, 16, 4, 2)),
             Pair.of(5, createEmeraldForItemsOffer(BWGItems.BLUEBERRIES.get(), 16, 4, 2))
         ));
-        /*
         if (!BWGTradesConfig.INSTANCE.get().enableVanillaTradeAdditions()) return;
+        TRADES.put(VillagerProfession.BUTCHER, List.of(
+           Pair.of(2, createEmeraldForItemsOffer(BWGItems.BLUEBERRIES.get(), 10, 12, 2))
+        ));
         TRADES.put(VillagerProfession.FARMER, List.of(
            Pair.of(1, createEmeraldForItemsOffer(BWGItems.CATTAIL_SPROUT.get(), 24, 12, 2)),
            Pair.of(2, createEmeraldForItemsOffer(BWGItems.BAOBAB_FRUIT.get(), 10, 12, 2)),
            Pair.of(2, createEmeraldForItemsOffer(BWGItems.GREEN_APPLE.get(), 24, 12, 2)),
            Pair.of(2, createEmeraldForItemsOffer(BWGBlocks.ALOE_VERA.get(), 16, 12, 2)),
            Pair.of(3, createEmeraldForItemsOffer(BWGItems.YUCCA_FRUIT.get(), 10, 12, 2))
-        ));*/
+        ));
+        TRADES.put(VillagerProfession.MASON, List.of(
+           Pair.of(3, createEmeraldForItemsOffer(BWGBlocks.ROCKY_STONE_SET.getBase(), 12, 12, 20)),
+           Pair.of(3, createItemsForEmeraldsOffer(BWGBlocks.ROCKY_STONE_SET.getBase(), 1, 1, 12, 10, 0.05f)),
+           Pair.of(3, createEmeraldForItemsOffer(BWGBlocks.MOSSY_STONE_SET.getBase(), 12, 12, 20)),
+           Pair.of(3, createItemsForEmeraldsOffer(BWGBlocks.MOSSY_STONE_SET.getBase(), 1, 1, 12, 10, 0.05f)),
+           Pair.of(4, createEmeraldForItemsOffer(BWGBlocks.DACITE_SET.getBase(), 12, 12, 30)),
+           Pair.of(4, createItemsForEmeraldsOffer(BWGBlocks.DACITE_SET.getBase(), 1, 1, 12, 15, 0.05f)),
+           Pair.of(4, createEmeraldForItemsOffer(BWGBlocks.RED_ROCK_SET.getBase(), 12, 12, 30)),
+           Pair.of(4, createItemsForEmeraldsOffer(BWGBlocks.RED_ROCK_SET.getBase(), 1, 1, 12, 15, 0.05f))
+        ));
     }
 
     private static MerchantOffer createEmeraldForItemsOffer(ItemLike item, int cost, int maxUses, int villagerXp) {
