@@ -1,9 +1,11 @@
 package net.potionstudios.biomeswevegone.world.level.block.plants.bush;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -46,6 +48,15 @@ public class WhitePuffballBlock extends BWGBerryBush {
 		return blockState.is(BlockTags.MUSHROOM_GROW_BLOCK) || (level.getRawBrightness(pos, 0) < 13 && this.mayPlaceOn(blockState, level, pos.below()));
 	}
 
+	@Override
+	public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
+		int age = state.getValue(AGE);
+		if (age < MAX_AGE && random.nextInt(5) == 0 && level.getRawBrightness(pos.above(), 0) > 13) {
+			BlockState blockState = state.setValue(AGE, age + 1);
+			level.setBlock(pos, blockState, 2);
+			level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(blockState));
+		}
+	}
 
 	@Override
 	public @NotNull InteractionResult use(BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
