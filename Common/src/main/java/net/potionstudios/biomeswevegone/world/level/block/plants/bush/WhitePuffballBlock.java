@@ -58,12 +58,10 @@ public class WhitePuffballBlock extends BWGBerryBush {
 			popResource(level, pos, new ItemStack(item.get().get(), numberOfItems + (isMaxAge ? 1 : 0)));
 			popResource(level, pos, BWGItems.WHITE_PUFFBALL_CAP.get().getDefaultInstance());
 			level.playSound(player, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
-			BlockState blockState = state.setValue(AGE, 1);
-			level.setBlock(pos, state, 2);
+			BlockState blockState = state.setValue(AGE, 0);
+			level.setBlock(pos, blockState, 2);
 			level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, blockState));
 			return InteractionResult.sidedSuccess(level.isClientSide());
-		} else {
-			return super.use(state, level, pos, player, hand, hit);
-		}
+		} else return InteractionResult.PASS;
 	}
 }
