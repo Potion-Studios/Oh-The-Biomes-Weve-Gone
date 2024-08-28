@@ -22,6 +22,6 @@ public class BWGCustomStructureProcessors {
     }
 
     public static void init() {
-        BiomesWeveGone.LOGGER.info("Initializing custom structure processors for Biomes We've Gone.");
+        BiomesWeveGone.LOGGER.info("Registering Oh The Biomes We've Gone Custom Structure Processors");
     }
 }

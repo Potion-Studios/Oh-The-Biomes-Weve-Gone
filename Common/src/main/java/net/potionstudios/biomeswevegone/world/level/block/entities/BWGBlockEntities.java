@@ -70,6 +70,6 @@ public class BWGBlockEntities {
     }
 
     public static void blockEntities() {
-        BiomesWeveGone.LOGGER.info("Registering Biomes We've Gone Block Entities");
+        BiomesWeveGone.LOGGER.info("Registering Oh The Biomes We've Gone Block Entities");
     }
 }
