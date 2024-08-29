@@ -7,6 +7,7 @@
 - Add Vanilla Trades and Disable Option
 - Fix WhitePuffBall age not being reset when picked, Don't call super.use on ages less than 1
 - Fix WhitePuffBall growth being incorrect
+- Call GameEvent#Shear on successful FireCracker Leaves and Hydrangea Hedge Shears
 
 # 1.1.2-Beta
 - Set getBucketItemStack in ManOWar.java to correct Item
