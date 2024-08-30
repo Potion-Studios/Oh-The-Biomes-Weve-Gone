@@ -44,6 +44,6 @@
     "geckolib": ">=4.4"
   },
   "suggests": {
-    "WTHIT": "*"
+    "WTHIT": ">=8.15.0"
   }
 }

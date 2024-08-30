@@ -1,18 +1,23 @@
 package net.potionstudios.biomeswevegone.compat.wthit;
 
-import mcp.mobius.waila.api.IRegistrar;
-import mcp.mobius.waila.api.IWailaPlugin;
-import mcp.mobius.waila.api.TooltipPosition;
+import mcp.mobius.waila.api.*;
+import net.minecraft.resources.ResourceLocation;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.BWGBerryBush;
 
 /**
  * Waila plugin for BiomesWeveGone.
- * @see IWailaPlugin
+ * @see IWailaClientPlugin
  * @author Joseph T. McQuigg
  */
-public class BWGWTHITPlugin implements IWailaPlugin {
+public class BWGWTHITPlugin implements IWailaClientPlugin, IWailaCommonPlugin {
+
 	@Override
-	public void register(IRegistrar registrar) {
-		registrar.addComponent(BWGPlantProvider.INSTANCE, TooltipPosition.BODY, BWGBerryBush.class);
+	public void register(IClientRegistrar registrar) {
+		registrar.body(BWGPlantProvider.INSTANCE, BWGBerryBush.class);
+	}
+
+	@Override
+	public void register(ICommonRegistrar registrar) {
+		registrar.featureConfig(new ResourceLocation("crop_progress"), true);
 	}
 }
