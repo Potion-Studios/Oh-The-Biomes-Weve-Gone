@@ -132,4 +132,8 @@ public class BWGFruitBlock extends Block implements BonemealableBlock {
     public @NotNull Item getFruit() {
         return fruit.get().get();
     }
+
+    public @NotNull LeavesBlock getLeaves() {
+        return leaves.get();
+    }
 }

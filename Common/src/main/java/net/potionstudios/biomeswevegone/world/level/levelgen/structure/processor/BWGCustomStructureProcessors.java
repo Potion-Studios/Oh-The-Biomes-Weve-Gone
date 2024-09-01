@@ -6,13 +6,11 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.world.level.levelgen.structure.processor.processors.GreenAppleProcessor;
-import net.potionstudios.biomeswevegone.world.level.levelgen.structure.processor.processors.WindSweptProcessor;
+import net.potionstudios.biomeswevegone.world.level.levelgen.structure.processor.processors.FruitBlockProcessor;
 
 public class BWGCustomStructureProcessors {
 
-    public static final StructureProcessorType<WindSweptProcessor> WINDSWEPT_PROCESSOR = register("windswept_processor", WindSweptProcessor.CODEC);
-    public static final StructureProcessorType<GreenAppleProcessor> GREEN_APPLE_PROCESSOR = register("green_apple_processor", GreenAppleProcessor.CODEC);
+    public static final StructureProcessorType<FruitBlockProcessor> FRUIT_BLOCK_PROCESSOR = register("fruit_block_processor", FruitBlockProcessor.CODEC);
 
     /**
      * Utility method for registering custom structure processor types.

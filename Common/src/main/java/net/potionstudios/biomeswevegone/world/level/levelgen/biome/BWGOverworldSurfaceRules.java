@@ -129,7 +129,7 @@ public class BWGOverworldSurfaceRules {
     private static final SurfaceRules.RuleSource CRIMSON_TUNDRA = biomeAbovePreliminarySurface(BWGBiomes.CRIMSON_TUNDRA, SurfaceRules.sequence(
             makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
                     SurfaceRules.sequence(
-                            makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.LUSH_GRASS_BLOCK.get()),
+                            makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.LUSH_GRASS_BLOCK.get())),
                             makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.LUSH_DIRT.get())
                     )),
             CRIMSON_ROCKY_STONE_SURFACE,

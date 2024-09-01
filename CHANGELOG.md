@@ -9,6 +9,7 @@
 - Fix WhitePuffBall growth being incorrect
 - Call GameEvent#Shear on successful FireCracker Leaves and Hydrangea Hedge Shears
 - Update WTHIT Plugin to new Format 
+- Implement FruitBlockProcessor for Skyris Village TownCenters
 
 # 1.1.2-Beta
 - Set getBucketItemStack in ManOWar.java to correct Item

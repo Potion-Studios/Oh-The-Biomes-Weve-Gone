@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.structure.templatesystem.*;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+import net.potionstudios.biomeswevegone.world.level.levelgen.structure.processor.processors.FruitBlockProcessor;
 
 import java.util.Map;
 
@@ -79,8 +80,8 @@ public class BWGStructureProcessorLists {
             ImmutableList.of(
                     BWGRuleProcessors.POLISHED_ANDESITE_RANDOM_ANDESITE_GRAVEL,
                     BWGRuleProcessors.skyrisLeavesToGreenAppleLeaves(0.1f),
-                    BWGRuleProcessors.skyrisLeavesToFlowering(0.15f)
-                    //new GreenAppleProcessor()
+                    BWGRuleProcessors.skyrisLeavesToFlowering(0.15f),
+                    new FruitBlockProcessor(BWGBlocks.GREEN_APPLE_FRUIT_BLOCK.get())
             )
     ));
 

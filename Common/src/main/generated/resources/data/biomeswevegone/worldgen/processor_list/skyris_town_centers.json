@@ -76,6 +76,10 @@
           }
         }
       ]
+    },
+    {
+      "fruit_block": "biomeswevegone:green_apple_fruit",
+      "processor_type": "biomeswevegone:fruit_block_processor"
     }
   ]
 }
