@@ -1,3 +1,5 @@
+# 1.2.1-Beta
+
 # 1.2.0-Beta
 - Update/Add To French Language File (FR_FR)
 - Fix Dacite Variants not dropping cobbled dacite when minned and overgrown stone not dropping cobblestone
