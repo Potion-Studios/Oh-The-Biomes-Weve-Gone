@@ -1,4 +1,5 @@
 # 1.2.1-Beta
+- Fix Oddion Foods having wrong Nutrition Values
 
 # 1.2.0-Beta
 - Update/Add To French Language File (FR_FR)
