@@ -38,7 +38,7 @@ dependencies {
     "common"(project(":Common", "namedElements")) { isTransitive = false }
     "shadowBundle"(project(":Common", "transformProductionFabric"))
 
-    modRuntimeOnly("me.djtheredstoner:DevAuth-fabric:${project.properties["devauth_version"]}")
+    modLocalRuntime("me.djtheredstoner:DevAuth-fabric:${project.properties["devauth_version"]}")
 
     modApi("com.github.glitchfiend:TerraBlender-fabric:$minecraftVersion-${project.properties["terrablender_version"]}")
     modApi("corgitaco.corgilib:Corgilib-Fabric:$minecraftVersion-${project.properties["corgilib_version"]}")
@@ -49,7 +49,7 @@ dependencies {
     modRuntimeOnly("mcp.mobius.waila:wthit:fabric-${project.properties["WTHIT"]}")  { isTransitive = false }
     modRuntimeOnly("lol.bai:badpackets:fabric-${project.properties["badPackets"]}")  { isTransitive = false }
 
-    modRuntimeOnly("maven.modrinth:cyanide:jCWZy4Gl")  { isTransitive = false }
+    modLocalRuntime("maven.modrinth:cyanide:jCWZy4Gl")
 }
 
 tasks {

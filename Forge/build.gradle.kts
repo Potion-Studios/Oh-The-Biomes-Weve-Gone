@@ -55,7 +55,7 @@ dependencies {
     "common"(project(":Common", "namedElements")) { isTransitive = false }
     "shadowBundle"(project(":Common", "transformProductionForge"))
 
-    modRuntimeOnly("me.djtheredstoner:DevAuth-forge-latest:${project.properties["devauth_version"]}")  { isTransitive = false }
+    modLocalRuntime("me.djtheredstoner:DevAuth-forge-latest:${project.properties["devauth_version"]}")  { isTransitive = false }
 
     implementation("com.eliotlash.mclib:mclib:20")
     forgeRuntimeLibrary("com.eliotlash.mclib:mclib:20")
@@ -68,7 +68,7 @@ dependencies {
     modRuntimeOnly("mcp.mobius.waila:wthit:forge-${project.properties["WTHIT"]}")  { isTransitive = false }
     modRuntimeOnly("lol.bai:badpackets:forge-${project.properties["badPackets"]}")  { isTransitive = false }
 
-    modRuntimeOnly("maven.modrinth:cyanide:4.1.0")  { isTransitive = false }
+    modLocalRuntime("maven.modrinth:cyanide:4.1.0")
 
     modApi("com.github.glitchfiend:SereneSeasons:$minecraftVersion-9.0.0.46") { isTransitive = false}
 }
