@@ -28,6 +28,10 @@ import org.jetbrains.annotations.NotNull;
 public class BWGOverworldSurfaceRules {
     private static final SurfaceRules.ConditionSource WATER_CHECK = SurfaceRules.waterBlockCheck(-1, 0);
 
+    private static final SurfaceRules.RuleSource STONE = makeifTrueRule(SurfaceRules.ON_FLOOR, makeStateRule(Blocks.STONE));
+    private static final SurfaceRules.RuleSource GRAVEL = SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, makeStateRule(Blocks.GRAVEL)), makeifTrueRule(SurfaceRules.UNDER_FLOOR, makeStateRule(Blocks.GRAVEL)));
+
+
     private static final SurfaceRules.RuleSource PURPLE_SAND = makeSandRule(BWGBlocks.PURPLE_SAND_SET);
     private static final SurfaceRules.RuleSource BLUE_SAND = makeSandRule(BWGBlocks.BLUE_SAND_SET);
     private static final SurfaceRules.RuleSource PINK_SAND = makeSandRule(BWGBlocks.PINK_SAND_SET);
@@ -265,6 +269,19 @@ public class BWGOverworldSurfaceRules {
                 BLUE_SAND
         ));
 
+    private static final SurfaceRules.RuleSource DEAD_SEA = biomeAbovePreliminarySurface(BWGBiomes.DEAD_SEA,
+            SurfaceRules.sequence(
+                    new BetweenRepeatingNoiseRange(Noises.CALCITE, 0.02f, -2f, 2f, STONE, GRAVEL),
+                    STONE
+            ));
+
+    private static final SurfaceRules.RuleSource LUSH_STACKS = biomeAbovePreliminarySurface(BWGBiomes.LUSH_STACKS,
+            SurfaceRules.sequence(
+                    new BetweenRepeatingNoiseRange(Noises.CALCITE, 0.02f, -2f, 2f, STONE, GRAVEL),
+                    STONE
+            ));
+
+
     private static final SurfaceRules.RuleSource RED_ROCK_VALLEY = biomeAbovePreliminarySurface(BWGBiomes.RED_ROCK_VALLEY, SurfaceRules.sequence(
        NOISE_COARSE_DIRT,
        makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), SurfaceRules.bandlands()),
@@ -404,7 +421,9 @@ public class BWGOverworldSurfaceRules {
                 WINDSWEPT_DESERT,
                 OVERGROWTH_WOODLANDS,
 //                TROPICAL_ISLAND,
-                BLACK_ICE_BANDS
+                BLACK_ICE_BANDS,
+                LUSH_STACKS,
+                DEAD_SEA
         );
     }
 
