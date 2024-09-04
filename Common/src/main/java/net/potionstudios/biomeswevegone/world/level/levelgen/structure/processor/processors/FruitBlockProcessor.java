@@ -58,6 +58,6 @@ public class FruitBlockProcessor extends StructureProcessor {
 
 	@Override
 	protected @NotNull StructureProcessorType<?> getType() {
-		return BWGCustomStructureProcessors.FRUIT_BLOCK_PROCESSOR;
+		return BWGCustomStructureProcessors.FRUIT_BLOCK_PROCESSOR.get();
 	}
 }

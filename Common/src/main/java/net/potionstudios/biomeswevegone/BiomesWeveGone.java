@@ -62,6 +62,7 @@ public class BiomesWeveGone {
         BWGTemplatePools.templatePools();
         BWGPoiTypes.poiTypes();
         BWGVillagerProfessions.professions();
+        BWGCustomStructureProcessors.processors();
         GeckoLib.initialize();
     }
 
@@ -71,7 +72,6 @@ public class BiomesWeveGone {
     public static void commonSetup() {
         BWGEntities.registerSpawnPlacements();
         BWGVillagerType.setVillagerBWGBiomes();
-        BWGCustomStructureProcessors.init();
     }
 
     /**
