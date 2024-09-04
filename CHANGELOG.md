@@ -2,6 +2,8 @@
 - Fix Oddion Foods having wrong Nutrition Values
 - Remove need for Explicit BlockPredicate Registration Method
 - Update Custom Structure Processor Registration
+- Require TYG 1.3.1 - Fixes Trees piercing surface
+- Fix Some surface Rule issues in specific cases
 
 # 1.2.0-Beta
 - Update/Add To French Language File (FR_FR)
