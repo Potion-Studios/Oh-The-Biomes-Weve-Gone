@@ -1,5 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.structure.lake;
 
+import corgitaco.corgilib.world.level.RandomTickScheduler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
@@ -198,7 +199,8 @@ public class LargeLakePiece extends StructurePiece {
                     chunk.setBlockState(mutableBlockPos, stateProvider.getState(random, mutableBlockPos), false);
                 } else {
                     chunk.setBlockState(mutableBlockPos, topBlocks[Math.min(origin.getY() - y, topBlocks.length - 1)], false);
-
+                    ((RandomTickScheduler) chunk).scheduleRandomTick(mutableBlockPos.immutable());
+                    chunk.markPosForPostprocessing(mutableBlockPos);
                 }
 
             } else if (y > waterGenY) {
@@ -242,6 +244,9 @@ public class LargeLakePiece extends StructurePiece {
             mutableBlockPos.set(blockX, height - y, blockZ);
 
             chunk.setBlockState(mutableBlockPos, topBlocks[y], false);
+
+            ((RandomTickScheduler) chunk).scheduleRandomTick(mutableBlockPos.immutable());
+            chunk.markPosForPostprocessing(mutableBlockPos);
         }
     }
 
