@@ -1,5 +1,6 @@
 # 1.2.2-Beta
 - Use Fabric API for Point Of Interest Type Registration to fix Forager not getting job on Fabric
+- Fix Sheep not being able to Eat off of Lush Grass
 
 # 1.2.1-Beta
 - Fix Oddion Foods having wrong Nutrition Values
