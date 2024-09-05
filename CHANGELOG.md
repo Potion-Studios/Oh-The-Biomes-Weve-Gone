@@ -4,6 +4,7 @@
 - Update Custom Structure Processor Registration
 - Require TYG 1.3.1 - Fixes Trees piercing surface
 - Fix Some surface Rule issues in specific cases
+- Require CorgiLib 4.0.3.2
 
 # 1.2.0-Beta
 - Update/Add To French Language File (FR_FR)
