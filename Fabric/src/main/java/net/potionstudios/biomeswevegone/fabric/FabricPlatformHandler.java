@@ -4,6 +4,7 @@ import com.google.auto.service.AutoService;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.fabricmc.fabric.api.object.builder.v1.world.poi.PointOfInterestHelper;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.Util;
@@ -18,11 +19,13 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
@@ -31,6 +34,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Set;
 import java.util.function.Supplier;
 
 @AutoService(PlatformHandler.class)
@@ -65,6 +69,12 @@ public class FabricPlatformHandler implements PlatformHandler {
 		BlockEntityType<T> blockEntity = builder.get().build(Util.fetchChoiceType(References.BLOCK_ENTITY, resourceLocation.toString()));
 		Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, resourceLocation, blockEntity);
 		return () -> blockEntity;
+	}
+
+	@Override
+	public Supplier<PoiType> registerPOIType(String id, Set<BlockState> set, int maxTickets, int validRange) {
+		PoiType poi = PointOfInterestHelper.register(BiomesWeveGone.id(id), maxTickets, validRange, set);
+		return () -> poi;
 	}
 
 	@Override

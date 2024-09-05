@@ -3,17 +3,20 @@ package net.potionstudios.biomeswevegone;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.Fluid;
@@ -23,6 +26,7 @@ import org.jetbrains.annotations.NotNull;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.ServiceLoader;
+import java.util.Set;
 import java.util.function.Supplier;
 
 /**
@@ -79,6 +83,13 @@ public interface PlatformHandler {
 	 * @return Supplier of the BlockEntityType
 	 */
 	<T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(String key, Supplier<BlockEntityType.Builder<T>> builder);
+
+	/**
+	 * Register POI Type
+	 */
+	default Supplier<PoiType> registerPOIType(String id, Set<BlockState> set, int maxTickets, int validRange) {
+		return register(BuiltInRegistries.POINT_OF_INTEREST_TYPE, id, () -> new PoiType(set, maxTickets, validRange));
+	}
 
 	/**
 	 * Creates a spawn egg with the specified parameters

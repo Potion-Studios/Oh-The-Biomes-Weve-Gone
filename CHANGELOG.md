@@ -1,4 +1,5 @@
 # 1.2.2-Beta
+- Use Fabric API for Point Of Interest Type Registration to fix Forager not getting job on Fabric
 
 # 1.2.1-Beta
 - Fix Oddion Foods having wrong Nutrition Values
