@@ -1,3 +1,5 @@
+# 1.2.2-Beta
+
 # 1.2.1-Beta
 - Fix Oddion Foods having wrong Nutrition Values
 - Remove need for Explicit BlockPredicate Registration Method
