@@ -9,6 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CampfireBlock;
 import net.minecraft.world.level.block.entity.CampfireBlockEntity;
 import net.potionstudios.biomeswevegone.world.damagesource.BWGDamageTypes;
 import org.jetbrains.annotations.NotNull;
@@ -26,7 +27,7 @@ public class CampfireExplodingBlockItem extends BlockItem {
         if (!level.isClientSide()) {
             BlockPos clickedPos = context.getClickedPos();
             if (level.getBlockEntity(clickedPos) instanceof CampfireBlockEntity campfireBlockEntity)
-                if (campfireBlockEntity.getItems().stream().anyMatch(ItemStack::isEmpty)) {
+                if (campfireBlockEntity.getBlockState().getValue(CampfireBlock.LIT) && campfireBlockEntity.getItems().stream().anyMatch(ItemStack::isEmpty)) {
                     level.explode(null, new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(BWGDamageTypes.CATTAIL_EXPLOSION)), null, clickedPos.getX() + 0.5D, clickedPos.getY() + 0.5D, clickedPos.getZ() + 0.5D, 5.0F, false, Level.ExplosionInteraction.NONE);
                     return InteractionResult.CONSUME;
                 }
