@@ -23,9 +23,9 @@ import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
@@ -34,7 +34,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Set;
 import java.util.function.Supplier;
 
 @AutoService(PlatformHandler.class)
@@ -72,8 +71,8 @@ public class FabricPlatformHandler implements PlatformHandler {
 	}
 
 	@Override
-	public Supplier<PoiType> registerPOIType(String id, Set<BlockState> set, int maxTickets, int validRange) {
-		PoiType poi = PointOfInterestHelper.register(BiomesWeveGone.id(id), maxTickets, validRange, set);
+	public Supplier<PoiType> registerPOIType(String id, Supplier<Block> block, int maxTickets, int validRange) {
+		PoiType poi = PointOfInterestHelper.register(BiomesWeveGone.id(id), maxTickets, validRange, block.get());
 		return () -> poi;
 	}
 
