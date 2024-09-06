@@ -241,6 +241,11 @@ public class RecipeGenerator extends RecipeProvider {
         sandToGlass(writer, BWGBlocks.PINK_SAND_SET, Items.PINK_STAINED_GLASS);
         sandToGlass(writer, BWGBlocks.PURPLE_SAND_SET, Items.PURPLE_STAINED_GLASS);
         sandToGlass(writer, BWGBlocks.WHITE_SAND_SET, Items.WHITE_STAINED_GLASS);
+        dyeAbleRecipe(writer, BWGBlocks.BLACK_SAND_SET.getSand(), Items.BLACK_DYE);
+        dyeAbleRecipe(writer, BWGBlocks.BLUE_SAND_SET.getSand(), Items.BLUE_DYE);
+        dyeAbleRecipe(writer, BWGBlocks.PINK_SAND_SET.getSand(), Items.PINK_DYE);
+        dyeAbleRecipe(writer, BWGBlocks.PURPLE_SAND_SET.getSand(), Items.PURPLE_DYE);
+        dyeAbleRecipe(writer, BWGBlocks.WHITE_SAND_SET.getSand(), Items.WHITE_DYE);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BWGItems.GREEN_APPLE_PIE.get())
                 .requires(BWGItems.GREEN_APPLE.get())
@@ -321,6 +326,17 @@ public class RecipeGenerator extends RecipeProvider {
                 .unlockedBy(getHasName(unpacked), has(unpacked))
                 .save(finishedRecipeConsumer);
         stonecutterResultFromBase(finishedRecipeConsumer, category, packed, unpacked);
+    }
+
+    private static void dyeAbleRecipe(Consumer<FinishedRecipe> finishedRecipeConsumer, ItemLike item, Item dye) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, item, 8)
+                .define('#', dye)
+                .define('X', item)
+                .pattern("XXX")
+                .pattern("X#X")
+                .pattern("XXX")
+                .unlockedBy(getHasName(item), has(item))
+                .save(finishedRecipeConsumer);
     }
 
     private static void dyeTagRecipe(Consumer<FinishedRecipe> finishedRecipeConsumer, Item dye, TagKey<Item> tag) {

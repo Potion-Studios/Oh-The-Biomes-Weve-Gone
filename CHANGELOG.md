@@ -2,6 +2,7 @@
 - Use Fabric API for Point Of Interest Type Registration to fix Forager not getting job on Fabric
 - Fix Sheep not being able to Eat off of Lush Grass
 - Fix Cattail exploding on Campfire when campfire isn't lit
+- Add Recipes for Colored Sand
 
 # 1.2.1-Beta
 - Fix Oddion Foods having wrong Nutrition Values

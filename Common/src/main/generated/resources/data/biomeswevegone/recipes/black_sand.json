@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "minecraft:black_dye"
+    },
+    "X": {
+      "item": "biomeswevegone:black_sand"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "X#X",
+    "XXX"
+  ],
+  "result": {
+    "count": 8,
+    "item": "biomeswevegone:black_sand"
+  },
+  "show_notification": true
+}

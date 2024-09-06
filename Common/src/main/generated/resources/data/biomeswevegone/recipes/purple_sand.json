@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "minecraft:purple_dye"
+    },
+    "X": {
+      "item": "biomeswevegone:purple_sand"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "X#X",
+    "XXX"
+  ],
+  "result": {
+    "count": 8,
+    "item": "biomeswevegone:purple_sand"
+  },
+  "show_notification": true
+}
