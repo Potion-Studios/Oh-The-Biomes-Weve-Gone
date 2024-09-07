@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[47,)"
+loaderVersion = "[52,)"
 issueTrackerURL = "https://github.com/Potion-Studios/Oh-The-Biomes-Weve-Gone/issues"
 license = "All Rights Reserved"
 
@@ -17,34 +17,34 @@ displayURL="https://potionstudios.net/"
 [[dependencies.biomeswevegone]]
 modId = "forge"
 mandatory = true
-versionRange = "[47.1.101,)"
+versionRange = "[52.0.4,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.biomeswevegone]]
 modId = "terrablender"
 mandatory = true
-versionRange = "[3.0.1.7,)"
+versionRange = "[4.1.0.0,)"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.biomeswevegone]]
 modId = "corgilib"
 mandatory = true
-versionRange = "[4.0.3.2,)"
+versionRange = "[5.0.0.2,)"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.biomeswevegone]]
 modId = "ohthetreesyoullgrow"
 mandatory = true
-versionRange = "[1.3.1,)"
+versionRange = "[5.0.3,)"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.biomeswevegone]]
 modId = "geckolib"
 mandatory = true
-versionRange = "[4.4,)"
+versionRange = "[4.6,)"
 ordering = "AFTER"
 side = "BOTH"

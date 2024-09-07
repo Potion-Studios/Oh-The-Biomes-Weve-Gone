@@ -64,6 +64,6 @@ public class PlaceInVillage {
     }
 
     private static ResourceLocation getMcRL(String poolName) {
-        return new ResourceLocation("village/" + poolName);
+        return ResourceLocation.withDefaultNamespace("village/" + poolName);
     }
 }

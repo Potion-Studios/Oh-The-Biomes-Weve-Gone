@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:beach",
+  "features": "biomeswevegone:palm_trees",
+  "step": "vegetal_decoration"
+}

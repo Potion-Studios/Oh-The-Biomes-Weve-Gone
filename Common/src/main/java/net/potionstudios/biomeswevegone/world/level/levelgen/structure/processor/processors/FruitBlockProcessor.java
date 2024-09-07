@@ -1,6 +1,7 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.structure.processor.processors;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.LevelReader;
@@ -19,10 +20,9 @@ import java.util.List;
 
 public class FruitBlockProcessor extends StructureProcessor {
 
-	public static final Codec<FruitBlockProcessor> CODEC = BuiltInRegistries.BLOCK.byNameCodec()
-			.fieldOf("fruit_block")
-			.xmap(FruitBlockProcessor::new, processor -> processor.fruitBlock)
-			.codec();
+	public static final MapCodec<FruitBlockProcessor> CODEC = RecordCodecBuilder.mapCodec(instance ->
+			instance.group(BuiltInRegistries.BLOCK.byNameCodec().fieldOf("fruit_block")
+					.forGetter((processor) -> processor.fruitBlock)).apply(instance, FruitBlockProcessor::new));
 
 	private final BWGFruitBlock fruitBlock;
 

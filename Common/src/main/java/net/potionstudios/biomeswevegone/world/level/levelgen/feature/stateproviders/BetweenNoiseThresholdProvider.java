@@ -1,6 +1,7 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.feature.stateproviders;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BetweenNoiseThresholdProvider extends NoiseBasedStateProvider {
-    public static final Codec<BetweenNoiseThresholdProvider> CODEC = RecordCodecBuilder.create((builder) -> noiseCodec(builder).and(
+    public static final MapCodec<BetweenNoiseThresholdProvider> CODEC = RecordCodecBuilder.mapCodec((builder) -> noiseCodec(builder).and(
             builder.group(
                     FloatProvider.CODEC.listOf().fieldOf("thresholds").forGetter((stateProvider) -> stateProvider.thresholds),
                     BlockStateProvider.CODEC.fieldOf("within_noise_state_provider").forGetter((stateProvider) -> stateProvider.withinNoiseStateProvider),

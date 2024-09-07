@@ -1,6 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.structure.arch;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
@@ -27,12 +27,12 @@ public class ArchStructure extends Structure {
 
     public static final BoundingBox INFINITE = BoundingBox.infinite();
 
-    public static final Codec<ArchStructure> CODEC = RecordCodecBuilder.<ArchStructure>mapCodec(builder ->
+    public static final MapCodec<ArchStructure> CODEC = RecordCodecBuilder.mapCodec(builder ->
             builder.group(
                     settingsCodec(builder),
                     ArchConfig.CODEC.fieldOf("config").forGetter(archStructure -> archStructure.config)
             ).apply(builder, ArchStructure::new)
-    ).codec();
+    );
     private final ArchConfig config;
 
     public ArchStructure(StructureSettings settings, ArchConfig config) {

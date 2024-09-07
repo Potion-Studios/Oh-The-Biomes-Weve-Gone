@@ -44,7 +44,7 @@ public class GourPlateauPiece extends StructurePiece {
 
     public GourPlateauPiece(StructurePieceSerializationContext context, CompoundTag tag) {
         super(BWGStructurePieceTypes.GOUR_PLATEAU_PIECE.get(), tag);
-        this.origin = NbtUtils.readBlockPos(tag.getCompound("origin"));
+        this.origin = NbtUtils.readBlockPos(tag, "origin").orElseThrow();
         this.radius = tag.getInt("radius");
         this.topY = tag.getInt("topY");
     }

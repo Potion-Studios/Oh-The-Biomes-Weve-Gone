@@ -22,11 +22,12 @@ import org.joml.Vector2d;
 import org.joml.Vector4d;
 
 import java.util.Random;
+import java.util.function.Function;
 
 public class BasaltBarreraExtension {
 
 
-    public static void runBasaltBarreraExtension(ChunkAccess chunk, WorldGenRegion region, ChunkGenerator generator) {
+    public static void runBasaltBarreraExtension(Function<BlockPos, Holder<Biome>> biomeGetter, ChunkAccess chunk, WorldGenRegion region, ChunkGenerator generator) {
         ChunkPos pos = chunk.getPos();
 
         ImprovedNoise hexRadiusNoise = new ImprovedNoise(new XoroshiroRandomSource(region.getSeed()));
@@ -45,7 +46,7 @@ public class BasaltBarreraExtension {
 
                 mutable.set(worldX, landHeight, worldZ);
 
-                Holder<Biome> currentBiome = region.getBiome(mutable);
+                Holder<Biome> currentBiome = biomeGetter.apply(mutable);
 
                 if (!currentBiome.is(BWGBiomes.BASALT_BARRERA)) {
                     continue;
@@ -62,13 +63,13 @@ public class BasaltBarreraExtension {
 
                 mutable.set(hexCenter.x, mutable.getY(), hexCenter.y);
 
-                Holder<Biome> hexCenterBiome = region.getBiome(mutable);
+                Holder<Biome> hexCenterBiome = biomeGetter.apply(mutable);
                 if (!hexCenterBiome.is(BWGBiomes.BASALT_BARRERA)) {
                     continue;
                 }
 
 
-                double biomeBlend = BlendUtil.blendBiomeEdge(currentBiome, region::getBiome, mutable, hexRadius * 2, 1);
+                double biomeBlend = BlendUtil.blendBiomeEdge(currentBiome, biomeGetter, mutable, hexRadius * 2, 1);
 
 
                 ChunkAccess hexCenterChunk = region.getChunk(mutable);

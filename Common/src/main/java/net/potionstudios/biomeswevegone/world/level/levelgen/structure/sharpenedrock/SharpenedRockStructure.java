@@ -1,6 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.structure.sharpenedrock;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
 import it.unimi.dsi.fastutil.Pair;
@@ -31,12 +31,12 @@ public class SharpenedRockStructure extends Structure {
     public static final ImprovedNoise NOISE = new ImprovedNoise(new XoroshiroRandomSource(100L));
 
 
-    public static final Codec<SharpenedRockStructure> CODEC = RecordCodecBuilder.<SharpenedRockStructure>mapCodec(builder ->
+    public static final MapCodec<SharpenedRockStructure> CODEC = RecordCodecBuilder.mapCodec(builder ->
             builder.group(
                     settingsCodec(builder),
                     SharpenedRockConfig.CODEC.fieldOf("config").forGetter(sharpenedRockStructure -> sharpenedRockStructure.config)
             ).apply(builder, SharpenedRockStructure::new)
-    ).codec();
+    );
     private final SharpenedRockConfig config;
 
     public SharpenedRockStructure(StructureSettings structureSettings, SharpenedRockConfig config) {

@@ -3,6 +3,7 @@ package net.potionstudios.biomeswevegone.forge;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.event.server.ServerAboutToStartEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -17,7 +18,6 @@ import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGOverworldSurfaceRules;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGTerraBlenderRegion;
-import software.bernie.geckolib.GeckoLib;
 import terrablender.api.SurfaceRuleManager;
 
 import java.util.function.Consumer;
@@ -30,8 +30,8 @@ import java.util.function.Consumer;
  */
 @Mod(BiomesWeveGone.MOD_ID)
 public class BiomesWeveGoneForge {
-    public BiomesWeveGoneForge() {
-        IEventBus MOD_BUS = FMLJavaModLoadingContext.get().getModEventBus();
+    public BiomesWeveGoneForge(final FMLJavaModLoadingContext context) {
+        IEventBus MOD_BUS = context.getModEventBus();
         IEventBus EVENT_BUS = MinecraftForge.EVENT_BUS;
         BiomesWeveGone.init();
         ForgePlatformHandler.register(MOD_BUS);
@@ -39,9 +39,9 @@ public class BiomesWeveGoneForge {
         MOD_BUS.addListener(this::onPostInitialize);
         EVENT_BUS.addListener(this::onServerStarting);
         MOD_BUS.addListener((Consumer<EntityAttributeCreationEvent>) event -> BWGEntities.registerEntityAttributes(event::put));
+        MOD_BUS.addListener((Consumer<SpawnPlacementRegisterEvent>) event -> BWGEntities.registerSpawnPlacements((consumer) -> event.register(consumer.entityType().get(), consumer.spawnPlacementType(), consumer.heightmapType(), consumer.predicate(), SpawnPlacementRegisterEvent.Operation.OR)));
         VanillaCompatForge.registerVanillaCompatEvents(EVENT_BUS);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> BiomesWeveGoneClientForge.init(MOD_BUS));
-        GeckoLib.initialize();
         LootModifiersRegister.register(MOD_BUS);
     }
 

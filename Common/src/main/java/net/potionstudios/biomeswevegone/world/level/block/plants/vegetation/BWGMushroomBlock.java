@@ -20,7 +20,7 @@ public class BWGMushroomBlock extends MushroomBlock {
     private final VoxelShape SHAPE;
 
     public BWGMushroomBlock(Properties properties, TagKey<Block> groundTag, @Nullable ResourceKey<ConfiguredFeature<?, ?>> feature, VoxelShape shape) {
-        super(properties, feature);
+        super(feature, properties);
         this.groundTag = groundTag;
 	    SHAPE = shape;
     }

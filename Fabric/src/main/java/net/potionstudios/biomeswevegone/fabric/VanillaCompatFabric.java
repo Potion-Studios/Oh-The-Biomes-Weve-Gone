@@ -2,7 +2,7 @@ package net.potionstudios.biomeswevegone.fabric;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.*;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
@@ -47,14 +47,14 @@ public class VanillaCompatFabric {
     }
 
     private static void registerLootModifiers() {
-        LootTableEvents.MODIFY.register((resourceManager, lootDataManager, resourceLocation, builder, source) -> {
-            if (resourceLocation.equals(BuiltInLootTables.SNIFFER_DIGGING)) {
+        LootTableEvents.MODIFY.register((key, tableBuilder, source, registries)  -> {
+            if (key.equals(BuiltInLootTables.SNIFFER_DIGGING)) {
                 LootPool.Builder pool = LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1))
                         .with(LootItem.lootTableItem(BWGBlocks.BLACK_ROSE.getBlock()).build())
                         .with(LootItem.lootTableItem(BWGBlocks.PROTEA_FLOWER.getBlock()).build())
                         .with(LootItem.lootTableItem(BWGBlocks.SILVER_VASE_FLOWER.getBlock()).build());
-                builder.withPool(pool);
+                tableBuilder.withPool(pool);
             }
         });
     }

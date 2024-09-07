@@ -1,0 +1,33 @@
+{
+  "parent": "biomeswevegone:biomeswevegone/husbandry/root",
+  "criteria": {
+    "white_puffball_cap": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:white_puffball_cap"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.biomeswevegone.husbandry.forager.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "biomeswevegone:white_puffball_cap"
+    },
+    "title": {
+      "translate": "advancements.biomeswevegone.husbandry.forager.title"
+    }
+  },
+  "requirements": [
+    [
+      "white_puffball_cap"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

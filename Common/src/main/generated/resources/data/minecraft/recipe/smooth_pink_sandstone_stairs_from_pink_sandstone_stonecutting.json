@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "biomeswevegone:pink_sandstone"
+  },
+  "result": {
+    "count": 1,
+    "id": "biomeswevegone:smooth_pink_sandstone_stairs"
+  }
+}

@@ -40,7 +40,7 @@ subprojects {
         maven("https://maven.minecraftforge.net/")
         maven("https://maven.neoforged.net/releases/")
         maven("https://maven.architectury.dev/")
-        maven("https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/")
+        maven("https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/").content { includeGroup("software.bernie.geckolib") }
         maven("https://maven.jt-dev.tech/releases")
         maven("https://maven.jt-dev.tech/snapshots")
         maven("https://api.modrinth.com/maven").content { includeGroup("maven.modrinth") }
@@ -56,7 +56,7 @@ subprojects {
         "minecraft"("com.mojang:minecraft:$minecraftVersion")
         "mappings"(loom.layered{
             officialMojangMappings()
-            parchment("org.parchmentmc.data:parchment-$minecraftVersion:${project.properties["parchment"]}@zip")
+            parchment("org.parchmentmc.data:parchment-1.21:${project.properties["parchment"]}@zip")
         })
 
         compileOnly("org.jetbrains:annotations:24.1.0")
@@ -67,12 +67,12 @@ subprojects {
     java {
         withSourcesJar()
 
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     tasks.withType<JavaCompile>().configureEach {
-        options.release.set(17)
+        options.release.set(21)
     }
 
     publishing {
@@ -113,7 +113,7 @@ subprojects {
             setReleaseType(ReleaseType.BETA)
             setGameVersions(minecraftVersion)
             setCurseEnvironment(CurseEnvironment.BOTH)
-            setJavaVersions(JavaVersion.VERSION_17, JavaVersion.VERSION_18, JavaVersion.VERSION_19, JavaVersion.VERSION_20, JavaVersion.VERSION_21, JavaVersion.VERSION_22)
+            setJavaVersions(JavaVersion.VERSION_21, JavaVersion.VERSION_22)
             val softDepends = mutableListOf("wthit")
             curseDepends.optional.set(softDepends)
             modrinthDepends.optional.set(softDepends)

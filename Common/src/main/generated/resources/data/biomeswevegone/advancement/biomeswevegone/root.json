@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "biomeswevegone:textures/block/lush_dirt.png",
+    "description": {
+      "translate": "advancements.biomeswevegone.description.root"
+    },
+    "icon": {
+      "count": 1,
+      "id": "biomeswevegone:bwg_logo"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.biomeswevegone.title.root"
+    }
+  },
+  "requirements": [
+    [
+      "tick"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

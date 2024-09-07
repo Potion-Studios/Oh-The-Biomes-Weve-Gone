@@ -7,8 +7,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
-import net.minecraft.data.worldgen.Structures;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantFloat;
@@ -71,7 +70,7 @@ public class BWGStructures {
             {
                 HolderGetter<PlacedFeature> placedFeatureHolderGetter = structureFactoryBootstapContext.lookup(Registries.PLACED_FEATURE);
                 return new LargeLakeStructure(
-                        Structures.structure(structureFactoryBootstapContext.lookup(Registries.BIOME).getOrThrow(BWGBiomeTags.LARGE_COLD_LAKE),
+                        new Structure.StructureSettings(structureFactoryBootstapContext.lookup(Registries.BIOME).getOrThrow(BWGBiomeTags.LARGE_COLD_LAKE),
                                 Map.of(
                                         MobCategory.WATER_AMBIENT,
                                         new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.PIECE, SimpleWeightedRandomList.create(new MobSpawnSettings.SpawnerData(EntityType.SALMON, 5, 4, 10)))
@@ -289,20 +288,15 @@ public class BWGStructures {
     }
 
     private static Structure.StructureSettings structure(HolderSet<Biome> tag, TerrainAdjustment adj) {
-        return Structures.structure(tag, Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, adj);
+        return new Structure.StructureSettings(tag, Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, adj);
     }
 
     private static Structure.StructureSettings structure(HolderSet<Biome> tag, Map<MobCategory, StructureSpawnOverride> spawnOverrides, TerrainAdjustment adj) {
-        return Structures.structure(tag, spawnOverrides, GenerationStep.Decoration.SURFACE_STRUCTURES, adj);
+        return new Structure.StructureSettings(tag, spawnOverrides, GenerationStep.Decoration.SURFACE_STRUCTURES, adj);
     }
 
     private static Structure.StructureSettings structure(HolderSet<Biome> tag, GenerationStep.Decoration decoration, TerrainAdjustment adj) {
-        return Structures.structure(tag, Map.of(), decoration, adj);
-    }
-
-    private static JigsawStructure createJigsaw(Structure.StructureSettings settings, Holder<StructureTemplatePool> startPool, int maxDepth,
-                                                HeightProvider startHeight, boolean useExpansionHack) {
-        return new JigsawStructure(settings, startPool, maxDepth, startHeight, useExpansionHack);
+        return new Structure.StructureSettings(tag, Map.of(), decoration, adj);
     }
 
     private static JigsawStructure createJigsaw(Structure.StructureSettings settings, Holder<StructureTemplatePool> startPool, int maxDepth,
@@ -318,7 +312,7 @@ public class BWGStructures {
 
     @FunctionalInterface
     public interface StructureFactory {
-        Structure generate(BootstapContext<Structure> structureFactoryBootstapContext);
+        Structure generate(BootstrapContext<Structure> structureFactoryBootstapContext);
     }
 
 }

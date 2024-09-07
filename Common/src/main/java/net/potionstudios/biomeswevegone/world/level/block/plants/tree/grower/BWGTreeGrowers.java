@@ -2,7 +2,7 @@ package net.potionstudios.biomeswevegone.world.level.block.plants.tree.grower;
 
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.configured.BWGOverworldTreeConfiguredFeatures;
 
@@ -15,7 +15,7 @@ import java.util.function.Supplier;
  * @author CorgiTaco, Joseph T. McQuigg
  */
 public class BWGTreeGrowers {
-    public static final Supplier<AbstractTreeGrower> ASPEN = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> ASPEN = () -> new BWGTreeGrower("aspen",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.ASPEN_SHRUB1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.ASPEN_SHRUB2, 1)
@@ -26,42 +26,42 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.ASPEN_TREE5, 2)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> BAOBAB = () -> new BWGMegaTreeGrower(SimpleWeightedRandomList.empty(),
+    public static final Supplier<TreeGrower> BAOBAB = () -> new BWGMegaTreeGrower("baobab",SimpleWeightedRandomList.empty(),
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.BAOBAB_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.BAOBAB_TREE2, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.BAOBAB_TREE3, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> BLUE_ENCHANTED = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> BLUE_ENCHANTED = () -> new BWGTreeGrower("blue_enchanted",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.BLUE_ENCHANTED_SAPLING_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.BLUE_ENCHANTED_SAPLING_TREE2, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.BLUE_ENCHANTED_SAPLING_TREE3, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> CIKA = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> CIKA = () -> new BWGTreeGrower("cika",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.CIKA_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.CIKA_TREE2, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.CIKA_TREE3, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> CYPRESS = () -> new BWGMegaTreeGrower(SimpleWeightedRandomList.empty(),
+    public static final Supplier<TreeGrower> CYPRESS = () -> new BWGMegaTreeGrower("cypress",SimpleWeightedRandomList.empty(),
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.CYPRESS_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.CYPRESS_TREE2, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.CYPRESS_TREE3, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> EBONY = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> EBONY = () -> new BWGTreeGrower("ebony",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.EBONY_BUSH1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.EBONY_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.EBONY_TREE2, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> FIR = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> FIR = () -> new BWGTreeGrower("fir",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.CONIFER_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.CONIFER_TREE2, 1)
@@ -73,14 +73,14 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.CONIFER_TREE8, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> GREEN_ENCHANTED = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> GREEN_ENCHANTED = () -> new BWGTreeGrower("green_enchanted",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.GREEN_ENCHANTED_SAPLING_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.GREEN_ENCHANTED_SAPLING_TREE2, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.GREEN_ENCHANTED_SAPLING_TREE3, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> HOLLY = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> HOLLY = () -> new BWGTreeGrower("holly",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.HOLLY_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.HOLLY_TREE2, 1)
@@ -88,7 +88,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.HOLLY_TREE4, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> IRONWOOD = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> IRONWOOD = () -> new BWGTreeGrower("ironwood",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.IRONWOOD_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.IRONWOOD_TREE2, 1)
@@ -100,7 +100,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.FLOWERING_IRONWOOD_TREE4, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> JACARANDA = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> JACARANDA = () -> new BWGTreeGrower("jacaranda",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.JACARANDA_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.JACARANDA_TREE2, 1)
@@ -112,7 +112,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.INDIGO_JACARANDA_TREE4, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> MAHOGANY = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> MAHOGANY = () -> new BWGTreeGrower("mahogany",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.MAHOGANY_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.MAHOGANY_TREE2, 1)
@@ -120,7 +120,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.MAHOGANY_TREE4, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> MAPLE = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> MAPLE = () -> new BWGTreeGrower("maple",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.MAPLE_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.MAPLE_TREE2, 1)
@@ -128,7 +128,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.MAPLE_TREE4, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> PALM = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> PALM = () -> new BWGTreeGrower("palm",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.PALM_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.PALM_TREE2, 1)
@@ -136,7 +136,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.PALM_TREE4, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> PINE = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> PINE = () -> new BWGTreeGrower("pine",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.PINE_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.PINE_TREE2, 1)
@@ -144,20 +144,20 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.PINE_LARGE_TREE2, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> RAINBOW_EUCALYPTUS = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> RAINBOW_EUCALYPTUS = () -> new BWGTreeGrower("rainbow_eucalyptus",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.RAINBOW_EUCALYPTUS_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.RAINBOW_EUCALYPTUS_LARGE_TREE1, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> REDWOOD = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> REDWOOD = () -> new BWGTreeGrower("redwood",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.REDWOOD_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.REDWOOD_TREE2, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.REDWOOD_TREE3, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> WHITE_SAKURA = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> WHITE_SAKURA = () -> new BWGTreeGrower("white_sakura",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.SAKURA_WHITE_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.SAKURA_WHITE_TREE2, 1)
@@ -167,7 +167,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.SAKURA_WHITE_TREE6, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> YELLOW_SAKURA = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> YELLOW_SAKURA = () -> new BWGTreeGrower("yellow_sakura",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.SAKURA_YELLOW_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.SAKURA_YELLOW_TREE2, 1)
@@ -177,7 +177,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.SAKURA_YELLOW_TREE6, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> SKYRIS = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> SKYRIS = () -> new BWGTreeGrower("skyris",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.SKYRIS_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.SKYRIS_TREE2, 1)
@@ -185,7 +185,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.SKYRIS_TREE4, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> WHITE_MANGROVE = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> WHITE_MANGROVE = () -> new BWGTreeGrower("white_mangrove",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.WHITE_MANGROVE_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.WHITE_MANGROVE_TREE2, 1)
@@ -193,7 +193,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.WHITE_MANGROVE_TREE4, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> WILLOW = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> WILLOW = () -> new BWGTreeGrower("willow",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.WILLOW_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.WILLOW_TREE2, 1)
@@ -201,7 +201,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.WILLOW_TREE4, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> WITCH_HAZEL = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> WITCH_HAZEL = () -> new BWGTreeGrower("witch_hazel",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.WITCH_HAZEL1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.WITCH_HAZEL2, 1)
@@ -209,7 +209,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.WITCH_HAZEL4, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> ZELKOVA = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> ZELKOVA = () -> new BWGTreeGrower("zelkova",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.ZELKOVA_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.ZELKOVA_TREE2, 1)
@@ -219,19 +219,19 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.ZELKOVA_BROWN_TREE3, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> PALO_VERDE = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> PALO_VERDE = () -> new BWGTreeGrower("palo_verde",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.PALO_VERDE_TREE1,1)
                     .add(BWGOverworldTreeConfiguredFeatures.PALO_VERDE_TREE2,1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> ARAUCARIA = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> ARAUCARIA = () -> new BWGTreeGrower("araucaria",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.ARAUCARIA_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.ARAUCARIA_TREE2, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> BLUE_SPRUCE = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> BLUE_SPRUCE = () -> new BWGTreeGrower("blue_spruce",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.BLUE_SPRUCE_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.BLUE_SPRUCE_TREE2, 1)
@@ -244,14 +244,14 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.BLUE_SPRUCE_TREE_LARGE1, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> BROWN_BIRCH = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> BROWN_BIRCH = () -> new BWGTreeGrower("brown_birch",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.BROWN_BIRCH_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.BROWN_BIRCH_TREE2, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.BROWN_BIRCH_TREE3, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> BROWN_OAK = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> BROWN_OAK = () -> new BWGTreeGrower("brown_oak",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.BROWN_OAK_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.BROWN_OAK_TREE2, 1)
@@ -261,14 +261,14 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.BROWN_OAK_TREE_LARGE3,1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> BROWN_ZELKOVA = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> BROWN_ZELKOVA = () -> new BWGTreeGrower("brown_zelkova",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.ZELKOVA_BROWN_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.ZELKOVA_BROWN_TREE2, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.ZELKOVA_BROWN_TREE3, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> INDIGO_JACARANDA = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> INDIGO_JACARANDA = () -> new BWGTreeGrower("indigo_jacaranda",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.INDIGO_JACARANDA_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.INDIGO_JACARANDA_TREE2, 1)
@@ -276,7 +276,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.INDIGO_JACARANDA_TREE4, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> ORANGE_BIRCH = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> ORANGE_BIRCH = () -> new BWGTreeGrower("orange_birch",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.BIRCH_ORANGE_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.BIRCH_ORANGE_TREE2, 1)
@@ -284,7 +284,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.BIRCH_ORANGE_TREE4,1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> ORANGE_OAK = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> ORANGE_OAK = () -> new BWGTreeGrower("orange_oak",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.ORANGE_OAK_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.ORANGE_OAK_TREE2, 1)
@@ -294,7 +294,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.ORANGE_OAK_TREE_LARGE3,1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> ORANGE_SPRUCE = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> ORANGE_SPRUCE = () -> new BWGTreeGrower("orange_spruce",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.SPRUCE_ORANGE_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.SPRUCE_ORANGE_TREE2, 1)
@@ -307,7 +307,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.SPRUCE_ORANGE_TREE_LARGE1, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> ORCHARD = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> ORCHARD = () -> new BWGTreeGrower("orchard",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.ORCHARD_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.ORCHARD_TREE2, 1)
@@ -315,7 +315,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.ORCHARD_TREE4, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> RED_BIRCH = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> RED_BIRCH = () -> new BWGTreeGrower("red_birch",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.RED_BIRCH_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.RED_BIRCH_TREE2, 1)
@@ -323,7 +323,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.RED_BIRCH_TREE4,1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> RED_MAPLE = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> RED_MAPLE = () -> new BWGTreeGrower("red_maple",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.RED_MAPLE_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.RED_MAPLE_TREE2, 1)
@@ -332,7 +332,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.RED_MAPLE_TREE5, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> RED_OAK = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> RED_OAK = () -> new BWGTreeGrower("red_oak",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.RED_OAK_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.RED_OAK_TREE2, 1)
@@ -342,7 +342,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.RED_OAK_TREE_LARGE3,1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> RED_SPRUCE = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> RED_SPRUCE = () -> new BWGTreeGrower("red_spruce",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.RED_SPRUCE_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.RED_SPRUCE_TREE2, 1)
@@ -355,7 +355,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.RED_SPRUCE_TREE_LARGE1, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> SILVER_MAPLE = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> SILVER_MAPLE = () -> new BWGTreeGrower("silver_maple",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.SILVER_MAPLE_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.SILVER_MAPLE_TREE2, 1)
@@ -363,7 +363,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.SILVER_MAPLE_TREE4, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> YELLOW_BIRCH = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> YELLOW_BIRCH = () -> new BWGTreeGrower("yellow_birch",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.YELLOW_BIRCH_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.YELLOW_BIRCH_TREE2, 1)
@@ -371,7 +371,7 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.YELLOW_BIRCH_TREE4,1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> YELLOW_SPRUCE = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> YELLOW_SPRUCE = () -> new BWGTreeGrower("yellow_spruce",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.SPRUCE_YELLOW_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.SPRUCE_YELLOW_TREE2, 1)
@@ -384,33 +384,33 @@ public class BWGTreeGrowers {
                     .add(BWGOverworldTreeConfiguredFeatures.SPRUCE_YELLOW_TREE_LARGE1, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> YUCCA = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> YUCCA = () -> new BWGTreeGrower("yucca",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.YUCCA_TREE1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.YUCCA_TREE2, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> FIRECRACKER = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> FIRECRACKER = () -> new BWGTreeGrower("firecracker",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.FIRECRACKER_SHRUB, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.FIRECRACKER_SHRUB2, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> GIANT_ALLIUM = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> GIANT_ALLIUM = () -> new BWGTreeGrower("giant_allium",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.GIANT_ALLIUM_1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.GIANT_ALLIUM_2, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.GIANT_ALLIUM_3, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> GIANT_PINK_ALLIUM = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> GIANT_PINK_ALLIUM = () -> new BWGTreeGrower("giant_pink_allium",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.GIANT_PINK_ALLIUM_1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.GIANT_PINK_ALLIUM_2, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.GIANT_PINK_ALLIUM_3, 1)
                     .build());
 
-    public static final Supplier<AbstractTreeGrower> GIANT_WHITE_ALLIUM = () -> new BWGTreeGrower(
+    public static final Supplier<TreeGrower> GIANT_WHITE_ALLIUM = () -> new BWGTreeGrower("giant_white_allium",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.GIANT_WHITE_ALLIUM_1, 1)
                     .add(BWGOverworldTreeConfiguredFeatures.GIANT_WHITE_ALLIUM_2, 1)

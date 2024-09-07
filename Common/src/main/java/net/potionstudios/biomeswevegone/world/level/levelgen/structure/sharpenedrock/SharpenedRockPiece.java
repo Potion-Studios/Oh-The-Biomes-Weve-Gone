@@ -44,7 +44,7 @@ public class SharpenedRockPiece extends StructurePiece {
 
     public SharpenedRockPiece(StructurePieceSerializationContext context, CompoundTag tag) {
         super(BWGStructurePieceTypes.SHARPENED_ROCK_PIECE.get(), tag);
-        this.origin = NbtUtils.readBlockPos(tag.getCompound("origin"));
+        this.origin = NbtUtils.readBlockPos(tag, "origin").orElseThrow();
         this.radius = tag.getInt("radius");
         this.hasFoundation = tag.getBoolean("foundation");
         this.hasSpike = tag.getBoolean("spike");

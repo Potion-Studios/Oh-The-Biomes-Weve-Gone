@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "biomeswevegone:green_enchanted_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "biomeswevegone:green_enchanted_planks"
+  }
+}

@@ -24,7 +24,7 @@ import org.jetbrains.annotations.NotNull;
 public class BWGCraftingTable extends CraftingTableBlock {
     private static final Component CONTAINER_TITLE = Component.translatable("container.crafting");
     public BWGCraftingTable(MapColor color) {
-        super(Properties.copy(Blocks.CRAFTING_TABLE).mapColor(color));
+        super(Properties.ofFullCopy(Blocks.CRAFTING_TABLE).mapColor(color));
     }
 
     @Override

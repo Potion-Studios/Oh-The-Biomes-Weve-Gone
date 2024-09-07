@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomeswevegone:cooked_yucca_fruit_from_smelting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_yucca_fruit": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:yucca_fruit"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_yucca_fruit"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomeswevegone:cooked_yucca_fruit_from_smelting"
+    ]
+  }
+}

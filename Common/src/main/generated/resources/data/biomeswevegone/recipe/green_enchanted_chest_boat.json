@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "chest_boat",
+  "ingredients": [
+    {
+      "item": "minecraft:chest"
+    },
+    {
+      "item": "biomeswevegone:green_enchanted_planks"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "biomeswevegone:green_enchanted_chest_boat"
+  }
+}

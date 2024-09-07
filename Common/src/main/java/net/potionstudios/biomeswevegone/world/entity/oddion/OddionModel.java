@@ -2,8 +2,9 @@ package net.potionstudios.biomeswevegone.world.entity.oddion;
 
 import net.minecraft.resources.ResourceLocation;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import software.bernie.geckolib.core.animatable.GeoAnimatable;
-import software.bernie.geckolib.core.animation.Animation;
+
+import software.bernie.geckolib.animatable.GeoAnimatable;
+import software.bernie.geckolib.animation.Animation;
 import software.bernie.geckolib.model.GeoModel;
 
 /**

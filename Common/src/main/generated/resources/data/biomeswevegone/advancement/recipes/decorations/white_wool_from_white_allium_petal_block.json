@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomeswevegone:white_wool_from_white_allium_petal_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_white_allium_petal_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:white_allium_petal_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_white_allium_petal_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomeswevegone:white_wool_from_white_allium_petal_block"
+    ]
+  }
+}

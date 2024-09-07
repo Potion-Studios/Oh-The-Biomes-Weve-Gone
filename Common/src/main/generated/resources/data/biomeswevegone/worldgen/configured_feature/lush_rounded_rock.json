@@ -133,24 +133,18 @@
     ],
     "height": {
       "type": "minecraft:uniform",
-      "value": {
-        "max_inclusive": 64,
-        "min_inclusive": 33
-      }
+      "max_inclusive": 64,
+      "min_inclusive": 33
     },
     "noise_frequency": {
       "type": "minecraft:uniform",
-      "value": {
-        "max_exclusive": 0.1,
-        "min_inclusive": 0.01
-      }
+      "max_exclusive": 0.1,
+      "min_inclusive": 0.01
     },
     "radius": {
       "type": "minecraft:uniform",
-      "value": {
-        "max_inclusive": 11,
-        "min_inclusive": 4
-      }
+      "max_inclusive": 11,
+      "min_inclusive": 4
     }
   }
 }

@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class BWGCeilingHangingSignBlock extends CeilingHangingSignBlock {
 	public BWGCeilingHangingSignBlock(Properties properties, WoodType type) {
-		super(properties, type);
+		super(type, properties);
 	}
 
 	@Override

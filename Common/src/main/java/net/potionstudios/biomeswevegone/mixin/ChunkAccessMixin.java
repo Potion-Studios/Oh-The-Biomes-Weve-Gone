@@ -1,6 +1,7 @@
 package net.potionstudios.biomeswevegone.mixin;
 
 import net.minecraft.world.level.chunk.*;
+import net.minecraft.world.level.chunk.status.ChunkStatus;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.potionstudios.biomeswevegone.util.GeneratorHeightGetter;
@@ -14,7 +15,7 @@ import java.util.Arrays;
 public abstract class ChunkAccessMixin implements GeneratorHeightGetter {
 
     @Shadow
-    public abstract ChunkStatus getStatus();
+    public abstract ChunkStatus getPersistedStatus();
 
     @Shadow
     public abstract int getHeight(Heightmap.Types type, int x, int z);
@@ -24,7 +25,7 @@ public abstract class ChunkAccessMixin implements GeneratorHeightGetter {
 
     @Override
     public int getHeight(ChunkGenerator generator, Heightmap.Types heightmapType, int worldX, int worldZ, RandomState randomState, boolean sampleRaw) {
-        if (!sampleRaw && getStatus().isOrAfter(ChunkStatus.NOISE)) {
+        if (!sampleRaw && getPersistedStatus().isOrAfter(ChunkStatus.NOISE)) {
             return getHeight(heightmapType, worldX, worldZ);
         } else {
             if (cachedGeneratorHeights == null) {

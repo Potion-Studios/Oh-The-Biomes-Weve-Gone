@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeswevegone:pink_allium_petal_block"
+    },
+    {
+      "item": "biomeswevegone:pink_allium_petal_block"
+    },
+    {
+      "item": "biomeswevegone:pink_allium_petal_block"
+    },
+    {
+      "item": "biomeswevegone:pink_allium_petal_block"
+    },
+    {
+      "item": "biomeswevegone:pink_allium_petal_block"
+    },
+    {
+      "item": "biomeswevegone:pink_allium_petal_block"
+    },
+    {
+      "item": "biomeswevegone:pink_allium_petal_block"
+    },
+    {
+      "item": "biomeswevegone:pink_allium_petal_block"
+    },
+    {
+      "item": "biomeswevegone:pink_allium_petal_block"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:pink_wool"
+  }
+}

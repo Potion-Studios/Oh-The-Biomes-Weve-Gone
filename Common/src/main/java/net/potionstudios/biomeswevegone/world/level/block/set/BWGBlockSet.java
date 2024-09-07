@@ -44,7 +44,7 @@ public class BWGBlockSet {
     }
 
     public BWGBlockSet(String name, MapColor color) {
-        BlockBehaviour.Properties properties = BlockBehaviour.Properties.copy(Blocks.STONE).mapColor(color);
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).mapColor(color);
         this.base = BWGBlocks.registerBasicBlockWithItem(name ,properties);
         this.slab = BWGBlocks.registerBlockItem(name + "_slab", () -> new SlabBlock(properties));
         this.stairs = BWGBlocks.registerBlockItem(name + "_stairs", () -> new StairBlock(base.get().defaultBlockState(), properties));
@@ -53,7 +53,7 @@ public class BWGBlockSet {
     }
 
     public BWGBlockSet(String name, String alt, MapColor color) {
-        BlockBehaviour.Properties properties = BlockBehaviour.Properties.copy(Blocks.STONE).mapColor(color);
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).mapColor(color);
         this.base = BWGBlocks.registerBasicBlockWithItem(name ,properties);
         this.slab = BWGBlocks.registerBlockItem(alt + "_slab", () -> new SlabBlock(properties));
         this.stairs = BWGBlocks.registerBlockItem(alt + "_stairs", () -> new StairBlock(base.get().defaultBlockState(), properties));

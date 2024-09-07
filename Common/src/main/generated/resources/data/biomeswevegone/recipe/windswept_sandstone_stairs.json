@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": [
+      {
+        "item": "biomeswevegone:windswept_sandstone"
+      },
+      {
+        "item": "biomeswevegone:chiseled_windswept_sandstone"
+      },
+      {
+        "item": "biomeswevegone:cut_windswept_sandstone"
+      }
+    ]
+  },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "id": "biomeswevegone:windswept_sandstone_stairs"
+  }
+}

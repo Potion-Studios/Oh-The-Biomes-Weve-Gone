@@ -1,0 +1,28 @@
+{
+  "parent": "biomeswevegone:biomeswevegone/root",
+  "criteria": {
+    "consumed_item": {
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancements.biomeswevegone.husbandry.root.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "biomeswevegone:green_apple"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.biomeswevegone.husbandry.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "consumed_item"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

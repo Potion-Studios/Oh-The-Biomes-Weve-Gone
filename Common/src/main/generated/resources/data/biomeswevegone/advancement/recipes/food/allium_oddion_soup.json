@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cooked_oddion_bulb": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:cooked_oddion_bulb"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomeswevegone:allium_oddion_soup"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cooked_oddion_bulb"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomeswevegone:allium_oddion_soup"
+    ]
+  }
+}

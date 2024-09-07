@@ -1,6 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.structure.canyon;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgitaco.corgilib.math.LongPair;
 import it.unimi.dsi.fastutil.ints.IntIntImmutablePair;
@@ -30,11 +30,11 @@ import java.util.Optional;
 
 public class CanyonStructure extends Structure {
 
-    public static final Codec<CanyonStructure> CODEC = RecordCodecBuilder.<CanyonStructure>mapCodec(builder ->
+    public static final MapCodec<CanyonStructure> CODEC = RecordCodecBuilder.mapCodec(builder ->
             builder.group(
                     settingsCodec(builder)
             ).apply(builder, CanyonStructure::new)
-    ).codec();
+    );
 
     public CanyonStructure(StructureSettings settings) {
         super(settings);
@@ -94,7 +94,7 @@ public class CanyonStructure extends Structure {
     }
 
     private static BlockPos getNearest(BlockPos anchor, List<BlockPos> positions) {
-        BlockPos lowest = positions.get(0);
+        BlockPos lowest = positions.getFirst();
 
         double closestDist = anchor.distSqr(lowest);
 

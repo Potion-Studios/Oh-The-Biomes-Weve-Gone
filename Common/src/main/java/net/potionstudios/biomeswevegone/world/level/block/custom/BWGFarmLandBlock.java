@@ -29,7 +29,7 @@ public class BWGFarmLandBlock extends FarmBlock {
     private final Supplier<Block> dirt;
 
     public BWGFarmLandBlock(Supplier<Block> dirt) {
-        super(BlockBehaviour.Properties.copy(Blocks.FARMLAND).strength(0.2f));
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.FARMLAND).strength(0.2f));
         this.dirt = dirt;
     }
 
@@ -58,7 +58,7 @@ public class BWGFarmLandBlock extends FarmBlock {
 
     @Override
     public void fallOn(Level level, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull Entity entity, float fallDistance) {
-        if (!level.isClientSide
+        if (!level.isClientSide()
                 && level.random.nextFloat() < fallDistance - 0.5F
                 && entity instanceof LivingEntity
                 && (entity instanceof Player || level.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING))

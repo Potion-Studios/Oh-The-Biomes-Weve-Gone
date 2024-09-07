@@ -19,7 +19,7 @@ public class BWGDirtPathBlock extends DirtPathBlock {
     private final Supplier<? extends Block> dirtBlock;
 
     public BWGDirtPathBlock(Supplier<? extends Block> dirtBlock) {
-        super(BlockBehaviour.Properties.copy(Blocks.DIRT_PATH));
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT_PATH));
         this.dirtBlock = dirtBlock;
     }
 

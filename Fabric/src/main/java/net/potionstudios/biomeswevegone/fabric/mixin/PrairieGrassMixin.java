@@ -68,7 +68,7 @@ public abstract class PrairieGrassMixin extends SpreadingSnowyDirtBlock implemen
                             continue;
                         }
 
-                        holder = ((RandomPatchConfiguration) list.get(0).config()).feature();
+                        holder = ((RandomPatchConfiguration) list.getFirst().config()).feature();
                     } else {
                         if (!optional.isPresent()) {
                             continue;

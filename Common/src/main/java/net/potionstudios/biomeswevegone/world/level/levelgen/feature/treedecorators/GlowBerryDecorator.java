@@ -1,6 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.feature.treedecorators;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -17,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class GlowBerryDecorator extends TreeDecorator {
 
-    public static final Codec<GlowBerryDecorator> CODEC = RecordCodecBuilder.create(instance ->
+    public static final MapCodec<GlowBerryDecorator> CODEC = RecordCodecBuilder.mapCodec(instance ->
             instance.group(
                     FloatProvider.CODEC.fieldOf("probability").forGetter(glowBerryDecorator -> glowBerryDecorator.probability),
                     IntProvider.CODEC.fieldOf("length").forGetter(glowBerryDecorator -> glowBerryDecorator.length),

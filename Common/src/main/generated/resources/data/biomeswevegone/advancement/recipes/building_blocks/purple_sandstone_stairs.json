@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chiseled_purple_sandstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:chiseled_purple_sandstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_cut_purple_sandstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:cut_purple_sandstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_purple_sandstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:purple_sandstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomeswevegone:purple_sandstone_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_purple_sandstone",
+      "has_chiseled_purple_sandstone",
+      "has_cut_purple_sandstone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomeswevegone:purple_sandstone_stairs"
+    ]
+  }
+}

@@ -2,7 +2,7 @@ package net.potionstudios.biomeswevegone.world.damagesource;
 
 import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.damagesource.DamageEffects;
 import net.minecraft.world.damagesource.DamageScaling;
@@ -26,6 +26,6 @@ public interface BWGDamageTypes {
 
     @FunctionalInterface
     interface DamageTypeFactory {
-        DamageType generate(BootstapContext<DamageType> damageTypeBootstapContext);
+        DamageType generate(BootstrapContext<DamageType> damageTypeBootstapContext);
     }
 }

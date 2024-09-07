@@ -1,6 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.structure.plateau;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.QuartPos;
@@ -25,11 +25,11 @@ import java.util.Optional;
 
 public class GourPlateauStructure extends Structure {
 
-    public static final Codec<GourPlateauStructure> CODEC = RecordCodecBuilder.<GourPlateauStructure>mapCodec(builder ->
+    public static final MapCodec<GourPlateauStructure> CODEC = RecordCodecBuilder.mapCodec(builder ->
             builder.group(
                     settingsCodec(builder)
             ).apply(builder, GourPlateauStructure::new)
-    ).codec();
+    );
 
     public GourPlateauStructure(StructureSettings settings) {
         super(settings);

@@ -29,8 +29,6 @@ configurations {
 
 loom.accessWidenerPath.set(project(":Common").loom.accessWidenerPath)
 
-fabricApi.configureDataGeneration()
-
 dependencies {
     modImplementation("net.fabricmc:fabric-loader:${project.properties["fabric_loader_version"]}")
     modApi("net.fabricmc.fabric-api:fabric-api:${project.properties["fabric_api_version"]}+$minecraftVersion")
@@ -48,8 +46,6 @@ dependencies {
     modCompileOnly("mcp.mobius.waila:wthit-api:fabric-${project.properties["WTHIT"]}")  { isTransitive = false }
     modRuntimeOnly("mcp.mobius.waila:wthit:fabric-${project.properties["WTHIT"]}")  { isTransitive = false }
     modRuntimeOnly("lol.bai:badpackets:fabric-${project.properties["badPackets"]}")  { isTransitive = false }
-
-    modLocalRuntime("maven.modrinth:cyanide:jCWZy4Gl")
 }
 
 tasks {
@@ -63,8 +59,8 @@ tasks {
 
     shadowJar {
         exclude("net/potionstudios/biomeswevegone/fabric/datagen/**",
-            "architectury.common.json", ".cache/**", "data/biomeswevegone/forge/**",
-            "data/forge/**")
+            "architectury.common.json", ".cache/**", "data/biomeswevegone/neoforge/**",
+            "data/neoforge/**")
         configurations = listOf(project.configurations.getByName("shadowBundle"))
         archiveClassifier.set("dev-shadow")
     }

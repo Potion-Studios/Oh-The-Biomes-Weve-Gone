@@ -1,6 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.blockpredicates;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.valueproviders.FloatProvider;
@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class RandomChancePredicate implements BlockPredicate {
 
-    public static final Codec<RandomChancePredicate> CODEC = RecordCodecBuilder.create(instance ->
+    public static final MapCodec<RandomChancePredicate> CODEC = RecordCodecBuilder.mapCodec(instance ->
             instance.group(
                     FloatProvider.CODEC.fieldOf("chance").forGetter(randomChancePredicate -> randomChancePredicate.chance)
             ).apply(instance, RandomChancePredicate::new)

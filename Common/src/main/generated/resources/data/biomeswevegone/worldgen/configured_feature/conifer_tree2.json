@@ -12,10 +12,8 @@
     "canopy_location": "biomeswevegone:features/trees/conifer/conifer_canopy2",
     "height": {
       "type": "minecraft:biased_to_bottom",
-      "value": {
-        "max_inclusive": 30,
-        "min_inclusive": 23
-      }
+      "max_inclusive": 30,
+      "min_inclusive": 23
     },
     "leaves_provider": {
       "type": "minecraft:weighted_state_provider",

@@ -1,6 +1,7 @@
 package net.potionstudios.biomeswevegone.world.entity.manowar;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -26,31 +27,30 @@ import net.minecraft.world.entity.animal.Bucketable;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.GeoAnimatable;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimatableManager;
-import software.bernie.geckolib.core.animation.AnimationController;
-import software.bernie.geckolib.core.animation.AnimationState;
-import software.bernie.geckolib.core.animation.RawAnimation;
-import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animation.AnimationState;
+import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 /**
  * The ManOWar Entity
+ *
+ * @author YaBoiChips
  * @see Animal
  * @see GeoEntity
- * @author YaBoiChips
  */
 public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
@@ -77,18 +77,8 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
     public ManOWar(EntityType<? extends ManOWar> entityType, Level level) {
         super(entityType, level);
-        this.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
+        this.setPathfindingMalus(PathType.WATER, 0.0F);
         this.tentacleSpeed = 1.0F / (this.random.nextFloat() + 1.0F) * 0.2F;
-    }
-
-    @Override
-    public boolean canBreatheUnderwater() {
-        return true;
-    }
-
-    @Override
-    public @NotNull MobType getMobType() {
-        return MobType.WATER;
     }
 
     @Override
@@ -126,14 +116,12 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     }
 
     @Override
-    public boolean canBeLeashed(@NotNull Player player) {
+    public boolean canBeLeashed() {
         return false;
     }
 
     public static boolean checkManOWarSpawnRules(EntityType<? extends ManOWar> entity, LevelAccessor world, MobSpawnType spawnType, BlockPos pos, RandomSource rand) {
-        int i = world.getSeaLevel();
-        int j = i - 2;
-        return pos.getY() <= j && world.getFluidState(pos.below()).is(FluidTags.WATER);
+        return pos.getY() <= (world.getSeaLevel() - 2) && world.getFluidState(pos.below()).is(FluidTags.WATER);
     }
 
     @Override
@@ -206,18 +194,15 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
         return this.tx != 0.0F || this.ty != 0.0F || this.tz != 0.0F;
     }
 
-
     @Override
-    public SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor serverLevelAccessor, @NotNull DifficultyInstance difficultyInstance, @NotNull MobSpawnType mobSpawnType,  SpawnGroupData spawnGroupData,  CompoundTag compoundTag) {
-        spawnGroupData = super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData, compoundTag);
-        if (mobSpawnType == MobSpawnType.BUCKET && compoundTag != null && compoundTag.contains("BucketVariantTag", 3)) {
-            this.setRawFlag(compoundTag.getInt("BucketVariantTag"));
+    public SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
+        spawnGroupData = super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
+        if (spawnType == MobSpawnType.BUCKET) {
             this.setBaby(true);
             return spawnGroupData;
-        } else {
-            setColor(getRandColor(random));
-            return super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData, compoundTag);
         }
+        this.setColor(getRandColor(random));
+        return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
     }
 
     @Nullable
@@ -229,23 +214,23 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     }
 
     @Override
-    protected void defineSynchedData() {
-        this.entityData.define(COLOR, 0);
-        this.entityData.define(FROM_BUCKET, false);
-        super.defineSynchedData();
+    protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(COLOR, 0);
+        builder.define(FROM_BUCKET, false);
     }
 
     @Override
     public void addAdditionalSaveData(@NotNull CompoundTag compoundTag) {
         super.addAdditionalSaveData(compoundTag);
-        compoundTag.putInt("Flag", this.getRawFlag());
+        compoundTag.putInt("Color", this.getRawColor());
         compoundTag.putBoolean("FromBucket", this.fromBucket());
     }
 
     @Override
     public void readAdditionalSaveData(@NotNull CompoundTag compoundTag) {
         super.readAdditionalSaveData(compoundTag);
-        this.setRawFlag(compoundTag.getInt("Flag"));
+        this.setColor(compoundTag.getInt("Color"));
         this.setFromBucket(compoundTag.getBoolean("FromBucket"));
     }
 
@@ -318,28 +303,22 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
         }
     }
 
-    //getters setters
-    public void setColor( Colors color) {
-        setFlags(color);
+
+    public void setColor(Colors color) {
+        setColor((color.ordinal() & Byte.MAX_VALUE) << 16);
     }
 
-    public void setFlags( Colors color) {
-        setRawFlag((color.ordinal() & Byte.MAX_VALUE) << 16);
-    }
-
-    public int getRawFlag() {
+    public int getRawColor() {
         return entityData.get(COLOR);
     }
 
-    public void setRawFlag(int flag) {
-        entityData.set(COLOR, flag);
+    public void setColor(int color) {
+        entityData.set(COLOR, color);
     }
 
     public Colors getColor() {
-        return Colors.byIndex((getRawFlag() >> 16) & Byte.MAX_VALUE);
+        return Colors.byIndex((getRawColor() >> 16) & Byte.MAX_VALUE);
     }
-
-    //colors
 
     public static Colors getRandColor(RandomSource rand) {
         int i = rand.nextInt(5);
@@ -370,8 +349,8 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     private <E extends GeoAnimatable> PlayState predicate(AnimationState<E> event) {
         AnimationController<E> controller = event.getController();
         controller.transitionLength(0);
-	    controller.setAnimation(this.isInWater() ? SWIM_ANIMATION : BEACHED_ANIMATION);
-	    return PlayState.CONTINUE;
+        controller.setAnimation(this.isInWater() ? SWIM_ANIMATION : BEACHED_ANIMATION);
+        return PlayState.CONTINUE;
     }
 
 
@@ -400,16 +379,21 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     }
 
     @Override
-    public void saveToBucketTag(@NotNull ItemStack var1) {
-        Bucketable.saveDefaultDataToBucketTag(this, var1);
-        CompoundTag compoundtag = var1.getOrCreateTag();
-        compoundtag.putInt("BucketVariantTag", this.getRawFlag());
+    public void saveToBucketTag(@NotNull ItemStack stack) {
+        Bucketable.saveDefaultDataToBucketTag(this, stack);
+        CustomData.update(DataComponents.BUCKET_ENTITY_DATA, stack, compoundTag -> {
+            compoundTag.putInt("Variant", this.getRawColor());
+            compoundTag.putInt("Age", this.getAge());
+        });
     }
 
     @Override
-    public void loadFromBucketTag(@NotNull CompoundTag pTag) {
-        Bucketable.loadDefaultDataFromBucketTag(this, pTag);
-        pTag.putInt("BucketVariantTag", this.getRawFlag());
+    public void loadFromBucketTag(@NotNull CompoundTag tag) {
+        Bucketable.loadDefaultDataFromBucketTag(this, tag);
+        this.setColor(Colors.byIndex(tag.getInt("Variant")));
+        if (tag.contains("Age")) {
+            this.setAge(tag.getInt("Age"));
+        }
     }
 
     @Override

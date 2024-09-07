@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": [
+      {
+        "item": "biomeswevegone:blue_sandstone"
+      },
+      {
+        "item": "biomeswevegone:chiseled_blue_sandstone"
+      }
+    ]
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "id": "biomeswevegone:blue_sandstone_slab"
+  }
+}

@@ -53,8 +53,8 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSE_FIELD_FLOWERS = ConfiguredFeaturesUtil.createConfiguredFeature("rose_field_flowers",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
 
                 return new RandomFeatureConfiguration(ImmutableList.of(
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BWGBlocks.OSIRIA_ROSE.getFeature())), 0.2F),
@@ -66,7 +66,7 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> TULIPS = ConfiguredFeaturesUtil.createConfiguredFeature("tulips",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE), BWGBlocks.MAGENTA_TULIP.getFeature(), BWGBlocks.PURPLE_TULIP.getFeature(), BWGBlocks.YELLOW_TULIP.getFeature(), BWGBlocks.GREEN_TULIP.getFeature(), BWGBlocks.CYAN_TULIP.getFeature())
+            (configuredFeatureBootstrapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE), BWGBlocks.MAGENTA_TULIP.getFeature(), BWGBlocks.PURPLE_TULIP.getFeature(), BWGBlocks.YELLOW_TULIP.getFeature(), BWGBlocks.GREEN_TULIP.getFeature(), BWGBlocks.CYAN_TULIP.getFeature())
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> JAPANESE_ORCHID = createFlowerConfiguredFeature("japanese_orchid", BWGBlocks.JAPANESE_ORCHID);
@@ -77,7 +77,7 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLOVER_AND_FLOWERS = ConfiguredFeaturesUtil.createConfiguredFeature("clovers_and_flowers",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE), FLOWER_PATCH, CLOVER_PATCH)
+            (configuredFeatureBootstrapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE), FLOWER_PATCH, CLOVER_PATCH)
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_SAKURA_PETALS = ConfiguredFeaturesUtil.createConfiguredFeature("white_sakura_petals", Feature.FLOWER, () -> new RandomPatchConfiguration(96, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(createPetalBlockStateList(BWGBlocks.WHITE_SAKURA_PETALS))))));
@@ -85,7 +85,7 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_PETALS = ConfiguredFeaturesUtil.createConfiguredFeature("sakura_petals",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE), WHITE_SAKURA_PETALS, YELLOW_SAKURA_PETALS)
+            (configuredFeatureBootstrapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE), WHITE_SAKURA_PETALS, YELLOW_SAKURA_PETALS)
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ALLIUM = createFlowerConfiguredFeature("allium", () -> Blocks.ALLIUM);
@@ -95,8 +95,8 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ALLIUM_SHRUBLAND_FLOWERS = ConfiguredFeaturesUtil.createConfiguredFeature("allium_shrubland_flowers",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
 
                 return new RandomFeatureConfiguration(ImmutableList.of(
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(ALLIUM_TALL_BUSH)), 0.25F),
@@ -113,7 +113,7 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> AMARANTH_GRASSLAND_FLOWERS = ConfiguredFeaturesUtil.createConfiguredFeature("amaranth_grassland_flowers",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE), BWGBlocks.AMARANTH.getFeature(), BWGBlocks.MAGENTA_AMARANTH.getFeature(), BWGBlocks.ORANGE_AMARANTH.getFeature(), BWGBlocks.PURPLE_AMARANTH.getFeature(), BWGBlocks.CYAN_AMARANTH.getFeature())
+            (configuredFeatureBootstrapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE), BWGBlocks.AMARANTH.getFeature(), BWGBlocks.MAGENTA_AMARANTH.getFeature(), BWGBlocks.ORANGE_AMARANTH.getFeature(), BWGBlocks.PURPLE_AMARANTH.getFeature(), BWGBlocks.CYAN_AMARANTH.getFeature())
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_BLUEBERRY = createPatchConfiguredFeatureState("blue_berry_bush", () -> BWGBlocks.BLUEBERRY_BUSH.get().defaultBlockState().setValue(BWGBerryBush.AGE, 3), 32);
@@ -125,8 +125,8 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> JACARANDA_BUSHES = ConfiguredFeaturesUtil.createConfiguredFeature("jacaranda_bushes",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(
-                    configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE), JACARANDA_BUSH, FLOWERING_JACARANDA_BUSH, INDIGO_JACARANDA_BUSH, FLOWERING_INDIGO_JACARANDA_BUSH)
+            (configuredFeatureBootstrapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(
+                    configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE), JACARANDA_BUSH, FLOWERING_JACARANDA_BUSH, INDIGO_JACARANDA_BUSH, FLOWERING_INDIGO_JACARANDA_BUSH)
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HYDRANGEA_BUSH = createFlowerConfiguredFeature("hydrangea_bush", () -> BWGBlocks.HYDRANGEA_BUSH.getBlockSupplier().get());
@@ -135,7 +135,7 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HYDRANGEAS = ConfiguredFeaturesUtil.createConfiguredFeature("hydrangeas",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE), HYDRANGEA_BUSH, HYDRANGEA_HEDGE)
+            (configuredFeatureBootstrapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE), HYDRANGEA_BUSH, HYDRANGEA_HEDGE)
     );
 
     public static final ResourceKey<ConfiguredFeature<? ,?>> GREEN_MUSHROOM = createFlowerConfiguredFeature("green_mushroom", BWGBlocks.GREEN_MUSHROOM);
@@ -144,7 +144,7 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MUSHROOMS = ConfiguredFeaturesUtil.createConfiguredFeature("mushrooms",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE), WOOD_BLEWIT, WEEPING_MILKCAP, GREEN_MUSHROOM)
+            (configuredFeatureBootstrapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE), WOOD_BLEWIT, WEEPING_MILKCAP, GREEN_MUSHROOM)
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BEACH_GRASS = ConfiguredFeaturesUtil.createPatchConfiguredFeatureWithBlock("beach_grass_patch", BWGBlocks.BEACH_GRASS, 32);
@@ -152,8 +152,8 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BEACH_GRASSES = ConfiguredFeaturesUtil.createConfiguredFeature("beach_grasses",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
 
                 return new RandomFeatureConfiguration(ImmutableList.of(
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TALL_BEACH_GRASS_PATCH), SAND_FILTER), 0.33F)),
@@ -168,8 +168,8 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PRAIRIE_GRASS = ConfiguredFeaturesUtil.createConfiguredFeature("prairie_grass",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
 
                 return new RandomFeatureConfiguration(ImmutableList.of(
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PRAIRIE_GRASS_PATCH)), 0.75F)),
@@ -195,8 +195,8 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WINDSWEPT_DESERT_VEGETATION = ConfiguredFeaturesUtil.createConfiguredFeature("windswept_desert_vegetation",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
 
                 return new RandomFeatureConfiguration(ImmutableList.of(
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(MINI_CACTI), SAND_FILTER), 0.15F),
@@ -209,8 +209,8 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOJAVE_DESERT_VEGETATION = ConfiguredFeaturesUtil.createConfiguredFeature("mojave_desert_vegetation",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
 
                 return new RandomFeatureConfiguration(ImmutableList.of(
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(MINI_CACTI)), 0.3F),
@@ -223,8 +223,8 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RUGGED_BADLANDS_VEGETATION = ConfiguredFeaturesUtil.createConfiguredFeature("rugged_badlands_vegetation",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
 
                 return new RandomFeatureConfiguration(ImmutableList.of(
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(MINI_CACTI)), 0.15F),
@@ -237,8 +237,8 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ATACAMA_OUTBACK_VEGETATION = ConfiguredFeaturesUtil.createConfiguredFeature("atacama_outback_vegetation",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
 
                 return new RandomFeatureConfiguration(ImmutableList.of(
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(MINI_CACTI)), 0.15F),
@@ -252,23 +252,23 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ANEMONES = ConfiguredFeaturesUtil.createConfiguredFeature("anemones",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE), BWGBlocks.PINK_ANEMONE.getFeature(), BWGBlocks.WHITE_ANEMONE.getFeature()
+            (configuredFeatureBootstrapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE), BWGBlocks.PINK_ANEMONE.getFeature(), BWGBlocks.WHITE_ANEMONE.getFeature()
             ));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAGES = ConfiguredFeaturesUtil.createConfiguredFeature("sages",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE), BWGBlocks.BLUE_SAGE.getFeature(), BWGBlocks.PURPLE_SAGE.getFeature(), BWGBlocks.WHITE_SAGE.getFeature()
+            (configuredFeatureBootstrapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE), BWGBlocks.BLUE_SAGE.getFeature(), BWGBlocks.PURPLE_SAGE.getFeature(), BWGBlocks.WHITE_SAGE.getFeature()
             ));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> JUNGLE_FLOWERS = ConfiguredFeaturesUtil.createConfiguredFeature("jungle_flowers",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE),
+            (configuredFeatureBootstrapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE),
                     BWGBlocks.BISTORT.getFeature(), BWGBlocks.GUZMANIA.getFeature(), BWGBlocks.BEGONIA.getFeature(), BWGBlocks.LAZARUS_BELLFLOWER.getFeature(), BWGBlocks.RICHEA.getFeature(), BWGBlocks.INCAN_LILY.getFeature()
             ));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> LEATHER_FLOWERS = ConfiguredFeaturesUtil.createConfiguredFeature("leather_flowers",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE),
+            (configuredFeatureBootstrapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE),
                     BWGBlocks.PEACH_LEATHER_FLOWER.getFeature(), BWGBlocks.VIOLET_LEATHER_FLOWER.getFeature()
             ));
 
@@ -295,8 +295,8 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SWAMP_WATER_VEGETATION = ConfiguredFeaturesUtil.createConfiguredFeature("swamp_water_vegetation",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
 
                 return new RandomFeatureConfiguration(ImmutableList.of(
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TINY_LILY_PAD), ON_WATER_FILTER), 0.5F)),
@@ -306,8 +306,8 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MANGROVE_SWAMP_WATER_VEGETATION = ConfiguredFeaturesUtil.createConfiguredFeature("mangrove_swamp_water_vegetation",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
 
                 return new RandomFeatureConfiguration(ImmutableList.of(
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TINY_LILY_PAD), ON_WATER_FILTER), 0.5F)),
@@ -320,13 +320,13 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> CATTAILS = ConfiguredFeaturesUtil.createConfiguredFeature("cattails",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE), CATTAIL, CATTAIL_SPROUT)
+            (configuredFeatureBootstrapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE), CATTAIL, CATTAIL_SPROUT)
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WATER_VEGETATION = ConfiguredFeaturesUtil.createConfiguredFeature("crag_water_vegetation",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
                 return new RandomFeatureConfiguration(ImmutableList.of(
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TINY_LILY_PAD), ON_WATER_FILTER), 0.1875F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(CATTAILS), BlockPredicateFilter.forPredicate(BlockPredicate.noFluid(new BlockPos(0, -1, 0)))), 0.25F),
@@ -394,8 +394,8 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_MUSHROOMS = ConfiguredFeaturesUtil.createConfiguredFeature("huge_mushrooms",
             Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
                 return new RandomFeatureConfiguration(ImmutableList.of(
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(HUGE_GREEN_MUSHROOM1)), 0.25F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(HUGE_GREEN_MUSHROOM2)), 0.25F),

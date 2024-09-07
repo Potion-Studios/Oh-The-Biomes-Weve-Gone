@@ -4,6 +4,7 @@ import com.mojang.datafixers.util.Pair;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.ItemLike;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
@@ -55,10 +56,10 @@ public class BWGVillagerTrades {
     }
 
     private static MerchantOffer createEmeraldForItemsOffer(ItemLike item, int cost, int maxUses, int villagerXp) {
-        return new MerchantOffer(new ItemStack(item, cost), new ItemStack(Items.EMERALD), maxUses, villagerXp, 0.05F);
+        return new MerchantOffer(new ItemCost(item, cost), new ItemStack(Items.EMERALD), maxUses, villagerXp, 0.05F);
     }
 
     private static MerchantOffer createItemsForEmeraldsOffer(ItemLike item, int emeraldCost, int numberOfItems, int maxUses, int villagerXp, float priceMultiplier) {
-        return new MerchantOffer(new ItemStack(Items.EMERALD, emeraldCost), new ItemStack(item, numberOfItems), maxUses, villagerXp, priceMultiplier);
+        return new MerchantOffer(new ItemCost(Items.EMERALD, emeraldCost), new ItemStack(item, numberOfItems), maxUses, villagerXp, priceMultiplier);
     }
 }

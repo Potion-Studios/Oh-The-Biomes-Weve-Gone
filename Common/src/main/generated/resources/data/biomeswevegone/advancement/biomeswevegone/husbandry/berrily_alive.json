@@ -1,0 +1,33 @@
+{
+  "parent": "biomeswevegone:biomeswevegone/husbandry/root",
+  "criteria": {
+    "blue_berry": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:blueberries"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.biomeswevegone.husbandry.berrily_alive.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "biomeswevegone:blueberries"
+    },
+    "title": {
+      "translate": "advancements.biomeswevegone.husbandry.berrily_alive.title"
+    }
+  },
+  "requirements": [
+    [
+      "blue_berry"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

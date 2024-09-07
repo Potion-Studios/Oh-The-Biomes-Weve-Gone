@@ -35,17 +35,13 @@
           "data": {
             "noise_frequency": {
               "type": "minecraft:uniform",
-              "value": {
-                "max_exclusive": 0.2,
-                "min_inclusive": 0.09
-              }
+              "max_exclusive": 0.2,
+              "min_inclusive": 0.09
             },
             "thickness": {
               "type": "minecraft:uniform",
-              "value": {
-                "max_inclusive": 30,
-                "min_inclusive": 10
-              }
+              "max_inclusive": 30,
+              "min_inclusive": 10
             }
           },
           "weight": 1
@@ -178,17 +174,13 @@
     ],
     "height": {
       "type": "minecraft:uniform",
-      "value": {
-        "max_inclusive": 150,
-        "min_inclusive": 50
-      }
+      "max_inclusive": 150,
+      "min_inclusive": 50
     },
     "length": {
       "type": "minecraft:uniform",
-      "value": {
-        "max_inclusive": 200,
-        "min_inclusive": 64
-      }
+      "max_inclusive": 200,
+      "min_inclusive": 64
     }
   },
   "spawn_overrides": {},

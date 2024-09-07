@@ -1,5 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.block;
 
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
@@ -38,7 +39,7 @@ public class BlockFeatures {
                 consumer.accept(entry.get(), 0.3F);
         });
 
-        BWGItems.ITEMS.stream().filter(item -> item.get().isEdible()).forEach(item -> consumer.accept(item.get(), 0.85F));
+        BWGItems.ITEMS.stream().filter(item -> item.get().components().has(DataComponents.FOOD)).forEach(item -> consumer.accept(item.get(), 0.85F));
     }
 
     /**

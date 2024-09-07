@@ -13,54 +13,48 @@
     "decorators": [
       {
         "type": "ohthetreesyoullgrow:attached_to_logs",
-        "value": {
-          "block_provider": {
-            "type": "minecraft:simple_state_provider",
-            "state": {
-              "Name": "biomeswevegone:witch_hazel_blossom"
-            }
-          },
-          "directions": [
-            "down"
-          ],
-          "exclusion_radius_xz": 15,
-          "exclusion_radius_y": 15,
-          "probability": 0.1,
-          "required_empty_blocks": 3
-        }
+        "block_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "biomeswevegone:witch_hazel_blossom"
+          }
+        },
+        "directions": [
+          "down"
+        ],
+        "exclusion_radius_xz": 15,
+        "exclusion_radius_y": 15,
+        "probability": 0.1,
+        "required_empty_blocks": 3
       },
       {
         "type": "ohthetreesyoullgrow:attached_to_logs",
-        "value": {
-          "block_provider": {
-            "type": "minecraft:simple_state_provider",
-            "state": {
-              "Name": "biomeswevegone:witch_hazel_branch",
-              "Properties": {
-                "facing": "north",
-                "waterlogged": "false"
-              }
+        "block_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "biomeswevegone:witch_hazel_branch",
+            "Properties": {
+              "facing": "north",
+              "waterlogged": "false"
             }
-          },
-          "directions": [
-            "west",
-            "north",
-            "south",
-            "east"
-          ],
-          "exclusion_radius_xz": 0,
-          "exclusion_radius_y": 1,
-          "probability": 0.65,
-          "required_empty_blocks": 2
-        }
+          }
+        },
+        "directions": [
+          "west",
+          "north",
+          "south",
+          "east"
+        ],
+        "exclusion_radius_xz": 0,
+        "exclusion_radius_y": 1,
+        "probability": 0.65,
+        "required_empty_blocks": 2
       }
     ],
     "height": {
       "type": "minecraft:biased_to_bottom",
-      "value": {
-        "max_inclusive": 15,
-        "min_inclusive": 5
-      }
+      "max_inclusive": 15,
+      "min_inclusive": 5
     },
     "leaves_provider": {
       "type": "minecraft:weighted_state_provider",

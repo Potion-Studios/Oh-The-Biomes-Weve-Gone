@@ -4,18 +4,14 @@
   "config": {
     "depth": {
       "type": "minecraft:uniform",
-      "value": {
-        "max_inclusive": 128,
-        "min_inclusive": 96
-      }
+      "max_inclusive": 128,
+      "min_inclusive": 96
     },
     "features": "biomeswevegone:cold_lake_vegetation",
     "lake_radius": {
       "type": "minecraft:uniform",
-      "value": {
-        "max_inclusive": 30,
-        "min_inclusive": 20
-      }
+      "max_inclusive": 30,
+      "min_inclusive": 20
     }
   },
   "spawn_overrides": {

@@ -41,9 +41,9 @@ public class BWGChestBoatEntity extends ChestBoat {
     }
 
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(DATA_ID_TYPE, BWGBoatEntity.Type.ASPEN.ordinal());
+    protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_ID_TYPE, BWGBoatEntity.Type.ASPEN.ordinal());
     }
 
     @Override

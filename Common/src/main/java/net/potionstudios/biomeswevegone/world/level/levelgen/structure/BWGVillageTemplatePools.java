@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.Pools;
 import net.minecraft.data.worldgen.ProcessorLists;
 import net.minecraft.data.worldgen.placement.VillagePlacements;
@@ -348,7 +348,7 @@ public class BWGVillageTemplatePools {
         return Pair.of(StructurePoolElement.empty(), weight);
     }
 
-    private static Pair<Function<StructureTemplatePool.Projection, ? extends StructurePoolElement>, Integer> featureElement(BootstapContext<StructureTemplatePool> context, ResourceKey<PlacedFeature> placedFeature, int weight) {
+    private static Pair<Function<StructureTemplatePool.Projection, ? extends StructurePoolElement>, Integer> featureElement(BootstrapContext<StructureTemplatePool> context, ResourceKey<PlacedFeature> placedFeature, int weight) {
         return Pair.of(StructurePoolElement.feature(context.lookup(Registries.PLACED_FEATURE).getOrThrow(placedFeature)), weight);
     }
 
@@ -360,11 +360,11 @@ public class BWGVillageTemplatePools {
         return Pair.of(StructurePoolElement.legacy(BiomesWeveGone.id("village/" + id).toString()), weight);
     }
 
-    private static Pair<Function<StructureTemplatePool.Projection, ? extends StructurePoolElement>, Integer> legacyPoolElement(String id, BootstapContext<StructureTemplatePool> context, ResourceKey<StructureProcessorList> processorList) {
+    private static Pair<Function<StructureTemplatePool.Projection, ? extends StructurePoolElement>, Integer> legacyPoolElement(String id, BootstrapContext<StructureTemplatePool> context, ResourceKey<StructureProcessorList> processorList) {
         return legacyPoolElement(id, 1, context, processorList);
     }
 
-    private static Pair<Function<StructureTemplatePool.Projection, ? extends StructurePoolElement>, Integer> legacyPoolElement(String id, int weight, BootstapContext<StructureTemplatePool> context, ResourceKey<StructureProcessorList> processorList) {
+    private static Pair<Function<StructureTemplatePool.Projection, ? extends StructurePoolElement>, Integer> legacyPoolElement(String id, int weight, BootstrapContext<StructureTemplatePool> context, ResourceKey<StructureProcessorList> processorList) {
         return Pair.of(StructurePoolElement.legacy(BiomesWeveGone.id("village/" + id).toString(), getProcessor(context, processorList)), weight);
     }
 
@@ -376,11 +376,11 @@ public class BWGVillageTemplatePools {
         return Pair.of(StructurePoolElement.single(BiomesWeveGone.id("village/" + id).toString()), weight);
     }
 
-    private static Pair<Function<StructureTemplatePool.Projection, ? extends StructurePoolElement>, Integer> singlePoolElement(String id, BootstapContext<StructureTemplatePool> context, ResourceKey<StructureProcessorList> processorList) {
+    private static Pair<Function<StructureTemplatePool.Projection, ? extends StructurePoolElement>, Integer> singlePoolElement(String id, BootstrapContext<StructureTemplatePool> context, ResourceKey<StructureProcessorList> processorList) {
         return singlePoolElement(id, 1, context, processorList);
     }
 
-    private static Pair<Function<StructureTemplatePool.Projection, ? extends StructurePoolElement>, Integer> singlePoolElement(String id, int weight, BootstapContext<StructureTemplatePool> context, ResourceKey<StructureProcessorList> processorList) {
+    private static Pair<Function<StructureTemplatePool.Projection, ? extends StructurePoolElement>, Integer> singlePoolElement(String id, int weight, BootstrapContext<StructureTemplatePool> context, ResourceKey<StructureProcessorList> processorList) {
         return Pair.of(StructurePoolElement.single(BiomesWeveGone.id("village/" + id).toString(), getProcessor(context, processorList)), weight);
     }
 
@@ -388,15 +388,15 @@ public class BWGVillageTemplatePools {
         return new StructureTemplatePool(fallback, rawTemplateFactories, projection);
     }
 
-    private static Holder.Reference<StructureTemplatePool> getEmptyPool(BootstapContext<StructureTemplatePool> context) {
+    private static Holder.Reference<StructureTemplatePool> getEmptyPool(BootstrapContext<StructureTemplatePool> context) {
         return getPool(context, Pools.EMPTY);
     }
 
-    private static Holder.Reference<StructureTemplatePool> getPool(BootstapContext<StructureTemplatePool> context, ResourceKey<StructureTemplatePool> poolResourceKey) {
+    private static Holder.Reference<StructureTemplatePool> getPool(BootstrapContext<StructureTemplatePool> context, ResourceKey<StructureTemplatePool> poolResourceKey) {
         return context.lookup(Registries.TEMPLATE_POOL).getOrThrow(poolResourceKey);
     }
 
-    private static Holder.Reference<StructureProcessorList> getProcessor(BootstapContext<StructureTemplatePool> context, ResourceKey<StructureProcessorList> processorList) {
+    private static Holder.Reference<StructureProcessorList> getProcessor(BootstrapContext<StructureTemplatePool> context, ResourceKey<StructureProcessorList> processorList) {
         return context.lookup(Registries.PROCESSOR_LIST).getOrThrow(processorList);
     }
 

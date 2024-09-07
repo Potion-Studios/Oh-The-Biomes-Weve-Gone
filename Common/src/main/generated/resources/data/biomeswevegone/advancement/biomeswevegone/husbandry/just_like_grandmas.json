@@ -1,0 +1,47 @@
+{
+  "parent": "biomeswevegone:biomeswevegone/husbandry/root",
+  "criteria": {
+    "blueberry_pie": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:blueberry_pie"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "green_apple_pie": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:green_apple_pie"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.biomeswevegone.husbandry.just_like_grandmas.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "biomeswevegone:green_apple_pie"
+    },
+    "title": {
+      "translate": "advancements.biomeswevegone.husbandry.just_like_grandmas.title"
+    }
+  },
+  "requirements": [
+    [
+      "blueberry_pie"
+    ],
+    [
+      "green_apple_pie"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

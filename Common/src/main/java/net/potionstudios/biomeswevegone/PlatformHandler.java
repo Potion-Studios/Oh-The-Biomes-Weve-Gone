@@ -5,10 +5,8 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.ai.village.poi.PoiTypes;
 import net.minecraft.world.item.*;
@@ -51,30 +49,6 @@ public interface PlatformHandler {
 	Path configPath();
 
 	/**
-	 * Registers an entity with the specified parameters
-	 * @see EntityType
-	 * @param id The id/name of the entity
-	 * @param factory The factory for the entity
-	 * @param category The category of the entity
-	 * @param width The width of the entity
-	 * @param height The height of the entity
-	 * @return Supplier of the EntityType
-	 */
-	<E extends Entity> Supplier<EntityType<E>> registerEntity(String id, EntityType.EntityFactory<E> factory, MobCategory category, float width, float height);
-
-	/**
-	 * Registers an entity with the specified parameters
-	 * @see EntityType
-	 * @param id The id/name of the entity
-	 * @param factory The factory for the entity
-	 * @param category The category of the entity
-	 * @param width The width of the entity
-	 * @param height The height of the entity
-	 * @return Supplier of the EntityType
-	 */
-	<E extends Entity> Supplier<EntityType<E>> registerEntity(String id, EntityType.EntityFactory<E> factory, MobCategory category, float width, float height, int trackingRange);
-
-	/**
 	 * Registers a block entity with the specified parameters
 	 * @see BlockEntityType
 	 * @param key The id/name of the block entity
@@ -109,7 +83,7 @@ public interface PlatformHandler {
 	 * @return Supplier of the FlowerPotBlock
 	 */
 	default Supplier<FlowerPotBlock> createPottedBlock(Supplier<? extends Block> block) {
-		return () -> new FlowerPotBlock(block.get(), FlowerPotBlock.Properties.copy(Blocks.FLOWER_POT));
+		return () -> new FlowerPotBlock(block.get(), FlowerPotBlock.Properties.ofFullCopy(Blocks.FLOWER_POT));
 	}
 
 	/**
@@ -122,18 +96,6 @@ public interface PlatformHandler {
 	 */
 	default Supplier<MobBucketItem> createMobBucket(Supplier<EntityType<? extends Mob>> entity, Supplier<Fluid> fluid, Supplier<SoundEvent> sound) {
 		return () -> new MobBucketItem(entity.get(), fluid.get(), sound.get(), new Item.Properties().stacksTo(1));
-	}
-
-	/**
-	 * Creates a record item with the specified parameters
-	 * @see RecordItem
-	 * @param comparatorValue Redstone conductor value
-	 * @param sound The sound to be played when the record is played
-	 * @param lengthInSeconds The length of the sound in seconds
-	 * @return Supplier of the RecordItem
-	 */
-	default Supplier<RecordItem> createRecordItem(int comparatorValue, Supplier<SoundEvent> sound, int lengthInSeconds) {
-		return () -> new RecordItem(comparatorValue, sound.get(), new Item.Properties().stacksTo(1).rarity(Rarity.RARE), lengthInSeconds);
 	}
 
 	default Supplier<BWGFarmLandBlock> bwgFarmLandBlock(Supplier<Block> dirt) {
@@ -181,6 +143,7 @@ public interface PlatformHandler {
 
 	enum Platform {
 		FORGE,
-		FABRIC
+		FABRIC,
+		NEOFORGE
 	}
 }

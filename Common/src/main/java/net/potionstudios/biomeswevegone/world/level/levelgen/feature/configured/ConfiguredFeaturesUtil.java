@@ -4,7 +4,7 @@ import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.resources.ResourceKey;
@@ -45,7 +45,7 @@ public class ConfiguredFeaturesUtil {
         return new RandomFeatureConfiguration(wightedPlacedFeatureList, PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(configuredFeatures[count - 1])));
     }
 
-    public static <FC extends FeatureConfiguration, F extends Feature<FC>> ResourceKey<ConfiguredFeature<?, ?>> createConfiguredFeature(String id, F feature, Function<BootstapContext<ConfiguredFeature<?, ?>>, ? extends FC> config) {
+    public static <FC extends FeatureConfiguration, F extends Feature<FC>> ResourceKey<ConfiguredFeature<?, ?>> createConfiguredFeature(String id, F feature, Function<BootstrapContext<ConfiguredFeature<?, ?>>, ? extends FC> config) {
         ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureResourceKey = registerKey(id);
 
         CONFIGURED_FEATURES_FACTORIES.put(configuredFeatureResourceKey, configuredFeatureHolderGetter -> new ConfiguredFeature<>(feature, config.apply(configuredFeatureHolderGetter)));
@@ -82,7 +82,7 @@ public class ConfiguredFeaturesUtil {
     }
 
     public static <FC extends FeatureConfiguration, F extends Feature<FC>> ResourceKey<ConfiguredFeature<?, ?>> createFlowerConfiguredFeature(String id, Supplier<? extends Block> flowerBlock) {
-        return createConfiguredFeature(id, Feature.FLOWER, (configuredFeatureBootstapContext) -> VegetationFeatures.grassPatch(SimpleStateProvider.simple(flowerBlock.get().defaultBlockState()), 15));
+        return createConfiguredFeature(id, Feature.FLOWER, (configuredFeatureBootstrapContext) -> VegetationFeatures.grassPatch(SimpleStateProvider.simple(flowerBlock.get().defaultBlockState()), 15));
     }
 
     public static <FC extends FeatureConfiguration, F extends Feature<FC>> ResourceKey<ConfiguredFeature<?, ?>> createPatchConfiguredFeatureWithBlock(String id, Supplier<? extends Block> block, int tries) {
@@ -90,7 +90,7 @@ public class ConfiguredFeaturesUtil {
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> createPatchConfiguredFeatureWithState(String id, Supplier<BlockState> state, int tries) {
-        return createConfiguredFeature(id, Feature.RANDOM_PATCH, (configuredFeatureBootstapContext) -> FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(state.get())), List.of(), tries));
+        return createConfiguredFeature(id, Feature.RANDOM_PATCH, (configuredFeatureBootstrapContext) -> FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(state.get())), List.of(), tries));
     }
 
     public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<?, ?>> createPatchConfiguredFeatureWithState(Block block, int tries) {
@@ -102,7 +102,7 @@ public class ConfiguredFeaturesUtil {
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> createSimpleBlockConfiguredFeatureWithState(String id, Supplier<BlockState> state) {
-        return createConfiguredFeature(id, Feature.SIMPLE_BLOCK, (configuredFeatureBootstapContext) -> new SimpleBlockConfiguration(BlockStateProvider.simple(state.get())));
+        return createConfiguredFeature(id, Feature.SIMPLE_BLOCK, (configuredFeatureBootstrapContext) -> new SimpleBlockConfiguration(BlockStateProvider.simple(state.get())));
     }
 
     private static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {
@@ -111,6 +111,6 @@ public class ConfiguredFeaturesUtil {
 
     @FunctionalInterface
     public interface ConfiguredFeatureFactory {
-        ConfiguredFeature<?, ?> generate(BootstapContext<ConfiguredFeature<?, ?>> configuredFeatureHolderGetter);
+        ConfiguredFeature<?, ?> generate(BootstrapContext<ConfiguredFeature<?, ?>> configuredFeatureHolderGetter);
     }
 }

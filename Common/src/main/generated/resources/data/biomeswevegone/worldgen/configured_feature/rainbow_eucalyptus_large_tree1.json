@@ -13,25 +13,19 @@
     "decorators": [
       {
         "type": "ohthetreesyoullgrow:trunk_vine",
-        "value": {
-          "probability": 0.05,
-          "vine_block": "minecraft:vine"
-        }
+        "probability": 0.05,
+        "vine_block": "minecraft:vine"
       },
       {
         "type": "ohthetreesyoullgrow:leave_vine",
-        "value": {
-          "probability": 0.05,
-          "vine_block": "minecraft:vine"
-        }
+        "probability": 0.05,
+        "vine_block": "minecraft:vine"
       }
     ],
     "height": {
       "type": "minecraft:biased_to_bottom",
-      "value": {
-        "max_inclusive": 15,
-        "min_inclusive": 5
-      }
+      "max_inclusive": 15,
+      "min_inclusive": 5
     },
     "leaves_provider": {
       "type": "minecraft:weighted_state_provider",

@@ -13,36 +13,32 @@
     "decorators": [
       {
         "type": "ohthetreesyoullgrow:attached_to_logs",
-        "value": {
-          "block_provider": {
-            "type": "minecraft:simple_state_provider",
-            "state": {
-              "Name": "biomeswevegone:shelf_fungi",
-              "Properties": {
-                "facing": "north",
-                "waterlogged": "false"
-              }
+        "block_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "biomeswevegone:shelf_fungi",
+            "Properties": {
+              "facing": "north",
+              "waterlogged": "false"
             }
-          },
-          "directions": [
-            "west",
-            "north",
-            "south",
-            "east"
-          ],
-          "exclusion_radius_xz": 0,
-          "exclusion_radius_y": 1,
-          "probability": 0.3,
-          "required_empty_blocks": 2
-        }
+          }
+        },
+        "directions": [
+          "west",
+          "north",
+          "south",
+          "east"
+        ],
+        "exclusion_radius_xz": 0,
+        "exclusion_radius_y": 1,
+        "probability": 0.3,
+        "required_empty_blocks": 2
       }
     ],
     "height": {
       "type": "minecraft:biased_to_bottom",
-      "value": {
-        "max_inclusive": 10,
-        "min_inclusive": 6
-      }
+      "max_inclusive": 10,
+      "min_inclusive": 6
     },
     "leaves_provider": {
       "type": "minecraft:weighted_state_provider",

@@ -12,10 +12,8 @@
     "canopy_location": "biomeswevegone:features/trees/giant_allium/giant_allium_canopy3",
     "height": {
       "type": "minecraft:biased_to_bottom",
-      "value": {
-        "max_inclusive": 7,
-        "min_inclusive": 3
-      }
+      "max_inclusive": 7,
+      "min_inclusive": 3
     },
     "leaves_provider": {
       "type": "minecraft:simple_state_provider",

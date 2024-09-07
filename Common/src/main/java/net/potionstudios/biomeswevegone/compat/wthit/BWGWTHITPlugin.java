@@ -18,6 +18,6 @@ public class BWGWTHITPlugin implements IWailaClientPlugin, IWailaCommonPlugin {
 
 	@Override
 	public void register(ICommonRegistrar registrar) {
-		registrar.featureConfig(new ResourceLocation("crop_progress"), true);
+		registrar.featureConfig(ResourceLocation.withDefaultNamespace("crop_progress"), true);
 	}
 }

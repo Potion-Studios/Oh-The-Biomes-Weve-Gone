@@ -1,6 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.structure.lake;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
@@ -21,12 +21,12 @@ import java.util.Optional;
 
 public class LargeLakeStructure extends Structure {
 
-    public static final Codec<LargeLakeStructure> CODEC = RecordCodecBuilder.<LargeLakeStructure>mapCodec(builder ->
+    public static final MapCodec<LargeLakeStructure> CODEC = RecordCodecBuilder.mapCodec(builder ->
             builder.group(
                     settingsCodec(builder),
                     LargeLakeConfig.CODEC.fieldOf("config").forGetter(largeLakeStructure -> largeLakeStructure.largeLakeConfig)
             ).apply(builder, LargeLakeStructure::new)
-    ).codec();
+    );
     private final LargeLakeConfig largeLakeConfig;
 
     public LargeLakeStructure(StructureSettings settings, LargeLakeConfig largeLakeConfig) {

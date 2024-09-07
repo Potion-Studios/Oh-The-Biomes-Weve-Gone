@@ -12,10 +12,8 @@
     "canopy_location": "biomeswevegone:features/trees/orchard/orchard_canopy3",
     "height": {
       "type": "minecraft:uniform",
-      "value": {
-        "max_inclusive": 11,
-        "min_inclusive": 8
-      }
+      "max_inclusive": 11,
+      "min_inclusive": 8
     },
     "leaves_provider": {
       "type": "minecraft:weighted_state_provider",

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "biomeswevegone:witch_hazel_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "biomeswevegone:witch_hazel_planks"
+  }
+}

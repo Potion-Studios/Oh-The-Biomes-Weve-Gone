@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "biomeswevegone:dacite_cobblestone"
-  },
-  "result": "biomeswevegone:dacite_cobblestone_stairs"
-}

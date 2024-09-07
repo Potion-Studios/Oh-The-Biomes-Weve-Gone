@@ -4,6 +4,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -21,7 +22,7 @@ public class BWGSandSet {
 
     private static final ArrayList<BWGSandSet> sandSets = new ArrayList<>();
     private final String name;
-    private final Supplier<SandBlock> sand;
+    private final Supplier<ColoredFallingBlock> sand;
     private final Supplier<Block> sandstone;
     private final Supplier<SlabBlock> sandstoneSlab;
     private final Supplier<StairBlock> sandstoneStairs;
@@ -44,17 +45,17 @@ public class BWGSandSet {
 
     public BWGSandSet(String name, int dustColor) {
         this.name = name;
-        this.sand = BWGBlocks.registerCubeAllBlockItem(name + "_sand", () -> new SandBlock(dustColor, BlockBehaviour.Properties.copy(Blocks.SAND)));
-        this.sandstone = BWGBlocks.registerBlockItem(name + "_sandstone", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SANDSTONE)));
-        this.sandstoneSlab = BWGBlocks.registerBlockItem(name + "_sandstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.SANDSTONE_SLAB)));
-        this.sandstoneStairs = BWGBlocks.registerBlockItem(name + "_sandstone_stairs", () -> new StairBlock(sandstone.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.SANDSTONE_STAIRS)));
-        this.sandstoneWall = BWGBlocks.registerBlockItem(name + "_sandstone_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.SANDSTONE_WALL)));
-        this.chiseledSandstone = BWGBlocks.registerBlockItem("chiseled_" + name + "_sandstone", () -> new Block(BlockBehaviour.Properties.copy(Blocks.CHISELED_SANDSTONE)));
-        this.smoothSandstone = BWGBlocks.registerBlockItem("smooth_" + name + "_sandstone", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SMOOTH_SANDSTONE)));
-        this.smoothSandstoneSlab = BWGBlocks.registerBlockItem("smooth_" + name + "_sandstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.SMOOTH_SANDSTONE_SLAB)));
-        this.smoothSandstoneStairs = BWGBlocks.registerBlockItem("smooth_" + name + "_sandstone_stairs", () -> new StairBlock(smoothSandstone.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.SMOOTH_SANDSTONE_STAIRS)));
-        this.cutSandstone = BWGBlocks.registerBlockItem("cut_" + name + "_sandstone", () -> new Block(BlockBehaviour.Properties.copy(Blocks.CUT_SANDSTONE)));
-        this.cutSandstoneSlab = BWGBlocks.registerBlockItem("cut_" + name + "_sandstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.CUT_SANDSTONE_SLAB)));
+        this.sand = BWGBlocks.registerCubeAllBlockItem(name + "_sand", () -> new ColoredFallingBlock(new ColorRGBA(dustColor), BlockBehaviour.Properties.ofFullCopy(Blocks.SAND)));
+        this.sandstone = BWGBlocks.registerBlockItem(name + "_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
+        this.sandstoneSlab = BWGBlocks.registerBlockItem(name + "_sandstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE_SLAB)));
+        this.sandstoneStairs = BWGBlocks.registerBlockItem(name + "_sandstone_stairs", () -> new StairBlock(sandstone.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE_STAIRS)));
+        this.sandstoneWall = BWGBlocks.registerBlockItem(name + "_sandstone_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE_WALL)));
+        this.chiseledSandstone = BWGBlocks.registerBlockItem("chiseled_" + name + "_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_SANDSTONE)));
+        this.smoothSandstone = BWGBlocks.registerBlockItem("smooth_" + name + "_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_SANDSTONE)));
+        this.smoothSandstoneSlab = BWGBlocks.registerBlockItem("smooth_" + name + "_sandstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_SANDSTONE_SLAB)));
+        this.smoothSandstoneStairs = BWGBlocks.registerBlockItem("smooth_" + name + "_sandstone_stairs", () -> new StairBlock(smoothSandstone.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_SANDSTONE_STAIRS)));
+        this.cutSandstone = BWGBlocks.registerBlockItem("cut_" + name + "_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CUT_SANDSTONE)));
+        this.cutSandstoneSlab = BWGBlocks.registerBlockItem("cut_" + name + "_sandstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CUT_SANDSTONE_SLAB)));
         this.sandstoneBlocksTag = TagKey.create(Registries.BLOCK, BiomesWeveGone.id(name + "_sandstone_blocks"));
         this.sandstoneBlocksItemTag = TagKey.create(Registries.ITEM, BiomesWeveGone.id(name + "_sandstone_blocks"));
         this.sandBlockTag = TagKey.create(Registries.BLOCK, BiomesWeveGone.id("sand/" + name));
@@ -70,7 +71,7 @@ public class BWGSandSet {
         return name;
     }
 
-    public SandBlock getSand() {
+    public ColoredFallingBlock getSand() {
         return sand.get();
     }
 

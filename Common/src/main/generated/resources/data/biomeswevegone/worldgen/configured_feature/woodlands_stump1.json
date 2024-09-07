@@ -15,77 +15,65 @@
         "type": "biomeswevegone:glow_berry_decorator",
         "berries_probability": {
           "type": "minecraft:uniform",
-          "value": {
-            "max_exclusive": 0.5,
-            "min_inclusive": 0.25
-          }
+          "max_exclusive": 0.5,
+          "min_inclusive": 0.25
         },
         "length": {
           "type": "minecraft:uniform",
-          "value": {
-            "max_inclusive": 6,
-            "min_inclusive": 2
-          }
+          "max_inclusive": 6,
+          "min_inclusive": 2
         },
         "probability": 0.1
       },
       {
         "type": "ohthetreesyoullgrow:trunk_vine",
-        "value": {
-          "probability": 1.0,
-          "vine_block": "minecraft:vine"
-        }
+        "probability": 1.0,
+        "vine_block": "minecraft:vine"
       },
       {
         "type": "ohthetreesyoullgrow:attached_to_logs",
-        "value": {
-          "block_provider": {
-            "type": "minecraft:simple_state_provider",
-            "state": {
-              "Name": "minecraft:moss_carpet"
-            }
-          },
-          "directions": [
-            "up"
-          ],
-          "exclusion_radius_xz": 0,
-          "exclusion_radius_y": 0,
-          "probability": 0.9,
-          "required_empty_blocks": 1
-        }
+        "block_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "minecraft:moss_carpet"
+          }
+        },
+        "directions": [
+          "up"
+        ],
+        "exclusion_radius_xz": 0,
+        "exclusion_radius_y": 0,
+        "probability": 0.9,
+        "required_empty_blocks": 1
       },
       {
         "type": "ohthetreesyoullgrow:attached_to_logs",
-        "value": {
-          "block_provider": {
-            "type": "minecraft:simple_state_provider",
-            "state": {
-              "Name": "biomeswevegone:shelf_fungi",
-              "Properties": {
-                "facing": "north",
-                "waterlogged": "false"
-              }
+        "block_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "biomeswevegone:shelf_fungi",
+            "Properties": {
+              "facing": "north",
+              "waterlogged": "false"
             }
-          },
-          "directions": [
-            "west",
-            "north",
-            "south",
-            "east"
-          ],
-          "exclusion_radius_xz": 0,
-          "exclusion_radius_y": 1,
-          "probability": 0.3,
-          "required_empty_blocks": 2
-        }
+          }
+        },
+        "directions": [
+          "west",
+          "north",
+          "south",
+          "east"
+        ],
+        "exclusion_radius_xz": 0,
+        "exclusion_radius_y": 1,
+        "probability": 0.3,
+        "required_empty_blocks": 2
       }
     ],
     "height": {
       "type": "minecraft:biased_to_bottom",
-      "value": {
-        "max_inclusive": 5,
-        "min_inclusive": 2
-      }
+      "max_inclusive": 5,
+      "min_inclusive": 2
     },
     "leaves_provider": {
       "type": "minecraft:simple_state_provider",

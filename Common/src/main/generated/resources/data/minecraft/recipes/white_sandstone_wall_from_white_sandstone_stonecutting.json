@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "biomeswevegone:white_sandstone"
-  },
-  "result": "biomeswevegone:white_sandstone_wall"
-}

@@ -22,10 +22,8 @@
       "xz_spread": 0,
       "y_spread": {
         "type": "minecraft:biased_to_bottom",
-        "value": {
-          "max_inclusive": 5,
-          "min_inclusive": 3
-        }
+        "max_inclusive": 5,
+        "min_inclusive": 3
       }
     },
     {

@@ -1,5 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.block.plants.bush;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
@@ -11,7 +12,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -20,18 +21,25 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
 
 public class ShrubBlock extends BushBlock implements BonemealableBlock {
 
 	private static final IntegerProperty STAGE = BlockStateProperties.STAGE;
-	private final Supplier<AbstractTreeGrower> treeGrower;
+	private final @Nullable Supplier<TreeGrower> treeGrower;
+	private static final MapCodec<ShrubBlock> CODEC = MapCodec.unit(() -> new ShrubBlock(null));
 
-	public ShrubBlock(Supplier<AbstractTreeGrower> treeGrower) {
+	public ShrubBlock(@Nullable Supplier<TreeGrower> treeGrower) {
 		super(BlockBehaviour.Properties.of().noCollission().noOcclusion().sound(SoundType.SWEET_BERRY_BUSH).mapColor(MapColor.COLOR_GREEN));
 		this.registerDefaultState(this.stateDefinition.any().setValue(STAGE, 0));
 		this.treeGrower = treeGrower;
+	}
+
+	@Override
+	protected @NotNull MapCodec<? extends BushBlock> codec() {
+		return CODEC;
 	}
 
 	@Override
@@ -52,7 +60,7 @@ public class ShrubBlock extends BushBlock implements BonemealableBlock {
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state, boolean isClient) {
+	public boolean isValidBonemealTarget(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state) {
 		return true;
 	}
 

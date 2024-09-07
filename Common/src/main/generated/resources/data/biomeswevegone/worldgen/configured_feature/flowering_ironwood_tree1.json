@@ -12,10 +12,8 @@
     "canopy_location": "biomeswevegone:features/trees/ironwood/ironwood_canopy1",
     "height": {
       "type": "minecraft:biased_to_bottom",
-      "value": {
-        "max_inclusive": 10,
-        "min_inclusive": 5
-      }
+      "max_inclusive": 10,
+      "min_inclusive": 5
     },
     "leaves_provider": {
       "type": "minecraft:weighted_state_provider",

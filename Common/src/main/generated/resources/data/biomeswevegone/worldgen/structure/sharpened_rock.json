@@ -4,24 +4,18 @@
   "config": {
     "pitch": {
       "type": "minecraft:uniform",
-      "value": {
-        "max_exclusive": 50.0,
-        "min_inclusive": 40.0
-      }
+      "max_exclusive": 50.0,
+      "min_inclusive": 40.0
     },
     "radius": {
       "type": "minecraft:uniform",
-      "value": {
-        "max_inclusive": 60,
-        "min_inclusive": 20
-      }
+      "max_inclusive": 60,
+      "min_inclusive": 20
     },
     "yaw": {
       "type": "minecraft:uniform",
-      "value": {
-        "max_exclusive": 360.0,
-        "min_inclusive": 0.0
-      }
+      "max_exclusive": 360.0,
+      "min_inclusive": 0.0
     }
   },
   "spawn_overrides": {},

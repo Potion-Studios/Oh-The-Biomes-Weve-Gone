@@ -1,3 +1,7 @@
+# 2.0.0-Beta
+- Update to 1.21.1, Java 21
+- Add NeoForge Support
+
 # 1.2.2-Beta
 - Use Fabric API for Point Of Interest Type Registration to fix Forager not getting job on Fabric
 - Fix Sheep not being able to Eat off of Lush Grass

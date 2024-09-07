@@ -20,29 +20,25 @@
       },
       {
         "type": "ohthetreesyoullgrow:attached_to_logs",
-        "value": {
-          "block_provider": {
-            "type": "minecraft:simple_state_provider",
-            "state": {
-              "Name": "minecraft:moss_carpet"
-            }
-          },
-          "directions": [
-            "up"
-          ],
-          "exclusion_radius_xz": 0,
-          "exclusion_radius_y": 0,
-          "probability": 0.9,
-          "required_empty_blocks": 1
-        }
+        "block_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "minecraft:moss_carpet"
+          }
+        },
+        "directions": [
+          "up"
+        ],
+        "exclusion_radius_xz": 0,
+        "exclusion_radius_y": 0,
+        "probability": 0.9,
+        "required_empty_blocks": 1
       }
     ],
     "height": {
       "type": "minecraft:biased_to_bottom",
-      "value": {
-        "max_inclusive": 15,
-        "min_inclusive": 5
-      }
+      "max_inclusive": 15,
+      "min_inclusive": 5
     },
     "leaves_provider": {
       "type": "minecraft:simple_state_provider",

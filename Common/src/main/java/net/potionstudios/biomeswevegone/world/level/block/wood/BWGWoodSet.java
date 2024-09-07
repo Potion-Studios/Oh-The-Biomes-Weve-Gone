@@ -10,7 +10,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -85,15 +85,15 @@ public class BWGWoodSet {
      * @param glowLeaves         Whether leaves should glow
      * @param saplingPlantAbleOn The tag for what the sapling can be planted on
      */
-    protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, LogStem logstem, @Nullable Supplier<AbstractTreeGrower> saplingGrower, boolean leaves, boolean boats, boolean glowLeaves, @Nullable TagKey<Block> saplingPlantAbleOn) {
+    protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, LogStem logstem, @Nullable Supplier<TreeGrower> saplingGrower, boolean leaves, boolean boats, boolean glowLeaves, @Nullable TagKey<Block> saplingPlantAbleOn) {
         this.woodType = PlatformHandler.PLATFORM_HANDLER.createWoodType(blockSetType.name(), blockSetType);
         this.name = blockSetType.name().replace(BiomesWeveGone.MOD_ID + ":", "");
         this.planks = BWGWood.registerBlockItem(name + "_planks", () -> new Block(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD).ignitedByLava()));
         this.slab = BWGWood.registerBlockItem(name + "_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD).ignitedByLava()));
-        this.stairs = BWGWood.registerBlockItem(name + "_stairs", () -> new StairBlock(planks.get().defaultBlockState(), BlockBehaviour.Properties.copy(planks.get())));
+        this.stairs = BWGWood.registerBlockItem(name + "_stairs", () -> new StairBlock(planks.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(planks.get())));
         this.logstemEnum = logstem;
-        this.logstem = BWGWood.registerBlockItem(name + "_" + logstem.getName(), () -> Blocks.log(mapColor, mapColor));
-        this.strippedLogStem = BWGWood.registerBlockItem("stripped_" + name + "_" + logstem.getName(), () -> Blocks.log(mapColor, mapColor));
+        this.logstem = BWGWood.registerBlockItem(name + "_" + logstem.getName(), () -> (RotatedPillarBlock) Blocks.log(mapColor, mapColor));
+        this.strippedLogStem = BWGWood.registerBlockItem("stripped_" + name + "_" + logstem.getName(), () -> (RotatedPillarBlock) Blocks.log(mapColor, mapColor));
         this.wood = BWGWood.registerBlockItem(name + "_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava()));
         this.strippedWood = BWGWood.registerBlockItem("stripped_" + name + "_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava()));
         this.sign = BWGWood.register(name + "_sign", () ->  new BWGStandingSignBlock(BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava(), woodType));
@@ -104,20 +104,20 @@ public class BWGWoodSet {
         this.wallHangingSign = BWGWood.register(name + "_wall_hanging_sign", () -> new BWGWallHangingSignBlock(BlockBehaviour.Properties.of().mapColor(mapColor).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).dropsLike(hangingSign.get()).ignitedByLava(), woodType));
         this.hangingSignItem = BWGItems.register(name + "_hanging_sign", () -> new HangingSignItem(hangingSign.get(), wallHangingSign.get(), new Item.Properties().stacksTo(16)));
         BWGWood.WOOD_BLOCK_ITEMS.add(hangingSignItem);
-        this.pressurePlate = BWGWood.registerBlockItem(name + "_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(0.5F).ignitedByLava().pushReaction(PushReaction.DESTROY), woodType.setType()));
-        this.trapdoor = BWGWood.registerBlockItem(name + "_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().isValidSpawn(Blocks::never).ignitedByLava(), woodType.setType()));
-        this.button = BWGWood.registerBlockItem(name + "_button", () -> Blocks.woodenButton(woodType.setType()));
-        this.fenceGate = BWGWood.registerBlockItem(name + "_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.of().mapColor(planks.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).ignitedByLava(), woodType));
+        this.pressurePlate = BWGWood.registerBlockItem(name + "_pressure_plate", () -> new PressurePlateBlock(woodType.setType(), BlockBehaviour.Properties.of().mapColor(this.logstem.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(0.5F).ignitedByLava().pushReaction(PushReaction.DESTROY)));
+        this.trapdoor = BWGWood.registerBlockItem(name + "_trapdoor", () -> new TrapDoorBlock(woodType.setType(), BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().isValidSpawn(Blocks::never).ignitedByLava()));
+        this.button = BWGWood.registerBlockItem(name + "_button", () -> (ButtonBlock) Blocks.woodenButton(woodType.setType()));
+        this.fenceGate = BWGWood.registerBlockItem(name + "_fence_gate", () -> new FenceGateBlock(woodType, BlockBehaviour.Properties.of().mapColor(planks.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).ignitedByLava()));
         this.fence = BWGWood.registerBlockItem(name + "_fence", () -> new FenceBlock(BlockBehaviour.Properties.of().mapColor(planks.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).ignitedByLava().sound(SoundType.WOOD)));
-        this.door = BWGWood.registerBlockItem(name + "_door", () -> new DoorBlock(BlockBehaviour.Properties.of().mapColor(planks.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().ignitedByLava().pushReaction(PushReaction.DESTROY), woodType.setType()));
-        this.bookshelf = BWGWood.registerBlockItem(name + "_bookshelf", () -> new Block(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF).mapColor(mapColor)));
+        this.door = BWGWood.registerBlockItem(name + "_door", () -> new DoorBlock(woodType.setType(), BlockBehaviour.Properties.of().mapColor(planks.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().ignitedByLava().pushReaction(PushReaction.DESTROY)));
+        this.bookshelf = BWGWood.registerBlockItem(name + "_bookshelf", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BOOKSHELF).mapColor(mapColor)));
         this.craftingTable = BWGWood.registerBlockItem(name + "_crafting_table", () -> new BWGCraftingTable(mapColor));
         if (saplingGrower != null)
             this.sapling = BWGWood.createSapling(name, saplingGrower, saplingPlantAbleOn);
 
         if (leaves) {
-            if (glowLeaves) this.leaves = BWGWood.registerBlockItem(name + "_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES).lightLevel(level -> 8).mapColor(mapColor)));
-            else this.leaves = BWGWood.registerBlockItem(name + "_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES).mapColor(mapColor)));
+            if (glowLeaves) this.leaves = BWGWood.registerBlockItem(name + "_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).lightLevel(level -> 8).mapColor(mapColor)));
+            else this.leaves = BWGWood.registerBlockItem(name + "_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor)));
         }
 
         if (boats) {
@@ -133,15 +133,15 @@ public class BWGWoodSet {
         this(blockSetType, mapColor, LogStem.LOG, null, true, true, false, null);
     }
 
-    protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, @Nullable Supplier<AbstractTreeGrower> saplingGrower, boolean leaves, boolean boats) {
+    protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, @Nullable Supplier<TreeGrower> saplingGrower, boolean leaves, boolean boats) {
         this(blockSetType, mapColor, LogStem.LOG, saplingGrower, leaves, boats, false, BlockTags.DIRT);
     }
 
-    protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, @Nullable Supplier<AbstractTreeGrower> saplingGrower, boolean leaves, boolean boats, TagKey<Block> saplingPlantAbleOn) {
+    protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, @Nullable Supplier<TreeGrower> saplingGrower, boolean leaves, boolean boats, TagKey<Block> saplingPlantAbleOn) {
         this(blockSetType, mapColor, LogStem.LOG, saplingGrower, leaves, boats, false, saplingPlantAbleOn);
     }
 
-    protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, @Nullable Supplier<AbstractTreeGrower> saplingGrower, boolean leaves, boolean boats, boolean glowLeaves) {
+    protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, @Nullable Supplier<TreeGrower> saplingGrower, boolean leaves, boolean boats, boolean glowLeaves) {
         this(blockSetType, mapColor, LogStem.LOG, saplingGrower, leaves, boats, glowLeaves, BlockTags.DIRT);
     }
 
@@ -153,15 +153,15 @@ public class BWGWoodSet {
         this(blockSetType, mapColor, logstem, null, true, true, false, null);
     }
 
-    protected BWGWoodSet(String name, MapColor mapColor, @Nullable Supplier<AbstractTreeGrower> saplingGrower) {
+    protected BWGWoodSet(String name, MapColor mapColor, @Nullable Supplier<TreeGrower> saplingGrower) {
         this(BlockSetType.register(new BlockSetType(name)), mapColor, saplingGrower, true, true);
     }
 
-    protected BWGWoodSet(String name, MapColor mapColor, @Nullable Supplier<AbstractTreeGrower> saplingGrower, TagKey<Block> saplingPlantAbleOn) {
+    protected BWGWoodSet(String name, MapColor mapColor, @Nullable Supplier<TreeGrower> saplingGrower, TagKey<Block> saplingPlantAbleOn) {
         this(BlockSetType.register(new BlockSetType(name)), mapColor, saplingGrower, true, true, saplingPlantAbleOn);
     }
 
-    protected BWGWoodSet(String name, MapColor mapColor, @Nullable Supplier<AbstractTreeGrower> saplingGrower, boolean glowLeaves) {
+    protected BWGWoodSet(String name, MapColor mapColor, @Nullable Supplier<TreeGrower> saplingGrower, boolean glowLeaves) {
         this(BlockSetType.register(new BlockSetType(name)), mapColor, saplingGrower, true, true, glowLeaves);
     }
 

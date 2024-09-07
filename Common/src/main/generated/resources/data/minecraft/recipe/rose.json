@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeswevegone:rose_petal_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "biomeswevegone:rose"
+  }
+}

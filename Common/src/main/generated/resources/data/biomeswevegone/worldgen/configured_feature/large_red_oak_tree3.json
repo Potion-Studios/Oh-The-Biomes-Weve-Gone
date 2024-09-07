@@ -12,10 +12,8 @@
     "canopy_location": "biomeswevegone:features/trees/oak/large_red_oak_canopy3",
     "height": {
       "type": "minecraft:biased_to_bottom",
-      "value": {
-        "max_inclusive": 3,
-        "min_inclusive": 1
-      }
+      "max_inclusive": 3,
+      "min_inclusive": 1
     },
     "leaves_provider": {
       "type": "minecraft:weighted_state_provider",

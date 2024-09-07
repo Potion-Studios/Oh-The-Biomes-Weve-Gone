@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "biomeswevegone:purple_sandstone"
+  },
+  "result": {
+    "count": 1,
+    "id": "biomeswevegone:purple_sandstone_wall"
+  }
+}

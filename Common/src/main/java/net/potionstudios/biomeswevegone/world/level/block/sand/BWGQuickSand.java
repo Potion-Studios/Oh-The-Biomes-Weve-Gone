@@ -5,6 +5,7 @@ import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.ColorRGBA;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
@@ -15,7 +16,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SandBlock;
+import net.minecraft.world.level.block.ColoredFallingBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
@@ -25,9 +26,9 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.potionstudios.biomeswevegone.world.damagesource.BWGDamageTypes;
 import org.jetbrains.annotations.NotNull;
 
-public class BWGQuickSand extends SandBlock {
+public class BWGQuickSand extends ColoredFallingBlock {
 	public BWGQuickSand(int dustColor) {
-		super(dustColor, BlockBehaviour.Properties.copy(Blocks.SAND).noCollission().isValidSpawn(Blocks::never));
+		super(new ColorRGBA(dustColor), BlockBehaviour.Properties.ofFullCopy(Blocks.SAND).noCollission().isValidSpawn(Blocks::never));
 	}
 
 	@Override

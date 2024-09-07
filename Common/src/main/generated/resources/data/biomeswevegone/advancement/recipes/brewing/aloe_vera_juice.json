@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_aloe_vera": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:aloe_vera"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomeswevegone:aloe_vera_juice"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_aloe_vera"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomeswevegone:aloe_vera_juice"
+    ]
+  }
+}

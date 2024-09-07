@@ -44,9 +44,9 @@ public class ArchPiece extends StructurePiece {
 
     public ArchPiece(StructurePieceSerializationContext context, CompoundTag tag) {
         super(BWGStructurePieceTypes.ARCH_PIECE.get(), tag);
-        this.origin = NbtUtils.readBlockPos(tag.getCompound("origin"));
-        this.first = NbtUtils.readBlockPos(tag.getCompound("first"));
-        this.second = NbtUtils.readBlockPos(tag.getCompound("second"));
+        this.origin = NbtUtils.readBlockPos(tag, "origin").orElseThrow();
+        this.first = NbtUtils.readBlockPos(tag, "first").orElseThrow();
+        this.second = NbtUtils.readBlockPos(tag, "second").orElseThrow();
         this.yOffset = tag.getInt("yOffset");
 
         RegistryOps<Tag> ops = RegistryOps.create(NbtOps.INSTANCE, context.registryAccess());

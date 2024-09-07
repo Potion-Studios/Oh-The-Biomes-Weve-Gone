@@ -1,7 +1,7 @@
 package net.potionstudios.biomeswevegone.compat.vanilla.dispenser;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.BlockSource;
+import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.world.item.DispensibleContainerItem;
 import net.minecraft.world.item.ItemStack;
@@ -28,14 +28,14 @@ public class BWGDispenseItemBehavior {
 			private final DefaultDispenseItemBehavior defaultDispenseItemBehavior = new DefaultDispenseItemBehavior();
 
 			@Override
-			public @NotNull ItemStack execute(@NotNull BlockSource source, @NotNull ItemStack stack) {
-				DispensibleContainerItem dispensibleContainerItem = (DispensibleContainerItem) stack.getItem();
-				BlockPos blockPos = source.getPos().relative(source.getBlockState().getValue(DispenserBlock.FACING));
-				Level level = source.getLevel();
+			protected @NotNull ItemStack execute(@NotNull BlockSource blockSource, @NotNull ItemStack item) {
+				DispensibleContainerItem dispensibleContainerItem = (DispensibleContainerItem) item.getItem();
+				BlockPos blockPos = blockSource.pos().relative(blockSource.state().getValue(DispenserBlock.FACING));
+				Level level = blockSource.level();
 				if (dispensibleContainerItem.emptyContents(null, level, blockPos, null)) {
-					dispensibleContainerItem.checkExtraContent(null, level, stack, blockPos);
+					dispensibleContainerItem.checkExtraContent(null, level, item, blockPos);
 					return new ItemStack(Items.BUCKET);
-				} else return this.defaultDispenseItemBehavior.dispense(source, stack);
+				} else return this.defaultDispenseItemBehavior.dispense(blockSource, item);
 			}
 		});
 	}

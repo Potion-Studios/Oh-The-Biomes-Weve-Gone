@@ -1,5 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
@@ -19,9 +20,16 @@ import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
 
 public class AloeVeraBlock extends BushBlock implements BonemealableBlock {
+
+    private static final MapCodec<AloeVeraBlock> CODEC = simpleCodec(AloeVeraBlock::new);
+
     public AloeVeraBlock() {
-        super(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.0f).sound(SoundType.WET_GRASS)
+        this(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.0f).sound(SoundType.WET_GRASS)
                 .noOcclusion().noCollission().randomTicks().pushReaction(PushReaction.DESTROY));
+    }
+
+    public AloeVeraBlock(Properties properties) {
+        super(properties);
     }
 
     @Override
@@ -36,12 +44,17 @@ public class AloeVeraBlock extends BushBlock implements BonemealableBlock {
     }
 
     @Override
+    protected @NotNull MapCodec<? extends BushBlock> codec() {
+        return CODEC;
+    }
+
+    @Override
     protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
         return state.is(BlockTags.SAND);
     }
 
     @Override
-    public boolean isValidBonemealTarget(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state) {
         return true;
     }
 

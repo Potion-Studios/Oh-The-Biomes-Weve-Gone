@@ -54,12 +54,12 @@ public class ManOWarRenderer<T extends ManOWar> extends GeoEntityRenderer<T> {
         return TEXTURES.get(entity.getColor());
     }
 
-
-    protected void applyRotations(T squid, PoseStack poseStack, float f, float g, float h) {
-        float i = Mth.lerp(h, squid.xBodyRotO, squid.xBodyRot);
-        float j = Mth.lerp(h, squid.zBodyRotO, squid.zBodyRot);
+    @Override
+    protected void applyRotations(T animatable, PoseStack poseStack, float ageInTicks, float rotationYaw, float partialTick, float nativeScale) {
+        float i = Mth.lerp(partialTick, animatable.xBodyRotO, animatable.xBodyRot);
+        float j = Mth.lerp(partialTick, animatable.zBodyRotO, animatable.zBodyRot);
         poseStack.translate(0.0D, 0.5D, 0.0D);
-        poseStack.mulPose(Axis.YP.rotationDegrees(180.0F - g));
+        poseStack.mulPose(Axis.YP.rotationDegrees(180.0F - rotationYaw));
         poseStack.mulPose(Axis.XP.rotationDegrees(i));
         poseStack.mulPose(Axis.YP.rotationDegrees(j));
         poseStack.translate(0.0D, -1.2000000476837158D, 0.0D);

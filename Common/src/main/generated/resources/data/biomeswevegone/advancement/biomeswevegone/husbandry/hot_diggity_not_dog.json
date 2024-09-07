@@ -1,0 +1,44 @@
+{
+  "parent": "biomeswevegone:biomeswevegone/husbandry/root",
+  "criteria": {
+    "cattail_sprout": {
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": "#minecraft:campfires"
+              }
+            }
+          },
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": "biomeswevegone:cattail_sprout"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:item_used_on_block"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.biomeswevegone.husbandry.hot_diggity_not_dog.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "biomeswevegone:cattail_sprout"
+    },
+    "title": {
+      "translate": "advancements.biomeswevegone.husbandry.hot_diggity_not_dog.title"
+    }
+  },
+  "requirements": [
+    [
+      "cattail_sprout"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

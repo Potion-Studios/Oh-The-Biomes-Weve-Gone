@@ -25,6 +25,9 @@ configurations {
         isCanBeResolved = true
         isCanBeConsumed = false
     }
+    configureEach {
+        resolutionStrategy.force("net.sf.jopt-simple:jopt-simple:5.0.4")
+    }
 }
 
 loom {
@@ -41,24 +44,19 @@ loom {
     runs.create("datagen") {
         data()
         programArgs("--all", "--mod", "biomeswevegone")
-        programArgs("--output", project(":Common").file("src/main/generated/resources").absolutePath)
-        programArgs("--existing", project(":Common").file("src/main/resources").absolutePath)
+        programArgs("--output", file("src/main/generated/resources").absolutePath)
+        programArgs("--existing", file("src/main/resources").absolutePath)
     }
 }
 
 dependencies {
-    if ((project.properties["use_neoforge"] as String).toBoolean())
-        forge("net.neoforged:forge:$minecraftVersion-${project.properties["neoforge_version"]}")
-    else forge("net.minecraftforge:forge:$minecraftVersion-${project.properties["forge_version"]}")
-
+    forge("net.minecraftforge:forge:$minecraftVersion-${project.properties["forge_version"]}")
 
     "common"(project(":Common", "namedElements")) { isTransitive = false }
     "shadowBundle"(project(":Common", "transformProductionForge"))
 
-    modLocalRuntime("me.djtheredstoner:DevAuth-forge-latest:${project.properties["devauth_version"]}")  { isTransitive = false }
+    modLocalRuntime("me.djtheredstoner:DevAuth-forge-latest:${project.properties["devauth_version"]}")
 
-    implementation("com.eliotlash.mclib:mclib:20")
-    forgeRuntimeLibrary("com.eliotlash.mclib:mclib:20")
     modApi("com.github.glitchfiend:TerraBlender-forge:$minecraftVersion-${project.properties["terrablender_version"]}")
     modApi("corgitaco.corgilib:Corgilib-Forge:$minecraftVersion-${project.properties["corgilib_version"]}")
     modApi("dev.corgitaco:Oh-The-Trees-Youll-Grow-forge:$minecraftVersion-${project.properties["ohthetreesyoullgrow_version"]}")
@@ -68,9 +66,8 @@ dependencies {
     modRuntimeOnly("mcp.mobius.waila:wthit:forge-${project.properties["WTHIT"]}")  { isTransitive = false }
     modRuntimeOnly("lol.bai:badpackets:forge-${project.properties["badPackets"]}")  { isTransitive = false }
 
-    modLocalRuntime("maven.modrinth:cyanide:4.1.0")
-
-    modApi("com.github.glitchfiend:SereneSeasons:$minecraftVersion-9.0.0.46") { isTransitive = false}
+    compileOnly("io.github.llamalad7:mixinextras-common:0.4.1")?.let { annotationProcessor(it) }
+    include("io.github.llamalad7:mixinextras-forge:0.4.1")?.let { implementation(it) }
 }
 
 tasks {
@@ -96,7 +93,7 @@ tasks {
 }
 
 publisher {
-    setLoaders(ModLoader.FORGE, ModLoader.NEOFORGE)
+    setLoaders(ModLoader.FORGE)
     val depends = mutableListOf("terrablender", "geckolib", "corgilib", "oh-the-trees-youll-grow")
     curseDepends.required.set(depends)
     modrinthDepends.required.set(depends)

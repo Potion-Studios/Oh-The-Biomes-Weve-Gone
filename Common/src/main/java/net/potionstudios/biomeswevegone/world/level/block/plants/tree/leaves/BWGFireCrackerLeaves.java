@@ -8,7 +8,7 @@ import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -26,10 +26,9 @@ public class BWGFireCrackerLeaves extends LeavesBlock {
     }
 
     @Override
-    public @NotNull InteractionResult use(@NotNull BlockState state, Level level, @NotNull BlockPos pos, Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
-        ItemStack itemStack = player.getItemInHand(hand);
+    protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
         RandomSource random = level.getRandom();
-        if (itemStack.is(BWGItemTags.SHEARS) && level.getBlockState(pos.below()).is(BlockTags.DIRT)) {
+        if (stack.is(BWGItemTags.SHEARS) && level.getBlockState(pos.below()).is(BlockTags.DIRT)) {
             level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
             double d = (double) pos.getX() + random.nextDouble();
             double e = (double) pos.getY() + 1.0D;
@@ -38,8 +37,8 @@ public class BWGFireCrackerLeaves extends LeavesBlock {
             level.neighborChanged(pos, BWGBlocks.FIRECRACKER_FLOWER_BUSH.getBlock(), pos);
             level.addParticle(ParticleTypes.HAPPY_VILLAGER, d, e, f, 0.0D, 0.0D, 0.0D);
             level.gameEvent(player, GameEvent.SHEAR, pos);
-            player.awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
+            player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
         }
-        return super.use(state, level, pos, player, hand, hit);
+        return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
     }
 }

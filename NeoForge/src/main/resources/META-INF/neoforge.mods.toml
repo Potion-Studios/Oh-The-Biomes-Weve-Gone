@@ -1,0 +1,59 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+issueTrackerURL = "https://github.com/Potion-Studios/Oh-The-Biomes-Weve-Gone/issues"
+license = "All Rights Reserved"
+
+[[mods]]
+modId = "biomeswevegone"
+version = "${version}"
+displayName = "Oh The Biomes We've Gone"
+logoFile="OTBWG.png"
+authors = "Joseph T. McQuigg (JT122406), AOCAWOL, YaBoiChips, Corgi Taco"
+description = '''
+Sequel to Oh The Biomes You'll Go, this mod adds a variety of new biomes to the game.
+'''
+
+[[dependencies.biomeswevegone]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.biomeswevegone]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.biomeswevegone]]
+modId = "terrablender"
+type = "required"
+versionRange = "[4.1.0.0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.biomeswevegone]]
+modId = "corgilib"
+type = "required"
+versionRange = "[5.0.0.2,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.biomeswevegone]]
+modId = "ohthetreesyoullgrow"
+type = "required"
+versionRange = "[5.0.3,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.biomeswevegone]]
+modId = "geckolib"
+type = "required"
+versionRange = "[4.6,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[mixins]]
+config = "biomeswevegone-common.mixins.json"

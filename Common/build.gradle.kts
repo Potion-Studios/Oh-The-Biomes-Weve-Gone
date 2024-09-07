@@ -1,5 +1,5 @@
 architectury {
-    common("forge", "fabric")
+    common("forge", "fabric", "neoforge")
     platformSetupLoomIde()
 }
 

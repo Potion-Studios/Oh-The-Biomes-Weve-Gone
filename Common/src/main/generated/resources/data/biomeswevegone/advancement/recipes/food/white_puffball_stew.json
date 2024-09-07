@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cooked_white_puffball_cap": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:cooked_white_puffball_cap"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomeswevegone:white_puffball_stew"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cooked_white_puffball_cap"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomeswevegone:white_puffball_stew"
+    ]
+  }
+}

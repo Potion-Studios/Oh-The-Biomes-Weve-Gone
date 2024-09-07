@@ -26,21 +26,16 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.AttachedStemBlock;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.StemGrownBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.GeoAnimatable;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimatableManager;
-import software.bernie.geckolib.core.animation.AnimationController;
-import software.bernie.geckolib.core.animation.AnimationState;
-import software.bernie.geckolib.core.animation.RawAnimation;
-import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.List;
@@ -71,11 +66,11 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
 
 
     @Override
-    protected void defineSynchedData() {
-        this.entityData.define(DATA_CARRY_STATE, Blocks.AIR.defaultBlockState());
-        this.entityData.define(HIDING, false);
-        this.entityData.define(TIMER, 0);
-        super.defineSynchedData();
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        builder.define(DATA_CARRY_STATE, Blocks.AIR.defaultBlockState());
+        builder.define(HIDING, false);
+        builder.define(TIMER, 0);
+        super.defineSynchedData(builder);
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -226,8 +221,9 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         }
     }
 
+
     @Override
-    public boolean canBeLeashed(@NotNull Player player) {
+    public boolean canBeLeashed() {
         return true;
     }
 
@@ -343,7 +339,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
             if (this.isReachedTarget()) {
                 Level level = this.warden.level();
                 BlockState blockstate = level.getBlockState(this.blockPos);
-                if (blockstate.getBlock() instanceof StemGrownBlock block) {
+                if (blockstate.getBlock() instanceof AttachedStemBlock) {
                     level.removeBlock(this.blockPos, false);
                     level.gameEvent(GameEvent.BLOCK_DESTROY, this.blockPos, GameEvent.Context.of(this.warden, blockstate));
                     this.warden.setCarriedBlock(blockstate.getBlock().defaultBlockState());

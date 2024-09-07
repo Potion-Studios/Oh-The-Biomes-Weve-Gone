@@ -12,10 +12,8 @@
     "canopy_location": "biomeswevegone:features/trees/meadow/meadow_canopy3",
     "height": {
       "type": "minecraft:biased_to_bottom",
-      "value": {
-        "max_inclusive": 8,
-        "min_inclusive": 6
-      }
+      "max_inclusive": 8,
+      "min_inclusive": 6
     },
     "leaves_provider": {
       "type": "minecraft:weighted_state_provider",

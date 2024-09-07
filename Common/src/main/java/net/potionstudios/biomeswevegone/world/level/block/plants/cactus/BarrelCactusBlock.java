@@ -9,7 +9,7 @@ import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
@@ -28,23 +28,21 @@ import org.jetbrains.annotations.NotNull;
 
 public class BarrelCactusBlock extends BWGCactusBlock implements BonemealableBlock {
 	public BarrelCactusBlock() {
-		super(BlockBehaviour.Properties.copy(Blocks.CACTUS).noOcclusion());
+		super(BlockBehaviour.Properties.ofFullCopy(Blocks.CACTUS).noOcclusion());
 	}
 
 	@Override
-	public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
-		ItemStack itemStack = player.getItemInHand(hand);
-		if (itemStack.is(BWGItemTags.SHEARS)) {
+	protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
+		if (stack.is(BWGItemTags.SHEARS)) {
 			if (!level.isClientSide()) {
 				level.playSound(null, pos, SoundEvents.PUMPKIN_CARVE, SoundSource.BLOCKS, 1.0F, 1.0F);
 				level.setBlockAndUpdate(pos, BWGBlocks.CARVED_BARREL_CACTUS.get().defaultBlockState());
-				itemStack.hurtAndBreak(1, player, (player1 -> player1.broadcastBreakEvent(hand)));
 				level.gameEvent(player, GameEvent.SHEAR, pos);
-				player.awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
+				player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
 			}
-			return InteractionResult.sidedSuccess(level.isClientSide());
+			return ItemInteractionResult.sidedSuccess(level.isClientSide());
 		}
-		return super.use(state, level, pos, player, hand, hit);
+		return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
 	}
 
 	protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
@@ -64,7 +62,7 @@ public class BarrelCactusBlock extends BWGCactusBlock implements BonemealableBlo
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state, boolean isClient) {
+	public boolean isValidBonemealTarget(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state) {
 		return true;
 	}
 

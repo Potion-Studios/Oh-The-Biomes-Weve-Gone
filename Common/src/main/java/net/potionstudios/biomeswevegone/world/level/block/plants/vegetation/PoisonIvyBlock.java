@@ -14,9 +14,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
 public class PoisonIvyBlock extends VineBlock {
-    public PoisonIvyBlock(Properties properties) {
-        super(properties);
-    }
 
     public PoisonIvyBlock() {
         super(BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.2f).randomTicks().noCollission());

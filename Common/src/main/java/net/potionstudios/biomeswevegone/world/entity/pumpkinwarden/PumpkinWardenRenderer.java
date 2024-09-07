@@ -35,19 +35,19 @@ public class PumpkinWardenRenderer<T extends PumpkinWarden> extends GeoEntityRen
     }
 
     @Override
-    public void renderRecursively(PoseStack stack, T animatable, GeoBone bone, RenderType renderType, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+    public void renderRecursively(PoseStack poseStack, T animatable, GeoBone bone, RenderType renderType, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, int colour) {
         if (bone.getName().equals("RightArm")) {
-            stack.pushPose();
-            stack.mulPose(Axis.XP.rotationDegrees(15));
-            stack.mulPose(Axis.YP.rotationDegrees(0));
-            stack.mulPose(Axis.ZP.rotationDegrees(3.5f));
-            stack.translate(0.05D, 0.2D, -1D);
-            stack.scale(2f, 2f, 2f);
-            Minecraft.getInstance().getItemRenderer().renderStatic(animatable.getMainHandItem(), ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, packedLight, packedOverlay, stack, bufferSource, animatable.level(), 1);
-            stack.popPose();
+            poseStack.pushPose();
+            poseStack.mulPose(Axis.XP.rotationDegrees(15));
+            poseStack.mulPose(Axis.YP.rotationDegrees(0));
+            poseStack.mulPose(Axis.ZP.rotationDegrees(3.5f));
+            poseStack.translate(0.05D, 0.2D, -1D);
+            poseStack.scale(2f, 2f, 2f);
+            Minecraft.getInstance().getItemRenderer().renderStatic(animatable.getMainHandItem(), ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, packedLight, packedOverlay, poseStack, bufferSource, animatable.level(), 1);
+            poseStack.popPose();
             buffer = bufferSource.getBuffer(RenderType.entityTranslucent(this.getTextureLocation(animatable)));
         }
 
-        super.renderRecursively(stack, animatable, bone, renderType, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
+        super.renderRecursively(poseStack, animatable, bone, renderType, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, colour);
     }
 }

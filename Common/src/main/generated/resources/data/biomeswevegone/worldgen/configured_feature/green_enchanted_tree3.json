@@ -15,27 +15,21 @@
         "type": "biomeswevegone:glow_berry_decorator",
         "berries_probability": {
           "type": "minecraft:uniform",
-          "value": {
-            "max_exclusive": 0.5,
-            "min_inclusive": 0.25
-          }
+          "max_exclusive": 0.5,
+          "min_inclusive": 0.25
         },
         "length": {
           "type": "minecraft:uniform",
-          "value": {
-            "max_inclusive": 6,
-            "min_inclusive": 2
-          }
+          "max_inclusive": 6,
+          "min_inclusive": 2
         },
         "probability": 0.1
       }
     ],
     "height": {
       "type": "minecraft:biased_to_bottom",
-      "value": {
-        "max_inclusive": 5,
-        "min_inclusive": 2
-      }
+      "max_inclusive": 5,
+      "min_inclusive": 2
     },
     "leaves_provider": {
       "type": "minecraft:simple_state_provider",

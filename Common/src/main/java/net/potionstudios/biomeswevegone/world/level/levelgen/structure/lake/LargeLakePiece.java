@@ -34,7 +34,6 @@ import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.synth.ImprovedNoise;
 import net.minecraft.world.level.material.Fluids;
-import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.util.UnsafeBoundingBox;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGStructurePieceTypes;
 import org.apache.commons.lang3.mutable.MutableBoolean;
@@ -63,11 +62,11 @@ public class LargeLakePiece extends StructurePiece {
 
     public LargeLakePiece(StructurePieceSerializationContext context, CompoundTag tag) {
         super(BWGStructurePieceTypes.LARGE_LAKE.get(), tag);
-        this.origin = NbtUtils.readBlockPos(tag.getCompound("origin"));
+        this.origin = NbtUtils.readBlockPos(tag, "origin").orElseThrow();
         this.radius = tag.getInt("radius");
         this.lakeDepth = tag.getInt("lakeDepth");
         RegistryOps<Tag> tagRegistryOps = RegistryOps.create(NbtOps.INSTANCE, context.registryAccess());
-        this.lakeFeatures = PlacedFeature.LIST_CODEC.decode(tagRegistryOps, tag.get("lake_features")).getOrThrow(false, error -> BiomesWeveGone.LOGGER.error("[Large Lake Piece]: Error serializing placed features: %s".formatted(error))).getFirst();
+        this.lakeFeatures = PlacedFeature.LIST_CODEC.decode(tagRegistryOps, tag.get("lake_features")).getOrThrow().getFirst();
     }
 
     @Override
