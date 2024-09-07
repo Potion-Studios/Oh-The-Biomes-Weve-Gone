@@ -1,7 +1,7 @@
 import com.hypherionmc.modpublisher.properties.ModLoader
 
 plugins {
-    id("com.github.johnrengelman.shadow")
+    id("com.gradleup.shadow")
 }
 
 architectury {

@@ -3,7 +3,7 @@ name: Gradle Publish to Maven
 on:
   push:
     branches:
-      - master
+      - 1.20.1
       - Release
 
 jobs:
