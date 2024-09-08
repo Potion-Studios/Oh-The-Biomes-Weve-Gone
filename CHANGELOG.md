@@ -1,3 +1,6 @@
+# 2.0.1-Beta
+- Fix Missing Recipes for Doors, Trapdoors, Slabs, Stairs, Buttons, Pressure Plates, Signs and Fences
+
 # 2.0.0-Beta
 - Update to 1.21.1, Java 21
 - Add NeoForge Support

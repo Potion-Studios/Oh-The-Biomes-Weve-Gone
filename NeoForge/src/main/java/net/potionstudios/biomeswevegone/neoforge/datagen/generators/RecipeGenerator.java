@@ -5,6 +5,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.flag.FeatureFlagSet;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -39,7 +40,8 @@ public class RecipeGenerator extends RecipeProvider {
             woodFromLogs(recipeOutput, set.wood(), set.logstem());
             woodFromLogs(recipeOutput, set.strippedWood(), set.strippedLogStem());
             set.makeFamily();
-            generateRecipes(recipeOutput, set.family(), FeatureFlagSet.of());
+
+            generateRecipes(recipeOutput, set.family(), FeatureFlagSet.of(FeatureFlags.VANILLA));
             ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, set.bookshelf())
                     .define('#', set.planks())
                     .define('X', Items.BOOK)
@@ -73,8 +75,8 @@ public class RecipeGenerator extends RecipeProvider {
 
 
         BWGSandSet.getSandSets().forEach(set -> {
-            generateRecipes(recipeOutput, set.getSmoothSandStoneFamily(), FeatureFlagSet.of());
-            generateRecipes(recipeOutput, set.getCutSandStoneFamily(), FeatureFlagSet.of());
+            generateRecipes(recipeOutput, set.getSmoothSandStoneFamily(), FeatureFlagSet.of(FeatureFlags.VANILLA));
+            generateRecipes(recipeOutput, set.getCutSandStoneFamily(), FeatureFlagSet.of(FeatureFlags.VANILLA));
         });
 
         BWGBlockSet.getBlockSets().forEach(set -> {
