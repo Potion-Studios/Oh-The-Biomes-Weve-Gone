@@ -1,6 +1,7 @@
 # 2.0.2-Beta
 - Fix Colored Sand Recipes using colored sand instead of normal sand
 - Update Skyris Village Forager House to non-legacy, add Custom Structure Processor
+- Update Skyris Village Large Farm to non-legacy, decrease file size, improve crop randomization
 
 # 2.0.1-Beta
 - Fix Missing Recipes for Doors, Trapdoors, Slabs, Stairs, Buttons, Pressure Plates, Signs and Fences
