@@ -88,7 +88,7 @@ public class BWGVillageTemplatePools {
                     singlePoolElement("skyris/houses/skyris_temple_1", 2, templatePoolFactoryContext, BWGStructureProcessorLists.SKYRIS_TEMPLE),
                     legacyPoolElement("skyris/houses/skyris_animal_pen_1", 2),
                     legacyPoolElement("skyris/houses/skyris_animal_pen_2", 2),
-                    legacyPoolElement("skyris/houses/skyris_large_farm_1", 11, templatePoolFactoryContext, ProcessorLists.FARM_DESERT),
+                    singlePoolElement("skyris/houses/skyris_large_farm_1", 11, templatePoolFactoryContext, ProcessorLists.FARM_DESERT),
                     emptyPoolElement(7)
             ), StructureTemplatePool.Projection.RIGID));
 
