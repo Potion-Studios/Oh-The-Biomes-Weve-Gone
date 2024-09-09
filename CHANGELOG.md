@@ -1,6 +1,7 @@
 # 1.2.3-Beta
 - Fix Oddion Foods Saturation Values
 - Fix Colored Sand Recipes using colored sand instead of normal sand
+- Update Skyris Village Forager House to non-legacy, add Custom Structure Processor
 
 # 1.2.2-Beta
 - Use Fabric API for Point Of Interest Type Registration to fix Forager not getting job on Fabric

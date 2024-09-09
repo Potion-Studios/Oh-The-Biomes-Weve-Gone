@@ -178,6 +178,10 @@ class BWGRuleProcessors {
 			createAlwaysTrueRandomBlockMatchTest(Blocks.PODZOL, 0.1f, Blocks.POLISHED_ANDESITE)
 	);
 
+	protected static RuleProcessor PODZOL_50_PERCENT_LUSH_GRASS = createRuleProcessor(
+			createAlwaysTrueRandomBlockMatchTest(Blocks.PODZOL, 0.5f, BWGBlocks.LUSH_GRASS_BLOCK.get())
+	);
+
 	protected static RuleProcessor skyrisLeavesToGreenAppleLeaves(float chance) {
 		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(BWGWood.SKYRIS.leaves(), chance, BWGWood.SKYRIS_LEAVES_GREEN_APPLE.get()));
 	}

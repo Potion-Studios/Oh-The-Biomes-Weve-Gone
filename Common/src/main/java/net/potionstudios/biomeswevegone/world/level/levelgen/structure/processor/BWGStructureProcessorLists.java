@@ -76,6 +76,17 @@ public class BWGStructureProcessorLists {
             )
     ));
 
+    public static final ResourceKey<StructureProcessorList> SKYRIS_FORAGER_HOUSE = register("skyris_forager_house", structureProcessorListHolderGetter -> new StructureProcessorList(
+            ImmutableList.of(
+                BWGRuleProcessors.POLISHED_ANDESITE_RANDOM_ANDESITE_GRAVEL,
+                BWGRuleProcessors.PODZOL_25_PERCENT_COARSE_DIRT,
+                BWGRuleProcessors.PODZOL_50_PERCENT_LUSH_GRASS,
+                BWGRuleProcessors.skyrisLeavesToGreenAppleLeaves(0.12f),
+                BWGRuleProcessors.skyrisLeavesToFlowering(0.15f),
+                new FruitBlockProcessor(BWGBlocks.GREEN_APPLE_FRUIT_BLOCK.get())
+            )
+    ));
+
     public static final ResourceKey<StructureProcessorList> SKYRIS_TOWN_CENTERS = register("skyris_town_centers", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
                     BWGRuleProcessors.POLISHED_ANDESITE_RANDOM_ANDESITE_GRAVEL,
