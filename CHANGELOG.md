@@ -1,3 +1,6 @@
+# 2.0.2-Beta
+- Fix Colored Sand Recipes using colored sand instead of normal sand
+
 # 2.0.1-Beta
 - Fix Missing Recipes for Doors, Trapdoors, Slabs, Stairs, Buttons, Pressure Plates, Signs and Fences
 - Fix Oddion Foods Saturation Values

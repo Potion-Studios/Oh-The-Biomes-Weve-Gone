@@ -6,7 +6,7 @@
       "item": "minecraft:black_dye"
     },
     "X": {
-      "item": "biomeswevegone:black_sand"
+      "item": "minecraft:sand"
     }
   },
   "pattern": [

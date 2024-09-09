@@ -245,11 +245,11 @@ public class RecipeGenerator extends RecipeProvider {
         sandToGlass(recipeOutput, BWGBlocks.PINK_SAND_SET, Items.PINK_STAINED_GLASS);
         sandToGlass(recipeOutput, BWGBlocks.PURPLE_SAND_SET, Items.PURPLE_STAINED_GLASS);
         sandToGlass(recipeOutput, BWGBlocks.WHITE_SAND_SET, Items.WHITE_STAINED_GLASS);
-	    dyeAbleRecipe(recipeOutput, BWGBlocks.BLACK_SAND_SET.getSand(), Items.BLACK_DYE);
-	    dyeAbleRecipe(recipeOutput, BWGBlocks.BLUE_SAND_SET.getSand(), Items.BLUE_DYE);
-	    dyeAbleRecipe(recipeOutput, BWGBlocks.PINK_SAND_SET.getSand(), Items.PINK_DYE);
-	    dyeAbleRecipe(recipeOutput, BWGBlocks.PURPLE_SAND_SET.getSand(), Items.PURPLE_DYE);
-	    dyeAbleRecipe(recipeOutput, BWGBlocks.WHITE_SAND_SET.getSand(), Items.WHITE_DYE);
+	    dyeAbleRecipe(recipeOutput, BWGBlocks.BLACK_SAND_SET.getSand(), Items.SAND, Items.BLACK_DYE);
+	    dyeAbleRecipe(recipeOutput, BWGBlocks.BLUE_SAND_SET.getSand(), Items.SAND,Items.BLUE_DYE);
+	    dyeAbleRecipe(recipeOutput, BWGBlocks.PINK_SAND_SET.getSand(), Items.SAND,Items.PINK_DYE);
+	    dyeAbleRecipe(recipeOutput, BWGBlocks.PURPLE_SAND_SET.getSand(), Items.SAND,Items.PURPLE_DYE);
+	    dyeAbleRecipe(recipeOutput, BWGBlocks.WHITE_SAND_SET.getSand(), Items.SAND,Items.WHITE_DYE);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BWGItems.GREEN_APPLE_PIE.get())
                 .requires(BWGItems.GREEN_APPLE.get())
@@ -332,14 +332,14 @@ public class RecipeGenerator extends RecipeProvider {
         stonecutterResultFromBase(finishedRecipeConsumer, category, packed, unpacked);
     }
 
-	private static void dyeAbleRecipe(RecipeOutput finishedRecipeConsumer, ItemLike item, Item dye) {
+	private static void dyeAbleRecipe(RecipeOutput finishedRecipeConsumer, ItemLike item, ItemLike ingredient, Item dye) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, item, 8)
 				.define('#', dye)
-				.define('X', item)
+				.define('X', ingredient)
 				.pattern("XXX")
 				.pattern("X#X")
 				.pattern("XXX")
-				.unlockedBy(getHasName(item), has(item))
+				.unlockedBy(getHasName(ingredient), has(ingredient))
 				.save(finishedRecipeConsumer);
 	}
 

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_purple_sand": {
+    "has_sand": {
       "conditions": {
         "items": [
           {
-            "items": "biomeswevegone:purple_sand"
+            "items": "minecraft:sand"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_purple_sand"
+      "has_sand"
     ]
   ],
   "rewards": {
