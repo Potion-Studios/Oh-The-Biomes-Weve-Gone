@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_black_sand": {
+    "has_sand": {
       "conditions": {
         "items": [
           {
             "items": [
-              "biomeswevegone:black_sand"
+              "minecraft:sand"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_black_sand",
+      "has_sand",
       "has_the_recipe"
     ]
   ],

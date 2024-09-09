@@ -1,28 +1,28 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "biomeswevegone:white_sand"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_white_sand": {
+    "has_sand": {
       "conditions": {
         "items": [
           {
             "items": [
-              "biomeswevegone:white_sand"
+              "minecraft:sand"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomeswevegone:white_sand"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_white_sand",
+      "has_sand",
       "has_the_recipe"
     ]
   ],
