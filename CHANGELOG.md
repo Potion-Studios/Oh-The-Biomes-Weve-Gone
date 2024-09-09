@@ -1,5 +1,6 @@
 # 2.0.1-Beta
 - Fix Missing Recipes for Doors, Trapdoors, Slabs, Stairs, Buttons, Pressure Plates, Signs and Fences
+- Fix Oddion Foods Saturation Values
 
 # 2.0.0-Beta
 - Update to 1.21.1, Java 21
