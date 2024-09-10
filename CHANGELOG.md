@@ -1,6 +1,6 @@
 # 2.0.2-Beta
 - Fix Colored Sand Recipes using colored sand instead of normal sand
-- Update Skyris Village Forager House to non-legacy, add Custom Structure Processor
+- Update Skyris Village Forage, and Small Houses to non-legacy, add Custom Structure Processors
 - Update Skyris Village Large Farm to non-legacy, decrease file size, improve crop randomization
 - Update Skyris Village Animal Pen to non-legacy, add Animals
 
