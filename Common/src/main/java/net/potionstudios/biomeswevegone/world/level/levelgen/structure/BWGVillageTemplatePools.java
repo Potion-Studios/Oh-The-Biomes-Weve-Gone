@@ -70,8 +70,8 @@ public class BWGVillageTemplatePools {
             createTemplatePool(getPool(templatePoolFactoryContext, SKYRIS_TERMINATOR), ImmutableList.of(
                     singlePoolElement("skyris/houses/skyris_small_house_1", 2,templatePoolFactoryContext, BWGStructureProcessorLists.SKYRIS_STREETS),
                     singlePoolElement("skyris/houses/skyris_small_house_2", 2, templatePoolFactoryContext, BWGStructureProcessorLists.SKYRIS_STREETS),
-                    legacyPoolElement("skyris/houses/skyris_small_house_3", 2),
-                    legacyPoolElement("skyris/houses/skyris_small_house_4", 2),
+                    singlePoolElement("skyris/houses/skyris_small_house_3", 2, templatePoolFactoryContext, BWGStructureProcessorLists.SKYRIS_TOWN_CENTERS),
+                    singlePoolElement("skyris/houses/skyris_small_house_4", 2, templatePoolFactoryContext, BWGStructureProcessorLists.SKYRIS_STREETS),
                     legacyPoolElement("skyris/houses/skyris_small_house_5", 2),
                     legacyPoolElement("skyris/houses/skyris_small_house_6"),
                     singlePoolElement("skyris/houses/skyris_medium_house_1", 2, templatePoolFactoryContext, BWGStructureProcessorLists.SKYRIS_STREETS),
