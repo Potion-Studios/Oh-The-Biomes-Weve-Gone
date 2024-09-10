@@ -83,7 +83,6 @@ tasks {
 
 publisher {
     setLoaders(ModLoader.NEOFORGE)
-    val depends = mutableListOf("terrablender", "geckolib", "corgilib", "oh-the-trees-youll-grow")
-    curseDepends.required.set(depends)
-    modrinthDepends.required.set(depends)
+    curseDepends.required.set(mutableListOf("terrablender-neoforge", "geckolib", "corgilib", "oh-the-trees-youll-grow"))
+    modrinthDepends.required.set(mutableListOf("terrablender", "geckolib", "corgilib", "oh-the-trees-youll-grow"))
 }
