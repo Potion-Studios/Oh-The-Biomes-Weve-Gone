@@ -92,8 +92,7 @@ public class CragFeature extends Feature<NoneFeatureConfiguration> {
             }
         }
 
-        double blended = Mth.clampedLerp(centerHeight, lowestHexHeight, Mth.square(radius) / pos.distSqr(toBlend)) / 2;
-        return blended;
+        return Mth.clampedLerp(centerHeight, lowestHexHeight, Mth.square(radius) / pos.distSqr(toBlend)) / 2;
     }
 
     private static double getHexHeight(ImprovedNoise noise, double noiseFreq, BlockPos.MutableBlockPos mutableBlockPos) {

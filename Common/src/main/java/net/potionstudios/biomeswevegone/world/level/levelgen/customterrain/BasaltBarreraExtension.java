@@ -79,8 +79,6 @@ public class BasaltBarreraExtension {
                     BlockState state = random.nextBoolean() ? Blocks.BASALT.defaultBlockState() : Blocks.SMOOTH_BASALT.defaultBlockState();
                     int hexHeightOceanFloorHeight = generatorHeightGetter.getHeight(generator, Heightmap.Types.OCEAN_FLOOR_WG, mutable.getX(), mutable.getZ(), region.getLevel().getChunkSource().randomState(), true);
 
-                    int hexTopHeight = hexHeightOceanFloorHeight;
-
                     double noiseFreq = 0.1;
 
 
@@ -91,7 +89,7 @@ public class BasaltBarreraExtension {
                     double addedHeight = BlendingFunction.EaseInOutCirc.INSTANCE.apply(heightDelta, 1, 4);
 
 
-                    double topY = hexTopHeight + addedHeight;
+                    double topY = hexHeightOceanFloorHeight + addedHeight;
                     double blendedY = Mth.clampedLerp(landHeight, topY, biomeBlend);
 
 
