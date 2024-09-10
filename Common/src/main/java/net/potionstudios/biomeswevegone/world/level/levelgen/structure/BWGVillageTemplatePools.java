@@ -68,8 +68,8 @@ public class BWGVillageTemplatePools {
 
     public static final ResourceKey<StructureTemplatePool> SKYRIS_HOUSES = register("skyris/houses", templatePoolFactoryContext ->
             createTemplatePool(getPool(templatePoolFactoryContext, SKYRIS_TERMINATOR), ImmutableList.of(
-                    legacyPoolElement("skyris/houses/skyris_small_house_1", 2),
-                    legacyPoolElement("skyris/houses/skyris_small_house_2", 2),
+                    singlePoolElement("skyris/houses/skyris_small_house_1", 2,templatePoolFactoryContext, BWGStructureProcessorLists.SKYRIS_STREETS),
+                    singlePoolElement("skyris/houses/skyris_small_house_2", 2, templatePoolFactoryContext, BWGStructureProcessorLists.SKYRIS_STREETS),
                     legacyPoolElement("skyris/houses/skyris_small_house_3", 2),
                     legacyPoolElement("skyris/houses/skyris_small_house_4", 2),
                     legacyPoolElement("skyris/houses/skyris_small_house_5", 2),
