@@ -220,11 +220,9 @@
     },
     {
       "element": {
-        "element_type": "minecraft:legacy_single_pool_element",
+        "element_type": "minecraft:single_pool_element",
         "location": "biomeswevegone:village/salem/houses/salem_animal_pen_2",
-        "processors": {
-          "processors": []
-        },
+        "processors": "biomeswevegone:salem_houses",
         "projection": "rigid"
       },
       "weight": 2

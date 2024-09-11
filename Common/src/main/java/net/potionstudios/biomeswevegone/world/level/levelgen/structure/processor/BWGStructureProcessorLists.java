@@ -113,7 +113,8 @@ public class BWGStructureProcessorLists {
     public static final ResourceKey<StructureProcessorList> SALEM_HOUSES = register("salem_houses", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
                     BWGRuleProcessors.STRIPPED_OAK_LOG_60_PERCENT_OAK_PLANKS,
-                    BWGRuleProcessors.STONE_RANDOM_COBBLESTONE_MOSSY
+                    BWGRuleProcessors.STONE_RANDOM_COBBLESTONE_MOSSY,
+                    BWGRuleProcessors.lushDirtToCoarseDirt(.35f)
             )
     ));
 
