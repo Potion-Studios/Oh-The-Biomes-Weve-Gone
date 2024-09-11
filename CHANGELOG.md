@@ -1,4 +1,4 @@
-# 1.2.3-Beta
+# 1.2.3
 - Fix Oddion Foods Saturation Values
 - Fix Colored Sand Recipes using colored sand instead of normal sand
 - Update Skyris Village Forage, and Small Houses to non-legacy, add Custom Structure Processors

@@ -110,7 +110,7 @@ subprojects {
             curseID.set("1070751")
             modrinthID.set("NTi7d3Xc")
             githubRepo.set("https://github.com/Potion-Studios/Oh-The-Biomes-Weve-Gone")
-            setReleaseType(ReleaseType.BETA)
+            setReleaseType(ReleaseType.RELEASE)
             setGameVersions(minecraftVersion)
             setCurseEnvironment(CurseEnvironment.BOTH)
             setJavaVersions(JavaVersion.VERSION_17, JavaVersion.VERSION_18, JavaVersion.VERSION_19, JavaVersion.VERSION_20, JavaVersion.VERSION_21, JavaVersion.VERSION_22)
