@@ -77,7 +77,7 @@
           "input_predicate": {
             "block": "biomeswevegone:skyris_leaves",
             "predicate_type": "minecraft:random_block_match",
-            "probability": 0.12
+            "probability": 0.15
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
@@ -100,7 +100,7 @@
           "input_predicate": {
             "block": "biomeswevegone:skyris_leaves",
             "predicate_type": "minecraft:random_block_match",
-            "probability": 0.15
+            "probability": 0.2
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
