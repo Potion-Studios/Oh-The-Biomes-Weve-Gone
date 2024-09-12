@@ -56,6 +56,8 @@ dependencies {
     modRuntimeOnly("lol.bai:badpackets:neo-${project.properties["badPackets"]}")  { isTransitive = false }
 
     modApi("com.github.glitchfiend:SereneSeasons-neoforge:$minecraftVersion-10.1.0.0")
+
+    modLocalRuntime("com.github.Jab125.architectury-data-generation-fix:architectury-data-generation-fix-neoforge:21.0.3")
 }
 
 tasks {
