@@ -1,3 +1,6 @@
+# 2.0.3-Beta
+- Fix BWG Chest Boats not Saving Data
+
 # 2.0.2-Beta
 - Fix Colored Sand Recipes using colored sand instead of normal sand
 - Update Skyris Village Forage, and Small Houses to non-legacy, add Custom Structure Processors
