@@ -49,12 +49,14 @@ public class BWGChestBoatEntity extends ChestBoat {
     @Override
     protected void addAdditionalSaveData(CompoundTag pCompound) {
         pCompound.putString("Type", this.getModVariant().getSerializedName());
+        super.addAdditionalSaveData(pCompound);
     }
 
     @Override
     protected void readAdditionalSaveData(CompoundTag pCompound) {
         if (pCompound.contains("Type", 8))
             this.setVariant(BWGBoatEntity.Type.byName(pCompound.getString("Type")));
+        super.readAdditionalSaveData(pCompound);
     }
 
     public BWGBoatEntity.Type getModVariant() {

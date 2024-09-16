@@ -1,3 +1,6 @@
+# 1.2.4
+- Fix BWG Chest Boats not Saving Data
+
 # 1.2.3
 - Fix Oddion Foods Saturation Values
 - Fix Colored Sand Recipes using colored sand instead of normal sand
