@@ -1,5 +1,6 @@
 # 1.2.4
 - Fix BWG Chest Boats not Saving Data
+- Fix Incompatibility with Slayers Beasts
 
 # 1.2.3
 - Fix Oddion Foods Saturation Values
