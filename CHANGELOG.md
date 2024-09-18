@@ -1,6 +1,7 @@
 # 1.2.4
 - Fix BWG Chest Boats not Saving Data
 - Fix Incompatibility with Slayers Beasts
+- Remove unused Tree NBTS, Refactor White Mangrove trees into folder
 
 # 1.2.3
 - Fix Oddion Foods Saturation Values
