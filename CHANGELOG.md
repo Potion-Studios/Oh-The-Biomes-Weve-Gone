@@ -1,3 +1,6 @@
+# 2.0.4-Beta
+- Revert Fix Incompatibility with Slayers Beasts. -> Causes incompat with Terralith
+
 # 2.0.3-Beta
 - Fix BWG Chest Boats not Saving Data
 - Fix Incompatibility with Slayers Beasts
