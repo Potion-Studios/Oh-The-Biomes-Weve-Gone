@@ -2,6 +2,7 @@
 - Fix BWG Chest Boats not Saving Data
 - Fix Incompatibility with Slayers Beasts
 - Return ResourceKey<CreativeModeTab> for our tabs
+- Remove unused Tree NBTS, Refactor White Mangrove trees into folder
 
 # 2.0.2-Beta
 - Fix Colored Sand Recipes using colored sand instead of normal sand
