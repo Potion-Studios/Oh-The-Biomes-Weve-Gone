@@ -2,6 +2,7 @@
 - Fix BWG Chest Boats not Saving Data
 - Fix Incompatibility with Slayers Beasts
 - Remove unused Tree NBTS, Refactor White Mangrove trees into folder
+- Return ResourceKey<CreativeModeTab> for our tabs
 
 # 1.2.3
 - Fix Oddion Foods Saturation Values
