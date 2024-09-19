@@ -126,11 +126,7 @@ public class BWGWoodSet {
         woodSets.add(this);
     }
 
-    protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor) {
-        this(blockSetType, mapColor, LogStem.LOG, null, true, false, null);
-    }
-
-    protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, @Nullable Supplier<TreeGrower> saplingGrower, boolean leaves) {
+    protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, @Nullable Supplier<AbstractTreeGrower> saplingGrower, boolean leaves) {
         this(blockSetType, mapColor, LogStem.LOG, saplingGrower, leaves, false, BlockTags.DIRT);
     }
 
@@ -142,15 +138,7 @@ public class BWGWoodSet {
         this(blockSetType, mapColor, LogStem.LOG, saplingGrower, leaves, glowLeaves, BlockTags.DIRT);
     }
 
-    protected BWGWoodSet(String name, MapColor mapColor, boolean leaves) {
-        this(BlockSetType.register(new BlockSetType(name)), mapColor, LogStem.LOG, null, leaves, false, null);
-    }
-
-    protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, LogStem logstem) {
-        this(blockSetType, mapColor, logstem, null, true, false, null);
-    }
-
-    protected BWGWoodSet(String name, MapColor mapColor, @Nullable Supplier<TreeGrower> saplingGrower) {
+    protected BWGWoodSet(String name, MapColor mapColor, @Nullable Supplier<AbstractTreeGrower> saplingGrower) {
         this(BlockSetType.register(new BlockSetType(name)), mapColor, saplingGrower, true);
     }
 
