@@ -196,8 +196,8 @@ public class TagsGenerator {
         protected void addTags(HolderLookup.@NotNull Provider provider) {
             BWGWoodSet.woodsets().forEach(set -> {
                 copy(set.logBlockTag(), set.logItemTag());
-                if (set.boatItem() != null) tag(ItemTags.BOATS).add(set.boatItem().get());
-                if (set.chestBoatItem() != null) tag(ItemTags.CHEST_BOATS).add(set.chestBoatItem().get());
+                tag(ItemTags.BOATS).add(set.boatItem().get());
+                tag(ItemTags.CHEST_BOATS).add(set.chestBoatItem().get());
             });
             copy(BlockTags.SLABS, ItemTags.SLABS);
             copy(BlockTags.STAIRS, ItemTags.STAIRS);

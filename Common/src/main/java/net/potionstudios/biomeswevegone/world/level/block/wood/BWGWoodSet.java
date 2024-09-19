@@ -70,8 +70,8 @@ public class BWGWoodSet {
     private final Supplier<CraftingTableBlock> craftingTable;
     private @Nullable PottedBlock sapling = null;
     private @Nullable Supplier<LeavesBlock> leaves = null;
-    private @Nullable Supplier<Item> boatItem = null;
-    private @Nullable Supplier<Item> chestBoatItem = null;
+    private final Supplier<Item> boatItem;
+    private final Supplier<Item> chestBoatItem;
 
     private BlockFamily family = null;
 
@@ -81,11 +81,10 @@ public class BWGWoodSet {
      * @param blockSetType       The wood type
      * @param mapColor           The map color
      * @param saplingGrower      Whether to include a sapling
-     * @param boats              Whether to include a boat
      * @param glowLeaves         Whether leaves should glow
      * @param saplingPlantAbleOn The tag for what the sapling can be planted on
      */
-    protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, LogStem logstem, @Nullable Supplier<AbstractTreeGrower> saplingGrower, boolean leaves, boolean boats, boolean glowLeaves, @Nullable TagKey<Block> saplingPlantAbleOn) {
+    protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, LogStem logstem, @Nullable Supplier<AbstractTreeGrower> saplingGrower, boolean leaves, boolean glowLeaves, @Nullable TagKey<Block> saplingPlantAbleOn) {
         this.woodType = PlatformHandler.PLATFORM_HANDLER.createWoodType(blockSetType.name(), blockSetType);
         this.name = blockSetType.name().replace(BiomesWeveGone.MOD_ID + ":", "");
         this.planks = BWGWood.registerBlockItem(name + "_planks", () -> new Block(BlockBehaviour.Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD).ignitedByLava()));
@@ -120,49 +119,47 @@ public class BWGWoodSet {
             else this.leaves = BWGWood.registerBlockItem(name + "_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES).mapColor(mapColor)));
         }
 
-        if (boats) {
-            this.boatItem = BWGWood.registerItem(name + "_boat", () -> new BWGBoatItem(false, BWGBoatEntity.Type.byName(name), new Item.Properties().stacksTo(16)));
-            this.chestBoatItem = BWGWood.registerItem(name + "_chest_boat", () -> new BWGBoatItem(true, BWGBoatEntity.Type.byName(name), new Item.Properties().stacksTo(16)));
-        }
+        this.boatItem = BWGWood.registerItem(name + "_boat", () -> new BWGBoatItem(false, BWGBoatEntity.Type.byName(name), new Item.Properties().stacksTo(16)));
+        this.chestBoatItem = BWGWood.registerItem(name + "_chest_boat", () -> new BWGBoatItem(true, BWGBoatEntity.Type.byName(name), new Item.Properties().stacksTo(16)));
         this.logBlockTag = TagKey.create(Registries.BLOCK, BiomesWeveGone.id(name + "_logs"));
         this.logItemTag = TagKey.create(Registries.ITEM, BiomesWeveGone.id(name + "_logs"));
         woodSets.add(this);
     }
 
     protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor) {
-        this(blockSetType, mapColor, LogStem.LOG, null, true, true, false, null);
+        this(blockSetType, mapColor, LogStem.LOG, null, true, false, null);
     }
 
-    protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, @Nullable Supplier<AbstractTreeGrower> saplingGrower, boolean leaves, boolean boats) {
-        this(blockSetType, mapColor, LogStem.LOG, saplingGrower, leaves, boats, false, BlockTags.DIRT);
+    protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, @Nullable Supplier<AbstractTreeGrower> saplingGrower, boolean leaves) {
+        this(blockSetType, mapColor, LogStem.LOG, saplingGrower, leaves, false, BlockTags.DIRT);
     }
 
-    protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, @Nullable Supplier<AbstractTreeGrower> saplingGrower, boolean leaves, boolean boats, TagKey<Block> saplingPlantAbleOn) {
-        this(blockSetType, mapColor, LogStem.LOG, saplingGrower, leaves, boats, false, saplingPlantAbleOn);
+    protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, @Nullable Supplier<AbstractTreeGrower> saplingGrower, boolean leaves, TagKey<Block> saplingPlantAbleOn) {
+        this(blockSetType, mapColor, LogStem.LOG, saplingGrower, leaves, false, saplingPlantAbleOn);
     }
 
-    protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, @Nullable Supplier<AbstractTreeGrower> saplingGrower, boolean leaves, boolean boats, boolean glowLeaves) {
-        this(blockSetType, mapColor, LogStem.LOG, saplingGrower, leaves, boats, glowLeaves, BlockTags.DIRT);
+    protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, @Nullable Supplier<AbstractTreeGrower> saplingGrower, boolean leaves, boolean glowLeaves) {
+        this(blockSetType, mapColor, LogStem.LOG, saplingGrower, leaves, glowLeaves, BlockTags.DIRT);
     }
 
-    protected BWGWoodSet(String name, MapColor mapColor, boolean leaves, boolean boats) {
-        this(BlockSetType.register(new BlockSetType(name)), mapColor, LogStem.LOG, null, leaves, boats, false, null);
+    protected BWGWoodSet(String name, MapColor mapColor, boolean leaves) {
+        this(BlockSetType.register(new BlockSetType(name)), mapColor, LogStem.LOG, null, leaves, false, null);
     }
 
     protected BWGWoodSet(BlockSetType blockSetType, MapColor mapColor, LogStem logstem) {
-        this(blockSetType, mapColor, logstem, null, true, true, false, null);
+        this(blockSetType, mapColor, logstem, null, true, false, null);
     }
 
     protected BWGWoodSet(String name, MapColor mapColor, @Nullable Supplier<AbstractTreeGrower> saplingGrower) {
-        this(BlockSetType.register(new BlockSetType(name)), mapColor, saplingGrower, true, true);
+        this(BlockSetType.register(new BlockSetType(name)), mapColor, saplingGrower, true);
     }
 
     protected BWGWoodSet(String name, MapColor mapColor, @Nullable Supplier<AbstractTreeGrower> saplingGrower, TagKey<Block> saplingPlantAbleOn) {
-        this(BlockSetType.register(new BlockSetType(name)), mapColor, saplingGrower, true, true, saplingPlantAbleOn);
+        this(BlockSetType.register(new BlockSetType(name)), mapColor, saplingGrower, true, saplingPlantAbleOn);
     }
 
     protected BWGWoodSet(String name, MapColor mapColor, @Nullable Supplier<AbstractTreeGrower> saplingGrower, boolean glowLeaves) {
-        this(BlockSetType.register(new BlockSetType(name)), mapColor, saplingGrower, true, true, glowLeaves);
+        this(BlockSetType.register(new BlockSetType(name)), mapColor, saplingGrower, true, glowLeaves);
     }
 
     public String name() {
@@ -274,11 +271,11 @@ public class BWGWoodSet {
         return null;
     }
 
-    public @Nullable Supplier<Item> boatItem() {
+    public Supplier<Item> boatItem() {
         return boatItem;
     }
 
-    public @Nullable Supplier<Item> chestBoatItem() {
+    public Supplier<Item> chestBoatItem() {
         return chestBoatItem;
     }
 

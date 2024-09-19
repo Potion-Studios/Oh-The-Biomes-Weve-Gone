@@ -71,8 +71,8 @@ public class ModelGenerators {
                 simpleItem(set.door(), set.name() + "/door");
                 simpleItem(set.signItem(), set.name() + "/sign");
                 simpleItem(set.hangingSignItem(), set.name() + "/hanging_sign");
-                if (set.boatItem() != null) simpleItem(set.boatItem().get(), set.name() + "/boat");
-                if (set.chestBoatItem() != null) simpleItem(set.chestBoatItem().get(), set.name() + "/chest_boat");
+                simpleItem(set.boatItem().get(), set.name() + "/boat");
+                simpleItem(set.chestBoatItem().get(), set.name() + "/chest_boat");
             });
             simpleItemBlockTexture(BWGItems.TINY_LILY_PADS.get());
             singleTexture(key(BWGItems.FLOWERING_TINY_LILY_PADS.get()).getPath(), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/tiny_lily_pads")).texture("layer1", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/tiny_lily_pads_flower_overlay"));
