@@ -1,3 +1,6 @@
+# 1.2.5
+- Revert Fix Incompatibility with Slayers Beasts. -> Causes incompat with Terralith
+
 # 1.2.4
 - Fix BWG Chest Boats not Saving Data
 - Fix Incompatibility with Slayers Beasts
