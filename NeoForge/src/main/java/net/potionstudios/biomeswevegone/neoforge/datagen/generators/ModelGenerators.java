@@ -68,8 +68,8 @@ public class ModelGenerators {
                 simpleItem(set.door(), set.name() + "/door");
                 simpleItem(set.signItem(), set.name() + "/sign");
                 simpleItem(set.hangingSignItem(), set.name() + "/hanging_sign");
-                if (set.boatItem() != null) simpleItem(set.boatItem().get(), set.name() + "/boat");
-                if (set.chestBoatItem() != null) simpleItem(set.chestBoatItem().get(), set.name() + "/chest_boat");
+                simpleItem(set.boatItem().get(), set.name() + "/boat");
+                simpleItem(set.chestBoatItem().get(), set.name() + "/chest_boat");
             });
             withExistingParent(key(BWGItems.MUSIC_DISC_PIXIE_CLUB.get()).getPath(), mcLoc("minecraft:item/template_music_disc")).texture("layer0", BiomesWeveGone.id(ModelProvider.ITEM_FOLDER + "/" + key(BWGItems.MUSIC_DISC_PIXIE_CLUB.get()).getPath()));
             simpleItemBlockTexture(BWGItems.TINY_LILY_PADS.get());
