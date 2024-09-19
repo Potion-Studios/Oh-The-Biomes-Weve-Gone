@@ -1,6 +1,7 @@
 # 2.0.3-Beta
 - Fix BWG Chest Boats not Saving Data
 - Fix Incompatibility with Slayers Beasts
+- Return ResourceKey<CreativeModeTab> for our tabs
 
 # 2.0.2-Beta
 - Fix Colored Sand Recipes using colored sand instead of normal sand

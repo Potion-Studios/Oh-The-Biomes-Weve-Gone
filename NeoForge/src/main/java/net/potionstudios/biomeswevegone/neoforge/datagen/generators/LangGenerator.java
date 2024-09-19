@@ -31,8 +31,8 @@ public class LangGenerator extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        add(BWGCreativeTabs.CREATIVE_TAB.get().getDisplayName().getString(), "Biomes We've Gone");
-        add(BWGCreativeTabs.WOOD_TAB.get().getDisplayName().getString(), "Biomes We've Gone Wood");
+        add("itemGroup." + BWGCreativeTabs.CREATIVE_TAB.location().toLanguageKey(), "Biomes We've Gone");
+        add("itemGroup." + BWGCreativeTabs.WOOD_TAB.location().toLanguageKey(), "Biomes We've Gone Wood");
         BWGBlocks.BLOCKS.forEach(block -> add(block.get(), getBlockName(block)));
         BWGItems.ITEMS.forEach(item -> add(item.get(), getItemName(item)));
         add(BWGItems.MUSIC_DISC_PIXIE_CLUB.get(), "Music Disc");
