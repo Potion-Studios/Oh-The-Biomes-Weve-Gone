@@ -15,12 +15,14 @@
   - Common: net.potionstudios:Oh-The-Biomes-Weve-Gone-Common:{version}
   - Fabric: net.potionstudios:Oh-The-Biomes-Weve-Gone-Fabric:{version}
   - Forge: net.potionstudios:Oh-The-Biomes-Weve-Gone-Forge:{version}
+  - NeoForge: net.potionstudios:Oh-The-Biomes-Weve-Gone-NeoForge:{version}
 
 ### Dependencies
 - TerraBlender 
   - Github: https://github.com/Glitchfiend/TerraBlender/
   - CurseForge (Forge): https://www.curseforge.com/minecraft/mc-mods/terrablender
   - CurseForge (Fabric): https://www.curseforge.com/minecraft/mc-mods/terrablender-fabric
+  - CurseForge (NeoForge): https://www.curseforge.com/minecraft/mc-mods/terrablender-neoforge
   - Modrinth: https://modrinth.com/mod/terrablender
 
 - GeckoLib
