@@ -1,3 +1,5 @@
+# 1.2.6
+
 # 1.2.5
 - Revert Fix Incompatibility with Slayers Beasts. -> Causes incompat with Terralith
 
