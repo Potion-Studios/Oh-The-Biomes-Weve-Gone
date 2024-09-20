@@ -344,7 +344,7 @@ class BWGOverworldBiomes {
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
         BiomeDefaultFeatures.addCherryGroveVegetation(generationSettings);
-        BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
+        //BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
