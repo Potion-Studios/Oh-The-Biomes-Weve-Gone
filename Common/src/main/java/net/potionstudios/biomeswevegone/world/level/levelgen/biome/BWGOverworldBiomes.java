@@ -512,8 +512,8 @@ class BWGOverworldBiomes {
         addRawGeneration(generationSettings, BWGPlacedFeatures.LUSH_ROUNDED_ROCK);
         addVegetal(generationSettings, AquaticPlacements.WARM_OCEAN_VEGETATION);
         addVegetal(generationSettings, AquaticPlacements.SEAGRASS_WARM);
-        addVegetal(generationSettings, AquaticPlacements.SEAGRASS_NORMAL);
         addVegetal(generationSettings, AquaticPlacements.SEA_PICKLE);
+        addVegetal(generationSettings, AquaticPlacements.SEAGRASS_NORMAL);
         BiomeDefaultFeatures.addLushCavesVegetationFeatures(generationSettings);
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();

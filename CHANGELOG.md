@@ -1,4 +1,6 @@
 # 1.2.6
+- Fix incompat with William Wythers' Expanded Ecosphere
+- Fix Sakura Grove Order Cycle crash
 
 # 1.2.5
 - Revert Fix Incompatibility with Slayers Beasts. -> Causes incompat with Terralith
