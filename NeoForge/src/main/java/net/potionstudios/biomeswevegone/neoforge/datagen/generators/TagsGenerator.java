@@ -90,6 +90,7 @@ public class TagsGenerator {
                 tag(Tags.Blocks.BOOKSHELVES).add(set.bookshelf());
                 tag(BlockTags.ENCHANTMENT_POWER_PROVIDER).add(set.bookshelf());
                 tag(set.logBlockTag()).add(set.logstem(), set.wood(), set.strippedLogStem(), set.strippedWood());
+                tag(BlockTags.OVERWORLD_NATURAL_LOGS).add(set.logstem());
                 tag(BlockTags.LOGS).addTag(set.logBlockTag());
                 tag(BlockTags.LOGS_THAT_BURN).addTag(set.logBlockTag());
                 tag(Tags.Blocks.PLAYER_WORKSTATIONS_CRAFTING_TABLES).add(set.craftingTable());
