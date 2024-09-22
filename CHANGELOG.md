@@ -1,12 +1,12 @@
 # 2.0.5-Beta
-
-# 2.0.4-Beta
-- Revert Fix Incompatibility with Slayers Beasts. -> Causes incompat with Terralith
 - Fix incompat with William Wythers' Expanded Ecosphere
 - Fix Sakura Grove Order Cycle crash (Fixes Incompats with Cliff Tree)
 - Fix BWG Ice missing from Mineable with Pickaxe Tag
 - Add BWG Logs to Overworld Natural Logs Block Tag
 - Fix Forge Block and Item Tags being in wrong directory
+
+# 2.0.4-Beta
+- Revert Fix Incompatibility with Slayers Beasts. -> Causes incompat with Terralith
 
 # 2.0.3-Beta
 - Fix BWG Chest Boats not Saving Data
