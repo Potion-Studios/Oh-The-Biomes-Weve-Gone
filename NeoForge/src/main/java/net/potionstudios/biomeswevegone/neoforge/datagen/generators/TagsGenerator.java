@@ -433,6 +433,7 @@ public class TagsGenerator {
         @Override
         protected void addTags(HolderLookup.@NotNull Provider provider) {
             tag(DamageTypeTags.BYPASSES_ARMOR).add(BWGDamageTypes.IN_QUICKSAND);
+            tag(Tags.DamageTypes.IS_ENVIRONMENT).add(BWGDamageTypes.IN_QUICKSAND);
             tag(DamageTypeTags.IS_EXPLOSION).add(BWGDamageTypes.CATTAIL_EXPLOSION);
         }
     }
