@@ -890,7 +890,7 @@
   "item.biomeswevegone.maple_boat": "Ahornholzboot",
   "item.biomeswevegone.maple_chest_boat": "Ahornholztruhenboot",
   "item.biomeswevegone.music_disc_pixie_club": "Schallplatte",
-  "item.biomeswevegone.music_disc_pixie_club.desc": "AOCAWOL – Pixie Club",
+  "jukebox_song.biomeswevegone.pixie_club": "AOCAWOL – Pixie Club",
   "item.biomeswevegone.oddion_bulb": "Oddion-Birne",
   "item.biomeswevegone.oddion_spawn_egg": "Oddion-Spawn-Ei",
   "item.biomeswevegone.palm_boat": "Palmenholzboot",

@@ -12,6 +12,7 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.item.BWGCreativeTabs;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
+import net.potionstudios.biomeswevegone.world.item.jukebox.BWGJukeBoxSongs;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
@@ -36,7 +37,7 @@ public class LangGenerator extends LanguageProvider {
         BWGBlocks.BLOCKS.forEach(block -> add(block.get(), getBlockName(block)));
         BWGItems.ITEMS.forEach(item -> add(item.get(), getItemName(item)));
         add(BWGItems.MUSIC_DISC_PIXIE_CLUB.get(), "Music Disc");
-        add("item.biomeswevegone.music_disc_pixie_club.desc", "AOCAWOL - Pixie Club");
+        add("jukebox_song." + BWGJukeBoxSongs.PIXIE_CLUB.location().toLanguageKey(), "AOCAWOL - Pixie Club");
         BWGWood.WOOD_BLOCK_ITEMS.forEach(wood -> add(wood.get(), getItemName(wood)));
         BWGWood.WOOD.stream().filter(wood -> wood.get() instanceof FlowerPotBlock).forEach(wood -> add(wood.get(), getBlockName(wood)));
         add(BWGEntities.MAN_O_WAR.get(), "Man O' War");

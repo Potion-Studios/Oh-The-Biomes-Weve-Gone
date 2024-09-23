@@ -5,6 +5,7 @@
 - Add BWG Logs to Overworld Natural Logs Block Tag
 - Fix Forge Block and Item Tags being in wrong directory
 - Add Quicksand Damage type to NeoForge IS_ENVIRONMENT Damage Type Tag
+- Fix JukeBox Song having wrong language key
 
 # 2.0.4-Beta
 - Revert Fix Incompatibility with Slayers Beasts. -> Causes incompat with Terralith
