@@ -3,6 +3,7 @@
 - Fix Sakura Grove Order Cycle crash (Fixes Incompats with Cliff Tree)
 - Fix BWG Ice missing from Mineable with Pickaxe Tag
 - Add BWG Logs to Overworld Natural Logs Block Tag
+- Add Oddion Bulb to Forge Crops Item Tag
 
 # 1.2.5
 - Revert Fix Incompatibility with Slayers Beasts. -> Causes incompat with Terralith

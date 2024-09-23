@@ -47,7 +47,7 @@ public class TagsGenerator {
         generator.addProvider(run, new DamageTypeTagGenerator(output, lookupProvider, helper));
     }
 
-    public static void sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(Map<?, TagBuilder> tags) {
+    private static void sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(Map<?, TagBuilder> tags) {
         for (TagBuilder value : tags.values()) {
             List<TagEntry> builderEntries = value.entries;
 
@@ -288,6 +288,7 @@ public class TagsGenerator {
             tag(ItemTags.STONE_CRAFTING_MATERIALS).add(BWGBlocks.ROCKY_STONE_SET.getBase().asItem());
             tag(ItemTags.VILLAGER_PLANTABLE_SEEDS).add(BWGItems.ODDION_BULB.get());
             tag(Tags.Items.MUSHROOMS).add(BWGBlocks.GREEN_MUSHROOM.get().asItem(), BWGBlocks.WEEPING_MILKCAP.get().asItem(), BWGBlocks.WOOD_BLEWIT.get().asItem());
+            tag(Tags.Items.CROPS).add(BWGItems.ODDION_BULB.get());
             sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
         }
     }
