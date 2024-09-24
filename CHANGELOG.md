@@ -1,4 +1,4 @@
-# 2.0.5-Beta
+# 2.1.0-Beta
 - Fix incompat with William Wythers' Expanded Ecosphere
 - Fix Sakura Grove Order Cycle crash (Fixes Incompats with Cliff Tree)
 - Fix BWG Ice missing from Mineable with Pickaxe Tag
