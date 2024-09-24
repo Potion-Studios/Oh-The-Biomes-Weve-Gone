@@ -8,6 +8,7 @@
 - Fix JukeBox Song having wrong language key
 - Add BWG Food to Common Food Item Tag
 - Add Oddion Bulb to Crops tags
+- Add Lush Farmland to NeoForge Villager Farmland Tags to allow villagers to plant on it
 
 # 2.0.4-Beta
 - Revert Fix Incompatibility with Slayers Beasts. -> Causes incompat with Terralith

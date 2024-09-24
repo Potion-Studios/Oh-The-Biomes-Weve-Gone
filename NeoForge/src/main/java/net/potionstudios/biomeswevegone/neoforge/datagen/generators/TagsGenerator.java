@@ -165,6 +165,7 @@ public class TagsGenerator {
             tag(BlockTags.SAND).add(BWGBlocks.SANDY_DIRT.get(), BWGBlocks.CRACKED_SAND.get());
             tag(Tags.Blocks.BUDDING_BLOCKS).add(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get(), BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get());
             tag(Tags.Blocks.VILLAGER_JOB_SITES).add(BWGBlocks.FORAGERS_TABLE.get());
+            tag(Tags.Blocks.VILLAGER_FARMLANDS).add(BWGBlocks.LUSH_FARMLAND.get());
             sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
         }
 
@@ -358,7 +359,7 @@ public class TagsGenerator {
             tag(BWGBiomeTags.IRONWOOD_GOUR_PLATEAU).add(BWGBiomes.IRONWOOD_GOUR);
             tag(BWGBiomeTags.LARGE_COLD_LAKE).add(BWGBiomes.MAPLE_TAIGA).add(BWGBiomes.CRIMSON_TUNDRA).add(BWGBiomes.OVERGROWTH_WOODLANDS);
 
-            /**
+            /*
              * Structure Location Biome Tags
              */
             tag(BiomeTags.HAS_SWAMP_HUT).addTag(BWGBiomeTags.SWAMP);
