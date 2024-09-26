@@ -1,3 +1,7 @@
+# 2.1.1-Beta (NeoForge Only)
+- Move NeoForge Compostables and Fuels to Datamap
+- Fixes Compostables not working on NeoForge
+
 # 2.1.0-Beta
 - Fix incompat with William Wythers' Expanded Ecosphere
 - Fix Sakura Grove Order Cycle crash (Fixes Incompats with Cliff Tree)
