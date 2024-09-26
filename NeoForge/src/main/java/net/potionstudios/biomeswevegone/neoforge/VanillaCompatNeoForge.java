@@ -11,7 +11,6 @@ import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
-import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.FireBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -45,7 +44,6 @@ public class VanillaCompatNeoForge {
             AxeItem.STRIPPABLES.put(block, stripped);
         });
         BlockFeatures.registerFlammable(((FireBlock) Blocks.FIRE)::setFlammable);
-        BlockFeatures.registerCompostables((item, chance) -> ComposterBlock.add(chance, item));
         ToolInteractions.registerFlattenables(ShovelItem.FLATTENABLES::put);
     }
 

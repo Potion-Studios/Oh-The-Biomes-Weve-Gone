@@ -1,0 +1,814 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "biomeswevegone"
+    }
+  ],
+  "values": {
+    "biomeswevegone:allium_flower_bush": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:allium_oddion_soup": {
+      "can_villager_compost": true,
+      "chance": 0.85
+    },
+    "biomeswevegone:aloe_vera": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:aloe_vera_juice": {
+      "can_villager_compost": true,
+      "chance": 0.85
+    },
+    "biomeswevegone:alpine_bellflower": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:amaranth": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:angelica": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:araucaria_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:araucaria_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:aspen_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:aspen_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:baobab_fruit": {
+      "can_villager_compost": true,
+      "chance": 0.85
+    },
+    "biomeswevegone:baobab_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:baobab_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:barrel_cactus": {
+      "can_villager_compost": true,
+      "chance": 0.5
+    },
+    "biomeswevegone:beach_grass": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:begonia": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:bistort": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:black_rose": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:blooming_oddion": {
+      "can_villager_compost": true,
+      "chance": 0.85
+    },
+    "biomeswevegone:blooming_witch_hazel_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:blue_enchanted_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:blue_enchanted_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:blue_rose_bush": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:blue_sage": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:blue_spruce_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:blue_spruce_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:blueberries": {
+      "can_villager_compost": true,
+      "chance": 0.85
+    },
+    "biomeswevegone:blueberry_pie": {
+      "can_villager_compost": true,
+      "chance": 0.85
+    },
+    "biomeswevegone:brown_birch_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:brown_birch_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:brown_oak_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:brown_oak_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:brown_zelkova_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:brown_zelkova_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:california_poppy": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:carved_barrel_cactus": {
+      "can_villager_compost": true,
+      "chance": 0.5
+    },
+    "biomeswevegone:cika_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:cika_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:clover_patch": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:cooked_oddion_bulb": {
+      "can_villager_compost": true,
+      "chance": 0.85
+    },
+    "biomeswevegone:cooked_white_puffball_cap": {
+      "can_villager_compost": true,
+      "chance": 0.85
+    },
+    "biomeswevegone:cooked_yucca_fruit": {
+      "can_villager_compost": true,
+      "chance": 0.85
+    },
+    "biomeswevegone:crocus": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:cyan_amaranth": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:cyan_pitcher_plant": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:cyan_rose": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:cyan_tulip": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:cypress_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:cypress_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:daffodil": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:delphinium": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:ebony_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:ebony_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:fairy_slipper": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:fir_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:fir_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:firecracker_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:flower_patch": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:flowering_baobab_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:flowering_barrel_cactus": {
+      "can_villager_compost": true,
+      "chance": 0.5
+    },
+    "biomeswevegone:flowering_indigo_jacaranda_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:flowering_ironwood_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:flowering_jacaranda_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:flowering_orchard_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:flowering_palo_verde_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:flowering_skyris_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:flowering_tiny_lily_pads": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:flowering_yucca_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:foxglove": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:golden_spined_cactus": {
+      "can_villager_compost": true,
+      "chance": 0.5
+    },
+    "biomeswevegone:green_apple": {
+      "can_villager_compost": true,
+      "chance": 0.85
+    },
+    "biomeswevegone:green_apple_pie": {
+      "can_villager_compost": true,
+      "chance": 0.85
+    },
+    "biomeswevegone:green_apple_skyris_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:green_enchanted_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:green_enchanted_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:green_mushroom": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:green_tulip": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:guzmania": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:holly_berry_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:holly_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:holly_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:horseweed": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:hydrangea_bush": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:hydrangea_hedge": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:incan_lily": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:indigo_jacaranda_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:indigo_jacaranda_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:iris": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:ironwood_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:ironwood_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:jacaranda_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:jacaranda_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:japanese_orchid": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:kovan_flower": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:lazarus_bellflower": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:leaf_pile": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:lollipop_flower": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:magenta_amaranth": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:magenta_pitcher_plant": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:magenta_tulip": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:mahogany_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:mahogany_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:maple_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:maple_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:mini_cactus": {
+      "can_villager_compost": true,
+      "chance": 0.5
+    },
+    "biomeswevegone:oddion_bulb": {
+      "can_villager_compost": true,
+      "chance": 0.85
+    },
+    "biomeswevegone:orange_amaranth": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:orange_birch_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:orange_birch_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:orange_daisy": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:orange_oak_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:orange_oak_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:orange_spruce_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:orange_spruce_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:orchard_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:orchard_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:osiria_rose": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:palm_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:palm_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:palo_verde_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:palo_verde_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:peach_leather_flower": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:pine_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:pine_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:pink_allium": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:pink_allium_flower_bush": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:pink_anemone": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:pink_daffodil": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:poison_ivy": {
+      "can_villager_compost": true,
+      "chance": 0.5
+    },
+    "biomeswevegone:prairie_grass": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:prickly_pear_cactus": {
+      "can_villager_compost": true,
+      "chance": 0.5
+    },
+    "biomeswevegone:protea_flower": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:purple_amaranth": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:purple_sage": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:purple_tulip": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:rainbow_eucalyptus_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:rainbow_eucalyptus_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:red_birch_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:red_birch_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:red_maple_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:red_maple_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:red_oak_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:red_oak_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:red_spruce_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:red_spruce_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:redwood_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:redwood_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:richea": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:ripe_baobab_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:ripe_orchard_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:ripe_yucca_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:rose": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:silver_maple_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:silver_maple_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:silver_vase_flower": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:skyris_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:skyris_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:skyris_vine": {
+      "can_villager_compost": true,
+      "chance": 0.5
+    },
+    "biomeswevegone:snowdrops": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:tall_allium": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:tall_beach_grass": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:tall_pink_allium": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:tall_prairie_grass": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:tall_white_allium": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:tiny_lily_pads": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:violet_leather_flower": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:water_silk": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:weeping_milkcap": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:white_allium": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:white_allium_flower_bush": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:white_anemone": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:white_mangrove_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:white_mangrove_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:white_puffball_cap": {
+      "can_villager_compost": true,
+      "chance": 0.85
+    },
+    "biomeswevegone:white_puffball_stew": {
+      "can_villager_compost": true,
+      "chance": 0.85
+    },
+    "biomeswevegone:white_sage": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:white_sakura_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:white_sakura_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:willow_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:willow_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:winter_cyclamen": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:winter_rose": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:winter_scilla": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:winter_succulent": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:witch_hazel_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:witch_hazel_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:wood_blewit": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:yellow_birch_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:yellow_birch_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:yellow_daffodil": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:yellow_sakura_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:yellow_sakura_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:yellow_spruce_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:yellow_spruce_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:yellow_tulip": {
+      "can_villager_compost": true,
+      "chance": 0.65
+    },
+    "biomeswevegone:yucca_fruit": {
+      "can_villager_compost": true,
+      "chance": 0.85
+    },
+    "biomeswevegone:yucca_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:yucca_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:zelkova_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:zelkova_sapling": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    }
+  }
+}
