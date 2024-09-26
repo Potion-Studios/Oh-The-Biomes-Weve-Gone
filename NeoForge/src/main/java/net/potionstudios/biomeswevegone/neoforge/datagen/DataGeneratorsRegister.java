@@ -64,6 +64,7 @@ class DataGeneratorsRegister {
         generator.addProvider(event.includeServer(), new AdvancementProvider(output, lookupProvider, existingFileHelper, ImmutableList.of(new AdvancementGenerator())));
         generator.addProvider(event.includeClient(), new ParticleDescriptionGenerator(output, existingFileHelper));
         generator.addProvider(event.includeClient(), new SoundDefinitionsGenerator(output, existingFileHelper));
+        generator.addProvider(event.includeServer(), new DatamapGenerator(output, lookupProvider));
     }
 
     private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()

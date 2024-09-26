@@ -1,0 +1,32 @@
+package net.potionstudios.biomeswevegone.neoforge.datagen.generators;
+
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.PackOutput;
+import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
+import net.neoforged.neoforge.common.data.DataMapProvider;
+import net.neoforged.neoforge.registries.datamaps.builtin.FurnaceFuel;
+import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+
+import java.util.concurrent.CompletableFuture;
+
+public class DatamapGenerator extends DataMapProvider {
+    /**
+     * Create a new provider.
+     *
+     * @param packOutput     the output location
+     * @param lookupProvider a {@linkplain CompletableFuture} supplying the registries
+     */
+    public DatamapGenerator(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        super(packOutput, lookupProvider);
+    }
+
+    @Override
+    protected void gather() {
+        builder(NeoForgeDataMaps.FURNACE_FUELS)
+                .add(BuiltInRegistries.BLOCK.getKey(BWGBlocks.PEAT.get()), new FurnaceFuel(200), false)
+                .conditions(new ModLoadedCondition(BiomesWeveGone.MOD_ID));
+    }
+}

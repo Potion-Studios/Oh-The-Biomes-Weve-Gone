@@ -1,0 +1,13 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "biomeswevegone"
+    }
+  ],
+  "values": {
+    "biomeswevegone:peat": {
+      "burn_time": 200
+    }
+  }
+}

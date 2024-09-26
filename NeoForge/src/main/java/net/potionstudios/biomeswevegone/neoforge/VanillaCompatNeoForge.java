@@ -17,11 +17,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.event.entity.player.BonemealEvent;
-import net.neoforged.neoforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGTradesConfig;
@@ -53,7 +51,6 @@ public class VanillaCompatNeoForge {
 
     public static void registerVanillaCompatEvents(IEventBus bus) {
         bus.addListener(VanillaCompatNeoForge::registerTillables);
-        bus.addListener(VanillaCompatNeoForge::registerFuels);
         if (BWGTradesConfig.INSTANCE.get().enableTrades()) bus.addListener(VanillaCompatNeoForge::onVillagerTrade);
         bus.addListener(VanillaCompatNeoForge::onBoneMealUse);
     }
@@ -68,15 +65,6 @@ public class VanillaCompatNeoForge {
             else if (state.is(BWGBlocks.PEAT.get()))
                 event.setFinalState(Blocks.FARMLAND.defaultBlockState());
         }
-    }
-
-    /**
-     * Register fuels for the furnace.
-     * @see FurnaceFuelBurnTimeEvent
-     */
-    private static void registerFuels(final FurnaceFuelBurnTimeEvent event) {
-        if (event.getItemStack().is(BWGBlocks.PEAT.get().asItem()))
-            event.setBurnTime(1200);
     }
 
     /**
