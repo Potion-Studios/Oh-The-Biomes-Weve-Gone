@@ -1,4 +1,5 @@
 # 2.1.2-Beta
+- Fix Peat Fuel having wrong burn value on NeoForge
 
 # 2.1.1-Beta (NeoForge Only)
 - Move NeoForge Compostables and Fuels to Datamap

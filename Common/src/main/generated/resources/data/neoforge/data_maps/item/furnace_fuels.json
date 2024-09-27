@@ -7,7 +7,7 @@
   ],
   "values": {
     "biomeswevegone:peat": {
-      "burn_time": 200
+      "burn_time": 1200
     }
   }
 }

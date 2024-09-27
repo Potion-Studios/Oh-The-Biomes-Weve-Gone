@@ -30,7 +30,7 @@ public class DatamapGenerator extends DataMapProvider {
     @Override
     protected void gather() {
         builder(NeoForgeDataMaps.FURNACE_FUELS)
-                .add(id(BWGBlocks.PEAT.get().asItem()), new FurnaceFuel(200), false)
+                .add(id(BWGBlocks.PEAT.get().asItem()), new FurnaceFuel(1200), false)
                 .conditions(new ModLoadedCondition(BiomesWeveGone.MOD_ID));
 
         var builder = builder(NeoForgeDataMaps.COMPOSTABLES);
