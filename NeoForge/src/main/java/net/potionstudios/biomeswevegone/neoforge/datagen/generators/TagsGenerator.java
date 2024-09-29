@@ -302,7 +302,8 @@ public class TagsGenerator {
             tag(Tags.Items.FOODS_FRUIT).add(BWGItems.GREEN_APPLE.get(), BWGItems.BAOBAB_FRUIT.get(), BWGItems.YUCCA_FRUIT.get());
             tag(Tags.Items.FOODS_BERRY).add(BWGItems.BLUEBERRIES.get());
             tag(Tags.Items.FOODS_SOUP).add(BWGItems.ALLIUM_ODDION_SOUP.get(), BWGItems.WHITE_PUFFBALL_STEW.get());
-            tag(Tags.Items.FOODS).add(BWGItems.GREEN_APPLE_PIE.get(), BWGItems.BLUEBERRY_PIE.get(), BWGItems.COOKED_ODDION_BULB.get(), BWGItems.COOKED_WHITE_PUFFBALL_CAP.get(), BWGItems.COOKED_YUCCA_FRUIT.get(), BWGItems.ALOE_VERA_JUICE.get());
+            tag(Tags.Items.FOODS_PIE).add(BWGItems.GREEN_APPLE_PIE.get(), BWGItems.BLUEBERRY_PIE.get());
+            tag(Tags.Items.FOODS).add(BWGItems.COOKED_ODDION_BULB.get(), BWGItems.COOKED_WHITE_PUFFBALL_CAP.get(), BWGItems.COOKED_YUCCA_FRUIT.get(), BWGItems.ALOE_VERA_JUICE.get());
             sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
         }
     }

@@ -1,6 +1,7 @@
 # 2.1.2-Beta
 - Fix Peat Fuel having wrong burn value on NeoForge
 - Decrease Mushroom Canopy and Trunk File Sizes
+- Add Pies to new #c:pie tag
 
 # 2.1.1-Beta (NeoForge Only)
 - Move NeoForge Compostables and Fuels to Datamap
