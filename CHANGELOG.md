@@ -1,5 +1,6 @@
 # 1.3.1
 - Decrease Mushroom Canopy File Sizes
+- Remove Extra Patch Grass Badlands from Bayou
 
 # 1.3.0
 - Fix incompat with William Wythers' Expanded Ecosphere
