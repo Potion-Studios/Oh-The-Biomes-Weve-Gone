@@ -133,7 +133,7 @@ public class BWGOverworldDefaultFeatures {
         addVegetal(gen, BWGOverworldTreePlacedFeatures.ASPEN_SHRUBS);
     }
 
-    public static void addBYGTropicFlowers(BiomeGenerationSettings.Builder gen) {
+    public static void addBWGTropicFlowers(BiomeGenerationSettings.Builder gen) {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.JUNGLE_FLOWERS);
     }
 

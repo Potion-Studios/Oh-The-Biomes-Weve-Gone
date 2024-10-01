@@ -450,21 +450,13 @@ class BWGOverworldBiomes {
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.CRAG_BUSHES);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.CRAG_LAKE_VEGETATION);
 
-//        BYGDefaultBiomeFeatures.addCragGen(generationSettings);
-
-//        BYGDefaultBiomeFeatures.addLilyPads(generationSettings);
-
-//        BYGDefaultBiomeFeatures.adddCragVegetation(generationSettings);
         BiomeDefaultFeatures.addJungleGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
 
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.GUIANA_SHIELD_TREES);
-        BWGOverworldDefaultFeatures.addBYGTropicFlowers(generationSettings);
-//        BYGDefaultBiomeFeatures.addCattails(generationSettings);
-//        BYGDefaultBiomeFeatures.addMarshGrass(generationSettings);
+        BWGOverworldDefaultFeatures.addBWGTropicFlowers(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
         addVegetal(generationSettings, AquaticPlacements.SEAGRASS_NORMAL);
-//        BYGDefaultBiomeFeatures.addOvergrownVines(generationSettings);
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.baseJungleSpawns(spawnSettings);
@@ -610,7 +602,6 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addDesertVegetation(generationSettings);
         addRawGeneration(generationSettings, BWGPlacedFeatures.WINDSWEPT_BOULDER);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.WINDSWEPT_DESERT_VEGETATION);
-//        BYGDefaultBiomeFeatures.addWindsweptRocks(generationSettings);
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.desertSpawns(spawnSettings);
@@ -659,10 +650,9 @@ class BWGOverworldBiomes {
 
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.ENCHANTED_TREES);
         BWGOverworldDefaultFeatures.addFlowerPatches(generationSettings);
-        BWGOverworldDefaultFeatures.addBYGTropicFlowers(generationSettings);
+        BWGOverworldDefaultFeatures.addBWGTropicFlowers(generationSettings);
         BWGOverworldDefaultFeatures.addFairySlipper(generationSettings);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.CYAN_ROSE);
-//        BYGDefaultBiomeFeatures.addHowlingPeaksBoulder(generationSettings);
         BWGOverworldDefaultFeatures.addWhitePuffball(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
 
@@ -756,7 +746,7 @@ class BWGOverworldBiomes {
         BWGOverworldDefaultFeatures.addLeafPile(generationSettings);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.JACARANDA_TREES);
         BWGOverworldDefaultFeatures.addJacarandaBushes(generationSettings);
-        BWGOverworldDefaultFeatures.addBYGTropicFlowers(generationSettings);
+        BWGOverworldDefaultFeatures.addBWGTropicFlowers(generationSettings);
         BWGOverworldDefaultFeatures.addWhitePuffball(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
 
@@ -1057,7 +1047,6 @@ class BWGOverworldBiomes {
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.SPRUCE_TREES);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.REDWOOD_TREES);
         BWGOverworldDefaultFeatures.addLeafPile(generationSettings);
-//        BYGDefaultBiomeFeatures.addLargeBoulders(generationSettings);
         BWGOverworldDefaultFeatures.addMossyStoneBoulder(generationSettings);
         BWGOverworldDefaultFeatures.addRockyStoneBoulder(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
@@ -1345,7 +1334,6 @@ class BWGOverworldBiomes {
         BWGOverworldDefaultFeatures.addAnemones(generationSettings);
         BWGOverworldDefaultFeatures.addCrocus(generationSettings);
         BWGOverworldDefaultFeatures.addRockyStoneBoulder(generationSettings);
-//        BYGDefaultBiomeFeatures.addHowlingPeaksBoulder(generationSettings);
         BWGOverworldDefaultFeatures.addWhitePuffball(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
 
@@ -1379,7 +1367,7 @@ class BWGOverworldBiomes {
         BWGOverworldDefaultFeatures.addOakBushes(generationSettings);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.FRAGMENT_JUNGLE_TREES);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.RAINFOREST_TREES);
-        BWGOverworldDefaultFeatures.addBYGTropicFlowers(generationSettings);
+        BWGOverworldDefaultFeatures.addBWGTropicFlowers(generationSettings);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.JUNGLE_FLOWERS_PILLAR);
 
         BWGOverworldDefaultFeatures.addMossyStoneBoulder(generationSettings);
@@ -1413,7 +1401,7 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addSparseJungleMelons(generationSettings);
 
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.RAINFOREST_TREES);
-        BWGOverworldDefaultFeatures.addBYGTropicFlowers(generationSettings);
+        BWGOverworldDefaultFeatures.addBWGTropicFlowers(generationSettings);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.DELPHINIUM);
 //        BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
@@ -1440,7 +1428,7 @@ class BWGOverworldBiomes {
 
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.SPARSE_ENCHANTED_TREES);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.RAINFOREST_TREES);
-        BWGOverworldDefaultFeatures.addBYGTropicFlowers(generationSettings);
+        BWGOverworldDefaultFeatures.addBWGTropicFlowers(generationSettings);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.DELPHINIUM);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.CYAN_PITCHER_PLANT);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.MAGENTA_PITCHER_PLANT);
@@ -1500,7 +1488,6 @@ class BWGOverworldBiomes {
         BWGOverworldDefaultFeatures.addOakBushes(generationSettings);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.FORGOTTEN_FOREST_TREES);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.FLORUS_TREES);
-//        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.MEADOW_TREES);
         BWGOverworldDefaultFeatures.addAnemones(generationSettings);
         BWGOverworldDefaultFeatures.addRose(generationSettings);
         BWGOverworldDefaultFeatures.addBlueRoseBush(generationSettings);
