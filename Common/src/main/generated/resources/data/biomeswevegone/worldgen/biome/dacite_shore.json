@@ -75,9 +75,9 @@
     ],
     [
       "minecraft:glow_lichen",
+      "minecraft:patch_grass_jungle",
       "minecraft:patch_large_fern",
       "minecraft:flower_default",
-      "minecraft:patch_grass_jungle",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "biomeswevegone:mushrooms"

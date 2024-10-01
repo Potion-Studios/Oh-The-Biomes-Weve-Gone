@@ -1,0 +1,205 @@
+{
+  "temperature": 0.9,
+  "downfall": 1,
+  "has_precipitation": true,
+  "effects": {
+    "sky_color": 7842047,
+    "fog_color": 12638463,
+    "water_color": 4159204,
+    "water_fog_color": 329011,
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2
+    }
+  },
+  "spawners": {
+    "ambient": [
+      {
+        "type": "minecraft:bat",
+        "weight": 10,
+        "minCount": 8,
+        "maxCount": 8
+      }
+    ],
+    "axolotls": [],
+    "creature": [
+      {
+        "type": "minecraft:mooshroom",
+        "weight": 8,
+        "minCount": 4,
+        "maxCount": 8
+      }
+    ],
+    "misc": [],
+    "monster": [],
+    "underground_water_creature": [
+      {
+        "type": "minecraft:glow_squid",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 6
+      }
+    ],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
+    [],
+    [
+      "minecraft:lake_lava_underground",
+      "minecraft:lake_lava_surface"
+    ],
+    [
+      "minecraft:amethyst_geode"
+    ],
+    [
+      "minecraft:monster_room",
+      "minecraft:monster_room_deep"
+    ],
+    [],
+    [],
+    [
+      "minecraft:ore_dirt",
+      "minecraft:ore_gravel",
+      "minecraft:ore_granite_upper",
+      "minecraft:ore_granite_lower",
+      "minecraft:ore_diorite_upper",
+      "minecraft:ore_diorite_lower",
+      "minecraft:ore_andesite_upper",
+      "minecraft:ore_andesite_lower",
+      "minecraft:ore_tuff",
+      "minecraft:ore_coal_upper",
+      "minecraft:ore_coal_lower",
+      "minecraft:ore_iron_upper",
+      "minecraft:ore_iron_middle",
+      "minecraft:ore_iron_small",
+      "minecraft:ore_gold",
+      "minecraft:ore_gold_lower",
+      "minecraft:ore_redstone",
+      "minecraft:ore_redstone_lower",
+      "minecraft:ore_diamond",
+      "minecraft:ore_diamond_large",
+      "minecraft:ore_diamond_buried",
+      "minecraft:ore_lapis",
+      "minecraft:ore_lapis_buried",
+      "minecraft:ore_copper",
+      "minecraft:underwater_magma",
+      "minecraft:disk_sand",
+      "minecraft:disk_clay",
+      "minecraft:disk_gravel"
+    ],
+    [],
+    [
+      "minecraft:spring_water",
+      "minecraft:spring_lava"
+    ],
+    [
+      "minecraft:glow_lichen",
+      "minecraft:trees_windswept_savanna",
+      "minecraft:bamboo",
+      "minecraft:bamboo_vegetation",
+      "minecraft:trees_sparse_jungle",
+      "minecraft:trees_badlands",
+      "minecraft:bamboo_light",
+      "minecraft:trees_jungle",
+      "minecraft:patch_tall_grass",
+      "minecraft:trees_savanna",
+      "minecraft:flower_warm",
+      "minecraft:patch_grass_jungle",
+      "minecraft:patch_grass_savanna",
+      "minecraft:dark_forest_vegetation",
+      "minecraft:flower_forest_flowers",
+      "minecraft:trees_flower_forest",
+      "minecraft:flower_flower_forest",
+      "minecraft:forest_flowers",
+      "minecraft:birch_tall",
+      "minecraft:trees_birch",
+      "minecraft:trees_birch_and_oak",
+      "minecraft:patch_tall_grass_2",
+      "minecraft:lush_caves_ceiling_vegetation",
+      "minecraft:cave_vines",
+      "minecraft:lush_caves_clay",
+      "minecraft:lush_caves_vegetation",
+      "minecraft:rooted_azalea_tree",
+      "minecraft:spore_blossom",
+      "minecraft:classic_vines_cave_feature",
+      "minecraft:patch_sunflower",
+      "minecraft:trees_plains",
+      "minecraft:flower_plains",
+      "minecraft:patch_grass_plain",
+      "minecraft:flower_cherry",
+      "minecraft:trees_cherry",
+      "minecraft:flower_meadow",
+      "minecraft:trees_meadow",
+      "minecraft:trees_windswept_forest",
+      "minecraft:patch_large_fern",
+      "minecraft:trees_old_growth_pine_taiga",
+      "minecraft:trees_old_growth_spruce_taiga",
+      "minecraft:trees_taiga",
+      "minecraft:trees_grove",
+      "minecraft:trees_windswept_hills",
+      "minecraft:trees_snowy",
+      "minecraft:trees_mangrove",
+      "minecraft:trees_swamp",
+      "minecraft:flower_swamp",
+      "minecraft:trees_water",
+      "minecraft:flower_default",
+      "minecraft:patch_grass_taiga",
+      "minecraft:patch_grass_forest",
+      "minecraft:patch_grass_taiga_2",
+      "minecraft:patch_grass_normal",
+      "minecraft:patch_dead_bush",
+      "minecraft:brown_mushroom_old_growth",
+      "minecraft:red_mushroom_old_growth",
+      "minecraft:patch_waterlily",
+      "minecraft:brown_mushroom_swamp",
+      "minecraft:red_mushroom_swamp",
+      "minecraft:patch_grass_badlands",
+      "minecraft:patch_dead_bush_2",
+      "minecraft:patch_dead_bush_badlands",
+      "minecraft:brown_mushroom_normal",
+      "minecraft:red_mushroom_normal",
+      "minecraft:patch_sugar_cane_desert",
+      "minecraft:patch_sugar_cane_badlands",
+      "minecraft:patch_sugar_cane_swamp",
+      "minecraft:mushroom_island_vegetation",
+      "minecraft:brown_mushroom_taiga",
+      "minecraft:red_mushroom_taiga",
+      "minecraft:patch_sugar_cane",
+      "minecraft:patch_pumpkin",
+      "minecraft:seagrass_river",
+      "minecraft:patch_cactus_desert",
+      "minecraft:patch_cactus_decorated",
+      "minecraft:vines",
+      "minecraft:patch_melon_sparse",
+      "minecraft:patch_melon",
+      "minecraft:patch_berry_common",
+      "minecraft:patch_berry_rare",
+      "minecraft:seagrass_swamp",
+      "minecraft:warm_ocean_vegetation",
+      "minecraft:seagrass_warm",
+      "minecraft:sea_pickle",
+      "minecraft:seagrass_deep_warm",
+      "minecraft:seagrass_normal",
+      "minecraft:seagrass_deep",
+      "minecraft:seagrass_cold",
+      "minecraft:seagrass_deep_cold",
+      "minecraft:seagrass_simple",
+      "minecraft:kelp_warm",
+      "minecraft:kelp_cold"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}
