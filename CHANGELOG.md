@@ -1,7 +1,7 @@
 # 1.3.1
 - Decrease Mushroom Canopy File Sizes
 - Remove Extra Patch Grass Badlands from Bayou
-- 
+- Fix being able to have more than 1 bwg boat in a stack
 
 # 1.3.0
 - Fix incompat with William Wythers' Expanded Ecosphere

@@ -111,16 +111,15 @@ public class BWGWoodSet {
         this.door = BWGWood.registerBlockItem(name + "_door", () -> new DoorBlock(BlockBehaviour.Properties.of().mapColor(planks.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().ignitedByLava().pushReaction(PushReaction.DESTROY), woodType.setType()));
         this.bookshelf = BWGWood.registerBlockItem(name + "_bookshelf", () -> new Block(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF).mapColor(mapColor)));
         this.craftingTable = BWGWood.registerBlockItem(name + "_crafting_table", () -> new BWGCraftingTable(mapColor));
-        if (saplingGrower != null)
-            this.sapling = BWGWood.createSapling(name, saplingGrower, saplingPlantAbleOn);
+        if (saplingGrower != null) this.sapling = BWGWood.createSapling(name, saplingGrower, saplingPlantAbleOn);
 
         if (leaves) {
             if (glowLeaves) this.leaves = BWGWood.registerBlockItem(name + "_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES).lightLevel(level -> 8).mapColor(mapColor)));
             else this.leaves = BWGWood.registerBlockItem(name + "_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES).mapColor(mapColor)));
         }
 
-        this.boatItem = BWGWood.registerItem(name + "_boat", () -> new BWGBoatItem(false, BWGBoatEntity.Type.byName(name), new Item.Properties().stacksTo(16)));
-        this.chestBoatItem = BWGWood.registerItem(name + "_chest_boat", () -> new BWGBoatItem(true, BWGBoatEntity.Type.byName(name), new Item.Properties().stacksTo(16)));
+        this.boatItem = BWGWood.registerItem(name + "_boat", () -> new BWGBoatItem(false, BWGBoatEntity.Type.byName(name), new Item.Properties().stacksTo(1)));
+        this.chestBoatItem = BWGWood.registerItem(name + "_chest_boat", () -> new BWGBoatItem(true, BWGBoatEntity.Type.byName(name), new Item.Properties().stacksTo(1)));
         this.logBlockTag = TagKey.create(Registries.BLOCK, BiomesWeveGone.id(name + "_logs"));
         this.logItemTag = TagKey.create(Registries.ITEM, BiomesWeveGone.id(name + "_logs"));
         woodSets.add(this);
