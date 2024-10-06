@@ -51,11 +51,11 @@ dependencies {
     modApi("dev.corgitaco:Oh-The-Trees-Youll-Grow-neoforge:$minecraftVersion-${project.properties["ohthetreesyoullgrow_version"]}")
     modApi("software.bernie.geckolib:geckolib-neoforge-$minecraftVersion:${project.properties["geckolib_version"]}")
 
-    modCompileOnly("mcp.mobius.waila:wthit-api:neo-${project.properties["WTHIT"]}")  { isTransitive = false }
-    modRuntimeOnly("mcp.mobius.waila:wthit:neo-${project.properties["WTHIT"]}")  { isTransitive = false }
-    modRuntimeOnly("lol.bai:badpackets:neo-${project.properties["badPackets"]}")  { isTransitive = false }
+    modCompileOnly("mcp.mobius.waila:wthit-api:neo-${project.properties["WTHIT"]}")
+    modLocalRuntime("mcp.mobius.waila:wthit:neo-${project.properties["WTHIT"]}")
+    modLocalRuntime("lol.bai:badpackets:neo-${project.properties["badPackets"]}")
 
-    modApi("com.github.glitchfiend:SereneSeasons-neoforge:$minecraftVersion-10.1.0.0")
+    modApi("com.github.glitchfiend:SereneSeasons-neoforge:$minecraftVersion-10.1.0.1")
 
     modLocalRuntime("com.github.Jab125.architectury-data-generation-fix:architectury-data-generation-fix-neoforge:21.0.3")
 }
