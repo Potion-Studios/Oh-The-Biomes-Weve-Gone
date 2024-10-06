@@ -3,6 +3,7 @@ package net.potionstudios.biomeswevegone.neoforge.datagen.generators;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.BoatItem;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
@@ -43,8 +44,8 @@ public class LangGenerator extends LanguageProvider {
         add(BWGEntities.MAN_O_WAR.get(), "Man O' War");
         add(BWGEntities.PUMPKIN_WARDEN.get(), "Pumpkin Warden");
         add(BWGEntities.ODDION.get(), "Oddion");
-        add(BWGEntities.BWG_BOAT.get(), "Biomes We've Gone Boat");
-        add(BWGEntities.BWG_CHEST_BOAT.get(), "Biomes We've Gone Chest Boat");
+        add(BWGEntities.BWG_BOAT.get(), "Boat");
+        add(BWGEntities.BWG_CHEST_BOAT.get(), "Boat with Chest");
         BWGBiomes.BIOME_FACTORIES.forEach((key, factory) -> add("biome." + BiomesWeveGone.MOD_ID + "." + key.location().getPath(), getBiomeName(key)));
 
         add(advancement("title.root"), "Oh The Biomes We've Gone");
