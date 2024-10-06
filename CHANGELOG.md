@@ -2,6 +2,7 @@
 - Decrease Mushroom Canopy File Sizes
 - Remove Extra Patch Grass Badlands from Bayou
 - Fix being able to have more than 1 bwg boat in a stack
+- Adjust Boat with Chest Lang to match Vanilla conventions
 
 # 1.3.0
 - Fix incompat with William Wythers' Expanded Ecosphere

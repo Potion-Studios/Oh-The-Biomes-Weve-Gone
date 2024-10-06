@@ -78,4 +78,8 @@ public class BWGBoatItem extends Item {
     private Boat getBoat(Level level, HitResult hitResult) {
         return this.hasChest ? new BWGChestBoatEntity(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z) : new BWGBoatEntity(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
     }
+
+    public boolean hasChest() {
+        return this.hasChest;
+    }
 }
