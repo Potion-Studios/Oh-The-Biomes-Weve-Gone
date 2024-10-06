@@ -4,6 +4,7 @@
 - Add Pies to new #c:pie tag
 - Remove Extra Patch Grass Badlands from Bayou
 - Fix being able to have more than 1 bwg boat in a stack
+- Adjust Boat with Chest Lang to match Vanilla conventions
 
 # 2.1.1-Beta (NeoForge Only)
 - Move NeoForge Compostables and Fuels to Datamap
