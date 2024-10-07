@@ -1,3 +1,5 @@
+# 2.2.0
+
 # 2.1.2
 - Fix Peat Fuel having wrong burn value on NeoForge
 - Decrease Mushroom Canopy and Trunk File Sizes
