@@ -1,3 +1,5 @@
+# 2.2.0
+
 # 2.1.3 (Fabric & Forge Only)
 - Fix BWG Hanging Signs Crashing When placed
 
