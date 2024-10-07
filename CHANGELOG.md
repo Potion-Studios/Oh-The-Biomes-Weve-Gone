@@ -1,3 +1,5 @@
+# 1.4.0
+
 # 1.3.1
 - Decrease Mushroom Canopy File Sizes
 - Remove Extra Patch Grass Badlands from Bayou
