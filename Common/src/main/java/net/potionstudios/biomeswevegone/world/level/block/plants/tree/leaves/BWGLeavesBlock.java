@@ -26,7 +26,7 @@ public class BWGLeavesBlock extends LeavesBlock {
         this.particleType = particleType;
     }
 
-    @Deprecated(forRemoval = true)
+    @Deprecated
     public BWGLeavesBlock(Properties properties) {
         this(properties, null);
     }
