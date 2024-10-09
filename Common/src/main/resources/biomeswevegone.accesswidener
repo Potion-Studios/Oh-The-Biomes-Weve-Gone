@@ -25,7 +25,6 @@ accessible method net/minecraft/client/renderer/Sheets createHangingSignMaterial
 
 accessible method net/minecraft/world/level/biome/OverworldBiomeBuilder addBiomes (Ljava/util/function/Consumer;)V
 accessible method net/minecraft/data/worldgen/biome/OverworldBiomes globalOverworldGeneration (Lnet/minecraft/world/level/biome/BiomeGenerationSettings$Builder;)V
-accessible method net/minecraft/data/worldgen/biome/OverworldBiomes baseOceanGeneration (Lnet/minecraft/core/HolderGetter;Lnet/minecraft/core/HolderGetter;)Lnet/minecraft/world/level/biome/BiomeGenerationSettings$Builder;
 
 accessible method net/minecraft/data/worldgen/features/VegetationFeatures grassPatch (Lnet/minecraft/world/level/levelgen/feature/stateproviders/BlockStateProvider;I)Lnet/minecraft/world/level/levelgen/feature/configurations/RandomPatchConfiguration;
 accessible method net/minecraft/data/worldgen/placement/VegetationPlacements getMushroomPlacement (ILnet/minecraft/world/level/levelgen/placement/PlacementModifier;)Ljava/util/List;

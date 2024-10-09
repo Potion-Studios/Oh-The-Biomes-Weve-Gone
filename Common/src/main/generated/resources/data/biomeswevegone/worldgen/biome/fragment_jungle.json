@@ -79,8 +79,8 @@
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:bamboo_light",
       "minecraft:trees_sparse_jungle",
+      "minecraft:bamboo_light",
       "minecraft:patch_grass_jungle",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
