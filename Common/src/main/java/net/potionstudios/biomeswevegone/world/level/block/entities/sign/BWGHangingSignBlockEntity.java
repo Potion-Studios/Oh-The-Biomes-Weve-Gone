@@ -16,4 +16,9 @@ public class BWGHangingSignBlockEntity extends HangingSignBlockEntity {
 	public @NotNull BlockEntityType<?> getType() {
 		return BWGBlockEntities.HANGING_SIGNS.get();
 	}
+
+	@Override
+	public boolean isValidBlockState(@NotNull BlockState blockState) {
+		return getType().isValid(blockState);
+	}
 }
