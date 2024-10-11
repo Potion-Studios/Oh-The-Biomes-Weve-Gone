@@ -5,12 +5,12 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.entity.vehicle.ChestBoat;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import org.jetbrains.annotations.NotNull;
+import java.util.function.Supplier;
 
 /**
  * BWG Chest Boat Entity
@@ -19,21 +19,16 @@ import org.jetbrains.annotations.NotNull;
  */
 public class BWGChestBoatEntity extends ChestBoat {
     private static final EntityDataAccessor<Integer> DATA_ID_TYPE = SynchedEntityData.defineId(BWGChestBoatEntity.class, EntityDataSerializers.INT);
-    public BWGChestBoatEntity(EntityType<? extends Boat> entityType, Level level) {
-        super(entityType, level);
+    public BWGChestBoatEntity(EntityType<? extends ChestBoat> entityType, Level level, Supplier<Item> boatItem) {
+        super(entityType, level, boatItem);
     }
 
-    public BWGChestBoatEntity(Level level, double x, double y, double z) {
-        this(BWGEntities.BWG_CHEST_BOAT.get(), level);
+    public BWGChestBoatEntity(Level level, Supplier<Item> boatItem, double x, double y, double z) {
+        this(BWGEntities.BWG_CHEST_BOAT.get(), level, boatItem);
         this.setPos(x, y, z);
         this.xo = x;
         this.yo = y;
         this.zo = z;
-    }
-
-    @Override
-    public @NotNull Item getDropItem() {
-        return getModVariant().getChestBoatItem().get();
     }
 
     public void setVariant(BWGBoatEntity.Type pVariant) {
