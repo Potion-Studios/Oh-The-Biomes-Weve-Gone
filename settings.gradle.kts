@@ -16,6 +16,6 @@ develocity.buildScan {
     termsOfUseAgree = "yes"
 }
 
-include("Common", "Fabric", "Forge", "NeoForge")
+include("Common", "Fabric")//, "Forge", "NeoForge")
 
 rootProject.name = "Oh The Biomes We've Gone"
