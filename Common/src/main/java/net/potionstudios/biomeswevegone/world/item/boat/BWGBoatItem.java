@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.world.item.boat;
 
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySelector;
@@ -33,11 +34,11 @@ public class BWGBoatItem extends Item {
         this.type = type;
     }
 
-    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, Player player, @NotNull InteractionHand usedHand) {
+    public @NotNull InteractionResult use(@NotNull Level level, Player player, @NotNull InteractionHand usedHand) {
         ItemStack itemStack = player.getItemInHand(usedHand);
         HitResult hitResult = getPlayerPOVHitResult(level, player, ClipContext.Fluid.ANY);
         if (hitResult.getType() == HitResult.Type.MISS) {
-            return InteractionResultHolder.pass(itemStack);
+            return InteractionResult.PASS;
         } else {
             Vec3 vec3 = player.getViewVector(1.0F);
             //double d = 5.0;
@@ -47,7 +48,7 @@ public class BWGBoatItem extends Item {
 
                 for (Entity entity : list) {
                     if (entity.getBoundingBox().inflate(entity.getPickRadius()).contains(vec32))
-                        return InteractionResultHolder.pass(itemStack);
+                        return InteractionResult.PASS;
                 }
             }
 
