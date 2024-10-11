@@ -7,6 +7,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -121,14 +122,14 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
         this.setVariant(Variant.byId(compound.getInt("Variant")));
     }
 
-    public static boolean checkOddionSpawnRules(EntityType<? extends Oddion> entity, LevelAccessor world, MobSpawnType spawnType, BlockPos pos, RandomSource rand) {
+    public static boolean checkOddionSpawnRules(EntityType<? extends Oddion> entity, LevelAccessor world, EntitySpawnReason entitySpawnReason, BlockPos pos, RandomSource rand) {
         return world.getBlockState(pos.below()).is(BlockTags.DIRT);
     }
 
     @Override
-    public @Nullable SpawnGroupData finalizeSpawn(ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
-        this.setVariant(Variant.getSpawnVariant(level.getRandom()));
-        return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
+    public @Nullable SpawnGroupData finalizeSpawn(ServerLevelAccessor serverLevelAccessor, @NotNull DifficultyInstance difficultyInstance, @NotNull EntitySpawnReason entitySpawnReason, @Nullable SpawnGroupData spawnGroupData) {
+        this.setVariant(Variant.getSpawnVariant(serverLevelAccessor.getRandom()));
+        return super.finalizeSpawn(serverLevelAccessor, difficultyInstance, entitySpawnReason, spawnGroupData);
     }
 
     @Override
@@ -176,7 +177,7 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
         if (!this.level().isClientSide()) {
             if (--this.onionTime <= 0) {
                 this.playSound(SoundEvents.CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-                this.spawnAtLocation(BWGItems.ODDION_BULB.get());
+                this.spawnAtLocation((ServerLevel) this.level(), BWGItems.ODDION_BULB.get());
                 this.gameEvent(GameEvent.ENTITY_PLACE);
                 this.onionTime = 6000;
             }

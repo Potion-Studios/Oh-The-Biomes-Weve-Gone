@@ -120,7 +120,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
         return false;
     }
 
-    public static boolean checkManOWarSpawnRules(EntityType<? extends ManOWar> entity, LevelAccessor world, MobSpawnType spawnType, BlockPos pos, RandomSource rand) {
+    public static boolean checkManOWarSpawnRules(EntityType<? extends ManOWar> entity, LevelAccessor world, EntitySpawnReason entitySpawnReason, BlockPos pos, RandomSource rand) {
         return pos.getY() <= (world.getSeaLevel() - 2) && world.getFluidState(pos.below()).is(FluidTags.WATER);
     }
 
@@ -151,7 +151,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
                 player.addEffect(new MobEffectInstance(MobEffects.POISON, 200), this);
             }
             if (player.hasEffect(MobEffects.UNLUCK)) {
-                player.kill();
+                player.kill(((ServerPlayer) player).serverLevel());
             }
         }
     }
@@ -195,20 +195,19 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     }
 
     @Override
-    public SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
-        spawnGroupData = super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
-        if (spawnType == MobSpawnType.BUCKET) {
+    public SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor serverLevelAccessor, @NotNull DifficultyInstance difficultyInstance, @NotNull EntitySpawnReason entitySpawnReason, @Nullable SpawnGroupData spawnGroupData) {
+        spawnGroupData = super.finalizeSpawn(serverLevelAccessor, difficultyInstance, entitySpawnReason, spawnGroupData);
+        if (entitySpawnReason.equals(EntitySpawnReason.BUCKET)) {
             this.setBaby(true);
             return spawnGroupData;
         }
-        this.setColor(getRandColor(random));
-        return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
+        return super.finalizeSpawn(serverLevelAccessor, difficultyInstance, entitySpawnReason, spawnGroupData);
     }
 
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(@NotNull ServerLevel serverLevel, @NotNull AgeableMob ageableMob) {
-        ManOWar manOWar = BWGEntities.MAN_O_WAR.get().create(serverLevel);
+        ManOWar manOWar = BWGEntities.MAN_O_WAR.get().create(serverLevel, EntitySpawnReason.BREEDING);
         manOWar.setColor(getRandColor(serverLevel.getRandom()));
         return manOWar;
     }
