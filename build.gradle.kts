@@ -13,7 +13,7 @@ plugins {
 }
 
 val minecraftVersion = project.properties["minecraft_version"] as String
-architectury.minecraft = "1.21.2-pre2"
+architectury.minecraft = "1.21.2-pre3"
 
 allprojects {
     version = project.properties["mod_version"] as String
@@ -54,7 +54,7 @@ subprojects {
 
     @Suppress("UnstableApiUsage")
     dependencies {
-        "minecraft"("com.mojang:minecraft:1.21.2-pre2")
+        "minecraft"("com.mojang:minecraft:1.21.2-pre3")
         "mappings"(loom.layered{
             officialMojangMappings()
             parchment("org.parchmentmc.data:parchment-1.21:${project.properties["parchment"]}@zip")
