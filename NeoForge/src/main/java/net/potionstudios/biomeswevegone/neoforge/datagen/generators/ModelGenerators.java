@@ -90,10 +90,6 @@ public class ModelGenerators {
             singleTexture(name(item), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/" + name(item)));
         }
 
-        private void spawnEggItem(Item item) {
-            withExistingParent(name(item), "item/template_spawn_egg");
-        }
-
         private String name(ItemLike item) {
             return key(item.asItem()).getPath();
         }
