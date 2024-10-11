@@ -55,7 +55,7 @@ public interface PlatformHandler {
 	 * @param builder The builder for the block entity
 	 * @return Supplier of the BlockEntityType
 	 */
-	<T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(String key, Supplier<BlockEntityType.Builder<T>> builder);
+	<T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(String key, Supplier<BlockEntityType.BlockEntitySupplier<T>> builder);
 
 	/**
 	 * Register POI Type

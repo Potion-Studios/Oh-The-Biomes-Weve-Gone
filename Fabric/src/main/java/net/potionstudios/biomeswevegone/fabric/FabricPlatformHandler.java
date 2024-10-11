@@ -44,9 +44,9 @@ public class FabricPlatformHandler implements PlatformHandler {
 	}
 
 	@Override
-	public <T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(String key, Supplier<BlockEntityType.Builder<T>> builder) {
+	public <T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(String key, Supplier<BlockEntityType.BlockEntitySupplier<T>> builder) {
 		ResourceLocation resourceLocation = BiomesWeveGone.id(key);
-		BlockEntityType<T> blockEntity = builder.get().build(Util.fetchChoiceType(References.BLOCK_ENTITY, resourceLocation.toString()));
+		BlockEntityType<T> blockEntity = builder.get()..build(Util.fetchChoiceType(References.BLOCK_ENTITY, resourceLocation.toString()));
 		Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, resourceLocation, blockEntity);
 		return () -> blockEntity;
 	}

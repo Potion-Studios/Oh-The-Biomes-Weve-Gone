@@ -31,7 +31,7 @@ loom.accessWidenerPath.set(project(":Common").loom.accessWidenerPath)
 
 dependencies {
     modImplementation("net.fabricmc:fabric-loader:${project.properties["fabric_loader_version"]}")
-    modApi("net.fabricmc.fabric-api:fabric-api:${project.properties["fabric_api_version"]}+$minecraftVersion")
+    modApi("net.fabricmc.fabric-api:fabric-api:${project.properties["fabric_api_version"]}+1.21.2")
 
     "common"(project(":Common", "namedElements")) { isTransitive = false }
     "shadowBundle"(project(":Common", "transformProductionFabric"))

@@ -18,6 +18,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * This class is used to add structures to villages.
@@ -38,20 +39,22 @@ public class PlaceInVillage {
      */
     private static void addBuildingToPool(@NotNull MinecraftServer server, ResourceLocation poolRL, ResourceKey<StructureProcessorList> processorList, ResourceLocation nbtPieceRL, StructureTemplatePool.Projection projection, int weight) {
         RegistryAccess.Frozen serverRegistry = server.registryAccess();
-        Registry<StructureTemplatePool> templatePoolRegistry = serverRegistry.registry(Registries.TEMPLATE_POOL).orElseThrow();
-        Registry<StructureProcessorList> processorListRegistry = serverRegistry.registry(Registries.PROCESSOR_LIST).orElseThrow();
-        StructureTemplatePool pool = templatePoolRegistry.get(poolRL);
-        Holder<StructureProcessorList> processorList1 = processorListRegistry.getHolderOrThrow(processorList);
-        if (pool == null) return;
+        Registry<StructureTemplatePool> templatePoolRegistry = serverRegistry.lookupOrThrow(Registries.TEMPLATE_POOL);
+        Registry<StructureProcessorList> processorListRegistry = serverRegistry.lookupOrThrow(Registries.PROCESSOR_LIST);
+        Optional<Holder.Reference<StructureTemplatePool>> poolOptional = templatePoolRegistry.get(poolRL);
+        Holder<StructureProcessorList> processorList1 = processorListRegistry.getOrThrow(processorList);
+        if (poolOptional.isEmpty()) return;
+
+        Holder.Reference<StructureTemplatePool> pool = poolOptional.get();
 
         SinglePoolElement piece = SinglePoolElement.single(nbtPieceRL.toString(), processorList1).apply(projection);
 
         for (int i = 0; i < weight; i++)
-            pool.templates.add(piece);
+            pool.value().templates.add(piece);
 
-        List<Pair<StructurePoolElement, Integer>> listOfPieceEntries = new ArrayList<>(pool.rawTemplates);
+        List<Pair<StructurePoolElement, Integer>> listOfPieceEntries = new ArrayList<>(pool.value().rawTemplates);
         listOfPieceEntries.add(new Pair<>(piece, weight));
-        pool.rawTemplates = listOfPieceEntries;
+        pool.value().rawTemplates = listOfPieceEntries;
     }
 
     /**
