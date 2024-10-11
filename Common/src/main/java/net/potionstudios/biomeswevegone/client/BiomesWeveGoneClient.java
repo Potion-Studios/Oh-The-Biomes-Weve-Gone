@@ -2,7 +2,6 @@ package net.potionstudios.biomeswevegone.client;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.BoatModel;
-import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.Sheets;
@@ -83,8 +82,8 @@ public class BiomesWeveGoneClient {
      */
     public static void registerLayerDefinitions(BiConsumer<ModelLayerLocation, Supplier<LayerDefinition>> consumer) {
         for (BWGBoatEntity.Type type : BWGBoatEntity.Type.values()) {
-            consumer.accept(BWGBoatRenderer.createBoatModelName(type), BoatModel::createBodyModel);
-            consumer.accept(BWGBoatRenderer.createChestBoatModelName(type), ChestBoatModel::createBodyModel);
+            consumer.accept(BWGBoatRenderer.createBoatModelName(type), BoatModel::createBoatModel);
+            consumer.accept(BWGBoatRenderer.createChestBoatModelName(type), BoatModel::createChestBoatModel);
         }
     }
 

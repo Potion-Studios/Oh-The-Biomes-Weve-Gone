@@ -25,21 +25,16 @@ import java.util.function.Supplier;
  */
 public class BWGBoatEntity extends Boat {
     private static final EntityDataAccessor<Integer> DATA_ID_TYPE = SynchedEntityData.defineId(BWGBoatEntity.class, EntityDataSerializers.INT);
-    public BWGBoatEntity(EntityType<? extends Boat> entityType, Level level) {
-        super(entityType, level);
+    public BWGBoatEntity(EntityType<? extends Boat> entityType, Level level, Supplier<Item> boatItem) {
+        super(entityType, level, boatItem);
     }
 
-    public BWGBoatEntity(Level level, double x, double y, double z) {
-        this(BWGEntities.BWG_BOAT.get(), level);
+    public BWGBoatEntity(Level level, Supplier<Item> boatItem, double x, double y, double z) {
+        this(BWGEntities.BWG_BOAT.get(), level, boatItem);
         this.setPos(x, y, z);
         this.xo = x;
         this.yo = y;
         this.zo = z;
-    }
-
-    @Override
-    public @NotNull Item getDropItem() {
-        return getModVariant().getBoatItem().get();
     }
 
     public void setVariant(Type pVariant) {

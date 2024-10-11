@@ -15,6 +15,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
@@ -37,6 +38,7 @@ public class BWGBoatRenderer extends EntityRenderer<Boat> {
     private final Map<BWGBoatEntity.Type, Pair<ResourceLocation, ListModel<Boat>>> boatResources;
     public BWGBoatRenderer(EntityRendererProvider.Context context, boolean chestBoat) {
         super(context);
+        this.shadowRadius = 0.8F;
         this.boatResources = Stream.of(BWGBoatEntity.Type.values()).collect(ImmutableMap.toImmutableMap(type -> type,
                 type -> Pair.of(BiomesWeveGone.id(getTextureLocation(type, chestBoat)), this.createBoatModel(context, type, chestBoat))));
     }
@@ -112,7 +114,7 @@ public class BWGBoatRenderer extends EntityRenderer<Boat> {
     }
 
     @Override
-    protected float getShadowRadius(@NotNull Boat entity) {
-        return 0.8F;
+    public @NotNull EntityRenderState createRenderState() {
+        return null;
     }
 }
