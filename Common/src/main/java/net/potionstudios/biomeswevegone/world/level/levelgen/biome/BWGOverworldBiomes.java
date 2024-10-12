@@ -217,8 +217,7 @@ class BWGOverworldBiomes {
 
         BiomeDefaultFeatures.addSwampClayDisk(generationSettings);
         BiomeDefaultFeatures.addJungleGrass(generationSettings);
-        // addDefaultGrass removed as addJungleGrass is the same feature but 25x more common
-        // TODO: Delete this comment
+
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addSwampExtraVegetation(generationSettings);
         addVegetal(generationSettings, AquaticPlacements.SEAGRASS_SWAMP);
@@ -691,8 +690,6 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addFerns(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BiomeDefaultFeatures.addTaigaGrass(generationSettings);
-        // addDefaultMushrooms removed as addTaigaGrass has the same mushroom generation but 64x more brown mushrooms and 2x more red mushrooms
-        // TODO: Delete this comment
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
         BiomeDefaultFeatures.addRareBerryBushes(generationSettings);
 
@@ -1101,13 +1098,10 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultSprings(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
-//        generationSettings.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BYGPlacedFeatures.BLACK_ICE_SNOW);
         BiomeDefaultFeatures.addSurfaceFreezing(generationSettings);
         BiomeDefaultFeatures.addFerns(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BiomeDefaultFeatures.addTaigaGrass(generationSettings);
-        // addDefaultMushrooms removed as addTaigaGrass has the same mushroom generation but 64x more brown mushrooms and 2x more red mushrooms
-        // TODO: Delete this comment
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.WINTER_ROSE);
@@ -1271,8 +1265,6 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addFerns(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BiomeDefaultFeatures.addTaigaGrass(generationSettings);
-        // addDefaultMushrooms removed as addTaigaGrass has the same mushroom generation but 64x more brown mushrooms and 2x more red mushrooms
-        // TODO: Delete this comment
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
         BiomeDefaultFeatures.addRareBerryBushes(generationSettings);
 
@@ -1527,8 +1519,6 @@ class BWGOverworldBiomes {
 
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BiomeDefaultFeatures.addTaigaGrass(generationSettings);
-        // addDefaultMushrooms removed as addTaigaGrass has the same mushroom generation but 64x more brown mushrooms and 2x more red mushrooms
-        // TODO: Delete this comment
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.ZELKOVA_TREES);
