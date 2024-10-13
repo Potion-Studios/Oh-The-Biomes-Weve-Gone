@@ -1,5 +1,7 @@
 # 2.1.4 (Forge Only)
 - Require Forge 52.0.20 as a minimum due to the addition of new Forge tags and implementation of Common Tags
+- Remove unneeded Forge Specific Mixin json
+- Remove NeoForge Tags and other Data from Forge Jar
 
 # 2.1.3 (Fabric & Forge Only)
 - Fix BWG Hanging Signs Crashing When placed

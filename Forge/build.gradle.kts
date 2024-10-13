@@ -38,7 +38,6 @@ loom {
         extraAccessWideners.add(loom.accessWidenerPath.get().asFile.name)
 
         mixinConfig("biomeswevegone-common.mixins.json")
-        mixinConfig("biomeswevegone.mixins.json")
     }
 
     runs.create("datagen") {
@@ -81,7 +80,8 @@ tasks {
 
     shadowJar {
         exclude("net/potionstudios/biomeswevegone/forge/datagen/**",
-            "architectury.common.json", ".cache/**")
+            "architectury.common.json", ".cache/**", "data/biomeswevegone/neoforge/**",
+            "data/neoforge/**")
         configurations = listOf(project.configurations.getByName("shadowBundle"))
         archiveClassifier.set("dev-shadow")
     }
