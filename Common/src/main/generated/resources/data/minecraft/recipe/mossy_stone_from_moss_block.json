@@ -1,12 +1,13 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "building",
+  "group": "mossy_stone",
   "ingredients": [
     {
       "item": "minecraft:stone"
     },
     {
-      "item": "minecraft:vine"
+      "item": "minecraft:moss_block"
     }
   ],
   "result": {
