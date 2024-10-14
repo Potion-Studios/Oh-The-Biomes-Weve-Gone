@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:mushrooms"
+    },
+    "X": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "##",
+    "XX"
+  ],
+  "result": {
+    "count": 1,
+    "id": "biomeswevegone:foragers_table"
+  }
+}

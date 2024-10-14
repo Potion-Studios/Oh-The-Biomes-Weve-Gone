@@ -3,6 +3,7 @@ package net.potionstudios.biomeswevegone.neoforge.datagen.generators;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
@@ -10,8 +11,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
+import net.neoforged.neoforge.common.Tags;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
@@ -325,6 +326,14 @@ public class RecipeGenerator extends RecipeProvider {
                 .requires(Items.SAND, 2)
                 .requires(Items.DIRT, 2)
                 .unlockedBy(getHasName(Items.SAND), has(Items.SAND))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGBlocks.FORAGERS_TABLE.get())
+                .define('X', ItemTags.PLANKS)
+                .define('#', Tags.Items.MUSHROOMS)
+                .pattern("##")
+                .pattern("XX")
+                .unlockedBy("has_mushrooms", has(Tags.Items.MUSHROOMS))
                 .save(recipeOutput);
     }
 
