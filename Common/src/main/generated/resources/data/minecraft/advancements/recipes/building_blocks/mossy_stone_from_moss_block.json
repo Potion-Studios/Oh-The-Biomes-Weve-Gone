@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stone": {
+    "has_moss_block": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:stone"
+              "minecraft:moss_block"
             ]
           }
         ]
@@ -15,33 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomeswevegone:mossy_stone"
+        "recipe": "minecraft:mossy_stone_from_moss_block"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_vine": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:vine"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "has_stone",
-      "has_vine",
+      "has_moss_block",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "biomeswevegone:mossy_stone"
+      "minecraft:mossy_stone_from_moss_block"
     ]
   },
   "sends_telemetry_event": false

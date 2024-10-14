@@ -1,4 +1,5 @@
-# 1.4.0
+# 1.3.2
+- Fix and Add Missing Mossy Red Rock and Mossy Stone Recipes
 
 # 1.3.1
 - Decrease Mushroom Canopy File Sizes

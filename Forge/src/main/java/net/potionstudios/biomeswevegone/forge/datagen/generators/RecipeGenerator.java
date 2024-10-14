@@ -194,6 +194,18 @@ public class RecipeGenerator extends RecipeProvider {
         dyeTagRecipe(writer, Items.PINK_DYE, BWGItemTags.MAKES_PINK_DYE);
 
         twoByTwoPackertoFourWithStoneCutting(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.RED_ROCK_BRICKS_SET.getBase(), BWGBlocks.RED_ROCK_SET.getBase());
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.MOSSY_RED_ROCK_BRICKS_SET.getBase())
+                .requires(BWGBlocks.RED_ROCK_BRICKS_SET.getBase())
+                .requires(Items.VINE)
+                .group("mossy_red_rock_bricks")
+                .unlockedBy(getHasName(Items.VINE), has(Items.VINE))
+                .save(writer, getConversionRecipeName(BWGBlocks.MOSSY_RED_ROCK_BRICKS_SET.getBase(), Items.VINE));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.MOSSY_RED_ROCK_BRICKS_SET.getBase())
+                .requires(BWGBlocks.RED_ROCK_BRICKS_SET.getBase())
+                .requires(Items.MOSS_BLOCK)
+                .group("mossy_red_rock_bricks")
+                .unlockedBy(getHasName(Items.MOSS_BLOCK), has(Items.MOSS_BLOCK))
+                .save(writer, getConversionRecipeName(BWGBlocks.MOSSY_RED_ROCK_BRICKS_SET.getBase(), Items.MOSS_BLOCK));
         chiseled(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_RED_ROCK_BRICKS_SET.getBase(), BWGBlocks.RED_ROCK_BRICKS_SET.getBase());
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.ROCKY_STONE_SET.getBase(), 2)
                 .requires(Items.COBBLESTONE)
@@ -204,9 +216,16 @@ public class RecipeGenerator extends RecipeProvider {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.MOSSY_STONE_SET.getBase())
                 .requires(Items.STONE)
                 .requires(Items.VINE)
-                .unlockedBy(getHasName(Items.STONE), has(Items.STONE))
+                .group("mossy_stone")
                 .unlockedBy(getHasName(Items.VINE), has(Items.VINE))
-                .save(writer);
+                .save(writer, getConversionRecipeName(BWGBlocks.MOSSY_STONE_SET.getBase(), Items.VINE));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.MOSSY_STONE_SET.getBase())
+                .requires(Items.STONE)
+                .requires(Items.MOSS_BLOCK)
+                .group("mossy_stone")
+                .unlockedBy(getHasName(Items.MOSS_BLOCK), has(Items.MOSS_BLOCK))
+                .save(writer, getConversionRecipeName(BWGBlocks.MOSSY_STONE_SET.getBase(), Items.MOSS_BLOCK));
+
 
         smeltingResultFromBase(writer, BWGBlocks.DACITE_SET.getBase(), BWGBlocks.DACITE_COBBLESTONE_SET.getBase());
         twoByTwoPackertoFourWithStoneCutting(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.DACITE_BRICKS_SET.getBase(), BWGBlocks.DACITE_SET.getBase());

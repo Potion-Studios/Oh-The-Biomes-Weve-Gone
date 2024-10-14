@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mossy_red_rock_bricks",
+  "ingredients": [
+    {
+      "item": "biomeswevegone:red_rock_bricks"
+    },
+    {
+      "item": "minecraft:vine"
+    }
+  ],
+  "result": {
+    "item": "biomeswevegone:mossy_red_rock_bricks"
+  }
+}
