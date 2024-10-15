@@ -97,4 +97,5 @@ publisher {
     val depends = mutableListOf("terrablender", "geckolib", "corgilib", "oh-the-trees-youll-grow")
     curseDepends.required.set(depends)
     modrinthDepends.required.set(depends)
+    curseDepends.optional.set(mutableListOf("wthit-forge"))
 }

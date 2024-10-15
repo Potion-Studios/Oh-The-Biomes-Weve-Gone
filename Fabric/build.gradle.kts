@@ -76,4 +76,5 @@ publisher {
     setLoaders(ModLoader.FABRIC, ModLoader.QUILT)
     curseDepends.required.set(mutableListOf("fabric-api", "terrablender-fabric", "geckolib", "corgilib", "oh-the-trees-youll-grow"))
     modrinthDepends.required.set(mutableListOf("fabric-api", "terrablender", "geckolib", "corgilib", "oh-the-trees-youll-grow"))
+    curseDepends.optional.set(mutableListOf("wthit"))
 }

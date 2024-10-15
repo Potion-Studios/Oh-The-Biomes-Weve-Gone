@@ -87,4 +87,5 @@ publisher {
     setLoaders(ModLoader.NEOFORGE)
     curseDepends.required.set(mutableListOf("terrablender-neoforge", "geckolib", "corgilib", "oh-the-trees-youll-grow"))
     modrinthDepends.required.set(mutableListOf("terrablender", "geckolib", "corgilib", "oh-the-trees-youll-grow"))
+    curseDepends.optional.set(mutableListOf("wthit-forge"))
 }

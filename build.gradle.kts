@@ -115,9 +115,7 @@ subprojects {
             setGameVersions(minecraftVersion)
             setCurseEnvironment(CurseEnvironment.BOTH)
             setJavaVersions(JavaVersion.VERSION_21, JavaVersion.VERSION_22)
-            val softDepends = mutableListOf("wthit")
-            curseDepends.optional.set(softDepends)
-            modrinthDepends.optional.set(softDepends)
+            modrinthDepends.optional.set(mutableListOf("wthit"))
         }
 }
 
