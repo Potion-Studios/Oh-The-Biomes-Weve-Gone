@@ -28,7 +28,7 @@ public class ChunkStatusTasksMixin {
     private static void injectExtensions(WorldGenContext worldGenContext, ChunkStep step, StaticCache2D<GenerationChunkHolder> cache, ChunkAccess chunk, CallbackInfoReturnable<CompletableFuture<ChunkAccess>> cir, @Local ServerLevel serverLevel, @Local WorldGenRegion worldGenRegion) {
         BiomeManager biomeManager = worldGenRegion.getBiomeManager().withDifferentSource((x, y, z) -> worldGenContext.generator().getBiomeSource().getNoiseBiome(x, y, z, worldGenContext.level().getChunkSource().randomState().sampler()));
 
-        CragGardenExtension.runCragGardenExtension(biomeManager::getBiome, chunk, serverLevel.getSeed(), worldGenRegion.registryAccess().registryOrThrow(Registries.NOISE).getOrThrow(Noises.SURFACE), worldGenRegion.registryAccess().registryOrThrow(Registries.NOISE).getOrThrow(Noises.SURFACE_SECONDARY));
+        CragGardenExtension.runCragGardenExtension(biomeManager::getBiome, chunk, serverLevel.getSeed(), worldGenRegion.registryAccess().lookupOrThrow(Registries.NOISE).get(Noises.SURFACE).get().value(), worldGenRegion.registryAccess().lookupOrThrow(Registries.NOISE).get(Noises.SURFACE_SECONDARY).get().value());
 //        TropicalIslandExtension.runTropicalIslandExtension(worldGenRegion::getBiome, chunkAccess, serverLevel.getSeed());
         BasaltBarreraExtension.runBasaltBarreraExtension(biomeManager::getBiome, chunk, worldGenRegion, worldGenContext.generator());
     }
