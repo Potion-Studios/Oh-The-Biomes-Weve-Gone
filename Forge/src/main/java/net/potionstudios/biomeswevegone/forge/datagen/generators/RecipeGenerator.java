@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.forge.datagen.generators;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -320,6 +321,14 @@ public class RecipeGenerator extends RecipeProvider {
                 .requires(Items.SAND, 2)
                 .requires(Items.DIRT, 2)
                 .unlockedBy(getHasName(Items.SAND), has(Items.SAND))
+                .save(writer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGBlocks.FORAGERS_TABLE.get())
+                .define('X', ItemTags.PLANKS)
+                .define('#', BWGItemTags.MUSHROOMS)
+                .pattern("##")
+                .pattern("XX")
+                .unlockedBy("has_mushrooms", has(BWGItemTags.MUSHROOMS))
                 .save(writer);
     }
 

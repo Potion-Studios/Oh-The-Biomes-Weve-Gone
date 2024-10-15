@@ -44,6 +44,8 @@ public class BWGItemTags {
     public static final TagKey<Item> MAKES_WHITE_DYE = create("dye/makes_white_dye");
     public static final TagKey<Item> MAKES_YELLOW_DYE = create("dye/makes_yellow_dye");
 
+    public static final TagKey<Item> MUSHROOMS = create("mushrooms");
+
 
     private static TagKey<Item> create(String name) {
         return TagKey.create(Registries.ITEM, BiomesWeveGone.id(name));

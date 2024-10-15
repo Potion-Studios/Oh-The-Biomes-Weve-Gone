@@ -1,0 +1,13 @@
+{
+  "values": [
+    {
+      "id": "#forge:mushrooms",
+      "required": false
+    },
+    "biomeswevegone:green_mushroom",
+    "biomeswevegone:weeping_milkcap",
+    "biomeswevegone:wood_blewit",
+    "minecraft:brown_mushroom",
+    "minecraft:red_mushroom"
+  ]
+}

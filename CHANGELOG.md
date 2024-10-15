@@ -1,5 +1,6 @@
 # 1.3.2
 - Fix and Add Missing Mossy Red Rock and Mossy Stone Recipes
+- Add Missing Foragers Table Recipe
 
 # 1.3.1
 - Decrease Mushroom Canopy File Sizes
