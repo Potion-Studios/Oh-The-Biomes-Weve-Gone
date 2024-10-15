@@ -46,7 +46,7 @@ public class BWGFruitBlock extends Block implements BonemealableBlock {
     public BWGFruitBlock(Properties properties, Supplier<Supplier<Item>> fruit, String leaves) {
         super(properties);
         this.fruit = fruit;
-        this.leaves = Suppliers.memoize(() -> (LeavesBlock) BuiltInRegistries.BLOCK.get(BiomesWeveGone.id(leaves)));
+        this.leaves = Suppliers.memoize(() -> (LeavesBlock) BuiltInRegistries.BLOCK.get(BiomesWeveGone.id(leaves)).get().value());
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
 
@@ -71,8 +71,8 @@ public class BWGFruitBlock extends Block implements BonemealableBlock {
     }
 
     @Override
-    protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
-        return (state.getValue(AGE) != MAX_AGE) && stack.is(Items.BONE_MEAL) ? ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION : super.useItemOn(stack, state, level, pos, player, hand, hitResult);
+    protected @NotNull InteractionResult useItemOn(@NotNull ItemStack stack, BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
+        return (state.getValue(AGE) != MAX_AGE) && stack.is(Items.BONE_MEAL) ? InteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION : super.useItemOn(stack, state, level, pos, player, hand, hitResult);
     }
 
     @Override

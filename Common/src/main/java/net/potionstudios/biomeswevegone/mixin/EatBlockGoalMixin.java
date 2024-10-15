@@ -41,7 +41,7 @@ public abstract class EatBlockGoalMixin {
     private void tick(CallbackInfo ci, @Local BlockPos blockPos) {
         BlockPos below = blockPos.below();
         if (level.getBlockState(below).is(BWGBlocks.LUSH_GRASS_BLOCK.get()))
-            if (level.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING)) {
+            if (level.getServer().getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING)) {
                 level.levelEvent(2001, below, Block.getId(BWGBlocks.LUSH_GRASS_BLOCK.get().defaultBlockState()));
                 level.setBlock(below, BWGBlocks.LUSH_DIRT.get().defaultBlockState(), 2);
                 mob.ate();

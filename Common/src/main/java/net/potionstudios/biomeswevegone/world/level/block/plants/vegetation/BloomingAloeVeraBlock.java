@@ -36,6 +36,8 @@ public class BloomingAloeVeraBlock extends DoublePlantBlock {
         return InteractionResult.SUCCESS;
     }
 
+
+
     @Override
     protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
         if (stack.is(BWGItemTags.SHEARS)) {

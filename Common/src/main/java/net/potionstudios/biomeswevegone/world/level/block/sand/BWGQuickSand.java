@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.ColorRGBA;
 import net.minecraft.util.Mth;
@@ -26,13 +27,15 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.potionstudios.biomeswevegone.world.damagesource.BWGDamageTypes;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
+
 public class BWGQuickSand extends ColoredFallingBlock {
 	public BWGQuickSand(int dustColor) {
 		super(new ColorRGBA(dustColor), BlockBehaviour.Properties.ofFullCopy(Blocks.SAND).noCollission().isValidSpawn(Blocks::never));
 	}
 
 	@Override
-	public @NotNull VoxelShape getOcclusionShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
+	protected @NotNull VoxelShape getOcclusionShape(@NotNull BlockState blockState) {
 		return Shapes.empty();
 	}
 
@@ -40,7 +43,7 @@ public class BWGQuickSand extends ColoredFallingBlock {
 	public void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity) {
 		if (entity instanceof LivingEntity) {
 			entity.makeStuckInBlock(state, new Vec3(0.9F, 1.5, 0.9F));
-			if (level.isClientSide) {
+			if (level.isClientSide()) {
 				RandomSource randomSource = level.getRandom();
 				boolean bl = entity.xOld != entity.getX() || entity.zOld != entity.getZ();
 				if (bl && randomSource.nextBoolean()) {
@@ -57,11 +60,11 @@ public class BWGQuickSand extends ColoredFallingBlock {
 			}
 			BlockPos headPos = new BlockPos(entity.getBlockX(), (int) entity.getEyeY(), entity.getBlockZ());
 			if (level.getBlockState(headPos).getBlock() instanceof BWGQuickSand)
-				entity.hurt(new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(BWGDamageTypes.IN_QUICKSAND)), 0.5F);
+				entity.hurt(new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(BWGDamageTypes.IN_QUICKSAND)), 0.5F);
 		}
 
-		if (!level.isClientSide) {
-			if (entity.isOnFire() && (level.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING) || entity instanceof Player) && entity.mayInteract(level, pos)) {
+		if (!level.isClientSide()) {
+			if (entity.isOnFire() && (Objects.requireNonNull(level.getServer()).getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING) || entity instanceof Player) && entity.mayInteract((ServerLevel) level, pos)) {
 				level.destroyBlock(pos, false);
 			}
 

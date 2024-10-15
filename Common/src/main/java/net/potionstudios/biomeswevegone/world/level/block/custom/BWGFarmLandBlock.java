@@ -22,6 +22,7 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 public class BWGFarmLandBlock extends FarmBlock {
@@ -61,7 +62,7 @@ public class BWGFarmLandBlock extends FarmBlock {
         if (!level.isClientSide()
                 && level.random.nextFloat() < fallDistance - 0.5F
                 && entity instanceof LivingEntity
-                && (entity instanceof Player || level.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING))
+                && (entity instanceof Player || Objects.requireNonNull(level.getServer()).getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING))
                 && entity.getBbWidth() * entity.getBbWidth() * entity.getBbHeight() > 0.512F) {
             turnToDirtBlock(entity, state, level, pos);
         }
