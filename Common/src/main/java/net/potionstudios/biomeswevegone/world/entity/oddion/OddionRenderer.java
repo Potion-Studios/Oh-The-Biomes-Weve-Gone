@@ -1,8 +1,6 @@
 package net.potionstudios.biomeswevegone.world.entity.oddion;
 
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
@@ -13,8 +11,6 @@ import software.bernie.geckolib.renderer.GeoEntityRenderer;
  * @author YaBoiChips
  */
 public class OddionRenderer<T extends Oddion> extends GeoEntityRenderer<T> {
-
-    public static final ModelLayerLocation MODEL_LAYER = new ModelLayerLocation(BiomesWeveGone.id("oddion"), "main");
 
     public OddionRenderer(EntityRendererProvider.Context context) {
         super(context, new OddionModel<>());

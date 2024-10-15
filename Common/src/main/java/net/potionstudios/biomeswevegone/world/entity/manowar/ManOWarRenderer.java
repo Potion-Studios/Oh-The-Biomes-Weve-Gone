@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.world.entity.manowar;
 
 import com.google.common.collect.Maps;
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import net.minecraft.Util;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -10,6 +11,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 
@@ -36,9 +39,9 @@ public class ManOWarRenderer<T extends ManOWar> extends GeoEntityRenderer<T> {
     }
 
     @Override
-    public void render(T entity, float entityYaw, float partialTicks, @NotNull PoseStack stack, @NotNull MultiBufferSource bufferIn, int packedLightIn) {
-        if (entity.isBaby()) stack.scale(0.5f, 0.5f, 0.5f);
-        super.render(entity, entityYaw, partialTicks, stack, bufferIn, packedLightIn);
+    public void preRender(PoseStack poseStack, T animatable, BakedGeoModel model, @Nullable MultiBufferSource bufferSource, @Nullable VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, int colour) {
+        if (animatable.isBaby()) poseStack.scale(0.5f, 0.5f, 0.5f);
+        super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, colour);
     }
 
     /**
