@@ -41,8 +41,8 @@ public abstract class PrairieGrassMixin extends SpreadingSnowyDirtBlock implemen
             BlockPos blockPos = pos.above();
             BlockState blockState = BWGBlocks.PRAIRIE_GRASS.get().defaultBlockState();
             Optional<Holder.Reference<PlacedFeature>> optional = level.registryAccess()
-                    .registryOrThrow(Registries.PLACED_FEATURE)
-                    .getHolder(BWGOverworldVegationPlacedFeatures.PRAIRIE_GRASS_BONEMEAL);
+                    .lookupOrThrow(Registries.PLACED_FEATURE)
+                    .get(BWGOverworldVegationPlacedFeatures.PRAIRIE_GRASS_BONEMEAL);
 
             label49:
             for (int i = 0; i < 128; i++) {

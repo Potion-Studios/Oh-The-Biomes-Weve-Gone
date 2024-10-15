@@ -36,7 +36,7 @@ public class VanillaCompatFabric {
     }
 
     private static void registerFuels() {
-        FuelRegistry.INSTANCE.add(BWGBlocks.PEAT.get(), 1200);
+        FuelRegistryEvents.BUILD.register(((builder, context) -> builder.add(BWGBlocks.PEAT.get(), 1200)));
     }
 
     private static void registerBiomeModifiers() {
