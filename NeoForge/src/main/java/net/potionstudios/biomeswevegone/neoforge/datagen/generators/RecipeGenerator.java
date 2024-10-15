@@ -264,11 +264,11 @@ public class RecipeGenerator extends RecipeProvider {
         sandToGlass(recipeOutput, BWGBlocks.PINK_SAND_SET, Items.PINK_STAINED_GLASS);
         sandToGlass(recipeOutput, BWGBlocks.PURPLE_SAND_SET, Items.PURPLE_STAINED_GLASS);
         sandToGlass(recipeOutput, BWGBlocks.WHITE_SAND_SET, Items.WHITE_STAINED_GLASS);
-	    dyeAbleRecipe(recipeOutput, BWGBlocks.BLACK_SAND_SET.getSand(), Items.SAND, Items.BLACK_DYE);
-	    dyeAbleRecipe(recipeOutput, BWGBlocks.BLUE_SAND_SET.getSand(), Items.SAND,Items.BLUE_DYE);
-	    dyeAbleRecipe(recipeOutput, BWGBlocks.PINK_SAND_SET.getSand(), Items.SAND,Items.PINK_DYE);
-	    dyeAbleRecipe(recipeOutput, BWGBlocks.PURPLE_SAND_SET.getSand(), Items.SAND,Items.PURPLE_DYE);
-	    dyeAbleRecipe(recipeOutput, BWGBlocks.WHITE_SAND_SET.getSand(), Items.SAND,Items.WHITE_DYE);
+	    dyeAbleRecipe(recipeOutput, BWGBlocks.BLACK_SAND_SET.getSand(), Items.SAND, Tags.Items.DYES_BLACK);
+	    dyeAbleRecipe(recipeOutput, BWGBlocks.BLUE_SAND_SET.getSand(), Items.SAND, Tags.Items.DYES_BLUE);
+	    dyeAbleRecipe(recipeOutput, BWGBlocks.PINK_SAND_SET.getSand(), Items.SAND, Tags.Items.DYES_PINK);
+	    dyeAbleRecipe(recipeOutput, BWGBlocks.PURPLE_SAND_SET.getSand(), Items.SAND, Tags.Items.DYES_PURPLE);
+	    dyeAbleRecipe(recipeOutput, BWGBlocks.WHITE_SAND_SET.getSand(), Items.SAND, Tags.Items.DYES_WHITE);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BWGItems.GREEN_APPLE_PIE.get())
                 .requires(BWGItems.GREEN_APPLE.get())
@@ -359,7 +359,7 @@ public class RecipeGenerator extends RecipeProvider {
         stonecutterResultFromBase(finishedRecipeConsumer, category, packed, unpacked);
     }
 
-	private static void dyeAbleRecipe(RecipeOutput finishedRecipeConsumer, ItemLike item, ItemLike ingredient, Item dye) {
+	private static void dyeAbleRecipe(RecipeOutput finishedRecipeConsumer, ItemLike item, ItemLike ingredient, TagKey<Item> dye) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, item, 8)
 				.define('#', dye)
 				.define('X', ingredient)

@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "minecraft:black_dye"
+      "tag": "c:dyes/black"
     },
     "X": {
       "item": "minecraft:sand"
