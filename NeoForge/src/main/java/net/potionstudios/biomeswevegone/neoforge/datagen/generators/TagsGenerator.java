@@ -90,6 +90,8 @@ public class TagsGenerator {
                 tag(Tags.Blocks.BOOKSHELVES).add(set.bookshelf());
                 tag(BlockTags.ENCHANTMENT_POWER_PROVIDER).add(set.bookshelf());
                 tag(set.logBlockTag()).add(set.logstem(), set.wood(), set.strippedLogStem(), set.strippedWood());
+                tag(Tags.Blocks.STRIPPED_LOGS).add(set.strippedLogStem());
+                tag(Tags.Blocks.STRIPPED_WOODS).add(set.strippedWood());
                 tag(BlockTags.OVERWORLD_NATURAL_LOGS).add(set.logstem());
                 tag(BlockTags.LOGS).addTag(set.logBlockTag());
                 tag(BlockTags.LOGS_THAT_BURN).addTag(set.logBlockTag());
@@ -226,6 +228,8 @@ public class TagsGenerator {
             copy(Tags.Blocks.BOOKSHELVES, Tags.Items.BOOKSHELVES);
             copy(BlockTags.LOGS, ItemTags.LOGS);
             copy(BlockTags.LOGS_THAT_BURN, ItemTags.LOGS_THAT_BURN);
+            copy(Tags.Blocks.STRIPPED_LOGS, Tags.Items.STRIPPED_LOGS);
+            copy(Tags.Blocks.STRIPPED_WOODS, Tags.Items.STRIPPED_WOODS);
             copy(Tags.Blocks.PLAYER_WORKSTATIONS_CRAFTING_TABLES, Tags.Items.PLAYER_WORKSTATIONS_CRAFTING_TABLES);
             copy(BlockTags.SAND, ItemTags.SAND);
             copy(BWGBlockTags.ALLIUM_FLOWER_BUSHES, BWGItemTags.ALLIUM_FLOWER_BUSHES);

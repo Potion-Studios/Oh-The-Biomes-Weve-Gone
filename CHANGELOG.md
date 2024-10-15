@@ -2,6 +2,7 @@
 - Fix and Add Missing Mossy Red Rock and Mossy Stone Recipes
 - Add Missing Foragers Table Recipe
 - Use Common Dyes Tags for Colored Sand Recipes
+- Add Stripped Woods and Logs to new Tags (Added in NeoForge 21.1.71 and Fabric API 0.106.0)
 
 # 2.1.4 (Forge Only)
 - Require Forge 52.0.20 as a minimum due to the addition of new Forge tags and implementation of Common Tags
