@@ -48,7 +48,7 @@ public class TagsGenerator {
         generator.addProvider(run, new DamageTypeTagGenerator(output, lookupProvider, helper));
     }
 
-    public static void sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(Map<?, TagBuilder> tags) {
+    private static void sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(Map<?, TagBuilder> tags) {
         for (TagBuilder value : tags.values()) {
             List<TagEntry> builderEntries = value.entries;
 
@@ -408,7 +408,7 @@ public class TagsGenerator {
 
     private static class EntityTypeTagGenerator extends EntityTypeTagsProvider {
 
-        public EntityTypeTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture, @Nullable ExistingFileHelper existingFileHelper) {
+        private EntityTypeTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture, @Nullable ExistingFileHelper existingFileHelper) {
             super(arg, completableFuture, BiomesWeveGone.MOD_ID, existingFileHelper);
         }
 
@@ -434,7 +434,7 @@ public class TagsGenerator {
 
     private static class DamageTypeTagGenerator extends DamageTypeTagsProvider {
 
-        public DamageTypeTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture, @Nullable ExistingFileHelper existingFileHelper) {
+        private DamageTypeTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture, @Nullable ExistingFileHelper existingFileHelper) {
             super(arg, completableFuture, BiomesWeveGone.MOD_ID, existingFileHelper);
         }
 
@@ -445,5 +445,4 @@ public class TagsGenerator {
             tag(DamageTypeTags.IS_EXPLOSION).add(BWGDamageTypes.CATTAIL_EXPLOSION);
         }
     }
-
 }
