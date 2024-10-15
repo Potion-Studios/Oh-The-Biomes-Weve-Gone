@@ -4,11 +4,9 @@ package net.potionstudios.biomeswevegone.world.entity.pumpkinwarden;
 import net.minecraft.resources.ResourceLocation;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import software.bernie.geckolib.animatable.GeoAnimatable;
-import software.bernie.geckolib.animation.Animation;
 import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.constant.DataTickets;
-
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.model.data.EntityModelData;
 
@@ -17,7 +15,7 @@ import software.bernie.geckolib.model.data.EntityModelData;
  * @see GeoModel
  * @author YaBoiChips
  */
-public class PumpkinWardenModel<T extends GeoAnimatable> extends GeoModel<T> {
+class PumpkinWardenModel<T extends GeoAnimatable> extends GeoModel<T> {
 
     @Override
     public ResourceLocation getModelResource(T object) {
@@ -32,11 +30,6 @@ public class PumpkinWardenModel<T extends GeoAnimatable> extends GeoModel<T> {
     @Override
     public ResourceLocation getAnimationResource(T animatable) {
         return BiomesWeveGone.id("animations/pumpkinwarden.animation.json");
-    }
-
-    @Override
-    public Animation getAnimation(T animatable, String name) {
-        return super.getAnimation(animatable, name);
     }
 
     @Override
