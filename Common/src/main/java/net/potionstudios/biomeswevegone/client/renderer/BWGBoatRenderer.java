@@ -37,7 +37,6 @@ public class BWGBoatRenderer extends EntityRenderer<Boat> {
     private final Map<BWGBoatEntity.Type, Pair<ResourceLocation, ListModel<Boat>>> boatResources;
     public BWGBoatRenderer(EntityRendererProvider.Context context, boolean chestBoat) {
         super(context);
-        this.shadowRadius = 0.8F;
         this.boatResources = Stream.of(BWGBoatEntity.Type.values()).collect(ImmutableMap.toImmutableMap(type -> type,
                 type -> Pair.of(BiomesWeveGone.id(getTextureLocation(type, chestBoat)), this.createBoatModel(context, type, chestBoat))));
     }
@@ -110,5 +109,10 @@ public class BWGBoatRenderer extends EntityRenderer<Boat> {
     @Override
     public @NotNull ResourceLocation getTextureLocation(@NotNull Boat entity) {
         return this.getModelWithLocation(entity).getFirst();
+    }
+
+    @Override
+    protected float getShadowRadius(@NotNull Boat entity) {
+        return 0.8F;
     }
 }

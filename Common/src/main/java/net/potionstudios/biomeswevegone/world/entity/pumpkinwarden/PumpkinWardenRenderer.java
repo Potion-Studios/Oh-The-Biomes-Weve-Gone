@@ -30,7 +30,6 @@ public class PumpkinWardenRenderer<T extends PumpkinWarden> extends GeoEntityRen
     @Override
     public void render(@NotNull T entity, float entityYaw, float partialTicks, PoseStack stack, @NotNull MultiBufferSource bufferIn, int packedLightIn) {
         stack.scale(0.5f, 0.5f, 0.5f);
-        shadowRadius = 0.8f;
         super.render(entity, entityYaw, partialTicks, stack, bufferIn, packedLightIn);
     }
 
@@ -49,5 +48,10 @@ public class PumpkinWardenRenderer<T extends PumpkinWarden> extends GeoEntityRen
         }
 
         super.renderRecursively(poseStack, animatable, bone, renderType, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, colour);
+    }
+
+    @Override
+    protected float getShadowRadius(@NotNull T entity) {
+        return 0.8f;
     }
 }

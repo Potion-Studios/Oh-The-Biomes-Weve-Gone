@@ -37,12 +37,7 @@ public class ManOWarRenderer<T extends ManOWar> extends GeoEntityRenderer<T> {
 
     @Override
     public void render(T entity, float entityYaw, float partialTicks, @NotNull PoseStack stack, @NotNull MultiBufferSource bufferIn, int packedLightIn) {
-        if (entity.isBaby()) {
-            stack.scale(0.5f, 0.5f, 0.5f);
-            shadowRadius = 0.5f;
-        } else {
-            shadowRadius = 0.8f;
-        }
+        if (entity.isBaby()) stack.scale(0.5f, 0.5f, 0.5f);
         super.render(entity, entityYaw, partialTicks, stack, bufferIn, packedLightIn);
     }
 
@@ -63,5 +58,10 @@ public class ManOWarRenderer<T extends ManOWar> extends GeoEntityRenderer<T> {
         poseStack.mulPose(Axis.XP.rotationDegrees(i));
         poseStack.mulPose(Axis.YP.rotationDegrees(j));
         poseStack.translate(0.0D, -1.2000000476837158D, 0.0D);
+    }
+
+    @Override
+    protected float getShadowRadius(@NotNull T entity) {
+	    return entity.isBaby() ? 0.5f : 0.8f;
     }
 }
