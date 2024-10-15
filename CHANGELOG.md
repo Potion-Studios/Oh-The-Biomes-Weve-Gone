@@ -6,6 +6,7 @@
 - Override getShadowRadius in Entity Renderers instead of using render method
 - Make Entity Model Classes Package-Private, remove pointless override of getAnimation Method
 - Move PoseStack Scaling into preRender Method
+- Decrease Pumpkin Warden Shadow Radius
 
 # 2.1.4 (Forge Only)
 - Require Forge 52.0.20 as a minimum due to the addition of new Forge tags and implementation of Common Tags

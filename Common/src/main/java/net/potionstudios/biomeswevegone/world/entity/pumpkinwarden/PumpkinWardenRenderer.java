@@ -50,6 +50,6 @@ public class PumpkinWardenRenderer<T extends PumpkinWarden> extends GeoEntityRen
 
     @Override
     protected float getShadowRadius(@NotNull T entity) {
-        return 0.8f;
+        return 0.6f;
     }
 }
