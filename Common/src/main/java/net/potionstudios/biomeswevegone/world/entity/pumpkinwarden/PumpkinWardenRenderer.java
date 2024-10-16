@@ -26,7 +26,7 @@ public class PumpkinWardenRenderer<T extends PumpkinWarden> extends GeoEntityRen
     @Override
     public void render(@NotNull T entity, float entityYaw, float partialTicks, PoseStack stack, @NotNull MultiBufferSource bufferIn, int packedLightIn) {
         stack.scale(0.5f, 0.5f, 0.5f);
-        shadowRadius = 0.8f;
+        shadowRadius = 0.6f;
         super.render(entity, entityYaw, partialTicks, stack, bufferIn, packedLightIn);
     }
 

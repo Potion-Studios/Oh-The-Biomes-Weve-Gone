@@ -1,5 +1,6 @@
 # 1.3.3
 - Make Entity Model Classes Package-Private, remove pointless override of getAnimation Method
+- Decrease Pumpkin Warden Shadow Radius
 
 # 1.3.2
 - Fix and Add Missing Mossy Red Rock and Mossy Stone Recipes
