@@ -401,7 +401,7 @@ public class TagsGenerator {
 
     private static class DamageTypeTagGenerator extends DamageTypeTagsProvider {
 
-        public DamageTypeTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture, @Nullable ExistingFileHelper existingFileHelper) {
+        private DamageTypeTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture, @Nullable ExistingFileHelper existingFileHelper) {
             super(arg, completableFuture, BiomesWeveGone.MOD_ID, existingFileHelper);
         }
 
@@ -411,5 +411,4 @@ public class TagsGenerator {
             tag(DamageTypeTags.IS_EXPLOSION).add(BWGDamageTypes.CATTAIL_EXPLOSION);
         }
     }
-
 }
