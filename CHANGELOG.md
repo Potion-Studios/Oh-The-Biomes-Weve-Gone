@@ -1,4 +1,5 @@
 # 1.3.3
+- Make Entity Model Classes Package-Private, remove pointless override of getAnimation Method
 
 # 1.3.2
 - Fix and Add Missing Mossy Red Rock and Mossy Stone Recipes

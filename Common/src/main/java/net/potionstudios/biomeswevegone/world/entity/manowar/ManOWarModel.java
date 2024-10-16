@@ -10,7 +10,7 @@ import software.bernie.geckolib.model.GeoModel;
  * @see GeoModel
  * @author YaBoiChips
  */
-public class ManOWarModel<T extends GeoAnimatable> extends GeoModel<T> {
+class ManOWarModel<T extends GeoAnimatable> extends GeoModel<T> {
 
     @Override
     public ResourceLocation getModelResource(T object) {

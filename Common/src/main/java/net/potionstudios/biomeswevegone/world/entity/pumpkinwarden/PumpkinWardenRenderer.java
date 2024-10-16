@@ -4,12 +4,10 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.world.item.ItemDisplayContext;
-import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
@@ -20,8 +18,6 @@ import software.bernie.geckolib.renderer.GeoEntityRenderer;
  * @author YaBoiChips
  */
 public class PumpkinWardenRenderer<T extends PumpkinWarden> extends GeoEntityRenderer<T> {
-
-    public static final ModelLayerLocation MODEL_LAYER = new ModelLayerLocation(BiomesWeveGone.id("pumpkinwarden"), "main");
 
     public PumpkinWardenRenderer(EntityRendererProvider.Context context) {
         super(context, new PumpkinWardenModel<>());
