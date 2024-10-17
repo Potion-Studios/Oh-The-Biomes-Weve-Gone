@@ -59,7 +59,7 @@ subprojects {
             parchment("org.parchmentmc.data:parchment-$minecraftVersion:${project.properties["parchment"]}@zip")
         })
 
-        compileOnly("org.jetbrains:annotations:24.1.0")
+        compileOnly("org.jetbrains:annotations:26.0.1")
         compileOnly("com.google.auto.service:auto-service:1.1.1")
         annotationProcessor("com.google.auto.service:auto-service:1.1.1")
     }

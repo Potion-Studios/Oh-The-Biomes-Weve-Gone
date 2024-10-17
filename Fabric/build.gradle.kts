@@ -45,9 +45,9 @@ dependencies {
     modApi("dev.corgitaco:Oh-The-Trees-Youll-Grow-fabric:$minecraftVersion-${project.properties["ohthetreesyoullgrow_version"]}")
     modApi("software.bernie.geckolib:geckolib-fabric-$minecraftVersion:${project.properties["geckolib_version"]}")
 
-    modCompileOnly("mcp.mobius.waila:wthit-api:fabric-${project.properties["WTHIT"]}")  { isTransitive = false }
-    modRuntimeOnly("mcp.mobius.waila:wthit:fabric-${project.properties["WTHIT"]}")  { isTransitive = false }
-    modRuntimeOnly("lol.bai:badpackets:fabric-${project.properties["badPackets"]}")  { isTransitive = false }
+    modCompileOnly("mcp.mobius.waila:wthit-api:fabric-${project.properties["WTHIT"]}")
+    modLocalRuntime("mcp.mobius.waila:wthit:fabric-${project.properties["WTHIT"]}")
+    modLocalRuntime("lol.bai:badpackets:fabric-${project.properties["badPackets"]}")
 
     modLocalRuntime("maven.modrinth:cyanide:jCWZy4Gl")
 }
