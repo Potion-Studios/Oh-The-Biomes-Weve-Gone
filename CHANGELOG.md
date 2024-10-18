@@ -1,3 +1,5 @@
+# 2.2.0
+
 # 2.1.5
 - Fix and Add Missing Mossy Red Rock and Mossy Stone Recipes
 - Add Missing Foragers Table Recipe
