@@ -25,6 +25,8 @@ import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGO
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGOverworldVegationPlacedFeatures;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGPlacedFeatures;
 
+import java.awt.*;
+
 
 class BWGOverworldBiomes {
 
@@ -928,6 +930,25 @@ class BWGOverworldBiomes {
 
         float temperature = 0.8F;
         return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10210365).foliageColorOverride(10210365).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+    }
+
+    protected static Biome pineBarrens(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
+        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
+        BiomeDefaultFeatures.addForestGrass(generationSettings);
+        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
+
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.BWG_OAK_TREES);
+        //TODO: Pine Trees
+
+        BWGOverworldDefaultFeatures.addBlueBerryBush(generationSettings);
+
+        MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
+        addSpawn(spawnSettings, EntityType.WOLF, 8, 4, 4);
+        addSpawn(spawnSettings, EntityType.FROG, 10, 2, 5);
+        addSpawn(spawnSettings, EntityType.TURTLE, 3, 2, 4);
+
+        float temperature = 0.8F;
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.8f).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(new Color(139, 69, 19).getRGB()).waterFogColor(329011).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     protected static Biome prairie(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {

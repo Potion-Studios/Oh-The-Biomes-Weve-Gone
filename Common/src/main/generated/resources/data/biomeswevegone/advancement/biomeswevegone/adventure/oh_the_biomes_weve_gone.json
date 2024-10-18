@@ -561,6 +561,22 @@
       },
       "trigger": "minecraft:location"
     },
+    "biomeswevegone:pine_barrens": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "biomeswevegone:pine_barrens"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
     "biomeswevegone:prairie": {
       "conditions": {
         "player": [
@@ -953,6 +969,9 @@
     ],
     [
       "biomeswevegone:overgrowth_woodlands"
+    ],
+    [
+      "biomeswevegone:pine_barrens"
     ],
     [
       "biomeswevegone:prairie"
