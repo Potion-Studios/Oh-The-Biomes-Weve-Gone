@@ -45,10 +45,10 @@ import java.util.function.Supplier;
 @SuppressWarnings("unused")
 public class BWGBlocks {
 
-    public static ArrayList<Supplier<? extends Block>> cubeAllBlocks = new ArrayList<>();
+    public static final ArrayList<Supplier<? extends Block>> cubeAllBlocks = new ArrayList<>();
 
-    public static ArrayList<Supplier<? extends Block>> BLOCKS = new ArrayList<>();
-    public static ArrayList<Supplier<? extends Item>> BLOCK_ITEMS = new ArrayList<>();
+    public static final ArrayList<Supplier<? extends Block>> BLOCKS = new ArrayList<>();
+    public static final ArrayList<Supplier<? extends Item>> BLOCK_ITEMS = new ArrayList<>();
 
     public static final Supplier<Block> FORAGERS_TABLE = registerBlockItem("foragers_table", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.FLETCHING_TABLE)));
 
