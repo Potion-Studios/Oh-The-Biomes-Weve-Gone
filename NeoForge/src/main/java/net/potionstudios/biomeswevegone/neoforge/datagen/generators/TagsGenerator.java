@@ -362,7 +362,7 @@ public class TagsGenerator {
 
             tag(BWGBiomeTags.SHARPENED_ROCKS).add(BWGBiomes.RUGGED_BADLANDS);
             tag(BWGBiomeTags.IRONWOOD_GOUR_PLATEAU).add(BWGBiomes.IRONWOOD_GOUR);
-            tag(BWGBiomeTags.LARGE_COLD_LAKE).add(BWGBiomes.MAPLE_TAIGA).add(BWGBiomes.CRIMSON_TUNDRA).add(BWGBiomes.OVERGROWTH_WOODLANDS);
+            tag(BWGBiomeTags.LARGE_COLD_LAKE).add(BWGBiomes.MAPLE_TAIGA, BWGBiomes.CRIMSON_TUNDRA, BWGBiomes.OVERGROWTH_WOODLANDS);
 
             /*
              * Structure Location Biome Tags
