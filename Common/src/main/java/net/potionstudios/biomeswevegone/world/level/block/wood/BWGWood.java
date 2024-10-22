@@ -67,6 +67,7 @@ public class BWGWood {
     public static final PottedBlock WHITE_SAKURA_SAPLING = createSapling("white_sakura", BWGTreeGrowers.WHITE_SAKURA, BlockTags.DIRT);
     public static final PottedBlock YELLOW_SAKURA_SAPLING = createSapling("yellow_sakura", BWGTreeGrowers.YELLOW_SAKURA, BlockTags.DIRT);
     public static final BWGWoodSet SKYRIS = new BWGWoodSet("skyris", MapColor.COLOR_LIGHT_BLUE, BWGTreeGrowers.SKYRIS);
+    public static final BWGWoodSet SPIRIT = new BWGWoodSet("spirit", MapColor.COLOR_LIGHT_GRAY, null);
     public static final BWGWoodSet WHITE_MANGROVE = new BWGWoodSet("white_mangrove", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.WHITE_MANGROVE);
     public static final BWGWoodSet WILLOW = new BWGWoodSet("willow", MapColor.COLOR_GREEN, BWGTreeGrowers.WILLOW);
     public static final BWGWoodSet WITCH_HAZEL = new BWGWoodSet("witch_hazel", MapColor.COLOR_GREEN, BWGTreeGrowers.WITCH_HAZEL);

@@ -88,6 +88,7 @@ public class BWGBoatEntity extends Boat {
         REDWOOD(() -> BWGWood.REDWOOD, "redwood"),
         SAKURA(() -> BWGWood.SAKURA, "sakura"),
         SKYRIS(() -> BWGWood.SKYRIS, "skyris"),
+        SPIRIT(() -> BWGWood.SPIRIT, "spirit"),
         WHITE_MANGROVE(() -> BWGWood.WHITE_MANGROVE, "white_mangrove"),
         WILLOW(() -> BWGWood.WILLOW, "willow"),
         WITCH_HAZEL(() -> BWGWood.WITCH_HAZEL, "witch_hazel"),

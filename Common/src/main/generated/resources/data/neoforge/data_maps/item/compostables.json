@@ -646,6 +646,10 @@
       "can_villager_compost": true,
       "chance": 0.65
     },
+    "biomeswevegone:spirit_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
     "biomeswevegone:tall_allium": {
       "can_villager_compost": true,
       "chance": 0.65
