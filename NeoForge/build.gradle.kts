@@ -51,9 +51,9 @@ dependencies {
     modApi("dev.corgitaco:Oh-The-Trees-Youll-Grow-neoforge:$minecraftVersion-${project.properties["ohthetreesyoullgrow_version"]}")
     modApi("software.bernie.geckolib:geckolib-neoforge-$minecraftVersion:${project.properties["geckolib_version"]}")
 
-    modCompileOnly("mcp.mobius.waila:wthit-api:neo-${project.properties["WTHIT"]}")
-    modLocalRuntime("mcp.mobius.waila:wthit:neo-${project.properties["WTHIT"]}")
-    modLocalRuntime("lol.bai:badpackets:neo-${project.properties["badPackets"]}")
+    //modCompileOnly("mcp.mobius.waila:wthit-api:neo-${project.properties["WTHIT"]}")
+    //modLocalRuntime("mcp.mobius.waila:wthit:neo-${project.properties["WTHIT"]}")
+    //modLocalRuntime("lol.bai:badpackets:neo-${project.properties["badPackets"]}")
 
     modApi("com.github.glitchfiend:SereneSeasons-neoforge:$minecraftVersion-10.1.0.1")
 
