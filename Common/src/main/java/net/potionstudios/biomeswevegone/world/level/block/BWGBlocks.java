@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.world.level.block;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.item.BlockItem;
@@ -231,13 +232,13 @@ public class BWGBlocks {
     public static final Supplier<BloomingAloeVeraBlock> BLOOMING_ALOE_VERA = registerBlock("blooming_aloe_vera", BloomingAloeVeraBlock::new);
 
     /** Lily Pads */
-    public static final Supplier<WaterlilyBlock> TINY_LILY_PADS = registerBlock("tiny_lily_pads", () -> new WaterlilyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD)));
-    public static final Supplier<WaterlilyBlock> FLOWERING_TINY_LILY_PADS = registerBlock("flowering_tiny_lily_pads", () -> new WaterlilyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD)));
+    public static final Supplier<WaterlilyBlock> TINY_LILY_PADS = registerBlock("tiny_lily_pads", () -> new WaterlilyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD).setId(createKey("tiny_lily_pads"))));
+    public static final Supplier<WaterlilyBlock> FLOWERING_TINY_LILY_PADS = registerBlock("flowering_tiny_lily_pads", () -> new WaterlilyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD).setId(createKey("flowering_tiny_lily_pads"))));
 
-    public static final Supplier<BWGFruitBlock> APPLE_FRUIT_BLOCK = registerBlock("apple_fruit", () -> new BWGFruitBlock(() -> () -> Items.APPLE, "ripe_orchard_leaves"));
-    public static final Supplier<BWGFruitBlock> BAOBAB_FRUIT_BLOCK = registerBlock("baobab_fruit", () -> new BWGFruitBlock(() ->BWGItems.BAOBAB_FRUIT, "ripe_baobab_leaves"));
-    public static final Supplier<BWGFruitBlock> GREEN_APPLE_FRUIT_BLOCK = registerBlock("green_apple_fruit", () -> new BWGFruitBlock(() ->BWGItems.GREEN_APPLE, "green_apple_skyris_leaves"));
-    public static final Supplier<BWGFruitBlock> YUCCA_FRUIT_BLOCK = registerBlock("yucca_fruit", () -> new BWGFruitBlock(() ->BWGItems.YUCCA_FRUIT, "ripe_yucca_leaves"));
+    public static final Supplier<BWGFruitBlock> APPLE_FRUIT_BLOCK = registerBlock("apple_fruit", () -> new BWGFruitBlock(createKey("apple_fruit"), () -> () -> Items.APPLE, "ripe_orchard_leaves"));
+    public static final Supplier<BWGFruitBlock> BAOBAB_FRUIT_BLOCK = registerBlock("baobab_fruit", () -> new BWGFruitBlock(createKey("baobab_fruit"), () ->BWGItems.BAOBAB_FRUIT, "ripe_baobab_leaves"));
+    public static final Supplier<BWGFruitBlock> GREEN_APPLE_FRUIT_BLOCK = registerBlock("green_apple_fruit", () -> new BWGFruitBlock(createKey("green_apple_fruit"), () ->BWGItems.GREEN_APPLE, "green_apple_skyris_leaves"));
+    public static final Supplier<BWGFruitBlock> YUCCA_FRUIT_BLOCK = registerBlock("yucca_fruit", () -> new BWGFruitBlock(createKey("yucca_fruit"), () ->BWGItems.YUCCA_FRUIT, "ripe_yucca_leaves"));
 
     public static final BWGBlockSet DACITE_SET = new BWGBlockSet("dacite", MapColor.TERRACOTTA_WHITE);
     public static final BWGBlockSet DACITE_BRICKS_SET = new BWGBlockSet("dacite_bricks", "dacite_brick", BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).mapColor(MapColor.TERRACOTTA_WHITE));
@@ -265,39 +266,39 @@ public class BWGBlocks {
     public static final Supplier<WoolCarpetBlock> CATTAIL_THATCH_CARPET = registerBlockItem("cattail_thatch_carpet", () -> new WoolCarpetBlock(DyeColor.BROWN, BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.5f)));
 
     private static FlowerBlockFeature registerFlower(String key, MapColor mapColor) {
-        Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).mapColor(mapColor).noOcclusion()));
+        Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).mapColor(mapColor).noOcclusion().setId(createKey(key))));
         return new FlowerBlockFeature(key, flower);
     }
 
     private static FlowerBlockFeature registerFlower(String key, MapColor mapColor, VoxelShape shape) {
-        Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).mapColor(mapColor).noOcclusion(), BlockTags.DIRT, shape));
+        Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).mapColor(mapColor).noOcclusion().setId(createKey(key)), BlockTags.DIRT, shape));
         return new FlowerBlockFeature(key, flower);
     }
 
     private static FlowerBlockFeature registerFlower(String key, MapColor mapColor, VoxelShape shape, Supplier<? extends Block> growAble) {
-        Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGBonemealableFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).mapColor(mapColor).noOcclusion(), BlockTags.DIRT, shape, growAble));
+        Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGBonemealableFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).mapColor(mapColor).noOcclusion().setId(createKey(key)), BlockTags.DIRT, shape, growAble));
         return new FlowerBlockFeature(key, flower);
     }
 
     private static FlowerBlockFeature registerFlower(String key, BlockBehaviour.Properties properties, VoxelShape shape) {
-        Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGFlowerBlock(properties, BlockTags.DIRT, shape));
+        Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGFlowerBlock(properties.setId(createKey(key)), BlockTags.DIRT, shape));
         return new FlowerBlockFeature(key, flower);
     }
 
     private static Supplier<TallFlowerBlock> registerTallFlower(String key, MapColor mapColor) {
-        return registerBlockItem(key, () -> new BWGTallFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SUNFLOWER).mapColor(mapColor).noOcclusion()));
+        return registerBlockItem(key, () -> new BWGTallFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SUNFLOWER).mapColor(mapColor).noOcclusion().setId(createKey(key))));
     }
 
     private static Supplier<TallFlowerBlock> registerTallFlower(String key, MapColor mapColor, Supplier<TreeGrower> treeGrower) {
-        return registerBlockItem(key, () -> new BWGTallFlowerBlockTreeGrower(BlockBehaviour.Properties.ofFullCopy(Blocks.SUNFLOWER).mapColor(mapColor).noOcclusion(), treeGrower));
+        return registerBlockItem(key, () -> new BWGTallFlowerBlockTreeGrower(BlockBehaviour.Properties.ofFullCopy(Blocks.SUNFLOWER).mapColor(mapColor).noOcclusion().setId(createKey(key)), treeGrower));
     }
 
     private static Supplier<TallFlowerBlock> registerTallGlowingFlower(String key, MapColor mapColor) {
-        return registerBlockItem(key, () -> new BWGTallFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SUNFLOWER).mapColor(mapColor).lightLevel(state -> 10).noOcclusion()));
+        return registerBlockItem(key, () -> new BWGTallFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SUNFLOWER).mapColor(mapColor).lightLevel(state -> 10).noOcclusion().setId(createKey(key))));
     }
 
     public static Supplier<Block> registerBasicBlockWithItem(String key, BlockBehaviour.Properties properties) {
-        return registerCubeAllBlockItem(key, () -> new Block(properties));
+        return registerCubeAllBlockItem(key, () -> new Block(properties.setId(createKey(key))));
     }
 
     public static <B extends Block> Supplier<B> registerBlockItem(String key, Supplier<B> blockSupplier) {
@@ -337,6 +338,10 @@ public class BWGBlocks {
 
     public static <B extends Block> Supplier<B> register(String id, Supplier<B> block) {
         return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.BLOCK, id, block);
+    }
+
+    private static ResourceKey<Block> createKey(String id) {
+        return ResourceKey.create(Registries.BLOCK, BiomesWeveGone.id(id));
     }
 
     public static void blocks() {

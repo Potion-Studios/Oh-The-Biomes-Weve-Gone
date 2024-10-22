@@ -4,6 +4,7 @@ import com.google.common.base.Suppliers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -50,8 +51,8 @@ public class BWGFruitBlock extends Block implements BonemealableBlock {
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
 
-    public BWGFruitBlock(Supplier<Supplier<Item>> fruit, String leaves) {
-        this(Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH), fruit, leaves);
+    public BWGFruitBlock(ResourceKey<Block> key, Supplier<Supplier<Item>> fruit, String leaves) {
+        this(Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH).setId(key), fruit, leaves);
     }
 
     @Override
