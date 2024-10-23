@@ -157,7 +157,9 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
 
         Advancement.Builder.advancement()
                 .parent(husbandryRoot)
+                .requirements(AdvancementRequirements.Strategy.OR)
                 .addCriterion("cattail_sprout", ItemUsedOnLocationTrigger.TriggerInstance.itemUsedOnBlock(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(BlockTags.CAMPFIRES)), ItemPredicate.Builder.item().of(BWGItems.CATTAIL_SPROUT.get())))
+                .addCriterion("fluorescent_cattail_sprout", ItemUsedOnLocationTrigger.TriggerInstance.itemUsedOnBlock(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(BlockTags.CAMPFIRES)), ItemPredicate.Builder.item().of(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get())))
                 .display(
                         BWGItems.CATTAIL_SPROUT.get(),
                         translateAble("husbandry.hot_diggity_not_dog.title"),

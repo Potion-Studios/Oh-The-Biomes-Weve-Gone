@@ -18,7 +18,7 @@ import java.util.function.Supplier;
 
 public class FluorescentCattailPlantBlock extends CattailPlantBlock {
 
-	public static final EnumProperty<Color> COLOR = EnumProperty.create("color", Color.class);
+	//public static final EnumProperty<Color> COLOR = EnumProperty.create("color", Color.class);
 
 	public FluorescentCattailPlantBlock(Supplier<Supplier<Item>> sprout) {
 		super(sprout);
@@ -31,7 +31,7 @@ public class FluorescentCattailPlantBlock extends CattailPlantBlock {
 
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-		builder.add(COLOR);
+		//builder.add(COLOR);
 		super.createBlockStateDefinition(builder);
 	}
 }
