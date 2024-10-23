@@ -4,7 +4,7 @@ import net.minecraft.util.StringRepresentable;
 import org.jetbrains.annotations.NotNull;
 
 public enum Color implements StringRepresentable {
-    NO_COLOR(""),
+    NO_COLOR("default"),
     BLUE("blue"),
     GREEN("green"),
     RED("red"),

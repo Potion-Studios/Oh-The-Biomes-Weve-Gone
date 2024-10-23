@@ -8,8 +8,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.NotNull;
@@ -18,10 +21,11 @@ import java.util.function.Supplier;
 
 public class FluorescentCattailPlantBlock extends CattailPlantBlock {
 
-	//public static final EnumProperty<Color> COLOR = EnumProperty.create("color", Color.class);
+	public static final EnumProperty<Color> COLOR = EnumProperty.create("color", Color.class);
 
 	public FluorescentCattailPlantBlock(Supplier<Supplier<Item>> sprout) {
-		super(sprout);
+		super(BlockBehaviour.Properties.of().noCollission().noCollission().sound(SoundType.WET_GRASS).strength(0.0F).lightLevel(level -> 12), sprout);
+		this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER).setValue(WATERLOGGED, false).setValue(COLOR, Color.NO_COLOR));
 	}
 
 	@Override
@@ -31,7 +35,7 @@ public class FluorescentCattailPlantBlock extends CattailPlantBlock {
 
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-		//builder.add(COLOR);
+		builder.add(COLOR);
 		super.createBlockStateDefinition(builder);
 	}
 }

@@ -27,10 +27,14 @@ public class CattailPlantBlock extends DoublePlantBlock implements SimpleWaterlo
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     private final Supplier<Supplier<Item>> sprout;
 
-    public CattailPlantBlock(Supplier<Supplier<Item>> sprout) {
-        super(BlockBehaviour.Properties.of().noCollission().noCollission().sound(SoundType.WET_GRASS).strength(0.0F));
+    public CattailPlantBlock(BlockBehaviour.Properties properties, Supplier<Supplier<Item>> sprout) {
+        super(properties);
         this.sprout = sprout;
         this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER).setValue(WATERLOGGED, false));
+    }
+
+    public CattailPlantBlock(Supplier<Supplier<Item>> sprout) {
+        this(BlockBehaviour.Properties.of().noCollission().noCollission().sound(SoundType.WET_GRASS).strength(0.0F), sprout);
     }
 
     @Override
