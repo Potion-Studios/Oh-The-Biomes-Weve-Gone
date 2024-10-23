@@ -1,0 +1,38 @@
+{
+  "variants": {
+    "half=lower": [
+      {
+        "model": "biomeswevegone:block/fluorescent_cattail_bottom"
+      },
+      {
+        "model": "biomeswevegone:block/fluorescent_cattail_bottom",
+        "y": 90
+      },
+      {
+        "model": "biomeswevegone:block/fluorescent_cattail_bottom",
+        "y": 180
+      },
+      {
+        "model": "biomeswevegone:block/fluorescent_cattail_bottom",
+        "y": 270
+      }
+    ],
+    "half=upper": [
+      {
+        "model": "biomeswevegone:block/fluorescent_cattail_top"
+      },
+      {
+        "model": "biomeswevegone:block/fluorescent_cattail_top",
+        "y": 90
+      },
+      {
+        "model": "biomeswevegone:block/fluorescent_cattail_top",
+        "y": 180
+      },
+      {
+        "model": "biomeswevegone:block/fluorescent_cattail_top",
+        "y": 270
+      }
+    ]
+  }
+}

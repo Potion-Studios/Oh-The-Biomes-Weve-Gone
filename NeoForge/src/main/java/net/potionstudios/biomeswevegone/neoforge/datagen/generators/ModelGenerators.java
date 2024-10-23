@@ -79,6 +79,7 @@ public class ModelGenerators {
             basicItem(BWGBlocks.SKYRIS_VINE.get().asItem());
             basicItem(BWGBlocks.ALOE_VERA.get().asItem());
             simpleItem(BWGItems.CATTAIL_SPROUT.get(), "cattails");
+            simpleItem(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get(), "fluorescent_cattails");
             simpleItemBlockTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get());
         }
 
@@ -320,6 +321,7 @@ public class ModelGenerators {
             simpleBlockItemExistingModel(BWGBlocks.LUSH_FARMLAND.get());
 
             rotatableBlock(BWGBlocks.CATTAIL_SPROUT.get());
+            rotatableBlock(BWGBlocks.FLUORESCENT_CATTAIL_SPROUT.get());
 
             simpleItemBlockTexture(BWGBlocks.LEAF_PILE.get(), name(BWGBlocks.LEAF_PILE.get()));
             simpleItemBlockTexture(BWGBlocks.CLOVER_PATCH.get(), name(BWGBlocks.CLOVER_PATCH.get()));

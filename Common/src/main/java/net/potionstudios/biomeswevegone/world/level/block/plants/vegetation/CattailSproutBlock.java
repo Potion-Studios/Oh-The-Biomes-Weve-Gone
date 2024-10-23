@@ -22,16 +22,19 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.function.Supplier;
 
 public class CattailSproutBlock extends Block implements SimpleWaterloggedBlock, BonemealableBlock {
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+    private final Supplier<? extends CattailPlantBlock> cattailBlock;
 
-    public CattailSproutBlock() {
+    public CattailSproutBlock(Supplier<? extends CattailPlantBlock> cattailBlock) {
         super(BlockBehaviour.Properties.of().noCollission().noCollission().randomTicks().sound(SoundType.WET_GRASS).strength(0.0F));
+        this.cattailBlock = cattailBlock;
         this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, false));
     }
 
@@ -108,9 +111,9 @@ public class CattailSproutBlock extends Block implements SimpleWaterloggedBlock,
 
     private void growCattail(ServerLevel level, BlockPos pos) {
         if (level.getFluidState(pos).is(FluidTags.WATER))
-            level.setBlock(pos, BWGBlocks.CATTAIL.get().defaultBlockState().setValue(CattailPlantBlock.HALF, DoubleBlockHalf.LOWER).setValue(CattailPlantBlock.WATERLOGGED, true), 3);
+            level.setBlock(pos, cattailBlock.get().defaultBlockState().setValue(CattailPlantBlock.HALF, DoubleBlockHalf.LOWER).setValue(CattailPlantBlock.WATERLOGGED, true), 3);
         else
-            level.setBlock(pos, BWGBlocks.CATTAIL.get().defaultBlockState().setValue(CattailPlantBlock.HALF, DoubleBlockHalf.LOWER).setValue(CattailPlantBlock.WATERLOGGED, false), 3);
-        level.setBlock(pos.above(), BWGBlocks.CATTAIL.get().defaultBlockState().setValue(CattailPlantBlock.HALF, DoubleBlockHalf.UPPER).setValue(CattailPlantBlock.WATERLOGGED, false), 3);
+            level.setBlock(pos, cattailBlock.get().defaultBlockState().setValue(CattailPlantBlock.HALF, DoubleBlockHalf.LOWER).setValue(CattailPlantBlock.WATERLOGGED, false), 3);
+        level.setBlock(pos.above(), cattailBlock.get().defaultBlockState().setValue(CattailPlantBlock.HALF, DoubleBlockHalf.UPPER).setValue(CattailPlantBlock.WATERLOGGED, false), 3);
     }
 }

@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
@@ -22,12 +23,16 @@ import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.function.Supplier;
+
 public class CattailPlantBlock extends DoublePlantBlock implements SimpleWaterloggedBlock {
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+    private final Supplier<Supplier<Item>> sprout;
 
-    public CattailPlantBlock() {
+    public CattailPlantBlock(Supplier<Supplier<Item>> sprout) {
         super(BlockBehaviour.Properties.of().noCollission().noCollission().sound(SoundType.WET_GRASS).strength(0.0F));
+        this.sprout = sprout;
         this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER).setValue(WATERLOGGED, false));
     }
 
@@ -62,7 +67,7 @@ public class CattailPlantBlock extends DoublePlantBlock implements SimpleWaterlo
 
     @Override
     public @NotNull ItemStack getCloneItemStack(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state) {
-        return BWGItems.CATTAIL_SPROUT.get().getDefaultInstance();
+        return sprout.get().get().getDefaultInstance();
     }
 
     @Override
@@ -71,12 +76,6 @@ public class CattailPlantBlock extends DoublePlantBlock implements SimpleWaterlo
             level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
 
         return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
-    }
-
-    @Nullable
-    @Override
-    public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
-        return super.getStateForPlacement(context);
     }
 
     @Override

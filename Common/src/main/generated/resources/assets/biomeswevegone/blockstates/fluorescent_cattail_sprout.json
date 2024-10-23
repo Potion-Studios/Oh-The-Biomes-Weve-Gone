@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "biomeswevegone:block/fluorescent_cattail_sprout"
+      },
+      {
+        "model": "biomeswevegone:block/fluorescent_cattail_sprout",
+        "y": 90
+      },
+      {
+        "model": "biomeswevegone:block/fluorescent_cattail_sprout",
+        "y": 180
+      },
+      {
+        "model": "biomeswevegone:block/fluorescent_cattail_sprout",
+        "y": 270
+      }
+    ]
+  }
+}
