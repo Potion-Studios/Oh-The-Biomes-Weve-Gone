@@ -20,6 +20,7 @@ public class BWGParticles {
     public static final Supplier<SimpleParticleType> IRONWOOD_LEAVES = register("ironwood_leaves");
     public static final Supplier<SimpleParticleType> BOREALIS_GLINT = register("borealis_glint");
     public static final Supplier<SimpleParticleType> FIREFLY = register("firefly");
+    public static final Supplier<SimpleParticleType> SPIRIT = register("spirit");
 
 
     private static Supplier<SimpleParticleType> register(String id) {

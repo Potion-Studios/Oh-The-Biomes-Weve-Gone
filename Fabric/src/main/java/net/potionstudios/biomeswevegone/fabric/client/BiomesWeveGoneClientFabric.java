@@ -78,6 +78,7 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(BWGParticles.RED_MAPLE_LEAVES.get(), FallingLeafParticle.Provider::new);
         ParticleFactoryRegistry.getInstance().register(BWGParticles.SILVER_MAPLE_LEAVES.get(), FallingLeafParticle.Provider::new);
         ParticleFactoryRegistry.getInstance().register(BWGParticles.IRONWOOD_LEAVES.get(), FallingLeafParticle.Provider::new);
+        ParticleFactoryRegistry.getInstance().register(BWGParticles.SPIRIT.get(), FallingLeafParticle.Provider::new);
     }
 
     private void registerColorChangingBlocks() {
