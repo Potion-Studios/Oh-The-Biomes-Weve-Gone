@@ -3,7 +3,7 @@ package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cat
 import net.minecraft.util.StringRepresentable;
 import org.jetbrains.annotations.NotNull;
 
-public enum Color implements StringRepresentable {
+public enum ColorProperty implements StringRepresentable {
     NO_COLOR("default"),
     BLUE("blue"),
     GREEN("green"),
@@ -12,7 +12,7 @@ public enum Color implements StringRepresentable {
 
     private final String Color;
 
-    Color(String color) {
+    ColorProperty(String color) {
         this.Color = color;
     }
 

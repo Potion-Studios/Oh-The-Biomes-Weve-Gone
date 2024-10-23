@@ -295,6 +295,11 @@ public class TagsGenerator {
                             tag(BWGItemTags.MAKES_YELLOW_DYE).add(block.asItem());
                     }
             );
+            tag(BWGItemTags.GLOWCANE_POWDER).add(BWGItems.BLUE_GLOWCANE_POWDER.get(), BWGItems.GREEN_GLOWCANE_POWDER.get(), BWGItems.RED_GLOWCANE_POWDER.get(), BWGItems.YELLOW_GLOWCANE_POWDER.get());
+            tag(BWGItemTags.MAKES_RED_DYE).add(BWGItems.RED_GLOWCANE_POWDER.get());
+            tag(BWGItemTags.MAKES_YELLOW_DYE).add(BWGItems.YELLOW_GLOWCANE_POWDER.get());
+            tag(BWGItemTags.MAKES_GREEN_DYE).add(BWGItems.GREEN_GLOWCANE_POWDER.get());
+            tag(BWGItemTags.MAKES_BLUE_DYE).add(BWGItems.BLUE_GLOWCANE_POWDER.get());
             copy(BWGBlockTags.PALO_VERDE_LOGS, BWGItemTags.PALO_VERDE_LOGS);
             tag(BWGItemTags.SHEARS).addOptionalTag(Tags.Items.TOOLS_SHEAR);
             tag(Tags.Items.MUSIC_DISCS).add(BWGItems.MUSIC_DISC_PIXIE_CLUB.get());
