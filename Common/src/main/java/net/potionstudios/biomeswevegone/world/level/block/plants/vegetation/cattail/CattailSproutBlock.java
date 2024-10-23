@@ -1,4 +1,4 @@
-package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation;
+package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cattail;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

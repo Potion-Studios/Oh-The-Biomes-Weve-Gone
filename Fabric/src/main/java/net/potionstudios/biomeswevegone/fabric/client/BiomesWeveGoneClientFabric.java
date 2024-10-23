@@ -24,7 +24,7 @@ import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGSpreadableBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.BWGCactusBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.BWGFruitBlock;
-import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.CattailSproutBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cattail.CattailSproutBlock;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 
 import java.util.Objects;

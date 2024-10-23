@@ -27,7 +27,7 @@ import net.potionstudios.biomeswevegone.world.level.block.plants.tree.branch.Tre
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.BWGFruitBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.AloeVeraBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.BoneMealGrassBlock;
-import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.CattailPlantBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cattail.CattailPlantBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.FlatVegetationBlock;
 import net.potionstudios.biomeswevegone.world.level.block.sand.BWGSandSet;
 import net.potionstudios.biomeswevegone.world.level.block.set.BWGBlockSet;
