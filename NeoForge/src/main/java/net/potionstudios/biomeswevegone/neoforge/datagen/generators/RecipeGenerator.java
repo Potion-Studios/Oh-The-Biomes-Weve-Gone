@@ -335,6 +335,19 @@ public class RecipeGenerator extends RecipeProvider {
                 .pattern("XX")
                 .unlockedBy("has_mushrooms", has(Tags.Items.MUSHROOMS))
                 .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.PACKED_PALE_MUD.get())
+                .requires(BWGBlocks.PALE_MUD.get())
+                .requires(Items.WHEAT)
+                .unlockedBy(getHasName(BWGBlocks.PALE_MUD.get()), has(BWGBlocks.PALE_MUD.get()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.PALE_MUD_BRICKS_SET.getBase(), 4)
+                .define('#', BWGBlocks.PACKED_PALE_MUD.get())
+                .pattern("##")
+                .pattern("##")
+                .unlockedBy(getHasName(BWGBlocks.PACKED_PALE_MUD.get()), has(BWGBlocks.PACKED_PALE_MUD.get()))
+                .save(recipeOutput);
     }
 
     private static void sandToGlass(RecipeOutput finishedRecipeConsumer, BWGSandSet set, Item glass) {

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "biomeswevegone:block/pale_mud_bricks",
+    "side": "biomeswevegone:block/pale_mud_bricks",
+    "top": "biomeswevegone:block/pale_mud_bricks"
+  }
+}
