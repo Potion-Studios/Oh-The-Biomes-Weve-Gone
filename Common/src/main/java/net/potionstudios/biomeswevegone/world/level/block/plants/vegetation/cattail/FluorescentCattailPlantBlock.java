@@ -6,6 +6,7 @@ import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -30,6 +31,14 @@ public class FluorescentCattailPlantBlock extends CattailPlantBlock {
 
 	@Override
 	protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
+		if (stack.is(Items.BLUE_DYE))
+			level.setBlockAndUpdate(pos, state.setValue(COLOR, Color.BLUE));
+		else if (stack.is(Items.RED_DYE))
+			level.setBlockAndUpdate(pos, state.setValue(COLOR, Color.RED));
+		else if (stack.is(Items.GREEN_DYE))
+			level.setBlockAndUpdate(pos, state.setValue(COLOR, Color.GREEN));
+		else if (stack.is(Items.YELLOW_DYE))
+			level.setBlockAndUpdate(pos, state.setValue(COLOR, Color.YELLOW));
 		return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
 	}
 

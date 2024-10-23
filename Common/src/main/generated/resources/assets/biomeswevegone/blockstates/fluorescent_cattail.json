@@ -15,63 +15,6 @@
       {
         "model": "biomeswevegone:block/cattail_bottom",
         "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 90
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 90,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 90,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 90,
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 180
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 180,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 180,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 180,
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 270
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 270,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 270,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 270,
-        "y": 270
       }
     ],
     "color=blue,half=upper": [
@@ -88,63 +31,6 @@
       },
       {
         "model": "biomeswevegone:block/fluorescent_cattail_blue",
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_blue",
-        "x": 90
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_blue",
-        "x": 90,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_blue",
-        "x": 90,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_blue",
-        "x": 90,
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_blue",
-        "x": 180
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_blue",
-        "x": 180,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_blue",
-        "x": 180,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_blue",
-        "x": 180,
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_blue",
-        "x": 270
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_blue",
-        "x": 270,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_blue",
-        "x": 270,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_blue",
-        "x": 270,
         "y": 270
       }
     ],
@@ -163,63 +49,6 @@
       {
         "model": "biomeswevegone:block/cattail_bottom",
         "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 90
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 90,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 90,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 90,
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 180
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 180,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 180,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 180,
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 270
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 270,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 270,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 270,
-        "y": 270
       }
     ],
     "color=default,half=upper": [
@@ -236,63 +65,6 @@
       },
       {
         "model": "biomeswevegone:block/fluorescent_cattail_default",
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_default",
-        "x": 90
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_default",
-        "x": 90,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_default",
-        "x": 90,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_default",
-        "x": 90,
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_default",
-        "x": 180
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_default",
-        "x": 180,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_default",
-        "x": 180,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_default",
-        "x": 180,
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_default",
-        "x": 270
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_default",
-        "x": 270,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_default",
-        "x": 270,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_default",
-        "x": 270,
         "y": 270
       }
     ],
@@ -311,63 +83,6 @@
       {
         "model": "biomeswevegone:block/cattail_bottom",
         "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 90
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 90,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 90,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 90,
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 180
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 180,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 180,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 180,
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 270
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 270,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 270,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 270,
-        "y": 270
       }
     ],
     "color=green,half=upper": [
@@ -384,63 +99,6 @@
       },
       {
         "model": "biomeswevegone:block/fluorescent_cattail_green",
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_green",
-        "x": 90
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_green",
-        "x": 90,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_green",
-        "x": 90,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_green",
-        "x": 90,
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_green",
-        "x": 180
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_green",
-        "x": 180,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_green",
-        "x": 180,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_green",
-        "x": 180,
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_green",
-        "x": 270
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_green",
-        "x": 270,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_green",
-        "x": 270,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_green",
-        "x": 270,
         "y": 270
       }
     ],
@@ -459,63 +117,6 @@
       {
         "model": "biomeswevegone:block/cattail_bottom",
         "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 90
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 90,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 90,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 90,
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 180
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 180,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 180,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 180,
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 270
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 270,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 270,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 270,
-        "y": 270
       }
     ],
     "color=red,half=upper": [
@@ -532,63 +133,6 @@
       },
       {
         "model": "biomeswevegone:block/fluorescent_cattail_red",
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_red",
-        "x": 90
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_red",
-        "x": 90,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_red",
-        "x": 90,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_red",
-        "x": 90,
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_red",
-        "x": 180
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_red",
-        "x": 180,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_red",
-        "x": 180,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_red",
-        "x": 180,
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_red",
-        "x": 270
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_red",
-        "x": 270,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_red",
-        "x": 270,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_red",
-        "x": 270,
         "y": 270
       }
     ],
@@ -607,63 +151,6 @@
       {
         "model": "biomeswevegone:block/cattail_bottom",
         "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 90
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 90,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 90,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 90,
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 180
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 180,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 180,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 180,
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 270
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 270,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 270,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/cattail_bottom",
-        "x": 270,
-        "y": 270
       }
     ],
     "color=yellow,half=upper": [
@@ -680,63 +167,6 @@
       },
       {
         "model": "biomeswevegone:block/fluorescent_cattail_yellow",
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_yellow",
-        "x": 90
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_yellow",
-        "x": 90,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_yellow",
-        "x": 90,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_yellow",
-        "x": 90,
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_yellow",
-        "x": 180
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_yellow",
-        "x": 180,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_yellow",
-        "x": 180,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_yellow",
-        "x": 180,
-        "y": 270
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_yellow",
-        "x": 270
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_yellow",
-        "x": 270,
-        "y": 90
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_yellow",
-        "x": 270,
-        "y": 180
-      },
-      {
-        "model": "biomeswevegone:block/fluorescent_cattail_yellow",
-        "x": 270,
         "y": 270
       }
     ]

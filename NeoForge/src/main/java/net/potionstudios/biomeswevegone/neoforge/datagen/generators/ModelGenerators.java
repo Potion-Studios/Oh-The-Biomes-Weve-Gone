@@ -119,10 +119,10 @@ public class ModelGenerators {
                 if (block instanceof FluorescentCattailPlantBlock fluorescentCattailBlock) {
                     getVariantBuilder(fluorescentCattailBlock).forAllStatesExcept(state -> {
                         if (state.getValue(DoublePlantBlock.HALF) == DoubleBlockHalf.LOWER)
-                            return ConfiguredModel.allRotations(models().getExistingFile(blockBWGTexture(BWGBlocks.CATTAIL.get(), "bottom")), false);
+                            return createRotatedModels(models().getExistingFile(blockBWGTexture(BWGBlocks.CATTAIL.get(), "bottom")));
                         else
-                            return ConfiguredModel.allRotations(models().withExistingParent(name(block) + "_" + state.getValue(FluorescentCattailPlantBlock.COLOR).getSerializedName(), BiomesWeveGone.id("block/template_cattail_top"))
-                                    .texture("sprout", blockBWGTexture(fluorescentCattailBlock.getSprout().getBlock(), state.getValue(FluorescentCattailPlantBlock.COLOR).getSerializedName())), false);
+                            return createRotatedModels(models().withExistingParent(name(block) + "_" + state.getValue(FluorescentCattailPlantBlock.COLOR).getSerializedName(), BiomesWeveGone.id("block/template_cattail_top"))
+                                    .texture("sprout", blockBWGTexture(fluorescentCattailBlock.getSprout().getBlock(), state.getValue(FluorescentCattailPlantBlock.COLOR).getSerializedName())));
                             }, FluorescentCattailPlantBlock.WATERLOGGED);
                 } else if (block instanceof CattailPlantBlock cattail) {
                     getVariantBuilder(block)
