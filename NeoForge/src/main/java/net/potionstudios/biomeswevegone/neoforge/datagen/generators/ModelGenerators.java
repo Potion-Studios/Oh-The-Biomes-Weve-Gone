@@ -118,7 +118,7 @@ public class ModelGenerators {
                 if (block instanceof CattailPlantBlock) {
                     getVariantBuilder(block)
                             .partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)
-                            .addModels(createRotatedModels(models().getExistingFile(blockBWGTexture(block, "bottom"))))
+                            .addModels(createRotatedModels(models().getExistingFile(blockBWGTexture(BWGBlocks.CATTAIL.get(), "bottom"))))
                             .partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)
                             .addModels(createRotatedModels(models().getExistingFile(blockBWGTexture(block, "top"))));
                 } else if (block instanceof DoublePlantBlock)

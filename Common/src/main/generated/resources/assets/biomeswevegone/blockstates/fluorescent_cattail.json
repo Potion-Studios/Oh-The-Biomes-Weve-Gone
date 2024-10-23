@@ -2,18 +2,18 @@
   "variants": {
     "half=lower": [
       {
-        "model": "biomeswevegone:block/fluorescent_cattail_bottom"
+        "model": "biomeswevegone:block/cattail_bottom"
       },
       {
-        "model": "biomeswevegone:block/fluorescent_cattail_bottom",
+        "model": "biomeswevegone:block/cattail_bottom",
         "y": 90
       },
       {
-        "model": "biomeswevegone:block/fluorescent_cattail_bottom",
+        "model": "biomeswevegone:block/cattail_bottom",
         "y": 180
       },
       {
-        "model": "biomeswevegone:block/fluorescent_cattail_bottom",
+        "model": "biomeswevegone:block/cattail_bottom",
         "y": 270
       }
     ],
