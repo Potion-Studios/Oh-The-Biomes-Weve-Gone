@@ -115,12 +115,13 @@ public class ModelGenerators {
             BWGBlocks.cubeAllBlocks.forEach(block -> simpleBlockWithItem(block.get(), cubeAll(block.get())));
             BWGBlocks.BLOCKS.forEach(entry -> {
                 Block block = entry.get();
-                if (block instanceof CattailPlantBlock) {
+                if (block instanceof CattailPlantBlock cattail) {
                     getVariantBuilder(block)
                             .partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)
                             .addModels(createRotatedModels(models().getExistingFile(blockBWGTexture(BWGBlocks.CATTAIL.get(), "bottom"))))
                             .partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)
-                            .addModels(createRotatedModels(models().getExistingFile(blockBWGTexture(block, "top"))));
+                            .addModels(createRotatedModels(models().withExistingParent(name(block), BiomesWeveGone.id("block/template_cattail_top"))
+                                    .texture("sprout", blockBWGTexture(cattail.getSprout().getBlock()))));
                 } else if (block instanceof DoublePlantBlock)
                     createDoubleBlock((DoublePlantBlock) block);
                 else if (block instanceof FlowerBlock)

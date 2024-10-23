@@ -19,18 +19,18 @@
     ],
     "half=upper": [
       {
-        "model": "biomeswevegone:block/cattail_top"
+        "model": "biomeswevegone:block/cattail"
       },
       {
-        "model": "biomeswevegone:block/cattail_top",
+        "model": "biomeswevegone:block/cattail",
         "y": 90
       },
       {
-        "model": "biomeswevegone:block/cattail_top",
+        "model": "biomeswevegone:block/cattail",
         "y": 180
       },
       {
-        "model": "biomeswevegone:block/cattail_top",
+        "model": "biomeswevegone:block/cattail",
         "y": 270
       }
     ]

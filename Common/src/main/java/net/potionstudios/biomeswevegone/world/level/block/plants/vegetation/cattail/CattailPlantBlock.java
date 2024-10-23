@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -69,6 +70,10 @@ public class CattailPlantBlock extends DoublePlantBlock implements SimpleWaterlo
     @Override
     public @NotNull ItemStack getCloneItemStack(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state) {
         return sprout.get().get().getDefaultInstance();
+    }
+
+    public BlockItem getSprout() {
+        return (BlockItem) sprout.get().get();
     }
 
     @Override
