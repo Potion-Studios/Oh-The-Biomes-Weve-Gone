@@ -2,6 +2,6 @@
   "parent": "minecraft:block/leaves",
   "render_type": "minecraft:cutout_mipped",
   "textures": {
-    "all": "biomeswevegone:block/spirit/leaves"
+    "all": "biomeswevegone:block/spirit_leaves"
   }
 }

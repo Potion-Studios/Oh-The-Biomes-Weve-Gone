@@ -62,12 +62,11 @@ public class BWGWood {
     public static final BWGWoodSet PINE = new BWGWoodSet("pine", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.PINE);
     public static final BWGWoodSet RAINBOW_EUCALYPTUS = new BWGWoodSet("rainbow_eucalyptus", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.RAINBOW_EUCALYPTUS);
     public static final BWGWoodSet REDWOOD = new BWGWoodSet("redwood", MapColor.COLOR_RED, BWGTreeGrowers.REDWOOD);
-    public static final BWGWoodSet SAKURA = new BWGWoodSet(BlockSetType.register(new BlockSetType("sakura", true, true, true, BlockSetType.PressurePlateSensitivity.EVERYTHING, SoundType.CHERRY_WOOD, SoundEvents.CHERRY_WOOD_DOOR_CLOSE, SoundEvents.CHERRY_WOOD_DOOR_OPEN, SoundEvents.CHERRY_WOOD_TRAPDOOR_CLOSE, SoundEvents.CHERRY_WOOD_TRAPDOOR_OPEN, SoundEvents.CHERRY_WOOD_PRESSURE_PLATE_CLICK_OFF, SoundEvents.CHERRY_WOOD_PRESSURE_PLATE_CLICK_ON, SoundEvents.CHERRY_WOOD_BUTTON_CLICK_OFF, SoundEvents.CHERRY_WOOD_BUTTON_CLICK_ON)),
-            MapColor.COLOR_RED, null, false);
+    public static final BWGWoodSet SAKURA = new BWGWoodSet(BlockSetType.register(new BlockSetType("sakura", true, true, true, BlockSetType.PressurePlateSensitivity.EVERYTHING, SoundType.CHERRY_WOOD, SoundEvents.CHERRY_WOOD_DOOR_CLOSE, SoundEvents.CHERRY_WOOD_DOOR_OPEN, SoundEvents.CHERRY_WOOD_TRAPDOOR_CLOSE, SoundEvents.CHERRY_WOOD_TRAPDOOR_OPEN, SoundEvents.CHERRY_WOOD_PRESSURE_PLATE_CLICK_OFF, SoundEvents.CHERRY_WOOD_PRESSURE_PLATE_CLICK_ON, SoundEvents.CHERRY_WOOD_BUTTON_CLICK_OFF, SoundEvents.CHERRY_WOOD_BUTTON_CLICK_ON)), MapColor.COLOR_RED, null, false);
     public static final PottedBlock WHITE_SAKURA_SAPLING = createSapling("white_sakura", BWGTreeGrowers.WHITE_SAKURA, BlockTags.DIRT);
     public static final PottedBlock YELLOW_SAKURA_SAPLING = createSapling("yellow_sakura", BWGTreeGrowers.YELLOW_SAKURA, BlockTags.DIRT);
     public static final BWGWoodSet SKYRIS = new BWGWoodSet("skyris", MapColor.COLOR_LIGHT_BLUE, BWGTreeGrowers.SKYRIS);
-    public static final BWGWoodSet SPIRIT = new BWGWoodSet("spirit", MapColor.COLOR_LIGHT_GRAY, null);
+    public static final BWGWoodSet SPIRIT = new BWGWoodSet(BlockSetType.register(new BlockSetType("spirit", true, true, true, BlockSetType.PressurePlateSensitivity.EVERYTHING, SoundType.NETHER_WOOD, SoundEvents.NETHER_WOOD_DOOR_CLOSE, SoundEvents.NETHER_WOOD_DOOR_OPEN, SoundEvents.NETHER_WOOD_TRAPDOOR_CLOSE, SoundEvents.NETHER_WOOD_TRAPDOOR_OPEN, SoundEvents.NETHER_WOOD_PRESSURE_PLATE_CLICK_OFF, SoundEvents.NETHER_WOOD_PRESSURE_PLATE_CLICK_ON, SoundEvents.NETHER_WOOD_BUTTON_CLICK_OFF, SoundEvents.NETHER_WOOD_BUTTON_CLICK_ON)), MapColor.COLOR_LIGHT_GRAY, null, false);
     public static final BWGWoodSet WHITE_MANGROVE = new BWGWoodSet("white_mangrove", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.WHITE_MANGROVE);
     public static final BWGWoodSet WILLOW = new BWGWoodSet("willow", MapColor.COLOR_GREEN, BWGTreeGrowers.WILLOW);
     public static final BWGWoodSet WITCH_HAZEL = new BWGWoodSet("witch_hazel", MapColor.COLOR_GREEN, BWGTreeGrowers.WITCH_HAZEL);
@@ -129,6 +128,7 @@ public class BWGWood {
     public static final Supplier<LeavesBlock> RED_OAK_LEAVES = registerLeaves("red_oak", MapColor.COLOR_RED);
     public static final Supplier<LeavesBlock> RED_SPRUCE_LEAVES = registerLeaves("red_spruce", MapColor.COLOR_RED);
     public static final Supplier<LeavesBlock> SILVER_MAPLE_LEAVES = registerLeaves("silver_maple", BWGParticles.SILVER_MAPLE_LEAVES, MapColor.COLOR_LIGHT_GRAY);
+    public static final Supplier<LeavesBlock> SPIRIT_LEAVES = registerNonSetBlockItem("spirit_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES).mapColor(MapColor.COLOR_LIGHT_GRAY)));
     public static final Supplier<LeavesBlock> FLOWERING_SPIRIT_LEAVES = registerNonSetBlockItem("flowering_spirit_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES).mapColor(MapColor.COLOR_LIGHT_GRAY)));
     public static final Supplier<LeavesBlock> SKYRIS_LEAVES_GREEN_APPLE = registerLeaves("green_apple_skyris", BWGBlocks.GREEN_APPLE_FRUIT_BLOCK, MapColor.COLOR_PINK, 0.04F);
     public static final Supplier<LeavesBlock> FLOWERING_SKYRIS_LEAVES = registerLeaves("flowering_skyris", MapColor.COLOR_PINK, BWGWood.SKYRIS_LEAVES_GREEN_APPLE, 0.02F);
