@@ -274,6 +274,10 @@
       "can_villager_compost": true,
       "chance": 0.3
     },
+    "biomeswevegone:flowering_spirit_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
     "biomeswevegone:flowering_tiny_lily_pads": {
       "can_villager_compost": true,
       "chance": 0.65
