@@ -29,6 +29,7 @@ import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.Aloe
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.BoneMealGrassBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cattail.CattailPlantBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.FlatVegetationBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cattail.FluorescentCattailPlantBlock;
 import net.potionstudios.biomeswevegone.world.level.block.sand.BWGSandSet;
 import net.potionstudios.biomeswevegone.world.level.block.set.BWGBlockSet;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
@@ -115,7 +116,15 @@ public class ModelGenerators {
             BWGBlocks.cubeAllBlocks.forEach(block -> simpleBlockWithItem(block.get(), cubeAll(block.get())));
             BWGBlocks.BLOCKS.forEach(entry -> {
                 Block block = entry.get();
-                if (block instanceof CattailPlantBlock cattail) {
+                if (block instanceof FluorescentCattailPlantBlock fluorescentCattailBlock) {
+                    getVariantBuilder(fluorescentCattailBlock).forAllStatesExcept(state -> {
+                        if (state.getValue(DoublePlantBlock.HALF) == DoubleBlockHalf.LOWER)
+                            return ConfiguredModel.allRotations(models().getExistingFile(blockBWGTexture(BWGBlocks.CATTAIL.get(), "bottom")), false);
+                        else
+                            return ConfiguredModel.allRotations(models().withExistingParent(name(block) + "_" + state.getValue(FluorescentCattailPlantBlock.COLOR).getSerializedName(), BiomesWeveGone.id("block/template_cattail_top"))
+                                    .texture("sprout", blockBWGTexture(fluorescentCattailBlock.getSprout().getBlock(), state.getValue(FluorescentCattailPlantBlock.COLOR).getSerializedName())), false);
+                            }, FluorescentCattailPlantBlock.WATERLOGGED);
+                } else if (block instanceof CattailPlantBlock cattail) {
                     getVariantBuilder(block)
                             .partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)
                             .addModels(createRotatedModels(models().getExistingFile(blockBWGTexture(BWGBlocks.CATTAIL.get(), "bottom"))))

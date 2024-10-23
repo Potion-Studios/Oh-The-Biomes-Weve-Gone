@@ -1,0 +1,6 @@
+{
+  "parent": "biomeswevegone:block/template_cattail_top",
+  "textures": {
+    "sprout": "biomeswevegone:block/fluorescent_cattail_sprout_green"
+  }
+}
