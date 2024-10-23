@@ -81,7 +81,7 @@ public class RecipeGenerator extends RecipeProvider {
 
         BWGBlockSet.getBlockSets().forEach(set -> {
             generateRecipes(recipeOutput, set.getBlockFamily(), FeatureFlagSet.of());
-            if (set.getBase().defaultBlockState().getSoundType() == SoundType.STONE || set.getBase().defaultBlockState().getSoundType() == SoundType.NETHERRACK)
+            if (set.getBase().defaultBlockState().getSoundType() == SoundType.STONE || set.getBase().defaultBlockState().getSoundType() == SoundType.NETHERRACK || set.getBase().defaultBlockState().getSoundType() == SoundType.MUD_BRICKS)
                 generateFamilyStoneCutterRecipes(recipeOutput, set);
         });
 

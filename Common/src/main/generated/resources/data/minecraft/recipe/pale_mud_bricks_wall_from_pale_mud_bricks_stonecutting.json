@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "biomeswevegone:pale_mud_bricks"
+  },
+  "result": {
+    "count": 1,
+    "id": "biomeswevegone:pale_mud_bricks_wall"
+  }
+}
