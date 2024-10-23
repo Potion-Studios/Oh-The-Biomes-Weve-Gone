@@ -646,6 +646,10 @@
       "can_villager_compost": true,
       "chance": 0.65
     },
+    "biomeswevegone:soul_fruit": {
+      "can_villager_compost": true,
+      "chance": 0.85
+    },
     "biomeswevegone:spirit_leaves": {
       "can_villager_compost": true,
       "chance": 0.3
