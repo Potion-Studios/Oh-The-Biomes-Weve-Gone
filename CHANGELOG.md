@@ -6,6 +6,7 @@ New Features:
 - Add GlowCane and Glowcane powder
 - Add Soul Fruit
 - Add Glow Bottles
+- Add Pale Pumpkins
 
 Fixes and Improvements:
 - Optimize Crag Garden and Basalt Barrera Generation

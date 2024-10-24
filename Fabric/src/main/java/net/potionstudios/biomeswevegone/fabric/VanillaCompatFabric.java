@@ -59,7 +59,8 @@ public class VanillaCompatFabric {
                         .with(LootItem.lootTableItem(BWGItems.BLUE_GLOWCANE_SHOOT.get()).build())
                         .with(LootItem.lootTableItem(BWGItems.GREEN_GLOWCANE_SHOOT.get()).build())
                         .with(LootItem.lootTableItem(BWGItems.RED_GLOWCANE_SHOOT.get()).build())
-                        .with(LootItem.lootTableItem(BWGItems.YELLOW_GLOWCANE_SHOOT.get()).build());
+                        .with(LootItem.lootTableItem(BWGItems.YELLOW_GLOWCANE_SHOOT.get()).build())
+                        .with(LootItem.lootTableItem(BWGItems.PALE_PUMPKIN_SEEDS.get()).build());
                 tableBuilder.withPool(pool);
             }
         });
