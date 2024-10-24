@@ -203,6 +203,11 @@ public class BWGBlocks {
     public static final Supplier<FluorescentCattailPlantBlock> FLUORESCENT_CATTAIL = registerBlock("fluorescent_cattail", () -> new FluorescentCattailPlantBlock(() -> BWGItems.FLUORESCENT_CATTAIL_SPROUT));
     public static final Supplier<CattailSproutBlock> FLUORESCENT_CATTAIL_SPROUT = registerBlock("fluorescent_cattail_sprout", () -> new CattailSproutBlock(FLUORESCENT_CATTAIL));
 
+    public static final Supplier<GlowCaneBlock> BLUE_GLOWCANE = registerBlock("blue_glowcane", () -> new GlowCaneBlock(() -> BWGItems.BLUE_GLOWCANE_SHOOT));
+    public static final Supplier<GlowCaneBlock> GREEN_GLOWCANE = registerBlock("green_glowcane", () -> new GlowCaneBlock(() -> BWGItems.GREEN_GLOWCANE_SHOOT));
+    public static final Supplier<GlowCaneBlock> RED_GLOWCANE = registerBlock("red_glowcane", () -> new GlowCaneBlock(() -> BWGItems.RED_GLOWCANE_SHOOT));
+    public static final Supplier<GlowCaneBlock> YELLOW_GLOWCANE = registerBlock("yellow_glowcane", () -> new GlowCaneBlock(() -> BWGItems.YELLOW_GLOWCANE_SHOOT));
+
     public static final PottedBlock WHITE_PUFFBALL = createPottedVariantWithoutItem("white_puffball", WhitePuffballBlock::new);
 
     /** Grasses */

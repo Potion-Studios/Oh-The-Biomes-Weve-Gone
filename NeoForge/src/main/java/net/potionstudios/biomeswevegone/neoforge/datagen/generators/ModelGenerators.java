@@ -27,6 +27,7 @@ import net.potionstudios.biomeswevegone.world.level.block.plants.tree.branch.Tre
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.BWGFruitBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.AloeVeraBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.BoneMealGrassBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.GlowCaneBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cattail.CattailPlantBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.FlatVegetationBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cattail.FluorescentCattailPlantBlock;
@@ -116,7 +117,9 @@ public class ModelGenerators {
             BWGBlocks.cubeAllBlocks.forEach(block -> simpleBlockWithItem(block.get(), cubeAll(block.get())));
             BWGBlocks.BLOCKS.forEach(entry -> {
                 Block block = entry.get();
-                if (block instanceof FluorescentCattailPlantBlock fluorescentCattailBlock) {
+                if (block instanceof GlowCaneBlock) {
+                   simpleBlock(block, models().withExistingParent(name(block), mcLoc("block/tinted_cross")).texture("cross", blockBWGTexture(block)).renderType("cutout"));
+                } else if (block instanceof FluorescentCattailPlantBlock fluorescentCattailBlock) {
                     getVariantBuilder(fluorescentCattailBlock).forAllStatesExcept(state -> {
                         if (state.getValue(DoublePlantBlock.HALF) == DoubleBlockHalf.LOWER)
                             return createRotatedModels(models().getExistingFile(blockBWGTexture(BWGBlocks.CATTAIL.get(), "bottom")));

@@ -64,7 +64,6 @@ public class CattailPlantBlock extends DoublePlantBlock implements SimpleWaterlo
             if (state.getValue(WATERLOGGED)) level.setBlockAndUpdate(pos, Fluids.WATER.defaultFluidState().createLegacyBlock());
             else level.destroyBlock(pos, false);
         }
-
     }
 
     @Override
