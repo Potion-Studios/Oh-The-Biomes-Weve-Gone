@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "biomeswevegone:block/carved_pale_pumpkin",
+    "side": "biomeswevegone:block/pale_pumpkin_side",
+    "top": "biomeswevegone:block/pale_pumpkin_top"
+  }
+}

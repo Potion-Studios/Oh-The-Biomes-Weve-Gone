@@ -11,6 +11,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.neoforged.neoforge.common.Tags;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
@@ -391,6 +392,14 @@ public class RecipeGenerator extends RecipeProvider {
                 .requires(BWGItems.YELLOW_GLOWCANE_POWDER.get(), 4)
                 .requires(Items.GLASS_BOTTLE)
                 .unlockedBy(getHasName(BWGItems.YELLOW_GLOWCANE_POWDER.get()), has(BWGItems.YELLOW_GLOWCANE_POWDER.get()))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, Items.PUMPKIN_PIE)
+                .requires(BWGBlocks.PALE_PUMPKIN.get())
+                .requires(Items.SUGAR)
+                .requires(Items.EGG)
+                .unlockedBy(getHasName(BWGBlocks.CARVED_PALE_PUMPKIN.get()), has(BWGBlocks.CARVED_PALE_PUMPKIN.get()))
+                .unlockedBy(getHasName(BWGBlocks.PALE_PUMPKIN.get()), has(BWGBlocks.PALE_PUMPKIN.get()))
                 .save(recipeOutput);
     }
 

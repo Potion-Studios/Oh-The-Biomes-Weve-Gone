@@ -168,6 +168,8 @@ public class TagsGenerator {
             tag(Tags.Blocks.BUDDING_BLOCKS).add(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get(), BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get());
             tag(Tags.Blocks.VILLAGER_JOB_SITES).add(BWGBlocks.FORAGERS_TABLE.get());
             tag(Tags.Blocks.VILLAGER_FARMLANDS).add(BWGBlocks.LUSH_FARMLAND.get());
+            tag(BlockTags.ENDERMAN_HOLDABLE).add(BWGBlocks.PALE_PUMPKIN.get(), BWGBlocks.CARVED_PALE_PUMPKIN.get());
+            tag(BlockTags.SWORD_EFFICIENT).add(BWGBlocks.PALE_PUMPKIN.get(), BWGBlocks.CARVED_PALE_PUMPKIN.get());
             sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
         }
 
@@ -314,6 +316,7 @@ public class TagsGenerator {
             tag(Tags.Items.FOODS_SOUP).add(BWGItems.ALLIUM_ODDION_SOUP.get(), BWGItems.WHITE_PUFFBALL_STEW.get());
             tag(Tags.Items.FOODS_PIE).add(BWGItems.GREEN_APPLE_PIE.get(), BWGItems.BLUEBERRY_PIE.get());
             tag(Tags.Items.FOODS).add(BWGItems.COOKED_ODDION_BULB.get(), BWGItems.COOKED_WHITE_PUFFBALL_CAP.get(), BWGItems.COOKED_YUCCA_FRUIT.get(), BWGItems.ALOE_VERA_JUICE.get());
+            tag(Tags.Items.CROPS_PUMPKIN).add(BWGBlocks.PALE_PUMPKIN.get().asItem());
             sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
         }
     }

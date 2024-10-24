@@ -348,6 +348,21 @@ public class ModelGenerators {
             simpleItemBlockTexture(BWGBlocks.CLOVER_PATCH.get(), name(BWGBlocks.CLOVER_PATCH.get()));
             simpleItemBlockTexture(BWGBlocks.FLOWER_PATCH.get(), name(BWGBlocks.FLOWER_PATCH.get()));
             rotatableBlock(BWGBlocks.LEAF_PILE.get());
+            simpleBlockWithItem(BWGBlocks.PALE_PUMPKIN.get(), models().getExistingFile(blockBWGTexture(BWGBlocks.PALE_PUMPKIN.get())));
+            ModelFile carved = models().orientable(name(BWGBlocks.CARVED_PALE_PUMPKIN.get()), blockBWGTexture(BWGBlocks.PALE_PUMPKIN.get(), "side"), blockBWGTexture(BWGBlocks.CARVED_PALE_PUMPKIN.get()), blockBWGTexture(BWGBlocks.PALE_PUMPKIN.get(), "top"));
+            simpleBlockItem(BWGBlocks.CARVED_PALE_PUMPKIN.get(), carved);
+            getVariantBuilder(BWGBlocks.CARVED_PALE_PUMPKIN.get()).forAllStates(state -> {
+               if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.EAST)
+                   return ConfiguredModel.builder().rotationY(90).modelFile(carved).build();
+                else if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.WEST)
+                    return ConfiguredModel.builder().rotationY(270).modelFile(carved).build();
+                else if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.SOUTH)
+                    return ConfiguredModel.builder().rotationY(180).modelFile(carved).build();
+                else if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.NORTH)
+                    return ConfiguredModel.builder().modelFile(carved).build();
+                return new ConfiguredModel[0];
+            });
+
 
             models().withExistingParent(name(BWGBlocks.WITCH_HAZEL_BRANCH.get()), mcLoc("block/coral_wall_fan")).texture("fan", blockBWGTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get())).renderType("cutout_mipped");
             getVariantBuilder(BWGBlocks.WITCH_HAZEL_BRANCH.get()).forAllStatesExcept(state -> switch (state.getValue(TreeBranchBlock.FACING)) {
@@ -372,6 +387,15 @@ public class ModelGenerators {
 
         private void rotatableBlock(Block block) {
             getVariantBuilder(block).partialState().addModels(createRotatedModels(models().getExistingFile(blockBWGTexture(block))));
+        }
+
+        private void rotatableBlockWithItem(Block block, ModelFile modelFile) {
+            getVariantBuilder(block).partialState().addModels(createRotatedModels(modelFile));
+            simpleBlockItem(block, modelFile);
+        }
+
+        private void rotatableBlock(Block block, ModelFile modelFile) {
+            getVariantBuilder(block).partialState().addModels(createRotatedModels(modelFile));
         }
 
         private ConfiguredModel[] createRotatedModels(ModelFile model) {
