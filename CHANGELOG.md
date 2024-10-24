@@ -1,4 +1,15 @@
-# 2.2.0
+# 2.2.0 SpookTober Update
+New Features:
+- Add Spirit Wood Set
+- Add Pale Mud, Packed, and Bricks
+- Add Fluorescent Cattails
+- Add GlowCane and Glowcane powder
+- Add Soul Fruit
+
+Fixes and Improvements:
+- Optimize Crag Garden and Basalt Barrera Generation
+- Move from using ID in Fruitblock for Leaves to using Supplier of the Leaves Block
+- Increase Pumpkin Generation in Pumpkin Valley Biome
 
 # 2.1.5
 - Fix and Add Missing Mossy Red Rock and Mossy Stone Recipes
