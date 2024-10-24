@@ -55,7 +55,11 @@ public class VanillaCompatFabric {
                         .with(LootItem.lootTableItem(BWGBlocks.BLACK_ROSE.getBlock()).build())
                         .with(LootItem.lootTableItem(BWGBlocks.PROTEA_FLOWER.getBlock()).build())
                         .with(LootItem.lootTableItem(BWGBlocks.SILVER_VASE_FLOWER.getBlock()).build())
-                        .with(LootItem.lootTableItem(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get()).build());
+                        .with(LootItem.lootTableItem(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get()).build())
+                        .with(LootItem.lootTableItem(BWGItems.BLUE_GLOWCANE_SHOOT.get()).build())
+                        .with(LootItem.lootTableItem(BWGItems.GREEN_GLOWCANE_SHOOT.get()).build())
+                        .with(LootItem.lootTableItem(BWGItems.RED_GLOWCANE_SHOOT.get()).build())
+                        .with(LootItem.lootTableItem(BWGItems.YELLOW_GLOWCANE_SHOOT.get()).build());
                 tableBuilder.withPool(pool);
             }
         });

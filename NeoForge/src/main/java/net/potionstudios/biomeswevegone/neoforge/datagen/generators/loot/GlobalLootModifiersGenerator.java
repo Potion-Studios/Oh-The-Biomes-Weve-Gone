@@ -22,6 +22,7 @@ public class GlobalLootModifiersGenerator extends GlobalLootModifierProvider {
     protected void start() {
         add("bwg_items_from_sniffer_dig", new AddItemModifier(new LootItemCondition[]{
                 new LootTableIdCondition.Builder(BuiltInLootTables.SNIFFER_DIGGING.location()).build()}, BWGBlocks.BLACK_ROSE.getBlock().asItem(),
-                BWGBlocks.PROTEA_FLOWER.getBlock().asItem(), BWGBlocks.SILVER_VASE_FLOWER.getBlock().asItem(), BWGItems.FLUORESCENT_CATTAIL_SPROUT.get()));
+                BWGBlocks.PROTEA_FLOWER.getBlock().asItem(), BWGBlocks.SILVER_VASE_FLOWER.getBlock().asItem(), BWGItems.FLUORESCENT_CATTAIL_SPROUT.get(),
+                BWGItems.BLUE_GLOWCANE_SHOOT.get(), BWGItems.GREEN_GLOWCANE_SHOOT.get(), BWGItems.RED_GLOWCANE_SHOOT.get(), BWGItems.YELLOW_GLOWCANE_SHOOT.get()));
     }
 }

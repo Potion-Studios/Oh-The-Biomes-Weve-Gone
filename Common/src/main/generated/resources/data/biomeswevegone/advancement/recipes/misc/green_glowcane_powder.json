@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_green_glowcane_shoot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:green_glowcane_shoot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomeswevegone:green_glowcane_powder"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_green_glowcane_shoot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomeswevegone:green_glowcane_powder"
+    ]
+  }
+}

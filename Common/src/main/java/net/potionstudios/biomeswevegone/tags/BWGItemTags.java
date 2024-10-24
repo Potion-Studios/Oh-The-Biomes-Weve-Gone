@@ -27,6 +27,7 @@ public class BWGItemTags {
     public static final TagKey<Item> SAGES = create("flowers/sages");
     public static final TagKey<Item> DAFFODILS = create("flowers/daffodils");
     public static final TagKey<Item> GLOWCANE_POWDER = create("glowcane_powder");
+    public static final TagKey<Item> GLOWCANE_SHOOT = create("glowcane_shoot");
     
     public static final TagKey<Item> MAKES_BLACK_DYE = create("dye/makes_black_dye");
     public static final TagKey<Item> MAKES_BLUE_DYE = create("dye/makes_blue_dye");

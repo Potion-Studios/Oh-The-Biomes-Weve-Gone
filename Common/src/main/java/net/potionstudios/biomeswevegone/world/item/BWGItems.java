@@ -48,6 +48,11 @@ public class BWGItems {
     public static final Supplier<Item> CATTAIL_SPROUT = registerItemNoLang("cattail_sprout", () -> new CampfireExplodingBlockItem(BWGBlocks.CATTAIL_SPROUT, new Item.Properties()));
     public static final Supplier<Item> FLUORESCENT_CATTAIL_SPROUT = registerItemNoLang("fluorescent_cattail_sprout", () -> new CampfireExplodingBlockItem(BWGBlocks.FLUORESCENT_CATTAIL_SPROUT, new Item.Properties()));
 
+    public static final Supplier<Item> BLUE_GLOWCANE_SHOOT = registerSimpleItem("blue_glowcane_shoot", () -> new Item(new Item.Properties()));
+    public static final Supplier<Item> GREEN_GLOWCANE_SHOOT = registerSimpleItem("green_glowcane_shoot", () -> new Item(new Item.Properties()));
+    public static final Supplier<Item> RED_GLOWCANE_SHOOT = registerSimpleItem("red_glowcane_shoot", () -> new Item(new Item.Properties()));
+    public static final Supplier<Item> YELLOW_GLOWCANE_SHOOT = registerSimpleItem("yellow_glowcane_shoot", () -> new Item(new Item.Properties()));
+
     public static final Supplier<Item> BLUE_GLOWCANE_POWDER = registerSimpleItem("blue_glowcane_powder", () -> new PowderItem(ColorProperty.BLUE));
     public static final Supplier<Item> GREEN_GLOWCANE_POWDER = registerSimpleItem("green_glowcane_powder", () -> new PowderItem(ColorProperty.GREEN));
     public static final Supplier<Item> RED_GLOWCANE_POWDER = registerSimpleItem("red_glowcane_powder", () -> new PowderItem(ColorProperty.RED));

@@ -348,6 +348,26 @@ public class RecipeGenerator extends RecipeProvider {
                 .pattern("##")
                 .unlockedBy(getHasName(BWGBlocks.PACKED_PALE_MUD.get()), has(BWGBlocks.PACKED_PALE_MUD.get()))
                 .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BWGItems.BLUE_GLOWCANE_POWDER.get(), 3)
+                .requires(BWGItems.BLUE_GLOWCANE_SHOOT.get())
+                .unlockedBy(getHasName(BWGItems.BLUE_GLOWCANE_SHOOT.get()), has(BWGItems.BLUE_GLOWCANE_SHOOT.get()))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BWGItems.GREEN_GLOWCANE_POWDER.get(), 3)
+                .requires(BWGItems.GREEN_GLOWCANE_SHOOT.get())
+                .unlockedBy(getHasName(BWGItems.GREEN_GLOWCANE_SHOOT.get()), has(BWGItems.GREEN_GLOWCANE_SHOOT.get()))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BWGItems.RED_GLOWCANE_POWDER.get(), 3)
+                .requires(BWGItems.RED_GLOWCANE_SHOOT.get())
+                .unlockedBy(getHasName(BWGItems.RED_GLOWCANE_SHOOT.get()), has(BWGItems.RED_GLOWCANE_SHOOT.get()))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BWGItems.YELLOW_GLOWCANE_POWDER.get(), 3)
+                .requires(BWGItems.YELLOW_GLOWCANE_SHOOT.get())
+                .unlockedBy(getHasName(BWGItems.YELLOW_GLOWCANE_SHOOT.get()), has(BWGItems.YELLOW_GLOWCANE_SHOOT.get()))
+                .save(recipeOutput);
     }
 
     private static void sandToGlass(RecipeOutput finishedRecipeConsumer, BWGSandSet set, Item glass) {

@@ -296,6 +296,7 @@ public class TagsGenerator {
                     }
             );
             tag(BWGItemTags.GLOWCANE_POWDER).add(BWGItems.BLUE_GLOWCANE_POWDER.get(), BWGItems.GREEN_GLOWCANE_POWDER.get(), BWGItems.RED_GLOWCANE_POWDER.get(), BWGItems.YELLOW_GLOWCANE_POWDER.get());
+            tag(BWGItemTags.GLOWCANE_SHOOT).add(BWGItems.BLUE_GLOWCANE_SHOOT.get(), BWGItems.GREEN_GLOWCANE_SHOOT.get(), BWGItems.RED_GLOWCANE_SHOOT.get(), BWGItems.YELLOW_GLOWCANE_SHOOT.get());
             tag(BWGItemTags.MAKES_RED_DYE).add(BWGItems.RED_GLOWCANE_POWDER.get());
             tag(BWGItemTags.MAKES_YELLOW_DYE).add(BWGItems.YELLOW_GLOWCANE_POWDER.get());
             tag(BWGItemTags.MAKES_GREEN_DYE).add(BWGItems.GREEN_GLOWCANE_POWDER.get());
