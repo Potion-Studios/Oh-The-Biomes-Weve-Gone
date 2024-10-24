@@ -182,7 +182,7 @@ public class ModelGenerators {
                 else if (block instanceof LanternBlock) {
                     getVariantBuilder(block).forAllStatesExcept(state -> {
                         if (state.getValue(LanternBlock.HANGING))
-                            return ConfiguredModel.builder().modelFile(models().withExistingParent(name(block) + "_hanging", mcLoc("block/template_lantern")).texture("lantern", blockBWGTexture(block)).renderType("cutout")).build();
+                            return ConfiguredModel.builder().modelFile(models().withExistingParent(name(block) + "_hanging", mcLoc("block/template_hanging_lantern")).texture("lantern", blockBWGTexture(block)).renderType("cutout")).build();
                         return ConfiguredModel.builder().modelFile(models().withExistingParent(name(block), mcLoc("block/template_lantern")).texture("lantern", blockBWGTexture(block)).renderType("cutout")).build();
                     }, LanternBlock.WATERLOGGED);
                     itemModels().basicItem(block.asItem());
