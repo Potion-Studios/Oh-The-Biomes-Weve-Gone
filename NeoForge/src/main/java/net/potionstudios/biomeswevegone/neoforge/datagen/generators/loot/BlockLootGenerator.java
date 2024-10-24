@@ -210,6 +210,9 @@ class BlockLootGenerator extends BlockLootSubProvider {
         this.add(BWGBlocks.BLOOMING_ALOE_VERA.get(), this.createDoublePlantWithSeedDrops(BWGBlocks.BLOOMING_ALOE_VERA.get(), BWGBlocks.ALOE_VERA.get()));
         add(BWGBlocks.CATTAIL.get(), applyExplosionDecay(BWGBlocks.CATTAIL.get(), LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(BWGItems.CATTAIL_SPROUT.get()).setQuality(2)))));
         add(BWGBlocks.FLUORESCENT_CATTAIL.get(), applyExplosionDecay(BWGBlocks.FLUORESCENT_CATTAIL.get(), LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get()).setQuality(2)))));
+
+        add(BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get(), createAttachedStemDrops(BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get(), BWGItems.PALE_PUMPKIN_SEEDS.get()));
+        add(BWGBlocks.PALE_PUMPKIN_STEM.get(), createStemDrops(BWGBlocks.PALE_PUMPKIN_STEM.get(), BWGItems.PALE_PUMPKIN_SEEDS.get()));
     }
 
     private LootTable.Builder createFruitLeavesDrops(LeavesBlock leaves, Block saplingBlock, Item fruit, float... chances) {

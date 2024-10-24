@@ -156,11 +156,11 @@ public class TagsGenerator {
             tag(BlockTags.OVERWORLD_CARVER_REPLACEABLES)
                     .add(BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.PODZOL_DACITE.get(),
                             BWGBlocks.ROCKY_STONE_SET.getBase(), BWGBlocks.MOSSY_STONE_SET.getBase(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.PEAT.get());
-            tag(BlockTags.CROPS).add(BWGBlocks.ODDION_CROP.get());
+            tag(BlockTags.CROPS).add(BWGBlocks.ODDION_CROP.get(), BWGBlocks.PALE_PUMPKIN_STEM.get());
             tag(BlockTags.BEE_GROWABLES).add(BWGBlocks.BLUEBERRY_BUSH.get());
             tag(BlockTags.SNIFFER_DIGGABLE_BLOCK).add(BWGBlocks.LUSH_DIRT_PATH.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.SANDY_DIRT_PATH.get(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.PEAT.get());
             tag(BlockTags.SNIFFER_EGG_HATCH_BOOST).add(BWGBlocks.LUSH_GRASS_BLOCK.get());
-            tag(BlockTags.MAINTAINS_FARMLAND).add(BWGBlocks.ODDION_CROP.get());
+            tag(BlockTags.MAINTAINS_FARMLAND).add(BWGBlocks.ODDION_CROP.get(), BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get(), BWGBlocks.PALE_PUMPKIN_STEM.get());
             tag(BlockTags.MINEABLE_WITH_HOE).add(BWGBlocks.ALLIUM_PETAL_BLOCK.get(), BWGBlocks.PINK_ALLIUM_PETAL_BLOCK.get(), BWGBlocks.WHITE_ALLIUM_PETAL_BLOCK.get(), BWGBlocks.ROSE_PETAL_BLOCK.get());
             tag(BlockTags.MINEABLE_WITH_PICKAXE).addTag(BWGBlockTags.BLACK_ICE).addTag(BWGBlockTags.BOREALIS_ICE);
             tag(BlockTags.REPLACEABLE).add(BWGBlocks.PRAIRIE_GRASS.get(), BWGBlocks.TALL_PRAIRIE_GRASS.get(), BWGBlocks.BEACH_GRASS.get(), BWGBlocks.TALL_BEACH_GRASS.get(), BWGBlocks.SKYRIS_VINE.get());
@@ -169,7 +169,7 @@ public class TagsGenerator {
             tag(Tags.Blocks.VILLAGER_JOB_SITES).add(BWGBlocks.FORAGERS_TABLE.get());
             tag(Tags.Blocks.VILLAGER_FARMLANDS).add(BWGBlocks.LUSH_FARMLAND.get());
             tag(BlockTags.ENDERMAN_HOLDABLE).add(BWGBlocks.PALE_PUMPKIN.get(), BWGBlocks.CARVED_PALE_PUMPKIN.get());
-            tag(BlockTags.SWORD_EFFICIENT).add(BWGBlocks.PALE_PUMPKIN.get(), BWGBlocks.CARVED_PALE_PUMPKIN.get());
+            tag(BlockTags.SWORD_EFFICIENT).add(BWGBlocks.PALE_PUMPKIN.get(), BWGBlocks.CARVED_PALE_PUMPKIN.get(), BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get());
             sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
         }
 
@@ -249,6 +249,7 @@ public class TagsGenerator {
             copy(BlockTags.SAPLINGS, ItemTags.SAPLINGS);
             copy(BlockTags.LEAVES, ItemTags.LEAVES);
             copy(BlockTags.WOOL_CARPETS, ItemTags.WOOL_CARPETS);
+
             BWGSandSet.getSandSets().forEach(set -> {
                 copy(set.getSandstoneBlocksTag(), set.getSandstoneBlocksItemTag());
                 copy(set.getSandBlockTag(), set.getSandItemTag());
@@ -316,6 +317,7 @@ public class TagsGenerator {
             tag(Tags.Items.FOODS_SOUP).add(BWGItems.ALLIUM_ODDION_SOUP.get(), BWGItems.WHITE_PUFFBALL_STEW.get());
             tag(Tags.Items.FOODS_PIE).add(BWGItems.GREEN_APPLE_PIE.get(), BWGItems.BLUEBERRY_PIE.get());
             tag(Tags.Items.FOODS).add(BWGItems.COOKED_ODDION_BULB.get(), BWGItems.COOKED_WHITE_PUFFBALL_CAP.get(), BWGItems.COOKED_YUCCA_FRUIT.get(), BWGItems.ALOE_VERA_JUICE.get());
+            tag(Tags.Items.SEEDS_PUMPKIN).add(BWGItems.PALE_PUMPKIN_SEEDS.get());
             tag(Tags.Items.CROPS_PUMPKIN).add(BWGBlocks.PALE_PUMPKIN.get().asItem());
             sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
         }

@@ -1,0 +1,4 @@
+{
+  "parent": "minecraft:block/pumpkin_stem_stage2",
+  "render_type": "minecraft:cutout"
+}

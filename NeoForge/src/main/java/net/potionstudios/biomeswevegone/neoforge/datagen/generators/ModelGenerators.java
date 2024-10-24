@@ -117,7 +117,21 @@ public class ModelGenerators {
             BWGBlocks.cubeAllBlocks.forEach(block -> simpleBlockWithItem(block.get(), cubeAll(block.get())));
             BWGBlocks.BLOCKS.forEach(entry -> {
                 Block block = entry.get();
-                if (block instanceof GlowCaneBlock) {
+                if (block instanceof StemBlock){
+                  getVariantBuilder(block).forAllStates(state -> ConfiguredModel.builder().modelFile(models().withExistingParent(name(block) + "_stage" + state.getValue(StemBlock.AGE), name(Blocks.PUMPKIN_STEM) + "_stage" + state.getValue(StemBlock.AGE)).renderType("cutout")).build());
+                } else if (block instanceof AttachedStemBlock) {
+                    getVariantBuilder(block).forAllStates(state -> {
+                        if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.EAST)
+                            return ConfiguredModel.builder().rotationY(180).modelFile(models().withExistingParent(name(block), "attached_pumpkin_stem").renderType("cutout")).build();
+                        else if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.WEST)
+                            return ConfiguredModel.builder().modelFile(models().withExistingParent(name(block), "attached_pumpkin_stem").renderType("cutout")).build();
+                        else if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.SOUTH)
+                            return ConfiguredModel.builder().rotationY(270).modelFile(models().withExistingParent(name(block), "attached_pumpkin_stem").renderType("cutout")).build();
+                        else if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.NORTH)
+                            return ConfiguredModel.builder().rotationY(90).modelFile(models().withExistingParent(name(block), "attached_pumpkin_stem").renderType("cutout")).build();
+                        return new ConfiguredModel[0];
+                    });
+                } else if (block instanceof GlowCaneBlock) {
                    simpleBlock(block, models().withExistingParent(name(block), mcLoc("block/tinted_cross")).texture("cross", blockBWGTexture(block)).renderType("cutout"));
                 } else if (block instanceof FluorescentCattailPlantBlock fluorescentCattailBlock) {
                     getVariantBuilder(fluorescentCattailBlock).forAllStatesExcept(state -> {
