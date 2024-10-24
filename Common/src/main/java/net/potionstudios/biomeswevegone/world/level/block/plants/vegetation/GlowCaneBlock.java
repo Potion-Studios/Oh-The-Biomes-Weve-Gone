@@ -2,8 +2,10 @@ package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -34,6 +36,25 @@ public class GlowCaneBlock extends SugarCaneBlock implements SimpleWaterloggedBl
         super(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY).lightLevel(level -> 10));
         this.shoot = shoot;
         this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, false).setValue(AGE, 0));
+    }
+
+
+    @Override
+    protected void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
+        if (level.isEmptyBlock(pos.above())) {
+            int i = 1;
+
+            while (level.getBlockState(pos.below(i)).is(this))
+                i++;
+
+            if (i < 4) {
+                int j = state.getValue(AGE);
+                if (j == 15) {
+                    level.setBlockAndUpdate(pos.above(), this.defaultBlockState());
+                    level.setBlock(pos, state.setValue(AGE, 0), 4);
+                } else level.setBlock(pos, state.setValue(AGE, j + 1), 4);
+            }
+        }
     }
 
     @Override
