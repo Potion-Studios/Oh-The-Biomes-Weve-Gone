@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomeswevegone:blue_glowcane_powder"
+    },
+    {
+      "item": "biomeswevegone:blue_glowcane_powder"
+    },
+    {
+      "item": "biomeswevegone:blue_glowcane_powder"
+    },
+    {
+      "item": "biomeswevegone:blue_glowcane_powder"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "biomeswevegone:blue_glow_bottle"
+  }
+}

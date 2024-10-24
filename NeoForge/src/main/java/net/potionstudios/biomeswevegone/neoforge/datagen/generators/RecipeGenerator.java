@@ -368,6 +368,30 @@ public class RecipeGenerator extends RecipeProvider {
                 .requires(BWGItems.YELLOW_GLOWCANE_SHOOT.get())
                 .unlockedBy(getHasName(BWGItems.YELLOW_GLOWCANE_SHOOT.get()), has(BWGItems.YELLOW_GLOWCANE_SHOOT.get()))
                 .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, BWGBlocks.BLUE_GLOW_BOTTLE.get())
+                .requires(BWGItems.BLUE_GLOWCANE_POWDER.get(), 4)
+                .requires(Items.GLASS_BOTTLE)
+                .unlockedBy(getHasName(BWGItems.BLUE_GLOWCANE_POWDER.get()), has(BWGItems.BLUE_GLOWCANE_POWDER.get()))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, BWGBlocks.GREEN_GLOW_BOTTLE.get())
+                .requires(BWGItems.GREEN_GLOWCANE_POWDER.get(), 4)
+                .requires(Items.GLASS_BOTTLE)
+                .unlockedBy(getHasName(BWGItems.GREEN_GLOWCANE_POWDER.get()), has(BWGItems.GREEN_GLOWCANE_POWDER.get()))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, BWGBlocks.RED_GLOW_BOTTLE.get())
+                .requires(BWGItems.RED_GLOWCANE_POWDER.get(), 4)
+                .requires(Items.GLASS_BOTTLE)
+                .unlockedBy(getHasName(BWGItems.RED_GLOWCANE_POWDER.get()), has(BWGItems.RED_GLOWCANE_POWDER.get()))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, BWGBlocks.YELLOW_GLOW_BOTTLE.get())
+                .requires(BWGItems.YELLOW_GLOWCANE_POWDER.get(), 4)
+                .requires(Items.GLASS_BOTTLE)
+                .unlockedBy(getHasName(BWGItems.YELLOW_GLOWCANE_POWDER.get()), has(BWGItems.YELLOW_GLOWCANE_POWDER.get()))
+                .save(recipeOutput);
     }
 
     private static void sandToGlass(RecipeOutput finishedRecipeConsumer, BWGSandSet set, Item glass) {

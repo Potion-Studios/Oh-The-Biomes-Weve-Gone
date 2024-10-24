@@ -5,6 +5,7 @@ New Features:
 - Add Fluorescent Cattails
 - Add GlowCane and Glowcane powder
 - Add Soul Fruit
+- Add Glow Bottles
 
 Fixes and Improvements:
 - Optimize Crag Garden and Basalt Barrera Generation

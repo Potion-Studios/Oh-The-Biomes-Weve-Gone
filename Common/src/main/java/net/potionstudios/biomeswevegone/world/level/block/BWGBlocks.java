@@ -208,6 +208,11 @@ public class BWGBlocks {
     public static final Supplier<GlowCaneBlock> RED_GLOWCANE = registerBlock("red_glowcane", () -> new GlowCaneBlock(() -> BWGItems.RED_GLOWCANE_SHOOT));
     public static final Supplier<GlowCaneBlock> YELLOW_GLOWCANE = registerBlock("yellow_glowcane", () -> new GlowCaneBlock(() -> BWGItems.YELLOW_GLOWCANE_SHOOT));
 
+    public static final Supplier<LanternBlock> BLUE_GLOW_BOTTLE = registerBlockItem("blue_glow_bottle", () -> new LanternBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN).lightLevel(light -> 14)));
+    public static final Supplier<LanternBlock> GREEN_GLOW_BOTTLE = registerBlockItem("green_glow_bottle", () -> new LanternBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN).lightLevel(light -> 14)));
+    public static final Supplier<LanternBlock> RED_GLOW_BOTTLE = registerBlockItem("red_glow_bottle", () -> new LanternBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN).lightLevel(light -> 14)));
+    public static final Supplier<LanternBlock> YELLOW_GLOW_BOTTLE = registerBlockItem("yellow_glow_bottle", () -> new LanternBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN).lightLevel(light -> 14)));
+
     public static final PottedBlock WHITE_PUFFBALL = createPottedVariantWithoutItem("white_puffball", WhitePuffballBlock::new);
 
     /** Grasses */
