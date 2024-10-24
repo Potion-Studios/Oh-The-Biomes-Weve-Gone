@@ -3,11 +3,13 @@ package net.potionstudios.biomeswevegone.neoforge.client;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.FastColor;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.Block;
 
+import net.minecraft.world.level.block.StemBlock;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -93,6 +95,11 @@ public class BiomesWeveGoneClientNeoForge {
                 BWGWood.WILLOW.leaves(), BWGWood.MAPLE.leaves(), BWGWood.YUCCA_LEAVES.get(), BWGWood.FLOWERING_YUCCA_LEAVES.get(), BWGWood.RIPE_YUCCA_LEAVES.get(), BWGWood.CYPRESS.leaves());
         event.register((state, view, pos, tintIndex) -> BiomesWeveGoneClient.getBorealisIceColor(Objects.requireNonNullElse(pos, BlockPos.ZERO)), BWGBlocks.BOREALIS_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get());
         event.register((state, view, pos, tintIndex) -> view != null && pos != null ? BiomeColors.getAverageWaterColor(view, pos) : -1, BWGBlocks.CARVED_BARREL_CACTUS.get());
+        event.register((state, view, pos, tintIndex) -> {
+            int age = state.getValue(StemBlock.AGE);
+            return FastColor.ARGB32.color(age * 32, 255 - age, age *4);
+        }, BWGBlocks.PALE_PUMPKIN_STEM.get());
+        event.register((state, view, pos, tintIndex) -> -2046180, BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get());
     }
 
     /**

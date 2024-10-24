@@ -13,6 +13,7 @@ import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.FastColor;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
@@ -88,6 +89,11 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer {
                 BWGWood.WILLOW.leaves(), BWGWood.MAPLE.leaves(), BWGWood.YUCCA_LEAVES.get(), BWGWood.FLOWERING_YUCCA_LEAVES.get(), BWGWood.RIPE_YUCCA_LEAVES.get(), BWGWood.CYPRESS.leaves());
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> BiomesWeveGoneClient.getBorealisIceColor(Objects.requireNonNullElse(pos, BlockPos.ZERO)), BWGBlocks.BOREALIS_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get());
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> view != null && pos != null ? BiomeColors.getAverageWaterColor(view, pos) : -1, BWGBlocks.CARVED_BARREL_CACTUS.get());
+        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> {
+            int age = state.getValue(StemBlock.AGE);
+            return FastColor.ARGB32.color(age * 32, 255 - age, age *4);
+        }, BWGBlocks.PALE_PUMPKIN_STEM.get());
+        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> -2046180, BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get());
         registerItemColorHandlers();
     }
 

@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
+import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
 
@@ -45,7 +46,7 @@ public class PalePumpkinBlock extends PumpkinBlock {
                     (double)pos.getX() + 0.5 + (double)direction2.getStepX() * 0.65,
                     (double)pos.getY() + 0.1,
                     (double)pos.getZ() + 0.5 + (double)direction2.getStepZ() * 0.65,
-                    new ItemStack(Items.PUMPKIN_SEEDS, 4)
+                    new ItemStack(BWGItems.PALE_PUMPKIN_SEEDS.get(), 4)
             );
             itemEntity.setDeltaMovement(0.05 * (double)direction2.getStepX() + level.random.nextDouble() * 0.02, 0.05, 0.05 * (double)direction2.getStepZ() + level.random.nextDouble() * 0.02);
             level.addFreshEntity(itemEntity);
