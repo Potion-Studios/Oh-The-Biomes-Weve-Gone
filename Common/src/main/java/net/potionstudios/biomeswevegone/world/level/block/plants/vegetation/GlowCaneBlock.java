@@ -1,16 +1,15 @@
 package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.SugarCaneBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -35,6 +34,21 @@ public class GlowCaneBlock extends SugarCaneBlock implements SimpleWaterloggedBl
         super(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY).lightLevel(level -> 10));
         this.shoot = shoot;
         this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, false).setValue(AGE, 0));
+    }
+
+    @Override
+    protected boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos) {
+        BlockState blockState = level.getBlockState(pos.below());
+        if (blockState.is(this)) return true;
+        else if (blockState.is(BlockTags.DIRT) || blockState.is(BlockTags.SAND)) {
+            BlockPos blockPos = pos.below();
+            for (Direction direction : Direction.Plane.HORIZONTAL) {
+                BlockState blockState2 = level.getBlockState(blockPos.relative(direction));
+                FluidState fluidState = level.getFluidState(blockPos.relative(direction));
+                if (fluidState.is(FluidTags.WATER) || blockState2.is(Blocks.FROSTED_ICE)) return true;
+            }
+	        return level.getFluidState(pos).is(FluidTags.WATER);
+        } return false;
     }
 
     @Override
