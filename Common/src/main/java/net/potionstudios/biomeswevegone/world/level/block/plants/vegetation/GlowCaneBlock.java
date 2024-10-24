@@ -1,8 +1,10 @@
 package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -19,6 +21,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
 
@@ -36,7 +39,7 @@ public class GlowCaneBlock extends SugarCaneBlock implements SimpleWaterloggedBl
 
     @Override
     protected void neighborChanged(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Block neighborBlock, @NotNull BlockPos neighborPos, boolean movedByPiston) {
-        if (!canSurvive(state, level, pos)) {
+        if (!state.canSurvive(level, pos)) {
             if (state.getValue(WATERLOGGED)) level.setBlockAndUpdate(pos, Fluids.WATER.defaultFluidState().createLegacyBlock());
             else level.destroyBlock(pos, false);
         }
@@ -50,6 +53,13 @@ public class GlowCaneBlock extends SugarCaneBlock implements SimpleWaterloggedBl
     @Override
     protected @NotNull FluidState getFluidState(@NotNull BlockState state) {
        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
+    }
+
+    @Override
+    public @Nullable BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
+        if (context.getLevel().getFluidState(context.getClickedPos()).is(FluidTags.WATER))
+            return super.getStateForPlacement(context).setValue(WATERLOGGED, true);
+        return this.defaultBlockState();
     }
 
     @Override

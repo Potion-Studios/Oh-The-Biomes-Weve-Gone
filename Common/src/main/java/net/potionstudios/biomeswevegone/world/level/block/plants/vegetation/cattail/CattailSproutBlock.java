@@ -52,7 +52,7 @@ public class CattailSproutBlock extends Block implements SimpleWaterloggedBlock,
 
     @Nullable
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
+    public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
         if (context.getLevel().getFluidState(context.getClickedPos()).is(FluidTags.WATER))
             return super.getStateForPlacement(context).setValue(WATERLOGGED, true);
         return this.defaultBlockState();
