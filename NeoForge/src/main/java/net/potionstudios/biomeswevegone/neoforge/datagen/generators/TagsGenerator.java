@@ -169,7 +169,7 @@ public class TagsGenerator {
             tag(Tags.Blocks.VILLAGER_JOB_SITES).add(BWGBlocks.FORAGERS_TABLE.get());
             tag(Tags.Blocks.VILLAGER_FARMLANDS).add(BWGBlocks.LUSH_FARMLAND.get());
             tag(BlockTags.ENDERMAN_HOLDABLE).add(BWGBlocks.PALE_PUMPKIN.get(), BWGBlocks.CARVED_PALE_PUMPKIN.get());
-            tag(BlockTags.SWORD_EFFICIENT).add(BWGBlocks.PALE_PUMPKIN.get(), BWGBlocks.CARVED_PALE_PUMPKIN.get(), BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get());
+            tag(BlockTags.SWORD_EFFICIENT).add(BWGBlocks.PALE_PUMPKIN.get(), BWGBlocks.CARVED_PALE_PUMPKIN.get(), BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get(), BWGBlocks.PALE_JACK_O_LANTERN.get());
             sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
         }
 

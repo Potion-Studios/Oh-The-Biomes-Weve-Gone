@@ -401,6 +401,14 @@ public class RecipeGenerator extends RecipeProvider {
                 .unlockedBy(getHasName(BWGBlocks.CARVED_PALE_PUMPKIN.get()), has(BWGBlocks.CARVED_PALE_PUMPKIN.get()))
                 .unlockedBy(getHasName(BWGBlocks.PALE_PUMPKIN.get()), has(BWGBlocks.PALE_PUMPKIN.get()))
                 .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.PALE_JACK_O_LANTERN.get())
+                .define('A', BWGBlocks.CARVED_PALE_PUMPKIN.get())
+                .define('B', Items.TORCH)
+                .pattern("A")
+                .pattern("B")
+                .unlockedBy(getHasName(BWGBlocks.CARVED_PALE_PUMPKIN.get()), has(BWGBlocks.CARVED_PALE_PUMPKIN.get()))
+                .save(recipeOutput);
     }
 
     private static void sandToGlass(RecipeOutput finishedRecipeConsumer, BWGSandSet set, Item glass) {

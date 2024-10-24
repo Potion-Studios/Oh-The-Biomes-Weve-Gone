@@ -32,6 +32,7 @@ import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.catt
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cattail.CattailSproutBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cattail.FluorescentCattailPlantBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.pumpkin.EquipableCarvedPalePumpkinBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.pumpkin.PaleCarvedPumpkinBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.pumpkin.PalePumpkinBlock;
 import net.potionstudios.biomeswevegone.world.level.block.sand.BWGQuickSand;
 import net.potionstudios.biomeswevegone.world.level.block.sand.BWGSandSet;
@@ -291,6 +292,7 @@ public class BWGBlocks {
     public static final Supplier<StemBlock> PALE_PUMPKIN_STEM = registerBlock("pale_pumpkin_stem", () -> new StemBlock(ResourceKey.create(Registries.BLOCK, BiomesWeveGone.id("pale_pumpkin")), ResourceKey.create(Registries.BLOCK, BiomesWeveGone.id("attached_pale_pumpkin_stem")), ResourceKey.create(Registries.ITEM, BiomesWeveGone.id("pale_pumpkin_seeds")), BlockBehaviour.Properties.ofFullCopy(Blocks.PUMPKIN_STEM)));
     public static final Supplier<PalePumpkinBlock> PALE_PUMPKIN = registerBlockItem("pale_pumpkin", PalePumpkinBlock::new);
     public static final Supplier<EquipableCarvedPalePumpkinBlock> CARVED_PALE_PUMPKIN = registerBlockItem("carved_pale_pumpkin", EquipableCarvedPalePumpkinBlock::new);
+    public static final Supplier<PaleCarvedPumpkinBlock> PALE_JACK_O_LANTERN = registerBlockItem("pale_jack_o_lantern", PaleCarvedPumpkinBlock::new);
 
     private static FlowerBlockFeature registerFlower(String key, MapColor mapColor) {
         Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).mapColor(mapColor).noOcclusion()));

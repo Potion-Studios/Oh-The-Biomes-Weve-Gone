@@ -376,7 +376,19 @@ public class ModelGenerators {
                     return ConfiguredModel.builder().modelFile(carved).build();
                 return new ConfiguredModel[0];
             });
-
+            ModelFile jack = models().orientable(name(BWGBlocks.PALE_JACK_O_LANTERN.get()), blockBWGTexture(BWGBlocks.PALE_PUMPKIN.get(), "side"), blockBWGTexture(BWGBlocks.PALE_JACK_O_LANTERN.get()), blockBWGTexture(BWGBlocks.PALE_PUMPKIN.get(), "top"));
+            simpleBlockItem(BWGBlocks.PALE_JACK_O_LANTERN.get(), jack);
+            getVariantBuilder(BWGBlocks.PALE_JACK_O_LANTERN.get()).forAllStates(state -> {
+                if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.EAST)
+                    return ConfiguredModel.builder().rotationY(90).modelFile(jack).build();
+                else if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.WEST)
+                    return ConfiguredModel.builder().rotationY(270).modelFile(jack).build();
+                else if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.SOUTH)
+                    return ConfiguredModel.builder().rotationY(180).modelFile(jack).build();
+                else if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.NORTH)
+                    return ConfiguredModel.builder().modelFile(jack).build();
+                return new ConfiguredModel[0];
+            });
 
             models().withExistingParent(name(BWGBlocks.WITCH_HAZEL_BRANCH.get()), mcLoc("block/coral_wall_fan")).texture("fan", blockBWGTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get())).renderType("cutout_mipped");
             getVariantBuilder(BWGBlocks.WITCH_HAZEL_BRANCH.get()).forAllStatesExcept(state -> switch (state.getValue(TreeBranchBlock.FACING)) {
