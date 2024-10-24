@@ -2,13 +2,14 @@
   "type": "biomeswevegone:add_item",
   "conditions": [
     {
-      "condition": "forge:loot_table_id",
+      "condition": "neoforge:loot_table_id",
       "loot_table_id": "minecraft:gameplay/sniffer_digging"
     }
   ],
   "items": [
     "biomeswevegone:black_rose",
     "biomeswevegone:protea_flower",
-    "biomeswevegone:silver_vase_flower"
+    "biomeswevegone:silver_vase_flower",
+    "biomeswevegone:fluorescent_cattail_sprout"
   ]
 }

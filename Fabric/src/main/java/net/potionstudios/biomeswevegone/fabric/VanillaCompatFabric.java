@@ -11,6 +11,7 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGTradesConfig;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
+import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
@@ -53,7 +54,8 @@ public class VanillaCompatFabric {
                         .setRolls(ConstantValue.exactly(1))
                         .with(LootItem.lootTableItem(BWGBlocks.BLACK_ROSE.getBlock()).build())
                         .with(LootItem.lootTableItem(BWGBlocks.PROTEA_FLOWER.getBlock()).build())
-                        .with(LootItem.lootTableItem(BWGBlocks.SILVER_VASE_FLOWER.getBlock()).build());
+                        .with(LootItem.lootTableItem(BWGBlocks.SILVER_VASE_FLOWER.getBlock()).build())
+                        .with(LootItem.lootTableItem(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get()).build());
                 tableBuilder.withPool(pool);
             }
         });
