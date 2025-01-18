@@ -1,3 +1,6 @@
+# 2.4.0 -> The Village Update
+- Add Custom Biomes We've gone Villager Types to each of our Villages
+
 # 2.3.13
 - Fix Missing or Non-Existent Pool error village/pumpkin_patch/streetsa
 - Update Russian (ru_ru) Translations (Credits: rfin0)
