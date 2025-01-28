@@ -1,6 +1,7 @@
 # 2.4.0 -> The Village Update
 - Add Custom Biomes We've gone Villager Types to each of our Villages
-- Requires NeoForge 21.1.114 or newer
+- Requires NeoForge 21.1.115 or newer
+- Requires Forge 52.0.47 or newer
 
 # 2.3.13
 - Fix Missing or Non-Existent Pool error village/pumpkin_patch/streetsa
