@@ -312,7 +312,16 @@ public class BWGOverworldSurfaceRules {
             )
     );
 
-    private static final SurfaceRules.RuleSource PUMPKIN_VALLEY = biomeAbovePreliminarySurface(BWGBiomes.PUMPKIN_VALLEY, LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE);
+    private static final SurfaceRules.RuleSource PUMPKIN_VALLEY = biomeAbovePreliminarySurface(BWGBiomes.PUMPKIN_VALLEY, SurfaceRules.sequence(
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
+                    SurfaceRules.sequence(
+                            makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.LUSH_GRASS_BLOCK.get()),
+                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.LUSH_DIRT.get())
+                    )),
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE),
+            PODZOL_DIRT_SURFACE
+    ));
+
 
     private static final SurfaceRules.RuleSource RAINBOW_BEACH = biomeAbovePreliminarySurface(BWGBiomes.RAINBOW_BEACH,
         SurfaceRules.sequence(

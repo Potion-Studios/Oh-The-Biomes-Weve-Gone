@@ -158,34 +158,20 @@ public class BWGStructureProcessorLists {
 
     public static final ResourceKey<StructureProcessorList> PUMPKIN_PATCH_STREETS = register("pumpkin_patch_streets", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
-                    BWGRuleProcessors.packedMudToBlock(0.15f, BWGBlocks.LUSH_DIRT_PATH.get()),
-                    BWGRuleProcessors.packedMudToBlock(0.45f, BWGBlocks.PEAT.get()),
-                    BWGRuleProcessors.packedMudToBlock(0.4f, Blocks.COARSE_DIRT)
+                    BWGRuleProcessors.lushPathToBlock(0.15f, Blocks.PACKED_MUD),
+                    BWGRuleProcessors.lushPathToBlock(0.45f, BWGBlocks.PEAT.get()),
+                    BWGRuleProcessors.lushPathToBlock(0.4f, Blocks.COARSE_DIRT)
             )
     ));
 
     public static final ResourceKey<StructureProcessorList> PUMPKIN_PATCH_HOUSE = register("pumpkin_patch_house", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
-                    BWGRuleProcessors.packedMudToBlock(0.5f, BWGBlocks.LUSH_GRASS_BLOCK.get()),
-                    BWGRuleProcessors.packedMudToBlock(0.35f, BWGBlocks.PEAT.get()),
-                    BWGRuleProcessors.packedMudToBlock(0.1f, Blocks.COARSE_DIRT),
-                    BWGRuleProcessors.STONEBRICKS_VARIANTS,
-                    BWGRuleProcessors.STONEBRICKS_MORE_VARIANTS
-            )
-    ));
-
-    public static final ResourceKey<StructureProcessorList> PUMPKIN_PATCH_MEETING_POINT_2 = register("pumpkin_patch_meeting_point_2", structureProcessorListHolderGetter -> new StructureProcessorList(
-            ImmutableList.of(
-                    BWGRuleProcessors.COBBLESTONE_VARIANTS
-            )
-    ));
-
-    public static final ResourceKey<StructureProcessorList> PUMPKIN_PATCH_MEETING_POINT_1 = register("pumpkin_patch_meeting_point_1", structureProcessorListHolderGetter -> new StructureProcessorList(
-            ImmutableList.of(
-                    BWGRuleProcessors.COBBLESTONE_50_PERCENT_DIRT_PATH,
-                    BWGRuleProcessors.COBBLESTONE_20_PERCENT_GRASS,
-                    BWGRuleProcessors.STONEBRICKS_VARIANTS,
-                    BWGRuleProcessors.COBBLESTONE_VARIANTS
+                    BWGRuleProcessors.lushPathToBlock(0.15f, BWGBlocks.LUSH_GRASS_BLOCK.get()),
+                    BWGRuleProcessors.lushPathToBlock(0.45f, BWGBlocks.PEAT.get()),
+                    BWGRuleProcessors.lushPathToBlock(0.4f, Blocks.COARSE_DIRT),
+                    BWGRuleProcessors.DACITE_COBBLESTONE_VARIANTS,
+                    BWGRuleProcessors.SHORT_GRASS_TO_FLOWER_PUMPKIN_PATCH,
+                    BWGRuleProcessors.STRIPPED_DARK_OAK_WOOD_35_PERCENT_DARK_OAK_PLANKS
             )
     ));
 

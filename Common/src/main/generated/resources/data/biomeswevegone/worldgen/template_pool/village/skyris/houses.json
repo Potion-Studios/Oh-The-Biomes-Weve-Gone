@@ -190,7 +190,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "location": "biomeswevegone:village/skyris/houses/skyris_large_farm_1",
-        "processors": "minecraft:farm_desert",
+        "processors": "minecraft:farm_taiga",
         "projection": "rigid"
       },
       "weight": 11

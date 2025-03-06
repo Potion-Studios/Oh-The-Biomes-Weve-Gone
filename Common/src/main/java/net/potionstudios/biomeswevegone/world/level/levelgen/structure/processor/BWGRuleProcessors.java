@@ -96,6 +96,15 @@ class BWGRuleProcessors {
 		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(Blocks.PACKED_MUD, chance, newBlock));
 	}
 
+	protected static RuleProcessor lushPathToBlock(float chance, Block newBlock) {
+		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(BWGBlocks.LUSH_DIRT_PATH.get(), chance, newBlock));
+	}
+
+	protected static final RuleProcessor STRIPPED_DARK_OAK_WOOD_35_PERCENT_DARK_OAK_PLANKS = createRuleProcessor(
+			createAlwaysTrueRandomBlockMatchTest(Blocks.DARK_OAK_PLANKS, 0.35F, Blocks.STRIPPED_DARK_OAK_WOOD)
+	);
+
+
 	protected static final RuleProcessor STRIPPED_OAK_LOG_60_PERCENT_OAK_PLANKS = createRuleProcessor(
 			createAlwaysTrueRandomBlockMatchTest(Blocks.STRIPPED_OAK_LOG, 0.6F, Blocks.OAK_PLANKS)
 	);
@@ -165,6 +174,20 @@ class BWGRuleProcessors {
 			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_DACITE_SET.getBase(), 0.3f, BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase()),
 			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_DACITE_SET.getBase(), 0.1f, BWGBlocks.WHITE_DACITE_CRACKED_BRICKS_SET.getBase()),
 			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_DACITE_SET.getBase(), 0.1f, BWGBlocks.WHITE_DACITE_MOSSY_BRICKS_SET.getBase())
+	);
+
+	protected static final RuleProcessor DACITE_COBBLESTONE_VARIANTS = createRuleProcessor(
+			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.DACITE_COBBLESTONE_SET.getBase(), 0.1f, BWGBlocks.DACITE_SET.getBase()),
+			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.DACITE_COBBLESTONE_SET.getBase(), 0.25f, BWGBlocks.DACITE_BRICKS_SET.getBase()),
+			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.DACITE_COBBLESTONE_SET.getBase(), 0.1f, BWGBlocks.DACITE_CRACKED_BRICKS_SET.getBase()),
+			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.DACITE_COBBLESTONE_SET.getBase(), 0.1f, BWGBlocks.DACITE_MOSSY_BRICKS_SET.getBase())
+	);
+
+	protected static final RuleProcessor SHORT_GRASS_TO_FLOWER_PUMPKIN_PATCH = createRuleProcessor(
+			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.15f, BWGBlocks.LEAF_PILE.get()),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.15f, BWGBlocks.CLOVER_PATCH.get()),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.1f, BWGBlocks.WHITE_ANEMONE.getBlock()),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.1f, BWGBlocks.CROCUS.getBlock())
 	);
 
 	protected static final RuleProcessor STONEBRICKS_VARIANTS = createRuleProcessor(
