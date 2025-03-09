@@ -117,6 +117,8 @@ public class ModelGenerators {
         @Override
         protected void registerStatesAndModels() {
             BWGBlocks.cubeAllBlocks.forEach(block -> simpleBlockWithItem(block.get(), cubeAll(block.get())));
+            models().withExistingParent(name(BWGBlocks.LUSH_DIRT_PATH.get()), mcLoc("block/dirt_path")).texture("particle", blockBWGTexture(BWGBlocks.LUSH_DIRT.get())).texture("top", mcLoc("block/dirt_path_top")).texture("side", blockBWGTexture(BWGBlocks.LUSH_DIRT_PATH.get(), "side")).texture("bottom", blockBWGTexture(BWGBlocks.LUSH_DIRT.get()));
+            models().withExistingParent(name(BWGBlocks.SANDY_DIRT_PATH.get()), mcLoc("block/dirt_path")).texture("particle", blockBWGTexture(BWGBlocks.SANDY_DIRT.get())).texture("top", mcLoc("block/dirt_path_top")).texture("side", blockBWGTexture(BWGBlocks.SANDY_DIRT_PATH.get(), "side")).texture("bottom", blockBWGTexture(BWGBlocks.SANDY_DIRT.get()));
             BWGBlocks.BLOCKS.forEach(entry -> {
                 Block block = entry.get();
                 if (block instanceof StemBlock){
