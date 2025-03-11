@@ -175,6 +175,25 @@ public class BWGStructureProcessorLists {
             )
     ));
 
+    public static final ResourceKey<StructureProcessorList> SWAMP_STREETS = register("swamp_streets", structureProcessorListHolderGetter -> new StructureProcessorList(
+            ImmutableList.of(
+                    BWGRuleProcessors.tuffToBlock(0.15f, Blocks.MOSSY_COBBLESTONE),
+                    BWGRuleProcessors.tuffToBlock(0.5f, Blocks.POLISHED_TUFF),
+                    BWGRuleProcessors.tuffToBlock(0.5f, Blocks.TUFF_BRICKS)
+            )
+    ));
+
+    public static final ResourceKey<StructureProcessorList> SWAMP_HOUSE = register("swamp_house", structureProcessorListHolderGetter -> new StructureProcessorList(
+            ImmutableList.of(
+                    BWGRuleProcessors.tuffToBlock(0.15f, Blocks.MOSSY_COBBLESTONE),
+                    BWGRuleProcessors.tuffToBlock(0.45f, Blocks.POLISHED_TUFF),
+                    BWGRuleProcessors.tuffToBlock(0.4f, Blocks.TUFF_BRICKS),
+                    BWGRuleProcessors.grassBlockToBlock(0.1f, Blocks.MOSS_BLOCK),
+                    BWGRuleProcessors.SHORT_GRASS_TO_FLOWER_SWAMP,
+                    BWGRuleProcessors.chestToBlock(0.2f, Blocks.AIR)
+                    )
+    ));
+
     public static final ResourceKey<StructureProcessorList> MOSSIFY_10_PERCENT_WHITE_PUFFBALL = register("mossify_10_percent_white_puffball", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
                     BWGRuleProcessors.MOSSIFY_10_PERCENT,

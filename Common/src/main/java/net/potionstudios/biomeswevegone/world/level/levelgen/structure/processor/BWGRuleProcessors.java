@@ -100,6 +100,18 @@ class BWGRuleProcessors {
 		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(BWGBlocks.LUSH_DIRT_PATH.get(), chance, newBlock));
 	}
 
+	protected static RuleProcessor tuffToBlock(float chance, Block newBlock) {
+		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(Blocks.TUFF, chance, newBlock));
+	}
+
+	protected static RuleProcessor grassBlockToBlock(float chance, Block newBlock) {
+		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(Blocks.GRASS_BLOCK, chance, newBlock));
+	}
+
+	protected static RuleProcessor chestToBlock(float chance, Block newBlock) {
+		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(Blocks.CHEST, chance, newBlock));
+	}
+
 	protected static final RuleProcessor STRIPPED_DARK_OAK_WOOD_35_PERCENT_DARK_OAK_PLANKS = createRuleProcessor(
 			createAlwaysTrueRandomBlockMatchTest(Blocks.DARK_OAK_PLANKS, 0.35F, Blocks.STRIPPED_DARK_OAK_WOOD)
 	);
@@ -188,6 +200,13 @@ class BWGRuleProcessors {
 			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.15f, BWGBlocks.CLOVER_PATCH.get()),
 			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.1f, BWGBlocks.WHITE_ANEMONE.getBlock()),
 			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.1f, BWGBlocks.CROCUS.getBlock())
+	);
+
+	protected static final RuleProcessor SHORT_GRASS_TO_FLOWER_SWAMP = createRuleProcessor(
+			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.15f, BWGBlocks.PEACH_LEATHER_FLOWER.getBlock()),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.15f, BWGBlocks.CLOVER_PATCH.get()),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.1f, BWGBlocks.VIOLET_LEATHER_FLOWER.getBlock()),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.1f, Blocks.MOSS_CARPET)
 	);
 
 	protected static final RuleProcessor STONEBRICKS_VARIANTS = createRuleProcessor(

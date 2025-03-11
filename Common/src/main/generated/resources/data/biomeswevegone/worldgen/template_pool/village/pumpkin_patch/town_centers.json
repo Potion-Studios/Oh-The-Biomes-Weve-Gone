@@ -5,7 +5,7 @@
         "element_type": "minecraft:single_pool_element",
         "location": "biomeswevegone:village/pumpkin_patch/town_centers/pumpkin_patch_meeting_point_1",
         "processors": "biomeswevegone:pumpkin_patch_house",
-        "projection": "rigid"
+        "projection": "terrain_matching"
       },
       "weight": 1
     },
@@ -14,7 +14,7 @@
         "element_type": "minecraft:single_pool_element",
         "location": "biomeswevegone:village/pumpkin_patch/town_centers/pumpkin_patch_meeting_point_2",
         "processors": "biomeswevegone:pumpkin_patch_house",
-        "projection": "rigid"
+        "projection": "terrain_matching"
       },
       "weight": 1
     },
@@ -23,7 +23,7 @@
         "element_type": "minecraft:single_pool_element",
         "location": "biomeswevegone:village/pumpkin_patch/town_centers/pumpkin_patch_meeting_point_3",
         "processors": "biomeswevegone:pumpkin_patch_house",
-        "projection": "rigid"
+        "projection": "terrain_matching"
       },
       "weight": 1
     },
@@ -32,7 +32,7 @@
         "element_type": "minecraft:single_pool_element",
         "location": "biomeswevegone:village/pumpkin_patch/town_centers/pumpkin_patch_meeting_point_4",
         "processors": "biomeswevegone:pumpkin_patch_house",
-        "projection": "rigid"
+        "projection": "terrain_matching"
       },
       "weight": 1
     }

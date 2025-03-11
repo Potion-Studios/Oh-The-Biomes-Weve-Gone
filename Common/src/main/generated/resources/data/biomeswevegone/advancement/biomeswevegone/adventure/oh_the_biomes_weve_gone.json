@@ -257,6 +257,22 @@
       },
       "trigger": "minecraft:location"
     },
+    "biomeswevegone:cypress_wetlands": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "biomeswevegone:cypress_wetlands"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
     "biomeswevegone:dacite_ridges": {
       "conditions": {
         "player": [
@@ -912,6 +928,9 @@
     ],
     [
       "biomeswevegone:cypress_swamplands"
+    ],
+    [
+      "biomeswevegone:cypress_wetlands"
     ],
     [
       "biomeswevegone:dacite_ridges"

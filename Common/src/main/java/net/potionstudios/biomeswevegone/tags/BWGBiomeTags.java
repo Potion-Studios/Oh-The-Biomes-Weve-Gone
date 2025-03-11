@@ -179,6 +179,7 @@ public final class BWGBiomeTags {
         public static final TagKey<Biome> HAS_VILLAGE_SALEM = create("has_structure/village_salem");
         public static final TagKey<Biome> HAS_VILLAGE_RED_ROCK = create("has_structure/village_red_rock");
         public static final TagKey<Biome> HAS_VILLAGE_PUMPKIN_PATCH = create("has_structure/village_pumpkin_patch");
+        public static final TagKey<Biome> HAS_VILLAGE_SWAMP = create("has_structure/village_swamp");
     }
 
     private static TagKey<Biome> create(String name) {

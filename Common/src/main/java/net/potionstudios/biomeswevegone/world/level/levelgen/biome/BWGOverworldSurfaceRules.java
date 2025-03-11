@@ -379,6 +379,16 @@ public class BWGOverworldSurfaceRules {
             makeifTrueRule(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), BWGBlocks.WHITE_DACITE_SET.getBase())
     ));
 
+    private static final SurfaceRules.RuleSource CYPRESS_WETLANDS = biomeAbovePreliminarySurface(BWGBiomes.CYPRESS_WETLANDS, SurfaceRules.sequence(
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
+                    SurfaceRules.sequence(
+                            makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.GRASS_BLOCK),
+                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT)
+                    )),
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), PODZOL_DIRT_SURFACE),
+            PEAT_SURFACE, MUD_SURFACE
+    ));
+
     private static final SurfaceRules.RuleSource WEEPING_WITCH_FOREST = biomeAbovePreliminarySurface(BWGBiomes.WEEPING_WITCH_FOREST, SurfaceRules.sequence(
             makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
                     SurfaceRules.sequence(
@@ -440,8 +450,9 @@ public class BWGOverworldSurfaceRules {
                 SIERRA_BADLANDS,
                 SKYRIS_VALE,
                 WEEPING_WITCH_FOREST,
-                WINDSWEPT_DESERT
-        );
+                WINDSWEPT_DESERT,
+                CYPRESS_WETLANDS
+                );
     }
 
     // Helper methods

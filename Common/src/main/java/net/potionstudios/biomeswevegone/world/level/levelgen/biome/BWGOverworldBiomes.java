@@ -502,6 +502,40 @@ class BWGOverworldBiomes {
         return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(6337104).foliageColorOverride(6337104).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).backgroundMusic(music).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
+    protected static Biome cypressWetlands(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
+        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
+        OverworldBiomes.globalOverworldGeneration(generationSettings);
+        BiomeDefaultFeatures.addDefaultOres(generationSettings);
+        BWGOverworldDefaultFeatures.addSwampDelta(generationSettings);
+
+        BiomeDefaultFeatures.addSwampClayDisk(generationSettings);
+        BiomeDefaultFeatures.addSavannaGrass(generationSettings);
+        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
+        BiomeDefaultFeatures.addSwampExtraVegetation(generationSettings);
+        addVegetal(generationSettings, AquaticPlacements.SEAGRASS_SWAMP);
+        BWGOverworldDefaultFeatures.addOakBushes(generationSettings);
+
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.SPARSE_CYPRESS_TREES);
+        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.MANGROVE_SWAMP_WATER_VEGETATION);
+        BWGOverworldDefaultFeatures.addBWGSwampVegetation(generationSettings);
+        BWGOverworldDefaultFeatures.addExtraCattails(generationSettings);
+        BWGOverworldDefaultFeatures.addSparseFluorscentCattails(generationSettings);
+        BWGOverworldDefaultFeatures.addShrub(generationSettings);
+        BWGOverworldDefaultFeatures.addLeatherFlowers(generationSettings);
+        BWGOverworldDefaultFeatures.addMudDisks(generationSettings);
+        BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
+
+        MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.commonSpawns(spawnSettings);
+        addSpawn(spawnSettings, EntityType.SLIME, 1, 1, 1);
+        addSpawn(spawnSettings, EntityType.FROG, 10, 2, 5);
+        addSpawn(spawnSettings, EntityType.TROPICAL_FISH, 25, 8, 8);
+
+        Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SWAMP);
+        float temperature = 0.8F;
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorModifier(BiomeSpecialEffects.GrassColorModifier.SWAMP).foliageColorOverride(6975545).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).backgroundMusic(music).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+    }
     protected static Biome lushStacks(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = OverworldBiomes.baseOceanGeneration(placedFeatureGetter, carverGetter);
         addRawGeneration(generationSettings, BWGPlacedFeatures.LUSH_ROUNDED_ROCK);

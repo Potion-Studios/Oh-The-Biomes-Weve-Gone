@@ -285,6 +285,17 @@ public class BWGStructures {
                     Heightmap.Types.WORLD_SURFACE_WG
             )));
 
+    public static final ResourceKey<Structure> SWAMP_VILLAGE = register("village/swamp", (structureFactoryBootstapContext ->
+            createJigsawWithExpansion(
+                    structure(structureFactoryBootstapContext.lookup(Registries.BIOME).getOrThrow(BWGBiomeTags.StructureHasTags.HAS_VILLAGE_SWAMP),
+                            TerrainAdjustment.BEARD_THIN),
+                    structureFactoryBootstapContext.lookup(Registries.TEMPLATE_POOL).getOrThrow(BWGVillageTemplatePools.SWAMP_TOWN_CENTERS),
+                    6,
+                    ConstantHeight.of(VerticalAnchor.absolute(1)),
+                    Heightmap.Types.WORLD_SURFACE_WG
+            )));
+
+
     private static ResourceKey<Structure> register(String id, StructureFactory factory) {
         ResourceKey<Structure> structureSetResourceKey = BiomesWeveGone.key(Registries.STRUCTURE, id);
         STRUCTURE_FACTORIES.put(structureSetResourceKey, factory);

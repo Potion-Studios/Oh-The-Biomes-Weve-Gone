@@ -151,7 +151,7 @@
         "processors": "biomeswevegone:pumpkin_patch_house",
         "projection": "rigid"
       },
-      "weight": 2
+      "weight": 1
     },
     {
       "element": {
@@ -160,7 +160,7 @@
         "processors": "biomeswevegone:pumpkin_patch_house",
         "projection": "rigid"
       },
-      "weight": 2
+      "weight": 1
     },
     {
       "element": {

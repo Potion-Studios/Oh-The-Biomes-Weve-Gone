@@ -12,6 +12,9 @@
     "biomeswevegone:cypress_swamplands": {
       "villager_type": "minecraft:swamp"
     },
+    "biomeswevegone:cypress_wetlands": {
+      "villager_type": "minecraft:swamp"
+    },
     "biomeswevegone:mojave_desert": {
       "villager_type": "minecraft:desert"
     },

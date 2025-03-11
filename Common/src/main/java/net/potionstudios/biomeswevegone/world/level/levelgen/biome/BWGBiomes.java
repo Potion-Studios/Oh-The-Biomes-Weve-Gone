@@ -40,7 +40,9 @@ public class BWGBiomes {
     public static final ResourceKey<Biome> CONIFEROUS_FOREST = createBiome("coniferous_forest", (placedFeatureHolderGetter, carverHolderGetter) -> BWGOverworldBiomes.coniferousForest(placedFeatureHolderGetter, carverHolderGetter, false), BWGBiomeTags.FOREST, BWGBiomeTags.CONIFEROUS, BiomeTags.HAS_VILLAGE_TAIGA, BiomeTags.HAS_PILLAGER_OUTPOST);
     public static final ResourceKey<Biome> CRAG_GARDENS = createBiome("crag_gardens", BWGOverworldBiomes::cragGardens, BWGBiomeTags.JUNGLE, BWGBiomeTags.MOUNTAIN, BWGBiomeTags.DENSE);
     public static final ResourceKey<Biome> CRIMSON_TUNDRA = createBiome("crimson_tundra", BWGOverworldBiomes::crimsonTundra, BWGBiomeTags.PLAINS);
-    public static final ResourceKey<Biome> CYPRESS_SWAMPLANDS = createBiome("cypress_swamplands", BWGOverworldBiomes::cypressSwamplands, BWGBiomeTags.SWAMP);
+    public static final ResourceKey<Biome> CYPRESS_SWAMPLANDS = createBiome("cypress_swamplands", BWGOverworldBiomes::cypressSwamplands, BWGBiomeTags.SWAMP, BWGBiomeTags.StructureHasTags.HAS_VILLAGE_SWAMP);
+    public static final ResourceKey<Biome> CYPRESS_WETLANDS = createBiome("cypress_wetlands", BWGOverworldBiomes::cypressWetlands, BWGBiomeTags.SWAMP, BWGBiomeTags.StructureHasTags.HAS_VILLAGE_SWAMP);
+
     public static final ResourceKey<Biome> DACITE_RIDGES = createBiome("dacite_ridges", BWGOverworldBiomes::daciteRidges, BWGBiomeTags.FOREST, BWGBiomeTags.CONIFEROUS);
     public static final ResourceKey<Biome> DACITE_SHORE = createBiome("dacite_shore", BWGOverworldBiomes::daciteShore, BWGBiomeTags.BEACH, BWGBiomeTags.WASTELAND, BiomeTags.HAS_BURIED_TREASURE);
     public static final ResourceKey<Biome> DEAD_SEA = createBiome("dead_sea", BWGOverworldBiomes::deadSea, BWGBiomeTags.OCEAN, BWGBiomeTags.DEAD, BWGBiomeTags.WASTELAND, BWGBiomeTags.DRIPSTONE_ARCH);
