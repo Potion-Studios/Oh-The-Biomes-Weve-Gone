@@ -1,5 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.biome.features;
 
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -211,6 +212,15 @@ public class BWGOverworldDefaultFeatures {
 
     public static void addFluorscentCattails(BiomeGenerationSettings.Builder gen) {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.FLUORESCENT_CATTAILS);
+    }
+
+    public static void addPaleGardenVegetation(BiomeGenerationSettings.Builder gen) {
+        addVegetal(gen, VegetationPlacements.PALE_MOSS_PATCH);
+        addVegetal(gen, VegetationPlacements.PALE_GARDEN_FLOWERS);
+    }
+
+    public static void addPaleEyeBlossomFlowers(BiomeGenerationSettings.Builder gen) {
+        addVegetal(gen, VegetationPlacements.FLOWER_PALE_GARDEN);
     }
 
     private static void addVegetal(BiomeGenerationSettings.@NotNull Builder builder, ResourceKey<PlacedFeature> feature) {

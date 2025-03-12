@@ -1,3 +1,6 @@
+# 3.0.0
+- Update to 1.21.4
+
 # 2.3.10 (Forge/NeoForge Only)
 - Fix Lush Grass Block, Overgrown Stone and Dacite Missing Cutout Render type
 

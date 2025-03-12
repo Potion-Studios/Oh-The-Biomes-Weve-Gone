@@ -3,7 +3,6 @@ package net.potionstudios.biomeswevegone.neoforge;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ShovelItem;
@@ -14,7 +13,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
-import net.neoforged.neoforge.event.entity.living.EnderManAngerEvent;
 import net.neoforged.neoforge.event.entity.player.BonemealEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
@@ -55,7 +53,6 @@ public class VanillaCompatNeoForge {
         }
         bus.addListener(VanillaCompatNeoForge::onBoneMealUse);
         bus.addListener(VanillaCompatNeoForge::registerBrewingRecipes);
-        bus.addListener(VanillaCompatNeoForge::onEnderManAnger);
         bus.addListener(VanillaCompatNeoForge::onVillagerInteract);
     }
 
@@ -106,15 +103,6 @@ public class VanillaCompatNeoForge {
      */
     private static void registerBrewingRecipes(final RegisterBrewingRecipesEvent event) {
         BWGBrewingRecipes.buildBrewingRecipes(event.getBuilder()::addMix);
-    }
-
-    /**
-     * Handle Enderman anger.
-     * @see EnderManAngerEvent
-     */
-    private static void onEnderManAnger(final EnderManAngerEvent event) {
-        if (event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem()))
-            event.setCanceled(true);
     }
 
     /**

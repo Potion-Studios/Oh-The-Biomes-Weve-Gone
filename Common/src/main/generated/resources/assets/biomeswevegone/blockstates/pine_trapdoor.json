@@ -45,7 +45,8 @@
     },
     "facing=south,half=top,open=true": {
       "model": "biomeswevegone:block/pine_trapdoor_open",
-      "x": 180
+      "x": 180,
+      "y": 0
     },
     "facing=west,half=bottom,open=false": {
       "model": "biomeswevegone:block/pine_trapdoor_bottom",

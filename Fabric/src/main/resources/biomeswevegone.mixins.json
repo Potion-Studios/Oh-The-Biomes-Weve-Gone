@@ -4,12 +4,10 @@
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
   "client": [
-    "PalePumpkinOverlayMixin"
   ],
   "mixins": [
     "AttachedStemBlockMixin",
     "CropBlockMixin",
-    "EnderManMixin",
     "PitcherCropBlockMixin",
     "GrassBlockBoneMealMixin",
     "StemBlockMixin"

@@ -53,18 +53,18 @@
     ],
     "color=default,half=upper": [
       {
-        "model": "biomeswevegone:block/fluorescent_cattail_default"
+        "model": "biomeswevegone:block/fluorescent_cattail"
       },
       {
-        "model": "biomeswevegone:block/fluorescent_cattail_default",
+        "model": "biomeswevegone:block/fluorescent_cattail",
         "y": 90
       },
       {
-        "model": "biomeswevegone:block/fluorescent_cattail_default",
+        "model": "biomeswevegone:block/fluorescent_cattail",
         "y": 180
       },
       {
-        "model": "biomeswevegone:block/fluorescent_cattail_default",
+        "model": "biomeswevegone:block/fluorescent_cattail",
         "y": 270
       }
     ],

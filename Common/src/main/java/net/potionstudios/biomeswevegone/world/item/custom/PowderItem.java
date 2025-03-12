@@ -6,8 +6,8 @@ import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.catt
 public class PowderItem extends Item {
     private final ColorProperty colorProperty;
 
-    public PowderItem(ColorProperty colorProperty) {
-        super(new Item.Properties());
+    public PowderItem(Item.Properties properties, ColorProperty colorProperty) {
+        super(properties);
         this.colorProperty = colorProperty;
     }
 

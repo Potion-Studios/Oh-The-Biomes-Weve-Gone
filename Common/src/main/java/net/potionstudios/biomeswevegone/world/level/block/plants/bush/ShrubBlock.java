@@ -13,12 +13,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.grower.TreeGrower;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -29,10 +27,10 @@ public class ShrubBlock extends BushBlock implements BonemealableBlock {
 
 	private static final IntegerProperty STAGE = BlockStateProperties.STAGE;
 	private final @Nullable Supplier<TreeGrower> treeGrower;
-	private static final MapCodec<ShrubBlock> CODEC = MapCodec.unit(() -> new ShrubBlock(null));
+	private static final MapCodec<ShrubBlock> CODEC = MapCodec.unit(() -> new ShrubBlock(null, null));
 
-	public ShrubBlock(@Nullable Supplier<TreeGrower> treeGrower) {
-		super(BlockBehaviour.Properties.of().noCollission().noOcclusion().sound(SoundType.SWEET_BERRY_BUSH).mapColor(MapColor.COLOR_GREEN));
+	public ShrubBlock(Properties properties, @Nullable Supplier<TreeGrower> treeGrower) {
+		super(properties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(STAGE, 0));
 		this.treeGrower = treeGrower;
 	}

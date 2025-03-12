@@ -103,7 +103,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0D).add(Attributes.MOVEMENT_SPEED, 0.4D);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0D).add(Attributes.MOVEMENT_SPEED, 0.4D).add(Attributes.TEMPT_RANGE, 16.0D);
     }
 
     @Override
@@ -264,11 +264,10 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     }
 
     @Override
-    public @Nullable SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
+    public @Nullable SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull EntitySpawnReason spawnReason, @Nullable SpawnGroupData spawnGroupData) {
         this.setVariant(Variant.getSpawnVariant(level.getRandom()));
-        return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
+        return super.finalizeSpawn(level, difficulty, spawnReason, spawnGroupData);
     }
-
 
     @Override
     public boolean canBeLeashed() {
@@ -476,7 +475,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         if (entity instanceof Villager villager && villager.isBaby() && villager.hasEffect(MobEffects.WEAKNESS)) {
             if (stack.is(Items.CARVED_PUMPKIN) || stack.is(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem())) {
                 if (level instanceof ServerLevel serverLevel) {
-                    PumpkinWarden warden = BWGEntities.PUMPKIN_WARDEN.get().create(serverLevel);
+                    PumpkinWarden warden = BWGEntities.PUMPKIN_WARDEN.get().create(serverLevel, EntitySpawnReason.TRIGGERED);
                     warden.setPos(villager.position());
                     if (stack.is(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem()))
                         warden.setVariant(PumpkinWarden.Variant.PALE);

@@ -28,6 +28,7 @@ import net.potionstudios.biomeswevegone.world.level.block.plants.tree.leaves.BWG
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.sapling.BWGSaplingBlock;
 
 import java.util.ArrayList;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
@@ -45,14 +46,14 @@ public class BWGWood {
     public static final BWGWoodSet ASPEN = new BWGWoodSet("aspen", MapColor.QUARTZ, BWGTreeGrowers.ASPEN);
     public static final BWGWoodSet BAOBAB = new BWGWoodSet("baobab", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.BAOBAB);
     public static final BWGWoodSet BLUE_ENCHANTED = new BWGWoodSet("blue_enchanted", MapColor.COLOR_BLUE, BWGTreeGrowers.BLUE_ENCHANTED, true);
-    public static final Supplier<ImbuedBlock> IMBUED_BLUE_ENCHANTED_WOOD = registerBlockItem("imbued_blue_enchanted_wood", () -> new ImbuedBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE)));
+    public static final Supplier<ImbuedBlock> IMBUED_BLUE_ENCHANTED_WOOD = registerBlockItem("imbued_blue_enchanted_wood", ImbuedBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE));
     public static final BWGWoodSet CIKA = new BWGWoodSet("cika", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.CIKA);
     public static final BWGWoodSet CYPRESS = new BWGWoodSet("cypress", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.CYPRESS);
     public static final BWGWoodSet EBONY = new BWGWoodSet("ebony", MapColor.COLOR_BLACK, BWGTreeGrowers.EBONY);
     public static final BWGWoodSet FIR = new BWGWoodSet("fir", MapColor.TERRACOTTA_WHITE,BWGTreeGrowers.FIR);
     public static final BWGWoodSet FLORUS = new BWGWoodSet(new BlockSetType("florus"), MapColor.COLOR_GREEN, BWGWoodSet.LogStem.STEM, null, false, false, null);
     public static final BWGWoodSet GREEN_ENCHANTED = new BWGWoodSet("green_enchanted", MapColor.COLOR_LIGHT_GREEN, BWGTreeGrowers.GREEN_ENCHANTED, true);
-    public static final Supplier<ImbuedBlock> IMBUED_GREEN_ENCHANTED_WOOD = registerBlockItem("imbued_green_enchanted_wood", () -> new ImbuedBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN)));
+    public static final Supplier<ImbuedBlock> IMBUED_GREEN_ENCHANTED_WOOD = registerBlockItem("imbued_green_enchanted_wood", ImbuedBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN));
     public static final BWGWoodSet HOLLY = new BWGWoodSet("holly", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.HOLLY);
     public static final BWGWoodSet IRONWOOD = new BWGWoodSet("ironwood", MapColor.COLOR_GRAY, BWGTreeGrowers.IRONWOOD);
     public static final BWGWoodSet JACARANDA = new BWGWoodSet("jacaranda", MapColor.COLOR_PINK, BWGTreeGrowers.JACARANDA);
@@ -67,18 +68,18 @@ public class BWGWood {
     public static final PottedBlock YELLOW_SAKURA_SAPLING = createSapling("yellow_sakura", BWGTreeGrowers.YELLOW_SAKURA, BlockTags.DIRT);
     public static final BWGWoodSet SKYRIS = new BWGWoodSet("skyris", MapColor.COLOR_LIGHT_BLUE, BWGTreeGrowers.SKYRIS);
     public static final BWGWoodSet SPIRIT = new BWGWoodSet(BlockSetType.register(new BlockSetType("spirit", true, true, true, BlockSetType.PressurePlateSensitivity.EVERYTHING, SoundType.NETHER_WOOD, SoundEvents.NETHER_WOOD_DOOR_CLOSE, SoundEvents.NETHER_WOOD_DOOR_OPEN, SoundEvents.NETHER_WOOD_TRAPDOOR_CLOSE, SoundEvents.NETHER_WOOD_TRAPDOOR_OPEN, SoundEvents.NETHER_WOOD_PRESSURE_PLATE_CLICK_OFF, SoundEvents.NETHER_WOOD_PRESSURE_PLATE_CLICK_ON, SoundEvents.NETHER_WOOD_BUTTON_CLICK_OFF, SoundEvents.NETHER_WOOD_BUTTON_CLICK_ON)), MapColor.COLOR_LIGHT_GRAY, BWGTreeGrowers.SPIRIT, false);
-    public static final Supplier<MangroveRootsBlock> SPIRIT_ROOTS = registerBlockItem("spirit_roots", () -> new MangroveRootsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_ROOTS).sound(SoundType.NETHER_WOOD)));
+    public static final Supplier<MangroveRootsBlock> SPIRIT_ROOTS = registerBlockItem("spirit_roots", MangroveRootsBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_ROOTS).sound(SoundType.NETHER_WOOD));
     public static final BWGWoodSet WHITE_MANGROVE = new BWGWoodSet("white_mangrove", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.WHITE_MANGROVE);
     public static final BWGWoodSet WILLOW = new BWGWoodSet("willow", MapColor.COLOR_GREEN, BWGTreeGrowers.WILLOW);
     public static final BWGWoodSet WITCH_HAZEL = new BWGWoodSet("witch_hazel", MapColor.COLOR_GREEN, BWGTreeGrowers.WITCH_HAZEL);
     public static final BWGWoodSet ZELKOVA = new BWGWoodSet("zelkova", MapColor.COLOR_ORANGE, BWGTreeGrowers.ZELKOVA);
 
-    public static final Supplier<RotatedPillarBlock> PALO_VERDE_LOG = registerBlockItem("palo_verde_log", () -> (RotatedPillarBlock) Blocks.log(MapColor.COLOR_GREEN, MapColor.COLOR_GREEN));
-    public static final Supplier<RotatedPillarBlock> PALO_VERDE_WOOD = registerBlockItem("palo_verde_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava()));
-    public static final Supplier<RotatedPillarBlock> STRIPPED_PALO_VERDE_LOG = registerBlockItem("stripped_palo_verde_log", () -> (RotatedPillarBlock) Blocks.log(MapColor.COLOR_GREEN, MapColor.COLOR_GREEN));
-    public static final Supplier<RotatedPillarBlock> STRIPPED_PALO_VERDE_WOOD = registerBlockItem("stripped_palo_verde_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava()));
+    public static final Supplier<RotatedPillarBlock> PALO_VERDE_LOG = registerBlockItem("palo_verde_log", RotatedPillarBlock::new, Blocks.logProperties(MapColor.COLOR_GREEN, MapColor.COLOR_GREEN, SoundType.WOOD));
+    public static final Supplier<RotatedPillarBlock> PALO_VERDE_WOOD = registerBlockItem("palo_verde_wood", RotatedPillarBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava());
+    public static final Supplier<RotatedPillarBlock> STRIPPED_PALO_VERDE_LOG = registerBlockItem("stripped_palo_verde_log", RotatedPillarBlock::new, Blocks.logProperties(MapColor.COLOR_GREEN, MapColor.COLOR_GREEN, SoundType.WOOD));
+    public static final Supplier<RotatedPillarBlock> STRIPPED_PALO_VERDE_WOOD = registerBlockItem("stripped_palo_verde_wood", RotatedPillarBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava());
 
-    public static final Supplier<LeavesBlock> PALO_VERDE_LEAVES = registerBlockItem("palo_verde_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)));
+    public static final Supplier<LeavesBlock> PALO_VERDE_LEAVES = registerBlockItem("palo_verde_leaves", LeavesBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES));
 
     public static final PottedBlock PALO_VERDE_SAPLING = createSapling("palo_verde", BWGTreeGrowers.PALO_VERDE, BlockTags.SAND);
 
@@ -129,8 +130,8 @@ public class BWGWood {
     public static final Supplier<LeavesBlock> RED_OAK_LEAVES = registerLeaves("red_oak", MapColor.COLOR_RED);
     public static final Supplier<LeavesBlock> RED_SPRUCE_LEAVES = registerLeaves("red_spruce", MapColor.COLOR_RED);
     public static final Supplier<LeavesBlock> SILVER_MAPLE_LEAVES = registerLeaves("silver_maple", BWGParticles.SILVER_MAPLE_LEAVES, MapColor.COLOR_LIGHT_GRAY);
-    public static final Supplier<LeavesBlock> SPIRIT_LEAVES = registerNonSetBlockItem("spirit_leaves", () -> new BWGLeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES).mapColor(MapColor.COLOR_LIGHT_GRAY), BWGParticles.SPIRIT_LEAVES));
-    public static final Supplier<LeavesBlock> FLOWERING_SPIRIT_LEAVES = registerNonSetBlockItem("flowering_spirit_leaves", () -> new BWGLeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES).lightLevel(light -> 6).mapColor(MapColor.COLOR_LIGHT_GRAY), BWGParticles.SPIRIT_LEAVES));
+    public static final Supplier<LeavesBlock> SPIRIT_LEAVES = registerNonSetBlockItem("spirit_leaves", properties -> new BWGLeavesBlock(properties, BWGParticles.SPIRIT_LEAVES), BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES).mapColor(MapColor.COLOR_LIGHT_GRAY));
+    public static final Supplier<LeavesBlock> FLOWERING_SPIRIT_LEAVES = registerNonSetBlockItem("flowering_spirit_leaves", properties -> new BWGLeavesBlock(properties, BWGParticles.SPIRIT_LEAVES), BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES).lightLevel(light -> 6).mapColor(MapColor.COLOR_LIGHT_GRAY));
     public static final Supplier<LeavesBlock> SKYRIS_LEAVES_GREEN_APPLE = registerLeaves("green_apple_skyris", BWGBlocks.GREEN_APPLE_FRUIT_BLOCK, MapColor.COLOR_PINK, 0.04F);
     public static final Supplier<LeavesBlock> FLOWERING_SKYRIS_LEAVES = registerLeaves("flowering_skyris", MapColor.COLOR_PINK, BWGWood.SKYRIS_LEAVES_GREEN_APPLE, 0.02F);
     public static final Supplier<LeavesBlock> FLOWERING_IRONWOOD_LEAVES = registerLeaves("flowering_ironwood", BWGParticles.IRONWOOD_LEAVES, MapColor.COLOR_LIGHT_GREEN);
@@ -138,30 +139,30 @@ public class BWGWood {
     public static final Supplier<LeavesBlock> YELLOW_SAKURA_LEAVES = registerSakuraLeaves("yellow_sakura", BWGParticles.YELLOW_SAKURA_LEAVES, MapColor.COLOR_YELLOW);
     public static final Supplier<LeavesBlock> YELLOW_BIRCH_LEAVES = registerLeaves("yellow_birch", MapColor.COLOR_YELLOW);
     public static final Supplier<LeavesBlock> YELLOW_SPRUCE_LEAVES = registerLeaves("yellow_spruce", MapColor.COLOR_YELLOW);
-    public static final Supplier<LeavesBlock> FIRECRACKER_LEAVES = registerNonSetBlockItem("firecracker_leaves", () -> new BWGFireCrackerLeaves(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(MapColor.COLOR_GREEN)));
+    public static final Supplier<LeavesBlock> FIRECRACKER_LEAVES = registerNonSetBlockItem("firecracker_leaves", BWGFireCrackerLeaves::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(MapColor.COLOR_GREEN));
 
     private static Supplier<LeavesBlock> registerGlowingLeaves(String key, MapColor mapColor) {
-        return registerNonSetBlockItem(key + "_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor).lightLevel(state -> 8)));
+        return registerNonSetBlockItem(key + "_leaves", LeavesBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor).lightLevel(state -> 8));
     }
 
     private static Supplier<LeavesBlock> registerLeaves(String key, MapColor mapColor) {
-        return registerNonSetBlockItem(key + "_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor)));
+        return registerNonSetBlockItem(key + "_leaves", LeavesBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor));
     }
 
     private static Supplier<LeavesBlock> registerLeaves(String key, Supplier<SimpleParticleType> particleType, MapColor mapColor) {
-        return registerNonSetBlockItem(key + "_leaves", () -> new BWGLeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor), particleType));
+        return registerNonSetBlockItem(key + "_leaves", properties -> new BWGLeavesBlock(properties, particleType), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor));
     }
 
     private static Supplier<LeavesBlock> registerSakuraLeaves(String key, Supplier<SimpleParticleType> particleType, MapColor mapColor) {
-        return registerNonSetBlockItem(key + "_leaves", () -> new BWGLeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES).mapColor(mapColor), particleType));
+        return registerNonSetBlockItem(key + "_leaves", properties -> new BWGLeavesBlock(properties, particleType), BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES).mapColor(mapColor));
     }
 
     private static Supplier<LeavesBlock> registerLeaves(String key, MapColor mapColor, Supplier<LeavesBlock> ripeLeaves, float chance) {
-        return registerNonSetBlockItem(key + "_leaves", () -> new BWGChangingLeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor), ripeLeaves, chance));
+        return registerNonSetBlockItem(key + "_leaves", properties -> new BWGChangingLeavesBlock(properties, ripeLeaves, chance), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor));
     }
 
     private static Supplier<LeavesBlock> registerLeaves(String key, Supplier<BWGFruitBlock> bwgFruitBlockSupplier, MapColor mapColor, float chance) {
-        return registerNonSetBlockItem(key + "_leaves", () -> new BWGFruitLeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor), bwgFruitBlockSupplier, chance));
+        return registerNonSetBlockItem(key + "_leaves", properties -> new BWGFruitLeavesBlock(properties, bwgFruitBlockSupplier, chance), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor));
     }
 
     protected static PottedBlock createNonSetSapling(String key, Supplier<TreeGrower> grower, TagKey<Block> ground) {
@@ -172,31 +173,37 @@ public class BWGWood {
     }
     
     protected static PottedBlock createSapling(String key, Supplier<TreeGrower> grower, TagKey<Block> ground) {
-        Supplier<SaplingBlock> sapling = registerBlockItem(key + "_sapling", () -> new BWGSaplingBlock(ground, grower.get()));
-        return new PottedBlock(sapling, register("potted_" + key + "_sapling", PlatformHandler.PLATFORM_HANDLER.createPottedBlock(sapling)));
+        Supplier<SaplingBlock> sapling = registerBlockItem(key + "_sapling", properties -> new BWGSaplingBlock(properties, ground, grower.get()), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING));
+        return new PottedBlock(sapling, register("potted_" + key + "_sapling", properties -> PlatformHandler.PLATFORM_HANDLER.createPottedBlock(sapling, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
     }
 
-    private static <B extends Block> Supplier<B> registerNonSetBlockItem(String key, Supplier<B> blockSupplier) {
-        Supplier<B> block = register(key, blockSupplier);
-        NONSET_WOOD.add(block);
-        registerItem(key, () -> new BlockItem(block.get(), new Item.Properties()));
-        return block;
+    private static <B extends Block> Supplier<B> registerNonSetBlockItem(String key, Function<BlockBehaviour.Properties, B> block, BlockBehaviour.Properties properties) {
+        Supplier<B> holder = register(key, block, properties);
+        NONSET_WOOD.add(holder);
+        registerItem(key, properties1 -> new BlockItem(holder.get(), properties1), new Item.Properties().useBlockDescriptionPrefix());
+        return holder;
     } 
     
-    protected static <B extends Block> Supplier<B> registerBlockItem(String key, Supplier<B> blockSupplier) {
-        Supplier<B> block = register(key, blockSupplier);
-        registerItem(key, () -> new BlockItem(block.get(), new Item.Properties()));
-        return block;
+    protected static <B extends Block> Supplier<B> registerBlockItem(String key, Function<BlockBehaviour.Properties, B> block, BlockBehaviour.Properties properties) {
+        Supplier<B> holder = register(key, block, properties);
+        registerItem(key, properties1 -> new BlockItem(holder.get(), properties1), new Item.Properties().useBlockDescriptionPrefix());
+        return holder;
     }
 
-    protected static <B extends Block> Supplier<B> register(String id, Supplier<B> blockSupplier) {
-        Supplier<B> block = BWGBlocks.register(id, blockSupplier);
-        WOOD.add(block);
-        return block;
+    protected static <B extends Block> Supplier<B> register(String id, Function<BlockBehaviour.Properties, B> block, BlockBehaviour.Properties properties) {
+        Supplier<B> holder = BWGBlocks.register(id, block, properties);
+        WOOD.add(holder);
+        return holder;
     }
 
-    protected static <I extends Item> Supplier<I> registerItem(String id, Supplier<I> item) {
-        Supplier<I> supplier = BWGItems.register(id, item);
+    protected static <B extends Block> Supplier<B> register(String id, Supplier<B> block) {
+        Supplier<B> holder = BWGBlocks.register(id, block);
+        WOOD.add(holder);
+        return holder;
+    }
+
+    protected static <I extends Item> Supplier<I> registerItem(String id, Function<Item.Properties, I> item, Item.Properties properties) {
+        Supplier<I> supplier = BWGItems.register(id, item, properties);
         WOOD_BLOCK_ITEMS.add(supplier);
         return supplier;
     }

@@ -5,13 +5,12 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -28,18 +27,18 @@ public class FluorescentCattailPlantBlock extends CattailPlantBlock {
 
 	public static final EnumProperty<ColorProperty> COLOR = EnumProperty.create("color", ColorProperty.class);
 
-	public FluorescentCattailPlantBlock(Supplier<Supplier<Item>> sprout) {
-		super(BlockBehaviour.Properties.of().noCollission().noCollission().sound(SoundType.WET_GRASS).strength(0.0F).lightLevel(level -> 12), sprout);
+	public FluorescentCattailPlantBlock(BlockBehaviour.Properties properties, Supplier<Supplier<Item>> sprout) {
+		super(properties, sprout);
 		this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER).setValue(WATERLOGGED, false).setValue(COLOR, ColorProperty.NO_COLOR));
 	}
 
 	@Override
-	protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
+	protected @NotNull InteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
 		if (stack.getItem() instanceof PowderItem powderItem && (state.getValue(COLOR) == ColorProperty.NO_COLOR || player.isCreative())) {
 			level.playSound(player, pos, SoundEvents.HONEYCOMB_WAX_ON, SoundSource.BLOCKS);
 			level.setBlockAndUpdate(pos, state.setValue(COLOR, powderItem.getColor()));
 			if (!player.isCreative()) stack.shrink(1);
-			return ItemInteractionResult.SUCCESS;
+			return InteractionResult.SUCCESS;
 		}
 		return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
 	}

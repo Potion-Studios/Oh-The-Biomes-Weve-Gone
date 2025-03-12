@@ -1,4 +1,7 @@
 {
-  "parent": "minecraft:block/attached_pumpkin_stem",
-  "render_type": "minecraft:cutout"
+  "parent": "minecraft:block/stem_fruit",
+  "textures": {
+    "stem": "minecraft:block/pumpkin_stem",
+    "upperstem": "minecraft:block/attached_pumpkin_stem"
+  }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "axis=x": {
-      "model": "biomeswevegone:block/stripped_cika_wood",
+      "model": "biomeswevegone:block/stripped_cika_wood_horizontal",
       "x": 90,
       "y": 90
     },
@@ -9,7 +9,7 @@
       "model": "biomeswevegone:block/stripped_cika_wood"
     },
     "axis=z": {
-      "model": "biomeswevegone:block/stripped_cika_wood",
+      "model": "biomeswevegone:block/stripped_cika_wood_horizontal",
       "x": 90
     }
   }

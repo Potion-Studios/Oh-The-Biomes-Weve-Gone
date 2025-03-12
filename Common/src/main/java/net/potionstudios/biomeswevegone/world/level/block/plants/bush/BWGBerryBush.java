@@ -10,9 +10,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SweetBerryBushBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
@@ -31,12 +29,8 @@ public class BWGBerryBush extends SweetBerryBushBlock {
         this.hurtEntityInside = hurtEntityInside;
     }
 
-    public BWGBerryBush(Supplier<Supplier<Item>> item, boolean hurtEntityInside) {
-        this(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH), item, hurtEntityInside);
-    }
-
     @Override
-    public @NotNull ItemStack getCloneItemStack(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state) {
+    protected @NotNull ItemStack getCloneItemStack(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state, boolean includeData) {
         return item.get().get().getDefaultInstance();
     }
 
@@ -50,7 +44,7 @@ public class BWGBerryBush extends SweetBerryBushBlock {
             BlockState blockState = state.setValue(AGE, 1);
             level.setBlock(pos, blockState, 2);
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, blockState));
-            return InteractionResult.sidedSuccess(level.isClientSide());
+            return InteractionResult.SUCCESS;
         }
         return InteractionResult.PASS;
     }

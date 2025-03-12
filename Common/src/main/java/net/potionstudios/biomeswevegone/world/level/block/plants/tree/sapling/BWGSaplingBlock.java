@@ -4,7 +4,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -15,8 +14,8 @@ public class BWGSaplingBlock extends SaplingBlock {
 
     private final @NotNull TagKey<Block> groundTag;
 
-    public BWGSaplingBlock(@NotNull TagKey<Block> groundTag, TreeGrower treeGrower) {
-        super(treeGrower, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING));
+    public BWGSaplingBlock(BlockBehaviour.Properties properties, @NotNull TagKey<Block> groundTag, TreeGrower treeGrower) {
+        super(treeGrower, properties);
 	    this.groundTag = groundTag;
     }
 

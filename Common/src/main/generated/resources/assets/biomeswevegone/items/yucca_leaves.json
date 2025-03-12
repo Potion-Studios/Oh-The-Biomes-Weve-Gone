@@ -1,0 +1,13 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "biomeswevegone:block/yucca_leaves",
+    "tints": [
+      {
+        "type": "biomeswevegone:foliage",
+        "downfall": 1.0,
+        "temperature": 0.5
+      }
+    ]
+  }
+}

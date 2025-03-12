@@ -1,4 +1,6 @@
 {
-  "parent": "minecraft:block/pumpkin_stem_stage1",
-  "render_type": "minecraft:cutout"
+  "parent": "minecraft:block/stem_growth1",
+  "textures": {
+    "stem": "minecraft:block/pumpkin_stem"
+  }
 }
