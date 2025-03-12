@@ -14,7 +14,6 @@ import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -28,13 +27,13 @@ public class BWGFarmLandBlock extends FarmBlock {
 
     private final Supplier<Block> dirt;
 
-    public BWGFarmLandBlock(Supplier<Block> dirt) {
-        super(BlockBehaviour.Properties.ofFullCopy(Blocks.FARMLAND).strength(0.2f));
+    public BWGFarmLandBlock(BlockBehaviour.Properties properties, Supplier<Block> dirt) {
+        super(properties);
         this.dirt = dirt;
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
+    public @NotNull BlockState getStateForPlacement(BlockPlaceContext context) {
         return !this.defaultBlockState().canSurvive(context.getLevel(), context.getClickedPos())
                 ? dirt.get().defaultBlockState() : super.getStateForPlacement(context);
     }
@@ -57,17 +56,18 @@ public class BWGFarmLandBlock extends FarmBlock {
     }
 
     @Override
-    public void fallOn(Level level, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull Entity entity, float fallDistance) {
-        if (!level.isClientSide()
-                && level.random.nextFloat() < fallDistance - 0.5F
+    public void fallOn(@NotNull Level level, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull Entity entity, float fallDistance) {
+        if (level instanceof ServerLevel serverLevel
+                && level.getRandom().nextFloat() < fallDistance - 0.5F
                 && entity instanceof LivingEntity
-                && (entity instanceof Player || level.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING))
+                && (entity instanceof Player || serverLevel.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING))
                 && entity.getBbWidth() * entity.getBbWidth() * entity.getBbHeight() > 0.512F) {
             turnToDirtBlock(entity, state, level, pos);
         }
 
-        entity.causeFallDamage(fallDistance, 1.0F, entity.damageSources().fall());
+        super.fallOn(level, state, pos, entity, fallDistance);
     }
+
 
     private void turnToDirtBlock(@Nullable Entity entity, BlockState state, Level level, BlockPos pos) {
         BlockState blockState = pushEntitiesUp(state, dirt.get().defaultBlockState(), level, pos);
@@ -86,4 +86,7 @@ public class BWGFarmLandBlock extends FarmBlock {
         return false;
     }
 
+    public Block getDirt() {
+        return dirt.get();
+    }
 }

@@ -302,7 +302,7 @@ public class BWGOverworldSurfaceRules {
                                     makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.PALE_MUD.get())
                             )),
                             makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.77),
-                                    makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.LUSH_GRASS_BLOCK.get())),
+                                    makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.PALE_MOSS_BLOCK)),
                             makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.PALE_MUD.get())
                     )
             )

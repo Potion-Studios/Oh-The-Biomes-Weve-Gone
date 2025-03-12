@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "biomeswevegone:block/lush_dirt",
+    "particle": "biomeswevegone:block/lush_dirt",
+    "side": "biomeswevegone:block/lush_grass_block_snow_side",
+    "top": "biomeswevegone:block/lush_grass_block_top"
+  }
+}

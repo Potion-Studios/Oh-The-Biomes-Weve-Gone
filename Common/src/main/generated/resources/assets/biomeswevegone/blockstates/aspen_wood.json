@@ -1,7 +1,7 @@
 {
   "variants": {
     "axis=x": {
-      "model": "biomeswevegone:block/aspen_wood",
+      "model": "biomeswevegone:block/aspen_wood_horizontal",
       "x": 90,
       "y": 90
     },
@@ -9,7 +9,7 @@
       "model": "biomeswevegone:block/aspen_wood"
     },
     "axis=z": {
-      "model": "biomeswevegone:block/aspen_wood",
+      "model": "biomeswevegone:block/aspen_wood_horizontal",
       "x": 90
     }
   }

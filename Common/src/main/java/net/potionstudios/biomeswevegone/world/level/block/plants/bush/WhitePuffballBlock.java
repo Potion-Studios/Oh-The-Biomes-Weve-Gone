@@ -13,6 +13,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
@@ -26,8 +27,8 @@ public class WhitePuffballBlock extends BWGBerryBush {
 	private static final VoxelShape BABY_SHAPE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 8.0D, 13.0D);
 	private static final VoxelShape MID_GROWTH_SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
-	public WhitePuffballBlock() {
-		super(() -> BWGItems.WHITE_PUFFBALL_SPORES, false);
+	public WhitePuffballBlock(BlockBehaviour.Properties properties) {
+		super(properties, () -> BWGItems.WHITE_PUFFBALL_SPORES, false);
 	}
 
 	@Override
@@ -37,7 +38,7 @@ public class WhitePuffballBlock extends BWGBerryBush {
 
 	@Override
 	protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
-		return state.isSolidRender(level, pos);
+		return state.isSolidRender();
 	}
 
 	@Override
@@ -68,7 +69,7 @@ public class WhitePuffballBlock extends BWGBerryBush {
             BlockState blockState = state.setValue(AGE, 0);
             level.setBlock(pos, blockState, 2);
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, blockState));
-            return InteractionResult.sidedSuccess(level.isClientSide());
+            return InteractionResult.SUCCESS;
 		}
 		return InteractionResult.PASS;
 	}

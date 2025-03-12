@@ -10,7 +10,6 @@ import net.potionstudios.biomeswevegone.compat.vanilla.dispenser.BWGDispenseItem
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerProfessions;
-import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerType;
 import net.potionstudios.biomeswevegone.world.item.BWGCreativeTabs;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -69,9 +68,7 @@ public class BiomesWeveGone {
     /**
      * Ran later in the initialization process to set up common things.
      */
-    public static void commonSetup() {
-        BWGVillagerType.setVillagerBWGBiomes();
-    }
+    public static void commonSetup() {}
 
     /**
      * Ran after the mod is fully loaded to finish setup.

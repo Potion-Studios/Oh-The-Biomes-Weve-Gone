@@ -42,9 +42,9 @@ class BWGOverworldBiomes {
 
     private static BiomeGenerationSettings.Builder setupDefaultOverworldGenerationWithoutLava(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
-        generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.CAVE);
-        generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.CAVE_EXTRA_UNDERGROUND);
-        generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.CANYON);
+        generationSettings.addCarver(Carvers.CAVE);
+        generationSettings.addCarver(Carvers.CAVE_EXTRA_UNDERGROUND);
+        generationSettings.addCarver(Carvers.CANYON);
         generationSettings.addFeature(GenerationStep.Decoration.LAKES, MiscOverworldPlacements.LAKE_LAVA_UNDERGROUND);
         BiomeDefaultFeatures.addDefaultCrystalFormations(generationSettings);
         BiomeDefaultFeatures.addDefaultMonsterRoom(generationSettings);
@@ -937,8 +937,10 @@ class BWGOverworldBiomes {
         OverworldBiomes.globalOverworldGeneration(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BWGOverworldDefaultFeatures.addSwampDelta(generationSettings);
+        BWGOverworldDefaultFeatures.addPaleGardenVegetation(generationSettings);
 
         BiomeDefaultFeatures.addSwampClayDisk(generationSettings);
+        BWGOverworldDefaultFeatures.addPaleEyeBlossomFlowers(generationSettings);
         BiomeDefaultFeatures.addJungleGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addSwampExtraVegetation(generationSettings);

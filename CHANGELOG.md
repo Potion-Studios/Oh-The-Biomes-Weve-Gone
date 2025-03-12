@@ -1,3 +1,6 @@
+# 3.0.0
+- Update to 1.21.4
+
 # 2.3.9
 - Improve Many Block and Item Model files
 

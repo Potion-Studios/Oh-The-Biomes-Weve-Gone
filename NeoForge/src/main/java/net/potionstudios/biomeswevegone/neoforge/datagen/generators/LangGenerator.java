@@ -3,6 +3,8 @@ package net.potionstudios.biomeswevegone.neoforge.datagen.generators;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.BoatItem;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
@@ -13,9 +15,9 @@ import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.item.BWGCreativeTabs;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.item.jukebox.BWGJukeBoxSongs;
-import net.potionstudios.biomeswevegone.world.item.boat.BWGBoatItem;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
+import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import org.jetbrains.annotations.NotNull;
 
@@ -41,16 +43,20 @@ public class LangGenerator extends LanguageProvider {
         add("item." + BiomesWeveGone.MOD_ID + ".music_disc_pixie_club.desc", "AOCAWOL - Pixie Club");
         add("jukebox_song." + BWGJukeBoxSongs.PIXIE_CLUB.location().toLanguageKey(), "AOCAWOL - Pixie Club");
         BWGWood.WOOD_BLOCK_ITEMS.forEach(wood -> {
-            if (!(wood.get() instanceof BWGBoatItem boatItem) || !boatItem.hasChest())
-                add(wood.get(), getItemName(wood));
+            if (!(wood.get() instanceof BoatItem))
+                if (wood.get() instanceof BlockItem blockItem)
+                    add(blockItem.getBlock(), getBlockName(blockItem::getBlock));
+                else add(wood.get(), getItemName(wood));
             else add(wood.get(), getItemName(wood).replace("Chest ", "") + " with Chest");
         });
         BWGWood.WOOD.stream().filter(wood -> wood.get() instanceof FlowerPotBlock).forEach(wood -> add(wood.get(), getBlockName(wood)));
         add(BWGEntities.MAN_O_WAR.get(), "Man O' War");
         add(BWGEntities.PUMPKIN_WARDEN.get(), "Pumpkin Warden");
         add(BWGEntities.ODDION.get(), "Oddion");
-        add(BWGEntities.BWG_BOAT.get(), "Boat");
-        add(BWGEntities.BWG_CHEST_BOAT.get(), "Boat with Chest");
+        BWGWoodSet.woodsets().forEach(bwgWoodSet -> {
+            add(bwgWoodSet.boat().get(), getId(bwgWoodSet.name()) + " Boat");
+            add(bwgWoodSet.chestBoat().get(), getId(bwgWoodSet.name()) + " Boat with Chest");
+        });
         BWGBiomes.BIOME_FACTORIES.forEach((key, factory) -> add("biome." + BiomesWeveGone.MOD_ID + "." + key.location().getPath(), getBiomeName(key)));
 
         add(advancement("title.root"), "Oh The Biomes We've Gone");

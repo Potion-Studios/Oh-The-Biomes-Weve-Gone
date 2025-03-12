@@ -20,18 +20,18 @@ public class BWGBlockSet {
     private final Supplier<WallBlock> wall;
 
     public BWGBlockSet(String name, BlockBehaviour.Properties properties) {
-        this.base = BWGBlocks.registerBasicBlockWithItem(name ,properties);
-        this.slab = BWGBlocks.registerBlockItem(name + "_slab", () -> new SlabBlock(properties));
-        this.stairs = BWGBlocks.registerBlockItem(name + "_stairs", () -> new StairBlock(base.get().defaultBlockState(), properties));
-        this.wall = BWGBlocks.registerBlockItem(name + "_wall", () -> new WallBlock(properties));
+        this.base = BWGBlocks.registerBlockItem(name, Block::new, properties);
+        this.slab = BWGBlocks.registerBlockItem(name + "_slab", SlabBlock::new, properties);
+        this.stairs = BWGBlocks.registerBlockItem(name + "_stairs", properties1 -> new StairBlock(base.get().defaultBlockState(), properties1), properties);
+        this.wall = BWGBlocks.registerBlockItem(name + "_wall", WallBlock::new, properties);
         blockSets.add(this);
     }
 
     public BWGBlockSet(String name, String alt, BlockBehaviour.Properties properties) {
-        this.base = BWGBlocks.registerBasicBlockWithItem(name ,properties);
-        this.slab = BWGBlocks.registerBlockItem(alt + "_slab", () -> new SlabBlock(properties));
-        this.stairs = BWGBlocks.registerBlockItem(alt + "_stairs", () -> new StairBlock(base.get().defaultBlockState(), properties));
-        this.wall = BWGBlocks.registerBlockItem(alt + "_wall", () -> new WallBlock(properties));
+        this.base = BWGBlocks.registerBlockItem(name, Block::new, properties);
+        this.slab = BWGBlocks.registerBlockItem(alt + "_slab", SlabBlock::new, properties);
+        this.stairs = BWGBlocks.registerBlockItem(alt + "_stairs", properties1 -> new StairBlock(base.get().defaultBlockState(), properties1), properties);
+        this.wall = BWGBlocks.registerBlockItem(alt + "_wall", WallBlock::new, properties);
         blockSets.add(this);
     }
 
@@ -45,19 +45,19 @@ public class BWGBlockSet {
 
     public BWGBlockSet(String name, MapColor color) {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).mapColor(color);
-        this.base = BWGBlocks.registerBasicBlockWithItem(name ,properties);
-        this.slab = BWGBlocks.registerBlockItem(name + "_slab", () -> new SlabBlock(properties));
-        this.stairs = BWGBlocks.registerBlockItem(name + "_stairs", () -> new StairBlock(base.get().defaultBlockState(), properties));
-        this.wall = BWGBlocks.registerBlockItem(name + "_wall", () -> new WallBlock(properties));
+        this.base = BWGBlocks.registerBlockItem(name, Block::new, properties);
+        this.slab = BWGBlocks.registerBlockItem(name + "_slab", SlabBlock::new, properties);
+        this.stairs = BWGBlocks.registerBlockItem(name + "_stairs", properties1 -> new StairBlock(base.get().defaultBlockState(), properties1), properties);
+        this.wall = BWGBlocks.registerBlockItem(name + "_wall", WallBlock::new, properties);
         blockSets.add(this);
     }
 
     public BWGBlockSet(String name, String alt, MapColor color) {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).mapColor(color);
-        this.base = BWGBlocks.registerBasicBlockWithItem(name ,properties);
-        this.slab = BWGBlocks.registerBlockItem(alt + "_slab", () -> new SlabBlock(properties));
-        this.stairs = BWGBlocks.registerBlockItem(alt + "_stairs", () -> new StairBlock(base.get().defaultBlockState(), properties));
-        this.wall = BWGBlocks.registerBlockItem(alt + "_wall", () -> new WallBlock(properties));
+        this.base = BWGBlocks.registerBasicBlockWithItem(name, properties);
+        this.slab = BWGBlocks.registerBlockItem(alt + "_slab", SlabBlock::new, properties);
+        this.stairs = BWGBlocks.registerBlockItem(alt + "_stairs", properties1 -> new StairBlock(base.get().defaultBlockState(), properties1), properties);
+        this.wall = BWGBlocks.registerBlockItem(alt + "_wall", WallBlock::new, properties);
         blockSets.add(this);
     }
 
@@ -77,8 +77,12 @@ public class BWGBlockSet {
         return wall.get();
     }
 
+    private BlockFamily family = null;
+
     public BlockFamily getBlockFamily() {
-        return BlockFamilies.familyBuilder(getBase()).slab(getSlab()).stairs(getStairs()).wall(getWall()).getFamily();
+        if (family == null)
+            family = BlockFamilies.familyBuilder(getBase()).slab(getSlab()).stairs(getStairs()).wall(getWall()).getFamily();
+        return family;
     }
 
     public static ArrayList<BWGBlockSet> getBlockSets() {

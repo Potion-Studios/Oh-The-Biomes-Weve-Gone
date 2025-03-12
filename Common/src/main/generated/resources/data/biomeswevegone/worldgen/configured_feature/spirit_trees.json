@@ -7,6 +7,13 @@
     },
     "features": [
       {
+        "chance": 0.15,
+        "feature": {
+          "feature": "biomeswevegone:pale_oak_tree1",
+          "placement": []
+        }
+      },
+      {
         "chance": 0.01,
         "feature": {
           "feature": "biomeswevegone:spirit_tree1",

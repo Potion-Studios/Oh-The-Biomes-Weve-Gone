@@ -19,6 +19,29 @@
         "type": "minecraft:trunk_vine"
       },
       {
+        "type": "ohthetreesyoullgrow:attached_to_logs",
+        "block_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "minecraft:pale_moss_carpet",
+            "Properties": {
+              "bottom": "true",
+              "east": "none",
+              "north": "none",
+              "south": "none",
+              "west": "none"
+            }
+          }
+        },
+        "directions": [
+          "up"
+        ],
+        "exclusion_radius_xz": 0,
+        "exclusion_radius_y": 0,
+        "probability": 0.9,
+        "required_empty_blocks": 1
+      },
+      {
         "type": "ohthetreesyoullgrow:attached_to_fruit_leaves",
         "block_provider": {
           "type": "minecraft:randomized_int_state_provider",

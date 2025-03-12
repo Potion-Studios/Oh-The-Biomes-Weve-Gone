@@ -1,51 +1,59 @@
 package net.potionstudios.biomeswevegone.client;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.block.BlockColors;
-import net.minecraft.client.color.item.ItemColors;
+import net.minecraft.client.color.item.ItemTintSource;
 import net.minecraft.client.model.BoatModel;
-import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.*;
+import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.util.FastColor;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.ARGB;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.StemBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.level.levelgen.synth.ImprovedNoise;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.client.color.item.BorealisIceColorSource;
+import net.potionstudios.biomeswevegone.client.color.item.FoliageColorSource;
 import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
 import net.potionstudios.biomeswevegone.client.particle.particles.FallingLeafParticle;
 import net.potionstudios.biomeswevegone.client.particle.particles.FireFlyParticle;
-import net.potionstudios.biomeswevegone.client.renderer.entity.boat.BWGBoatRenderer;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
-import net.potionstudios.biomeswevegone.world.entity.boats.BWGBoatEntity;
 import net.potionstudios.biomeswevegone.client.renderer.entity.manowar.ManOWarRenderer;
 import net.potionstudios.biomeswevegone.client.renderer.entity.oddion.OddionRenderer;
 import net.potionstudios.biomeswevegone.client.renderer.entity.pumpkinwarden.PumpkinWardenRenderer;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+import net.potionstudios.biomeswevegone.world.level.block.custom.BWGSpreadableBlock;
 import net.potionstudios.biomeswevegone.world.level.block.entities.BWGBlockEntities;
+import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.BWGCactusBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.BWGFruitBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.GlowCaneBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cattail.CattailSproutBlock;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
+import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
 import java.util.Objects;
 import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -81,8 +89,10 @@ public class BiomesWeveGoneClient {
         consumer.accept(BWGEntities.MAN_O_WAR.get(), ManOWarRenderer::new);
         consumer.accept(BWGEntities.PUMPKIN_WARDEN.get(), PumpkinWardenRenderer::new);
         consumer.accept(BWGEntities.ODDION.get(), OddionRenderer::new);
-        consumer.accept(BWGEntities.BWG_BOAT.get(), context -> new BWGBoatRenderer(context, false));
-        consumer.accept(BWGEntities.BWG_CHEST_BOAT.get(), context -> new BWGBoatRenderer(context, true));
+        BWGWoodSet.woodsets().forEach(set -> {
+            consumer.accept(set.boat().get(), context -> new BoatRenderer(context, set.boatModelLayer()));
+            consumer.accept(set.chestBoat().get(), context -> new BoatRenderer(context, set.chestBoatModelLayer()));
+        });
     }
 
     /**
@@ -97,13 +107,13 @@ public class BiomesWeveGoneClient {
 
     /**
      * Registers the layer definitions for the boat models.
-     * @see BWGBoatRenderer
+     * @see BoatModel
      */
     public static void registerLayerDefinitions(BiConsumer<ModelLayerLocation, Supplier<LayerDefinition>> consumer) {
-        for (BWGBoatEntity.Type type : BWGBoatEntity.Type.values()) {
-            consumer.accept(BWGBoatRenderer.createBoatModelName(type), BoatModel::createBodyModel);
-            consumer.accept(BWGBoatRenderer.createChestBoatModelName(type), ChestBoatModel::createBodyModel);
-        }
+        BWGWoodSet.woodsets().forEach(set -> {
+            consumer.accept(set.boatModelLayer(), BoatModel::createBoatModel);
+            consumer.accept(set.chestBoatModelLayer(), BoatModel::createChestBoatModel);
+        });
     }
 
     /**
@@ -123,6 +133,31 @@ public class BiomesWeveGoneClient {
         consumer.accept(BWGParticles.SPIRIT_LEAVES.get(), FallingLeafParticle.Provider::new);
     }
 
+    public static void registerBlockRenderTypes(BiConsumer<Block, RenderType> consumer) {
+        BWGWood.WOOD.forEach(entry -> {
+            RenderType type = renderTypeBlock(entry.get());
+            if (type != null) consumer.accept(entry.get(), type);
+        });
+        BWGBlocks.BLOCKS.forEach(entry -> {
+            RenderType type = renderTypeBlock(entry.get());
+            if (type != null) consumer.accept(entry.get(), type);
+        });
+        consumer.accept(BWGWood.MAPLE.door(), RenderType.translucent());
+    }
+
+    @Nullable
+    private static RenderType renderTypeBlock(Block block) {
+        if (block instanceof BWGFruitBlock || block instanceof DoorBlock || block instanceof TrapDoorBlock || block instanceof BushBlock || block instanceof GlowCaneBlock || block instanceof LanternBlock)
+            return RenderType.cutout();
+        else if (block instanceof LeavesBlock || block instanceof VineBlock || block instanceof MangroveRootsBlock
+                || block instanceof FlowerPotBlock || block instanceof BWGCactusBlock || block instanceof CattailSproutBlock
+                || block instanceof BWGSpreadableBlock || block instanceof SporeBlossomBlock || block instanceof BaseCoralPlantTypeBlock)
+            return RenderType.cutoutMipped();
+        else if (block instanceof StainedGlassPaneBlock || block instanceof HalfTransparentBlock)
+            return RenderType.translucent();
+        return null;
+    }
+
     /**
      * Registers the block colors.
      * @see BlockColors
@@ -136,24 +171,14 @@ public class BiomesWeveGoneClient {
         consumer.accept((state, view, pos, tintIndex) -> view != null && pos != null ? BiomeColors.getAverageWaterColor(view, pos) : -1, new Block[] {BWGBlocks.CARVED_BARREL_CACTUS.get()});
         consumer.accept((state, view, pos, tintIndex) -> {
             int age = state.getValue(StemBlock.AGE);
-            return FastColor.ARGB32.color(age * 32, 255 - age, age *4);
+            return ARGB.color(age * 32, 255 - age, age *4);
         }, new Block[] {BWGBlocks.PALE_PUMPKIN_STEM.get()});
         consumer.accept((state, view, pos, tintIndex) -> -2046180, new Block[] {BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get()});
-    }
-
-    /**
-     * Registers the item colors.
-     * @see ItemColors
-     */
-    public static void registerBlockItemColors(Consumer<Block[]> consumer) {
-        consumer.accept(new Block[]{BWGBlocks.TINY_LILY_PADS.get(), BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), BWGBlocks.CLOVER_PATCH.get(), BWGBlocks.LEAF_PILE.get(), BWGBlocks.POISON_IVY.get()
-                , BWGWood.MAHOGANY.leaves(), BWGWood.WILLOW.leaves(), BWGWood.MAPLE.leaves(), BWGWood.YUCCA_LEAVES.get(), BWGWood.FLOWERING_YUCCA_LEAVES.get(), BWGWood.RIPE_YUCCA_LEAVES.get(),
-                BWGWood.CYPRESS.leaves(), BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get()});
     }
     
     private static final ImprovedNoise NOISE = new ImprovedNoise(new XoroshiroRandomSource(1));
 
-    private static int getBorealisIceColor(BlockPos pos) {
+    public static int getBorealisIceColor(BlockPos pos) {
         float frequency = 0.01F;
 
         float factor = (float) ((NOISE.noise(pos.getX() * frequency, pos.getY() * frequency, pos.getZ() * frequency) + 1)* 0.5F);
@@ -164,5 +189,10 @@ public class BiomesWeveGoneClient {
         float hue =  startHue + (endHue - startHue) * factor;
 
         return Color.getHSBColor(hue / 360F, 0.6F, 1).getRGB();
+    }
+
+    public static void registerItemTintSources(BiConsumer<ResourceLocation, MapCodec<? extends ItemTintSource>> consumer) {
+        consumer.accept(BiomesWeveGone.id("borealis_ice"), BorealisIceColorSource.MAP_CODEC);
+        consumer.accept(BiomesWeveGone.id("foliage"), FoliageColorSource.MAP_CODEC);
     }
 }

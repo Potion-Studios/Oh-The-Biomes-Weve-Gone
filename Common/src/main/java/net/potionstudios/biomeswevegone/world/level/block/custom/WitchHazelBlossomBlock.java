@@ -4,17 +4,15 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.SporeBlossomBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.MapColor;
 import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
 import org.jetbrains.annotations.NotNull;
 
 public class WitchHazelBlossomBlock extends SporeBlossomBlock {
-    public WitchHazelBlossomBlock() {
-        super(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).instabreak().sound(SoundType.TWISTING_VINES).noOcclusion().noCollission().lightLevel((state) -> 10));
+    public WitchHazelBlossomBlock(BlockBehaviour.Properties properties) {
+        super(properties);
     }
 
     @Override

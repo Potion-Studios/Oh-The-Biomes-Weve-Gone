@@ -4,13 +4,13 @@ import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.animal.SnowGolem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CarvedPumpkinBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.pattern.BlockInWorld;
 import net.minecraft.world.level.block.state.pattern.BlockPattern;
@@ -35,10 +35,6 @@ public class PaleCarvedPumpkinBlock extends CarvedPumpkinBlock {
         super(properties);
     }
 
-    public PaleCarvedPumpkinBlock() {
-        this(BlockBehaviour.Properties.ofFullCopy(Blocks.JACK_O_LANTERN).lightLevel(light -> 14));
-    }
-
     @Override
     protected void onPlace(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState oldState, boolean movedByPiston) {
         if (!oldState.is(state.getBlock()))
@@ -48,14 +44,14 @@ public class PaleCarvedPumpkinBlock extends CarvedPumpkinBlock {
     private void trySpawnGolem(Level level, BlockPos pos) {
         BlockPattern.BlockPatternMatch blockPatternMatch = this.getOrCreateSnowGolemFull().find(level, pos);
         if (blockPatternMatch != null) {
-            SnowGolem snowGolem = EntityType.SNOW_GOLEM.create(level);
+            SnowGolem snowGolem = EntityType.SNOW_GOLEM.create(level, EntitySpawnReason.TRIGGERED);
             if (snowGolem != null) {
                 spawnGolemInWorld(level, blockPatternMatch, snowGolem, blockPatternMatch.getBlock(0, 2, 0).getPos());
             }
         } else {
             BlockPattern.BlockPatternMatch blockPatternMatch2 = this.getOrCreateIronGolemFull().find(level, pos);
             if (blockPatternMatch2 != null) {
-                IronGolem ironGolem = EntityType.IRON_GOLEM.create(level);
+                IronGolem ironGolem = EntityType.IRON_GOLEM.create(level, EntitySpawnReason.TRIGGERED);
                 if (ironGolem != null) {
                     ironGolem.setPlayerCreated(true);
                     spawnGolemInWorld(level, blockPatternMatch2, ironGolem, blockPatternMatch2.getBlock(1, 2, 0).getPos());

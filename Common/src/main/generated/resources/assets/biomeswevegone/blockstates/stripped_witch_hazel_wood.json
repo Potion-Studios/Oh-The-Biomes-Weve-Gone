@@ -1,7 +1,7 @@
 {
   "variants": {
     "axis=x": {
-      "model": "biomeswevegone:block/stripped_witch_hazel_wood",
+      "model": "biomeswevegone:block/stripped_witch_hazel_wood_horizontal",
       "x": 90,
       "y": 90
     },
@@ -9,7 +9,7 @@
       "model": "biomeswevegone:block/stripped_witch_hazel_wood"
     },
     "axis=z": {
-      "model": "biomeswevegone:block/stripped_witch_hazel_wood",
+      "model": "biomeswevegone:block/stripped_witch_hazel_wood_horizontal",
       "x": 90
     }
   }

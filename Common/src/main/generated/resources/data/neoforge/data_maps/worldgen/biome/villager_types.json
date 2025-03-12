@@ -1,0 +1,34 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "biomeswevegone"
+    }
+  ],
+  "values": {
+    "biomeswevegone:bayou": {
+      "villager_type": "minecraft:swamp"
+    },
+    "biomeswevegone:cypress_swamplands": {
+      "villager_type": "minecraft:swamp"
+    },
+    "biomeswevegone:mojave_desert": {
+      "villager_type": "minecraft:desert"
+    },
+    "biomeswevegone:pale_bog": {
+      "villager_type": "minecraft:swamp"
+    },
+    "biomeswevegone:tropical_rainforest": {
+      "villager_type": "minecraft:jungle"
+    },
+    "biomeswevegone:weeping_witch_forest": {
+      "villager_type": "minecraft:taiga"
+    },
+    "biomeswevegone:white_mangrove_marshes": {
+      "villager_type": "minecraft:swamp"
+    },
+    "biomeswevegone:windswept_desert": {
+      "villager_type": "minecraft:desert"
+    }
+  }
+}
