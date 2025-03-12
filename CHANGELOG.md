@@ -1,4 +1,5 @@
 # 2.3.9
+- Improve Many Block and Item Model files
 
 # 2.3.8
 - Fix Flower Dye Recipes
