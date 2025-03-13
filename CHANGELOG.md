@@ -1,4 +1,5 @@
-# 2.3.10
+# 2.3.10 (Forge/NeoForge Only)
+- Fix Lush Grass Block, Overgrown Stone and Dacite Missing Cutout Render type
 
 # 2.3.9
 - Improve Many Block and Item Model files

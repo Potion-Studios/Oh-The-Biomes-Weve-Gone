@@ -1,5 +1,6 @@
 {
   "parent": "minecraft:block/grass_block",
+  "render_type": "minecraft:cutout_mipped",
   "textures": {
     "bottom": "minecraft:block/stone",
     "overlay": "biomeswevegone:block/overgrown_stone_side_overlay",

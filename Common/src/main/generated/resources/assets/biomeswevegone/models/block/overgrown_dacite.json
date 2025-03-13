@@ -1,5 +1,6 @@
 {
   "parent": "minecraft:block/grass_block",
+  "render_type": "minecraft:cutout_mipped",
   "textures": {
     "bottom": "biomeswevegone:block/dacite",
     "overlay": "biomeswevegone:block/overgrown_dacite_side_overlay",
