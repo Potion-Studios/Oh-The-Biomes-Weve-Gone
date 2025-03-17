@@ -1,4 +1,5 @@
 # 3.0.1
+- Add Pale Pumpkins to new Pumpkins Block and Item Tags
 
 # 3.0.0
 - Update to 1.21.4
