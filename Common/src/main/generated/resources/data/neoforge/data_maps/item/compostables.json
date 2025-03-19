@@ -10,17 +10,9 @@
       "can_villager_compost": true,
       "chance": 0.65
     },
-    "biomeswevegone:allium_oddion_soup": {
-      "can_villager_compost": true,
-      "chance": 0.85
-    },
     "biomeswevegone:aloe_vera": {
       "can_villager_compost": true,
       "chance": 0.65
-    },
-    "biomeswevegone:aloe_vera_juice": {
-      "can_villager_compost": true,
-      "chance": 0.85
     },
     "biomeswevegone:alpine_bellflower": {
       "can_villager_compost": true,
@@ -52,7 +44,7 @@
     },
     "biomeswevegone:baobab_fruit": {
       "can_villager_compost": true,
-      "chance": 0.85
+      "chance": 0.65
     },
     "biomeswevegone:baobab_leaves": {
       "can_villager_compost": true,
@@ -81,10 +73,6 @@
     "biomeswevegone:black_rose": {
       "can_villager_compost": true,
       "chance": 0.65
-    },
-    "biomeswevegone:blooming_oddion": {
-      "can_villager_compost": true,
-      "chance": 0.85
     },
     "biomeswevegone:blooming_witch_hazel_leaves": {
       "can_villager_compost": true,
@@ -120,11 +108,11 @@
     },
     "biomeswevegone:blueberries": {
       "can_villager_compost": true,
-      "chance": 0.85
+      "chance": 0.3
     },
     "biomeswevegone:blueberry_pie": {
       "can_villager_compost": true,
-      "chance": 0.85
+      "chance": 1.0
     },
     "biomeswevegone:brown_birch_leaves": {
       "can_villager_compost": true,
@@ -133,6 +121,10 @@
     "biomeswevegone:brown_birch_sapling": {
       "can_villager_compost": true,
       "chance": 0.3
+    },
+    "biomeswevegone:brown_mushroom_stem": {
+      "can_villager_compost": true,
+      "chance": 0.85
     },
     "biomeswevegone:brown_oak_leaves": {
       "can_villager_compost": true,
@@ -166,6 +158,22 @@
       "can_villager_compost": true,
       "chance": 0.5
     },
+    "biomeswevegone:cattail_thatch": {
+      "can_villager_compost": true,
+      "chance": 0.85
+    },
+    "biomeswevegone:cattail_thatch_carpet": {
+      "can_villager_compost": true,
+      "chance": 0.4
+    },
+    "biomeswevegone:cattail_thatch_slab": {
+      "can_villager_compost": true,
+      "chance": 0.4
+    },
+    "biomeswevegone:cattail_thatch_stairs": {
+      "can_villager_compost": true,
+      "chance": 0.4
+    },
     "biomeswevegone:cika_leaves": {
       "can_villager_compost": true,
       "chance": 0.3
@@ -180,15 +188,15 @@
     },
     "biomeswevegone:cooked_oddion_bulb": {
       "can_villager_compost": true,
-      "chance": 0.85
+      "chance": 0.75
     },
     "biomeswevegone:cooked_white_puffball_cap": {
       "can_villager_compost": true,
-      "chance": 0.85
+      "chance": 0.75
     },
     "biomeswevegone:cooked_yucca_fruit": {
       "can_villager_compost": true,
-      "chance": 0.85
+      "chance": 0.75
     },
     "biomeswevegone:crocus": {
       "can_villager_compost": true,
@@ -312,11 +320,11 @@
     },
     "biomeswevegone:green_apple": {
       "can_villager_compost": true,
-      "chance": 0.85
+      "chance": 0.65
     },
     "biomeswevegone:green_apple_pie": {
       "can_villager_compost": true,
-      "chance": 0.85
+      "chance": 1.0
     },
     "biomeswevegone:green_apple_skyris_leaves": {
       "can_villager_compost": true,
@@ -337,6 +345,10 @@
     "biomeswevegone:green_mushroom": {
       "can_villager_compost": true,
       "chance": 0.65
+    },
+    "biomeswevegone:green_mushroom_block": {
+      "can_villager_compost": true,
+      "chance": 0.85
     },
     "biomeswevegone:green_tulip": {
       "can_villager_compost": true,
@@ -456,7 +468,7 @@
     },
     "biomeswevegone:oddion_bulb": {
       "can_villager_compost": true,
-      "chance": 0.85
+      "chance": 0.65
     },
     "biomeswevegone:orange_amaranth": {
       "can_villager_compost": true,
@@ -688,7 +700,7 @@
     },
     "biomeswevegone:soul_fruit": {
       "can_villager_compost": true,
-      "chance": 0.85
+      "chance": 0.65
     },
     "biomeswevegone:spirit_leaves": {
       "can_villager_compost": true,
@@ -734,6 +746,10 @@
       "can_villager_compost": true,
       "chance": 0.65
     },
+    "biomeswevegone:weeping_milkcap_mushroom_block": {
+      "can_villager_compost": true,
+      "chance": 0.85
+    },
     "biomeswevegone:white_allium": {
       "can_villager_compost": true,
       "chance": 0.65
@@ -754,13 +770,17 @@
       "can_villager_compost": true,
       "chance": 0.3
     },
-    "biomeswevegone:white_puffball_cap": {
+    "biomeswevegone:white_mushroom_stem": {
       "can_villager_compost": true,
       "chance": 0.85
     },
-    "biomeswevegone:white_puffball_stew": {
+    "biomeswevegone:white_puffball_cap": {
       "can_villager_compost": true,
-      "chance": 0.85
+      "chance": 0.65
+    },
+    "biomeswevegone:white_puffball_spores": {
+      "can_villager_compost": true,
+      "chance": 0.65
     },
     "biomeswevegone:white_sage": {
       "can_villager_compost": true,
@@ -810,6 +830,10 @@
       "can_villager_compost": true,
       "chance": 0.65
     },
+    "biomeswevegone:wood_blewit_mushroom_block": {
+      "can_villager_compost": true,
+      "chance": 0.85
+    },
     "biomeswevegone:yellow_birch_leaves": {
       "can_villager_compost": true,
       "chance": 0.3
@@ -848,7 +872,7 @@
     },
     "biomeswevegone:yucca_fruit": {
       "can_villager_compost": true,
-      "chance": 0.85
+      "chance": 0.65
     },
     "biomeswevegone:yucca_leaves": {
       "can_villager_compost": true,

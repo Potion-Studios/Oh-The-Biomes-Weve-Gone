@@ -1,6 +1,5 @@
 package net.potionstudios.biomeswevegone.world.level.block;
 
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
@@ -31,21 +30,29 @@ public class BlockFeatures {
                 consumer.accept(block, 0.5F);
             else if (block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof WaterlilyBlock || block instanceof MushroomBlock || block instanceof AloeVeraBlock || block instanceof FlatVegetationBlock || block instanceof BWGPlacementBushBlock || block instanceof PumpkinBlock || block instanceof CarvedPumpkinBlock)
                 consumer.accept(block, 0.65F);
+            else if (block instanceof HugeMushroomBlock || block instanceof HayBlock)
+                consumer.accept(block, 0.85F);
         });
+        compostItems(consumer, 0.4F, BWGBlocks.CATTAIL_THATCH_SLAB.get(), BWGBlocks.CATTAIL_THATCH_STAIRS.get(), BWGBlocks.CATTAIL_THATCH_CARPET.get());
 
         BWGWood.WOOD.forEach(entry -> {
             if (entry.get() instanceof LeavesBlock || entry.get() instanceof SaplingBlock)
                 consumer.accept(entry.get(), 0.3F);
         });
 
-        BWGItems.ITEMS.stream().filter(item -> item.get().components().has(DataComponents.FOOD)).forEach(item -> consumer.accept(item.get(), 0.85F));
-        consumer.accept(BWGItems.PALE_PUMPKIN_SEEDS.get(), 0.3F);
-        consumer.accept(BWGItems.BLUE_GLOWCANE_SHOOT.get(), 0.5f);
-        consumer.accept(BWGItems.GREEN_GLOWCANE_SHOOT.get(), 0.5f);
-        consumer.accept(BWGItems.RED_GLOWCANE_SHOOT.get(), 0.5f);
-        consumer.accept(BWGItems.YELLOW_GLOWCANE_SHOOT.get(), 0.5f);
-        consumer.accept(BWGItems.CATTAIL_SPROUT.get(), 0.5f);
-        consumer.accept(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get(), 0.5f);
+        compostItems(consumer, 0.3F, BWGItems.PALE_PUMPKIN_SEEDS.get(), BWGItems.BLUEBERRIES.get());
+        compostItems(consumer, 0.5f, BWGItems.BLUE_GLOWCANE_SHOOT.get(),
+                BWGItems.GREEN_GLOWCANE_SHOOT.get(), BWGItems.RED_GLOWCANE_SHOOT.get(),
+                BWGItems.YELLOW_GLOWCANE_SHOOT.get(), BWGItems.CATTAIL_SPROUT.get(), BWGItems.FLUORESCENT_CATTAIL_SPROUT.get());
+        compostItems(consumer, 0.65f, BWGItems.GREEN_APPLE.get(), BWGItems.BAOBAB_FRUIT.get(),
+                BWGItems.SOUL_FRUIT.get(), BWGItems.YUCCA_FRUIT.get(), BWGItems.ODDION_BULB.get(),
+                BWGItems.WHITE_PUFFBALL_SPORES.get(), BWGItems.WHITE_PUFFBALL_CAP.get());
+        compostItems(consumer, 0.75f, BWGItems.COOKED_YUCCA_FRUIT.get(), BWGItems.COOKED_ODDION_BULB.get(), BWGItems.COOKED_WHITE_PUFFBALL_CAP.get());
+        compostItems(consumer, 1f, BWGItems.GREEN_APPLE_PIE.get(), BWGItems.BLUEBERRY_PIE.get());
+    }
+
+    private static void compostItems(BiConsumer<ItemLike, Float> consumer, float chance, ItemLike... items) {
+        for (ItemLike item : items) consumer.accept(item, chance);
     }
 
     /**
