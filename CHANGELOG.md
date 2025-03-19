@@ -1,5 +1,6 @@
 # 3.0.1
 - Add Pale Pumpkins to new Pumpkins Block and Item Tags
+- Require Oh The Trees You'll Grow 6.0.3 or higher
 
 # 3.0.0
 - Update to 1.21.4
