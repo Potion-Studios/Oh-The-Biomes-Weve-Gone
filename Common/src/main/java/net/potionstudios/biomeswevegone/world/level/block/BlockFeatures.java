@@ -36,7 +36,7 @@ public class BlockFeatures {
         compostItems(consumer, 0.4F, BWGBlocks.CATTAIL_THATCH_SLAB.get(), BWGBlocks.CATTAIL_THATCH_STAIRS.get(), BWGBlocks.CATTAIL_THATCH_CARPET.get());
 
         BWGWood.WOOD.forEach(entry -> {
-            if (entry.get() instanceof LeavesBlock || entry.get() instanceof SaplingBlock)
+            if (entry.get() instanceof LeavesBlock || entry.get() instanceof SaplingBlock || entry.get() instanceof MangroveRootsBlock)
                 consumer.accept(entry.get(), 0.3F);
         });
 
@@ -74,6 +74,8 @@ public class BlockFeatures {
         BWGWood.WOOD.forEach(block -> {
             if (block.get() instanceof LeavesBlock)
                 consumer.accept(block.get(), 30, 60);
+            else if (block.get() instanceof MangroveRootsBlock)
+                consumer.accept(block.get(), 5, 20);
         });
         consumer.accept(BWGWood.PALO_VERDE_LOG.get(), 5, 5);
         consumer.accept(BWGWood.STRIPPED_PALO_VERDE_LOG.get(), 5, 5);
@@ -85,12 +87,14 @@ public class BlockFeatures {
             Block block = entry.get();
             if (block instanceof LeavesBlock)
                 consumer.accept(block, 30, 60);
-            else if (block instanceof CarpetBlock)
-                consumer.accept(block, 60, 20);
             else if (block instanceof SweetBerryBushBlock || block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof TallGrassBlock)
                 consumer.accept(block, 60, 100);
         });
         consumer.accept(BWGBlocks.POISON_IVY.get(), 15, 100);
+        consumer.accept(BWGBlocks.CATTAIL_THATCH.get(), 60, 20);
+        consumer.accept(BWGBlocks.CATTAIL_THATCH_SLAB.get(), 60, 20);
+        consumer.accept(BWGBlocks.CATTAIL_THATCH_STAIRS.get(), 60, 20);
+        consumer.accept(BWGBlocks.CATTAIL_THATCH_CARPET.get(), 60, 20);
     }
 
     public static void registerFurnaceFuels(BiConsumer<ItemLike, Integer> consumer) {
@@ -98,5 +102,6 @@ public class BlockFeatures {
         consumer.accept(BWGBlocks.CATTAIL_THATCH.get().asItem(), 300);
         consumer.accept(BWGBlocks.CATTAIL_THATCH_SLAB.get().asItem(), 150);
         consumer.accept(BWGBlocks.CATTAIL_THATCH_STAIRS.get().asItem(), 300);
+        consumer.accept(BWGWood.SPIRIT_ROOTS.get(), 300);
     }
 }

@@ -17,6 +17,9 @@
     },
     "biomeswevegone:peat": {
       "burn_time": 1200
+    },
+    "biomeswevegone:spirit_roots": {
+      "burn_time": 300
     }
   }
 }

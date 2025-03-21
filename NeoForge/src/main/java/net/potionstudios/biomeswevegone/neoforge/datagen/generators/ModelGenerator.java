@@ -532,7 +532,7 @@ public class ModelGenerator extends ModelProvider {
     }
 
     private void createGrassBlockModel(BlockModelGenerators blockModels, Block grassBlock, Block dirtBlock) {
-        ResourceLocation model = new ModelTemplate(Optional.of(mcLocation("block/grass_block")), Optional.empty())
+        ResourceLocation model = new ModelTemplate(Optional.of(mcLocation("block/grass_block")), Optional.empty()).extend().renderType(mcLocation("cutout_mipped")).build()
                 .create(grassBlock, new TextureMapping()
                         .putForced(TextureSlot.PARTICLE, TextureMapping.getBlockTexture(dirtBlock))
                         .putForced(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(dirtBlock))
