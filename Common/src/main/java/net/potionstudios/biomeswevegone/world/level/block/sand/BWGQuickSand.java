@@ -40,7 +40,7 @@ public class BWGQuickSand extends ColoredFallingBlock {
 	public void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity) {
 		if (entity instanceof LivingEntity) {
 			entity.makeStuckInBlock(state, new Vec3(0.9F, 1.5, 0.9F));
-			if (level.isClientSide) {
+			if (level.isClientSide()) {
 				RandomSource randomSource = level.getRandom();
 				boolean bl = entity.xOld != entity.getX() || entity.zOld != entity.getZ();
 				if (bl && randomSource.nextBoolean()) {
@@ -54,10 +54,12 @@ public class BWGQuickSand extends ColoredFallingBlock {
 							Mth.randomBetween(randomSource, -1.0F, 1.0F) * 0.083333336F
 					);
 				}
+			} else {
+				ServerLevel serverLevel = (ServerLevel) level;
+				BlockPos headPos = new BlockPos(entity.getBlockX(), (int) entity.getEyeY(), entity.getBlockZ());
+				if (serverLevel.getBlockState(headPos).getBlock() instanceof BWGQuickSand)
+					entity.hurtServer(serverLevel, new DamageSource(serverLevel.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(BWGDamageTypes.IN_QUICKSAND)), 0.5F);
 			}
-			BlockPos headPos = new BlockPos(entity.getBlockX(), (int) entity.getEyeY(), entity.getBlockZ());
-			if (level.getBlockState(headPos).getBlock() instanceof BWGQuickSand)
-				entity.hurt(new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(BWGDamageTypes.IN_QUICKSAND)), 0.5F);
 		}
 
 		if (level instanceof ServerLevel serverLevel) {

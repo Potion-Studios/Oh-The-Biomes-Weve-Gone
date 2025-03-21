@@ -97,7 +97,8 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
             this.setAirSupply(air - 1);
             if (this.getAirSupply() == -20) {
                 this.setAirSupply(0);
-                this.hurt(this.damageSources().drown(), 2.0F);
+                if (level() instanceof ServerLevel serverLevel)
+                    this.hurtServer(serverLevel, this.damageSources().drown(), 2.0F);
             }
         } else {
             this.setAirSupply(getMaxAirSupply());
