@@ -29,7 +29,6 @@ import net.potionstudios.biomeswevegone.world.level.block.plants.bush.WhitePuffb
 import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.CarvedBarrelCactusBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.LiquidType;
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.BWGFruitBlock;
-import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.AloeVeraBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.BoneMealGrassBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.FlatVegetationBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.GlowCaneBlock;
@@ -314,7 +313,7 @@ public class ModelGenerator extends ModelProvider {
             } else if (b instanceof HydrangeaHedgeBlock) {
                 blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(b, ModelLocationUtils.getModelLocation(b)));
                 blockItemModel(blockModels, b);
-            } else if (b instanceof FlowerBlock || b instanceof BoneMealGrassBlock || b instanceof MushroomBlock  || b instanceof AloeVeraBlock || b instanceof ShrubBlock || b instanceof BWGPlacementBushBlock) {
+            } else if (b instanceof FlowerBlock || b instanceof BoneMealGrassBlock || b instanceof MushroomBlock || b instanceof ShrubBlock || b instanceof BWGPlacementBushBlock) {
                 blockModels.createTrivialBlock(b, TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.CROSS, TextureMapping.getBlockTexture(b))));
                 itemModels.itemModelOutput.accept(b.asItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(b.asItem(), TextureMapping.layer0(TextureMapping.getBlockTexture(b)), itemModels.modelOutput)));
             } else if (b instanceof FlowerPotBlock flowerPotBlock) {
