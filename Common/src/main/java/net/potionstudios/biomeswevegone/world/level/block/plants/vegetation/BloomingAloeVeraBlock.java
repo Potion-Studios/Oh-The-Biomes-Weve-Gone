@@ -53,7 +53,7 @@ public class BloomingAloeVeraBlock extends DoublePlantBlock {
     }
 
     @Override
-    protected ItemStack getCloneItemStack(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state, boolean includeData) {
+    protected @NotNull ItemStack getCloneItemStack(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state, boolean includeData) {
         return BWGBlocks.ALOE_VERA.get().asItem().getDefaultInstance();
     }
 }
