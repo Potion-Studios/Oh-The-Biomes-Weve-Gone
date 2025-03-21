@@ -103,5 +103,10 @@ public class BlockFeatures {
         consumer.accept(BWGBlocks.CATTAIL_THATCH_SLAB.get().asItem(), 150);
         consumer.accept(BWGBlocks.CATTAIL_THATCH_STAIRS.get().asItem(), 300);
         consumer.accept(BWGWood.SPIRIT_ROOTS.get(), 300);
+        BWGWoodSet.woodsets().forEach(bwgWoodSet -> {
+            consumer.accept(bwgWoodSet.bookshelf(), 300);
+            consumer.accept(bwgWoodSet.craftingTable(), 300);
+        });
+        consumer.accept(BWGBlocks.FORAGERS_TABLE.get(), 300);
     }
 }
