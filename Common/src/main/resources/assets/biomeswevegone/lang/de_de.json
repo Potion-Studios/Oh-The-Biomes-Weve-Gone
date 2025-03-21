@@ -1000,8 +1000,6 @@
   "block.biomeswevegone.zelkova_wood": "Zelkovenholz",
   "death.attack.biomeswevegone.cattailExplosion": "%s wurde zu neugierig und legte einen Rohrkolben ins Lagerfeuer",
   "death.attack.biomeswevegone.inQuicksand": "%s hat versucht in der Wüste zu schwimmen",
-  "entity.biomeswevegone.boat": "Boot (BWG)",
-  "entity.biomeswevegone.chest_boat": "Truhenboot (BWG)",
   "entity.biomeswevegone.man_o_war": "Galeere",
   "entity.biomeswevegone.oddion": "Oddion",
   "entity.biomeswevegone.pumpkin_warden": "Kürbiswächter",
