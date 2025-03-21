@@ -3,8 +3,7 @@ package net.potionstudios.biomeswevegone.world.level.block;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
-import net.potionstudios.biomeswevegone.world.level.block.plants.bush.BWGPlacementBushBlock;
-import net.potionstudios.biomeswevegone.world.level.block.plants.bush.DesertPlantBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.bush.*;
 import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.BWGCactusBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.AloeVeraBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.BWGDoublePlantBlock;
@@ -85,9 +84,13 @@ public class BlockFeatures {
             Block block = entry.get();
             if (block instanceof LeavesBlock)
                 consumer.accept(block, 30, 60);
-            else if (block instanceof SweetBerryBushBlock || block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof TallGrassBlock || block instanceof PinkPetalsBlock)
+            else if (block instanceof SweetBerryBushBlock || block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof TallGrassBlock || block instanceof PinkPetalsBlock || block instanceof FlatVegetationBlock)
                 consumer.accept(block, 60, 100);
+            else if (block instanceof FloweringBushBlock || block instanceof FlowerableBushBlock || block instanceof ShrubBlock)
+                consumer.accept(block, 15, 100);
         });
+        consumer.accept(BWGBlocks.HYDRANGEA_HEDGE.get(), 60, 100);
+        consumer.accept(BWGBlocks.HYDRANGEA_BUSH.getBlock(), 60, 100);
         consumer.accept(BWGBlocks.POISON_IVY.get(), 15, 100);
         consumer.accept(BWGBlocks.CATTAIL_THATCH.get(), 60, 20);
         consumer.accept(BWGBlocks.CATTAIL_THATCH_SLAB.get(), 60, 20);

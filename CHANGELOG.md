@@ -1,22 +1,33 @@
 # 3.0.1
 - Add Pale Pumpkins to new Pumpkins Block and Item Tags
 - Require Oh The Trees You'll Grow 6.0.3 or higher
-- Major Composting Overhaul
-  - All Cattail Thatch Blocks are now compostable
-  - All Cooked Fruits have a 75% chance to be compostable
-  - All Pies have a 100% chance to be compostable
-  - All Fruits(Including Spores, Caps and Bulbs) have a 65% chance to be compostable
-  - All Mushroom blocks have a 85% chance to be compostable
-  - BlueBerries have a 30% chance to be compostable (Matches Vanilla Sweet Berries)
-  - Spirit Roots have a 30% chance to be compostable
-  - Sakura Petal Blocks have a 30% chance to be compostable
-- Major Flammability Overhaul
-  - Now Flammable: 
-    - All Cattail Thatch Blocks
-    - Sakura Petal Blocks
-    - Spirit Roots
-- Cattail Thatch Blocks and Spirit Roots can now be used as Furnace Fuel
-- Crafting Tables, Bookshelves and Forager Tables are now able to be used as Furnace Fuel
+- Overhauls to the following (These changes are made to better match vanilla):
+  - Composting
+    - All Cattail Thatch Blocks are now compostable
+    - All Cooked Fruits have a 75% chance to be compostable
+    - All Pies have a 100% chance to be compostable
+    - All Fruits(Including Spores, Caps and Bulbs) have a 65% chance to be compostable
+    - All Mushroom blocks have a 85% chance to be compostable
+    - BlueBerries have a 30% chance to be compostable (Matches Vanilla Sweet Berries)
+    - Spirit Roots have a 30% chance to be compostable
+    - Sakura Petal Blocks have a 30% chance to be compostable
+  - Flammability
+    - Now Flammable: 
+      - All Cattail Thatch Blocks
+      - Sakura Petal Blocks
+      - Spirit Roots
+      - Jacaranda Bushes
+      - Shrub
+      - Leaf Pile
+      - Clover and Flower Patches
+      - Hydrangea Hedges and Bushes
+  - Furnace Fuel
+    - New Fuels:
+      - Cattail Thatch Blocks
+      - Spirit Roots
+      - Crafting Tables
+      - Bookshelves
+      - Forager Table
 - Fix Man O War Bucket Missing Lang Key and Texture
 
 # 3.0.0
