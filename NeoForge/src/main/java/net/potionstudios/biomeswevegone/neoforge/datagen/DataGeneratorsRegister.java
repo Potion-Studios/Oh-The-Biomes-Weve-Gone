@@ -51,7 +51,6 @@ class DataGeneratorsRegister {
         generator.addProvider(true, datapackBuiltinEntriesProvider);
         lookupProvider = datapackBuiltinEntriesProvider.getRegistryProvider();
 
-        //ModelGenerators.init(generator, true, output);
         generator.addProvider(true, new ModelGenerator(output));
         generator.addProvider(true, new LangGenerator(output, "en_us"));
         generator.addProvider(true, new RecipeGenerator.RecipeGeneratorRunner(output, lookupProvider));

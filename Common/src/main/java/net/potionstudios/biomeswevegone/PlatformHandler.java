@@ -82,7 +82,7 @@ public interface PlatformHandler {
 	 * @return Supplier of the MobBucketItem
 	 */
 	default Supplier<MobBucketItem> createMobBucket(Supplier<EntityType<? extends Mob>> entity, Supplier<Fluid> fluid, Supplier<SoundEvent> sound) {
-		return () -> new MobBucketItem(entity.get(), fluid.get(), sound.get(), new Item.Properties().stacksTo(1).component(DataComponents.BUCKET_ENTITY_DATA, CustomData.EMPTY).setId(BiomesWeveGone.key(Registries.ITEM, entity.get().getDescriptionId() + "_bucket")));
+		return () -> new MobBucketItem(entity.get(), fluid.get(), sound.get(), new Item.Properties().stacksTo(1).component(DataComponents.BUCKET_ENTITY_DATA, CustomData.EMPTY).setId(BiomesWeveGone.key(Registries.ITEM, entity.get().toShortString() + "_bucket")));
 	}
 
 	default BWGFarmLandBlock bwgFarmLandBlock(BlockBehaviour.Properties properties, Supplier<Block> dirt) {

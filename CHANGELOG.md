@@ -9,6 +9,7 @@
   - All Mushroom blocks have a 85% chance to be compostable
   - BlueBerries have a 30% chance to be compostable (Matches Vanilla Sweet Berries)
 - Cattail Thatch Blocks can now be used as Furnace Fuel
+- Fix Man O War Bucket Missing Lang Key and Texture
 
 # 3.0.0
 - Update to 1.21.4

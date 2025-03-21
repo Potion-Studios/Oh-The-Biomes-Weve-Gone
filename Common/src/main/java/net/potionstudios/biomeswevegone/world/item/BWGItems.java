@@ -97,6 +97,7 @@ public class BWGItems {
         Supplier<MobBucketItem> supplier = PlatformHandler.PLATFORM_HANDLER.createMobBucket(entity, fluid, sound);
         supplier = PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.ITEM, id, supplier);
         SIMPLE_ITEMS.add(supplier);
+        ITEMS.add(supplier);
         return supplier;
     }
 
