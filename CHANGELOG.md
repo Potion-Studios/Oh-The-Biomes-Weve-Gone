@@ -9,8 +9,13 @@
   - All Mushroom blocks have a 85% chance to be compostable
   - BlueBerries have a 30% chance to be compostable (Matches Vanilla Sweet Berries)
   - Spirit Roots have a 30% chance to be compostable
+  - Sakura Petal Blocks have a 30% chance to be compostable
+- Major Flammability Overhaul
+  - Now Flammable: 
+    - All Cattail Thatch Blocks
+    - Sakura Petal Blocks
+    - Spirit Roots
 - Cattail Thatch Blocks and Spirit Roots can now be used as Furnace Fuel
-- Cattail Thatch Blocks are now Flammable
 - Crafting Tables, Bookshelves and Forager Tables are now able to be used as Furnace Fuel
 - Fix Man O War Bucket Missing Lang Key and Texture
 

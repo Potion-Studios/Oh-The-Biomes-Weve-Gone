@@ -24,7 +24,7 @@ public class BlockFeatures {
     public static void registerCompostables(BiConsumer<ItemLike, Float> consumer) {
         BWGBlocks.BLOCKS.forEach(object -> {
             Block block = object.get();
-            if (block instanceof TallGrassBlock || block instanceof BWGDoublePlantBlock)
+            if (block instanceof TallGrassBlock || block instanceof BWGDoublePlantBlock || block instanceof PinkPetalsBlock)
                 consumer.accept(block, 0.3F);
             else if (block instanceof VineBlock || block instanceof DesertPlantBlock || block instanceof BWGCactusBlock)
                 consumer.accept(block, 0.5F);
@@ -41,12 +41,10 @@ public class BlockFeatures {
         });
 
         compostItems(consumer, 0.3F, BWGItems.PALE_PUMPKIN_SEEDS.get(), BWGItems.BLUEBERRIES.get());
-        compostItems(consumer, 0.5f, BWGItems.BLUE_GLOWCANE_SHOOT.get(),
-                BWGItems.GREEN_GLOWCANE_SHOOT.get(), BWGItems.RED_GLOWCANE_SHOOT.get(),
+        compostItems(consumer, 0.5f, BWGItems.BLUE_GLOWCANE_SHOOT.get(), BWGItems.GREEN_GLOWCANE_SHOOT.get(), BWGItems.RED_GLOWCANE_SHOOT.get(),
                 BWGItems.YELLOW_GLOWCANE_SHOOT.get(), BWGItems.CATTAIL_SPROUT.get(), BWGItems.FLUORESCENT_CATTAIL_SPROUT.get());
-        compostItems(consumer, 0.65f, BWGItems.GREEN_APPLE.get(), BWGItems.BAOBAB_FRUIT.get(),
-                BWGItems.SOUL_FRUIT.get(), BWGItems.YUCCA_FRUIT.get(), BWGItems.ODDION_BULB.get(),
-                BWGItems.WHITE_PUFFBALL_SPORES.get(), BWGItems.WHITE_PUFFBALL_CAP.get());
+        compostItems(consumer, 0.65f, BWGItems.GREEN_APPLE.get(), BWGItems.BAOBAB_FRUIT.get(), BWGItems.SOUL_FRUIT.get(), BWGItems.YUCCA_FRUIT.get(),
+                BWGItems.ODDION_BULB.get(), BWGItems.WHITE_PUFFBALL_SPORES.get(), BWGItems.WHITE_PUFFBALL_CAP.get());
         compostItems(consumer, 0.75f, BWGItems.COOKED_YUCCA_FRUIT.get(), BWGItems.COOKED_ODDION_BULB.get(), BWGItems.COOKED_WHITE_PUFFBALL_CAP.get());
         compostItems(consumer, 1f, BWGItems.GREEN_APPLE_PIE.get(), BWGItems.BLUEBERRY_PIE.get());
     }
@@ -87,7 +85,7 @@ public class BlockFeatures {
             Block block = entry.get();
             if (block instanceof LeavesBlock)
                 consumer.accept(block, 30, 60);
-            else if (block instanceof SweetBerryBushBlock || block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof TallGrassBlock)
+            else if (block instanceof SweetBerryBushBlock || block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof TallGrassBlock || block instanceof PinkPetalsBlock)
                 consumer.accept(block, 60, 100);
         });
         consumer.accept(BWGBlocks.POISON_IVY.get(), 15, 100);

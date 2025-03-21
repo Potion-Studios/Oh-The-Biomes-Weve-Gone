@@ -794,6 +794,10 @@
       "can_villager_compost": true,
       "chance": 0.3
     },
+    "biomeswevegone:white_sakura_petals": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
     "biomeswevegone:white_sakura_sapling": {
       "can_villager_compost": true,
       "chance": 0.3
@@ -855,6 +859,10 @@
       "chance": 0.5
     },
     "biomeswevegone:yellow_sakura_leaves": {
+      "can_villager_compost": true,
+      "chance": 0.3
+    },
+    "biomeswevegone:yellow_sakura_petals": {
       "can_villager_compost": true,
       "chance": 0.3
     },
