@@ -6,6 +6,15 @@
     }
   ],
   "values": {
+    "biomeswevegone:cattail_thatch": {
+      "burn_time": 300
+    },
+    "biomeswevegone:cattail_thatch_slab": {
+      "burn_time": 150
+    },
+    "biomeswevegone:cattail_thatch_stairs": {
+      "burn_time": 300
+    },
     "biomeswevegone:peat": {
       "burn_time": 1200
     }

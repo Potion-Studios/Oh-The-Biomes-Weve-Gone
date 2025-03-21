@@ -8,6 +8,7 @@
   - All Fruits(Including Spores, Caps and Bulbs) have a 65% chance to be compostable
   - All Mushroom blocks have a 85% chance to be compostable
   - BlueBerries have a 30% chance to be compostable (Matches Vanilla Sweet Berries)
+- Cattail Thatch Blocks can now be used as Furnace Fuel
 
 # 3.0.0
 - Update to 1.21.4

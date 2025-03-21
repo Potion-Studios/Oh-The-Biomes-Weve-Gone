@@ -92,4 +92,11 @@ public class BlockFeatures {
         });
         consumer.accept(BWGBlocks.POISON_IVY.get(), 15, 100);
     }
+
+    public static void registerFurnaceFuels(BiConsumer<ItemLike, Integer> consumer) {
+        consumer.accept(BWGBlocks.PEAT.get().asItem(), 1200);
+        consumer.accept(BWGBlocks.CATTAIL_THATCH.get().asItem(), 300);
+        consumer.accept(BWGBlocks.CATTAIL_THATCH_SLAB.get().asItem(), 150);
+        consumer.accept(BWGBlocks.CATTAIL_THATCH_STAIRS.get().asItem(), 300);
+    }
 }
