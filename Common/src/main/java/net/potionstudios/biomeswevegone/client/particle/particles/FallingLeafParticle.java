@@ -5,7 +5,6 @@ import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.util.Mth;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Falling Leaf Particle for Oh The Biomes We've Gone.
@@ -14,7 +13,7 @@ import org.jetbrains.annotations.Nullable;
  * @author Joseph T. McQuigg
  */
 public class FallingLeafParticle extends TextureSheetParticle {
-    protected FallingLeafParticle(ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+    FallingLeafParticle(ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
         super(level, x, y, z, xSpeed, ySpeed, zSpeed);
         this.quadSize *= this.random.nextFloat() * 0.6F + 0.6F;
         this.lifetime = (int) (16.0D / (Math.random() * 0.8D + 0.2D));
@@ -44,23 +43,14 @@ public class FallingLeafParticle extends TextureSheetParticle {
         }
     }
 
-    public static class Provider implements ParticleProvider<SimpleParticleType> {
-
-        private final SpriteSet sprite;
-
-        public Provider(SpriteSet sprite) {
-            this.sprite = sprite;
-        }
-
-        @Nullable
+    public record Provider(SpriteSet sprite) implements ParticleProvider<SimpleParticleType> {
         @Override
-        public Particle createParticle(@NotNull SimpleParticleType var1, @NotNull ClientLevel world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+        public @NotNull Particle createParticle(@NotNull SimpleParticleType var1, @NotNull ClientLevel world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
             FallingLeafParticle leaf = new FallingLeafParticle(world, x, y, z, xSpeed, ySpeed, zSpeed);
             leaf.lifetime = Mth.randomBetweenInclusive(world.random, 500, 1000);
             leaf.setColor(1.0f, 1.0f, 1.0f);
             leaf.setSprite(this.sprite.get(world.random.nextInt(16), 16));
             return leaf;
         }
-
     }
 }
