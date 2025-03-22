@@ -1,7 +1,7 @@
 # Oh The Biomes We've Gone
 ### By Potion Studios
 
-![img.png](Common/src/main/resources/OTBWG.png)
+![img.png](Common/src/main/resources/bwg.png)
 
 ## The Sequel to Oh The Biomes You'll Go
 
