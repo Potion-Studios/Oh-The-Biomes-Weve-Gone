@@ -1,15 +1,12 @@
 package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BonemealableBlock;
-import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -17,19 +14,14 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+import net.potionstudios.biomeswevegone.world.level.block.plants.bush.BWGPlacementBushBlock;
 import org.jetbrains.annotations.NotNull;
 
-public class AloeVeraBlock extends BushBlock implements BonemealableBlock {
-
-    private static final MapCodec<AloeVeraBlock> CODEC = simpleCodec(AloeVeraBlock::new);
+public class AloeVeraBlock extends BWGPlacementBushBlock implements BonemealableBlock {
 
     public AloeVeraBlock() {
-        this(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.0f).sound(SoundType.WET_GRASS)
-                .noOcclusion().noCollission().randomTicks().pushReaction(PushReaction.DESTROY));
-    }
-
-    public AloeVeraBlock(Properties properties) {
-        super(properties);
+        super(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.0f).sound(SoundType.WET_GRASS)
+                .noOcclusion().noCollission().randomTicks().pushReaction(PushReaction.DESTROY), BlockTags.SAND);
     }
 
     @Override
@@ -41,16 +33,6 @@ public class AloeVeraBlock extends BushBlock implements BonemealableBlock {
     @Override
     public boolean isRandomlyTicking(@NotNull BlockState state) {
         return true;
-    }
-
-    @Override
-    protected @NotNull MapCodec<? extends BushBlock> codec() {
-        return CODEC;
-    }
-
-    @Override
-    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
-        return state.is(BlockTags.SAND);
     }
 
     @Override

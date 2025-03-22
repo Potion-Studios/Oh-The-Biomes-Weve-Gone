@@ -7,7 +7,6 @@ import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.BWGPlacementBushBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.DesertPlantBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.BWGCactusBlock;
-import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.AloeVeraBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.BWGDoublePlantBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.FlatVegetationBlock;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
@@ -29,7 +28,7 @@ public class BlockFeatures {
                 consumer.accept(block, 0.3F);
             else if (block instanceof VineBlock || block instanceof DesertPlantBlock || block instanceof BWGCactusBlock)
                 consumer.accept(block, 0.5F);
-            else if (block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof WaterlilyBlock || block instanceof MushroomBlock || block instanceof AloeVeraBlock || block instanceof FlatVegetationBlock || block instanceof BWGPlacementBushBlock || block instanceof PumpkinBlock || block instanceof CarvedPumpkinBlock)
+            else if (block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof WaterlilyBlock || block instanceof MushroomBlock || block instanceof FlatVegetationBlock || block instanceof BWGPlacementBushBlock || block instanceof PumpkinBlock || block instanceof CarvedPumpkinBlock)
                 consumer.accept(block, 0.65F);
         });
 

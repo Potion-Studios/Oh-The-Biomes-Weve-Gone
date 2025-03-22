@@ -5,7 +5,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,8 +25,12 @@ public class BWGPlacementBushBlock extends BushBlock {
         this.validGround = validGround;
     }
 
+    public BWGPlacementBushBlock(Properties properties, TagKey<Block> validGround) {
+        this(properties, null, validGround);
+    }
+
     public BWGPlacementBushBlock(Properties properties) {
-        this(properties, null, BlockTags.DIRT);
+        this(properties, BlockTags.DIRT);
     }
 
     @Override
@@ -45,10 +48,5 @@ public class BWGPlacementBushBlock extends BushBlock {
     @Override
     protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
         return state.is(validGround);
-    }
-
-    @Override
-    public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos) {
-        return this.mayPlaceOn(level.getBlockState(pos.below()), level, pos);
     }
 }
