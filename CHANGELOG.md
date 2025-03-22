@@ -1,4 +1,5 @@
 # 2.3.11
+- Require Oh The Trees You'll Grow 5.0.9 or newer
 
 # 2.3.10 (Forge/NeoForge Only)
 - Fix Lush Grass Block, Overgrown Stone and Dacite Missing Cutout Render type
