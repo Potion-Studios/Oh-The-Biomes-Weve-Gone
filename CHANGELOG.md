@@ -1,4 +1,5 @@
 # 3.0.1
+- Fix NeoForge Logo not showing up in Mod Menu
 - Add Pale Pumpkins to new Pumpkins Block and Item Tags
 - Require Oh The Trees You'll Grow 6.0.3 or higher
 - Overhauls to the following (These changes are made to better match vanilla):
