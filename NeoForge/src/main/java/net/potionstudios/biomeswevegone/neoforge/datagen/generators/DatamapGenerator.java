@@ -37,7 +37,7 @@ public class DatamapGenerator extends DataMapProvider {
         fuelBuilder.conditions(new ModLoadedCondition(BiomesWeveGone.MOD_ID));
 
         Builder<Compostable, Item> compostableBuilder = builder(NeoForgeDataMaps.COMPOSTABLES);
-        BlockFeatures.registerCompostables((item, chance) -> compostableBuilder.add(id(item.asItem()), new Compostable(chance, true), false));
+        BlockFeatures.registerCompostables((item, chance) -> compostableBuilder.add(id(item.asItem()), new Compostable(chance, false), false));
         compostableBuilder.conditions(new ModLoadedCondition(BiomesWeveGone.MOD_ID));
 
         Builder<BiomeVillagerType, Biome> biomeVillagerTypeBuilder = builder(NeoForgeDataMaps.VILLAGER_TYPES);
