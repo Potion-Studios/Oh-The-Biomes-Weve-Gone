@@ -37,6 +37,7 @@ public class BlockFeatures {
             if (entry.get() instanceof LeavesBlock || entry.get() instanceof SaplingBlock || entry.get() instanceof MangroveRootsBlock)
                 consumer.accept(entry.get(), 0.3F);
         });
+        compostItems(consumer, 0.85F, BWGBlocks.CYAN_PITCHER_PLANT.get(), BWGBlocks.MAGENTA_PITCHER_PLANT.get());
 
         compostItems(consumer, 0.3F, BWGItems.PALE_PUMPKIN_SEEDS.get(), BWGItems.BLUEBERRIES.get());
         compostItems(consumer, 0.5f, BWGItems.BLUE_GLOWCANE_SHOOT.get(), BWGItems.GREEN_GLOWCANE_SHOOT.get(), BWGItems.RED_GLOWCANE_SHOOT.get(),

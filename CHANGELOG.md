@@ -12,6 +12,7 @@
     - BlueBerries have a 30% chance to be compostable (Matches Vanilla Sweet Berries)
     - Spirit Roots have a 30% chance to be compostable
     - Sakura Petal Blocks have a 30% chance to be compostable
+    - Pitcher Plants Match Vanilla Pitcher Plants at 85% chance
   - Flammability
     - Now Flammable: 
       - All Cattail Thatch Blocks
