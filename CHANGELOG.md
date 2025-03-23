@@ -1,6 +1,35 @@
 # 2.3.11
 - Require Oh The Trees You'll Grow 5.0.9 or newer
 - Fix NeoForge Logo not showing up in Mod Menu
+- Overhauls to the following (These changes are made to better match vanilla):
+  - Composting
+    - All Cattail Thatch Blocks are now compostable
+    - All Cooked Fruits have a 75% chance to be compostable
+    - All Pies have a 100% chance to be compostable
+    - All Fruits(Including Spores, Caps and Bulbs) have a 65% chance to be compostable
+    - All Mushroom blocks have a 85% chance to be compostable
+    - BlueBerries have a 30% chance to be compostable (Matches Vanilla Sweet Berries)
+    - Spirit Roots have a 30% chance to be compostable
+    - Sakura Petal Blocks have a 30% chance to be compostable
+    - Pitcher Plants Match Vanilla Pitcher Plants at 85% chance
+  - Flammability
+    - Now Flammable:
+      - All Cattail Thatch Blocks
+      - Sakura Petal Blocks
+      - Spirit Roots
+      - Jacaranda Bushes
+      - Shrub
+      - Leaf Pile
+      - Clover and Flower Patches
+      - Hydrangea Hedges and Bushes
+      - Skyris Vines
+  - Furnace Fuel
+    - New Fuels:
+      - Cattail Thatch Blocks
+      - Spirit Roots
+      - Crafting Tables
+      - Bookshelves
+      - Forager Table
 
 # 2.3.10 (Forge/NeoForge Only)
 - Fix Lush Grass Block, Overgrown Stone and Dacite Missing Cutout Render type

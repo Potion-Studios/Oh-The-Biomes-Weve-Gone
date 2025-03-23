@@ -6,8 +6,173 @@
     }
   ],
   "values": {
+    "biomeswevegone:aspen_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:aspen_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:baobab_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:baobab_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:blue_enchanted_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:blue_enchanted_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:cattail_thatch": {
+      "burn_time": 300
+    },
+    "biomeswevegone:cattail_thatch_slab": {
+      "burn_time": 150
+    },
+    "biomeswevegone:cattail_thatch_stairs": {
+      "burn_time": 300
+    },
+    "biomeswevegone:cika_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:cika_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:cypress_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:cypress_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:ebony_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:ebony_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:fir_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:fir_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:florus_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:florus_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:foragers_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:green_enchanted_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:green_enchanted_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:holly_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:holly_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:ironwood_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:ironwood_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:jacaranda_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:jacaranda_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:mahogany_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:mahogany_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:maple_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:maple_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:palm_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:palm_crafting_table": {
+      "burn_time": 300
+    },
     "biomeswevegone:peat": {
       "burn_time": 1200
+    },
+    "biomeswevegone:pine_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:pine_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:rainbow_eucalyptus_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:rainbow_eucalyptus_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:redwood_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:redwood_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:sakura_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:sakura_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:skyris_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:skyris_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:spirit_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:spirit_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:spirit_roots": {
+      "burn_time": 300
+    },
+    "biomeswevegone:white_mangrove_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:white_mangrove_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:willow_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:willow_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:witch_hazel_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:witch_hazel_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:zelkova_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:zelkova_crafting_table": {
+      "burn_time": 300
     }
   }
 }

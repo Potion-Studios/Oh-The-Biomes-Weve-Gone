@@ -30,13 +30,13 @@ public class DatamapGenerator extends DataMapProvider {
 
     @Override
     protected void gather(HolderLookup.@NotNull Provider provider) {
-        builder(NeoForgeDataMaps.FURNACE_FUELS)
-                .add(id(BWGBlocks.PEAT.get().asItem()), new FurnaceFuel(1200), false)
-                .conditions(new ModLoadedCondition(BiomesWeveGone.MOD_ID));
+        Builder<FurnaceFuel, Item> fuelBuilder = builder(NeoForgeDataMaps.FURNACE_FUELS);
+        BlockFeatures.registerFurnaceFuels((block, burnTime) -> fuelBuilder.add(id(block.asItem()), new FurnaceFuel(burnTime), false));
+        fuelBuilder.conditions(new ModLoadedCondition(BiomesWeveGone.MOD_ID));
 
-        var builder = builder(NeoForgeDataMaps.COMPOSTABLES);
-        BlockFeatures.registerCompostables((item, chance) -> builder.add(id(item.asItem()), new Compostable(chance, true), false));
-        builder.conditions(new ModLoadedCondition(BiomesWeveGone.MOD_ID));
+        Builder<Compostable, Item> compostableBuilder = builder(NeoForgeDataMaps.COMPOSTABLES);
+        BlockFeatures.registerCompostables((item, chance) -> compostableBuilder.add(id(item.asItem()), new Compostable(chance, false), false));
+        compostableBuilder.conditions(new ModLoadedCondition(BiomesWeveGone.MOD_ID));
     }
 
     private ResourceLocation id(Item item) {
