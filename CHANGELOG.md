@@ -23,6 +23,7 @@
       - Leaf Pile
       - Clover and Flower Patches
       - Hydrangea Hedges and Bushes
+      - Skyris Vines
   - Furnace Fuel
     - New Fuels:
       - Cattail Thatch Blocks

@@ -86,12 +86,11 @@ public class BlockFeatures {
                 consumer.accept(block, 30, 60);
             else if (block instanceof SweetBerryBushBlock || block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof TallGrassBlock || block instanceof PinkPetalsBlock || block instanceof FlatVegetationBlock)
                 consumer.accept(block, 60, 100);
-            else if (block instanceof FloweringBushBlock || block instanceof FlowerableBushBlock || block instanceof ShrubBlock)
+            else if (block instanceof FloweringBushBlock || block instanceof FlowerableBushBlock || block instanceof ShrubBlock || block instanceof VineBlock)
                 consumer.accept(block, 15, 100);
         });
         consumer.accept(BWGBlocks.HYDRANGEA_HEDGE.get(), 60, 100);
         consumer.accept(BWGBlocks.HYDRANGEA_BUSH.getBlock(), 60, 100);
-        consumer.accept(BWGBlocks.POISON_IVY.get(), 15, 100);
         consumer.accept(BWGBlocks.CATTAIL_THATCH.get(), 60, 20);
         consumer.accept(BWGBlocks.CATTAIL_THATCH_SLAB.get(), 60, 20);
         consumer.accept(BWGBlocks.CATTAIL_THATCH_STAIRS.get(), 60, 20);
