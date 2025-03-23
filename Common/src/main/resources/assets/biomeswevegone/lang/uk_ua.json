@@ -84,6 +84,9 @@
   "biome.biomeswevegone.white_mangrove_marshes": "Біле мангрове багно",
   "biome.biomeswevegone.windswept_desert": "Вітряна пустеля",
   "biome.biomeswevegone.zelkova_forest": "Дзельквовий ліс",
+  "biomeswevegone.commands.reload.misc.success": "Успішно перезавантажено різні конфігурації",
+  "biomeswevegone.commands.reload.spawn.success": "Успішно перезавантажено конфігурації появи мобів",
+  "biomeswevegone.commands.reload.success": "Успішно перезавантажено усі конфігурації",
   "block.biomeswevegone.allium_flower_bush": "Різанцевий кущ",
   "block.biomeswevegone.allium_petal_block": "Блок різанцевих пелюсток",
   "block.biomeswevegone.aloe_vera": "Алое",
@@ -347,7 +350,7 @@
   "block.biomeswevegone.foxglove": "Наперстянка",
   "block.biomeswevegone.golden_spined_cactus": "Золотий колючий кактус",
   "block.biomeswevegone.green_apple_fruit": "Плід зеленого яблука",
-  "block.biomeswevegone.green_apple_skyris_leaves": "Яблучно-скайрисове листя",
+  "block.biomeswevegone.green_apple_skyris_leaves": "Зелене яблучно-скайрисове листя",
   "block.biomeswevegone.green_enchanted_bookshelf": "Зелена зачарована книжкова полиця",
   "block.biomeswevegone.green_enchanted_button": "Зелена зачарована кнопка",
   "block.biomeswevegone.green_enchanted_crafting_table": "Зелений зачарований верстак",
@@ -1053,7 +1056,7 @@
   "item.biomeswevegone.maple_boat": "Кленовий човен",
   "item.biomeswevegone.maple_chest_boat": "Кленовий човен зі скринею",
   "item.biomeswevegone.music_disc_pixie_club": "Платівка",
-  "item.biomeswevegone.music_disc_pixie_club.desc": "AOCAWOL - Pixie Club",
+  "item.biomeswevegone.music_disc_pixie_club.desc": "AOCAWOL — Pixie Club",
   "item.biomeswevegone.oddion_bulb": "Цидулина",
   "item.biomeswevegone.oddion_spawn_egg": "Яйце виклику цидулі",
   "item.biomeswevegone.pale_pumpkin_seeds": "Насіння блідого гарбуза",
@@ -1096,5 +1099,6 @@
   "subtitles.entity.oddion_ambient": "Цидуля муркоче",
   "subtitles.entity.oddion_death": "Цидуля гине",
   "subtitles.entity.oddion_happy": "Цидуля щасливо муркоче",
-  "subtitles.entity.oddion_hurt": "Цидулю поранено"
+  "subtitles.entity.oddion_hurt": "Цидулю поранено",
+  "tooltip.waila.hatch_chance": "Шанс вилучення: %s"
 }
