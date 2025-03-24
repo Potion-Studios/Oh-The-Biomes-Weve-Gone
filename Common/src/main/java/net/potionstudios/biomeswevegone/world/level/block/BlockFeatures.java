@@ -3,10 +3,8 @@ package net.potionstudios.biomeswevegone.world.level.block;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
-import net.potionstudios.biomeswevegone.world.level.block.plants.bush.BWGPlacementBushBlock;
-import net.potionstudios.biomeswevegone.world.level.block.plants.bush.DesertPlantBlock;
+import net.potionstudios.biomeswevegone.world.level.block.plants.bush.*;
 import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.BWGCactusBlock;
-import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.AloeVeraBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.BWGDoublePlantBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.FlatVegetationBlock;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
@@ -24,21 +22,33 @@ public class BlockFeatures {
     public static void registerCompostables(BiConsumer<ItemLike, Float> consumer) {
         BWGBlocks.BLOCKS.forEach(object -> {
             Block block = object.get();
-            if (block instanceof TallGrassBlock || block instanceof BWGDoublePlantBlock)
+            if (block instanceof TallGrassBlock || block instanceof BWGDoublePlantBlock || block instanceof PinkPetalsBlock)
                 consumer.accept(block, 0.3F);
             else if (block instanceof VineBlock || block instanceof DesertPlantBlock || block instanceof BWGCactusBlock)
                 consumer.accept(block, 0.5F);
-            else if (block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof WaterlilyBlock || block instanceof MushroomBlock || block instanceof AloeVeraBlock || block instanceof FlatVegetationBlock || block instanceof BWGPlacementBushBlock)
+            else if (block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof WaterlilyBlock || block instanceof MushroomBlock || block instanceof FlatVegetationBlock || block instanceof BWGPlacementBushBlock || block instanceof PumpkinBlock || block instanceof CarvedPumpkinBlock)
                 consumer.accept(block, 0.65F);
+            else if (block instanceof HugeMushroomBlock || block instanceof HayBlock)
+                consumer.accept(block, 0.85F);
         });
+        compostItems(consumer, 0.4F, BWGBlocks.CATTAIL_THATCH_SLAB.get(), BWGBlocks.CATTAIL_THATCH_STAIRS.get(), BWGBlocks.CATTAIL_THATCH_CARPET.get());
 
         BWGWood.WOOD.forEach(entry -> {
-            if (entry.get() instanceof LeavesBlock || entry.get() instanceof SaplingBlock)
+            if (entry.get() instanceof LeavesBlock || entry.get() instanceof SaplingBlock || entry.get() instanceof MangroveRootsBlock)
                 consumer.accept(entry.get(), 0.3F);
         });
+        compostItems(consumer, 0.85F, BWGBlocks.CYAN_PITCHER_PLANT.get(), BWGBlocks.MAGENTA_PITCHER_PLANT.get());
 
-        BWGItems.ITEMS.stream().filter(item -> item.get().isEdible()).forEach(item -> consumer.accept(item.get(), 0.85F));
-        consumer.accept(BWGItems.CATTAIL_SPROUT.get(), 0.5F);
+        compostItems(consumer, 0.3F, BWGItems.BLUEBERRIES.get());
+        compostItems(consumer, 0.5f, BWGItems.CATTAIL_SPROUT.get());
+        compostItems(consumer, 0.65f, BWGItems.GREEN_APPLE.get(), BWGItems.BAOBAB_FRUIT.get(), BWGItems.YUCCA_FRUIT.get(),
+                BWGItems.ODDION_BULB.get(), BWGItems.WHITE_PUFFBALL_SPORES.get(), BWGItems.WHITE_PUFFBALL_CAP.get());
+        compostItems(consumer, 0.75f, BWGItems.COOKED_YUCCA_FRUIT.get(), BWGItems.COOKED_ODDION_BULB.get(), BWGItems.COOKED_WHITE_PUFFBALL_CAP.get());
+        compostItems(consumer, 1f, BWGItems.GREEN_APPLE_PIE.get(), BWGItems.BLUEBERRY_PIE.get());
+    }
+
+    private static void compostItems(BiConsumer<ItemLike, Float> consumer, float chance, ItemLike... items) {
+        for (ItemLike item : items) consumer.accept(item, chance);
     }
 
     /**
@@ -60,6 +70,8 @@ public class BlockFeatures {
         BWGWood.WOOD.forEach(block -> {
             if (block.get() instanceof LeavesBlock)
                 consumer.accept(block.get(), 30, 60);
+            else if (block.get() instanceof MangroveRootsBlock)
+                consumer.accept(block.get(), 5, 20);
         });
         consumer.accept(BWGWood.PALO_VERDE_LOG.get(), 5, 5);
         consumer.accept(BWGWood.STRIPPED_PALO_VERDE_LOG.get(), 5, 5);
@@ -71,11 +83,28 @@ public class BlockFeatures {
             Block block = entry.get();
             if (block instanceof LeavesBlock)
                 consumer.accept(block, 30, 60);
-            else if (block instanceof CarpetBlock)
-                consumer.accept(block, 60, 20);
-            else if (block instanceof SweetBerryBushBlock || block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof TallGrassBlock)
+            else if (block instanceof SweetBerryBushBlock || block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof TallGrassBlock || block instanceof PinkPetalsBlock || block instanceof FlatVegetationBlock)
                 consumer.accept(block, 60, 100);
+            else if (block instanceof FloweringBushBlock || block instanceof FlowerableBushBlock || block instanceof ShrubBlock || block instanceof VineBlock)
+                consumer.accept(block, 15, 100);
         });
-        consumer.accept(BWGBlocks.POISON_IVY.get(), 15, 100);
+        consumer.accept(BWGBlocks.HYDRANGEA_HEDGE.get(), 60, 100);
+        consumer.accept(BWGBlocks.HYDRANGEA_BUSH.getBlock(), 60, 100);
+        consumer.accept(BWGBlocks.CATTAIL_THATCH.get(), 60, 20);
+        consumer.accept(BWGBlocks.CATTAIL_THATCH_SLAB.get(), 60, 20);
+        consumer.accept(BWGBlocks.CATTAIL_THATCH_STAIRS.get(), 60, 20);
+        consumer.accept(BWGBlocks.CATTAIL_THATCH_CARPET.get(), 60, 20);
+    }
+
+    public static void registerFurnaceFuels(BiConsumer<ItemLike, Integer> consumer) {
+        consumer.accept(BWGBlocks.PEAT.get().asItem(), 1200);
+        consumer.accept(BWGBlocks.CATTAIL_THATCH.get().asItem(), 300);
+        consumer.accept(BWGBlocks.CATTAIL_THATCH_SLAB.get().asItem(), 150);
+        consumer.accept(BWGBlocks.CATTAIL_THATCH_STAIRS.get().asItem(), 300);
+        BWGWoodSet.woodsets().forEach(bwgWoodSet -> {
+            consumer.accept(bwgWoodSet.bookshelf(), 300);
+            consumer.accept(bwgWoodSet.craftingTable(), 300);
+        });
+        consumer.accept(BWGBlocks.FORAGERS_TABLE.get(), 300);
     }
 }

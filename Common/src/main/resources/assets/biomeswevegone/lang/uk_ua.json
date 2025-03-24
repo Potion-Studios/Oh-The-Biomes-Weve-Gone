@@ -1030,5 +1030,8 @@
   "subtitles.entity.oddion_ambient": "Цидуля муркоче",
   "subtitles.entity.oddion_death": "Цидуля гине",
   "subtitles.entity.oddion_happy": "Цидуля щасливо муркоче",
-  "subtitles.entity.oddion_hurt": "Цидулю поранено"
+  "subtitles.entity.oddion_hurt": "Цидулю поранено",
+  "biomeswevegone.commands.reload.spawn.success": "Успішно перезавантажено конфігурації появи мобів",
+  "item.biomeswevegone.music_disc_pixie_club.desc": "AOCAWOL - Pixie Club",
+  "tooltip.waila.hatch_chance": "Hatch Chance: %s"
 }

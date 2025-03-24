@@ -30,7 +30,7 @@ public class VanillaCompatFabric {
     public static void init() {
         ToolInteractions.registerStrippableBlocks(StrippableBlockRegistry::register);
         BlockFeatures.registerFlammable(FlammableBlockRegistry.getDefaultInstance()::add);
-        registerFuels();
+        BlockFeatures.registerFurnaceFuels(FuelRegistry.INSTANCE::add);
         BlockFeatures.registerCompostables(CompostingChanceRegistry.INSTANCE::add);
         ToolInteractions.registerFlattenables(FlattenableBlockRegistry::register);
         ToolInteractions.registerTillables((block, pair) -> TillableBlockRegistry.register(block, pair.getFirst(), pair.getSecond()));
@@ -42,10 +42,6 @@ public class VanillaCompatFabric {
                 registerWanderingTrades();
         }
         UseEntityCallback.EVENT.register(((player, level, interactionHand, entity, entityHitResult) -> PumpkinWarden.villagerToPumpkinWarden(player, player.getItemInHand(interactionHand), level) ? InteractionResult.SUCCESS : InteractionResult.PASS));
-    }
-
-    private static void registerFuels() {
-        FuelRegistry.INSTANCE.add(BWGBlocks.PEAT.get(), 1200);
     }
 
     private static void registerBiomeModifiers() {

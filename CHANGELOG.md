@@ -1,6 +1,32 @@
 # 1.5.9
 - Require Oh The Trees You'll Grow 1.3.7 or newer
 - Give BWG Swamp Biomes, Swamp Villager Type Spawns
+- Overhauls to the following (These changes are made to better match vanilla):
+  - Composting
+    - All Cattail Thatch Blocks are now compostable
+    - All Cooked Fruits have a 75% chance to be compostable
+    - All Pies have a 100% chance to be compostable
+    - All Fruits(Including Spores, Caps and Bulbs) have a 65% chance to be compostable
+    - All Mushroom blocks have a 85% chance to be compostable
+    - BlueBerries have a 30% chance to be compostable (Matches Vanilla Sweet Berries)
+    - Sakura Petal Blocks have a 30% chance to be compostable
+    - Pitcher Plants Match Vanilla Pitcher Plants at 85% chance
+  - Flammability
+    - Now Flammable:
+      - All Cattail Thatch Blocks
+      - Sakura Petal Blocks
+      - Jacaranda Bushes
+      - Shrub
+      - Leaf Pile
+      - Clover and Flower Patches
+      - Hydrangea Hedges and Bushes
+      - Skyris Vines
+  - Furnace Fuel
+    - New Fuels:
+      - Cattail Thatch Blocks
+      - Crafting Tables
+      - Bookshelves
+      - Forager Table
 
 # 1.5.8
 - Fix Flower Dye Recipes
