@@ -191,8 +191,8 @@ class BWGRuleProcessors {
 	protected static final RuleProcessor DACITE_COBBLESTONE_VARIANTS = createRuleProcessor(
 			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.DACITE_COBBLESTONE_SET.getBase(), 0.1f, BWGBlocks.DACITE_SET.getBase()),
 			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.DACITE_COBBLESTONE_SET.getBase(), 0.25f, BWGBlocks.DACITE_BRICKS_SET.getBase()),
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.DACITE_COBBLESTONE_SET.getBase(), 0.1f, BWGBlocks.DACITE_CRACKED_BRICKS_SET.getBase()),
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.DACITE_COBBLESTONE_SET.getBase(), 0.1f, BWGBlocks.DACITE_MOSSY_BRICKS_SET.getBase())
+			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.DACITE_COBBLESTONE_SET.getBase(), 0.1f, BWGBlocks.CRACKED_DACITE_BRICKS_SET.getBase()),
+			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.DACITE_COBBLESTONE_SET.getBase(), 0.1f, BWGBlocks.MOSSY_DACITE_BRICKS_SET.getBase())
 	);
 
 	protected static final RuleProcessor SHORT_GRASS_TO_FLOWER_PUMPKIN_PATCH = createRuleProcessor(
