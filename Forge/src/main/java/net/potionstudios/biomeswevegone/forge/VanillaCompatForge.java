@@ -82,8 +82,9 @@ public class VanillaCompatForge {
      * @see FurnaceFuelBurnTimeEvent
      */
     private static void registerFuels(final FurnaceFuelBurnTimeEvent event) {
-        if (event.getItemStack().is(BWGBlocks.PEAT.get().asItem()))
-            event.setBurnTime(1200);
+        BlockFeatures.registerFurnaceFuels((block, burnTime) -> {
+            if (event.getItemStack().is(block.asItem())) event.setBurnTime(burnTime);
+        });
     }
 
     /**

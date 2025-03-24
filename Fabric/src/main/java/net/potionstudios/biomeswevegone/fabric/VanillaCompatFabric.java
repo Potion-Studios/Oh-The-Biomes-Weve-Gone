@@ -18,7 +18,6 @@ import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.item.brewing.BWGBrewingRecipes;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
-import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
 import net.potionstudios.biomeswevegone.config.configs.BWGWorldGenConfig;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.modifiers.BWGBiomeModifiers;
@@ -32,7 +31,7 @@ public class VanillaCompatFabric {
     public static void init() {
         ToolInteractions.registerStrippableBlocks(StrippableBlockRegistry::register);
         BlockFeatures.registerFlammable(FlammableBlockRegistry.getDefaultInstance()::add);
-        registerFuels();
+        BlockFeatures.registerFurnaceFuels(FuelRegistry.INSTANCE::add);
         BlockFeatures.registerCompostables(CompostingChanceRegistry.INSTANCE::add);
         ToolInteractions.registerFlattenables(FlattenableBlockRegistry::register);
         ToolInteractions.registerTillables((block, pair) -> TillableBlockRegistry.register(block, pair.getFirst(), pair.getSecond()));
@@ -45,10 +44,6 @@ public class VanillaCompatFabric {
         }
         FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> BWGBrewingRecipes.buildBrewingRecipes(builder::addMix));
         UseEntityCallback.EVENT.register(((player, level, interactionHand, entity, entityHitResult) -> PumpkinWarden.villagerToPumpkinWarden(player, player.getItemInHand(interactionHand), level) ? InteractionResult.SUCCESS : InteractionResult.PASS));
-    }
-
-    private static void registerFuels() {
-        FuelRegistry.INSTANCE.add(BWGBlocks.PEAT.get(), 1200);
     }
 
     private static void registerBiomeModifiers() {
