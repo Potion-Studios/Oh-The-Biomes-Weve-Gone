@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "biomeswevegone:block/white_cracked_dacite_bricks",
-    "side": "biomeswevegone:block/white_cracked_dacite_bricks",
-    "top": "biomeswevegone:block/white_cracked_dacite_bricks"
-  }
-}

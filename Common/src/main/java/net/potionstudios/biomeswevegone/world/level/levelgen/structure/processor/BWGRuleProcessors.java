@@ -163,8 +163,8 @@ class BWGRuleProcessors {
 	protected static final RuleProcessor WHITE_DACITE_VARIANTS = createRuleProcessor(
 			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_DACITE_SET.getBase(), 0.3f, BWGBlocks.WHITE_DACITE_COBBLESTONE_SET.getBase()),
 			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_DACITE_SET.getBase(), 0.3f, BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase()),
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_DACITE_SET.getBase(), 0.1f, BWGBlocks.WHITE_DACITE_CRACKED_BRICKS_SET.getBase()),
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_DACITE_SET.getBase(), 0.1f, BWGBlocks.WHITE_DACITE_MOSSY_BRICKS_SET.getBase())
+			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_DACITE_SET.getBase(), 0.1f, BWGBlocks.CRACKED_WHITE_DACITE_BRICKS_SET.getBase()),
+			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_DACITE_SET.getBase(), 0.1f, BWGBlocks.MOSSY_WHITE_DACITE_BRICKS_SET.getBase())
 	);
 
 	protected static final RuleProcessor STONEBRICKS_VARIANTS = createRuleProcessor(
