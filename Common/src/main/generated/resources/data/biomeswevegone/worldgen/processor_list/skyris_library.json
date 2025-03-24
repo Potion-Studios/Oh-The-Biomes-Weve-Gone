@@ -70,7 +70,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "biomeswevegone:white_cracked_dacite_bricks"
+            "Name": "biomeswevegone:cracked_white_dacite_bricks"
           }
         },
         {
@@ -83,7 +83,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "biomeswevegone:white_mossy_dacite_bricks"
+            "Name": "biomeswevegone:mossy_white_dacite_bricks"
           }
         }
       ]

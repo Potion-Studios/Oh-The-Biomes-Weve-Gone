@@ -272,9 +272,9 @@ public class BWGBlocks {
 
     public static final BWGBlockSet WHITE_DACITE_SET = new BWGBlockSet("white_dacite", MapColor.TERRACOTTA_WHITE);
     public static final BWGBlockSet WHITE_DACITE_BRICKS_SET = new BWGBlockSet("white_dacite_bricks", "white_dacite_brick", BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).mapColor(MapColor.TERRACOTTA_WHITE));
-    public static final BWGBlockSet WHITE_DACITE_CRACKED_BRICKS_SET = new BWGBlockSet("white_cracked_dacite_bricks", "white_cracked_dacite_brick", BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).mapColor(MapColor.TERRACOTTA_WHITE));
-    public static final BWGBlockSet WHITE_DACITE_MOSSY_BRICKS_SET = new BWGBlockSet("white_mossy_dacite_bricks", "white_mossy_dacite_brick", BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).mapColor(MapColor.TERRACOTTA_WHITE));
-    public static final BWGBlockSet WHITE_DACITE_CHISELED_BRICKS_SET = new BWGBlockSet("white_chiseled_dacite_bricks", "white_chiseled_dacite_brick", BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).mapColor(MapColor.TERRACOTTA_WHITE));
+    public static final BWGBlockSet CRACKED_WHITE_DACITE_BRICKS_SET = new BWGBlockSet("cracked_white_dacite_bricks", "cracked_white_dacite_brick", BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).mapColor(MapColor.TERRACOTTA_WHITE));
+    public static final BWGBlockSet MOSSY_WHITE_DACITE_BRICKS_SET = new BWGBlockSet("mossy_white_dacite_bricks", "mossy_white_dacite_brick", BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).mapColor(MapColor.TERRACOTTA_WHITE));
+    public static final BWGBlockSet CHISELED_WHITE_DACITE_BRICKS_SET = new BWGBlockSet("chiseled_white_dacite_bricks", "chiseled_white_dacite_brick", BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).mapColor(MapColor.TERRACOTTA_WHITE));
     public static final BWGBlockSet WHITE_DACITE_COBBLESTONE_SET = new BWGBlockSet("white_dacite_cobblestone", BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE).mapColor(MapColor.TERRACOTTA_WHITE));
     public static final Supplier<RotatedPillarBlock> WHITE_DACITE_PILLAR = registerBlockItem("white_dacite_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).mapColor(MapColor.TERRACOTTA_WHITE)));
     public static final BWGBlockSet WHITE_DACITE_TILE_SET = new BWGBlockSet("white_dacite_tile", MapColor.TERRACOTTA_WHITE);
