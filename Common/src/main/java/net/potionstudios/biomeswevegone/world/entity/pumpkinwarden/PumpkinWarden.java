@@ -1,5 +1,8 @@
 package net.potionstudios.biomeswevegone.world.entity.pumpkinwarden;
 
+import com.google.common.collect.ImmutableList;
+import com.mojang.datafixers.util.Pair;
+import com.mojang.serialization.Dynamic;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -22,14 +25,19 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.behavior.BehaviorControl;
 import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
+import net.minecraft.world.entity.ai.behavior.VillagerGoalPackages;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.schedule.Activity;
+import net.minecraft.world.entity.schedule.Schedule;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -64,7 +72,7 @@ import java.util.function.IntFunction;
  * The Pumpkin Warden Entity
  * @see PathfinderMob
  * @see GeoEntity
- * @author YaBoiChips
+ * @author JT122406
  */
 public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHolder<PumpkinWarden.Variant> {
 
@@ -78,6 +86,23 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     public PumpkinWarden(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
+    }
+
+    @Override
+    public @NotNull Brain<PumpkinWarden> getBrain() {
+        return (Brain<PumpkinWarden>) super.getBrain();
+    }
+
+    @Override
+    protected @NotNull Brain<?> makeBrain(@NotNull Dynamic<?> dynamic) {
+        Brain<PumpkinWarden> brain = (Brain<PumpkinWarden>) super.makeBrain(dynamic);
+        registerBrainGoals(brain);
+        return brain;
+    }
+
+    private void registerBrainGoals(Brain<PumpkinWarden> brain) {
+        brain.setSchedule(Schedule.VILLAGER_BABY);
+        brain.addActivity(Activity.PLAY, (ImmutableList<? extends Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>>) VillagerGoalPackages.getPlayPackage(0.5F));
     }
 
     @Override
@@ -239,7 +264,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     @Override
     protected void updateControlFlags() {
-        super.updateControlFlags();
         goalSelector.setControlFlag(Goal.Flag.MOVE, canMove());
         goalSelector.setControlFlag(Goal.Flag.JUMP, canMove());
         goalSelector.setControlFlag(Goal.Flag.LOOK, !isHiding());
