@@ -1,5 +1,5 @@
 {
-  "advancements.biomeswevegone.adventure.forgotten_fae.description": "Найдите музыкальный диск «Клуб Пикси",
+  "advancements.biomeswevegone.adventure.forgotten_fae.description": "Найдите музыкальный диск Клуб Пикси",
   "advancements.biomeswevegone.adventure.forgotten_fae.title": "Забытые феи",
   "advancements.biomeswevegone.adventure.inside_quicksand.description": "Погрузитесь в зыбучий песок.",
   "advancements.biomeswevegone.adventure.inside_quicksand.title": "Я тону?",
@@ -1099,6 +1099,6 @@
   "subtitles.entity.oddion_ambient": "Луковочка мурлычет",
   "subtitles.entity.oddion_death": "Луковочка умирает",
   "subtitles.entity.oddion_happy": "Луковочка радостно мурлычет",
-  "subtitles.entity.oddion_hurt": "Луковочка ранен",
+  "subtitles.entity.oddion_hurt": "Луковочка ранена",
   "tooltip.waila.hatch_chance": "Шанс вылупления: %s"
 }
