@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.world.entity.pumpkinwarden;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Dynamic;
 import net.minecraft.core.BlockPos;
@@ -10,6 +11,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
+import net.minecraft.network.protocol.game.DebugPackets;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -31,19 +33,16 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.behavior.*;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
 import net.minecraft.world.entity.ai.sensing.Sensor;
 import net.minecraft.world.entity.ai.sensing.SensorType;
-import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.schedule.Activity;
 import net.minecraft.world.entity.schedule.Schedule;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.LightLayer;
@@ -54,8 +53,10 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CarvedPumpkinBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
@@ -90,15 +91,25 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     private static final ImmutableList<MemoryModuleType<?>> MEMORY_TYPES = ImmutableList.of(
         MemoryModuleType.NEAREST_LIVING_ENTITIES,
         MemoryModuleType.NEAREST_VISIBLE_LIVING_ENTITIES,
-        MemoryModuleType.INTERACTION_TARGET
+        MemoryModuleType.INTERACTION_TARGET,
+        MemoryModuleType.WALK_TARGET,
+        MemoryModuleType.LOOK_TARGET,
+        MemoryModuleType.VISIBLE_VILLAGER_BABIES,
+        MemoryModuleType.PATH,
+        MemoryModuleType.CANT_REACH_WALK_TARGET_SINCE
     );
 
     private static final ImmutableList<SensorType<? extends Sensor<? super PumpkinWarden>>> SENSOR_TYPES = ImmutableList.of(
-            SensorType.NEAREST_LIVING_ENTITIES
+            SensorType.NEAREST_LIVING_ENTITIES,
+            SensorType.NEAREST_PLAYERS,
+            SensorType.VILLAGER_BABIES
     );
 
     public PumpkinWarden(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
+        setPathfindingMalus(PathType.DANGER_FIRE, 16.0F);
+        setPathfindingMalus(PathType.DAMAGE_FIRE, -1.0F);
+        getNavigation().setCanFloat(true);
     }
 
     @Override
@@ -118,7 +129,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         return brain;
     }
 
-    public void refreshBrain(ServerLevel serverLevel) {
+    private void refreshBrain(ServerLevel serverLevel) {
         Brain<PumpkinWarden> brain = this.getBrain();
         brain.stopAll(serverLevel, this);
         this.brain = brain.copyWithoutBehaviors();
@@ -128,6 +139,10 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     private void registerBrainGoals(Brain<PumpkinWarden> brain) {
         brain.setSchedule(Schedule.VILLAGER_BABY);
         brain.addActivity(Activity.PLAY, getPlayPackage(0.5F));
+        brain.setCoreActivities(ImmutableSet.of(Activity.CORE));
+        brain.setDefaultActivity(Activity.PLAY);
+        brain.setActiveActivityIfPossible(Activity.PLAY);
+        brain.updateActivityFromSchedule(level().getDayTime(), level().getGameTime());
     }
 
     @Override
@@ -159,26 +174,15 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         this.setVariant(Variant.byId(compound.getInt("Variant")));
         BlockState blockState = this.getCarriedBlock();
         if (blockState != null) compound.put("carriedBlockState", NbtUtils.writeBlockState(blockState));
-        if (this.level() instanceof ServerLevel)
-            this.refreshBrain((ServerLevel)this.level());
+        if (level() instanceof ServerLevel serverLevel)
+            refreshBrain(serverLevel);
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0D).add(Attributes.MOVEMENT_SPEED, 0.4D);
-    }
-
-    @Override
-    protected void registerGoals() {
-        goalSelector.addGoal(0, new FloatGoal(this));
-        goalSelector.addGoal(0, new AvoidEntityGoal<>(this, Zombie.class, 8.0F, 1.0D, 1.0D));
-        goalSelector.addGoal(1, new TemptGoal(this, 1.2D, Ingredient.of(Items.PUMPKIN_PIE), false));
-        goalSelector.addGoal(2, new DestroyNearestPumpkinGoal(this, 1));
-        goalSelector.addGoal(3, new ThrowItemAtCarvedPumpkinGoal(this, 1));
-        goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        goalSelector.addGoal(5, new StayByBellGoal(this, 1, 1000));
-        goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        goalSelector.addGoal(7, new RandomLookAroundGoal(this));
-        targetSelector.addGoal(1, new HurtByTargetGoal(this));
+        return Mob.createMobAttributes()
+                .add(Attributes.MAX_HEALTH, 10.0D)
+                .add(Attributes.MOVEMENT_SPEED, 0.4D)
+                .add(Attributes.FOLLOW_RANGE, 48);
     }
 
     @Override
@@ -268,6 +272,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     protected void customServerAiStep() {
         super.customServerAiStep();
         level().getProfiler().push("pumpkinwardenBrain");
+        BiomesWeveGone.LOGGER.info("Brain : {}", getBrain());
         getBrain().tick((ServerLevel) level(), this);
         level().getProfiler().pop();
         if (!this.level().isDay()) {
@@ -385,6 +390,12 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         super.onSyncedDataUpdated(dataAccessor);
         if (HIDING.equals(dataAccessor))
             refreshDimensions();
+    }
+
+    @Override
+    protected void sendDebugPackets() {
+        super.sendDebugPackets();
+        DebugPackets.sendEntityBrain(this);
     }
 
     private static class DestroyNearestPumpkinGoal extends MoveToBlockGoal {
@@ -568,6 +579,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
                                 ImmutableMap.of(MemoryModuleType.NEAREST_VISIBLE_LIVING_ENTITIES, MemoryStatus.VALUE_ABSENT),
                                 ImmutableList.of(
                                         Pair.of(InteractWith.of(BWGEntities.PUMPKIN_WARDEN.get(), 8, MemoryModuleType.INTERACTION_TARGET, speedModifier, 2), 2),
+                                        Pair.of(InteractWith.of(EntityType.VILLAGER, 8, MemoryModuleType.INTERACTION_TARGET, speedModifier, 2), 2),
                                         Pair.of(InteractWith.of(EntityType.CAT, 8, MemoryModuleType.INTERACTION_TARGET, speedModifier, 2), 1),
                                         Pair.of(VillageBoundRandomStroll.create(speedModifier), 1),
                                         Pair.of(SetWalkTargetFromLookTarget.create(speedModifier, 2), 1),
@@ -586,6 +598,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
                         ImmutableList.of(
                                 Pair.of(SetEntityLookTarget.create(EntityType.CAT, 8.0F), 8),
                                 Pair.of(SetEntityLookTarget.create(EntityType.VILLAGER, 8.0F), 2),
+                                Pair.of(SetEntityLookTarget.create(BWGEntities.PUMPKIN_WARDEN.get(), 8.0F), 2),
                                 Pair.of(SetEntityLookTarget.create(EntityType.PLAYER, 8.0F), 2),
                                 Pair.of(SetEntityLookTarget.create(MobCategory.CREATURE, 8.0F), 1),
                                 Pair.of(SetEntityLookTarget.create(MobCategory.WATER_CREATURE, 8.0F), 1),
