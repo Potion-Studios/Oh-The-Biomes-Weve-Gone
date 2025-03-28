@@ -37,7 +37,6 @@ import net.minecraft.world.entity.ai.sensing.SensorType;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.schedule.Activity;
-import net.minecraft.world.entity.schedule.Schedule;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -56,6 +55,7 @@ import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.entity.ai.behavior.PumpkinWardenGoalPackages;
+import net.potionstudios.biomeswevegone.world.entity.schedule.BWGSchedule;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -135,7 +135,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     }
 
     private void registerBrainGoals(Brain<PumpkinWarden> brain) {
-        brain.setSchedule(Schedule.VILLAGER_BABY);
+        brain.setSchedule(BWGSchedule.PUMPKIN_WARDEN.get());
         brain.addActivity(Activity.PLAY, PumpkinWardenGoalPackages.getPlayPackage(0.5F));
         brain.setCoreActivities(ImmutableSet.of(Activity.CORE));
         brain.setDefaultActivity(Activity.PLAY);
