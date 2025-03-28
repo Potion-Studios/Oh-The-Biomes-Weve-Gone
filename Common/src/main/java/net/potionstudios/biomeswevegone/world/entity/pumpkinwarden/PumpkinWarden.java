@@ -514,7 +514,10 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     public enum Variant implements StringRepresentable {
         DEFAULT(0, "default"),
-        PALE(1, "pale");
+        PALE(1, "pale"),
+        CHEERY(2, "cheery"),
+        FROWNY(3, "frowny"),
+        SILLY(4, "silly");
 
         private static final IntFunction<Variant> BY_ID = ByIdMap.continuous(Variant::getId, values(), ByIdMap.OutOfBoundsStrategy.ZERO);
         private final String name;
@@ -543,7 +546,12 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         }
 
         private static Variant getSpawnVariant(@NotNull RandomSource random) {
-            return random.nextFloat() < 0.05 ? Variant.PALE : Variant.DEFAULT;
+            int i = random.nextInt(100);
+            if (i < 25) return DEFAULT;
+            else if (i < 50) return CHEERY;
+            else if (1 < 75) return SILLY;
+            else if (i < 95) return FROWNY;
+            else return PALE;
         }
     }
 

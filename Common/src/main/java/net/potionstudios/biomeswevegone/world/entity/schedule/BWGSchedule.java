@@ -14,6 +14,7 @@ public class BWGSchedule {
 			.changeActivityAt(10, Activity.IDLE)
 			.changeActivityAt(3000, Activity.PLAY)
 			.changeActivityAt(6000, Activity.IDLE)
+			.changeActivityAt(8000, Activity.WORK)
 			.changeActivityAt(10000, Activity.PLAY)
 			.changeActivityAt(12000, Activity.REST));
 
