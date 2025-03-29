@@ -96,14 +96,16 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         MemoryModuleType.VISIBLE_VILLAGER_BABIES,
         MemoryModuleType.PATH,
         MemoryModuleType.CANT_REACH_WALK_TARGET_SINCE,
-        BWGMemoryModuleType.PUMPKIN_STEMS.get()
+        BWGMemoryModuleType.PUMPKIN_STEMS.get(),
+        BWGMemoryModuleType.VISIBLE_PUMPKIN_WARDENS.get()
     );
 
     private static final ImmutableList<SensorType<? extends Sensor<? super PumpkinWarden>>> SENSOR_TYPES = ImmutableList.of(
             SensorType.NEAREST_LIVING_ENTITIES,
             SensorType.NEAREST_PLAYERS,
             SensorType.VILLAGER_BABIES,
-            BWGSensorType.STEM_BLOCK.get()
+            BWGSensorType.STEM_BLOCK.get(),
+            BWGSensorType.NEAREST_VISIBLE_PUMPKIN_WARDENS.get()
     );
 
     public PumpkinWarden(EntityType<? extends PathfinderMob> entityType, Level level) {

@@ -3,6 +3,7 @@ package net.potionstudios.biomeswevegone.world.entity.ai.memory;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
@@ -13,10 +14,11 @@ import java.util.function.Supplier;
 
 public class BWGMemoryModuleType<U> {
 
-    public static final Supplier<MemoryModuleType<List<BlockPos>>> PUMPKIN_STEMS = register("pumpkin_stems", Codec.list(BlockPos.CODEC));
+    public static final Supplier<MemoryModuleType<List<BlockPos>>> PUMPKIN_STEMS = register("pumpkin_stems", Optional.of(Codec.list(BlockPos.CODEC)));
+    public static final Supplier<MemoryModuleType<List<LivingEntity>>> VISIBLE_PUMPKIN_WARDENS = register("visible_pumpkin_wardens", Optional.empty());
 
-    private static <U> Supplier<MemoryModuleType<U>> register(String name, Codec<U> codec) {
-        return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.MEMORY_MODULE_TYPE, name, () -> new MemoryModuleType<>(Optional.of(codec)));
+    private static <U> Supplier<MemoryModuleType<U>> register(String name, Optional<Codec<U>> codec) {
+        return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.MEMORY_MODULE_TYPE, name, () -> new MemoryModuleType<>(codec));
     }
 
     public static void memoryModuleTypes() {
