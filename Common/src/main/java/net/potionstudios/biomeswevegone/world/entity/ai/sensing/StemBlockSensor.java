@@ -6,7 +6,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.sensing.Sensor;
 import net.minecraft.world.level.block.AttachedStemBlock;
-import net.minecraft.world.level.block.StemBlock;
 import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import org.jetbrains.annotations.NotNull;
@@ -25,9 +24,8 @@ public class StemBlockSensor extends Sensor<PumpkinWarden> {
             for (int x = -25; x < 25; x++)
                 for (int z = -25; z < 25; z++) {
                     mutableBlockPos.setWithOffset(blockPos, x, y, z);
-                    if (level.getBlockState(mutableBlockPos).getBlock() instanceof AttachedStemBlock
-                            || level.getBlockState(mutableBlockPos).getBlock() instanceof StemBlock)
-                        stemPositions.add(mutableBlockPos.immutable());
+                    if (level.getBlockState(mutableBlockPos).getBlock() instanceof AttachedStemBlock)
+                        stemPositions.add(mutableBlockPos.relative(level.getBlockState(mutableBlockPos).getValue(AttachedStemBlock.FACING)));
                 }
         entity.getBrain().setMemory(BWGMemoryModuleType.PUMPKIN_STEMS.get(), stemPositions);
     }

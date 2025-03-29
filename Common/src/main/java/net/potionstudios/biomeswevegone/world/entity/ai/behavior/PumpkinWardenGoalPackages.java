@@ -62,6 +62,7 @@ public class PumpkinWardenGoalPackages {
 
     public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getWorkPackage() {
         return ImmutableList.of(
+                Pair.of(1, new DestroyPumpkin()),
                 Pair.of(99, UpdateActivityFromSchedule.create())
         );
     }
