@@ -8,6 +8,8 @@ import net.minecraft.server.MinecraftServer;
 import net.potionstudios.biomeswevegone.sounds.BWGSounds;
 import net.potionstudios.biomeswevegone.compat.vanilla.dispenser.BWGDispenseItemBehavior;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
+import net.potionstudios.biomeswevegone.world.entity.ai.sensing.BWGSensorType;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerProfessions;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTypes;
@@ -67,6 +69,8 @@ public class BiomesWeveGone {
         BWGCustomStructureProcessors.processors();
         BWGVillagerTypes.villagerTypes();
         BWGSchedule.schedules();
+        BWGMemoryModuleType.memoryModuleTypes();
+        BWGSensorType.sensorTypes();
     }
 
     /**

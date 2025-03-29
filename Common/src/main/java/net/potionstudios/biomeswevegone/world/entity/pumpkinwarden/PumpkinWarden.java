@@ -56,6 +56,7 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.entity.ai.behavior.PumpkinWardenGoalPackages;
 import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
+import net.potionstudios.biomeswevegone.world.entity.ai.sensing.BWGSensorType;
 import net.potionstudios.biomeswevegone.world.entity.schedule.BWGSchedule;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
@@ -102,7 +103,8 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     private static final ImmutableList<SensorType<? extends Sensor<? super PumpkinWarden>>> SENSOR_TYPES = ImmutableList.of(
             SensorType.NEAREST_LIVING_ENTITIES,
             SensorType.NEAREST_PLAYERS,
-            SensorType.VILLAGER_BABIES
+            SensorType.VILLAGER_BABIES,
+            BWGSensorType.STEM_BLOCK.get()
     );
 
     public PumpkinWarden(EntityType<? extends PathfinderMob> entityType, Level level) {

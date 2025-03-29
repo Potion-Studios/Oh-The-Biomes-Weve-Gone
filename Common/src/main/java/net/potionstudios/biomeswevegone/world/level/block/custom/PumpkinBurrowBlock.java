@@ -23,7 +23,7 @@ public class PumpkinBurrowBlock extends BaseEntityBlock {
     public static final MapCodec<PumpkinBurrowBlock> CODEC = simpleCodec(PumpkinBurrowBlock::new);
 
     public PumpkinBurrowBlock(Properties properties) {
-        super(properties);
+        super(properties.lightLevel(state -> state.getValue(OCCUPIED) ? 10 : 0));
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(OCCUPIED, false));
     }
 

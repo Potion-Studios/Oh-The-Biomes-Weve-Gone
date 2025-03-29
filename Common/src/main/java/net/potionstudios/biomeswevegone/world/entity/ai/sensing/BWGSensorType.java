@@ -1,0 +1,21 @@
+package net.potionstudios.biomeswevegone.world.entity.ai.sensing;
+
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.entity.ai.sensing.Sensor;
+import net.minecraft.world.entity.ai.sensing.SensorType;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.PlatformHandler;
+
+import java.util.function.Supplier;
+
+public class BWGSensorType<U extends Sensor<?>> {
+    public static final Supplier<SensorType<StemBlockSensor>> STEM_BLOCK = register("stem_block", StemBlockSensor::new);
+
+    public static void sensorTypes() {
+        BiomesWeveGone.LOGGER.info("Registering Oh The Biomes We've Gone Sensor Types");
+    }
+
+    private static <U extends Sensor<?>> Supplier<SensorType<U>> register(String name, Supplier<U> sensor) {
+        return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.SENSOR_TYPE, name, () -> new SensorType<>(sensor));
+    }
+}
