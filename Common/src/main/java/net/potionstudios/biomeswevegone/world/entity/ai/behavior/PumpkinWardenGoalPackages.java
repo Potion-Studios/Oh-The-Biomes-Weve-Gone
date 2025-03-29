@@ -20,7 +20,7 @@ public class PumpkinWardenGoalPackages {
         return ImmutableList.of(
                 Pair.of(0, new MoveToTargetSink(80, 120)),
                 getFullLookBehavior(),
-                Pair.of(5, PlayTagWithOtherKids.create()),
+                Pair.of(5, PlayTagWithVillagersAndWardens.create()),
                 Pair.of(
                         5,
                         new RunOne<>(
