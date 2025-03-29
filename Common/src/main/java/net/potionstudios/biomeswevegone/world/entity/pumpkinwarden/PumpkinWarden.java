@@ -55,6 +55,7 @@ import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.entity.ai.behavior.PumpkinWardenGoalPackages;
+import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
 import net.potionstudios.biomeswevegone.world.entity.schedule.BWGSchedule;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
@@ -94,7 +95,8 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         MemoryModuleType.LOOK_TARGET,
         MemoryModuleType.VISIBLE_VILLAGER_BABIES,
         MemoryModuleType.PATH,
-        MemoryModuleType.CANT_REACH_WALK_TARGET_SINCE
+        MemoryModuleType.CANT_REACH_WALK_TARGET_SINCE,
+        BWGMemoryModuleType.PUMPKIN_STEMS.get()
     );
 
     private static final ImmutableList<SensorType<? extends Sensor<? super PumpkinWarden>>> SENSOR_TYPES = ImmutableList.of(
@@ -136,7 +138,8 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     private void registerBrainGoals(Brain<PumpkinWarden> brain) {
         brain.setSchedule(BWGSchedule.PUMPKIN_WARDEN.get());
-        brain.addActivity(Activity.PLAY, PumpkinWardenGoalPackages.getPlayPackage(0.5F));
+        brain.addActivity(Activity.PLAY, PumpkinWardenGoalPackages.getPlayPackage());
+        brain.addActivity(Activity.WORK, PumpkinWardenGoalPackages.getWorkPackage());
         brain.setCoreActivities(ImmutableSet.of(Activity.CORE));
         brain.setDefaultActivity(Activity.PLAY);
         brain.setActiveActivityIfPossible(Activity.PLAY);
@@ -268,31 +271,10 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     @Override
     protected void customServerAiStep() {
-        super.customServerAiStep();
         level().getProfiler().push("pumpkinwardenBrain");
-        BiomesWeveGone.LOGGER.info("Brain : {}", getBrain());
         getBrain().tick((ServerLevel) level(), this);
         level().getProfiler().pop();
-        if (!this.level().isDay()) {
-            this.setTimer(this.getTimer() + 1);
-            this.setHiding(true);
-        } else if (this.getTimer() > 0 && this.getLastHurtByMob() == null) {
-            this.setTimer(0);
-            this.setHiding(false);
-        }
-        if (this.getLastHurtByMob() != null) {
-            if (this.getTimer() < 200) {
-                this.setTimer(this.getTimer() + 1);
-                this.setHiding(true);
-            } else {
-                this.setTimer(0);
-                this.setHiding(false);
-            }
-        }
-        if (!canMove() && this.getCarriedBlock() != null) {
-            BehaviorUtils.throwItem(this, this.getCarriedBlock().getBlock().asItem().getDefaultInstance(), new Vec3(this.getX() + 2, this.getY(), this.getZ()));
-            this.setCarriedBlock(null);
-        }
+        super.customServerAiStep();
     }
 
     @Override
