@@ -5,6 +5,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
+import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.entities.sign.BWGHangingSignBlockEntity;
 import net.potionstudios.biomeswevegone.world.level.block.entities.sign.BWGSignBlockEntity;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
@@ -26,6 +27,11 @@ public class BWGBlockEntities {
                BWGWoodSet.woodsets().stream().map(BWGWoodSet::hangingSign),
                BWGWoodSet.woodsets().stream().map(BWGWoodSet::wallHangingSign)
        ).toArray(SignBlock[]::new)));
+
+    public static final Supplier<BlockEntityType<PumpkinBurrowBlockEntity>> PUMPKIN_BURROW = register("pumpkin_burrow", () -> BlockEntityType.Builder.of(
+            PumpkinBurrowBlockEntity::new,
+            BWGBlocks.PUMPKIN_BURROW.get()
+    ));
 
     private static <T extends BlockEntity> Supplier<BlockEntityType<T>> register(String key, Supplier<BlockEntityType.Builder<T>> builder) {
         return PlatformHandler.PLATFORM_HANDLER.registerBlockEntity(key, builder);

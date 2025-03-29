@@ -19,6 +19,7 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
+import net.potionstudios.biomeswevegone.world.level.block.custom.PumpkinBurrowBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.PottedBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.*;
 import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.CarvedBarrelCactusBlock;
@@ -425,6 +426,30 @@ public class ModelGenerators {
 
             registerPatchBlockStates(BWGBlocks.CLOVER_PATCH.get(), new String[]{"clover_patch", "clover_patch2", "clover_patch3", "clover_patch4"});
             registerPatchBlockStates(BWGBlocks.FLOWER_PATCH.get(), new String[]{"flower_patch", "flower_patch2", "flower_patch3"});
+
+            var unoccupied = models().withExistingParent(name(BWGBlocks.PUMPKIN_BURROW.get()), mcLoc("block/carved_pumpkin")).texture("front", blockBWGTexture(BWGBlocks.PUMPKIN_BURROW.get()));
+            var occupied = models().withExistingParent(name(BWGBlocks.PUMPKIN_BURROW.get()) + "_occupied", mcLoc("block/carved_pumpkin")).texture("front", blockBWGTexture(BWGBlocks.PUMPKIN_BURROW.get(), "occupied"));
+            getVariantBuilder(BWGBlocks.PUMPKIN_BURROW.get()).forAllStates(state -> {
+                if (state.getValue(PumpkinBurrowBlock.OCCUPIED)) {
+                    if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.EAST)
+                        return ConfiguredModel.builder().rotationY(90).modelFile(occupied).build();
+                    else if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.WEST)
+                        return ConfiguredModel.builder().rotationY(270).modelFile(occupied).build();
+                    else if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.SOUTH)
+                        return ConfiguredModel.builder().rotationY(180).modelFile(occupied).build();
+                    else
+                        return ConfiguredModel.builder().modelFile(occupied).build();
+                } else {
+                    if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.EAST)
+                        return ConfiguredModel.builder().rotationY(90).modelFile(unoccupied).build();
+                    else if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.WEST)
+                        return ConfiguredModel.builder().rotationY(270).modelFile(unoccupied).build();
+                    else if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.SOUTH)
+                        return ConfiguredModel.builder().rotationY(180).modelFile(unoccupied).build();
+                    else
+                        return ConfiguredModel.builder().modelFile(unoccupied).build();
+                }
+            });
         }
 
         private void registerPatchBlockStates(Block block, String[] models) {
