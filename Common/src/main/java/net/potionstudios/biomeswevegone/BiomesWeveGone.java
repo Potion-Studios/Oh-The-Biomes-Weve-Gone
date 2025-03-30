@@ -5,6 +5,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
+import net.potionstudios.biomeswevegone.component.BWGDataComponents;
 import net.potionstudios.biomeswevegone.sounds.BWGSounds;
 import net.potionstudios.biomeswevegone.compat.vanilla.dispenser.BWGDispenseItemBehavior;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
@@ -48,6 +49,7 @@ public class BiomesWeveGone {
      * Initializes the mod.
      */
     public static void init() {
+        BWGDataComponents.dataComponents();
         BWGItems.items();
         BWGBlocks.blocks();
         BWGBlockEntities.blockEntities();

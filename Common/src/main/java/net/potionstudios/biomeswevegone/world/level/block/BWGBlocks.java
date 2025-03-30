@@ -308,7 +308,7 @@ public class BWGBlocks {
     public static final Supplier<PalePumpkinBlock> PALE_PUMPKIN = registerBlockItem("pale_pumpkin", PalePumpkinBlock::new);
     public static final Supplier<EquipableCarvedPalePumpkinBlock> CARVED_PALE_PUMPKIN = registerBlockItem("carved_pale_pumpkin", EquipableCarvedPalePumpkinBlock::new);
     public static final Supplier<PaleCarvedPumpkinBlock> PALE_JACK_O_LANTERN = registerBlockItem("pale_jack_o_lantern", PaleCarvedPumpkinBlock::new);
-    public static final Supplier<PumpkinBurrowBlock> PUMPKIN_BURROW = registerBlockItem("pumpkin_burrow", () -> new PumpkinBurrowBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PUMPKIN)));
+    public static final Supplier<PumpkinBurrowBlock> PUMPKIN_BURROW = registerBlock("pumpkin_burrow", () -> new PumpkinBurrowBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PUMPKIN)));
 
     private static FlowerBlockFeature registerFlower(String key) {
         Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).noOcclusion()));

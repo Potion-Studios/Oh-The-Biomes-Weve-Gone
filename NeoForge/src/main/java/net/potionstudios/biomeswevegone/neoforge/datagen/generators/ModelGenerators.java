@@ -429,6 +429,7 @@ public class ModelGenerators {
 
             var unoccupied = models().withExistingParent(name(BWGBlocks.PUMPKIN_BURROW.get()), mcLoc("block/carved_pumpkin")).texture("front", blockBWGTexture(BWGBlocks.PUMPKIN_BURROW.get()));
             var occupied = models().withExistingParent(name(BWGBlocks.PUMPKIN_BURROW.get()) + "_occupied", mcLoc("block/carved_pumpkin")).texture("front", blockBWGTexture(BWGBlocks.PUMPKIN_BURROW.get(), "occupied"));
+            simpleBlockItem(BWGBlocks.PUMPKIN_BURROW.get(), unoccupied);
             getVariantBuilder(BWGBlocks.PUMPKIN_BURROW.get()).forAllStates(state -> {
                 if (state.getValue(PumpkinBurrowBlock.OCCUPIED)) {
                     if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.EAST)
