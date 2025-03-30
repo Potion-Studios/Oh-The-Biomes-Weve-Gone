@@ -15,10 +15,7 @@ import net.minecraft.world.entity.ai.util.LandRandomPos;
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class PlayTagWithVillagersAndWardens {
 
@@ -35,7 +32,7 @@ public class PlayTagWithVillagersAndWardens {
                             if (serverLevel.getRandom().nextInt(10) != 0) {
                                 return false;
                             } else {
-                                List<LivingEntity> list = instance.get(memoryAccessor);
+                                List<LivingEntity> list = new ArrayList<>(instance.get(memoryAccessor));
                                 list.addAll(instance.get(memoryAccessor1));
                                 Optional<LivingEntity> optional = list.stream().filter(livingEntity -> isFriendChasingMe(pathfinderMob, livingEntity)).findAny();
                                 if (optional.isEmpty()) {

@@ -62,8 +62,29 @@ public class PumpkinWardenGoalPackages {
 
     public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getWorkPackage() {
         return ImmutableList.of(
+                getMinimalLookBehavior(),
                 Pair.of(1, new DestroyPumpkin()),
                 Pair.of(99, UpdateActivityFromSchedule.create())
+        );
+    }
+
+    public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getRestPackage() {
+        return ImmutableList.of(
+                getMinimalLookBehavior(),
+                Pair.of(99, UpdateActivityFromSchedule.create())
+        );
+    }
+
+    private static Pair<Integer, BehaviorControl<LivingEntity>> getMinimalLookBehavior() {
+        return Pair.of(
+                5,
+                new RunOne<>(
+                        ImmutableList.of(
+                                Pair.of(SetEntityLookTarget.create(BWGEntities.PUMPKIN_WARDEN.get(), 8.0F), 2),
+                                Pair.of(SetEntityLookTarget.create(EntityType.PLAYER, 8.0F), 2),
+                                Pair.of(new DoNothing(30, 60), 8)
+                        )
+                )
         );
     }
 }
