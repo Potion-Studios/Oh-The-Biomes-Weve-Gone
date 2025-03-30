@@ -78,7 +78,7 @@ public class PumpkinWardenGoalPackages {
                         new RunOne<>(
                                 ImmutableMap.of(MemoryModuleType.HOME, MemoryStatus.VALUE_ABSENT),
                                 ImmutableList.of(  //TODO: Custom these to fix them hardcoding villager
-                                        Pair.of(SetClosestHomeAsWalkTarget.create(SPEED_MODIFIER), 1),
+                                        Pair.of(SetClosestPumpkinBurrowAsWalkTarget.create(SPEED_MODIFIER), 1),
                                         Pair.of(InsideBrownianWalk.create(SPEED_MODIFIER), 4),
                                         //Pair.of(GoToClosestVillage.create(SPEED_MODIFIER, 4), 2),
                                         Pair.of(new DoNothing(20, 40), 2)
