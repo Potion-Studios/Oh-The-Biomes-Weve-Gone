@@ -516,6 +516,7 @@ public class TagsGenerator {
         @Override
         protected void addTags(HolderLookup.@NotNull Provider provider) {
             tag(PoiTypeTags.ACQUIRABLE_JOB_SITE).add(BWGPoiTypes.FORAGER);
+            tag(PoiTypeTags.VILLAGE).add(BWGPoiTypes.PUMPKIN_BURROW);
         }
     }
 
