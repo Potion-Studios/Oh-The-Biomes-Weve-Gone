@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class StemBlockSensor extends Sensor<PumpkinWarden> {
+public class NearestStemBlockSensor extends Sensor<PumpkinWarden> {
     @Override
     protected void doTick(@NotNull ServerLevel level, @NotNull PumpkinWarden entity) {
         List<BlockPos> stemPositions = new ArrayList<>();
@@ -27,7 +27,7 @@ public class StemBlockSensor extends Sensor<PumpkinWarden> {
                     if (level.getBlockState(mutableBlockPos).getBlock() instanceof AttachedStemBlock)
                         stemPositions.add(mutableBlockPos.relative(level.getBlockState(mutableBlockPos).getValue(AttachedStemBlock.FACING)));
                 }
-        entity.getBrain().setMemory(BWGMemoryModuleType.PUMPKIN_STEMS.get(), stemPositions);
+        //entity.getBrain().setMemory(BWGMemoryModuleType.PUMPKIN_STEMS.get(), stemPositions);
     }
 
     @Override

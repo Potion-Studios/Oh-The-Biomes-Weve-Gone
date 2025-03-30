@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 
 public class BWGMemoryModuleType<U> {
 
-    public static final Supplier<MemoryModuleType<List<BlockPos>>> PUMPKIN_STEMS = register("pumpkin_stems", Optional.of(Codec.list(BlockPos.CODEC)));
+    public static final Supplier<MemoryModuleType<BlockPos>> PUMPKIN_STEMS = register("pumpkin_stems", Optional.of(BlockPos.CODEC));
     public static final Supplier<MemoryModuleType<List<LivingEntity>>> VISIBLE_PUMPKIN_WARDENS = register("visible_pumpkin_wardens", Optional.empty());
 
     private static <U> Supplier<MemoryModuleType<U>> register(String name, Optional<Codec<U>> codec) {

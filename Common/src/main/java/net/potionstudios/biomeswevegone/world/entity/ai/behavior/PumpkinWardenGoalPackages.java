@@ -10,6 +10,7 @@ import net.minecraft.world.entity.ai.behavior.*;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 
 public class PumpkinWardenGoalPackages {
@@ -70,6 +71,20 @@ public class PumpkinWardenGoalPackages {
 
     public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getRestPackage() {
         return ImmutableList.of(
+                Pair.of(2, SetWalkTargetFromBlockMemory.create(MemoryModuleType.HOME, SPEED_MODIFIER, 1, 150, 1200)),
+                Pair.of(3, ValidateNearbyPoi.create(holder -> holder.is(BWGPoiTypes.PUMPKIN_BURROW), MemoryModuleType.HOME)),
+                Pair.of(
+                        5,
+                        new RunOne<>(
+                                ImmutableMap.of(MemoryModuleType.HOME, MemoryStatus.VALUE_ABSENT),
+                                ImmutableList.of(  //TODO: Custom these to fix them hardcoding villager
+                                        Pair.of(SetClosestHomeAsWalkTarget.create(SPEED_MODIFIER), 1),
+                                        Pair.of(InsideBrownianWalk.create(SPEED_MODIFIER), 4),
+                                        //Pair.of(GoToClosestVillage.create(SPEED_MODIFIER, 4), 2),
+                                        Pair.of(new DoNothing(20, 40), 2)
+                                )
+                        )
+                ),
                 getMinimalLookBehavior(),
                 Pair.of(99, UpdateActivityFromSchedule.create())
         );

@@ -49,8 +49,11 @@ public class DestroyPumpkin extends Behavior<PumpkinWarden> {
 
     @Override
     protected void start(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
+        /*
         entity.getBrain().getMemory(BWGMemoryModuleType.PUMPKIN_STEMS.get()).ifPresent(stemPositions ->
                 targetPos = stemPositions.get(entity.getRandom().nextInt(stemPositions.size())));
         tryTicks = 0;
+
+         */
     }
 }
