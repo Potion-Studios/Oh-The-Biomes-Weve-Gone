@@ -1,5 +1,6 @@
 # 2.3.12
 - Replace awt Color with FastColor in BWGItems.java (Fixes some issues with loading the mod on certain server software)
+- Add BWG Pumpkins to Common Pumpkin Tags
 
 # 2.3.11
 - Require Oh The Trees You'll Grow 5.0.9 or newer

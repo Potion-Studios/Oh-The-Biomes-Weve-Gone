@@ -181,6 +181,9 @@ public class TagsGenerator {
                     BWGBlocks.GREEN_MUSHROOM.get(), BWGBlocks.WEEPING_MILKCAP.get());
             tag(BlockTags.SWORD_EFFICIENT).add(BWGBlocks.PALE_PUMPKIN.get(), BWGBlocks.CARVED_PALE_PUMPKIN.get(), BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get(), BWGBlocks.PALE_JACK_O_LANTERN.get());
             tag(BlockTags.FALL_DAMAGE_RESETTING).add(BWGBlocks.BLUEBERRY_BUSH.get());
+            tag(Tags.Blocks.PUMPKINS_NORMAL).add(BWGBlocks.PALE_PUMPKIN.get());
+            tag(Tags.Blocks.PUMPKINS_CARVED).add(BWGBlocks.CARVED_PALE_PUMPKIN.get());
+            tag(Tags.Blocks.PUMPKINS_JACK_O_LANTERNS).add(BWGBlocks.PALE_JACK_O_LANTERN.get());
 
 
             tag(BWGBlockTags.STORAGE_BLOCKS_ALLIUM).add(BWGBlocks.ALLIUM_PETAL_BLOCK.get());
@@ -320,6 +323,9 @@ public class TagsGenerator {
             copy(BWGBlockTags.BOREALIS_ICE, BWGItemTags.BOREALIS_ICE);
             copy(Tags.Blocks.BUDDING_BLOCKS, Tags.Items.BUDDING_BLOCKS);
             copy(Tags.Blocks.VILLAGER_JOB_SITES, Tags.Items.VILLAGER_JOB_SITES);
+            copy(Tags.Blocks.PUMPKINS_NORMAL, Tags.Items.PUMPKINS_NORMAL);
+            copy(Tags.Blocks.PUMPKINS_CARVED, Tags.Items.PUMPKINS_CARVED);
+            copy(Tags.Blocks.PUMPKINS_JACK_O_LANTERNS, Tags.Items.PUMPKINS_JACK_O_LANTERNS);
 
             copy(BWGBlockTags.OAK_SAPLINGS, BWGItemTags.OAK_SAPLINGS);
             copy(BWGBlockTags.SPRUCE_SAPLINGS, BWGItemTags.SPRUCE_SAPLINGS);
