@@ -4,6 +4,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.FastColor;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
@@ -19,7 +20,6 @@ import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.item.custom.CampfireExplodingBlockItem;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.function.Supplier;
 
@@ -37,9 +37,9 @@ public class BWGItems {
 
     public static final Supplier<Item> BWG_LOGO = register("bwg_logo", () -> new Item(new Item.Properties()));
 
-    public static final Supplier<SpawnEggItem> MAN_O_WAR_SPAWN_EGG = registerSpawnEgg("man_o_war_spawn_egg", BWGEntities.MAN_O_WAR::get, new Color(210, 166, 246).getRGB(), new Color(199, 165, 104).getRGB());
-    public static final Supplier<SpawnEggItem> PUMPKIN_WARDEN_SPAWN_EGG = registerSpawnEgg("pumpkin_warden_spawn_egg", BWGEntities.PUMPKIN_WARDEN::get, new Color(79, 57, 46).getRGB(), new Color(192, 106, 5).getRGB());
-    public static final Supplier<SpawnEggItem> ODDION_SPAWN_EGG = registerSpawnEgg("oddion_spawn_egg", BWGEntities.ODDION::get, new Color(199, 165, 104).getRGB(), new Color(210, 166, 246).getRGB());
+    public static final Supplier<SpawnEggItem> MAN_O_WAR_SPAWN_EGG = registerSpawnEgg("man_o_war_spawn_egg", BWGEntities.MAN_O_WAR::get, FastColor.ARGB32.color(0, 210, 166, 246) , FastColor.ARGB32.color(0, 199, 165, 104));
+    public static final Supplier<SpawnEggItem> PUMPKIN_WARDEN_SPAWN_EGG = registerSpawnEgg("pumpkin_warden_spawn_egg", BWGEntities.PUMPKIN_WARDEN::get, FastColor.ARGB32.color(0, 79, 57, 46), FastColor.ARGB32.color(0,192, 106, 5));
+    public static final Supplier<SpawnEggItem> ODDION_SPAWN_EGG = registerSpawnEgg("oddion_spawn_egg", BWGEntities.ODDION::get, FastColor.ARGB32.color(0, 199, 165, 104), FastColor.ARGB32.color(0, 210, 166, 246));
 
     public static final Supplier<MobBucketItem> MAN_O_WAR_BUCKET = registerMobBucket("man_o_war_bucket", BWGEntities.MAN_O_WAR::get, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH);
 

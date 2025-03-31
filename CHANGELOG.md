@@ -1,4 +1,5 @@
 # 1.5.10
+- Replace awt Color with FastColor in BWGItems.java (Fixes some issues with loading the mod on certain server software)
 
 # 1.5.9
 - Require Oh The Trees You'll Grow 1.3.7 or newer
