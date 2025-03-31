@@ -1,3 +1,5 @@
+# 2.3.12
+
 # 2.3.11
 - Require Oh The Trees You'll Grow 5.0.9 or newer
 - Fix NeoForge Logo not showing up in Mod Menu
