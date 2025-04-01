@@ -173,7 +173,7 @@ public class TagsGenerator {
             tag(BlockTags.SAND).add(BWGBlocks.SANDY_DIRT.get(), BWGBlocks.CRACKED_SAND.get());
             tag(Tags.Blocks.BUDDING_BLOCKS).add(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get(), BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get());
             tag(Tags.Blocks.VILLAGER_JOB_SITES).add(BWGBlocks.FORAGERS_TABLE.get());
-            tag(Tags.Blocks.VILLAGER_FARMLANDS).add(BWGBlocks.LUSH_FARMLAND.get());
+            tag(Tags.Blocks.VILLAGER_FARMLANDS).add(BWGBlocks.LUSH_FARMLAND.get(), BWGBlocks.SANDY_FARMLAND.get());
             tag(BlockTags.ENDERMAN_HOLDABLE).add(BWGBlocks.PALE_PUMPKIN.get(), BWGBlocks.CARVED_PALE_PUMPKIN.get(),
                     BWGBlocks.WINDSWEPT_SAND_SET.getSand(), BWGBlocks.BLACK_SAND_SET.getSand(), BWGBlocks.WHITE_SAND_SET.getSand(), BWGBlocks.BLUE_SAND_SET.getSand(), BWGBlocks.PURPLE_SAND_SET.getSand(), BWGBlocks.PINK_SAND_SET.getSand(),
                     BWGBlocks.GREEN_MUSHROOM.get(), BWGBlocks.WEEPING_MILKCAP.get());

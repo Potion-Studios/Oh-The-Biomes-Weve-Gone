@@ -1,5 +1,6 @@
 # 3.0.2
 - Require Oh The Trees You'll Grow 6.0.4 or higher (Fixes Trunk Bug)
+- Add Sandy Farmland to NeoForge Villager Farmland Tags to allow villagers to plant on it
 
 # 3.0.1
 - Fix NeoForge Logo not showing up in Mod Menu
@@ -17,7 +18,7 @@
     - Sakura Petal Blocks have a 30% chance to be compostable
     - Pitcher Plants Match Vanilla Pitcher Plants at 85% chance
   - Flammability
-    - Now Flammable: 
+    - Now Flammable:
       - All Cattail Thatch Blocks
       - Sakura Petal Blocks
       - Spirit Roots
