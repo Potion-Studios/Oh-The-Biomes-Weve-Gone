@@ -42,7 +42,7 @@ import net.potionstudios.biomeswevegone.world.level.block.entities.BWGBlockEntit
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 
-import java.awt.*;
+import java.awt.Color;
 import java.util.Objects;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -154,15 +154,8 @@ public class BiomesWeveGoneClient {
     private static final ImprovedNoise NOISE = new ImprovedNoise(new XoroshiroRandomSource(1));
 
     private static int getBorealisIceColor(BlockPos pos) {
-        float frequency = 0.01F;
-
-        float factor = (float) ((NOISE.noise(pos.getX() * frequency, pos.getY() * frequency, pos.getZ() * frequency) + 1)* 0.5F);
-
-        float startHue = 320;
-        float endHue = 120;
-
-        float hue =  startHue + (endHue - startHue) * factor;
-
-        return Color.getHSBColor(hue / 360F, 0.6F, 1).getRGB();
+        float factor = (float) ((NOISE.noise(pos.getX() * 0.01F, pos.getY() * 0.01F, pos.getZ() * 0.01F) + 1)* 0.5F);
+        float hue = 320 - 200 * factor;
+        return Color.HSBtoRGB(hue / 360F, 0.6F, 1);
     }
 }
