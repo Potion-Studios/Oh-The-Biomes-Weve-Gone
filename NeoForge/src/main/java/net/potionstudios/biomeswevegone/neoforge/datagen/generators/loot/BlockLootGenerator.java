@@ -22,6 +22,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.potionstudios.biomeswevegone.component.BWGDataComponents;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -220,6 +221,18 @@ class BlockLootGenerator extends BlockLootSubProvider {
 
         add(BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get(), createAttachedStemDrops(BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get(), BWGItems.PALE_PUMPKIN_SEEDS.get()));
         add(BWGBlocks.PALE_PUMPKIN_STEM.get(), createStemDrops(BWGBlocks.PALE_PUMPKIN_STEM.get(), BWGItems.PALE_PUMPKIN_SEEDS.get()));
+
+        add(BWGBlocks.PUMPKIN_BURROW.get(), LootTable.lootTable()
+                .withPool(
+                        LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1.0F))
+                                .add(
+                                        LootItem.lootTableItem(BWGBlocks.PUMPKIN_BURROW.get())
+                                                .when(hasSilkTouch())
+                                                .apply(CopyComponentsFunction.copyComponents(CopyComponentsFunction.Source.BLOCK_ENTITY).include(BWGDataComponents.PUMPKIN_WARDEN.get()))
+                                                .otherwise(LootItem.lootTableItem(BWGBlocks.PUMPKIN_BURROW.get()))
+                                )
+                ));
     }
 
     private LootTable.Builder createFruitLeavesDrops(LeavesBlock leaves, Block saplingBlock, Item fruit, float... chances) {
