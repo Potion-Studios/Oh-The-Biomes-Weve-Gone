@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.Dynamic;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
@@ -29,7 +28,6 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.behavior.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.sensing.Sensor;
@@ -40,18 +38,11 @@ import net.minecraft.world.entity.schedule.Activity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.AttachedStemBlock;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.CarvedPumpkinBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.pathfinder.PathType;
-import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.entity.ai.behavior.PumpkinWardenGoalPackages;
 import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
@@ -67,7 +58,6 @@ import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.function.IntFunction;
 
@@ -167,7 +157,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         compound.putInt("Variant", this.getVariant().getId());
         BlockState blockState = null;
         if (compound.contains("carriedBlockState", 10)) {
-            blockState = NbtUtils.readBlockState(this.level().holderLookup(Registries.BLOCK), compound.getCompound("carriedBlockState"));
+            blockState = NbtUtils.readBlockState(level().holderLookup(Registries.BLOCK), compound.getCompound("carriedBlockState"));
             if (blockState.isAir())
                 blockState = null;
         }
@@ -384,122 +374,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         DebugPackets.sendEntityBrain(this);
     }
 
-    private static class DestroyNearestPumpkinGoal extends MoveToBlockGoal {
-        private final PumpkinWarden warden;
-
-        private DestroyNearestPumpkinGoal(PumpkinWarden mob, double speed) {
-            super(mob, speed, 32, 2);
-            this.warden = mob;
-        }
-
-        @Override
-        protected boolean isValidTarget(@NotNull LevelReader level, @NotNull BlockPos pos) {
-            BlockState state = level.getBlockState(pos);
-            if (state.getBlock() instanceof AttachedStemBlock stemBlock) {
-                Direction facing = state.getValue(AttachedStemBlock.FACING);
-                BlockPos relative = pos.relative(facing);
-                Block fruit = level.registryAccess().registryOrThrow(Registries.BLOCK).getOrThrow(stemBlock.fruit);
-                return level.getBlockState(relative).is(fruit);
-            }
-            return false;
-        }
-
-        @Override
-        public boolean canUse() {
-            return warden.canMove() && warden.getCarriedBlock() == null && findNearestBlock();
-        }
-
-        @Override
-        public boolean canContinueToUse() {
-            return super.canContinueToUse() && warden.canMove();
-        }
-
-        @Override
-        public void tick() {
-            super.tick();
-            if (isReachedTarget()) {
-                Level level = warden.level();
-                if (isValidTarget(level, blockPos)) {
-                    BlockState blockstate = level.getBlockState(this.blockPos);
-                    BlockPos fruit = blockPos.relative(blockstate.getValue(AttachedStemBlock.FACING));
-                    BlockState state = level.getBlockState(fruit);
-                    level.destroyBlock(fruit, false, warden);
-                    level.gameEvent(GameEvent.BLOCK_DESTROY, fruit, GameEvent.Context.of(warden, state));
-                    warden.setCarriedBlock(state);
-                }
-            }
-        }
-    }
-
-
-    private static class ThrowItemAtCarvedPumpkinGoal extends MoveToBlockGoal {
-        private final PumpkinWarden warden;
-
-        private ThrowItemAtCarvedPumpkinGoal(PumpkinWarden mob, double speed) {
-            super(mob, speed, 32);
-            this.warden = mob;
-        }
-
-        @Override
-        protected boolean isValidTarget(@NotNull LevelReader level, @NotNull BlockPos pos) {
-            BlockState state = level.getBlockState(pos);
-            return state.is(Blocks.CARVED_PUMPKIN) || state.is(BWGBlocks.CARVED_PALE_PUMPKIN.get());
-        }
-
-        @Override
-        public boolean canUse() {
-            return warden.canMove() && warden.getCarriedBlock() != null && findNearestBlock();
-        }
-
-        @Override
-        public boolean canContinueToUse() {
-            return super.canContinueToUse() && warden.canMove();
-        }
-
-        @Override
-        public void tick() {
-            super.tick();
-            if (isReachedTarget()) {
-                Level level = mob.level();
-                BlockState state = level.getBlockState(blockPos);
-                if (state.is(Blocks.CARVED_PUMPKIN)) {
-                    Direction facing = state.getValue(CarvedPumpkinBlock.FACING);
-                    BlockPos frontPos = blockPos.relative(facing);
-                    if (mob.blockPosition().closerThan(frontPos, 2.5))
-                        if (this.warden.getCarriedBlock() != null) {
-                            BehaviorUtils.throwItem(this.warden, this.warden.getCarriedBlock().getBlock().asItem().getDefaultInstance(), new Vec3(this.blockPos.getX(), this.blockPos.getY(), this.blockPos.getZ()));
-                            this.warden.setCarriedBlock(null);
-                        }
-                }
-            }
-        }
-    }
-
-    private static class StayByBellGoal extends MoveToBlockGoal {
-        private final PumpkinWarden warden;
-
-        private StayByBellGoal(PumpkinWarden pumpkinWarden, double speedModifier, int searchRange) {
-            super(pumpkinWarden, speedModifier, searchRange);
-            this.warden = pumpkinWarden;
-        }
-
-        @Override
-        public boolean canUse() {
-            return super.canUse() && warden.canMove();
-        }
-
-        @Override
-        public boolean canContinueToUse() {
-            return super.canContinueToUse() && warden.canMove();
-        }
-
-        @Override
-        protected boolean isValidTarget(@NotNull LevelReader level, @NotNull BlockPos pos) {
-            List<BlockState> blockStates = level.getBlockStates(new AABB(warden.blockPosition()).inflate(30)).toList();
-            return !blockStates.get(warden.getRandom().nextInt(blockStates.size())).isAir();
-        }
-    }
-
     public enum Variant implements StringRepresentable {
         DEFAULT(0, "default"),
         PALE(1, "pale"),
@@ -544,8 +418,8 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     }
 
     public static boolean villagerToPumpkinWarden(Entity entity, ItemStack stack, Level level) {
-        if (entity instanceof Villager villager && villager.isBaby() && villager.hasEffect(MobEffects.WEAKNESS)) {
-            if (stack.is(Items.CARVED_PUMPKIN) || stack.is(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem())) {
+        if (entity instanceof Villager villager && villager.isBaby() && villager.hasEffect(MobEffects.WEAKNESS))
+            if (stack.is(Items.CARVED_PUMPKIN) || stack.is(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem()))
                 if (level instanceof ServerLevel serverLevel) {
                     PumpkinWarden warden = BWGEntities.PUMPKIN_WARDEN.get().create(serverLevel);
                     warden.setPos(villager.position());
@@ -557,8 +431,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
                     stack.shrink(1);
                     return true;
                 }
-            }
-        }
         return false;
     }
 }
