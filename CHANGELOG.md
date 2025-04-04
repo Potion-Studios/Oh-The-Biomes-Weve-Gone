@@ -1,4 +1,5 @@
 # 3.0.2
+- Require Oh The Trees You'll Grow 6.0.4 or higher (Fixes Trunk Bug)
 
 # 3.0.1
 - Fix NeoForge Logo not showing up in Mod Menu
