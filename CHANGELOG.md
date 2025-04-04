@@ -2,6 +2,7 @@
 - Replace awt Color with FastColor in BWGItems.java (Fixes some issues with loading the mod on certain server software)
 - Add BWG Pumpkins to Common Pumpkin Tags
 - Add Sandy Farmland to NeoForge Villager Farmland Tags to allow villagers to plant on it
+- Require Oh The Trees You'll Grow 5.0.10 or newer (Fixes Trunk Bug)
 
 # 2.3.11
 - Require Oh The Trees You'll Grow 5.0.9 or newer
