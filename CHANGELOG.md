@@ -1,5 +1,6 @@
 # 1.5.10
 - Replace awt Color with FastColor in BWGItems.java (Fixes some issues with loading the mod on certain server software)
+  - Replace awt Color in BiomesWeveGoneClient.java 
 - Require Oh The Trees You'll Grow 1.3.8 or newer (Fixes Trunk Bug)
 
 # 1.5.9
