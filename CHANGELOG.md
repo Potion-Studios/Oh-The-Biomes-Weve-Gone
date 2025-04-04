@@ -1,3 +1,5 @@
+# 3.0.2
+
 # 3.0.1
 - Fix NeoForge Logo not showing up in Mod Menu
 - Add Pale Pumpkins to new Pumpkins Block and Item Tags
