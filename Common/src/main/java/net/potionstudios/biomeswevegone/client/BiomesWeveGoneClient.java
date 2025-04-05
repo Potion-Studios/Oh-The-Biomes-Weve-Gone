@@ -51,7 +51,6 @@ import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 import org.jetbrains.annotations.Nullable;
 
-import java.awt.*;
 import java.util.Objects;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
@@ -175,20 +174,59 @@ public class BiomesWeveGoneClient {
         }, new Block[] {BWGBlocks.PALE_PUMPKIN_STEM.get()});
         consumer.accept((state, view, pos, tintIndex) -> -2046180, new Block[] {BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get()});
     }
-    
+
     private static final ImprovedNoise NOISE = new ImprovedNoise(new XoroshiroRandomSource(1));
 
     public static int getBorealisIceColor(BlockPos pos) {
-        float frequency = 0.01F;
+        float factor = (float) ((NOISE.noise(pos.getX() * 0.01F, pos.getY() * 0.01F, pos.getZ() * 0.01F) + 1)* 0.5F);
+        float hue = 320 - 200 * factor;
+        return HSBtoRGB(hue / 360F, 0.6F, 1);
+    }
 
-        float factor = (float) ((NOISE.noise(pos.getX() * frequency, pos.getY() * frequency, pos.getZ() * frequency) + 1)* 0.5F);
-
-        float startHue = 320;
-        float endHue = 120;
-
-        float hue =  startHue + (endHue - startHue) * factor;
-
-        return Color.getHSBColor(hue / 360F, 0.6F, 1).getRGB();
+    private static int HSBtoRGB(float hue, float saturation, float brightness) {
+        int r = 0, g = 0, b = 0;
+        if (saturation == 0) {
+            r = g = b = (int) (brightness * 255.0f + 0.5f);
+        } else {
+            float h = (hue - (float)Math.floor(hue)) * 6.0f;
+            float f = h - (float)Math.floor(h);
+            float p = brightness * (1.0f - saturation);
+            float q = brightness * (1.0f - saturation * f);
+            float t = brightness * (1.0f - (saturation * (1.0f - f)));
+            switch ((int) h) {
+                case 0:
+                    r = (int) (brightness * 255.0f + 0.5f);
+                    g = (int) (t * 255.0f + 0.5f);
+                    b = (int) (p * 255.0f + 0.5f);
+                    break;
+                case 1:
+                    r = (int) (q * 255.0f + 0.5f);
+                    g = (int) (brightness * 255.0f + 0.5f);
+                    b = (int) (p * 255.0f + 0.5f);
+                    break;
+                case 2:
+                    r = (int) (p * 255.0f + 0.5f);
+                    g = (int) (brightness * 255.0f + 0.5f);
+                    b = (int) (t * 255.0f + 0.5f);
+                    break;
+                case 3:
+                    r = (int) (p * 255.0f + 0.5f);
+                    g = (int) (q * 255.0f + 0.5f);
+                    b = (int) (brightness * 255.0f + 0.5f);
+                    break;
+                case 4:
+                    r = (int) (t * 255.0f + 0.5f);
+                    g = (int) (p * 255.0f + 0.5f);
+                    b = (int) (brightness * 255.0f + 0.5f);
+                    break;
+                case 5:
+                    r = (int) (brightness * 255.0f + 0.5f);
+                    g = (int) (p * 255.0f + 0.5f);
+                    b = (int) (q * 255.0f + 0.5f);
+                    break;
+            }
+        }
+        return 0xff000000 | (r << 16) | (g << 8) | (b << 0);
     }
 
     public static void registerItemTintSources(BiConsumer<ResourceLocation, MapCodec<? extends ItemTintSource>> consumer) {
