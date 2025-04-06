@@ -80,7 +80,7 @@ public class PumpkinWardenGoalPackages {
                                 ImmutableList.of(  //TODO: Custom these to fix them hardcoding villager
                                         Pair.of(SetClosestPumpkinBurrowAsWalkTarget.create(SPEED_MODIFIER), 1),
                                         Pair.of(InsideBrownianWalk.create(SPEED_MODIFIER), 4),
-                                        //Pair.of(GoToClosestVillage.create(SPEED_MODIFIER, 4), 2),
+                                        Pair.of(GoToClosestVillage.create(SPEED_MODIFIER, 4), 2),
                                         Pair.of(new DoNothing(20, 40), 2)
                                 )
                         )
