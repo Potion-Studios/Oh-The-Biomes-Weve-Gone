@@ -1,4 +1,5 @@
 # 1.5.11
+- Fix Missing or Non-Existent Pool error village/pumpkin_patch/streetsa
 
 # 1.5.10
 - Replace awt Color with FastColor in BWGItems.java (Fixes some issues with loading the mod on certain server software)
