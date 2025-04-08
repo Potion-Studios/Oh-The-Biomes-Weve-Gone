@@ -1,3 +1,5 @@
+# 3.0.3
+
 # 3.0.2
 - Remove awt from BiomesWeveGoneClient.java
 - Require Oh The Trees You'll Grow 6.0.4 or higher (Fixes Trunk Bug)
