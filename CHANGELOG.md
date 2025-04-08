@@ -1,3 +1,5 @@
+# 1.5.11
+
 # 1.5.10
 - Replace awt Color with FastColor in BWGItems.java (Fixes some issues with loading the mod on certain server software)
   - Replace awt Color in BiomesWeveGoneClient.java 
