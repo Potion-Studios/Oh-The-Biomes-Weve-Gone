@@ -1,4 +1,5 @@
 # 3.0.3
+- Fix Missing or Non-Existent Pool error village/pumpkin_patch/streetsa
 
 # 3.0.2
 - Remove awt from BiomesWeveGoneClient.java
