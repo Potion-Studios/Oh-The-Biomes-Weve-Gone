@@ -17,6 +17,12 @@ public class PumpkinWardenGoalPackages {
 
     private static final float SPEED_MODIFIER = 0.5F;
 
+    public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getCorePackage() {
+        return ImmutableList.of(
+                Pair.of(0, new Swim(0.8F))
+        );
+    }
+
     public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getPlayPackage() {
         return ImmutableList.of(
                 Pair.of(0, new MoveToTargetSink(80, 120)),
