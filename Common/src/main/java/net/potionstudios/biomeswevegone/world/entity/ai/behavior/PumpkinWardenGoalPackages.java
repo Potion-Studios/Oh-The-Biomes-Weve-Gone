@@ -19,7 +19,9 @@ public class PumpkinWardenGoalPackages {
 
     public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getCorePackage() {
         return ImmutableList.of(
-                Pair.of(0, new Swim(0.8F))
+                Pair.of(0, new Swim(0.8F)),
+                Pair.of(0, InteractWithDoor.create()),
+                Pair.of(0, new LookAtTargetSink(45, 90))
         );
     }
 

@@ -87,6 +87,12 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         MemoryModuleType.PATH,
         MemoryModuleType.CANT_REACH_WALK_TARGET_SINCE,
         MemoryModuleType.HOME,
+        MemoryModuleType.MEETING_POINT,
+        MemoryModuleType.DOORS_TO_CLOSE,
+        MemoryModuleType.HURT_BY,
+        MemoryModuleType.HURT_BY_ENTITY,
+        MemoryModuleType.NEAREST_HOSTILE,
+        MemoryModuleType.HEARD_BELL_TIME,
         BWGMemoryModuleType.VISIBLE_PUMPKIN_STEMS.get(),
         BWGMemoryModuleType.VISIBLE_PUMPKIN_WARDENS.get()
     );
@@ -95,6 +101,8 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
             SensorType.NEAREST_LIVING_ENTITIES,
             SensorType.NEAREST_PLAYERS,
             SensorType.VILLAGER_BABIES,
+            SensorType.HURT_BY,
+            SensorType.VILLAGER_HOSTILES,
             BWGSensorType.NEAREST_STEM_BLOCK.get(),
             BWGSensorType.NEAREST_VISIBLE_PUMPKIN_WARDENS.get(),
             BWGSensorType.NEAREST_PUMPKIN_BURROW.get()
