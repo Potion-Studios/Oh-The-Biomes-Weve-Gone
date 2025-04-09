@@ -87,7 +87,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         MemoryModuleType.PATH,
         MemoryModuleType.CANT_REACH_WALK_TARGET_SINCE,
         MemoryModuleType.HOME,
-        BWGMemoryModuleType.PUMPKIN_STEMS.get(),
+        BWGMemoryModuleType.VISIBLE_PUMPKIN_STEMS.get(),
         BWGMemoryModuleType.VISIBLE_PUMPKIN_WARDENS.get()
     );
 

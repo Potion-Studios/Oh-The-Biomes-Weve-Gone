@@ -19,7 +19,7 @@ public class DestroyPumpkin extends Behavior<PumpkinWarden> {
     protected int tryTicks;
 
     public DestroyPumpkin() {
-        super(Util.make(() -> ImmutableMap.of(BWGMemoryModuleType.PUMPKIN_STEMS.get(), MemoryStatus.VALUE_PRESENT)));
+        super(Util.make(() -> ImmutableMap.of(BWGMemoryModuleType.VISIBLE_PUMPKIN_STEMS.get(), MemoryStatus.VALUE_PRESENT)));
     }
 
     @Override
@@ -44,11 +44,14 @@ public class DestroyPumpkin extends Behavior<PumpkinWarden> {
 
     @Override
     protected boolean canStillUse(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
-        return entity.getBrain().getMemory(BWGMemoryModuleType.PUMPKIN_STEMS.get()).isPresent() && entity.getCarriedBlock() != null && entity.canMove();
+        return entity.getBrain().getMemory(BWGMemoryModuleType.VISIBLE_PUMPKIN_STEMS.get()).isPresent() && entity.getCarriedBlock() != null && entity.canMove();
     }
 
     @Override
     protected void start(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
+        if (entity.getBrain().getMemory(BWGMemoryModuleType.VISIBLE_PUMPKIN_STEMS.get()).isPresent()) {
+            BiomesWeveGone.LOGGER.info("StemBlocks: {}", entity.getBrain().getMemory(BWGMemoryModuleType.VISIBLE_PUMPKIN_STEMS.get()).get());
+        }
         /*
         entity.getBrain().getMemory(BWGMemoryModuleType.PUMPKIN_STEMS.get()).ifPresent(stemPositions ->
                 targetPos = stemPositions.get(entity.getRandom().nextInt(stemPositions.size())));
