@@ -94,6 +94,7 @@ public class PumpkinWardenGoalPackages {
                                 )
                         )
                 ),
+                Pair.of(6, new EnterPumpkinBurrow()),
                 getMinimalLookBehavior(),
                 Pair.of(99, UpdateActivityFromSchedule.create())
         );

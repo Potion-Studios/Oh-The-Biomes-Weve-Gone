@@ -23,7 +23,7 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
     }
 
     public void addOccupant(Entity occupant) {
-        if (stored.equals(CustomData.EMPTY)) {
+        if (stored.equals(Occupant.EMPTY)) {
             occupant.stopRiding();
             occupant.ejectPassengers();
             stored = Occupant.of(occupant);
