@@ -11,6 +11,7 @@ import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden
 import org.jetbrains.annotations.NotNull;
 
 public class PumpkinWardenPanicTrigger extends Behavior<PumpkinWarden> {
+    private int ticks = 0;
     public PumpkinWardenPanicTrigger() {
         super(ImmutableMap.of());
     }
@@ -28,17 +29,20 @@ public class PumpkinWardenPanicTrigger extends Behavior<PumpkinWarden> {
                 brain.eraseMemory(MemoryModuleType.PATH);
                 brain.eraseMemory(MemoryModuleType.WALK_TARGET);
                 brain.eraseMemory(MemoryModuleType.LOOK_TARGET);
+                brain.eraseMemory(MemoryModuleType.INTERACTION_TARGET);
             }
-
             brain.setActiveActivityIfPossible(Activity.PANIC);
         }
     }
 
     @Override
     protected void tick(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
-        if (gameTime % 100L == 0L) {
+        if (ticks >= 200) {
             entity.setHiding(true);
+            entity.getBrain().setActiveActivityIfPossible(Activity.HIDE);
+            stop(level, entity, gameTime);
         }
+        ticks++;
     }
 
     public static boolean hasHostile(LivingEntity entity) {

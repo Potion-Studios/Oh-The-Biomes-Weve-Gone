@@ -38,7 +38,6 @@ import net.minecraft.world.entity.schedule.Activity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -73,7 +72,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     private BlockPos jukebox;
     private boolean party;
     private static final EntityDataAccessor<Boolean> HIDING = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.BOOLEAN);
-    private static final EntityDataAccessor<Integer> TIMER = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Optional<BlockState>> DATA_CARRY_STATE = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.OPTIONAL_BLOCK_STATE);
     private static final EntityDataAccessor<Integer> DATA_VARIANT = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.INT);
 
@@ -157,7 +155,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         super.defineSynchedData(builder);
         builder.define(DATA_CARRY_STATE, Optional.empty());
         builder.define(HIDING, false);
-        builder.define(TIMER, 0);
         builder.define(DATA_VARIANT, 0);
     }
 
@@ -237,17 +234,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     private <E extends GeoAnimatable> PlayState predicate(@NotNull AnimationState<E> event) {
         event.getController().transitionLength(0);
-        if (this.isHiding()) {
-            if (this.getTimer() < 10) {
-                return event.setAndContinue(HIDE_START);
-            } else if ((this.getTimer() > 10 && this.getTimer() < 180) || !this.level().isDay() && this.getTimer() > 10) {
-                return event.setAndContinue(HIDE);
-            } else if (this.getTimer() > 180) {
-                if (this.level().getBrightness(LightLayer.SKY, this.getOnPos()) > 2)
-                    return event.setAndContinue(HIDE_END);
-                return event.setAndContinue(HIDE);
-            }
-        }
         if (this.getCarriedBlock() != null) {
             if (event.isMoving())
                 return event.setAndContinue(HOLDING_WALKING);
@@ -335,14 +321,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     public void setHiding(boolean flag) {
         entityData.set(HIDING, flag);
-    }
-
-    public int getTimer() {
-        return entityData.get(TIMER);
-    }
-
-    public void setTimer(int flag) {
-        entityData.set(TIMER, flag);
     }
 
     public void setCarriedBlock(@Nullable BlockState state) {
