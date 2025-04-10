@@ -30,8 +30,8 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
             stored = Occupant.of(occupant);
             occupant.setSleepingPos(getBlockPos());
             occupant.discard();
-            if (level != null)
-                level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(PumpkinBurrowBlock.OCCUPIED, true));
+            if (getLevel() != null)
+                getLevel().setBlockAndUpdate(getBlockPos(), getBlockState().setValue(PumpkinBurrowBlock.OCCUPIED, true));
             super.setChanged();
         }
     }
