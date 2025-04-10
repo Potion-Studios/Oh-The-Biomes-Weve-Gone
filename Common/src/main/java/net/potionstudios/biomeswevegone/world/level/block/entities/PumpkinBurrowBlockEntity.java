@@ -4,7 +4,9 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtOps;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -13,7 +15,9 @@ import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.level.block.custom.PumpkinBurrowBlock;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class PumpkinBurrowBlockEntity extends BlockEntity {
@@ -34,6 +38,23 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
                 getLevel().setBlockAndUpdate(getBlockPos(), getBlockState().setValue(PumpkinBurrowBlock.OCCUPIED, true));
             super.setChanged();
         }
+    }
+
+    @Override
+    protected void loadAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
+        super.loadAdditional(tag, registries);
+        if (tag.contains("occupant")) {
+            Occupant.CODEC
+                    .parse(NbtOps.INSTANCE, tag.getCompound("occupant"))
+                    .resultOrPartial(string -> BiomesWeveGone.LOGGER.error("Failed to parse occupants: '{}'", string))
+                    .ifPresent(occupant -> stored = occupant);
+        }
+    }
+
+    @Override
+    protected void saveAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
+        super.saveAdditional(tag, registries);
+        tag.put("occupant", Occupant.CODEC.encodeStart(NbtOps.INSTANCE, stored).getOrThrow());
     }
 
     public record Occupant(CustomData entityData) {
