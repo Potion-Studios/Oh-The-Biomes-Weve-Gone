@@ -22,6 +22,7 @@ public class PumpkinWardenGoalPackages {
                 Pair.of(0, new Swim(0.8F)),
                 Pair.of(0, InteractWithDoor.create()),
                 Pair.of(0, new LookAtTargetSink(45, 90)),
+                Pair.of(0, new PumpkinWardenPanicTrigger()),
                 Pair.of(1, new MoveToTargetSink())
         );
     }
@@ -97,6 +98,14 @@ public class PumpkinWardenGoalPackages {
                 ),
                 getMinimalLookBehavior(),
                 Pair.of(99, UpdateActivityFromSchedule.create())
+        );
+    }
+
+    public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getPanicPackage() {
+        return ImmutableList.of(
+                Pair.of(1, SetWalkTargetAwayFrom.entity(MemoryModuleType.NEAREST_HOSTILE, SPEED_MODIFIER * 1.5F, 6, false)),
+                Pair.of(1, SetWalkTargetAwayFrom.entity(MemoryModuleType.HURT_BY_ENTITY, SPEED_MODIFIER * 1.5F, 6, false)),
+                getMinimalLookBehavior()
         );
     }
 

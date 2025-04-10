@@ -144,6 +144,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         brain.addActivity(Activity.PLAY, PumpkinWardenGoalPackages.getPlayPackage());
         brain.addActivity(Activity.WORK, PumpkinWardenGoalPackages.getWorkPackage());
         brain.addActivity(Activity.REST, PumpkinWardenGoalPackages.getRestPackage());
+        brain.addActivity(Activity.PANIC, PumpkinWardenGoalPackages.getPanicPackage());
         brain.addActivity(Activity.CORE, PumpkinWardenGoalPackages.getCorePackage());
         brain.setCoreActivities(ImmutableSet.of(Activity.CORE));
         brain.setDefaultActivity(Activity.PLAY);
