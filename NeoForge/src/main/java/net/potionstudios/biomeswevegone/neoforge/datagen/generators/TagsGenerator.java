@@ -6,15 +6,13 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.*;
 import net.minecraft.tags.*;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.tags.BWGBiomeTags;
-import net.potionstudios.biomeswevegone.tags.BWGBlockTags;
-import net.potionstudios.biomeswevegone.tags.BWGItemTags;
-import net.potionstudios.biomeswevegone.tags.BWGStructureTags;
+import net.potionstudios.biomeswevegone.tags.*;
 import net.potionstudios.biomeswevegone.world.damagesource.BWGDamageTypes;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
@@ -504,6 +502,8 @@ public class TagsGenerator {
             tag(EntityTypeTags.CAN_BREATHE_UNDER_WATER).add(BWGEntities.MAN_O_WAR.get());
             tag(EntityTypeTags.AQUATIC).add(BWGEntities.MAN_O_WAR.get());
             tag(Tags.EntityTypes.BOATS).add(BWGEntities.BWG_BOAT.get(), BWGEntities.BWG_CHEST_BOAT.get());
+            tag(BWGEntityTypeTags.ATTACKS_PUMPKIN_WARDEN).add(EntityType.DROWNED, EntityType.EVOKER, EntityType.HUSK, EntityType.ILLUSIONER, EntityType.PILLAGER, EntityType.RAVAGER,
+                    EntityType.VEX, EntityType.VINDICATOR, EntityType.ZOGLIN, EntityType.ZOMBIE, EntityType.ZOMBIE_VILLAGER);
         }
     }
 

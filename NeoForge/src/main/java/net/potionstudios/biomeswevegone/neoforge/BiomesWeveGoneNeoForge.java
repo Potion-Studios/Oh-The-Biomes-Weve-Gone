@@ -7,6 +7,7 @@ import net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.event.server.ServerAboutToStartEvent;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
@@ -31,6 +32,7 @@ public class BiomesWeveGoneNeoForge {
 		eventBus.addListener((EntityAttributeCreationEvent event) -> BWGEntities.registerEntityAttributes(event::put));
 		eventBus.addListener((RegisterSpawnPlacementsEvent event) -> BWGEntities.registerSpawnPlacements((consumer) -> event.register(consumer.entityType(), consumer.spawnPlacementType(), consumer.heightmapType(), consumer.predicate(), RegisterSpawnPlacementsEvent.Operation.OR)));
 		EVENT_BUS.addListener((RegisterCommandsEvent event) -> BWGReloadCommand.register(event.getDispatcher()::register));
+		EVENT_BUS.addListener((EntityJoinLevelEvent event) -> BiomesWeveGone.onEntityLoad(event.getEntity()));
 		VanillaCompatNeoForge.registerVanillaCompatEvents(EVENT_BUS);
 		LootModifiersRegister.register(eventBus);
 	}
