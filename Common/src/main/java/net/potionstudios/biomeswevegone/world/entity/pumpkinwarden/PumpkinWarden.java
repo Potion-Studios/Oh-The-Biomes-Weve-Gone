@@ -156,6 +156,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         brain.addActivity(Activity.WORK, PumpkinWardenGoalPackages.getWorkPackage());
         brain.addActivity(Activity.REST, PumpkinWardenGoalPackages.getRestPackage());
         brain.addActivity(Activity.PANIC, PumpkinWardenGoalPackages.getPanicPackage());
+        brain.addActivity(Activity.HIDE, PumpkinWardenGoalPackages.getHidePackage());
         brain.addActivity(Activity.CORE, PumpkinWardenGoalPackages.getCorePackage());
         brain.setCoreActivities(ImmutableSet.of(Activity.CORE));
         brain.setDefaultActivity(Activity.PLAY);
@@ -227,7 +228,9 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-        controllerRegistrar.add(new AnimationController<>(this, "controller", 0, this::predicate));
+        controllerRegistrar.add(new AnimationController<>(this, "controller", 0, this::predicate)
+                .triggerableAnim("hide_start", HIDE_START)
+                .triggerableAnim("hide_end", HIDE_END));
     }
 
     @Override
@@ -247,7 +250,9 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     private <E extends GeoAnimatable> PlayState predicate(@NotNull AnimationState<E> event) {
         event.getController().transitionLength(0);
-        if (this.getCarriedBlock() != null) {
+        if (event.getController().hasAnimationFinished() && isHiding())
+            return event.setAndContinue(HIDE);
+        else if (this.getCarriedBlock() != null) {
             if (event.isMoving())
                 return event.setAndContinue(HOLDING_WALKING);
             return event.setAndContinue(HOLDING_IDLE);
@@ -365,8 +370,11 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     @Override
     public void onSyncedDataUpdated(@NotNull EntityDataAccessor<?> dataAccessor) {
         super.onSyncedDataUpdated(dataAccessor);
-        if (HIDING.equals(dataAccessor))
+        if (HIDING.equals(dataAccessor)) {
             refreshDimensions();
+            if (isHiding()) triggerAnim("hide_start", "controller");
+            else triggerAnim("hide_end", "controller");
+        }
     }
 
     @Override

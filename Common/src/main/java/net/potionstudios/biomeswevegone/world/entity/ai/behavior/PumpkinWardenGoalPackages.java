@@ -109,6 +109,10 @@ public class PumpkinWardenGoalPackages {
         );
     }
 
+    public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getHidePackage() {
+        return ImmutableList.of();
+    }
+
     private static Pair<Integer, BehaviorControl<LivingEntity>> getMinimalLookBehavior() {
         return Pair.of(
                 5,
