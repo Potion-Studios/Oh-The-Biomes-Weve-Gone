@@ -21,7 +21,8 @@ public class PumpkinWardenGoalPackages {
         return ImmutableList.of(
                 Pair.of(0, new Swim(0.8F)),
                 Pair.of(0, InteractWithDoor.create()),
-                Pair.of(0, new LookAtTargetSink(45, 90))
+                Pair.of(0, new LookAtTargetSink(45, 90)),
+                Pair.of(1, new MoveToTargetSink())
         );
     }
 
