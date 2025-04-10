@@ -8,6 +8,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -22,11 +23,12 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
         super(BWGBlockEntities.PUMPKIN_BURROW.get(), pos, blockState);
     }
 
-    public void addOccupant(Entity occupant) {
+    public void addOccupant(LivingEntity occupant) {
         if (stored.equals(Occupant.EMPTY)) {
             occupant.stopRiding();
             occupant.ejectPassengers();
             stored = Occupant.of(occupant);
+            occupant.setSleepingPos(getBlockPos());
             occupant.discard();
             if (level != null)
                 level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(PumpkinBurrowBlock.OCCUPIED, true));

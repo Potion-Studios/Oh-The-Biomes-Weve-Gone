@@ -19,20 +19,19 @@ public class EnterPumpkinBurrow extends Behavior<PumpkinWarden> {
     }
 
     @Override
-    protected void tick(@NotNull ServerLevel level, @NotNull PumpkinWarden owner, long gameTime) {
-        if (owner.getBrain().getMemory(MemoryModuleType.HOME).isPresent()) {
-            BlockPos pos = owner.getBrain().getMemory(MemoryModuleType.HOME).get().pos();
-            if (pos.closerToCenterThan(owner.position(), 1.5)) {
+    protected void tick(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
+        if (entity.getBrain().getMemory(MemoryModuleType.HOME).isPresent()) {
+            BlockPos pos = entity.getBrain().getMemory(MemoryModuleType.HOME).get().pos();
+            if (pos.closerToCenterThan(entity.position(), 1.5))
                 if (level.getBlockEntity(pos) instanceof PumpkinBurrowBlockEntity pumpkinBurrow) {
-                    pumpkinBurrow.addOccupant(owner);
-                    stop(level, owner, gameTime);
+                    pumpkinBurrow.addOccupant(entity);
+                    stop(level, entity, gameTime);
                 }
-            }
         }
     }
 
     @Override
     protected boolean canStillUse(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
-        return true;
+        return !entity.isSleeping();
     }
 }
