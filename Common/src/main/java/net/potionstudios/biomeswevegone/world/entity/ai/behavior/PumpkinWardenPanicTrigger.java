@@ -45,6 +45,11 @@ public class PumpkinWardenPanicTrigger extends Behavior<PumpkinWarden> {
         ticks++;
     }
 
+    @Override
+    protected void stop(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
+        ticks = 0;
+    }
+
     public static boolean hasHostile(LivingEntity entity) {
         return entity.getBrain().hasMemoryValue(MemoryModuleType.NEAREST_HOSTILE);
     }

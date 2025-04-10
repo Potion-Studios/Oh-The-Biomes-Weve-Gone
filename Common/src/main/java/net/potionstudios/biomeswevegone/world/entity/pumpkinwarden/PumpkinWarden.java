@@ -1,9 +1,12 @@
 package net.potionstudios.biomeswevegone.world.entity.pumpkinwarden;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.Dynamic;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.GlobalPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
@@ -12,6 +15,7 @@ import net.minecraft.network.protocol.game.DebugPackets;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -32,6 +36,8 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.sensing.Sensor;
 import net.minecraft.world.entity.ai.sensing.SensorType;
+import net.minecraft.world.entity.ai.village.poi.PoiManager;
+import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.schedule.Activity;
@@ -46,6 +52,7 @@ import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.entity.ai.behavior.PumpkinWardenGoalPackages;
 import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
 import net.potionstudios.biomeswevegone.world.entity.ai.sensing.BWGSensorType;
+import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.entity.schedule.BWGSchedule;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
@@ -57,7 +64,9 @@ import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import java.util.Map;
 import java.util.Optional;
+import java.util.function.BiPredicate;
 import java.util.function.IntFunction;
 
 /**
@@ -104,6 +113,10 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
             BWGSensorType.NEAREST_STEM_BLOCK.get(),
             BWGSensorType.NEAREST_VISIBLE_PUMPKIN_WARDENS.get(),
             BWGSensorType.NEAREST_PUMPKIN_BURROW.get()
+    );
+
+    public static final Map<MemoryModuleType<GlobalPos>, BiPredicate<PumpkinWarden, Holder<PoiType>>> POI_MEMORIES = ImmutableMap.of(
+            MemoryModuleType.HOME, (warden, holder) -> holder.is(BWGPoiTypes.PUMPKIN_BURROW)
     );
 
     public PumpkinWarden(EntityType<? extends PathfinderMob> entityType, Level level) {
@@ -360,6 +373,34 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     protected void sendDebugPackets() {
         super.sendDebugPackets();
         DebugPackets.sendEntityBrain(this);
+    }
+
+    @Override
+    public void die(@NotNull DamageSource damageSource) {
+        releaseAllPois();
+        super.die(damageSource);
+    }
+
+    private void releaseAllPois() {
+        releasePoi(MemoryModuleType.HOME);
+    }
+
+    public void releasePoi(MemoryModuleType<GlobalPos> moduleType) {
+        if (this.level() instanceof ServerLevel) {
+            MinecraftServer minecraftServer = ((ServerLevel)this.level()).getServer();
+            this.brain.getMemory(moduleType).ifPresent(globalPos -> {
+                ServerLevel serverLevel = minecraftServer.getLevel(globalPos.dimension());
+                if (serverLevel != null) {
+                    PoiManager poiManager = serverLevel.getPoiManager();
+                    Optional<Holder<PoiType>> optional = poiManager.getType(globalPos.pos());
+                    BiPredicate<PumpkinWarden, Holder<PoiType>> biPredicate = POI_MEMORIES.get(moduleType);
+                    if (optional.isPresent() && biPredicate.test(this, optional.get())) {
+                        poiManager.release(globalPos.pos());
+                        DebugPackets.sendPoiTicketCountPacket(serverLevel, globalPos.pos());
+                    }
+                }
+            });
+        }
     }
 
     public enum Variant implements StringRepresentable {
