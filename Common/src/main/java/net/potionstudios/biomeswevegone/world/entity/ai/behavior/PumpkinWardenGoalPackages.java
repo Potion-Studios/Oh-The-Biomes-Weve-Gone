@@ -9,6 +9,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.ai.behavior.*;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
+import net.minecraft.world.entity.ai.village.poi.PoiTypes;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
@@ -23,6 +24,7 @@ public class PumpkinWardenGoalPackages {
                 Pair.of(0, InteractWithDoor.create()),
                 Pair.of(0, new LookAtTargetSink(45, 90)),
                 Pair.of(0, new PumpkinWardenPanicTrigger()),
+                Pair.of(0, ReactToBell.create()),
                 Pair.of(1, new MoveToTargetSink())
         );
     }
@@ -111,6 +113,18 @@ public class PumpkinWardenGoalPackages {
 
     public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getHidePackage() {
         return ImmutableList.of();
+    }
+
+    public static ImmutableList<? extends Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getMeetPackage() {
+        return ImmutableList.of(
+                Pair.of(2, TriggerGate.triggerOneShuffled(
+                                ImmutableList.of(Pair.of(StrollAroundPoi.create(MemoryModuleType.MEETING_POINT, 0.4F, 40), 2), Pair.of(SocializeAtBell.create(), 2)))
+                ),
+                Pair.of(10, SetLookAndInteract.create(EntityType.PLAYER, 4)),
+                Pair.of(2, SetWalkTargetFromBlockMemory.create(MemoryModuleType.MEETING_POINT, SPEED_MODIFIER, 6, 100, 200)),
+                Pair.of(3, ValidateNearbyPoi.create(holder -> holder.is(PoiTypes.MEETING), MemoryModuleType.MEETING_POINT)),
+                getFullLookBehavior(),
+                Pair.of(99, UpdateActivityFromSchedule.create()));
     }
 
     private static Pair<Integer, BehaviorControl<LivingEntity>> getMinimalLookBehavior() {

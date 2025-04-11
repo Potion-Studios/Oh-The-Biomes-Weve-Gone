@@ -12,9 +12,10 @@ import java.util.function.Supplier;
 public class BWGSchedule {
 	public static Supplier<Schedule> PUMPKIN_WARDEN = register("pumpkin_warden", new ScheduleBuilder(new Schedule())
 			.changeActivityAt(10, Activity.IDLE)
-			.changeActivityAt(3000, Activity.PLAY)
-			.changeActivityAt(6000, Activity.IDLE)
-			.changeActivityAt(8000, Activity.WORK)
+			.changeActivityAt(2000, Activity.PLAY)
+			.changeActivityAt(5000, Activity.IDLE)
+			.changeActivityAt(7000, Activity.WORK)
+			.changeActivityAt(9000, Activity.MEET)
 			.changeActivityAt(10000, Activity.PLAY)
 			.changeActivityAt(12000, Activity.REST));
 

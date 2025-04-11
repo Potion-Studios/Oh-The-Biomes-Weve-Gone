@@ -3,6 +3,7 @@ package net.potionstudios.biomeswevegone.world.entity.pumpkinwarden;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Dynamic;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.GlobalPos;
@@ -34,10 +35,12 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
+import net.minecraft.world.entity.ai.memory.MemoryStatus;
 import net.minecraft.world.entity.ai.sensing.Sensor;
 import net.minecraft.world.entity.ai.sensing.SensorType;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
+import net.minecraft.world.entity.ai.village.poi.PoiTypes;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.schedule.Activity;
@@ -116,7 +119,8 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     );
 
     public static final Map<MemoryModuleType<GlobalPos>, BiPredicate<PumpkinWarden, Holder<PoiType>>> POI_MEMORIES = ImmutableMap.of(
-            MemoryModuleType.HOME, (warden, holder) -> holder.is(BWGPoiTypes.PUMPKIN_BURROW)
+            MemoryModuleType.HOME, (warden, holder) -> holder.is(BWGPoiTypes.PUMPKIN_BURROW),
+            MemoryModuleType.MEETING_POINT, (villager, holder) -> holder.is(PoiTypes.MEETING)
     );
 
     public PumpkinWarden(EntityType<? extends PathfinderMob> entityType, Level level) {
@@ -158,6 +162,11 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         brain.addActivity(Activity.PANIC, PumpkinWardenGoalPackages.getPanicPackage());
         brain.addActivity(Activity.HIDE, PumpkinWardenGoalPackages.getHidePackage());
         brain.addActivity(Activity.CORE, PumpkinWardenGoalPackages.getCorePackage());
+        brain.addActivityWithConditions(
+                Activity.MEET,
+                PumpkinWardenGoalPackages.getMeetPackage(),
+                ImmutableSet.of(Pair.of(MemoryModuleType.MEETING_POINT, MemoryStatus.VALUE_PRESENT))
+        );
         brain.setCoreActivities(ImmutableSet.of(Activity.CORE));
         brain.setDefaultActivity(Activity.PLAY);
         brain.setActiveActivityIfPossible(Activity.PLAY);
@@ -391,6 +400,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     private void releaseAllPois() {
         releasePoi(MemoryModuleType.HOME);
+        releasePoi(MemoryModuleType.MEETING_POINT);
     }
 
     public void releasePoi(MemoryModuleType<GlobalPos> moduleType) {
