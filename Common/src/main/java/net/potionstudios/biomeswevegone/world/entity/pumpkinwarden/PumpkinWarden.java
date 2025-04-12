@@ -157,6 +157,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     private void registerBrainGoals(Brain<PumpkinWarden> brain) {
         brain.setSchedule(BWGSchedule.PUMPKIN_WARDEN.get());
         brain.addActivity(Activity.PLAY, PumpkinWardenGoalPackages.getPlayPackage());
+        brain.addActivity(Activity.IDLE, PumpkinWardenGoalPackages.getIdlePackage());
         brain.addActivity(Activity.WORK, PumpkinWardenGoalPackages.getWorkPackage());
         brain.addActivity(Activity.REST, PumpkinWardenGoalPackages.getRestPackage());
         brain.addActivity(Activity.PANIC, PumpkinWardenGoalPackages.getPanicPackage());

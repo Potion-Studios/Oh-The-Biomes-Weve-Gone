@@ -26,7 +26,7 @@ public class SetWalkTargetFromBlockMemory {
                                     GlobalPos globalPos = instance.get(memoryAccessor3);
                                     Optional<Long> optional = instance.tryGet(memoryAccessor);
                                     if (globalPos.dimension() == serverLevel.dimension()
-                                            && (optional.isEmpty() || serverLevel.getGameTime() - (Long)optional.get() <= tooLongUnreachableDuration)) {
+                                            && (optional.isEmpty() || serverLevel.getGameTime() - optional.get() <= tooLongUnreachableDuration)) {
                                         if (globalPos.pos().distManhattan(villager.blockPosition()) > tooFarDistance) {
                                             Vec3 vec3 = null;
                                             int m = 0;

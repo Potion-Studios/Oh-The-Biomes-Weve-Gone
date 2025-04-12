@@ -14,6 +14,8 @@ import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 
+import java.util.Optional;
+
 public class PumpkinWardenGoalPackages {
 
     private static final float SPEED_MODIFIER = 0.5F;
@@ -25,7 +27,8 @@ public class PumpkinWardenGoalPackages {
                 Pair.of(0, new LookAtTargetSink(45, 90)),
                 Pair.of(0, new PumpkinWardenPanicTrigger()),
                 Pair.of(0, ReactToBell.create()),
-                Pair.of(1, new MoveToTargetSink())
+                Pair.of(1, new MoveToTargetSink()),
+                Pair.of(10, AcquirePoi.create(holder -> holder.is(PoiTypes.MEETING), MemoryModuleType.MEETING_POINT, false, Optional.of((byte)14)))
         );
     }
 
@@ -112,7 +115,9 @@ public class PumpkinWardenGoalPackages {
     }
 
     public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getHidePackage() {
-        return ImmutableList.of();
+        return ImmutableList.of(
+                Pair.of(0, new Unhide())
+        );
     }
 
     public static ImmutableList<? extends Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getMeetPackage() {
@@ -125,6 +130,23 @@ public class PumpkinWardenGoalPackages {
                 Pair.of(3, ValidateNearbyPoi.create(holder -> holder.is(PoiTypes.MEETING), MemoryModuleType.MEETING_POINT)),
                 getFullLookBehavior(),
                 Pair.of(99, UpdateActivityFromSchedule.create()));
+    }
+
+    public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getIdlePackage() {
+        return ImmutableList.of(
+                Pair.of(2,
+                        new RunOne<>(
+                                ImmutableList.of(
+                                        Pair.of(InteractWith.of(BWGEntities.PUMPKIN_WARDEN.get(), 8, MemoryModuleType.INTERACTION_TARGET, SPEED_MODIFIER, 2), 2),
+                                        Pair.of(InteractWith.of(EntityType.VILLAGER, 8, MemoryModuleType.INTERACTION_TARGET, SPEED_MODIFIER, 2), 2),
+                                        Pair.of(VillageBoundRandomStroll.create(SPEED_MODIFIER), 1),
+                                        Pair.of(SetWalkTargetFromLookTarget.create(SPEED_MODIFIER, 2), 1),
+                                        Pair.of(new DoNothing(30, 60), 1)
+                                )
+                        )),
+                getFullLookBehavior(),
+                Pair.of(99, UpdateActivityFromSchedule.create())
+        );
     }
 
     private static Pair<Integer, BehaviorControl<LivingEntity>> getMinimalLookBehavior() {
