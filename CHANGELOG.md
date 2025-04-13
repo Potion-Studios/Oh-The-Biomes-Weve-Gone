@@ -1,5 +1,7 @@
 # 3.0.3
 - Fix Missing or Non-Existent Pool error village/pumpkin_patch/streetsa
+- Update Russian (ru_ru) Translations (Credits: rfin0)
+- Update Forgotten, Salem, and Skyis Village Lamps files
 
 # 3.0.2
 - Remove awt from BiomesWeveGoneClient.java
