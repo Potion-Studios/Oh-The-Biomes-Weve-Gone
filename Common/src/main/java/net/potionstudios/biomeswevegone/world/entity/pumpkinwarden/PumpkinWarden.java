@@ -54,6 +54,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.entity.ai.behavior.PumpkinWardenGoalPackages;
 import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
