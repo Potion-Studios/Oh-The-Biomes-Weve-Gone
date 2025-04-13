@@ -120,7 +120,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     public static final Map<MemoryModuleType<GlobalPos>, BiPredicate<PumpkinWarden, Holder<PoiType>>> POI_MEMORIES = ImmutableMap.of(
             MemoryModuleType.HOME, (warden, holder) -> holder.is(BWGPoiTypes.PUMPKIN_BURROW),
-            MemoryModuleType.MEETING_POINT, (villager, holder) -> holder.is(PoiTypes.MEETING)
+            MemoryModuleType.MEETING_POINT, (warden, holder) -> holder.is(PoiTypes.MEETING)
     );
 
     public PumpkinWarden(EntityType<? extends PathfinderMob> entityType, Level level) {
@@ -248,9 +248,9 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         return animatableInstanceCache;
     }
 
-    private static final RawAnimation HIDE_START = RawAnimation.begin().thenPlay("animation.pumpkinwarden.hidestart");
+    private static final RawAnimation HIDE_START = RawAnimation.begin().then("animation.pumpkinwarden.hidestart", Animation.LoopType.PLAY_ONCE);
     private static final RawAnimation HIDE = RawAnimation.begin().thenLoop("animation.pumpkinwarden.hide");
-    private static final RawAnimation HIDE_END = RawAnimation.begin().thenPlay("animation.pumpkinwarden.hideend");
+    private static final RawAnimation HIDE_END = RawAnimation.begin().then("animation.pumpkinwarden.hideend", Animation.LoopType.PLAY_ONCE);
     private static final RawAnimation HOLDING_WALKING = RawAnimation.begin().thenPlay("animation.pumpkinwarden.holding_walking");
     private static final RawAnimation HOLDING_IDLE = RawAnimation.begin().thenPlay("animation.pumpkinwarden.holding_idle");
     private static final RawAnimation WALKING = RawAnimation.begin().thenPlay("animation.pumpkinwarden.walking");
@@ -260,8 +260,11 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     private <E extends GeoAnimatable> PlayState predicate(@NotNull AnimationState<E> event) {
         event.getController().transitionLength(0);
-        if (event.getController().hasAnimationFinished() && isHiding())
-            return event.setAndContinue(HIDE);
+        if (isHiding())
+            if (event.getController().hasAnimationFinished())
+                return event.setAndContinue(HIDE);
+            else return PlayState.CONTINUE;
+
         else if (this.getCarriedBlock() != null) {
             if (event.isMoving())
                 return event.setAndContinue(HOLDING_WALKING);
@@ -382,8 +385,9 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         super.onSyncedDataUpdated(dataAccessor);
         if (HIDING.equals(dataAccessor)) {
             refreshDimensions();
-            if (isHiding()) triggerAnim("hide_start", "controller");
-            else triggerAnim("hide_end", "controller");
+            if (level().isClientSide())
+                if (isHiding()) triggerAnim("controller", "hide_start");
+                else triggerAnim("controller", "hide_end");
         }
     }
 
@@ -397,6 +401,11 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     public void die(@NotNull DamageSource damageSource) {
         releaseAllPois();
         super.die(damageSource);
+    }
+
+    @Override
+    public boolean canBeSeenAsEnemy() {
+        return !isHiding() && super.canBeSeenAsEnemy();
     }
 
     private void releaseAllPois() {
