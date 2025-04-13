@@ -8,7 +8,6 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.world.item.ItemDisplayContext;
-import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -52,6 +51,6 @@ public class PumpkinWardenRenderer<T extends PumpkinWarden> extends GeoEntityRen
 
     @Override
     protected float getShadowRadius(@NotNull T entity) {
-        return 0.6f;
+	    return entity.isHiding() ? 0.0f : 0.6f;
     }
 }

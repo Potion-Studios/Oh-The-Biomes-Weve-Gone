@@ -17,6 +17,11 @@ public class PumpkinWardenPanicTrigger extends Behavior<PumpkinWarden> {
     }
 
     @Override
+    protected boolean checkExtraStartConditions(@NotNull ServerLevel level, @NotNull PumpkinWarden entity) {
+        return !entity.isHiding();
+    }
+
+    @Override
     protected boolean canStillUse(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
         return isHurt(entity) || hasHostile(entity);
     }
@@ -37,7 +42,7 @@ public class PumpkinWardenPanicTrigger extends Behavior<PumpkinWarden> {
 
     @Override
     protected void tick(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
-        if (ticks >= 200) {
+        if (ticks >= 60) {
             entity.getBrain().setActiveActivityIfPossible(Activity.HIDE);
             entity.setHiding(true);
             stop(level, entity, gameTime);

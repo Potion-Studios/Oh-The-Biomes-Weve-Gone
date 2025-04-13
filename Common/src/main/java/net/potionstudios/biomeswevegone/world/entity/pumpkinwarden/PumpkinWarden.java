@@ -28,6 +28,8 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageSources;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.Brain;
@@ -51,6 +53,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathType;
+import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.entity.ai.behavior.PumpkinWardenGoalPackages;
 import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
@@ -170,7 +173,8 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         );
         brain.setCoreActivities(ImmutableSet.of(Activity.CORE));
         brain.setDefaultActivity(Activity.PLAY);
-        brain.setActiveActivityIfPossible(Activity.PLAY);
+        if (isHiding()) brain.setActiveActivityIfPossible(Activity.HIDE);
+        else brain.setActiveActivityIfPossible(Activity.PLAY);
         brain.updateActivityFromSchedule(level().getDayTime(), level().getGameTime());
     }
 
@@ -186,6 +190,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     public void addAdditionalSaveData(@NotNull CompoundTag compound) {
         super.addAdditionalSaveData(compound);
         compound.putInt("Variant", this.getVariant().getId());
+        compound.putBoolean("Hiding", this.isHiding());
         BlockState blockState = null;
         if (compound.contains("carriedBlockState", 10)) {
             blockState = NbtUtils.readBlockState(level().holderLookup(Registries.BLOCK), compound.getCompound("carriedBlockState"));
@@ -200,6 +205,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     public void readAdditionalSaveData(@NotNull CompoundTag compound) {
         super.readAdditionalSaveData(compound);
         this.setVariant(Variant.byId(compound.getInt("Variant")));
+        this.setHiding(compound.getBoolean("Hiding"));
         BlockState blockState = this.getCarriedBlock();
         if (blockState != null) compound.put("carriedBlockState", NbtUtils.writeBlockState(blockState));
         if (level() instanceof ServerLevel serverLevel)
@@ -340,6 +346,26 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     @Override
     public float getVoicePitch() {
         return (getRandom().nextFloat() - getRandom().nextFloat()) * 0.2F + 1.5F;
+    }
+
+    @Override
+    public boolean hurt(@NotNull DamageSource source, float amount) {
+        if (isHiding())
+            if (source.is(DamageTypes.MOB_PROJECTILE))
+	            amount /= 2;
+        return super.hurt(source, amount);
+    }
+
+    @Override
+    protected float tickHeadTurn(float yRot, float animStep) {
+        if (isHiding()) return 0;
+        return super.tickHeadTurn(yRot, animStep);
+    }
+
+    @Override
+    public void travel(@NotNull Vec3 travelVector) {
+        if (!canMove()) travelVector = Vec3.ZERO;
+        super.travel(travelVector);
     }
 
     public boolean canMove() {

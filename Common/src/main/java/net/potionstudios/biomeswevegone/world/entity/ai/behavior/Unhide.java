@@ -9,13 +9,11 @@ import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden
 import org.jetbrains.annotations.NotNull;
 
 public class Unhide extends Behavior<PumpkinWarden> {
-
-    private int ticks;
-
+    private int ticks = 0;
     public Unhide() {
         super(ImmutableMap.of(
-                MemoryModuleType.NEAREST_HOSTILE, MemoryStatus.VALUE_PRESENT,
-                MemoryModuleType.HURT_BY_ENTITY, MemoryStatus.VALUE_PRESENT
+                MemoryModuleType.NEAREST_HOSTILE, MemoryStatus.REGISTERED,
+                MemoryModuleType.HURT_BY_ENTITY, MemoryStatus.REGISTERED
         ));
     }
 
@@ -25,17 +23,17 @@ public class Unhide extends Behavior<PumpkinWarden> {
     }
 
     @Override
-    protected void tick(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
-        ticks++;
-        if (ticks >= 200) {
-            entity.setHiding(false);
-            stop(level, entity, gameTime);
-        }
+    protected boolean canStillUse(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
+        return checkExtraStartConditions(level, entity);
     }
 
     @Override
-    protected void start(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
-        ticks = 0;
+    protected void tick(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
+        ticks++;
+        if (ticks >= 60 && !level.isNight()) {
+            entity.setHiding(false);
+            stop(level, entity, gameTime);
+        }
     }
 
     @Override
