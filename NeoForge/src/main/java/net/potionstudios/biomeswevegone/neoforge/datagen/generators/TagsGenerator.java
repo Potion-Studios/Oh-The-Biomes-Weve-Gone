@@ -14,7 +14,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.tags.*;
 import net.potionstudios.biomeswevegone.world.damagesource.BWGDamageTypes;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -499,9 +499,9 @@ public class TagsGenerator {
 
         @Override
         protected void addTags(HolderLookup.@NotNull Provider provider) {
-            tag(EntityTypeTags.CAN_BREATHE_UNDER_WATER).add(BWGEntities.MAN_O_WAR.get());
-            tag(EntityTypeTags.AQUATIC).add(BWGEntities.MAN_O_WAR.get());
-            tag(Tags.EntityTypes.BOATS).add(BWGEntities.BWG_BOAT.get(), BWGEntities.BWG_CHEST_BOAT.get());
+            tag(EntityTypeTags.CAN_BREATHE_UNDER_WATER).add(BWGEntityType.MAN_O_WAR.get());
+            tag(EntityTypeTags.AQUATIC).add(BWGEntityType.MAN_O_WAR.get());
+            tag(Tags.EntityTypes.BOATS).add(BWGEntityType.BWG_BOAT.get(), BWGEntityType.BWG_CHEST_BOAT.get());
             tag(BWGEntityTypeTags.ATTACKS_PUMPKIN_WARDEN).add(EntityType.DROWNED, EntityType.EVOKER, EntityType.HUSK, EntityType.ILLUSIONER, EntityType.PILLAGER, EntityType.RAVAGER,
                     EntityType.VEX, EntityType.VINDICATOR, EntityType.ZOGLIN, EntityType.ZOMBIE, EntityType.ZOMBIE_VILLAGER);
         }

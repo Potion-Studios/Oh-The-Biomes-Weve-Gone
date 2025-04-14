@@ -10,7 +10,7 @@ import net.minecraft.world.entity.ai.behavior.*;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
 import net.minecraft.world.entity.ai.village.poi.PoiTypes;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 
@@ -43,7 +43,7 @@ public class PumpkinWardenGoalPackages {
                         new RunOne<>(
                                 ImmutableMap.of(MemoryModuleType.NEAREST_VISIBLE_LIVING_ENTITIES, MemoryStatus.VALUE_ABSENT),
                                 ImmutableList.of(
-                                        Pair.of(InteractWith.of(BWGEntities.PUMPKIN_WARDEN.get(), 8, MemoryModuleType.INTERACTION_TARGET, SPEED_MODIFIER, 2), 2),
+                                        Pair.of(InteractWith.of(BWGEntityType.PUMPKIN_WARDEN.get(), 8, MemoryModuleType.INTERACTION_TARGET, SPEED_MODIFIER, 2), 2),
                                         Pair.of(InteractWith.of(EntityType.VILLAGER, 8, MemoryModuleType.INTERACTION_TARGET, SPEED_MODIFIER, 2), 2),
                                         Pair.of(InteractWith.of(EntityType.CAT, 8, MemoryModuleType.INTERACTION_TARGET, SPEED_MODIFIER, 2), 1),
                                         Pair.of(VillageBoundRandomStroll.create(SPEED_MODIFIER), 1),
@@ -63,7 +63,7 @@ public class PumpkinWardenGoalPackages {
                         ImmutableList.of(
                                 Pair.of(SetEntityLookTarget.create(EntityType.CAT, 8.0F), 8),
                                 Pair.of(SetEntityLookTarget.create(EntityType.VILLAGER, 8.0F), 2),
-                                Pair.of(SetEntityLookTarget.create(BWGEntities.PUMPKIN_WARDEN.get(), 8.0F), 2),
+                                Pair.of(SetEntityLookTarget.create(BWGEntityType.PUMPKIN_WARDEN.get(), 8.0F), 2),
                                 Pair.of(SetEntityLookTarget.create(EntityType.PLAYER, 8.0F), 2),
                                 Pair.of(SetEntityLookTarget.create(MobCategory.CREATURE, 8.0F), 1),
                                 Pair.of(SetEntityLookTarget.create(MobCategory.WATER_CREATURE, 8.0F), 1),
@@ -138,7 +138,7 @@ public class PumpkinWardenGoalPackages {
                 Pair.of(2,
                         new RunOne<>(
                                 ImmutableList.of(
-                                        Pair.of(InteractWith.of(BWGEntities.PUMPKIN_WARDEN.get(), 8, MemoryModuleType.INTERACTION_TARGET, SPEED_MODIFIER, 2), 2),
+                                        Pair.of(InteractWith.of(BWGEntityType.PUMPKIN_WARDEN.get(), 8, MemoryModuleType.INTERACTION_TARGET, SPEED_MODIFIER, 2), 2),
                                         Pair.of(InteractWith.of(EntityType.VILLAGER, 8, MemoryModuleType.INTERACTION_TARGET, SPEED_MODIFIER, 2), 2),
                                         Pair.of(VillageBoundRandomStroll.create(SPEED_MODIFIER), 1),
                                         Pair.of(SetWalkTargetFromLookTarget.create(SPEED_MODIFIER, 2), 1),
@@ -155,7 +155,7 @@ public class PumpkinWardenGoalPackages {
                 5,
                 new RunOne<>(
                         ImmutableList.of(
-                                Pair.of(SetEntityLookTarget.create(BWGEntities.PUMPKIN_WARDEN.get(), 8.0F), 2),
+                                Pair.of(SetEntityLookTarget.create(BWGEntityType.PUMPKIN_WARDEN.get(), 8.0F), 2),
                                 Pair.of(SetEntityLookTarget.create(EntityType.VILLAGER, 8.0F), 2),
                                 Pair.of(SetEntityLookTarget.create(EntityType.PLAYER, 8.0F), 2),
                                 Pair.of(new DoNothing(30, 60), 8)

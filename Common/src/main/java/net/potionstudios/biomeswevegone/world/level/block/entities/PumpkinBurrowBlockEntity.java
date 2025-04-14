@@ -44,7 +44,7 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
     );
     private Occupant stored = Occupant.EMPTY;
     public PumpkinBurrowBlockEntity(BlockPos pos, BlockState blockState) {
-        super(BWGBlockEntities.PUMPKIN_BURROW.get(), pos, blockState);
+        super(BWGBlockEntityType.PUMPKIN_BURROW.get(), pos, blockState);
     }
 
     public void addOccupant(LivingEntity occupant) {
@@ -111,8 +111,7 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, PumpkinBurrowBlockEntity blockEntity) {
-        if (!level.isNight()) {
-            if (!blockEntity.isEmpty()) {
+        if (!blockEntity.isEmpty() && !level.isNight()) {
                 Entity entity = blockEntity.stored.createEntity(level);
                 if (entity instanceof PumpkinWarden pumpkinWarden) {
                     Direction direction = state.getValue(PumpkinBurrowBlock.FACING);
@@ -124,7 +123,6 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
                     state = state.setValue(PumpkinBurrowBlock.OCCUPIED, false);
                     level.setBlockAndUpdate(pos, state);
                 }
-            }
         }
     }
 }

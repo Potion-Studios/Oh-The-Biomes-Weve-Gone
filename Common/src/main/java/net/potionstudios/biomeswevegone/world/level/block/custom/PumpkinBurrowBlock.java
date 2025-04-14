@@ -22,7 +22,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.potionstudios.biomeswevegone.world.level.block.entities.BWGBlockEntities;
+import net.potionstudios.biomeswevegone.world.level.block.entities.BWGBlockEntityType;
 import net.potionstudios.biomeswevegone.world.level.block.entities.PumpkinBurrowBlockEntity;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -54,7 +54,7 @@ public class PumpkinBurrowBlock extends BaseEntityBlock {
 
     @Override
     public @Nullable BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
-        return BWGBlockEntities.PUMPKIN_BURROW.get().create(pos, state);
+        return BWGBlockEntityType.PUMPKIN_BURROW.get().create(pos, state);
     }
 
     @Override
@@ -81,12 +81,10 @@ public class PumpkinBurrowBlock extends BaseEntityBlock {
 
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NotNull Level level, @NotNull BlockState state, @NotNull BlockEntityType<T> blockEntityType) {
-        return createTickerHelper(level, blockEntityType, BWGBlockEntities.PUMPKIN_BURROW.get());
+        return createTickerHelper(level, blockEntityType, BWGBlockEntityType.PUMPKIN_BURROW.get());
     }
 
-    public static <T extends BlockEntity> BlockEntityTicker<T> createTickerHelper(
-            Level level, BlockEntityType<T> serverType, BlockEntityType<? extends PumpkinBurrowBlockEntity> clientType
-    ) {
+    public static <T extends BlockEntity> BlockEntityTicker<T> createTickerHelper(Level level, BlockEntityType<T> serverType, BlockEntityType<? extends PumpkinBurrowBlockEntity> clientType) {
         return level.isClientSide() ? null : createTickerHelper(serverType, clientType, PumpkinBurrowBlockEntity::serverTick);
     }
 }

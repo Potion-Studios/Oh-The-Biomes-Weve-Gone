@@ -13,7 +13,7 @@ import net.neoforged.neoforge.common.data.AdvancementProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
@@ -208,7 +208,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         Advancement.Builder.advancement()
                 .parent(husbandryRoot)
                 .rewards(new AdvancementRewards.Builder().addLootTable(BiomesWeveGone.key(Registries.LOOT_TABLE, "blocks/pale_pumpkin")))
-                .addCriterion("forgotten_nostalgia", PlayerInteractTrigger.TriggerInstance.itemUsedOnEntity(ItemPredicate.Builder.item().of(BWGItemTags.ROSES), Optional.of(EntityPredicate.wrap(EntityPredicate.Builder.entity().of(BWGEntities.PUMPKIN_WARDEN.get())))))
+                .addCriterion("forgotten_nostalgia", PlayerInteractTrigger.TriggerInstance.itemUsedOnEntity(ItemPredicate.Builder.item().of(BWGItemTags.ROSES), Optional.of(EntityPredicate.wrap(EntityPredicate.Builder.entity().of(BWGEntityType.PUMPKIN_WARDEN.get())))))
                 .display(
                         BWGBlocks.ROSE.getBlock().asItem(),
                         translateAble("husbandry.forgotten_nostalgia.title"),

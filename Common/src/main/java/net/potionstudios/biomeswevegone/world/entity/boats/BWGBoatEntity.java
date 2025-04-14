@@ -10,7 +10,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 import org.jetbrains.annotations.NotNull;
@@ -30,7 +30,7 @@ public class BWGBoatEntity extends Boat {
     }
 
     public BWGBoatEntity(Level level, double x, double y, double z) {
-        this(BWGEntities.BWG_BOAT.get(), level);
+        this(BWGEntityType.BWG_BOAT.get(), level);
         this.setPos(x, y, z);
         this.xo = x;
         this.yo = y;

@@ -9,7 +9,7 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRe
 import net.minecraft.world.entity.SpawnPlacements;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.commands.BWGReloadCommand;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 
 /**
  * This class is the entrypoint for the mod on the Fabric platform.
@@ -36,8 +36,8 @@ public class BiomesWeveGoneFabric implements ModInitializer {
 
         BiomesWeveGone.init();
         VanillaCompatFabric.init();
-        BWGEntities.registerEntityAttributes(FabricDefaultAttributeRegistry::register);
-        BWGEntities.registerSpawnPlacements((consumer) -> SpawnPlacements.register(consumer.entityType(), consumer.spawnPlacementType(), consumer.heightmapType(), consumer.predicate()));
+        BWGEntityType.registerEntityAttributes(FabricDefaultAttributeRegistry::register);
+        BWGEntityType.registerSpawnPlacements((consumer) -> SpawnPlacements.register(consumer.entityType(), consumer.spawnPlacementType(), consumer.heightmapType(), consumer.predicate()));
         BiomesWeveGone.commonSetup();
         BiomesWeveGone.postInit();
         ServerLifecycleEvents.SERVER_STARTING.register(BiomesWeveGone::serverStart);

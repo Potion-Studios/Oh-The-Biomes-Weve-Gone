@@ -16,7 +16,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
 import net.potionstudios.biomeswevegone.component.BWGDataComponents;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.item.custom.CampfireExplodingBlockItem;
 import net.potionstudios.biomeswevegone.world.item.custom.PowderItem;
 import net.potionstudios.biomeswevegone.world.item.jukebox.BWGJukeBoxSongs;
@@ -41,11 +41,11 @@ public class BWGItems {
 
     public static final Supplier<Item> BWG_LOGO = register("bwg_logo", () -> new Item(new Item.Properties()));
 
-    public static final Supplier<SpawnEggItem> MAN_O_WAR_SPAWN_EGG = registerSpawnEgg("man_o_war_spawn_egg", BWGEntities.MAN_O_WAR::get, FastColor.ARGB32.color(210, 166, 246), FastColor.ARGB32.color(199, 165, 104));
-    public static final Supplier<SpawnEggItem> PUMPKIN_WARDEN_SPAWN_EGG = registerSpawnEgg("pumpkin_warden_spawn_egg", BWGEntities.PUMPKIN_WARDEN::get, FastColor.ARGB32.color(79, 57, 46), FastColor.ARGB32.color(192, 106, 5));
-    public static final Supplier<SpawnEggItem> ODDION_SPAWN_EGG = registerSpawnEgg("oddion_spawn_egg", BWGEntities.ODDION::get, FastColor.ARGB32.color(199, 165, 104), FastColor.ARGB32.color(210, 166, 246));
+    public static final Supplier<SpawnEggItem> MAN_O_WAR_SPAWN_EGG = registerSpawnEgg("man_o_war_spawn_egg", BWGEntityType.MAN_O_WAR::get, FastColor.ARGB32.color(210, 166, 246), FastColor.ARGB32.color(199, 165, 104));
+    public static final Supplier<SpawnEggItem> PUMPKIN_WARDEN_SPAWN_EGG = registerSpawnEgg("pumpkin_warden_spawn_egg", BWGEntityType.PUMPKIN_WARDEN::get, FastColor.ARGB32.color(79, 57, 46), FastColor.ARGB32.color(192, 106, 5));
+    public static final Supplier<SpawnEggItem> ODDION_SPAWN_EGG = registerSpawnEgg("oddion_spawn_egg", BWGEntityType.ODDION::get, FastColor.ARGB32.color(199, 165, 104), FastColor.ARGB32.color(210, 166, 246));
 
-    public static final Supplier<MobBucketItem> MAN_O_WAR_BUCKET = registerMobBucket("man_o_war_bucket", BWGEntities.MAN_O_WAR::get, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH);
+    public static final Supplier<MobBucketItem> MAN_O_WAR_BUCKET = registerMobBucket("man_o_war_bucket", BWGEntityType.MAN_O_WAR::get, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH);
 
     public static final Supplier<Item> CATTAIL_SPROUT = registerItemNoLang("cattail_sprout", () -> new CampfireExplodingBlockItem(BWGBlocks.CATTAIL_SPROUT, new Item.Properties()));
     public static final Supplier<Item> FLUORESCENT_CATTAIL_SPROUT = registerItemNoLang("fluorescent_cattail_sprout", () -> new CampfireExplodingBlockItem(BWGBlocks.FLUORESCENT_CATTAIL_SPROUT, new Item.Properties()));

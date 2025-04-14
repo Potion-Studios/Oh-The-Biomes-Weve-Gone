@@ -6,7 +6,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.NearestVisibleLivingEntities;
 import net.minecraft.world.entity.ai.sensing.Sensor;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
 import org.jetbrains.annotations.NotNull;
 
@@ -25,7 +25,7 @@ public class PumpkinWardenSensor extends Sensor<LivingEntity> {
     }
 
     private List<LivingEntity> getNearestPumpkinWardens(LivingEntity livingEntity) {
-        return ImmutableList.copyOf(getVisibleEntities(livingEntity).findAll(search -> search.getType() == BWGEntities.PUMPKIN_WARDEN.get()));
+        return ImmutableList.copyOf(getVisibleEntities(livingEntity).findAll(search -> search.getType() == BWGEntityType.PUMPKIN_WARDEN.get()));
     }
 
     private NearestVisibleLivingEntities getVisibleEntities(LivingEntity livingEntity) {

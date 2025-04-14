@@ -8,7 +8,7 @@ import net.minecraft.world.entity.ai.behavior.declarative.BehaviorBuilder;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.NearestVisibleLivingEntities;
 import net.minecraft.world.entity.ai.memory.WalkTarget;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 
 public class SocializeAtBell {
 	public static OneShot<LivingEntity> create() {
@@ -28,9 +28,9 @@ public class SocializeAtBell {
 									if (serverLevel.getRandom().nextInt(100) == 0
 											&& serverLevel.dimension() == globalPos.dimension()
 											&& globalPos.pos().closerToCenterThan(livingEntity.position(), 4.0)
-											&& nearestVisibleLivingEntities.contains(livingEntityx -> BWGEntities.PUMPKIN_WARDEN.get().equals(livingEntityx.getType()))) {
+											&& nearestVisibleLivingEntities.contains(livingEntityx -> BWGEntityType.PUMPKIN_WARDEN.get().equals(livingEntityx.getType()))) {
 										nearestVisibleLivingEntities.findClosest(
-														livingEntity2 -> BWGEntities.PUMPKIN_WARDEN.get().equals(livingEntity2.getType()) && livingEntity2.distanceToSqr(livingEntity) <= 32.0
+														livingEntity2 -> BWGEntityType.PUMPKIN_WARDEN.get().equals(livingEntity2.getType()) && livingEntity2.distanceToSqr(livingEntity) <= 32.0
 												)
 												.ifPresent(livingEntityx -> {
 													memoryAccessor5.set(livingEntityx);

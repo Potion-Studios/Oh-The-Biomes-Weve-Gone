@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.item.BWGCreativeTabs;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.item.jukebox.BWGJukeBoxSongs;
@@ -46,11 +46,11 @@ public class LangGenerator extends LanguageProvider {
             else add(wood.get(), getItemName(wood).replace("Chest ", "") + " with Chest");
         });
         BWGWood.WOOD.stream().filter(wood -> wood.get() instanceof FlowerPotBlock).forEach(wood -> add(wood.get(), getBlockName(wood)));
-        add(BWGEntities.MAN_O_WAR.get(), "Man O' War");
-        add(BWGEntities.PUMPKIN_WARDEN.get(), "Pumpkin Warden");
-        add(BWGEntities.ODDION.get(), "Oddion");
-        add(BWGEntities.BWG_BOAT.get(), "Boat");
-        add(BWGEntities.BWG_CHEST_BOAT.get(), "Boat with Chest");
+        add(BWGEntityType.MAN_O_WAR.get(), "Man O' War");
+        add(BWGEntityType.PUMPKIN_WARDEN.get(), "Pumpkin Warden");
+        add(BWGEntityType.ODDION.get(), "Oddion");
+        add(BWGEntityType.BWG_BOAT.get(), "Boat");
+        add(BWGEntityType.BWG_CHEST_BOAT.get(), "Boat with Chest");
         BWGBiomes.BIOME_FACTORIES.forEach((key, factory) -> add("biome." + BiomesWeveGone.MOD_ID + "." + key.location().getPath(), getBiomeName(key)));
 
         add(advancement("title.root"), "Oh The Biomes We've Gone");

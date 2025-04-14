@@ -13,7 +13,7 @@ import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-public class BWGBlockEntities {
+public class BWGBlockEntityType {
     public static final Supplier<BlockEntityType<BWGSignBlockEntity>> SIGNS = register("sign", () -> BlockEntityType.Builder.of(
             BWGSignBlockEntity::new,
             Stream.concat(

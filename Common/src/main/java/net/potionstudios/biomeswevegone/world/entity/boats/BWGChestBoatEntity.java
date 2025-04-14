@@ -9,7 +9,7 @@ import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.entity.vehicle.ChestBoat;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -24,7 +24,7 @@ public class BWGChestBoatEntity extends ChestBoat {
     }
 
     public BWGChestBoatEntity(Level level, double x, double y, double z) {
-        this(BWGEntities.BWG_CHEST_BOAT.get(), level);
+        this(BWGEntityType.BWG_CHEST_BOAT.get(), level);
         this.setPos(x, y, z);
         this.xo = x;
         this.yo = y;
