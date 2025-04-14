@@ -62,6 +62,7 @@ import net.potionstudios.biomeswevegone.world.entity.ai.sensing.BWGSensorType;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.entity.schedule.BWGSchedule;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+import net.potionstudios.biomeswevegone.world.level.block.entities.PumpkinBurrowBlockEntity;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoAnimatable;
@@ -118,8 +119,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
             SensorType.HURT_BY,
             SensorType.VILLAGER_HOSTILES,
             BWGSensorType.NEAREST_STEM_BLOCK.get(),
-            BWGSensorType.NEAREST_VISIBLE_PUMPKIN_WARDENS.get(),
-            BWGSensorType.NEAREST_PUMPKIN_BURROW.get()
+            BWGSensorType.NEAREST_VISIBLE_PUMPKIN_WARDENS.get()
     );
 
     public static final Map<MemoryModuleType<GlobalPos>, BiPredicate<PumpkinWarden, Holder<PoiType>>> POI_MEMORIES = ImmutableMap.of(
@@ -434,6 +434,18 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     public boolean canBeSeenAsEnemy() {
         return !isHiding() && super.canBeSeenAsEnemy();
     }
+
+    @Override
+    public void startSleeping(@NotNull BlockPos pos) {
+        if (isPassenger())
+            stopRiding();
+        BiomesWeveGone.LOGGER.info("Adding occupant to pumpkin burrow at {}", pos);
+        if (level().getBlockEntity(pos) instanceof PumpkinBurrowBlockEntity pumpkinBurrow && !pumpkinBurrow.isOccupied()) {
+            pumpkinBurrow.addOccupant(this);
+            setSleepingPos(pos);
+        }
+    }
+
 
     private void releaseAllPois() {
         releasePoi(MemoryModuleType.HOME);

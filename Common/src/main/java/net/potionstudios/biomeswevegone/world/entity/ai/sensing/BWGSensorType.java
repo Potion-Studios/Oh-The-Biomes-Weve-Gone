@@ -11,7 +11,6 @@ import java.util.function.Supplier;
 public class BWGSensorType<U extends Sensor<?>> {
     public static final Supplier<SensorType<StemBlockSensor>> NEAREST_STEM_BLOCK = register("nearest_stem_block", StemBlockSensor::new);
     public static final Supplier<SensorType<PumpkinWardenSensor>> NEAREST_VISIBLE_PUMPKIN_WARDENS = register("nearest_visible_pumpkin_wardens", PumpkinWardenSensor::new);
-    public static final Supplier<SensorType<NearestPumpkinBurrow>> NEAREST_PUMPKIN_BURROW = register("nearest_pumpkin_burrow", NearestPumpkinBurrow::new);
 
     public static void sensorTypes() {
         BiomesWeveGone.LOGGER.info("Registering Oh The Biomes We've Gone Sensor Types");

@@ -28,6 +28,7 @@ public class PumpkinWardenGoalPackages {
                 Pair.of(0, new PumpkinWardenPanicTrigger()),
                 Pair.of(0, ReactToBell.create()),
                 Pair.of(1, new MoveToTargetSink()),
+                Pair.of(10, AcquirePoi.create(holder -> holder.is(BWGPoiTypes.PUMPKIN_BURROW), MemoryModuleType.HOME, false, Optional.of((byte)14))),
                 Pair.of(10, AcquirePoi.create(holder -> holder.is(PoiTypes.MEETING), MemoryModuleType.MEETING_POINT, false, Optional.of((byte)14)))
         );
     }
@@ -88,7 +89,7 @@ public class PumpkinWardenGoalPackages {
         return ImmutableList.of(
                 Pair.of(2, SetWalkTargetFromBlockMemory.create(MemoryModuleType.HOME, SPEED_MODIFIER, 1, 150, 1200)),
                 Pair.of(3, ValidateNearbyPoi.create(holder -> holder.is(BWGPoiTypes.PUMPKIN_BURROW), MemoryModuleType.HOME)),
-                Pair.of(4, new EnterPumpkinBurrow()),
+                Pair.of(3, new EnterPumpkinBurrow()),
                 Pair.of(
                         5,
                         new RunOne<>(

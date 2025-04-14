@@ -40,6 +40,10 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
         }
     }
 
+    public boolean isOccupied() {
+        return !stored.equals(Occupant.EMPTY);
+    }
+
     @Override
     protected void loadAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
         super.loadAdditional(tag, registries);

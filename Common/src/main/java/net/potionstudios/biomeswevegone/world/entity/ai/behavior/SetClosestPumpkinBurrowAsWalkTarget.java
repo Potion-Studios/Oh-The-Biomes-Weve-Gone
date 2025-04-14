@@ -14,7 +14,6 @@ import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.WalkTarget;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
-import net.minecraft.world.entity.ai.village.poi.PoiTypes;
 import net.minecraft.world.level.pathfinder.Path;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import org.apache.commons.lang3.mutable.MutableInt;
@@ -39,7 +38,7 @@ public class SetClosestPumpkinBurrowAsWalkTarget {
                                         return false;
                                     } else {
                                         PoiManager poiManager = serverLevel.getPoiManager();
-                                        Optional<BlockPos> optional = poiManager.findClosest(holder -> holder.is(PoiTypes.HOME), pathfinderMob.blockPosition(), 48, PoiManager.Occupancy.ANY);
+                                        Optional<BlockPos> optional = poiManager.findClosest(holder -> holder.is(BWGPoiTypes.PUMPKIN_BURROW), pathfinderMob.blockPosition(), 48, PoiManager.Occupancy.ANY);
                                         if (optional.isPresent() && !(optional.get().distSqr(pathfinderMob.blockPosition()) <= 4.0)) {
                                             MutableInt mutableInt = new MutableInt(0);
                                             mutableLong.setValue(serverLevel.getGameTime() + serverLevel.getRandom().nextInt(20));

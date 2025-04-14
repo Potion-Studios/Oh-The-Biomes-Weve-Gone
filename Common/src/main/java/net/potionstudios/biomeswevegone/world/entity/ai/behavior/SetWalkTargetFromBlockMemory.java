@@ -30,12 +30,11 @@ public class SetWalkTargetFromBlockMemory {
                                         if (globalPos.pos().distManhattan(villager.blockPosition()) > tooFarDistance) {
                                             Vec3 vec3 = null;
                                             int m = 0;
-                                            int n = 1000;
 
                                             while (vec3 == null || BlockPos.containing(vec3).distManhattan(villager.blockPosition()) > tooFarDistance) {
                                                 vec3 = DefaultRandomPos.getPosTowards(villager, 15, 7, Vec3.atBottomCenterOf(globalPos.pos()), (float) (Math.PI / 2));
                                                 if (++m == 1000) {
-                                                    //villager.releasePoi(blockTargetMemory);
+                                                    villager.releasePoi(blockTargetMemory);
                                                     memoryAccessor3.erase();
                                                     memoryAccessor.set(l);
                                                     return true;
@@ -47,7 +46,7 @@ public class SetWalkTargetFromBlockMemory {
                                             memoryAccessor2.set(new WalkTarget(globalPos.pos(), speedModifier, closeEnoughDist));
                                         }
                                     } else {
-                                        //villager.releasePoi(blockTargetMemory);
+                                        villager.releasePoi(blockTargetMemory);
                                         memoryAccessor3.erase();
                                         memoryAccessor.set(l);
                                     }
