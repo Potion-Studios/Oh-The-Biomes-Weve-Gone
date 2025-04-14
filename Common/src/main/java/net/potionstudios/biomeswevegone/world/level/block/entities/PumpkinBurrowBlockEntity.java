@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtOps;
@@ -16,19 +17,32 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import net.potionstudios.biomeswevegone.world.level.block.custom.PumpkinBurrowBlock;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class PumpkinBurrowBlockEntity extends BlockEntity {
+import java.util.List;
 
+public class PumpkinBurrowBlockEntity extends BlockEntity {
+    private static final List<String> IGNORED_TAGS = List.of(
+            "Air",
+            "ArmorDropChances",
+            "ArmorItems",
+            "FallDistance",
+            "Fire",
+            "Hiding",
+            "OnGround",
+            "Pos",
+            "Rotation"
+    );
     private Occupant stored = Occupant.EMPTY;
     public PumpkinBurrowBlockEntity(BlockPos pos, BlockState blockState) {
         super(BWGBlockEntities.PUMPKIN_BURROW.get(), pos, blockState);
     }
 
     public void addOccupant(LivingEntity occupant) {
-        if (stored.equals(Occupant.EMPTY)) {
+        if (isEmpty()) {
             occupant.stopRiding();
             occupant.ejectPassengers();
             stored = Occupant.of(occupant);
@@ -40,8 +54,8 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
         }
     }
 
-    public boolean isOccupied() {
-        return !stored.equals(Occupant.EMPTY);
+    public boolean isEmpty() {
+        return stored.equals(Occupant.EMPTY);
     }
 
     @Override
@@ -79,6 +93,7 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
         public static Occupant of(Entity entity) {
             CompoundTag compoundTag = new CompoundTag();
             entity.save(compoundTag);
+            IGNORED_TAGS.forEach(compoundTag::remove);
             return new Occupant(CustomData.of(compoundTag));
         }
 
@@ -86,6 +101,24 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
         public Entity createEntity(Level level) {
             CompoundTag compoundTag = entityData.copyTag();
             return EntityType.loadEntityRecursive(compoundTag, level, entityx -> entityx);
+        }
+    }
+
+    public static void serverTick(Level level, BlockPos pos, BlockState state, PumpkinBurrowBlockEntity blockEntity) {
+        if (!level.isNight()) {
+            if (!blockEntity.isEmpty()) {
+                Entity entity = blockEntity.stored.createEntity(level);
+                if (entity instanceof PumpkinWarden pumpkinWarden) {
+                    Direction direction = state.getValue(PumpkinBurrowBlock.FACING);
+                    BlockPos blockPos = pos.relative(direction);
+                    pumpkinWarden.setPos(blockPos.getX() + 0.5, blockPos.getY(), blockPos.getZ() + 0.5);
+                    level.addFreshEntity(pumpkinWarden);
+                    pumpkinWarden.clearSleepingPos();
+                    blockEntity.stored = Occupant.EMPTY;
+                    state = state.setValue(PumpkinBurrowBlock.OCCUPIED, false);
+                    level.setBlockAndUpdate(pos, state);
+                }
+            }
         }
     }
 }
