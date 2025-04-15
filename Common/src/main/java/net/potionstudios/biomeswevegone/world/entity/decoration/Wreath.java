@@ -29,18 +29,19 @@ public class Wreath extends HangingEntity {
 		super(entityType, level);
 	}
 
-	public Wreath(Level level, BlockPos pos, Direction facingDirection) {
-		this(BWGEntityType.WREATH.get(), level, pos, facingDirection);
+	public Wreath(Level level, BlockPos pos, Direction facingDirection, Type type) {
+		this(BWGEntityType.WREATH.get(), level, pos, facingDirection, type);
 	}
 
-	public Wreath(EntityType<? extends HangingEntity> entityType, Level level, BlockPos pos, Direction facingDirection) {
+	public Wreath(EntityType<? extends HangingEntity> entityType, Level level, BlockPos pos, Direction facingDirection, Type type) {
 		super(entityType, level, pos);
 		direction = facingDirection;
+		setVariant(type);
 	}
 
 	@Override
 	protected @NotNull AABB calculateBoundingBox(@NotNull BlockPos pos, @NotNull Direction direction) {
-		return null;
+		return new AABB(pos);  //TODO: Set the correct bounding box
 	}
 
 	@Override

@@ -18,6 +18,7 @@ import net.neoforged.neoforge.client.model.generators.*;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
+import net.potionstudios.biomeswevegone.world.item.custom.WreathItem;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
 import net.potionstudios.biomeswevegone.world.level.block.custom.PumpkinBurrowBlock;
@@ -65,8 +66,8 @@ public class ModelGenerators {
         protected void registerModels() {
             basicItem(BWGItems.BWG_LOGO.get());
             BWGItems.SIMPLE_ITEMS.forEach(supplier -> {
-                if (supplier.get() instanceof SpawnEggItem) spawnEggItem(supplier.get());
-                else if (supplier.get() instanceof HangingEntityItem) simpleItemBlockTexture(supplier.get());
+                if (supplier.get() instanceof SpawnEggItem spawnEggItem) spawnEggItem(spawnEggItem);
+                else if (supplier.get() instanceof WreathItem item) simpleItemBlockTexture(item, item.getType().getSerializedName() + "_wreath");
                 else basicItem(supplier.get());
             });
             BWGWoodSet.woodsets().forEach(set -> {
@@ -103,6 +104,10 @@ public class ModelGenerators {
 
         private void simpleItemBlockTexture(ItemLike item) {
             singleTexture(name(item), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/" + name(item)));
+        }
+
+        private void simpleItemBlockTexture(ItemLike item, String texture) {
+            singleTexture(name(item), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/" + texture));
         }
 
         private String name(ItemLike item) {

@@ -17,8 +17,10 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
 import net.potionstudios.biomeswevegone.component.BWGDataComponents;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
+import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import net.potionstudios.biomeswevegone.world.item.custom.CampfireExplodingBlockItem;
 import net.potionstudios.biomeswevegone.world.item.custom.PowderItem;
+import net.potionstudios.biomeswevegone.world.item.custom.WreathItem;
 import net.potionstudios.biomeswevegone.world.item.jukebox.BWGJukeBoxSongs;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.entities.PumpkinBurrowBlockEntity;
@@ -92,13 +94,13 @@ public class BWGItems {
 
     public static final Supplier<Item> MUSIC_DISC_PIXIE_CLUB = registerItemNoLang("music_disc_pixie_club", () -> new Item((new Item.Properties()).stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(BWGJukeBoxSongs.PIXIE_CLUB)));
 
-    public static final Supplier<HangingEntityItem> WREATH = registerSimpleItem("wreath", () -> new ItemFrameItem(BWGEntityType.WREATH.get(), new Item.Properties()));
-    public static final Supplier<HangingEntityItem> HOLLY_WREATH = registerSimpleItem("holly_wreath", () -> new ItemFrameItem(BWGEntityType.WREATH.get(), new Item.Properties()));
-    public static final Supplier<HangingEntityItem> MUSHROOM_WREATH = registerSimpleItem("mushroom_wreath", () -> new ItemFrameItem(BWGEntityType.WREATH.get(), new Item.Properties()));
-    public static final Supplier<HangingEntityItem> ODDION_WREATH = registerSimpleItem("oddion_wreath", () -> new ItemFrameItem(BWGEntityType.WREATH.get(), new Item.Properties()));
-    public static final Supplier<HangingEntityItem> PETAL_WREATH = registerSimpleItem("petal_wreath", () -> new ItemFrameItem(BWGEntityType.WREATH.get(), new Item.Properties()));
-    public static final Supplier<HangingEntityItem> ROSY_WREATH = registerSimpleItem("rosy_wreath", () -> new ItemFrameItem(BWGEntityType.WREATH.get(), new Item.Properties()));
-    public static final Supplier<HangingEntityItem> WINTER_ROSY_WREATH = registerSimpleItem("winter_rosy_wreath", () -> new ItemFrameItem(BWGEntityType.WREATH.get(), new Item.Properties()));
+    public static final Supplier<HangingEntityItem> WREATH = registerSimpleItem("wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.DEFAULT));
+    public static final Supplier<HangingEntityItem> HOLLY_WREATH = registerSimpleItem("holly_wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.HOLLY));
+    public static final Supplier<HangingEntityItem> MUSHROOM_WREATH = registerSimpleItem("mushroom_wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.MUSHROOM));
+    public static final Supplier<HangingEntityItem> ODDION_WREATH = registerSimpleItem("oddion_wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.ODDION));
+    public static final Supplier<HangingEntityItem> PETAL_WREATH = registerSimpleItem("petal_wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.PETAL));
+    public static final Supplier<HangingEntityItem> ROSY_WREATH = registerSimpleItem("rosy_wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.ROSY));
+    public static final Supplier<HangingEntityItem> WINTER_ROSY_WREATH = registerSimpleItem("winter_rosy_wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.WINTER_ROSY));
 
     private static Supplier<SpawnEggItem> registerSpawnEgg(String id, Supplier<EntityType<? extends Mob>> entity, int backgroundColor, int highlightColor) {
         Supplier<SpawnEggItem> supplier = PlatformHandler.PLATFORM_HANDLER.createSpawnEgg(entity, backgroundColor, highlightColor);
