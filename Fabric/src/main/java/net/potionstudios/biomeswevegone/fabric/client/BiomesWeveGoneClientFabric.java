@@ -10,6 +10,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.*;
 import net.potionstudios.biomeswevegone.client.BiomesWeveGoneClient;
@@ -44,6 +45,7 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer {
             Block block = ((BlockItem) stack.getItem()).getBlock();
             return Objects.requireNonNull(ColorProviderRegistry.BLOCK.get(block)).getColor(block.defaultBlockState(), null, null, tintIndex);
         }, consumer));
+        BiomesWeveGoneClient.registerItemProperties(ItemProperties::register);
     }
 
     /**

@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.neoforge.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.item.BlockItem;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -29,7 +30,10 @@ public class BiomesWeveGoneClientNeoForge {
      * @param eventBus The event bus to register the client side of the mod to.
      */
     public BiomesWeveGoneClientNeoForge(final IEventBus eventBus) {
-        eventBus.addListener((FMLClientSetupEvent event) -> BiomesWeveGoneClient.onInitialize());
+        eventBus.addListener((FMLClientSetupEvent event) -> {
+            BiomesWeveGoneClient.onInitialize();
+            event.enqueueWork(() -> BiomesWeveGoneClient.registerItemProperties(ItemProperties::register));
+        });
         eventBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> BiomesWeveGoneClient.registerEntityRenderers(event::registerEntityRenderer));
         eventBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> BiomesWeveGoneClient.registerBlockEntityRenderers(event::registerBlockEntityRenderer));
         eventBus.addListener((RegisterParticleProvidersEvent event) -> BiomesWeveGoneClient.registerParticles((type, spriteProviderFactory) -> event.registerSpriteSet(type, spriteProviderFactory::apply)));

@@ -86,6 +86,13 @@ public class ModelGenerators {
             simpleItem(BWGBlocks.CYAN_PITCHER_PLANT.get().asItem(), "cyan_pitcher_plant");
             simpleItem(BWGBlocks.MAGENTA_PITCHER_PLANT.get().asItem(), "magenta_pitcher_plant");
             simpleItemBlockTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get());
+
+            getBuilder(name(BWGItems.PUMPKIN_BURROW.get()))
+                    .parent(new ModelFile.UncheckedModelFile("biomeswevegone:block/pumpkin_burrow"))
+                    .override()
+                    .predicate(BiomesWeveGone.id("occupied"), 1.0f)
+                    .model(new ModelFile.UncheckedModelFile("biomeswevegone:block/pumpkin_burrow_occupied"))
+                    .end();
         }
 
         private void simpleItem(ItemLike item, String texture) {
@@ -429,7 +436,7 @@ public class ModelGenerators {
 
             var unoccupied = models().withExistingParent(name(BWGBlocks.PUMPKIN_BURROW.get()), mcLoc("block/carved_pumpkin")).texture("front", blockBWGTexture(BWGBlocks.PUMPKIN_BURROW.get()));
             var occupied = models().withExistingParent(name(BWGBlocks.PUMPKIN_BURROW.get()) + "_occupied", mcLoc("block/carved_pumpkin")).texture("front", blockBWGTexture(BWGBlocks.PUMPKIN_BURROW.get(), "occupied"));
-            simpleBlockItem(BWGBlocks.PUMPKIN_BURROW.get(), unoccupied);
+
             getVariantBuilder(BWGBlocks.PUMPKIN_BURROW.get()).forAllStates(state -> {
                 if (state.getValue(PumpkinBurrowBlock.OCCUPIED)) {
                     if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.EAST)

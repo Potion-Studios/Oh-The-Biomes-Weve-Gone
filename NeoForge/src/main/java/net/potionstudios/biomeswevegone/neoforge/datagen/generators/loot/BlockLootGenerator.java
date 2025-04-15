@@ -26,6 +26,7 @@ import net.potionstudios.biomeswevegone.component.BWGDataComponents;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+import net.potionstudios.biomeswevegone.world.level.block.custom.PumpkinBurrowBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.BWGBerryBush;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.OddionCrop;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.WhitePuffballBlock;
@@ -227,10 +228,11 @@ class BlockLootGenerator extends BlockLootSubProvider {
                         LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1.0F))
                                 .add(
-                                        LootItem.lootTableItem(BWGBlocks.PUMPKIN_BURROW.get())
+                                        LootItem.lootTableItem(BWGItems.PUMPKIN_BURROW.get())
                                                 .when(hasSilkTouch())
                                                 .apply(CopyComponentsFunction.copyComponents(CopyComponentsFunction.Source.BLOCK_ENTITY).include(BWGDataComponents.PUMPKIN_WARDEN.get()))
-                                                .otherwise(LootItem.lootTableItem(BWGBlocks.PUMPKIN_BURROW.get()))
+                                                .apply(CopyBlockState.copyState(BWGBlocks.PUMPKIN_BURROW.get()).copy(PumpkinBurrowBlock.OCCUPIED))
+                                                .otherwise(LootItem.lootTableItem(BWGItems.PUMPKIN_BURROW.get()))
                                 )
                 ));
     }

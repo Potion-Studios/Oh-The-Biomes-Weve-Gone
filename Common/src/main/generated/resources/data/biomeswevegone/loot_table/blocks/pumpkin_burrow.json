@@ -33,6 +33,13 @@
                     "biomeswevegone:pumpkin_warden"
                   ],
                   "source": "block_entity"
+                },
+                {
+                  "block": "biomeswevegone:pumpkin_burrow",
+                  "function": "minecraft:copy_state",
+                  "properties": [
+                    "occupied"
+                  ]
                 }
               ],
               "name": "biomeswevegone:pumpkin_burrow"

@@ -438,7 +438,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     public void startSleeping(@NotNull BlockPos pos) {
         if (isPassenger())
             stopRiding();
-        BiomesWeveGone.LOGGER.info("Adding occupant to pumpkin burrow at {}", pos);
         if (level().getBlockEntity(pos) instanceof PumpkinBurrowBlockEntity pumpkinBurrow && pumpkinBurrow.isEmpty())
             pumpkinBurrow.addOccupant(this);
     }

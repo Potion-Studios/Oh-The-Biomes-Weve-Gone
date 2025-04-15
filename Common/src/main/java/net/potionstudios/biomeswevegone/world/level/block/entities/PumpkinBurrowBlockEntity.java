@@ -6,6 +6,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtOps;
 import net.minecraft.network.codec.StreamCodec;
@@ -17,6 +18,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.component.BWGDataComponents;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import net.potionstudios.biomeswevegone.world.level.block.custom.PumpkinBurrowBlock;
 import org.jetbrains.annotations.NotNull;
@@ -79,6 +81,18 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
     protected void saveAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
         super.saveAdditional(tag, registries);
         tag.put("occupant", Occupant.CODEC.encodeStart(NbtOps.INSTANCE, stored).getOrThrow());
+    }
+
+    @Override
+    protected void applyImplicitComponents(@NotNull DataComponentInput componentInput) {
+        super.applyImplicitComponents(componentInput);
+        stored = componentInput.getOrDefault(BWGDataComponents.PUMPKIN_WARDEN.get(), Occupant.EMPTY);
+    }
+
+    @Override
+    protected void collectImplicitComponents(DataComponentMap.@NotNull Builder components) {
+        super.collectImplicitComponents(components);
+        components.set(BWGDataComponents.PUMPKIN_WARDEN.get(), stored);
     }
 
     public record Occupant(CustomData entityData) {
