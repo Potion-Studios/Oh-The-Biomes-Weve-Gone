@@ -3,6 +3,7 @@ package net.potionstudios.biomeswevegone.neoforge.datagen.generators;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.flag.FeatureFlagSet;
@@ -430,6 +431,12 @@ public class RecipeGenerator extends RecipeProvider {
                 .pattern("#X#")
                 .pattern("###")
                 .unlockedBy(getHasName(BWGItems.SOUL_FRUIT.get()), has(BWGItems.SOUL_FRUIT.get()))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BWGItems.PUMPKIN_BURROW.get())
+                .requires(ItemTags.SHOVELS)
+                .requires(Tags.Items.PUMPKINS_CARVED)
+                .unlockedBy("has_carved_pumpkin", has(Tags.Items.PUMPKINS_CARVED))
                 .save(recipeOutput);
 
         oneToOneConversionRecipe(recipeOutput, Items.BLACK_DYE, BWGItemTags.MAKES_BLACK_DYE);
