@@ -7,6 +7,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.models.model.ModelLocationUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
+import net.minecraft.world.item.HangingEntityItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.level.ItemLike;
@@ -65,6 +66,7 @@ public class ModelGenerators {
             basicItem(BWGItems.BWG_LOGO.get());
             BWGItems.SIMPLE_ITEMS.forEach(supplier -> {
                 if (supplier.get() instanceof SpawnEggItem) spawnEggItem(supplier.get());
+                else if (supplier.get() instanceof HangingEntityItem) simpleItemBlockTexture(supplier.get());
                 else basicItem(supplier.get());
             });
             BWGWoodSet.woodsets().forEach(set -> {

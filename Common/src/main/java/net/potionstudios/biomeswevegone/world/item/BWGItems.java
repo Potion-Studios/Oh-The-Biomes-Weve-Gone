@@ -92,6 +92,14 @@ public class BWGItems {
 
     public static final Supplier<Item> MUSIC_DISC_PIXIE_CLUB = registerItemNoLang("music_disc_pixie_club", () -> new Item((new Item.Properties()).stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(BWGJukeBoxSongs.PIXIE_CLUB)));
 
+    public static final Supplier<HangingEntityItem> WREATH = registerSimpleItem("wreath", () -> new ItemFrameItem(BWGEntityType.WREATH.get(), new Item.Properties()));
+    public static final Supplier<HangingEntityItem> HOLLY_WREATH = registerSimpleItem("holly_wreath", () -> new ItemFrameItem(BWGEntityType.WREATH.get(), new Item.Properties()));
+    public static final Supplier<HangingEntityItem> MUSHROOM_WREATH = registerSimpleItem("mushroom_wreath", () -> new ItemFrameItem(BWGEntityType.WREATH.get(), new Item.Properties()));
+    public static final Supplier<HangingEntityItem> ODDION_WREATH = registerSimpleItem("oddion_wreath", () -> new ItemFrameItem(BWGEntityType.WREATH.get(), new Item.Properties()));
+    public static final Supplier<HangingEntityItem> PETAL_WREATH = registerSimpleItem("petal_wreath", () -> new ItemFrameItem(BWGEntityType.WREATH.get(), new Item.Properties()));
+    public static final Supplier<HangingEntityItem> ROSY_WREATH = registerSimpleItem("rosy_wreath", () -> new ItemFrameItem(BWGEntityType.WREATH.get(), new Item.Properties()));
+    public static final Supplier<HangingEntityItem> WINTER_ROSY_WREATH = registerSimpleItem("winter_rosy_wreath", () -> new ItemFrameItem(BWGEntityType.WREATH.get(), new Item.Properties()));
+
     private static Supplier<SpawnEggItem> registerSpawnEgg(String id, Supplier<EntityType<? extends Mob>> entity, int backgroundColor, int highlightColor) {
         Supplier<SpawnEggItem> supplier = PlatformHandler.PLATFORM_HANDLER.createSpawnEgg(entity, backgroundColor, highlightColor);
         supplier = registerItem(id, supplier);
