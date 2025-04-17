@@ -8,8 +8,7 @@ import net.potionstudios.biomeswevegone.PlatformHandler;
 
 import java.util.function.Supplier;
 
-public class BWGSensorType<U extends Sensor<?>> {
-    public static final Supplier<SensorType<StemBlockSensor>> NEAREST_STEM_BLOCK = register("nearest_stem_block", StemBlockSensor::new);
+public class BWGSensorType {
     public static final Supplier<SensorType<PumpkinWardenSensor>> NEAREST_VISIBLE_PUMPKIN_WARDENS = register("nearest_visible_pumpkin_wardens", PumpkinWardenSensor::new);
 
     public static void sensorTypes() {

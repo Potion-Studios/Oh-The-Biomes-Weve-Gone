@@ -1,7 +1,6 @@
 package net.potionstudios.biomeswevegone.world.entity.ai.memory;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
@@ -12,9 +11,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-public class BWGMemoryModuleType<U> {
+public class BWGMemoryModuleType {
 
-    public static final Supplier<MemoryModuleType<List<BlockPos>>> VISIBLE_PUMPKIN_STEMS = register("visible_pumpkin_stems", Optional.of(Codec.list(BlockPos.CODEC)));
     public static final Supplier<MemoryModuleType<List<LivingEntity>>> VISIBLE_PUMPKIN_WARDENS = register("visible_pumpkin_wardens", Optional.empty());
 
     private static <U> Supplier<MemoryModuleType<U>> register(String name, Optional<Codec<U>> codec) {

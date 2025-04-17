@@ -13,11 +13,10 @@ import net.minecraft.world.level.block.AttachedStemBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
+import java.util.Optional;
 
 public class DestroyPumpkin extends Behavior<PumpkinWarden> {
 
@@ -27,14 +26,13 @@ public class DestroyPumpkin extends Behavior<PumpkinWarden> {
 
     public DestroyPumpkin() {
         super(Util.make(() -> ImmutableMap.of(
-                BWGMemoryModuleType.VISIBLE_PUMPKIN_STEMS.get(), MemoryStatus.VALUE_PRESENT,
                 MemoryModuleType.WALK_TARGET, MemoryStatus.VALUE_ABSENT,
                 MemoryModuleType.LOOK_TARGET, MemoryStatus.VALUE_ABSENT)));
     }
 
     @Override
     protected boolean checkExtraStartConditions(@NotNull ServerLevel level, @NotNull PumpkinWarden entity) {
-        return entity.canMove() && entity.getCarriedBlock() == null && entity.getBrain().getMemory(BWGMemoryModuleType.VISIBLE_PUMPKIN_STEMS.get()).isPresent() && !entity.getBrain().getMemory(BWGMemoryModuleType.VISIBLE_PUMPKIN_STEMS.get()).get().isEmpty();
+        return entity.canMove() && entity.getCarriedBlock() == null;
     }
 
     @Override
@@ -50,31 +48,41 @@ public class DestroyPumpkin extends Behavior<PumpkinWarden> {
             level.gameEvent(GameEvent.BLOCK_DESTROY, targetBlock, GameEvent.Context.of(entity, blockState));
             entity.setCarriedBlock(blockState);
             stop(level, entity, gameTime);
-        }
+        } else stop(level, entity, gameTime);
     }
 
     @Override
     protected boolean canStillUse(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
-        return entity.getCarriedBlock() == null && entity.canMove() && entity.getBrain().getMemory(BWGMemoryModuleType.VISIBLE_PUMPKIN_STEMS.get()).isPresent();
+        return entity.getCarriedBlock() == null && entity.canMove();
     }
 
     @Override
     protected void start(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
-        List<BlockPos> blockPosList = entity.getBrain().getMemory(BWGMemoryModuleType.VISIBLE_PUMPKIN_STEMS.get()).get();
-        BlockPos blockPos = blockPosList.get(level.getRandom().nextInt(blockPosList.size()));
-        Block block =  level.getBlockState(blockPos).getBlock();
-        if (block instanceof AttachedStemBlock) {
-            targetBlock = blockPos.relative(level.getBlockState(blockPos).getValue(AttachedStemBlock.FACING));
+        Optional<BlockPos> optionalBlockPos = findAttachedStemFruit(level, entity.blockPosition());
+        if (optionalBlockPos.isPresent()) {
+            targetBlock = optionalBlockPos.get().relative(level.getBlockState(optionalBlockPos.get()).getValue(AttachedStemBlock.FACING));
             fruitBlock = level.getBlockState(targetBlock).getBlock();
             entity.getBrain().setMemory(MemoryModuleType.WALK_TARGET, new WalkTarget(new BlockPosTracker(targetBlock), .8F, 1));
             entity.getBrain().setMemory(MemoryModuleType.LOOK_TARGET, new BlockPosTracker(targetBlock));
         } else stop(level, entity, gameTime);
     }
 
+    private Optional<BlockPos> findAttachedStemFruit(@NotNull ServerLevel level, BlockPos entityPosition) {
+        BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
+        for (int y = 2; -2 <= y; y--)
+            for (int x = -25; x < 25; x++)
+                for (int z = -25; z < 25; z++) {
+                    mutableBlockPos.setWithOffset(entityPosition, x, y, z);
+                    if (level.getBlockState(mutableBlockPos).getBlock() instanceof AttachedStemBlock)
+                        return Optional.of(mutableBlockPos.immutable());
+                }
+
+        return Optional.empty();
+    }
+
     @Override
     protected void stop(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
         entity.getBrain().eraseMemory(MemoryModuleType.LOOK_TARGET);
         entity.getBrain().eraseMemory(MemoryModuleType.WALK_TARGET);
-        entity.getBrain().eraseMemory(BWGMemoryModuleType.VISIBLE_PUMPKIN_STEMS.get());
     }
 }
