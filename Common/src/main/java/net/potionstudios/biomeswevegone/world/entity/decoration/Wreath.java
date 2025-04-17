@@ -17,7 +17,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
-import net.potionstudios.biomeswevegone.world.entity.boats.BWGBoatEntity;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -30,6 +29,7 @@ public class Wreath extends HangingEntity {
 
 	public Wreath(EntityType<? extends HangingEntity> entityType, Level level) {
 		super(entityType, level);
+		setVariant(Type.DEFAULT);
 	}
 
 	public Wreath(Level level, BlockPos pos, Direction facingDirection, Type type) {
@@ -44,7 +44,33 @@ public class Wreath extends HangingEntity {
 
 	@Override
 	protected @NotNull AABB calculateBoundingBox(@NotNull BlockPos pos, @NotNull Direction direction) {
-		return new AABB(pos);  //TODO: Set the correct bounding box
+		double thickness = 0.0625;
+		return switch (direction) {
+			case NORTH -> new AABB(
+					pos.getX(), pos.getY(), pos.getZ() + 1 - thickness,
+					pos.getX() + 1, pos.getY() + 1, pos.getZ() + 1
+			);
+			case SOUTH -> new AABB(
+					pos.getX(), pos.getY(), pos.getZ(),
+					pos.getX() + 1, pos.getY() + 1, pos.getZ() + thickness
+			);
+			case WEST -> new AABB(
+					pos.getX() + 1 - thickness, pos.getY(), pos.getZ(),
+					pos.getX() + 1, pos.getY() + 1, pos.getZ() + 1
+			);
+			case EAST -> new AABB(
+					pos.getX(), pos.getY(), pos.getZ(),
+					pos.getX() + thickness, pos.getY() + 1, pos.getZ() + 1
+			);
+			case UP -> new AABB(
+					pos.getX(), pos.getY(), pos.getZ(),
+					pos.getX() + 1, pos.getY() + thickness, pos.getZ() + 1
+			);
+			case DOWN -> new AABB(
+					pos.getX(), pos.getY() + 1 - thickness, pos.getZ(),
+					pos.getX() + 1, pos.getY() + 1, pos.getZ() + 1
+			);
+		};
 	}
 
 	@Override
@@ -84,6 +110,8 @@ public class Wreath extends HangingEntity {
 		if (compound.contains("Type", 8))
 			setVariant(Type.byName(compound.getString("Type")));
 	}
+
+	
 
 	public enum Type implements StringRepresentable {
 		HOLLY("holly", BWGItems.HOLLY_WREATH),
