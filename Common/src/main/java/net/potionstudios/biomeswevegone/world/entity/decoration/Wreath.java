@@ -7,6 +7,7 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.ByIdMap;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -16,10 +17,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
+import net.potionstudios.biomeswevegone.world.entity.boats.BWGBoatEntity;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.function.IntFunction;
 import java.util.function.Supplier;
 
 public class Wreath extends HangingEntity {
@@ -79,7 +82,7 @@ public class Wreath extends HangingEntity {
 	public void readAdditionalSaveData(@NotNull CompoundTag compound) {
 		super.readAdditionalSaveData(compound);
 		if (compound.contains("Type", 8))
-			setVariant(Type.valueOf(compound.getString("Type")));
+			setVariant(Type.byName(compound.getString("Type")));
 	}
 
 	public enum Type implements StringRepresentable {
@@ -93,6 +96,8 @@ public class Wreath extends HangingEntity {
 
 		private final String name;
 		private final Supplier<HangingEntityItem> item;
+		public static final StringRepresentable.EnumCodec<Type> CODEC = StringRepresentable.fromEnum(Type::values);
+		private static final IntFunction<Type> BY_ID = ByIdMap.continuous(Enum::ordinal, values(), ByIdMap.OutOfBoundsStrategy.ZERO);
 
 		Type(String name, Supplier<HangingEntityItem> item) {
 			this.name = name;
@@ -109,7 +114,11 @@ public class Wreath extends HangingEntity {
 		}
 
 		public static Type byId(int id) {
-			return values()[id];
+			return BY_ID.apply(id);
+		}
+
+		public static Type byName(String name) {
+			return CODEC.byName(name, DEFAULT);
 		}
 	}
 }
