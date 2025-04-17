@@ -31,7 +31,7 @@ public class PlaceInContainer extends Behavior<PumpkinWarden> {
 	@Override
 	protected void tick(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
 		if (targetPos == null) return;
-		if (!targetPos.closerToCenterThan(entity.position(), 2.0)) {
+		if (!targetPos.closerToCenterThan(entity.position(), 1.6)) {
 			tryTicks++;
 			if (tryTicks > 200)
 				stop(level, entity, gameTime);
@@ -65,6 +65,7 @@ public class PlaceInContainer extends Behavior<PumpkinWarden> {
 	}
 
 	private Optional<BlockPos> findHopperOrBarrel(@NotNull ServerLevel level, BlockPos entityPosition) {
+		Optional<BlockPos> nearestBarrel = Optional.empty();
 		BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
 		for (int y = 2; -2 <= y; y--)
 			for (int x = -25; x < 25; x++)
@@ -72,8 +73,10 @@ public class PlaceInContainer extends Behavior<PumpkinWarden> {
 					mutableBlockPos.setWithOffset(entityPosition, x, y, z);
 					if (level.getBlockState(mutableBlockPos).getBlock() instanceof HopperBlock)
 						return Optional.of(mutableBlockPos.immutable());
+					else if (nearestBarrel.isEmpty() && level.getBlockState(mutableBlockPos).getBlock() instanceof BarrelBlock)
+						nearestBarrel = Optional.of(mutableBlockPos.immutable());
 				}
-		return Optional.empty();
+		return nearestBarrel;
 	}
 
 	@Override
