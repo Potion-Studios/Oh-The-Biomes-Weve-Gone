@@ -75,7 +75,6 @@ public class DestroyPumpkin extends Behavior<PumpkinWarden> {
                     if (level.getBlockState(mutableBlockPos).getBlock() instanceof AttachedStemBlock)
                         return Optional.of(mutableBlockPos.immutable());
                 }
-
         return Optional.empty();
     }
 
