@@ -107,7 +107,8 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         MemoryModuleType.HURT_BY_ENTITY,
         MemoryModuleType.NEAREST_HOSTILE,
         MemoryModuleType.HEARD_BELL_TIME,
-        BWGMemoryModuleType.VISIBLE_PUMPKIN_WARDENS.get()
+        BWGMemoryModuleType.VISIBLE_PUMPKIN_WARDENS.get(),
+        BWGMemoryModuleType.HOPPER_BARREL_LOCATION.get()
     );
 
     private static final ImmutableList<SensorType<? extends Sensor<? super PumpkinWarden>>> SENSOR_TYPES = ImmutableList.of(

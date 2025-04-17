@@ -1,6 +1,7 @@
 package net.potionstudios.biomeswevegone.world.entity.ai.memory;
 
 import com.mojang.serialization.Codec;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
@@ -14,6 +15,7 @@ import java.util.function.Supplier;
 public class BWGMemoryModuleType {
 
     public static final Supplier<MemoryModuleType<List<LivingEntity>>> VISIBLE_PUMPKIN_WARDENS = register("visible_pumpkin_wardens", Optional.empty());
+    public static final Supplier<MemoryModuleType<BlockPos>> HOPPER_BARREL_LOCATION = register("hopper_barrel_location", Optional.of(BlockPos.CODEC));
 
     private static <U> Supplier<MemoryModuleType<U>> register(String name, Optional<Codec<U>> codec) {
         return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.MEMORY_MODULE_TYPE, name, () -> new MemoryModuleType<>(codec));

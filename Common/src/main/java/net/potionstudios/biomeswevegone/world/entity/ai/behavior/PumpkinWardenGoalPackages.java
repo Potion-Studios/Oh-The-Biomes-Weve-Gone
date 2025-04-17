@@ -81,6 +81,7 @@ public class PumpkinWardenGoalPackages {
         return ImmutableList.of(
                 getMinimalLookBehavior(),
                 Pair.of(1, new DestroyPumpkin()),
+                Pair.of(2, new PlaceInContainer()),
                 Pair.of(10, SetLookAndInteract.create(EntityType.PLAYER, 4)),
                 Pair.of(99, UpdateActivityFromSchedule.create())
         );

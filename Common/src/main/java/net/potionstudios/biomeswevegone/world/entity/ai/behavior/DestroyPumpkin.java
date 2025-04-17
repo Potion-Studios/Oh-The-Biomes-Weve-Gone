@@ -1,7 +1,6 @@
 package net.potionstudios.biomeswevegone.world.entity.ai.behavior;
 
 import com.google.common.collect.ImmutableMap;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.ai.behavior.Behavior;
@@ -25,9 +24,9 @@ public class DestroyPumpkin extends Behavior<PumpkinWarden> {
     protected int tryTicks;
 
     public DestroyPumpkin() {
-        super(Util.make(() -> ImmutableMap.of(
+        super(ImmutableMap.of(
                 MemoryModuleType.WALK_TARGET, MemoryStatus.VALUE_ABSENT,
-                MemoryModuleType.LOOK_TARGET, MemoryStatus.VALUE_ABSENT)));
+                MemoryModuleType.LOOK_TARGET, MemoryStatus.VALUE_ABSENT));
     }
 
     @Override
@@ -53,7 +52,7 @@ public class DestroyPumpkin extends Behavior<PumpkinWarden> {
 
     @Override
     protected boolean canStillUse(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
-        return entity.getCarriedBlock() == null && entity.canMove();
+        return checkExtraStartConditions(level, entity);
     }
 
     @Override
