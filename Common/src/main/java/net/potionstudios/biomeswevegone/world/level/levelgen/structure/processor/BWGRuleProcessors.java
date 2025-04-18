@@ -96,6 +96,10 @@ class BWGRuleProcessors {
 		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(Blocks.PACKED_MUD, chance, newBlock));
 	}
 
+	protected static RuleProcessor burrowToBlock(float chance, Block newBlock) {
+		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(BWGBlocks.PUMPKIN_BURROW.get(), chance, newBlock));
+	}
+
 	protected static RuleProcessor lushPathToBlock(float chance, Block newBlock) {
 		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(BWGBlocks.LUSH_DIRT_PATH.get(), chance, newBlock));
 	}
