@@ -89,7 +89,7 @@ public class PumpkinWardenGoalPackages {
 
     public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getRestPackage() {
         return ImmutableList.of(
-                Pair.of(2, SetWalkTargetFromBlockMemory.create(MemoryModuleType.HOME, SPEED_MODIFIER, 1, 150, 1200)),
+                Pair.of(2, SetWalkTargetFromBlockMemory.create(MemoryModuleType.HOME, SPEED_MODIFIER, 0, 150, 1200)),
                 Pair.of(3, ValidateNearbyPoi.create(holder -> holder.is(BWGPoiTypes.PUMPKIN_BURROW), MemoryModuleType.HOME)),
                 Pair.of(3, new EnterPumpkinBurrow()),
                 Pair.of(

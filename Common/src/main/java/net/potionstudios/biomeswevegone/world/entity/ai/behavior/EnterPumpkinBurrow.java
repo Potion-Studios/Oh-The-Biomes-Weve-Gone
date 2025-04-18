@@ -23,9 +23,7 @@ public class EnterPumpkinBurrow extends Behavior<PumpkinWarden> {
     private long nextOkStartTime;
 
     public EnterPumpkinBurrow() {
-        super(ImmutableMap.of(
-                MemoryModuleType.HOME, MemoryStatus.VALUE_PRESENT
-        ));
+        super(ImmutableMap.of(MemoryModuleType.HOME, MemoryStatus.VALUE_PRESENT));
     }
 
     @Override
@@ -37,7 +35,7 @@ public class EnterPumpkinBurrow extends Behavior<PumpkinWarden> {
         if (level.dimension() != globalPos.dimension()) return false;
 
         BlockState blockState = level.getBlockState(globalPos.pos());
-        return globalPos.pos().closerToCenterThan(entity.position(), 2) && blockState.getBlock() instanceof PumpkinBurrowBlock && !blockState.getValue(PumpkinBurrowBlock.OCCUPIED);
+        return globalPos.pos().closerToCenterThan(entity.position(), 1) && blockState.getBlock() instanceof PumpkinBurrowBlock && !blockState.getValue(PumpkinBurrowBlock.OCCUPIED);
     }
 
     @Override
