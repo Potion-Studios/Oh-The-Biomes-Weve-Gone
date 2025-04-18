@@ -45,7 +45,7 @@ public class PlaceInContainer extends Behavior<PumpkinWarden> {
 
 	@Override
 	protected void start(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
-		if (entity.getBrain().hasMemoryValue(BWGMemoryModuleType.HOPPER_BARREL_LOCATION.get())) {
+		if (entity.getBrain().hasMemoryValue(BWGMemoryModuleType.HOPPER_BARREL_LOCATION.get()) && entity.getBrain().getMemory(BWGMemoryModuleType.HOPPER_BARREL_LOCATION.get()).isPresent()) {
 			targetPos = entity.getBrain().getMemory(BWGMemoryModuleType.HOPPER_BARREL_LOCATION.get()).get();
 			Block block = level.getBlockState(targetPos).getBlock();
 			if ((block instanceof HopperBlock) || (block instanceof BarrelBlock)) {
