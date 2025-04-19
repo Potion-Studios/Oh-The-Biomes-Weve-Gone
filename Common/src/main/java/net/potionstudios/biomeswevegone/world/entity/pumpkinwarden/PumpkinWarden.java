@@ -53,7 +53,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
-import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.ai.behavior.PumpkinWardenGoalPackages;
 import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
@@ -158,13 +157,13 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     private void registerBrainGoals(Brain<PumpkinWarden> brain) {
         brain.setSchedule(BWGSchedule.PUMPKIN_WARDEN.get());
+        brain.addActivity(Activity.CORE, PumpkinWardenGoalPackages.getCorePackage());
         brain.addActivity(Activity.PLAY, PumpkinWardenGoalPackages.getPlayPackage());
         brain.addActivity(Activity.IDLE, PumpkinWardenGoalPackages.getIdlePackage());
         brain.addActivity(Activity.WORK, PumpkinWardenGoalPackages.getWorkPackage());
         brain.addActivity(Activity.REST, PumpkinWardenGoalPackages.getRestPackage());
         brain.addActivity(Activity.PANIC, PumpkinWardenGoalPackages.getPanicPackage());
         brain.addActivity(Activity.HIDE, PumpkinWardenGoalPackages.getHidePackage());
-        brain.addActivity(Activity.CORE, PumpkinWardenGoalPackages.getCorePackage());
         brain.addActivityWithConditions(
                 Activity.MEET,
                 PumpkinWardenGoalPackages.getMeetPackage(),

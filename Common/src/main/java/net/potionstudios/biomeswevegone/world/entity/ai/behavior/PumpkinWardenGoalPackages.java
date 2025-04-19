@@ -33,6 +33,16 @@ public class PumpkinWardenGoalPackages {
         );
     }
 
+    public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getWorkPackage() {
+        return ImmutableList.of(
+                getMinimalLookBehavior(),
+                Pair.of(1, new DestroyPumpkin()),
+                Pair.of(2, new PlaceInContainer()),
+                Pair.of(10, SetLookAndInteract.create(EntityType.PLAYER, 4)),
+                Pair.of(99, UpdateActivityFromSchedule.create())
+        );
+    }
+
     public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getPlayPackage() {
         return ImmutableList.of(
                 Pair.of(0, new MoveToTargetSink(80, 120)),
@@ -52,37 +62,6 @@ public class PumpkinWardenGoalPackages {
                                 )
                         )
                 ),
-                Pair.of(99, UpdateActivityFromSchedule.create())
-        );
-    }
-
-    private static Pair<Integer, BehaviorControl<LivingEntity>> getFullLookBehavior() {
-        return Pair.of(
-                5,
-                new RunOne<>(
-                        ImmutableList.of(
-                                Pair.of(SetEntityLookTarget.create(EntityType.CAT, 8.0F), 8),
-                                Pair.of(SetEntityLookTarget.create(EntityType.VILLAGER, 8.0F), 2),
-                                Pair.of(SetEntityLookTarget.create(BWGEntityType.PUMPKIN_WARDEN.get(), 8.0F), 2),
-                                Pair.of(SetEntityLookTarget.create(EntityType.PLAYER, 8.0F), 2),
-                                Pair.of(SetEntityLookTarget.create(MobCategory.CREATURE, 8.0F), 1),
-                                Pair.of(SetEntityLookTarget.create(MobCategory.WATER_CREATURE, 8.0F), 1),
-                                Pair.of(SetEntityLookTarget.create(MobCategory.AXOLOTLS, 8.0F), 1),
-                                Pair.of(SetEntityLookTarget.create(MobCategory.UNDERGROUND_WATER_CREATURE, 8.0F), 1),
-                                Pair.of(SetEntityLookTarget.create(MobCategory.WATER_AMBIENT, 8.0F), 1),
-                                Pair.of(SetEntityLookTarget.create(MobCategory.MONSTER, 8.0F), 1),
-                                Pair.of(new DoNothing(30, 60), 2)
-                        )
-                )
-        );
-    }
-
-    public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getWorkPackage() {
-        return ImmutableList.of(
-                getMinimalLookBehavior(),
-                Pair.of(1, new DestroyPumpkin()),
-                Pair.of(2, new PlaceInContainer()),
-                Pair.of(10, SetLookAndInteract.create(EntityType.PLAYER, 4)),
                 Pair.of(99, UpdateActivityFromSchedule.create())
         );
     }
@@ -109,24 +88,10 @@ public class PumpkinWardenGoalPackages {
         );
     }
 
-    public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getPanicPackage() {
-        return ImmutableList.of(
-                Pair.of(1, SetWalkTargetAwayFrom.entity(MemoryModuleType.NEAREST_HOSTILE, SPEED_MODIFIER * 1.5F, 6, false)),
-                Pair.of(1, SetWalkTargetAwayFrom.entity(MemoryModuleType.HURT_BY_ENTITY, SPEED_MODIFIER * 1.5F, 6, false)),
-                getMinimalLookBehavior()
-        );
-    }
-
-    public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getHidePackage() {
-        return ImmutableList.of(
-                Pair.of(0, new Unhide())
-        );
-    }
-
     public static ImmutableList<? extends Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getMeetPackage() {
         return ImmutableList.of(
                 Pair.of(2, TriggerGate.triggerOneShuffled(
-                                ImmutableList.of(Pair.of(StrollAroundPoi.create(MemoryModuleType.MEETING_POINT, 0.4F, 40), 2), Pair.of(SocializeAtBell.create(), 2)))
+                        ImmutableList.of(Pair.of(StrollAroundPoi.create(MemoryModuleType.MEETING_POINT, 0.4F, 40), 2), Pair.of(SocializeAtBell.create(), 2)))
                 ),
                 Pair.of(10, SetLookAndInteract.create(EntityType.PLAYER, 4)),
                 Pair.of(2, SetWalkTargetFromBlockMemory.create(MemoryModuleType.MEETING_POINT, SPEED_MODIFIER, 6, 100, 200)),
@@ -150,6 +115,41 @@ public class PumpkinWardenGoalPackages {
                 Pair.of(3, SetLookAndInteract.create(EntityType.PLAYER, 4)),
                 getFullLookBehavior(),
                 Pair.of(99, UpdateActivityFromSchedule.create())
+        );
+    }
+
+    public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getPanicPackage() {
+        return ImmutableList.of(
+                Pair.of(1, SetWalkTargetAwayFrom.entity(MemoryModuleType.NEAREST_HOSTILE, SPEED_MODIFIER * 1.5F, 6, false)),
+                Pair.of(1, SetWalkTargetAwayFrom.entity(MemoryModuleType.HURT_BY_ENTITY, SPEED_MODIFIER * 1.5F, 6, false)),
+                getMinimalLookBehavior()
+        );
+    }
+
+    public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super PumpkinWarden>>> getHidePackage() {
+        return ImmutableList.of(
+                Pair.of(0, new Unhide())
+        );
+    }
+
+    private static Pair<Integer, BehaviorControl<LivingEntity>> getFullLookBehavior() {
+        return Pair.of(
+                5,
+                new RunOne<>(
+                        ImmutableList.of(
+                                Pair.of(SetEntityLookTarget.create(EntityType.CAT, 8.0F), 8),
+                                Pair.of(SetEntityLookTarget.create(EntityType.VILLAGER, 8.0F), 2),
+                                Pair.of(SetEntityLookTarget.create(BWGEntityType.PUMPKIN_WARDEN.get(), 8.0F), 2),
+                                Pair.of(SetEntityLookTarget.create(EntityType.PLAYER, 8.0F), 2),
+                                Pair.of(SetEntityLookTarget.create(MobCategory.CREATURE, 8.0F), 1),
+                                Pair.of(SetEntityLookTarget.create(MobCategory.WATER_CREATURE, 8.0F), 1),
+                                Pair.of(SetEntityLookTarget.create(MobCategory.AXOLOTLS, 8.0F), 1),
+                                Pair.of(SetEntityLookTarget.create(MobCategory.UNDERGROUND_WATER_CREATURE, 8.0F), 1),
+                                Pair.of(SetEntityLookTarget.create(MobCategory.WATER_AMBIENT, 8.0F), 1),
+                                Pair.of(SetEntityLookTarget.create(MobCategory.MONSTER, 8.0F), 1),
+                                Pair.of(new DoNothing(30, 60), 2)
+                        )
+                )
         );
     }
 
