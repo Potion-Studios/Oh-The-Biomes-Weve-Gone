@@ -47,7 +47,7 @@ public class PumpkinWardenPanicTrigger extends Behavior<PumpkinWarden> {
     protected void tick(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
         if (ticks >= 200) {
             entity.getBrain().setActiveActivityIfPossible(Activity.HIDE);
-            entity.setHiding(true);
+            entity.hide();
             stop(level, entity, gameTime);
         }
         ticks++;

@@ -374,7 +374,21 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         return entityData.get(HIDING);
     }
 
-    public void setHiding(boolean flag) {
+    public void hide() {
+        if (!isHiding()) {
+            triggerAnim("controller", "hide_start");
+            setHiding(true);
+        }
+    }
+
+    public void unhide() {
+        if (isHiding()) {
+            triggerAnim("controller", "hide_end");
+            setHiding(false);
+        }
+    }
+
+    private void setHiding(boolean flag) {
         entityData.set(HIDING, flag);
     }
 
@@ -407,12 +421,8 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     @Override
     public void onSyncedDataUpdated(@NotNull EntityDataAccessor<?> dataAccessor) {
         super.onSyncedDataUpdated(dataAccessor);
-        if (HIDING.equals(dataAccessor)) {
+        if (HIDING.equals(dataAccessor))
             refreshDimensions();
-            if (level().isClientSide())
-                if (isHiding()) triggerAnim("controller", "hide_start");
-                else triggerAnim("controller", "hide_end");
-        }
     }
 
     @Override
