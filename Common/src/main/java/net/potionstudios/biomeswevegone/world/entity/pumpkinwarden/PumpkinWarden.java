@@ -37,6 +37,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
+import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
 import net.minecraft.world.entity.ai.sensing.Sensor;
 import net.minecraft.world.entity.ai.sensing.SensorType;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
@@ -132,6 +133,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         super(entityType, level);
         setPathfindingMalus(PathType.DANGER_FIRE, 16.0F);
         setPathfindingMalus(PathType.DAMAGE_FIRE, -1.0F);
+        ((GroundPathNavigation)getNavigation()).setCanOpenDoors(true);
         getNavigation().setCanFloat(true);
     }
 

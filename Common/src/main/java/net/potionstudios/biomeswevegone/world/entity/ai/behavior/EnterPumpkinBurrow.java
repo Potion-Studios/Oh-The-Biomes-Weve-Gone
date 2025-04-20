@@ -27,21 +27,21 @@ public class EnterPumpkinBurrow extends Behavior<PumpkinWarden> {
     }
 
     @Override
-    protected boolean checkExtraStartConditions(@NotNull ServerLevel level, @NotNull PumpkinWarden entity) {
-        if (entity.isPassenger()) return false;
+    protected boolean checkExtraStartConditions(@NotNull ServerLevel level, @NotNull PumpkinWarden pumpkinWarden) {
+        if (pumpkinWarden.isPassenger()) return false;
 
-        Brain<PumpkinWarden> brain = entity.getBrain();
+        Brain<PumpkinWarden> brain = pumpkinWarden.getBrain();
         GlobalPos globalPos = brain.getMemory(MemoryModuleType.HOME).get();
         if (level.dimension() != globalPos.dimension()) return false;
 
         BlockState blockState = level.getBlockState(globalPos.pos());
-        return globalPos.pos().closerToCenterThan(entity.position(), 1) && blockState.getBlock() instanceof PumpkinBurrowBlock && !blockState.getValue(PumpkinBurrowBlock.OCCUPIED);
+        return globalPos.pos().closerToCenterThan(pumpkinWarden.position(), 1) && blockState.getBlock() instanceof PumpkinBurrowBlock && !blockState.getValue(PumpkinBurrowBlock.OCCUPIED);
     }
 
     @Override
-    protected void start(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
+    protected void start(@NotNull ServerLevel level, @NotNull PumpkinWarden pumpkinWarden, long gameTime) {
         if (gameTime > this.nextOkStartTime) {
-            Brain<?> brain = entity.getBrain();
+            Brain<?> brain = pumpkinWarden.getBrain();
             if (brain.hasMemoryValue(MemoryModuleType.DOORS_TO_CLOSE)) {
                 Set<GlobalPos> set = brain.getMemory(MemoryModuleType.DOORS_TO_CLOSE).get();
                 Optional<List<LivingEntity>> optional;
@@ -51,10 +51,10 @@ public class EnterPumpkinBurrow extends Behavior<PumpkinWarden> {
                     optional = Optional.empty();
                 }
 
-                InteractWithDoor.closeDoorsThatIHaveOpenedOrPassedThrough(level, entity, null, null, set, optional);
+                InteractWithDoor.closeDoorsThatIHaveOpenedOrPassedThrough(level, pumpkinWarden, null, null, set, optional);
             }
 
-            entity.startSleeping(entity.getBrain().getMemory(MemoryModuleType.HOME).get().pos());
+            pumpkinWarden.startSleeping(pumpkinWarden.getBrain().getMemory(MemoryModuleType.HOME).get().pos());
         }
     }
 
@@ -64,15 +64,15 @@ public class EnterPumpkinBurrow extends Behavior<PumpkinWarden> {
     }
 
     @Override
-    protected void stop(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
-        if (entity.isSleeping()); {
-            entity.stopSleeping();
+    protected void stop(@NotNull ServerLevel level, @NotNull PumpkinWarden pumpkinWarden, long gameTime) {
+        if (pumpkinWarden.isSleeping()); {
+            pumpkinWarden.stopSleeping();
             this.nextOkStartTime = gameTime + 40L;
         }
     }
 
     @Override
-    protected boolean canStillUse(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
-	    return entity.getBrain().getMemory(MemoryModuleType.HOME).filter(globalPos -> entity.getBrain().isActive(Activity.REST) && globalPos.pos().closerToCenterThan(entity.position(), 2)).isPresent();
+    protected boolean canStillUse(@NotNull ServerLevel level, @NotNull PumpkinWarden pumpkinWarden, long gameTime) {
+	    return pumpkinWarden.getBrain().getMemory(MemoryModuleType.HOME).filter(globalPos -> pumpkinWarden.getBrain().isActive(Activity.REST) && globalPos.pos().closerToCenterThan(pumpkinWarden.position(), 2)).isPresent();
     }
 }

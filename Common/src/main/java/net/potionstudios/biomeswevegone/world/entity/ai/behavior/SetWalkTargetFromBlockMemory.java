@@ -22,19 +22,19 @@ public class SetWalkTargetFromBlockMemory {
                         )
                         .apply(
                                 instance,
-                                (memoryAccessor, memoryAccessor2, memoryAccessor3) -> (serverLevel, villager, l) -> {
+                                (memoryAccessor, memoryAccessor2, memoryAccessor3) -> (serverLevel, pumpkinWarden, l) -> {
                                     GlobalPos globalPos = instance.get(memoryAccessor3);
                                     Optional<Long> optional = instance.tryGet(memoryAccessor);
                                     if (globalPos.dimension() == serverLevel.dimension()
                                             && (optional.isEmpty() || serverLevel.getGameTime() - optional.get() <= tooLongUnreachableDuration)) {
-                                        if (globalPos.pos().distManhattan(villager.blockPosition()) > tooFarDistance) {
+                                        if (globalPos.pos().distManhattan(pumpkinWarden.blockPosition()) > tooFarDistance) {
                                             Vec3 vec3 = null;
                                             int m = 0;
 
-                                            while (vec3 == null || BlockPos.containing(vec3).distManhattan(villager.blockPosition()) > tooFarDistance) {
-                                                vec3 = DefaultRandomPos.getPosTowards(villager, 15, 7, Vec3.atBottomCenterOf(globalPos.pos()), (float) (Math.PI / 2));
+                                            while (vec3 == null || BlockPos.containing(vec3).distManhattan(pumpkinWarden.blockPosition()) > tooFarDistance) {
+                                                vec3 = DefaultRandomPos.getPosTowards(pumpkinWarden, 15, 7, Vec3.atBottomCenterOf(globalPos.pos()), (float) (Math.PI / 2));
                                                 if (++m == 1000) {
-                                                    villager.releasePoi(blockTargetMemory);
+                                                    pumpkinWarden.releasePoi(blockTargetMemory);
                                                     memoryAccessor3.erase();
                                                     memoryAccessor.set(l);
                                                     return true;
@@ -42,11 +42,11 @@ public class SetWalkTargetFromBlockMemory {
                                             }
 
                                             memoryAccessor2.set(new WalkTarget(vec3, speedModifier, closeEnoughDist));
-                                        } else if (globalPos.pos().distManhattan(villager.blockPosition()) > closeEnoughDist) {
+                                        } else if (globalPos.pos().distManhattan(pumpkinWarden.blockPosition()) > closeEnoughDist) {
                                             memoryAccessor2.set(new WalkTarget(globalPos.pos(), speedModifier, closeEnoughDist));
                                         }
                                     } else {
-                                        villager.releasePoi(blockTargetMemory);
+                                        pumpkinWarden.releasePoi(blockTargetMemory);
                                         memoryAccessor3.erase();
                                         memoryAccessor.set(l);
                                     }

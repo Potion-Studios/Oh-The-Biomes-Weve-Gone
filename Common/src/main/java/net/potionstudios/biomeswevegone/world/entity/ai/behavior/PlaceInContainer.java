@@ -29,39 +29,39 @@ public class PlaceInContainer extends Behavior<PumpkinWarden> {
 	}
 
 	@Override
-	protected void tick(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
+	protected void tick(@NotNull ServerLevel level, @NotNull PumpkinWarden pumpkinWarden, long gameTime) {
 		if (targetPos == null) return;
-		if (!targetPos.closerToCenterThan(entity.position(), 1.6)) {
+		if (!targetPos.closerToCenterThan(pumpkinWarden.position(), 1.6)) {
 			tryTicks++;
 			if (tryTicks > 200)
-				stop(level, entity, gameTime);
-		} else if (entity.getCarriedBlock() != null) {
+				stop(level, pumpkinWarden, gameTime);
+		} else if (pumpkinWarden.getCarriedBlock() != null) {
 			//TODO: place the block in the container
-			entity.setCarriedBlock(null);
-			entity.getBrain().setMemory(BWGMemoryModuleType.HOPPER_BARREL_LOCATION.get(), targetPos);
-			stop(level, entity, gameTime);
-		} else stop(level, entity, gameTime);
+			pumpkinWarden.setCarriedBlock(null);
+			pumpkinWarden.getBrain().setMemory(BWGMemoryModuleType.HOPPER_BARREL_LOCATION.get(), targetPos);
+			stop(level, pumpkinWarden, gameTime);
+		} else stop(level, pumpkinWarden, gameTime);
 	}
 
 	@Override
-	protected void start(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
-		if (entity.getBrain().hasMemoryValue(BWGMemoryModuleType.HOPPER_BARREL_LOCATION.get()) && entity.getBrain().getMemory(BWGMemoryModuleType.HOPPER_BARREL_LOCATION.get()).isPresent()) {
-			targetPos = entity.getBrain().getMemory(BWGMemoryModuleType.HOPPER_BARREL_LOCATION.get()).get();
+	protected void start(@NotNull ServerLevel level, @NotNull PumpkinWarden pumpkinWarden, long gameTime) {
+		if (pumpkinWarden.getBrain().hasMemoryValue(BWGMemoryModuleType.HOPPER_BARREL_LOCATION.get()) && pumpkinWarden.getBrain().getMemory(BWGMemoryModuleType.HOPPER_BARREL_LOCATION.get()).isPresent()) {
+			targetPos = pumpkinWarden.getBrain().getMemory(BWGMemoryModuleType.HOPPER_BARREL_LOCATION.get()).get();
 			Block block = level.getBlockState(targetPos).getBlock();
 			if ((block instanceof HopperBlock) || (block instanceof BarrelBlock)) {
-				entity.getBrain().setMemory(MemoryModuleType.LOOK_TARGET, new BlockPosTracker(targetPos));
-				entity.getBrain().setMemory(MemoryModuleType.WALK_TARGET, new WalkTarget(targetPos, 1.0F, 0));
+				pumpkinWarden.getBrain().setMemory(MemoryModuleType.LOOK_TARGET, new BlockPosTracker(targetPos));
+				pumpkinWarden.getBrain().setMemory(MemoryModuleType.WALK_TARGET, new WalkTarget(targetPos, 1.0F, 0));
 				return;
 			}
 		}
 
-		Optional<BlockPos> optionalBlockPos = findHopperOrBarrel(level, entity.blockPosition());
+		Optional<BlockPos> optionalBlockPos = findHopperOrBarrel(level, pumpkinWarden.blockPosition());
 		if (optionalBlockPos.isPresent())
 			targetPos = optionalBlockPos.get();
-		else stop(level, entity, gameTime);
+		else stop(level, pumpkinWarden, gameTime);
 
-		entity.getBrain().setMemory(MemoryModuleType.LOOK_TARGET, new BlockPosTracker(targetPos));
-		entity.getBrain().setMemory(MemoryModuleType.WALK_TARGET, new WalkTarget(targetPos, 1.0F, 0));
+		pumpkinWarden.getBrain().setMemory(MemoryModuleType.LOOK_TARGET, new BlockPosTracker(targetPos));
+		pumpkinWarden.getBrain().setMemory(MemoryModuleType.WALK_TARGET, new WalkTarget(targetPos, 1.0F, 0));
 	}
 
 	private Optional<BlockPos> findHopperOrBarrel(@NotNull ServerLevel level, BlockPos entityPosition) {
@@ -80,18 +80,18 @@ public class PlaceInContainer extends Behavior<PumpkinWarden> {
 	}
 
 	@Override
-	protected boolean checkExtraStartConditions(@NotNull ServerLevel level, @NotNull PumpkinWarden entity) {
-		return entity.canMove() && entity.getCarriedBlock() != null;
+	protected boolean checkExtraStartConditions(@NotNull ServerLevel level, @NotNull PumpkinWarden pumpkinWarden) {
+		return pumpkinWarden.canMove() && pumpkinWarden.getCarriedBlock() != null;
 	}
 
 	@Override
-	protected boolean canStillUse(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
-		return checkExtraStartConditions(level, entity);
+	protected boolean canStillUse(@NotNull ServerLevel level, @NotNull PumpkinWarden pumpkinWarden, long gameTime) {
+		return checkExtraStartConditions(level, pumpkinWarden);
 	}
 
 	@Override
-	protected void stop(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
-		entity.getBrain().eraseMemory(MemoryModuleType.LOOK_TARGET);
-		entity.getBrain().eraseMemory(MemoryModuleType.WALK_TARGET);
+	protected void stop(@NotNull ServerLevel level, @NotNull PumpkinWarden pumpkinWarden, long gameTime) {
+		pumpkinWarden.getBrain().eraseMemory(MemoryModuleType.LOOK_TARGET);
+		pumpkinWarden.getBrain().eraseMemory(MemoryModuleType.WALK_TARGET);
 	}
 }
