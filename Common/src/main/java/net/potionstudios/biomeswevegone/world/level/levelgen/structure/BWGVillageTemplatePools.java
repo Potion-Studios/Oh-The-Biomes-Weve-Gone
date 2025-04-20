@@ -297,7 +297,7 @@ public class BWGVillageTemplatePools {
                     singlePoolElement("pumpkin_patch/town_centers/pumpkin_patch_meeting_point_2", templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_HOUSE),
                     singlePoolElement("pumpkin_patch/town_centers/pumpkin_patch_meeting_point_3", templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_HOUSE),
                     singlePoolElement("pumpkin_patch/town_centers/pumpkin_patch_meeting_point_4", templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_HOUSE)
-            ), StructureTemplatePool.Projection.TERRAIN_MATCHING));
+            ), StructureTemplatePool.Projection.RIGID));
 
     private static final ResourceKey<StructureTemplatePool> PUMPKIN_PATCH_DECOR = register("pumpkin_patch/decor", templatePoolFactoryContext ->
             createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(

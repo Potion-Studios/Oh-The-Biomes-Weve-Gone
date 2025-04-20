@@ -169,7 +169,7 @@ public class BWGStructureProcessorLists {
                     BWGRuleProcessors.lushPathToBlock(0.15f, BWGBlocks.LUSH_GRASS_BLOCK.get()),
                     BWGRuleProcessors.lushPathToBlock(0.45f, BWGBlocks.PEAT.get()),
                     BWGRuleProcessors.lushPathToBlock(0.4f, Blocks.COARSE_DIRT),
-                    BWGRuleProcessors.burrowToBlock(0.25f, Blocks.PUMPKIN),
+                    BWGRuleProcessors.burrowToBlock(0.1f, Blocks.PUMPKIN),
                     BWGRuleProcessors.DACITE_COBBLESTONE_VARIANTS,
                     BWGRuleProcessors.SHORT_GRASS_TO_FLOWER_PUMPKIN_PATCH,
                     BWGRuleProcessors.STRIPPED_DARK_OAK_WOOD_35_PERCENT_DARK_OAK_PLANKS
