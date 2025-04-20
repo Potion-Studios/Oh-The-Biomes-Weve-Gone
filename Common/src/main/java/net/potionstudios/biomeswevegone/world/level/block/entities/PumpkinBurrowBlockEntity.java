@@ -127,7 +127,7 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
     public static void serverTick(Level level, BlockPos pos, BlockState state, PumpkinBurrowBlockEntity blockEntity) {
         if (!blockEntity.isEmpty() && !level.isNight()) {
                 Entity entity = blockEntity.stored.createEntity(level);
-                if (entity instanceof PumpkinWarden pumpkinWarden) {
+                if (entity instanceof PumpkinWarden pumpkinWarden) {  //TODO: Add check to make sure block isn't blocking the spawn
                     Direction direction = state.getValue(PumpkinBurrowBlock.FACING);
                     BlockPos blockPos = pos.relative(direction);
                     pumpkinWarden.setPos(blockPos.getX() + 0.5, blockPos.getY(), blockPos.getZ() + 0.5);

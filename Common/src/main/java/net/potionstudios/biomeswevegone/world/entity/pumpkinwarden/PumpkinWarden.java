@@ -53,6 +53,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
+import net.potionstudios.biomeswevegone.tags.BWGItemTags;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.ai.behavior.PumpkinWardenGoalPackages;
 import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
@@ -91,37 +92,40 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     private static final EntityDataAccessor<Integer> DATA_VARIANT = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.INT);
 
     private static final ImmutableList<MemoryModuleType<?>> MEMORY_TYPES = ImmutableList.of(
-        MemoryModuleType.NEAREST_LIVING_ENTITIES,
-        MemoryModuleType.NEAREST_VISIBLE_LIVING_ENTITIES,
-        MemoryModuleType.INTERACTION_TARGET,
-        MemoryModuleType.WALK_TARGET,
-        MemoryModuleType.LOOK_TARGET,
-        MemoryModuleType.VISIBLE_VILLAGER_BABIES,
-        MemoryModuleType.PATH,
-        MemoryModuleType.CANT_REACH_WALK_TARGET_SINCE,
-        MemoryModuleType.HOME,
-        MemoryModuleType.MEETING_POINT,
-        MemoryModuleType.DOORS_TO_CLOSE,
-        MemoryModuleType.HURT_BY,
-        MemoryModuleType.HURT_BY_ENTITY,
-        MemoryModuleType.NEAREST_HOSTILE,
-        MemoryModuleType.HEARD_BELL_TIME,
-        BWGMemoryModuleType.VISIBLE_PUMPKIN_WARDENS.get(),
-        BWGMemoryModuleType.HOPPER_BARREL_LOCATION.get()
+            MemoryModuleType.HOME,
+            MemoryModuleType.MEETING_POINT,
+            MemoryModuleType.NEAREST_LIVING_ENTITIES,
+            MemoryModuleType.NEAREST_VISIBLE_LIVING_ENTITIES,
+            BWGMemoryModuleType.VISIBLE_PUMPKIN_WARDENS.get(),
+            MemoryModuleType.VISIBLE_VILLAGER_BABIES,
+            MemoryModuleType.NEAREST_VISIBLE_WANTED_ITEM,
+            MemoryModuleType.ITEM_PICKUP_COOLDOWN_TICKS,
+            MemoryModuleType.WALK_TARGET,
+            MemoryModuleType.LOOK_TARGET,
+            MemoryModuleType.INTERACTION_TARGET,
+            MemoryModuleType.PATH,
+            MemoryModuleType.DOORS_TO_CLOSE,
+            MemoryModuleType.HURT_BY,
+            MemoryModuleType.HURT_BY_ENTITY,
+            MemoryModuleType.NEAREST_HOSTILE,
+            MemoryModuleType.HEARD_BELL_TIME,
+            MemoryModuleType.CANT_REACH_WALK_TARGET_SINCE,
+            BWGMemoryModuleType.HOPPER_BARREL_LOCATION.get()
     );
 
     private static final ImmutableList<SensorType<? extends Sensor<? super PumpkinWarden>>> SENSOR_TYPES = ImmutableList.of(
             SensorType.NEAREST_LIVING_ENTITIES,
             SensorType.NEAREST_PLAYERS,
-            SensorType.VILLAGER_BABIES,
-            SensorType.HURT_BY,
+            SensorType.NEAREST_ITEMS,
             SensorType.VILLAGER_HOSTILES,
-            BWGSensorType.NEAREST_VISIBLE_PUMPKIN_WARDENS.get()
+            BWGSensorType.NEAREST_PUMPKIN_WARDENS.get(),
+            SensorType.VILLAGER_BABIES,
+            SensorType.HURT_BY
     );
 
     public static final Map<MemoryModuleType<GlobalPos>, BiPredicate<PumpkinWarden, Holder<PoiType>>> POI_MEMORIES = ImmutableMap.of(
-            MemoryModuleType.HOME, (warden, holder) -> holder.is(BWGPoiTypes.PUMPKIN_BURROW),
-            MemoryModuleType.MEETING_POINT, (warden, holder) -> holder.is(PoiTypes.MEETING)
+            MemoryModuleType.HOME, (pumpkinWarden, holder) -> holder.is(BWGPoiTypes.PUMPKIN_BURROW),
+            MemoryModuleType.MEETING_POINT, (pumpkinWarden, holder) -> holder.is(PoiTypes.MEETING)
     );
 
     public PumpkinWarden(EntityType<? extends PathfinderMob> entityType, Level level) {
@@ -316,6 +320,11 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     public @Nullable SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
         this.setVariant(Variant.getSpawnVariant(level.getRandom()));
         return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
+    }
+
+    @Override
+    public boolean canHoldItem(@NotNull ItemStack stack) {
+        return getCarriedBlock() == null && stack.is(BWGItemTags.PUMPKIN_WARDEN_PICKS_UP);
     }
 
     @Override

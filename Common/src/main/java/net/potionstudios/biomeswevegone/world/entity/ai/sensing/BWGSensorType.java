@@ -9,7 +9,7 @@ import net.potionstudios.biomeswevegone.PlatformHandler;
 import java.util.function.Supplier;
 
 public class BWGSensorType {
-    public static final Supplier<SensorType<PumpkinWardenSensor>> NEAREST_VISIBLE_PUMPKIN_WARDENS = register("nearest_visible_pumpkin_wardens", PumpkinWardenSensor::new);
+    public static final Supplier<SensorType<PumpkinWardenSensor>> NEAREST_PUMPKIN_WARDENS = register("nearest_pumpkin_wardens", PumpkinWardenSensor::new);
 
     public static void sensorTypes() {
         BiomesWeveGone.LOGGER.info("Registering Oh The Biomes We've Gone Sensor Types");

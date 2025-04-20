@@ -7,6 +7,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.*;
 import net.minecraft.tags.*;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
@@ -374,6 +375,9 @@ public class TagsGenerator {
             tag(BWGItemTags.MAKES_2_PINK_DYE).add(BWGBlocks.TALL_PINK_ALLIUM.get().asItem(), BWGBlocks.JAPANESE_ORCHID.get().asItem());
             tag(BWGItemTags.MAKES_2_PURPLE_DYE).add(BWGBlocks.TALL_ALLIUM.get().asItem());
             tag(BWGItemTags.MAKES_2_WHITE_DYE).add(BWGBlocks.TALL_WHITE_ALLIUM.get().asItem());
+
+            //Pumpkin Warden
+            tag(BWGItemTags.PUMPKIN_WARDEN_PICKS_UP).addTag(Tags.Items.PUMPKINS).addTag(Tags.Items.EGGS).add(Items.PUMPKIN_PIE);
 
             //Serene Seasons
             tag(ModTags.Items.YEAR_ROUND_CROPS).add(BWGBlocks.GREEN_MUSHROOM.get().asItem(), BWGBlocks.WEEPING_MILKCAP.get().asItem(), BWGBlocks.WOOD_BLEWIT.get().asItem(), BWGWood.ASPEN.sapling().getBlock().asItem(), BWGWood.RED_MAPLE_SAPLING.getBlock().asItem()).addTag(BWGItemTags.OAK_SAPLINGS);
