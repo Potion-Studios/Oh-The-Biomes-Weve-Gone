@@ -19,7 +19,6 @@ import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import org.jetbrains.annotations.NotNull;
 
 public class WreathRenderer extends EntityRenderer<Wreath> {
-	private static final ModelResourceLocation LOCATION = new ModelResourceLocation(BiomesWeveGone.id("wreath"),"");
 	private final BlockRenderDispatcher blockRenderer;
 
 	public WreathRenderer(EntityRendererProvider.Context context) {
@@ -42,10 +41,11 @@ public class WreathRenderer extends EntityRenderer<Wreath> {
 
 			poseStack.translate(-0.5F, -0.5F, -0.5F);
 			blockRenderer.getModelRenderer()
-					.renderModel(poseStack.last(),
-							bufferSource.getBuffer(Sheets.solidBlockSheet()),
+					.renderModel(
+							poseStack.last(),
+							bufferSource.getBuffer(Sheets.cutoutBlockSheet()),
 							null,
-							modelManager.getModel(LOCATION),
+							modelManager.getModel(new ModelResourceLocation(BiomesWeveGone.id("wreath"), "type=" + entity.getVariant().getSerializedName())),
 							1.0F,
 							1.0F,
 							1.0F,

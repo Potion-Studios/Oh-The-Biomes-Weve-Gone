@@ -465,6 +465,8 @@ public class ModelGenerators {
                         return ConfiguredModel.builder().modelFile(unoccupied).build();
                 }
             });
+
+            models().carpet(BiomesWeveGone.id("block/default_wreath").toString(), blockBWGTexture("default_wreath"));
         }
 
         private void registerPatchBlockStates(Block block, String[] models) {

@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "type=default": {
+      "model": "biomeswevegone:block/default_wreath"
+    },
+    "type=holly": {
+      "model": "biomeswevegone:block/holly_wreath"
+    },
+    "type=oddion": {
+      "model": "biomeswevegone:block/oddion_wreath"
+    },
+    "type=petal": {
+      "model": "biomeswevegone:block/petal_wreath"
+    },
+    "type=rosy": {
+      "model": "biomeswevegone:block/rosy_wreath"
+    },
+    "type=winter_rosy": {
+      "model": "biomeswevegone:block/winter_rosy_wreath"
+    }
+  }
+}
