@@ -9,9 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.GlobalPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.NbtUtils;
 import net.minecraft.network.protocol.game.DebugPackets;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -43,6 +41,7 @@ import net.minecraft.world.entity.ai.sensing.SensorType;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.ai.village.poi.PoiTypes;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.schedule.Activity;
@@ -51,7 +50,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
@@ -89,7 +87,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     private BlockPos jukebox;
     private boolean party;
     private static final EntityDataAccessor<Boolean> HIDING = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.BOOLEAN);
-    private static final EntityDataAccessor<Optional<BlockState>> DATA_CARRY_STATE = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.OPTIONAL_BLOCK_STATE);
     private static final EntityDataAccessor<Integer> DATA_VARIANT = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.INT);
 
     private static final ImmutableList<MemoryModuleType<?>> MEMORY_TYPES = ImmutableList.of(
@@ -185,7 +182,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     @Override
     protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
         super.defineSynchedData(builder);
-        builder.define(DATA_CARRY_STATE, Optional.empty());
         builder.define(HIDING, false);
         builder.define(DATA_VARIANT, 0);
     }
@@ -195,14 +191,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         super.addAdditionalSaveData(compound);
         compound.putInt("Variant", this.getVariant().getId());
         compound.putBoolean("Hiding", this.isHiding());
-        BlockState blockState = null;
-        if (compound.contains("carriedBlockState", 10)) {
-            blockState = NbtUtils.readBlockState(level().holderLookup(Registries.BLOCK), compound.getCompound("carriedBlockState"));
-            if (blockState.isAir())
-                blockState = null;
-        }
-
-        this.setCarriedBlock(blockState);
     }
 
     @Override
@@ -210,8 +198,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         super.readAdditionalSaveData(compound);
         this.setVariant(Variant.byId(compound.getInt("Variant")));
         this.setHiding(compound.getBoolean("Hiding"));
-        BlockState blockState = this.getCarriedBlock();
-        if (blockState != null) compound.put("carriedBlockState", NbtUtils.writeBlockState(blockState));
         if (level() instanceof ServerLevel serverLevel)
             refreshBrain(serverLevel);
     }
@@ -275,11 +261,11 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
                 return event.setAndContinue(HIDE);
             else return PlayState.CONTINUE;
 
-        else if (this.getCarriedBlock() != null) {
+        else if (!getItemInHand(InteractionHand.MAIN_HAND).isEmpty()) {
             if (event.isMoving())
                 return event.setAndContinue(HOLDING_WALKING);
             return event.setAndContinue(HOLDING_IDLE);
-        } else if (event.isMoving() && this.getCarriedBlock() == null) {
+        } else if (event.isMoving()) {
             return event.setAndContinue(WALKING);
         } else if (this.party) {
             return event.setAndContinue(WAVE);
@@ -326,7 +312,27 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     @Override
     public boolean canHoldItem(@NotNull ItemStack stack) {
-        return getCarriedBlock() == null && stack.is(BWGItemTags.PUMPKIN_WARDEN_PICKS_UP);
+        return getItemInHand(InteractionHand.MAIN_HAND).isEmpty() && stack.is(BWGItemTags.PUMPKIN_WARDEN_PICKS_UP);
+    }
+
+    @Override
+    public boolean canPickUpLoot() {
+        return getItemInHand(InteractionHand.MAIN_HAND).isEmpty() && !isHiding();
+    }
+
+    @Override
+    public boolean canTakeItem(@NotNull ItemStack stack) {
+        return stack.is(BWGItemTags.PUMPKIN_WARDEN_PICKS_UP) && canPickUpLoot();
+    }
+
+    @Override
+    protected void pickUpItem(@NotNull ItemEntity itemEntity) {
+        ItemStack itemStack = itemEntity.getItem();
+        setItemInHand(InteractionHand.MAIN_HAND, itemStack.copy());
+        onItemPickup(itemEntity);
+        take(itemEntity, itemStack.getCount());
+        itemStack.shrink(itemStack.getCount());
+        if (itemStack.isEmpty()) itemEntity.discard();
     }
 
     @Override
@@ -401,16 +407,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     private void setHiding(boolean flag) {
         entityData.set(HIDING, flag);
-    }
-
-    public void setCarriedBlock(@Nullable BlockState state) {
-        setItemInHand(InteractionHand.MAIN_HAND, state == null ? ItemStack.EMPTY : new ItemStack(state.getBlock().asItem()));
-        this.entityData.set(DATA_CARRY_STATE, Optional.ofNullable(state));
-    }
-
-    @Nullable
-    public BlockState getCarriedBlock() {
-        return this.entityData.get(DATA_CARRY_STATE).orElse(null);
     }
 
     @Override

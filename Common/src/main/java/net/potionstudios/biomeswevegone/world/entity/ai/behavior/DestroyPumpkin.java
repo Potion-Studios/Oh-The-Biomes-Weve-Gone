@@ -3,6 +3,7 @@ package net.potionstudios.biomeswevegone.world.entity.ai.behavior;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.ai.behavior.Behavior;
 import net.minecraft.world.entity.ai.behavior.BlockPosTracker;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
@@ -31,7 +32,7 @@ public class DestroyPumpkin extends Behavior<PumpkinWarden> {
 
     @Override
     protected boolean checkExtraStartConditions(@NotNull ServerLevel level, @NotNull PumpkinWarden pumpkinWarden) {
-        return pumpkinWarden.canMove() && pumpkinWarden.getCarriedBlock() == null;
+        return pumpkinWarden.canMove() && pumpkinWarden.getItemInHand(InteractionHand.MAIN_HAND).isEmpty();
     }
 
     @Override
@@ -45,7 +46,7 @@ public class DestroyPumpkin extends Behavior<PumpkinWarden> {
             BlockState blockState = level.getBlockState(targetBlock);
             level.destroyBlock(targetBlock, false, pumpkinWarden);
             level.gameEvent(GameEvent.BLOCK_DESTROY, targetBlock, GameEvent.Context.of(pumpkinWarden, blockState));
-            pumpkinWarden.setCarriedBlock(blockState);
+            pumpkinWarden.setItemInHand(InteractionHand.MAIN_HAND, blockState.getBlock().asItem().getDefaultInstance());
             stop(level, pumpkinWarden, gameTime);
         } else stop(level, pumpkinWarden, gameTime);
     }

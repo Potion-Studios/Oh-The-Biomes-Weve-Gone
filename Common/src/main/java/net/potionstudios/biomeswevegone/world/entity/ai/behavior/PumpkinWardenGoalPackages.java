@@ -38,7 +38,7 @@ public class PumpkinWardenGoalPackages {
                 getMinimalLookBehavior(),
                 Pair.of(1, new DestroyPumpkin()),
                 Pair.of(2, new PlaceInContainer()),
-                Pair.of(5, GoToWantedItem.create(SPEED_MODIFIER, false, 4)),
+                Pair.of(5, GoToWantedItem.create(SPEED_MODIFIER, false, 10)),
                 Pair.of(10, SetLookAndInteract.create(EntityType.PLAYER, 4)),
                 Pair.of(99, UpdateActivityFromSchedule.create())
         );

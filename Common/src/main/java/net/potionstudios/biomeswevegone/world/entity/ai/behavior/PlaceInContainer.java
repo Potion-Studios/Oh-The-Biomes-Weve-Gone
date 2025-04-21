@@ -3,11 +3,13 @@ package net.potionstudios.biomeswevegone.world.entity.ai.behavior;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.ai.behavior.Behavior;
 import net.minecraft.world.entity.ai.behavior.BlockPosTracker;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
 import net.minecraft.world.entity.ai.memory.WalkTarget;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.BarrelBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HopperBlock;
@@ -35,9 +37,9 @@ public class PlaceInContainer extends Behavior<PumpkinWarden> {
 			tryTicks++;
 			if (tryTicks > 200)
 				stop(level, pumpkinWarden, gameTime);
-		} else if (pumpkinWarden.getCarriedBlock() != null) {
+		} else if (!pumpkinWarden.getItemInHand(InteractionHand.MAIN_HAND).isEmpty()) {
 			//TODO: place the block in the container
-			pumpkinWarden.setCarriedBlock(null);
+			pumpkinWarden.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
 			pumpkinWarden.getBrain().setMemory(BWGMemoryModuleType.HOPPER_BARREL_LOCATION.get(), targetPos);
 			stop(level, pumpkinWarden, gameTime);
 		} else stop(level, pumpkinWarden, gameTime);
@@ -56,12 +58,12 @@ public class PlaceInContainer extends Behavior<PumpkinWarden> {
 		}
 
 		Optional<BlockPos> optionalBlockPos = findHopperOrBarrel(level, pumpkinWarden.blockPosition());
-		if (optionalBlockPos.isPresent())
+		if (optionalBlockPos.isPresent()) {
 			targetPos = optionalBlockPos.get();
-		else stop(level, pumpkinWarden, gameTime);
+			pumpkinWarden.getBrain().setMemory(MemoryModuleType.LOOK_TARGET, new BlockPosTracker(targetPos));
+			pumpkinWarden.getBrain().setMemory(MemoryModuleType.WALK_TARGET, new WalkTarget(targetPos, 1.0F, 0));
+		} else stop(level, pumpkinWarden, gameTime);
 
-		pumpkinWarden.getBrain().setMemory(MemoryModuleType.LOOK_TARGET, new BlockPosTracker(targetPos));
-		pumpkinWarden.getBrain().setMemory(MemoryModuleType.WALK_TARGET, new WalkTarget(targetPos, 1.0F, 0));
 	}
 
 	private Optional<BlockPos> findHopperOrBarrel(@NotNull ServerLevel level, BlockPos entityPosition) {
@@ -81,7 +83,7 @@ public class PlaceInContainer extends Behavior<PumpkinWarden> {
 
 	@Override
 	protected boolean checkExtraStartConditions(@NotNull ServerLevel level, @NotNull PumpkinWarden pumpkinWarden) {
-		return pumpkinWarden.canMove() && pumpkinWarden.getCarriedBlock() != null;
+		return pumpkinWarden.canMove() && !pumpkinWarden.getItemInHand(InteractionHand.MAIN_HAND).isEmpty();
 	}
 
 	@Override
