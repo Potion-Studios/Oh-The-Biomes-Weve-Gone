@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.neoforged.neoforge.client.model.generators.*;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.item.custom.WreathItem;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -38,6 +39,8 @@ import net.potionstudios.biomeswevegone.world.level.block.sand.BWGSandSet;
 import net.potionstudios.biomeswevegone.world.level.block.set.BWGBlockSet;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
+
+import java.util.Arrays;
 
 /**
  * Used to generate models for blocks and items.
@@ -466,7 +469,8 @@ public class ModelGenerators {
                 }
             });
 
-            models().carpet(BiomesWeveGone.id("block/default_wreath").toString(), blockBWGTexture("default_wreath"));
+            Arrays.stream(Wreath.Type.values()).forEach(type -> models().carpet(BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString(), blockBWGTexture(type.getSerializedName() + "_wreath")));
+
         }
 
         private void registerPatchBlockStates(Block block, String[] models) {

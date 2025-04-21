@@ -45,7 +45,7 @@ public class WreathRenderer extends EntityRenderer<Wreath> {
 							poseStack.last(),
 							bufferSource.getBuffer(Sheets.cutoutBlockSheet()),
 							null,
-							modelManager.getModel(new ModelResourceLocation(BiomesWeveGone.id("wreath"), "type=" + entity.getVariant().getSerializedName())),
+							modelManager.getModel(new ModelResourceLocation(BiomesWeveGone.id(entity.getVariant().getSerializedName() + "_wreath"), "standalone")),
 							1.0F,
 							1.0F,
 							1.0F,
