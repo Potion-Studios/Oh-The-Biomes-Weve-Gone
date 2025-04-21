@@ -9,7 +9,6 @@ import net.minecraft.world.entity.ai.behavior.Behavior;
 import net.minecraft.world.entity.ai.behavior.InteractWithDoor;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
-import net.minecraft.world.entity.schedule.Activity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import net.potionstudios.biomeswevegone.world.level.block.custom.PumpkinBurrowBlock;
@@ -20,8 +19,6 @@ import java.util.Optional;
 import java.util.Set;
 
 public class EnterPumpkinBurrow extends Behavior<PumpkinWarden> {
-    private long nextOkStartTime;
-
     public EnterPumpkinBurrow() {
         super(ImmutableMap.of(MemoryModuleType.HOME, MemoryStatus.VALUE_PRESENT));
     }
@@ -40,39 +37,24 @@ public class EnterPumpkinBurrow extends Behavior<PumpkinWarden> {
 
     @Override
     protected void start(@NotNull ServerLevel level, @NotNull PumpkinWarden pumpkinWarden, long gameTime) {
-        if (gameTime > this.nextOkStartTime) {
-            Brain<?> brain = pumpkinWarden.getBrain();
-            if (brain.hasMemoryValue(MemoryModuleType.DOORS_TO_CLOSE)) {
-                Set<GlobalPos> set = brain.getMemory(MemoryModuleType.DOORS_TO_CLOSE).get();
-                Optional<List<LivingEntity>> optional;
-                if (brain.hasMemoryValue(MemoryModuleType.NEAREST_LIVING_ENTITIES)) {
-                    optional = brain.getMemory(MemoryModuleType.NEAREST_LIVING_ENTITIES);
-                } else {
-                    optional = Optional.empty();
-                }
-
-                InteractWithDoor.closeDoorsThatIHaveOpenedOrPassedThrough(level, pumpkinWarden, null, null, set, optional);
+        Brain<?> brain = pumpkinWarden.getBrain();
+        if (brain.hasMemoryValue(MemoryModuleType.DOORS_TO_CLOSE)) {
+            Set<GlobalPos> set = brain.getMemory(MemoryModuleType.DOORS_TO_CLOSE).get();
+            Optional<List<LivingEntity>> optional;
+            if (brain.hasMemoryValue(MemoryModuleType.NEAREST_LIVING_ENTITIES)) {
+                optional = brain.getMemory(MemoryModuleType.NEAREST_LIVING_ENTITIES);
+            } else {
+                optional = Optional.empty();
             }
 
-            pumpkinWarden.startSleeping(pumpkinWarden.getBrain().getMemory(MemoryModuleType.HOME).get().pos());
+            InteractWithDoor.closeDoorsThatIHaveOpenedOrPassedThrough(level, pumpkinWarden, null, null, set, optional);
         }
+
+        pumpkinWarden.startSleeping(pumpkinWarden.getBrain().getMemory(MemoryModuleType.HOME).get().pos());
     }
 
     @Override
     protected boolean timedOut(long gameTime) {
         return false;
-    }
-
-    @Override
-    protected void stop(@NotNull ServerLevel level, @NotNull PumpkinWarden pumpkinWarden, long gameTime) {
-        if (pumpkinWarden.isSleeping()); {
-            pumpkinWarden.stopSleeping();
-            this.nextOkStartTime = gameTime + 40L;
-        }
-    }
-
-    @Override
-    protected boolean canStillUse(@NotNull ServerLevel level, @NotNull PumpkinWarden pumpkinWarden, long gameTime) {
-	    return pumpkinWarden.getBrain().getMemory(MemoryModuleType.HOME).filter(globalPos -> pumpkinWarden.getBrain().isActive(Activity.REST) && globalPos.pos().closerToCenterThan(pumpkinWarden.position(), 2)).isPresent();
     }
 }
