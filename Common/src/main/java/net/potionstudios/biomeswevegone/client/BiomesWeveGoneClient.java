@@ -120,7 +120,7 @@ public class BiomesWeveGoneClient {
     }
 
     /**
-     * Registers additional models that aren't normal for blockstates
+     * Registers additional models
      * @see ModelResourceLocation
      */
     public static void registerAdditionalModels(Consumer<ModelResourceLocation> consumer) {

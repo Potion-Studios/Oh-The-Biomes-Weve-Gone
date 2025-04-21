@@ -15,6 +15,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.PlatformHandler;
+import net.potionstudios.biomeswevegone.client.model.ModelAccess;
 import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import org.jetbrains.annotations.NotNull;
 
@@ -45,7 +47,7 @@ public class WreathRenderer extends EntityRenderer<Wreath> {
 							poseStack.last(),
 							bufferSource.getBuffer(Sheets.cutoutBlockSheet()),
 							null,
-							modelManager.getModel(new ModelResourceLocation(BiomesWeveGone.id("block/" + entity.getVariant().getSerializedName() + "_wreath"), "standalone")),
+							ModelAccess.MODEL_ACCESS.getModel(new ModelResourceLocation(BiomesWeveGone.id("block/" + entity.getVariant().getSerializedName() + "_wreath"), "standalone"), modelManager),
 							1.0F,
 							1.0F,
 							1.0F,
