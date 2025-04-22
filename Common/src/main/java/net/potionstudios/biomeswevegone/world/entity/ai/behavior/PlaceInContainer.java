@@ -13,6 +13,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.BarrelBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HopperBlock;
+import net.minecraft.world.level.block.entity.BarrelBlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.HopperBlockEntity;
 import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import org.jetbrains.annotations.NotNull;
@@ -33,12 +36,17 @@ public class PlaceInContainer extends Behavior<PumpkinWarden> {
 	@Override
 	protected void tick(@NotNull ServerLevel level, @NotNull PumpkinWarden pumpkinWarden, long gameTime) {
 		if (targetPos == null) return;
-		if (!targetPos.closerToCenterThan(pumpkinWarden.position(), 1.6)) {
+		if (!targetPos.closerToCenterThan(pumpkinWarden.position(), 2)) {
 			tryTicks++;
 			if (tryTicks > 200)
 				stop(level, pumpkinWarden, gameTime);
 		} else if (!pumpkinWarden.getItemInHand(InteractionHand.MAIN_HAND).isEmpty()) {
-			//TODO: place the block in the container
+			BlockEntity blockEntity = level.getBlockEntity(targetPos);
+			if (blockEntity instanceof HopperBlockEntity hopperBlockEntity)
+				HopperBlockEntity.addItem(null, hopperBlockEntity, pumpkinWarden.getItemInHand(InteractionHand.MAIN_HAND), pumpkinWarden.getDirection());
+			else if (blockEntity instanceof BarrelBlockEntity barrelBlockEntity) {
+				//TODO: BarrelBlockEntity add item code
+			} else return;
 			pumpkinWarden.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
 			pumpkinWarden.getBrain().setMemory(BWGMemoryModuleType.HOPPER_BARREL_LOCATION.get(), targetPos);
 			stop(level, pumpkinWarden, gameTime);
@@ -95,5 +103,10 @@ public class PlaceInContainer extends Behavior<PumpkinWarden> {
 	protected void stop(@NotNull ServerLevel level, @NotNull PumpkinWarden pumpkinWarden, long gameTime) {
 		pumpkinWarden.getBrain().eraseMemory(MemoryModuleType.LOOK_TARGET);
 		pumpkinWarden.getBrain().eraseMemory(MemoryModuleType.WALK_TARGET);
+	}
+
+	@Override
+	protected boolean timedOut(long gameTime) {
+		return false;
 	}
 }
