@@ -3,6 +3,7 @@ package net.potionstudios.biomeswevegone.world.entity.decoration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -115,6 +116,11 @@ public class Wreath extends HangingEntity {
 	@Override
 	public @Nullable ItemStack getPickResult() {
 		return getVariant().getItem().getDefaultInstance();
+	}
+
+	@Override
+	protected @NotNull Component getTypeName() {
+		return Component.translatable(getVariant().getItem().getDescriptionId());
 	}
 
 	public enum Type implements StringRepresentable {
