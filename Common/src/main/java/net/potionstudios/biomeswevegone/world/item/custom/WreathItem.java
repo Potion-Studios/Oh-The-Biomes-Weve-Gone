@@ -11,6 +11,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
+import net.potionstudios.biomeswevegone.world.entity.oddion.Oddion;
 import org.jetbrains.annotations.NotNull;
 
 public class WreathItem extends HangingEntityItem {
@@ -40,6 +41,7 @@ public class WreathItem extends HangingEntityItem {
                 Wreath wreath = new Wreath(level, blockPos2, direction, type);
                 wreath.playPlacementSound();
                 level.gameEvent(player, GameEvent.ENTITY_PLACE, wreath.position());
+                wreath.setPos(blockPos2.getX(), blockPos2.getY(), blockPos2.getZ());
                 level.addFreshEntity(wreath);
             }
             itemStack.shrink(1);
