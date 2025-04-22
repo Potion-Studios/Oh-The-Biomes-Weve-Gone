@@ -1,3 +1,5 @@
+# 3.0.4
+
 # 3.0.3
 - Fix Missing or Non-Existent Pool error village/pumpkin_patch/streetsa
 - Update Russian (ru_ru) Translations (Credits: rfin0)
