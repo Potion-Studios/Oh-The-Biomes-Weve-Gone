@@ -13,6 +13,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.HangingEntity;
 import net.minecraft.world.item.HangingEntityItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
@@ -111,23 +112,26 @@ public class Wreath extends HangingEntity {
 			setVariant(Type.byName(compound.getString("Type")));
 	}
 
-	
+	@Override
+	public @Nullable ItemStack getPickResult() {
+		return getVariant().getItem().getDefaultInstance();
+	}
 
 	public enum Type implements StringRepresentable {
-		HOLLY("holly", BWGItems.HOLLY_WREATH),
-		MUSHROOM("mushroom", BWGItems.MUSHROOM_WREATH),
-		ODDION("oddion", BWGItems.ODDION_WREATH),
-		PETAL("petal", BWGItems.PETAL_WREATH),
-		ROSY("rosy", BWGItems.ROSY_WREATH),
-		WINTER_ROSY("winter_rosy", BWGItems.WINTER_ROSY_WREATH),
-		DEFAULT("default", BWGItems.WREATH);
+		HOLLY("holly", () -> BWGItems.HOLLY_WREATH),
+		MUSHROOM("mushroom", () -> BWGItems.MUSHROOM_WREATH),
+		ODDION("oddion", () -> BWGItems.ODDION_WREATH),
+		PETAL("petal", () -> BWGItems.PETAL_WREATH),
+		ROSY("rosy", () -> BWGItems.ROSY_WREATH),
+		WINTER_ROSY("winter_rosy", () -> BWGItems.WINTER_ROSY_WREATH),
+		DEFAULT("default", () -> BWGItems.WREATH);
 
 		private final String name;
-		private final Supplier<HangingEntityItem> item;
+		private final Supplier<Supplier<HangingEntityItem>> item;
 		public static final StringRepresentable.EnumCodec<Type> CODEC = StringRepresentable.fromEnum(Type::values);
 		private static final IntFunction<Type> BY_ID = ByIdMap.continuous(Enum::ordinal, values(), ByIdMap.OutOfBoundsStrategy.ZERO);
 
-		Type(String name, Supplier<HangingEntityItem> item) {
+		Type(String name, Supplier<Supplier<HangingEntityItem>> item) {
 			this.name = name;
 			this.item = item;
 		}
@@ -138,7 +142,7 @@ public class Wreath extends HangingEntity {
 		}
 
 		public HangingEntityItem getItem() {
-			return item.get();
+			return item.get().get();
 		}
 
 		public static Type byId(int id) {
