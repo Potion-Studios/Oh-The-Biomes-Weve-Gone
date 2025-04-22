@@ -294,7 +294,7 @@ public class BWGWoodSet {
     }
 
     public ModelLayerLocation chestBoatModelLayer() {
-        return new ModelLayerLocation(BiomesWeveGone.id("boat/" + name + "_chest"), "main");
+        return new ModelLayerLocation(BiomesWeveGone.id("chest_boat/" + name), "main");
     }
 
     public ArrayList<ItemLike> itemList() {
