@@ -1,5 +1,6 @@
 # 3.0.4
 - Fix Chest Boats Not rendering textures
+- Fix Overwriting Vanilla Pumpkin Pie Recipe
 
 # 3.0.3
 - Fix Missing or Non-Existent Pool error village/pumpkin_patch/streetsa

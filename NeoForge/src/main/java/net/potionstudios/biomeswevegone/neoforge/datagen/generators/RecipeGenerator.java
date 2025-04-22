@@ -386,7 +386,7 @@ public class RecipeGenerator extends RecipeProvider {
                 .requires(Items.EGG)
                 .unlockedBy(getHasName(BWGBlocks.CARVED_PALE_PUMPKIN.get()), has(BWGBlocks.CARVED_PALE_PUMPKIN.get()))
                 .unlockedBy(getHasName(BWGBlocks.PALE_PUMPKIN.get()), has(BWGBlocks.PALE_PUMPKIN.get()))
-                .save(output);
+                .save(output, BiomesWeveGone.key(Registries.RECIPE, "pumpkin_pie"));
 
         ShapedRecipeBuilder.shaped(itemRegistry, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.PALE_JACK_O_LANTERN.get())
                 .define('A', BWGBlocks.CARVED_PALE_PUMPKIN.get())
