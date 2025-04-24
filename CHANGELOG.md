@@ -1,4 +1,5 @@
 # 1.6.0 -> The Village Update
+- Require Forge 47.4.0 or newer, drop support for 1.20.1 NeoForge
 
 # 1.5.11
 - Fix Missing or Non-Existent Pool error village/pumpkin_patch/streetsa
