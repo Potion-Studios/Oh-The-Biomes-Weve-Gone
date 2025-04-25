@@ -31,8 +31,8 @@ import terrablender.api.SurfaceRuleManager;
  */
 @Mod(BiomesWeveGone.MOD_ID)
 public class BiomesWeveGoneForge {
-    public BiomesWeveGoneForge() {
-        IEventBus MOD_BUS = FMLJavaModLoadingContext.get().getModEventBus();
+    public BiomesWeveGoneForge(final FMLJavaModLoadingContext context) {
+        IEventBus MOD_BUS = context.getModEventBus();
         IEventBus EVENT_BUS = MinecraftForge.EVENT_BUS;
         BiomesWeveGone.init();
         ForgePlatformHandler.register(MOD_BUS);
