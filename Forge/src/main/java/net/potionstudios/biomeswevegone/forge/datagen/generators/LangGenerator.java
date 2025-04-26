@@ -91,6 +91,7 @@ public class LangGenerator extends LanguageProvider {
 
         add("biomeswevegone.commands.reload.success", "Successfully reloaded all configs");
         add("biomeswevegone.commands.reload.spawn.success", "Successfully reloaded Mob Spawn config");
+        add("biomeswevegone.commands.upgrade_villagers.success", "Successfully Updated Villager Types");
 
         add("tooltip.waila.hatch_chance", "Hatch Chance: %s");
     }
