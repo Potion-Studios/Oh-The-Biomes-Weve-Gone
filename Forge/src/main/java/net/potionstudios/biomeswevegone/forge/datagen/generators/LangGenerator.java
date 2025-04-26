@@ -89,6 +89,7 @@ public class LangGenerator extends LanguageProvider {
         add(death("inQuicksand"), "%s tried to swim in the desert");
         add(death("cattailExplosion"), "%s got too curious and put a cattail in a campfire");
 
+        add("biomeswevegone.commands.reload.success", "Successfully reloaded all configs");
         add("biomeswevegone.commands.reload.spawn.success", "Successfully reloaded Mob Spawn config");
 
         add("tooltip.waila.hatch_chance", "Hatch Chance: %s");
