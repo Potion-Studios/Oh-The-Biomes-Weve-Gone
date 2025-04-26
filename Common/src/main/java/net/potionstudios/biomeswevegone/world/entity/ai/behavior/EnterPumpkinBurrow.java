@@ -1,6 +1,7 @@
 package net.potionstudios.biomeswevegone.world.entity.ai.behavior;
 
 import com.google.common.collect.ImmutableMap;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.GlobalPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
@@ -32,7 +33,9 @@ public class EnterPumpkinBurrow extends Behavior<PumpkinWarden> {
         if (level.dimension() != globalPos.dimension()) return false;
 
         BlockState blockState = level.getBlockState(globalPos.pos());
-        return globalPos.pos().closerToCenterThan(pumpkinWarden.position(), 1) && blockState.getBlock() instanceof PumpkinBurrowBlock && !blockState.getValue(PumpkinBurrowBlock.OCCUPIED);
+        BlockPos entrancePos = globalPos.pos().relative(blockState.getValue(PumpkinBurrowBlock.FACING));
+
+        return level.getBlockState(entrancePos).isAir() && entrancePos.closerToCenterThan(pumpkinWarden.position(), 0.5) && blockState.getBlock() instanceof PumpkinBurrowBlock && !blockState.getValue(PumpkinBurrowBlock.OCCUPIED);
     }
 
     @Override

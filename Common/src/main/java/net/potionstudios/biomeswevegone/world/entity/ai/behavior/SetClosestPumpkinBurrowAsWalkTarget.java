@@ -16,6 +16,7 @@ import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.level.pathfinder.Path;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
+import net.potionstudios.biomeswevegone.world.level.block.custom.PumpkinBurrowBlock;
 import org.apache.commons.lang3.mutable.MutableInt;
 import org.apache.commons.lang3.mutable.MutableLong;
 
@@ -62,7 +63,7 @@ public class SetClosestPumpkinBurrowAsWalkTarget {
                                                 BlockPos blockPos = path.getTarget();
                                                 Optional<Holder<PoiType>> optional2 = poiManager.getType(blockPos);
                                                 if (optional2.isPresent()) {
-                                                    memoryAccessor.set(new WalkTarget(blockPos, speedModifier, 1));
+                                                    memoryAccessor.set(new WalkTarget(blockPos.relative(serverLevel.getBlockState(blockPos).getValue(PumpkinBurrowBlock.FACING)), speedModifier, 0));
                                                     DebugPackets.sendPoiTicketCountPacket(serverLevel, blockPos);
                                                 }
                                             } else if (mutableInt.getValue() < 5) {
