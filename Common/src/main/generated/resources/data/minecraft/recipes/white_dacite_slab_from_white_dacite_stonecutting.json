@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "biomeswevegone:white_dacite"
+  },
+  "result": "biomeswevegone:white_dacite_slab"
+}

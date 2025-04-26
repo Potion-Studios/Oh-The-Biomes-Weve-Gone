@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/grass_block",
+  "render_type": "minecraft:cutout_mipped",
+  "textures": {
+    "bottom": "biomeswevegone:block/lush_dirt",
+    "overlay": "biomeswevegone:block/lush_grass_block_side_overlay",
+    "particle": "biomeswevegone:block/lush_dirt",
+    "side": "biomeswevegone:block/lush_grass_block_side",
+    "top": "biomeswevegone:block/lush_grass_block_top"
+  }
+}

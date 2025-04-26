@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/grass_block",
+  "render_type": "minecraft:cutout_mipped",
+  "textures": {
+    "bottom": "biomeswevegone:block/white_dacite",
+    "overlay": "biomeswevegone:block/white_overgrown_dacite_side_overlay",
+    "particle": "biomeswevegone:block/white_dacite",
+    "side": "biomeswevegone:block/white_overgrown_dacite_side",
+    "top": "biomeswevegone:block/white_overgrown_dacite_top"
+  }
+}

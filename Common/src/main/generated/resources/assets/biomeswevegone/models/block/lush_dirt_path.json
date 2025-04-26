@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/dirt_path",
+  "textures": {
+    "bottom": "biomeswevegone:block/lush_dirt",
+    "particle": "biomeswevegone:block/lush_dirt",
+    "side": "biomeswevegone:block/lush_dirt_path_side",
+    "top": "minecraft:block/dirt_path_top"
+  }
+}

@@ -27,6 +27,8 @@ public final class BWGBlockTags {
     public static final TagKey<Block> SAGES = create("flowers/sages");
     public static final TagKey<Block> DAFFODILS = create("flowers/daffodils");
 
+    public static final TagKey<Block> DACITE_BRICKS = create("dacite_bricks");
+    public static final TagKey<Block> WHITE_DACITE_BRICKS = create("white_dacite_bricks");
     public static final TagKey<Block> RED_ROCK_BRICKS = create("red_rock_bricks");
 
     public static final TagKey<Block> CRAFTING_TABLES = create("crafting_tables");
