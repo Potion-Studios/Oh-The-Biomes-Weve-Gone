@@ -20,7 +20,7 @@ import java.util.function.Supplier;
  * @see EntityType
  * @author Joseph T. McQuigg
  */
-public class BWGEntities {
+public class BWGEntityType {
 
 	public static final Supplier<EntityType<ManOWar>> MAN_O_WAR = createEntity("man_o_war", ManOWar::new, MobCategory.WATER_CREATURE,0.6F, 1F);
 	public static final Supplier<EntityType<PumpkinWarden>> PUMPKIN_WARDEN = createEntity("pumpkin_warden", PumpkinWarden::new, MobCategory.MISC,0.64F, 1.1F);

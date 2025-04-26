@@ -8,7 +8,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DispenserBlock;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.boats.BWGBoatEntity;
 import net.potionstudios.biomeswevegone.world.entity.boats.BWGChestBoatEntity;
 import org.jetbrains.annotations.NotNull;
@@ -36,7 +36,7 @@ public class BWGBoatDispenseItemBehavior extends DefaultDispenseItemBehavior {
 	public @NotNull ItemStack execute(BlockSource source, @NotNull ItemStack stack) {
 		Direction direction = source.getBlockState().getValue(DispenserBlock.FACING);
 		Level level = source.getLevel();
-		double d = 0.5625 + (double) BWGEntities.BWG_BOAT.get().getWidth() / 2.0;
+		double d = 0.5625 + (double) BWGEntityType.BWG_BOAT.get().getWidth() / 2.0;
 		double e = source.x() + (double)direction.getStepX() * d;
 		double f = source.y() + (double)((float)direction.getStepY() * 1.125F);
 		double g = source.z() + (double)direction.getStepZ() * d;
