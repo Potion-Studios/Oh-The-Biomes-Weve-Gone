@@ -10,6 +10,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
+import net.potionstudios.biomeswevegone.PlatformHandler;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTypes;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import org.jetbrains.annotations.ApiStatus;
@@ -19,7 +20,7 @@ import org.jetbrains.annotations.ApiStatus;
 class BWGVillagerUpgradeCommand {
     static LiteralArgumentBuilder<CommandSourceStack> register() {
         LiteralArgumentBuilder<CommandSourceStack> upgradeVillagers = LiteralArgumentBuilder.literal("upgrade_villagers");
-        upgradeVillagers.requires(commandSourceStack -> commandSourceStack.hasPermission(4));
+        upgradeVillagers.requires(commandSourceStack -> PlatformHandler.PLATFORM_HANDLER.hasPermission(commandSourceStack, "biomeswevegone.commands.upgrade_villagers"));
         upgradeVillagers.executes(context -> {
             MinecraftServer server = context.getSource().getServer();
             ServerLevel level = server.getLevel(Level.OVERWORLD);
