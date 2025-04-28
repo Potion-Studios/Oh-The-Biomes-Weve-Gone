@@ -518,7 +518,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
             int i = random.nextInt(100);
             if (i < 25) return DEFAULT;
             else if (i < 50) return CHEERY;
-            else if (1 < 75) return SILLY;
+            else if (i < 75) return SILLY;
             else if (i < 95) return FROWNY;
             else return PALE;
         }

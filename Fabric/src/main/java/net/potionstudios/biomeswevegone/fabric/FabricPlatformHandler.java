@@ -47,7 +47,6 @@ public final class FabricPlatformHandler implements PlatformHandler {
 
 	private static final boolean fabricPermissionsApi = FabricLoader.getInstance().isModLoaded("fabric-permissions-api-v0");
 
-
 	@Override
 	public boolean hasPermission(@NotNull CommandSourceStack sourceStack, @NotNull String permission) {
 		return PlatformHandler.super.hasPermission(sourceStack, permission) || (fabricPermissionsApi && Permissions.check(sourceStack, permission));
