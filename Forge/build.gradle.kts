@@ -58,6 +58,8 @@ dependencies {
     modApi("dev.corgitaco:Oh-The-Trees-Youll-Grow-forge:$minecraftVersion-${project.properties["ohthetreesyoullgrow_version"]}")
     modApi("software.bernie.geckolib:geckolib-forge-$minecraftVersion:${project.properties["geckolib_version"]}")
 
+    compileOnly("net.luckperms:api:5.4")
+
     modCompileOnly("mcp.mobius.waila:wthit-api:forge-${project.properties["WTHIT"]}")
     modLocalRuntime("mcp.mobius.waila:wthit:forge-${project.properties["WTHIT"]}")
     modLocalRuntime("lol.bai:badpackets:forge-${project.properties["badPackets"]}")

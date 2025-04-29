@@ -2,7 +2,9 @@ package net.potionstudios.biomeswevegone.neoforge;
 
 import com.google.auto.service.AutoService;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
+import net.luckperms.api.LuckPermsProvider;
 import net.minecraft.Util;
+import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.SimpleParticleType;
@@ -24,6 +26,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLPaths;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -53,6 +56,13 @@ public final class NeoForgePlatformHandler implements PlatformHandler{
 	@Override
 	public Path configPath() {
 		return FMLPaths.CONFIGDIR.get().resolve(BiomesWeveGone.MOD_ID);
+	}
+
+	private static final boolean luckPerms = ModList.get().isLoaded("luckperms");
+
+	@Override
+	public boolean hasPermission(@NotNull CommandSourceStack sourceStack, @NotNull String permission) {
+		return PlatformHandler.super.hasPermission(sourceStack, permission) || (luckPerms && LuckPermsProvider.get().getUserManager().getUser(sourceStack.getPlayer().getUUID()).getCachedData().getPermissionData().checkPermission(permission).asBoolean());
 	}
 
 	@Override

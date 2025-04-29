@@ -51,6 +51,8 @@ dependencies {
     modApi("dev.corgitaco:Oh-The-Trees-Youll-Grow-neoforge:$minecraftVersion-${project.properties["ohthetreesyoullgrow_version"]}")
     modApi("software.bernie.geckolib:geckolib-neoforge-$minecraftVersion:${project.properties["geckolib_version"]}")
 
+    compileOnly("net.luckperms:api:5.4")
+
     modCompileOnly("mcp.mobius.waila:wthit-api:neo-${project.properties["WTHIT"]}")
     modLocalRuntime("mcp.mobius.waila:wthit:neo-${project.properties["WTHIT"]}")
     modLocalRuntime("lol.bai:badpackets:neo-${project.properties["badPackets"]}")

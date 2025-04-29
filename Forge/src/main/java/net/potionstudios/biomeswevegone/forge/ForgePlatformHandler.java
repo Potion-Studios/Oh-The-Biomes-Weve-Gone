@@ -2,7 +2,9 @@ package net.potionstudios.biomeswevegone.forge;
 
 import com.google.auto.service.AutoService;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
+import net.luckperms.api.LuckPermsProvider;
 import net.minecraft.Util;
+import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleType;
@@ -25,6 +27,7 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -53,6 +56,13 @@ public final class ForgePlatformHandler implements PlatformHandler {
 	@Override
 	public Path configPath() {
 		return FMLPaths.CONFIGDIR.get().resolve(BiomesWeveGone.MOD_ID);
+	}
+
+	private static final boolean luckPerms = ModList.get().isLoaded("luckperms");
+
+	@Override
+	public boolean hasPermission(@NotNull CommandSourceStack sourceStack, @NotNull String permission) {
+		return PlatformHandler.super.hasPermission(sourceStack, permission) || (luckPerms && LuckPermsProvider.get().getUserManager().getUser(sourceStack.getPlayer().getUUID()).getCachedData().getPermissionData().checkPermission(permission).asBoolean());
 	}
 
 	private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, BiomesWeveGone.MOD_ID);
