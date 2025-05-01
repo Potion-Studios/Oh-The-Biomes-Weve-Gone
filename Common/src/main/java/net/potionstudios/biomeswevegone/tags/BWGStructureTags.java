@@ -15,6 +15,7 @@ public interface BWGStructureTags {
 	TagKey<Structure> PRAIRIE_HOUSES = create("prairie_houses");
 	TagKey<Structure> ASPEN_MANORS = create("aspen_manors");
 	TagKey<Structure> VILLAGE = create("village");
+	TagKey<Structure> BOG_TRIALS = create("bog_trials");
 
 	private static TagKey<Structure> create(String name) {
 		return TagKey.create(Registries.STRUCTURE, BiomesWeveGone.id(name));

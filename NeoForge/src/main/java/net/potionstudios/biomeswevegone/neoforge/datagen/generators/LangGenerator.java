@@ -100,6 +100,8 @@ public class LangGenerator extends LanguageProvider {
         add(death("inQuicksand"), "%s tried to swim in the desert");
         add(death("cattailExplosion"), "%s got too curious and put a cattail in a campfire");
 
+        add("biomeswevegone.filled_map.bog_trial", "Bog Trial Map");
+
         add("biomeswevegone.commands.reload.success", "Successfully reloaded all configs");
         add("biomeswevegone.commands.reload.misc.success", "Successfully reloaded misc config");
         add("biomeswevegone.commands.reload.spawn.success", "Successfully reloaded Mob Spawn config");

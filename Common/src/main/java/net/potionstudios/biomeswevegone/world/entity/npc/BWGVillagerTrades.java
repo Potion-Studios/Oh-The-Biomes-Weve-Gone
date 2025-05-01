@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
+import net.minecraft.tags.StructureTags;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.npc.VillagerType;
@@ -12,11 +13,14 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.saveddata.maps.MapDecorationTypes;
 import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
+import net.potionstudios.biomeswevegone.tags.BWGStructureTags;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.sand.BWGSandSet;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
+import net.potionstudios.biomeswevegone.world.level.saveddate.maps.BWGMapDecorationTypes;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -90,6 +94,13 @@ public class BWGVillagerTrades {
                         createItemsForEmeraldsOffer(BWGBlocks.WHITE_DACITE_SET.getBase(), 1, 1, 12, 15, 0.05f),
                         createEmeraldForItemsOffer(BWGBlocks.RED_ROCK_SET.getBase(), 12, 12, 30),
                         createItemsForEmeraldsOffer(BWGBlocks.RED_ROCK_SET.getBase(), 1, 1, 12, 15, 0.05f)
+                )
+        )));
+        TRADES.put(VillagerProfession.CARTOGRAPHER, toIntMap(ImmutableMap.of(
+                3, ImmutableList.of(
+                        new VillagerTrades.TreasureMapForEmeralds(
+                                12, BWGStructureTags.BOG_TRIALS, "filled_map.bog_trial", BWGMapDecorationTypes.BOG_TRIAL.get(), 12, 10
+                        )
                 )
         )));
     }

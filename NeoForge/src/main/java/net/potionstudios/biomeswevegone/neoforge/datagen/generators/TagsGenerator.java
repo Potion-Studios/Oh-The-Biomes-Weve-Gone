@@ -492,6 +492,7 @@ public class TagsGenerator {
                     .add(BWGStructures.RED_ROCK_VILLAGE)
                     .add(BWGStructures.PUMPKIN_PATCH_VILLAGE);
             tag(StructureTags.VILLAGE).addTag(BWGStructureTags.VILLAGE);
+            tag(BWGStructureTags.BOG_TRIALS).add(BWGStructures.BOG_TRIAL);
         }
     }
 
