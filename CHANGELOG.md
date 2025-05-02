@@ -2,7 +2,7 @@
 - Add Custom Biomes We've gone Villager Types to each of our Villages
 - Require NeoForge 21.1.117 or newer
 - Require Forge 52.0.47 or newer
-- Add Support for Fabric Permissions API (For Commands)
+- Add Support for Fabric Permissions API & Luckperms (For Commands)
 
 # 2.3.13
 - Fix Missing or Non-Existent Pool error village/pumpkin_patch/streetsa
