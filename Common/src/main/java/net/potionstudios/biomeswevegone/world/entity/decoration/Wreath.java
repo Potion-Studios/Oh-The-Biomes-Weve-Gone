@@ -4,9 +4,13 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerEntity;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.ByIdMap;
 import net.minecraft.util.StringRepresentable;
@@ -19,8 +23,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
+import org.apache.commons.lang3.Validate;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -46,34 +52,30 @@ public class Wreath extends HangingEntity implements VariantHolder<Wreath.Type> 
 	}
 
 	@Override
+	protected void setDirection(@NotNull Direction facingDirection) {
+		Validate.notNull(facingDirection);
+		this.direction = facingDirection;
+		if (facingDirection.getAxis().isHorizontal()) {
+			this.setXRot(0.0F);
+			this.setYRot(this.direction.get2DDataValue() * 90);
+		} else {
+			this.setXRot(-90 * facingDirection.getAxisDirection().getStep());
+			this.setYRot(0.0F);
+		}
+
+		this.xRotO = this.getXRot();
+		this.yRotO = this.getYRot();
+		this.recalculateBoundingBox();
+	}
+
+	@Override
 	protected @NotNull AABB calculateBoundingBox(@NotNull BlockPos pos, @NotNull Direction direction) {
-		double thickness = 0.0625;
-		return switch (direction) {
-			case NORTH -> new AABB(
-					pos.getX(), pos.getY(), pos.getZ() + 1 - thickness,
-					pos.getX() + 1, pos.getY() + 1, pos.getZ() + 1
-			);
-			case SOUTH -> new AABB(
-					pos.getX(), pos.getY(), pos.getZ(),
-					pos.getX() + 1, pos.getY() + 1, pos.getZ() + thickness
-			);
-			case WEST -> new AABB(
-					pos.getX() + 1 - thickness, pos.getY(), pos.getZ(),
-					pos.getX() + 1, pos.getY() + 1, pos.getZ() + 1
-			);
-			case EAST -> new AABB(
-					pos.getX(), pos.getY(), pos.getZ(),
-					pos.getX() + thickness, pos.getY() + 1, pos.getZ() + 1
-			);
-			case UP -> new AABB(
-					pos.getX(), pos.getY(), pos.getZ(),
-					pos.getX() + 1, pos.getY() + thickness, pos.getZ() + 1
-			);
-			case DOWN -> new AABB(
-					pos.getX(), pos.getY() + 1 - thickness, pos.getZ(),
-					pos.getX() + 1, pos.getY() + 1, pos.getZ() + 1
-			);
-		};
+		Vec3 vec3 = Vec3.atCenterOf(pos).relative(direction, -0.46875);
+		Direction.Axis axis = direction.getAxis();
+		double d = axis == Direction.Axis.X ? 0.0625 : 0.75;
+		double e = axis == Direction.Axis.Y ? 0.0625 : 0.75;
+		double g = axis == Direction.Axis.Z ? 0.0625 : 0.75;
+		return AABB.ofSize(vec3, d, e, g);
 	}
 
 	@Override
@@ -107,6 +109,7 @@ public class Wreath extends HangingEntity implements VariantHolder<Wreath.Type> 
 	public void addAdditionalSaveData(@NotNull CompoundTag compound) {
 		super.addAdditionalSaveData(compound);
 		compound.putString("Type", getVariant().getSerializedName());
+		compound.putByte("Facing", (byte)direction.get3DDataValue());
 	}
 
 	@Override
@@ -114,6 +117,18 @@ public class Wreath extends HangingEntity implements VariantHolder<Wreath.Type> 
 		super.readAdditionalSaveData(compound);
 		if (compound.contains("Type", 8))
 			setVariant(Type.byName(compound.getString("Type")));
+		setDirection(Direction.from3DDataValue(compound.getByte("Facing")));
+	}
+
+	@Override
+	public @NotNull Packet<ClientGamePacketListener> getAddEntityPacket(@NotNull ServerEntity entity) {
+		return new ClientboundAddEntityPacket(this, this.direction.get3DDataValue(), this.getPos());
+	}
+
+	@Override
+	public void recreateFromPacket(@NotNull ClientboundAddEntityPacket packet) {
+		super.recreateFromPacket(packet);
+		this.setDirection(Direction.from3DDataValue(packet.getData()));
 	}
 
 	@Override
