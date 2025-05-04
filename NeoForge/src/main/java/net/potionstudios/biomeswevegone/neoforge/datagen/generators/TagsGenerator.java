@@ -341,7 +341,7 @@ public class TagsGenerator {
             tag(Tags.Items.MUSIC_DISCS).add(BWGItems.MUSIC_DISC_PIXIE_CLUB.get());
             tag(ItemTags.STONE_CRAFTING_MATERIALS).add(BWGBlocks.ROCKY_STONE_SET.getBase().asItem());
             tag(ItemTags.VILLAGER_PLANTABLE_SEEDS).add(BWGItems.ODDION_BULB.get());
-            tag(Tags.Items.MUSHROOMS).add(BWGBlocks.GREEN_MUSHROOM.get().asItem(), BWGBlocks.WEEPING_MILKCAP.get().asItem(), BWGBlocks.WOOD_BLEWIT.get().asItem());
+            tag(Tags.Items.MUSHROOMS).add(BWGBlocks.GREEN_MUSHROOM.get().asItem(), BWGBlocks.WEEPING_MILKCAP.get().asItem(), BWGBlocks.WOOD_BLEWIT.get().asItem(), BWGBlocks.SHELF_FUNGI.get().asItem());
             tag(Tags.Items.BUCKETS_ENTITY_WATER).add(BWGItems.MAN_O_WAR_BUCKET.get());
             tag(Tags.Items.CROPS).add(BWGItems.ODDION_BULB.get());
             tag(Tags.Items.FOODS_FRUIT).add(BWGItems.GREEN_APPLE.get(), BWGItems.BAOBAB_FRUIT.get(), BWGItems.YUCCA_FRUIT.get(), BWGItems.SOUL_FRUIT.get());
@@ -354,6 +354,7 @@ public class TagsGenerator {
             tag(ItemTags.EQUIPPABLE_ENCHANTABLE).add(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem());
             tag(ItemTags.VANISHING_ENCHANTABLE).add(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem());
             tag(ItemTags.PIGLIN_REPELLENTS).add(BWGItems.SOUL_FRUIT.get());
+            tag(BWGItemTags.WREATHS).add(BWGItems.WREATH.get(), BWGItems.HOLLY_WREATH.get(), BWGItems.MUSHROOM_WREATH.get(), BWGItems.ODDION_WREATH.get(), BWGItems.PETAL_WREATH.get(), BWGItems.ROSY_WREATH.get(), BWGItems.WINTER_ROSY_WREATH.get());
 
             // Dye Recipes
             tag(BWGItemTags.MAKES_BLACK_DYE).add(BWGBlocks.BLACK_ROSE.getItem());

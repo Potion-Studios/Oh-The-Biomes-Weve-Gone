@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_black_rose": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:black_rose"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomeswevegone:winter_rosy_wreath"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_black_rose"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomeswevegone:winter_rosy_wreath"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:mushrooms"
+    },
+    "X": {
+      "item": "biomeswevegone:wreath"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#X#",
+    " # "
+  ],
+  "result": {
+    "count": 1,
+    "id": "biomeswevegone:mushroom_wreath"
+  }
+}

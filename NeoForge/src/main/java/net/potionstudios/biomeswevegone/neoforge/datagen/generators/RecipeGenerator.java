@@ -3,7 +3,6 @@ package net.potionstudios.biomeswevegone.neoforge.datagen.generators;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.flag.FeatureFlagSet;
@@ -458,6 +457,72 @@ public class RecipeGenerator extends RecipeProvider {
         oneToTwoConversionRecipe(recipeOutput, Items.PINK_DYE, BWGItemTags.MAKES_2_PINK_DYE);
         oneToTwoConversionRecipe(recipeOutput, Items.PURPLE_DYE, BWGItemTags.MAKES_2_PURPLE_DYE);
         oneToTwoConversionRecipe(recipeOutput, Items.WHITE_DYE, BWGItemTags.MAKES_2_WHITE_DYE);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.WREATH.get())
+                .define('#', ItemTags.LEAVES)
+                .pattern(" # ")
+                .pattern("# #")
+                .pattern(" # ")
+                .unlockedBy("has_leaves", has(ItemTags.LEAVES))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.HOLLY_WREATH.get())
+                .define('#', Items.SWEET_BERRIES)
+                .define('X', BWGItems.WREATH.get())
+                .pattern(" # ")
+                .pattern("#X#")
+                .pattern(" # ")
+                .unlockedBy(getHasName(Items.SWEET_BERRIES), has(Items.SWEET_BERRIES))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.ODDION_WREATH.get())
+                .define('#', BWGItems.ODDION_BULB.get())
+                .define('X', BWGItems.WREATH.get())
+                .pattern(" # ")
+                .pattern("#X#")
+                .pattern(" # ")
+                .unlockedBy(getHasName(BWGItems.ODDION_BULB.get()), has(BWGItems.ODDION_BULB.get()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.MUSHROOM_WREATH.get())
+                .define('#', Tags.Items.MUSHROOMS)
+                .define('X', BWGItems.WREATH.get())
+                .pattern(" # ")
+                .pattern("#X#")
+                .pattern(" # ")
+                .unlockedBy("has_mushrooms", has(Tags.Items.MUSHROOMS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.ROSY_WREATH.get())
+                .define('#', BWGBlocks.ROSE.getItem())
+                .define('X', BWGBlocks.OSIRIA_ROSE.getItem())
+                .define('Y', BWGItems.WREATH.get())
+                .pattern(" # ")
+                .pattern("XYX")
+                .pattern(" # ")
+                .unlockedBy(getHasName(BWGBlocks.ROSE.getItem()), has(BWGBlocks.ROSE.getItem()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.PETAL_WREATH.get())
+                .define('#', Items.PINK_PETALS)
+                .define('X', BWGBlocks.WHITE_SAKURA_PETALS.get())
+                .define('Y', BWGBlocks.YELLOW_SAKURA_PETALS.get())
+                .define('Z', BWGItems.WREATH.get())
+                .pattern(" X ")
+                .pattern("YZY")
+                .pattern(" # ")
+                .unlockedBy(getHasName(Items.PINK_PETALS), has(Items.PINK_PETALS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.WINTER_ROSY_WREATH.get())
+                .define('#', BWGBlocks.WINTER_ROSE.getItem())
+                .define('X', BWGBlocks.BLACK_ROSE.getItem())
+                .define('Y', BWGItems.WREATH.get())
+                .pattern(" # ")
+                .pattern("XYX")
+                .pattern(" # ")
+                .unlockedBy(getHasName(BWGBlocks.BLACK_ROSE.getItem()), has(BWGBlocks.BLACK_ROSE.getItem()))
+                .save(recipeOutput);
     }
 
     private static void oneToOneConversionRecipe(RecipeOutput recipeOutput, ItemLike result, TagKey<Item> ingredient) {

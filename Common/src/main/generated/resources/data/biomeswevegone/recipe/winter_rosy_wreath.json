@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "biomeswevegone:winter_rose"
+    },
+    "X": {
+      "item": "biomeswevegone:black_rose"
+    },
+    "Y": {
+      "item": "biomeswevegone:wreath"
+    }
+  },
+  "pattern": [
+    " # ",
+    "XYX",
+    " # "
+  ],
+  "result": {
+    "count": 1,
+    "id": "biomeswevegone:winter_rosy_wreath"
+  }
+}
