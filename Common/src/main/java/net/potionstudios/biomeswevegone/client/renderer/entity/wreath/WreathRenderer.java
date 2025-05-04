@@ -15,7 +15,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.PlatformHandler;
 import net.potionstudios.biomeswevegone.client.model.ModelAccess;
 import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import org.jetbrains.annotations.NotNull;
@@ -40,7 +39,7 @@ public class WreathRenderer extends EntityRenderer<Wreath> {
 		poseStack.mulPose(Axis.YP.rotationDegrees(180.0F - entity.getYRot()));
 		if (!entity.isInvisible()) {
 			ModelManager modelManager = blockRenderer.getBlockModelShaper().getModelManager();
-
+			poseStack.pushPose();
 			poseStack.translate(-0.5F, -0.5F, -0.5F);
 			blockRenderer.getModelRenderer()
 					.renderModel(
@@ -53,8 +52,8 @@ public class WreathRenderer extends EntityRenderer<Wreath> {
 							1.0F,
 							packedLight,
 							OverlayTexture.NO_OVERLAY);
+			poseStack.popPose();
 		}
-
 		poseStack.popPose();
 	}
 

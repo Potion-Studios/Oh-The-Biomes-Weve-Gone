@@ -1,6 +1,21 @@
 {
-  "parent": "minecraft:block/carpet",
-  "textures": {
-    "wool": "biomeswevegone:block/default_wreath"
-  }
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "biomeswevegone:block/default_wreath",
+		"particle": "biomeswevegone:block/default_wreath"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 15],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [0, 0, 16, 1], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"west": {"uv": [0, 0, 16, 1], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 1], "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 1], "rotation": 180, "texture": "#0"}
+			}
+		}
+	]
 }
