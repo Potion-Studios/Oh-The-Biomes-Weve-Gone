@@ -472,7 +472,7 @@ public class RecipeGenerator extends RecipeProvider {
                 .pattern(" # ")
                 .pattern("#X#")
                 .pattern(" # ")
-                .unlockedBy(getHasName(Items.SWEET_BERRIES), has(Items.SWEET_BERRIES))
+                .unlockedBy(getHasName(BWGItems.WREATH.get()), has(BWGItems.WREATH.get()))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.ODDION_WREATH.get())
@@ -481,7 +481,7 @@ public class RecipeGenerator extends RecipeProvider {
                 .pattern(" # ")
                 .pattern("#X#")
                 .pattern(" # ")
-                .unlockedBy(getHasName(BWGItems.ODDION_BULB.get()), has(BWGItems.ODDION_BULB.get()))
+                .unlockedBy(getHasName(BWGItems.WREATH.get()), has(BWGItems.WREATH.get()))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.MUSHROOM_WREATH.get())
@@ -490,7 +490,7 @@ public class RecipeGenerator extends RecipeProvider {
                 .pattern(" # ")
                 .pattern("#X#")
                 .pattern(" # ")
-                .unlockedBy("has_mushrooms", has(Tags.Items.MUSHROOMS))
+                .unlockedBy(getHasName(BWGItems.WREATH.get()), has(BWGItems.WREATH.get()))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.ROSY_WREATH.get())
@@ -500,7 +500,7 @@ public class RecipeGenerator extends RecipeProvider {
                 .pattern(" # ")
                 .pattern("XYX")
                 .pattern(" # ")
-                .unlockedBy(getHasName(BWGBlocks.ROSE.getItem()), has(BWGBlocks.ROSE.getItem()))
+                .unlockedBy(getHasName(BWGItems.WREATH.get()), has(BWGItems.WREATH.get()))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.PETAL_WREATH.get())
@@ -511,7 +511,7 @@ public class RecipeGenerator extends RecipeProvider {
                 .pattern(" X ")
                 .pattern("YZY")
                 .pattern(" # ")
-                .unlockedBy(getHasName(Items.PINK_PETALS), has(Items.PINK_PETALS))
+                .unlockedBy(getHasName(BWGItems.WREATH.get()), has(BWGItems.WREATH.get()))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.WINTER_ROSY_WREATH.get())
@@ -521,7 +521,7 @@ public class RecipeGenerator extends RecipeProvider {
                 .pattern(" # ")
                 .pattern("XYX")
                 .pattern(" # ")
-                .unlockedBy(getHasName(BWGBlocks.BLACK_ROSE.getItem()), has(BWGBlocks.BLACK_ROSE.getItem()))
+                .unlockedBy(getHasName(BWGItems.WREATH.get()), has(BWGItems.WREATH.get()))
                 .save(recipeOutput);
     }
 

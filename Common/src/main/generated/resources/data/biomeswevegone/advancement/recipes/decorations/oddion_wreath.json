@@ -1,27 +1,27 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_oddion_bulb": {
-      "conditions": {
-        "items": [
-          {
-            "items": "biomeswevegone:oddion_bulb"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "biomeswevegone:oddion_wreath"
       },
       "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wreath": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:wreath"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "has_oddion_bulb"
+      "has_wreath"
     ]
   ],
   "rewards": {
