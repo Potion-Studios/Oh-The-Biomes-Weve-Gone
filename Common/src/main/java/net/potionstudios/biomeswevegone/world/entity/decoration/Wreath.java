@@ -18,8 +18,11 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.VariantHolder;
 import net.minecraft.world.entity.decoration.HangingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.HangingEntityItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
@@ -85,9 +88,13 @@ public class Wreath extends HangingEntity implements VariantHolder<Wreath.Type> 
 
 	@Override
 	public void dropItem(@Nullable Entity entity) {
-		playSound(SoundEvents.AZALEA_LEAVES_BREAK);
-		//Drop the item
-		gameEvent(GameEvent.BLOCK_CHANGE, entity);
+		if (this.level().getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
+			playSound(SoundEvents.AZALEA_LEAVES_BREAK);
+			if (!(entity instanceof Player player && player.hasInfiniteMaterials())) {
+				this.spawnAtLocation(getVariant().getItem());
+			}
+			gameEvent(GameEvent.BLOCK_CHANGE, entity);
+		}
 	}
 
 	@Override
