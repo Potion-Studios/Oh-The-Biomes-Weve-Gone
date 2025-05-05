@@ -469,7 +469,7 @@ public class ModelGenerators {
                 }
             });
 
-            Arrays.stream(Wreath.Type.values()).forEach(type -> models().carpet(BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString(), blockBWGTexture(type.getSerializedName() + "_wreath")));
+            Arrays.stream(Wreath.Type.values()).forEach(type -> models().withExistingParent(BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString(), blockBWGTexture("template_wreath")).texture("wreath", BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString()).texture("particle", BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString()));
 
         }
 

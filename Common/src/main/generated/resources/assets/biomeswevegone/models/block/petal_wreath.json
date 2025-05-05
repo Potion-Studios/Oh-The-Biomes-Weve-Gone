@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/carpet",
+  "parent": "biomeswevegone:block/template_wreath",
   "textures": {
-    "wool": "biomeswevegone:block/petal_wreath"
+    "particle": "biomeswevegone:block/petal_wreath",
+    "wreath": "biomeswevegone:block/petal_wreath"
   }
 }
