@@ -1,8 +1,9 @@
 {
 	"elements": [
 		{
-			"from": [0, 0, 15],
-			"to": [16, 16, 16],
+			"from": [0, 0, 15.7],
+			"to": [16, 16, 15.9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, 2]},
 			"faces": {
 				"north": {"uv": [0, 0, 16, 16], "rotation": 180, "texture": "#wreath"},
 				"east": {"uv": [0, 0, 16, 1], "rotation": 90, "texture": "#wreath"},
