@@ -35,23 +35,27 @@ public class BWGVillagerTrades {
         if (BWGTradesConfig.INSTANCE.villagerTrades.allowBWGForagerTrades.value())
             TRADES.put(BWGVillagerProfessions.FORAGER.get(), toIntMap(ImmutableMap.of(
                     1, ImmutableList.of(
-                            createEmeraldForItemsOffer(Items.RED_MUSHROOM, 10, 12, 2),
-                            createEmeraldForItemsOffer(Items.BROWN_MUSHROOM, 10, 12, 2),
-                            createEmeraldForItemsOffer(BWGBlocks.GREEN_MUSHROOM.get(), 10, 12, 2)
+                            createEmeraldForItemsOffer(Items.RED_MUSHROOM, 5, 12, 2),
+                            createEmeraldForItemsOffer(Items.BROWN_MUSHROOM, 5, 12, 2),
+                            createEmeraldForItemsOffer(BWGBlocks.GREEN_MUSHROOM.get(), 5, 12, 2)
                     ),
                     2, ImmutableList.of(
-                            createEmeraldForItemsOffer(BWGBlocks.WOOD_BLEWIT.get(), 8, 12, 3),
-                            createItemsForEmeraldsOffer(BWGItems.WHITE_PUFFBALL_CAP.get(), 4, 5, 4, 2, 0.05f)
+                            createEmeraldForItemsOffer(BWGBlocks.WOOD_BLEWIT.get(), 5, 12, 3),
+                            createItemsForEmeraldsOffer(BWGItems.WHITE_PUFFBALL_SPORES.get(), 4, 3, 4, 2, 0.05f),
+                            createItemsForEmeraldsOffer(BWGItems.WREATH.get(), 1, 2, 8, 2, 0.05f)
                     ),
                     3, ImmutableList.of(
-                            createEmeraldForItemsOffer(BWGItems.WHITE_PUFFBALL_SPORES.get(), 4, 5, 4)
+                            createEmeraldForItemsOffer(BWGItems.WHITE_PUFFBALL_CAP.get(), 6, 12, 4),
+                            createItemsForEmeraldsOffer(BWGItems.HOLLY_WREATH.get(), 2, 1, 8, 2, 0.05f),
+                            createItemsForEmeraldsOffer(BWGItems.ROSY_WREATH.get(), 2, 1, 8, 2, 0.05f),
+                            createItemsForEmeraldsOffer(BWGItems.PETAL_WREATH.get(), 2, 1, 8, 2, 0.05f)
                     ),
                     4, ImmutableList.of(
                             createItemsForEmeraldsOffer(BWGBlocks.WITCH_HAZEL_BRANCH.get(), 4, 9, 4, 3, 0.05f),
                             createItemsForEmeraldsOffer(BWGBlocks.WITCH_HAZEL_BLOSSOM.get(), 10, 1, 10, 3, 0.05f)
                     ),
                     5, ImmutableList.of(
-                            createItemsForEmeraldsOffer(BWGBlocks.SHELF_FUNGI.get(), 3, 9, 4, 4, 0.05f),
+                            createItemsForEmeraldsOffer(BWGBlocks.FLUORESCENT_CATTAIL_SPROUT.get(), 4, 3, 4, 4, 0.05f),
                             createEmeraldForItemsOffer(Items.SWEET_BERRIES, 16, 4, 2),
                             createEmeraldForItemsOffer(BWGItems.BLUEBERRIES.get(), 16, 4, 2)
                     )

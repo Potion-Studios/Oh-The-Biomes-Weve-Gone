@@ -35,8 +35,8 @@ public class BWGOverworldVegationPlacedFeatures {
     public static final ResourceKey<PlacedFeature> FLOWER_PATCHES = createWorldSurfaceSquared("flower_patches", BWGOverworldVegetationConfiguredFeatures.FLOWER_PATCH, 5);
     public static final ResourceKey<PlacedFeature> SAKURA_PETALS = createWorldSurfaceSquared("sakura_petals", BWGOverworldVegetationConfiguredFeatures.SAKURA_PETALS, 9);
 
-    public static final ResourceKey<PlacedFeature> ALLIUM_SHRUBLAND_FLOWERS = createWorldSurfaceSquared("allium_shrubland_flowers", BWGOverworldVegetationConfiguredFeatures.ALLIUM_SHRUBLAND_FLOWERS, 15);
-    public static final ResourceKey<PlacedFeature> AMARANTH_GRASSLAND_FLOWERS = createWorldSurfaceSquared("amaranth_grassland_flowers", BWGOverworldVegetationConfiguredFeatures.AMARANTH_GRASSLAND_FLOWERS,15);
+    public static final ResourceKey<PlacedFeature> ALLIUM_SHRUBLAND_FLOWERS = createWorldSurfaceSquared("allium_shrubland_flowers", BWGOverworldVegetationConfiguredFeatures.ALLIUM_SHRUBLAND_FLOWERS, 20);
+    public static final ResourceKey<PlacedFeature> AMARANTH_GRASSLAND_FLOWERS = createWorldSurfaceSquared("amaranth_grassland_flowers", BWGOverworldVegetationConfiguredFeatures.AMARANTH_GRASSLAND_FLOWERS,30);
     public static final ResourceKey<PlacedFeature> ROSE_FIELD_FLOWERS = createWorldSurfaceSquared("rose_field_flowers", BWGOverworldVegetationConfiguredFeatures.ROSE_FIELD_FLOWERS, 25);
 
     public static final ResourceKey<PlacedFeature> BLUE_BERRY_BUSH = PlacedFeaturesUtil.createPlacedFeature("blue_berry_bush", BWGOverworldVegetationConfiguredFeatures.PATCH_BLUEBERRY, () -> List.of(RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
