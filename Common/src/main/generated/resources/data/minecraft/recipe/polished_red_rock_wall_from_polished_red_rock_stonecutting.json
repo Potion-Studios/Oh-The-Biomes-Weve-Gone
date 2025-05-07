@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "biomeswevegone:polished_red_rock"
+  },
+  "result": {
+    "count": 1,
+    "id": "biomeswevegone:polished_red_rock_wall"
+  }
+}

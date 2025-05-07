@@ -288,6 +288,8 @@ public class BWGBlocks {
     public static final BWGBlockSet CRACKED_RED_ROCK_BRICKS_SET = new BWGBlockSet("cracked_red_rock_bricks", "cracked_red_rock_brick", BlockBehaviour.Properties.ofFullCopy(Blocks.CRACKED_STONE_BRICKS).mapColor(MapColor.COLOR_RED));
     public static final BWGBlockSet CHISELED_RED_ROCK_BRICKS_SET = new BWGBlockSet("chiseled_red_rock_bricks", "chiseled_red_rock_brick", BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_STONE_BRICKS).mapColor(MapColor.COLOR_RED));
     public static final BWGBlockSet MOSSY_RED_ROCK_BRICKS_SET = new BWGBlockSet("mossy_red_rock_bricks", "mossy_red_rock_brick", BlockBehaviour.Properties.ofFullCopy(Blocks.MOSSY_STONE_BRICKS).mapColor(MapColor.COLOR_RED));
+    public static final BWGBlockSet POLISHED_RED_ROCK_SET = new BWGBlockSet("polished_red_rock", "polished_red_rock", BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BLACKSTONE).mapColor(MapColor.COLOR_RED));
+    public static final BWGBlockSet RED_ROCK_TILES_SET = new BWGBlockSet("red_rock_tiles", "red_rock_tile", BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BLACKSTONE).mapColor(MapColor.COLOR_RED));
 
     public static final BWGBlockSet MOSSY_STONE_SET = new BWGBlockSet("mossy_stone", BlockBehaviour.Properties.ofFullCopy(Blocks.MOSSY_COBBLESTONE));
     public static final BWGBlockSet ROCKY_STONE_SET = new BWGBlockSet("rocky_stone", BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE));

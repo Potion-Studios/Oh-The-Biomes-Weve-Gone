@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "biomeswevegone:polished_red_rock"
+    },
+    "X": {
+      "item": "biomeswevegone:polished_red_rock"
+    }
+  },
+  "pattern": [
+    "#",
+    "X"
+  ],
+  "result": {
+    "count": 1,
+    "id": "biomeswevegone:red_rock_tiles"
+  }
+}

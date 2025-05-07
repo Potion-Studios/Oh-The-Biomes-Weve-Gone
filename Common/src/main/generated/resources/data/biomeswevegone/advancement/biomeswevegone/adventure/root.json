@@ -641,6 +641,22 @@
       },
       "trigger": "minecraft:location"
     },
+    "biomeswevegone:red_rock_peaks": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "biomeswevegone:red_rock_peaks"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
     "biomeswevegone:red_rock_valley": {
       "conditions": {
         "player": [
@@ -923,6 +939,7 @@
       "biomeswevegone:prairie",
       "biomeswevegone:pumpkin_valley",
       "biomeswevegone:rainbow_beach",
+      "biomeswevegone:red_rock_peaks",
       "biomeswevegone:red_rock_valley",
       "biomeswevegone:redwood_thicket",
       "biomeswevegone:rose_fields",

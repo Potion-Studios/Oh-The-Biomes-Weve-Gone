@@ -934,7 +934,6 @@ class BWGOverworldBiomes {
 
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.YUCCA_TREES);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.MOJAVE_DESERT_VEGETATION);
-        BWGOverworldDefaultFeatures.addFirecrackerBush(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
@@ -1083,28 +1082,52 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addFossilDecoration(generationSettings);
         addDefaultOverworldGeneration(generationSettings);
 
-        BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
-        BiomeDefaultFeatures.addForestGrass(generationSettings);
-        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
-        BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
+        BiomeDefaultFeatures.addDesertVegetation(generationSettings);
+        BiomeDefaultFeatures.addWarmFlowers(generationSettings);
+        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
 
-        BWGOverworldDefaultFeatures.addOrangeTerracottaBoulder(generationSettings);
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.RED_ROCK_VALLEY_TREES);
         BWGOverworldDefaultFeatures.addPaloVerdeTrees(generationSettings);
+        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.RUGGED_BADLANDS_VEGETATION);
+        BWGOverworldDefaultFeatures.addOrangeTerracottaBoulder(generationSettings);
+        BWGOverworldDefaultFeatures.addShrub(generationSettings);
         BWGOverworldDefaultFeatures.addFirecrackerBush(generationSettings);
+        BWGOverworldDefaultFeatures.addHorseWeed(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.farmAnimals(spawnSettings);
+        BiomeDefaultFeatures.commonSpawns(spawnSettings);
         addSpawn(spawnSettings, EntityType.RABBIT, 4, 2, 3);
         addSpawn(spawnSettings, EntityType.ARMADILLO, 10, 2, 3);
-        addSpawn(spawnSettings, EntityType.BAT, 10, 8, 8);
-        addSpawn(spawnSettings, EntityType.SPIDER, 100, 4, 4);
-        addSpawn(spawnSettings, EntityType.HUSK, 95, 4, 4);
-        addSpawn(spawnSettings, EntityType.ZOMBIE_VILLAGER, 5, 1, 1);
-        addSpawn(spawnSettings, EntityType.SKELETON, 100, 4, 4);
-        addSpawn(spawnSettings, EntityType.CREEPER, 100, 4, 4);
-        addSpawn(spawnSettings, EntityType.SLIME, 100, 4, 4);
-        addSpawn(spawnSettings, EntityType.ENDERMAN, 10, 1, 4);
-        addSpawn(spawnSettings, EntityType.WITCH, 5, 1, 1);
+
+        float temperature = 1.2F;
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.1F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10855786).foliageColorOverride(10855786).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+    }
+
+    // Come back later and do decent arches
+    protected static Biome redRockPeaks(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
+        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
+        BiomeDefaultFeatures.addFossilDecoration(generationSettings);
+        addDefaultOverworldGeneration(generationSettings);
+
+        BiomeDefaultFeatures.addDesertVegetation(generationSettings);
+        BiomeDefaultFeatures.addWarmFlowers(generationSettings);
+        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.RED_ROCK_VALLEY_TREES);
+        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.RUGGED_BADLANDS_VEGETATION);
+        BWGOverworldDefaultFeatures.addOrangeTerracottaBoulder(generationSettings);
+        BWGOverworldDefaultFeatures.addShrub(generationSettings);
+        BWGOverworldDefaultFeatures.addFirecrackerBush(generationSettings);
+        BWGOverworldDefaultFeatures.addHorseWeed(generationSettings);
+        BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
+
+        MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.farmAnimals(spawnSettings);
+        BiomeDefaultFeatures.commonSpawns(spawnSettings);
+        addSpawn(spawnSettings, EntityType.RABBIT, 4, 2, 3);
+        addSpawn(spawnSettings, EntityType.ARMADILLO, 10, 2, 3);
 
         float temperature = 1.2F;
         return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.1F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10855786).foliageColorOverride(10855786).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
