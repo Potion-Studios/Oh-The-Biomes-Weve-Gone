@@ -934,7 +934,6 @@ class BWGOverworldBiomes {
 
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.YUCCA_TREES);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.MOJAVE_DESERT_VEGETATION);
-        BWGOverworldDefaultFeatures.addFirecrackerBush(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
