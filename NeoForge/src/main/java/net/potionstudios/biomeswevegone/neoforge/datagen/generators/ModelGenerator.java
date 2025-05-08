@@ -160,6 +160,7 @@ public class ModelGenerator extends ModelProvider {
             if (woodSet.sapling() != null) {
                 blockModels.createTrivialBlock(woodSet.sapling().getBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.CROSS, BiomesWeveGone.id(folder + "sapling"))).updateTemplate(template -> template.extend().renderType(mcLocation("cutout")).build()));
                 itemModels.itemModelOutput.accept(woodSet.sapling().getItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.sapling().getItem(), TextureMapping.layer0(BiomesWeveGone.id(folder + "sapling")), itemModels.modelOutput)));
+                blockModels.createTrivialBlock(woodSet.sapling().getPottedBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.FLOWER_POT_CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.PLANT, BiomesWeveGone.id(folder + "sapling"))));
             }
 
             itemModels.itemModelOutput.accept(woodSet.signItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.signItem(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/sign")), itemModels.modelOutput)));
@@ -171,9 +172,13 @@ public class ModelGenerator extends ModelProvider {
 
         blockModels.createTrivialBlock(BWGWood.WHITE_SAKURA_SAPLING.getBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.CROSS, BiomesWeveGone.id("block/sakura/white_sapling"))).updateTemplate(template -> template.extend().renderType(mcLocation("cutout")).build()));
         itemModels.itemModelOutput.accept(BWGWood.WHITE_SAKURA_SAPLING.getItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGWood.WHITE_SAKURA_SAPLING.getItem(), TextureMapping.layer0(BiomesWeveGone.id("block/sakura/white_sapling")), itemModels.modelOutput)));
+        blockModels.createTrivialBlock(BWGWood.WHITE_SAKURA_SAPLING.getPottedBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.FLOWER_POT_CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.PLANT, BiomesWeveGone.id("block/sakura/white_sapling"))));
+
 
         blockModels.createTrivialBlock(BWGWood.YELLOW_SAKURA_SAPLING.getBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.CROSS, BiomesWeveGone.id("block/sakura/yellow_sapling"))).updateTemplate(template -> template.extend().renderType(mcLocation("cutout")).build()));
         itemModels.itemModelOutput.accept(BWGWood.YELLOW_SAKURA_SAPLING.getItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGWood.YELLOW_SAKURA_SAPLING.getItem(), TextureMapping.layer0(BiomesWeveGone.id("block/sakura/yellow_sapling")), itemModels.modelOutput)));
+        blockModels.createTrivialBlock(BWGWood.YELLOW_SAKURA_SAPLING.getPottedBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.FLOWER_POT_CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.PLANT, BiomesWeveGone.id("block/sakura/yellow_sapling"))));
+
 
         blockModels.createTrivialBlock(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get(), TexturedModel.CUBE.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, BiomesWeveGone.id("block/blue_enchanted/imbued_wood"))));
         blockItemModel(blockModels, BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get());
@@ -194,6 +199,8 @@ public class ModelGenerator extends ModelProvider {
             } else if (b instanceof SaplingBlock sapling) {
                 blockModels.createTrivialBlock(sapling, TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.CROSS).updateTemplate(template -> template.extend().renderType(mcLocation("cutout")).build()));
                 blockModels.registerSimpleFlatItemModel(sapling);
+            } else if (b instanceof FlowerPotBlock flowerPotBlock) {
+                blockModels.createTrivialBlock(flowerPotBlock, TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.FLOWER_POT_CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.PLANT, ModelLocationUtils.getModelLocation(flowerPotBlock.getPotted()))));
             }
         });
 
@@ -224,6 +231,8 @@ public class ModelGenerator extends ModelProvider {
 
         blockModels.createTrivialBlock(BWGWood.PALO_VERDE_SAPLING.getBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.CROSS, BiomesWeveGone.id( "block/palo_verde/sapling"))).updateTemplate(template -> template.extend().renderType(mcLocation("cutout")).build()));
         itemModels.itemModelOutput.accept(BWGWood.PALO_VERDE_SAPLING.getBlock().asItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGWood.PALO_VERDE_SAPLING.getBlock().asItem(), TextureMapping.layer0(BiomesWeveGone.id("block/palo_verde/sapling")), itemModels.modelOutput)));
+        blockModels.createTrivialBlock(BWGWood.PALO_VERDE_SAPLING.getPottedBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.FLOWER_POT_CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.PLANT, BiomesWeveGone.id("block/palo_verde/sapling"))));
+
 
         blockModels.createTrivialBlock(BWGWood.PALO_VERDE_LEAVES.get(), TexturedModel.LEAVES.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, BiomesWeveGone.id("block/palo_verde/leaves"))).updateTemplate(template -> template.extend().renderType(mcLocation("cutout_mipped")).build()));
         blockItemModel(blockModels, BWGWood.PALO_VERDE_LEAVES.get());

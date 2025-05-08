@@ -1,4 +1,5 @@
 # 3.0.5
+- Fix Potted Saplings Missing Models
 
 # 3.0.4
 - Fix Chest Boats Not rendering textures

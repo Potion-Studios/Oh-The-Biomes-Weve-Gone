@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/flower_pot_cross",
+  "textures": {
+    "plant": "biomeswevegone:block/white_mangrove/sapling"
+  }
+}
