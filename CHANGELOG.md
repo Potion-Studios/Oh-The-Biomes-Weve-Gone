@@ -1,3 +1,5 @@
+# 3.0.5
+
 # 3.0.4
 - Fix Chest Boats Not rendering textures
 - Fix Overwriting Vanilla Pumpkin Pie Recipe
