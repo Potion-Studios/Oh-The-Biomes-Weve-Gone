@@ -123,7 +123,7 @@ public class BWGStructures {
                                                             new RandomChancePredicate(ConstantFloat.of(0.4F)),
                                                             BlockPredicate.anyOf(BWGWorldGenerationUtil.blockMatchesInAllDirections(blockPos -> BlockPredicate.matchesBlocks(blockPos, Blocks.AIR, Blocks.CAVE_AIR, Blocks.WATER)))
                                                     ),
-                                                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.DRIPSTONE_BLOCK.defaultBlockState(), 1))
+                                                    new WeightedStateProvider(SimpleWeightedRandomList.single(Blocks.DRIPSTONE_BLOCK.defaultBlockState()))
                                             )
                                     )
                             ),
@@ -145,12 +145,12 @@ public class BWGStructures {
                     structure(structureFactoryBootstapContext.lookup(Registries.BIOME).getOrThrow(BWGBiomeTags.RED_ROCK_ARCH), GenerationStep.Decoration.RAW_GENERATION, TerrainAdjustment.NONE),
                     new ArchConfig(UniformInt.of(64, 200), UniformInt.of(50, 150),
                             new CheckedBlockPlacement(List.of(
-                                    Pair.of(BlockPredicate.ONLY_IN_AIR_OR_WATER_PREDICATE, BlockStateProvider.simple(BWGBlocks.RED_ROCK_SET.getBase())),
+                                    Pair.of(BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockStateProvider.simple(BWGBlocks.RED_ROCK_SET.getBase())),
                                     Pair.of(BlockPredicate.allOf(
                                                     new RandomChancePredicate(ConstantFloat.of(0.4F)),
                                                     BlockPredicate.anyOf(BWGWorldGenerationUtil.blockMatchesInAllDirections(blockPos -> BlockPredicate.matchesBlocks(blockPos, Blocks.AIR, Blocks.CAVE_AIR, Blocks.WATER)))
                                             ),
-                                            new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.ORANGE_TERRACOTTA.defaultBlockState(), 1))
+                                            new WeightedStateProvider(SimpleWeightedRandomList.single(Blocks.ORANGE_TERRACOTTA.defaultBlockState()))
                                     )
                             )),
 
