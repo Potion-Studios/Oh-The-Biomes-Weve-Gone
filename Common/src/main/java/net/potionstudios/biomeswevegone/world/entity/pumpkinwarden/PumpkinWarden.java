@@ -457,7 +457,6 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
             pumpkinBurrow.addOccupant(this);
     }
 
-
     private void releaseAllPois() {
         releasePoi(MemoryModuleType.HOME);
         releasePoi(MemoryModuleType.MEETING_POINT);
