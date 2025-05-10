@@ -122,7 +122,7 @@ public class BWGStructures {
                                                             new RandomChancePredicate(ConstantFloat.of(0.4F)),
                                                             BlockPredicate.anyOf(BWGWorldGenerationUtil.blockMatchesInAllDirections(blockPos -> BlockPredicate.matchesBlocks(blockPos, Blocks.AIR, Blocks.CAVE_AIR, Blocks.WATER)))
                                                     ),
-                                                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.DRIPSTONE_BLOCK.defaultBlockState()))
+                                                    new WeightedStateProvider(SimpleWeightedRandomList.single(Blocks.DRIPSTONE_BLOCK.defaultBlockState()))
                                             )
                                     )
                             ),
@@ -149,7 +149,7 @@ public class BWGStructures {
                                                     new RandomChancePredicate(ConstantFloat.of(0.4F)),
                                                     BlockPredicate.anyOf(BWGWorldGenerationUtil.blockMatchesInAllDirections(blockPos -> BlockPredicate.matchesBlocks(blockPos, Blocks.AIR, Blocks.CAVE_AIR, Blocks.WATER)))
                                             ),
-                                            new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.ORANGE_TERRACOTTA.defaultBlockState()))
+                                            new WeightedStateProvider(SimpleWeightedRandomList.single(Blocks.ORANGE_TERRACOTTA.defaultBlockState()))
                                     )
                             )),
 
