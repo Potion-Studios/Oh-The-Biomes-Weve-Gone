@@ -28,6 +28,7 @@ public class PumpkinWardenGoalPackages {
                 Pair.of(0, new PumpkinWardenPanicTrigger()),
                 Pair.of(0, ReactToBell.create()),
                 Pair.of(1, new MoveToTargetSink()),
+                Pair.of(4, new Eat()),
                 Pair.of(10, AcquirePoi.create(holder -> holder.is(BWGPoiTypes.PUMPKIN_BURROW), MemoryModuleType.HOME, false, Optional.of((byte)14))),
                 Pair.of(10, AcquirePoi.create(holder -> holder.is(PoiTypes.MEETING), MemoryModuleType.MEETING_POINT, false, Optional.of((byte)14)))
         );
