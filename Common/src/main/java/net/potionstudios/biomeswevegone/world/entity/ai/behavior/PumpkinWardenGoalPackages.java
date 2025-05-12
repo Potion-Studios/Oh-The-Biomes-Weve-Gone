@@ -41,6 +41,7 @@ public class PumpkinWardenGoalPackages {
                 Pair.of(2, new PlaceInContainer()),
                 Pair.of(5, GoToWantedItem.create(SPEED_MODIFIER, false, 10)),
                 Pair.of(10, SetLookAndInteract.create(EntityType.PLAYER, 4)),
+                Pair.of(20, new RunOne<>(ImmutableList.of(Pair.of(VillageBoundRandomStroll.create(SPEED_MODIFIER), 1)))),
                 Pair.of(99, UpdateActivityFromSchedule.create())
         );
     }

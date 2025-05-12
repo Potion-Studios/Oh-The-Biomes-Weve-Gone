@@ -104,9 +104,4 @@ public class PlaceInContainer extends Behavior<PumpkinWarden> {
 		pumpkinWarden.getBrain().eraseMemory(MemoryModuleType.LOOK_TARGET);
 		pumpkinWarden.getBrain().eraseMemory(MemoryModuleType.WALK_TARGET);
 	}
-
-	@Override
-	protected boolean timedOut(long gameTime) {
-		return false;
-	}
 }
