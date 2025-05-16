@@ -359,8 +359,8 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
         PINK(1, "pink"),
         ALBINO(2, "albino");
 
-        private static final Codec<Variant> CODEC = StringRepresentable.fromEnum(Variant::values);
         private static final IntFunction<Variant> BY_ID = ByIdMap.continuous(Variant::getId, values(), ByIdMap.OutOfBoundsStrategy.ZERO);
+        public static final Codec<Variant> CODEC = StringRepresentable.fromEnum(Variant::values);
         private final String name;
         private final int id;
 

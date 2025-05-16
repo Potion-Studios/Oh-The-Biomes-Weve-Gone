@@ -8,6 +8,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.potionstudios.biomeswevegone.advancements.critereon.BWGEntitySubPredicates;
 import net.potionstudios.biomeswevegone.component.BWGDataComponents;
 import net.potionstudios.biomeswevegone.sounds.BWGSounds;
 import net.potionstudios.biomeswevegone.compat.vanilla.dispenser.BWGDispenseItemBehavior;
@@ -80,6 +81,7 @@ public class BiomesWeveGone {
         BWGMemoryModuleType.memoryModuleTypes();
         BWGSensorType.sensorTypes();
         BWGMapDecorationTypes.mapDecorationTypes();
+        BWGEntitySubPredicates.entitySubPredicates();
     }
 
     /**
