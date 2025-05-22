@@ -1,4 +1,4 @@
-# 1.6.0 -> The Village Update
+# 1.6.0 → The Village Update
 - Require Forge 47.4.0 or newer, drop support for 1.20.1 NeoForge
 
 # 1.5.11
