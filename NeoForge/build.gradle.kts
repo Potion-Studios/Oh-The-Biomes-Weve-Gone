@@ -50,7 +50,7 @@ dependencies {
     modApi("corgitaco.corgilib:Corgilib-NeoForge:$minecraftVersion-${project.properties["corgilib_version"]}")
     modApi("dev.corgitaco:Oh-The-Trees-Youll-Grow-neoforge:$minecraftVersion-${project.properties["ohthetreesyoullgrow_version"]}")
     modApi("software.bernie.geckolib:geckolib-neoforge-$minecraftVersion:${project.properties["geckolib_version"]}")
-
+    modApi("tech.jt-dev:MoreStructureProcessors-neoforge:${project.properties["moreprocessors_version"]}")?.let { include(it) }
     compileOnly("net.luckperms:api:5.4")
 
     modCompileOnly("mcp.mobius.waila:wthit-api:neo-${project.properties["WTHIT"]}")
