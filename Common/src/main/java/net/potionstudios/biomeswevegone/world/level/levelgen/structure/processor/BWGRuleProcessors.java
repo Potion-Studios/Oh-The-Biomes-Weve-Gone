@@ -288,7 +288,7 @@ class BWGRuleProcessors {
 		return new RandomBlockMatchTest(block, chance);
 	}
 
-	private static ProcessorRule createProcessorRule(RandomBlockMatchTest test, AlwaysTrueTest alwaysTrueTest, net.minecraft.world.level.block.state.BlockState blockState) {
+	private static ProcessorRule createProcessorRule(RandomBlockMatchTest test, AlwaysTrueTest alwaysTrueTest, BlockState blockState) {
 		return new ProcessorRule(test, alwaysTrueTest, blockState);
 	}
 

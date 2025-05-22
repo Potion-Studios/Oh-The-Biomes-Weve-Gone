@@ -31,7 +31,7 @@ class BWGVillagerUpgradeCommand {
                         villager.setVillagerData(villager.getVillagerData().setType(BWGVillagerTypes.SKYRIS.get()));
                     else if (biome.is(BWGBiomes.WEEPING_WITCH_FOREST))
                         villager.setVillagerData(villager.getVillagerData().setType(BWGVillagerTypes.SALEM.get()));
-                    else if (biome.is(BWGBiomes.RED_ROCK_VALLEY))
+                    else if (biome.is(BWGBiomes.RED_ROCK_VALLEY) || biome.is(BWGBiomes.RED_ROCK_PEAKS))
                         villager.setVillagerData(villager.getVillagerData().setType(BWGVillagerTypes.RED_ROCK.get()));
                     villager.refreshBrain(level);
                 }
