@@ -1,4 +1,4 @@
-package net.potionstudios.biomeswevegone.world.level.saveddate.maps;
+package net.potionstudios.biomeswevegone.world.level.saveddata.maps;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
