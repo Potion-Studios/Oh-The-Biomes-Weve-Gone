@@ -190,13 +190,8 @@ class BWGProcessorRules {
 
 	protected static final ProcessorRule BOG_TRIAL_FLOOR = createAlwaysTrueRandomBlockMatchTest(BWGBlocks.PALE_MUD_BRICKS_SET.getBase(), 0.5f, BWGBlocks.PACKED_PALE_MUD.get());
 
-	protected static ProcessorRule[] streetWater(Block path, Block alternativePath, Block alternativePath2, Block waterReplacement) {
-		return new ProcessorRule[] {
-				new ProcessorRule(new BlockMatchTest(path), new BlockMatchTest(Blocks.WATER), waterReplacement.defaultBlockState()),
-				createAlwaysTrueRandomBlockMatchTest(path, 0.1F, alternativePath.defaultBlockState()),
-				new ProcessorRule(new BlockMatchTest(alternativePath), new BlockMatchTest(Blocks.WATER), Blocks.WATER.defaultBlockState()),
-				new ProcessorRule(new BlockMatchTest(alternativePath2), new BlockMatchTest(Blocks.WATER), Blocks.WATER.defaultBlockState())
-		};
+	protected static ProcessorRule streetWater(Block path, Block waterReplacement) {
+		return new ProcessorRule(new BlockMatchTest(path), new BlockMatchTest(Blocks.WATER), waterReplacement.defaultBlockState());
 	}
 
 	protected static ProcessorRule skyrisLeavesToGreenAppleLeaves(float chance) {

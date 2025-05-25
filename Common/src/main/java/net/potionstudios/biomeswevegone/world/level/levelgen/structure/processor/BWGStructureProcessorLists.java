@@ -49,7 +49,7 @@ public class BWGStructureProcessorLists {
 
     public static final ResourceKey<StructureProcessorList> SKYRIS_STREETS = register("skyris_streets", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
-                    createRuleProcessor(BWGProcessorRules.POLISHED_ANDESITE_RANDOM_ANDESITE_GRAVEL, BWGProcessorRules.streetWater(Blocks.POLISHED_ANDESITE, Blocks.ANDESITE, Blocks.GRAVEL, BWGWood.SKYRIS.planks()))
+                    createRuleProcessor(new ProcessorRule[]{BWGProcessorRules.streetWater(Blocks.POLISHED_ANDESITE, BWGWood.SKYRIS.planks())}, BWGProcessorRules.POLISHED_ANDESITE_RANDOM_ANDESITE_GRAVEL)
             )
     ));
 
@@ -105,8 +105,7 @@ public class BWGStructureProcessorLists {
     )));
 
     public static final ResourceKey<StructureProcessorList> SALEM_STREETS = register("salem_streets", structureProcessorListHolderGetter -> new StructureProcessorList(
-            ImmutableList.of(createRuleProcessor(new ProcessorRule[] {BWGProcessorRules.lushDirtToCoarseDirt(.3f)},
-                    BWGProcessorRules.streetWater(BWGBlocks.LUSH_DIRT_PATH.get(), Blocks.COARSE_DIRT, Blocks.COARSE_DIRT, BWGWood.WITCH_HAZEL.planks())))
+            ImmutableList.of(createRuleProcessor(BWGProcessorRules.streetWater(BWGBlocks.LUSH_DIRT_PATH.get(), BWGWood.WITCH_HAZEL.planks()), BWGProcessorRules.lushDirtToCoarseDirt(.3f)))
     ));
 
     public static final ResourceKey<StructureProcessorList> SALEM_HOUSES = register("salem_houses", structureProcessorListHolderGetter -> new StructureProcessorList(
@@ -117,7 +116,7 @@ public class BWGStructureProcessorLists {
     )));
 
     public static final ResourceKey<StructureProcessorList> RED_ROCK_STREETS = register("red_rock_streets", structureProcessorListHolderGetter -> new StructureProcessorList(
-            ImmutableList.of(createRuleProcessor(BWGProcessorRules.ORANGE_TERRACOTTA_TO_RED_ROCK_CRACKED_RED_ROCK_BRICKS, BWGProcessorRules.streetWater(Blocks.ORANGE_TERRACOTTA, BWGBlocks.RED_ROCK_SET.getBase(), BWGBlocks.CRACKED_RED_ROCK_BRICKS_SET.getBase(), BWGWood.PINE.planks())))
+            ImmutableList.of(createRuleProcessor(new ProcessorRule[]{BWGProcessorRules.streetWater(Blocks.ORANGE_TERRACOTTA, BWGWood.PINE.planks())}, BWGProcessorRules.ORANGE_TERRACOTTA_TO_RED_ROCK_CRACKED_RED_ROCK_BRICKS))
     ));
 
     public static final ResourceKey<StructureProcessorList> RED_ROCK_CRACKED_BRICKS_50_PERCENT_MOSSY_RED_ROCK_BRICKS = register("red_rock_cracked_bricks_50_percent_mossy_red_rock_bricks", structureProcessorListHolderGetter -> new StructureProcessorList(
@@ -152,13 +151,13 @@ public class BWGStructureProcessorLists {
 
     public static final ResourceKey<StructureProcessorList> PUMPKIN_PATCH_STREETS = register("pumpkin_patch_streets", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
-                    createRuleProcessor(new ProcessorRule[]{
-                    BWGProcessorRules.lushPathToBlock(0.15f, Blocks.PACKED_MUD),
-                    BWGProcessorRules.lushPathToBlock(0.45f, BWGBlocks.PEAT.get()),
-                    BWGProcessorRules.lushPathToBlock(0.4f, Blocks.COARSE_DIRT)},
-                            BWGProcessorRules.streetWater(BWGBlocks.LUSH_DIRT_PATH.get(), BWGBlocks.PEAT.get(), Blocks.COARSE_DIRT, Blocks.DARK_OAK_PLANKS))
+                    createRuleProcessor(
+                        BWGProcessorRules.streetWater(BWGBlocks.LUSH_DIRT_PATH.get(), Blocks.DARK_OAK_PLANKS),
+                        BWGProcessorRules.lushPathToBlock(0.15f, Blocks.PACKED_MUD),
+                        BWGProcessorRules.lushPathToBlock(0.45f, BWGBlocks.PEAT.get()),
+                        BWGProcessorRules.lushPathToBlock(0.4f, Blocks.COARSE_DIRT)
             )
-    ));
+    )));
 
     public static final ResourceKey<StructureProcessorList> PUMPKIN_PATCH_HOUSE = register("pumpkin_patch_house", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
