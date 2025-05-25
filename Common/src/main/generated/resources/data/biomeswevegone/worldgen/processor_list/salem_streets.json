@@ -15,6 +15,64 @@
           "output_state": {
             "Name": "minecraft:coarse_dirt"
           }
+        },
+        {
+          "input_predicate": {
+            "block": "biomeswevegone:lush_dirt_path",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "block": "minecraft:water",
+            "predicate_type": "minecraft:block_match"
+          },
+          "output_state": {
+            "Name": "biomeswevegone:witch_hazel_planks"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "biomeswevegone:lush_dirt_path",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.1
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:coarse_dirt"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:coarse_dirt",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "block": "minecraft:water",
+            "predicate_type": "minecraft:block_match"
+          },
+          "output_state": {
+            "Name": "minecraft:water",
+            "Properties": {
+              "level": "0"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:coarse_dirt",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "block": "minecraft:water",
+            "predicate_type": "minecraft:block_match"
+          },
+          "output_state": {
+            "Name": "minecraft:water",
+            "Properties": {
+              "level": "0"
+            }
+          }
         }
       ]
     }
