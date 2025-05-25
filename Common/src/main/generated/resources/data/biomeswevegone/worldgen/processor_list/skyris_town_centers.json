@@ -51,12 +51,7 @@
               "waterlogged": "false"
             }
           }
-        }
-      ]
-    },
-    {
-      "processor_type": "minecraft:rule",
-      "rules": [
+        },
         {
           "input_predicate": {
             "block": "biomeswevegone:skyris_leaves",

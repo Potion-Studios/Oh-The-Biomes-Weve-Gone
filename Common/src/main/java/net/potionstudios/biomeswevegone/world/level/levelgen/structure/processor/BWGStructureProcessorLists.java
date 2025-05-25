@@ -41,8 +41,7 @@ public class BWGStructureProcessorLists {
     public static final ResourceKey<StructureProcessorList> FORGOTTEN_VILLAGE_BLOCKS = register("forgotten_village_blocks", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
                     BWGRuleProcessors.FORGOTTEN_ROCKY_STONE,
-                    BWGRuleProcessors.FORGOTTEN_GRAVEL,
-                    BWGRuleProcessors.FORGOTTEN_LUSH_GRASS_BLOCK,
+                    createRuleProcessor(BWGRuleProcessors.FORGOTTEN_GRAVEL, BWGRuleProcessors.FORGOTTEN_LUSH_GRASS_BLOCK),
                     BWGRuleProcessors.FORGOTTEN_MOSSY_STONE_BRICKS
             )
     ));
@@ -56,7 +55,7 @@ public class BWGStructureProcessorLists {
     public static final ResourceKey<StructureProcessorList> SKYRIS_TEMPLE = register("skyris_temple", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
                     BWGRuleProcessors.POLISHED_ANDESITE_RANDOM_ANDESITE_GRAVEL,
-                    BWGRuleProcessors.WHITE_DACITE_10_PERCENT_COBBLED_WHITE_DACITE,
+                    createRuleProcessor(BWGRuleProcessors.WHITE_DACITE_10_PERCENT_COBBLED_WHITE_DACITE),
                     BWGRuleProcessors.STONEBRICKS_VARIANTS
             )
     ));
@@ -70,8 +69,9 @@ public class BWGStructureProcessorLists {
 
     public static final ResourceKey<StructureProcessorList> SKYRIS_FLETCHER_HOUSE = register("skyris_fletcher_house", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
+                    createRuleProcessor(
                 BWGRuleProcessors.PODZOL_25_PERCENT_COARSE_DIRT,
-                BWGRuleProcessors.PODZOL_10_PERCENT_GRAVEL,
+                BWGRuleProcessors.PODZOL_10_PERCENT_GRAVEL),
                 BWGRuleProcessors.PODZOL_10_PERCENT_ANDESITE
             )
     ));
@@ -79,10 +79,11 @@ public class BWGStructureProcessorLists {
     public static final ResourceKey<StructureProcessorList> SKYRIS_FORAGER_HOUSE = register("skyris_forager_house", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
                 BWGRuleProcessors.POLISHED_ANDESITE_RANDOM_ANDESITE_GRAVEL,
+                createRuleProcessor(
                 BWGRuleProcessors.PODZOL_25_PERCENT_COARSE_DIRT,
                 BWGRuleProcessors.PODZOL_50_PERCENT_LUSH_GRASS,
                 BWGRuleProcessors.skyrisLeavesToGreenAppleLeaves(0.15f),
-                BWGRuleProcessors.skyrisLeavesToFlowering(0.2f),
+                BWGRuleProcessors.skyrisLeavesToFlowering(0.2f)),
                 new FruitBlockProcessor(BWGBlocks.GREEN_APPLE_FRUIT_BLOCK.get())
             )
     ));
@@ -90,15 +91,16 @@ public class BWGStructureProcessorLists {
     public static final ResourceKey<StructureProcessorList> SKYRIS_TOWN_CENTERS = register("skyris_town_centers", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
                     BWGRuleProcessors.POLISHED_ANDESITE_RANDOM_ANDESITE_GRAVEL,
+                    createRuleProcessor(
                     BWGRuleProcessors.skyrisLeavesToGreenAppleLeaves(0.15f),
-                    BWGRuleProcessors.skyrisLeavesToFlowering(0.2f),
+                    BWGRuleProcessors.skyrisLeavesToFlowering(0.2f)),
                     new FruitBlockProcessor(BWGBlocks.GREEN_APPLE_FRUIT_BLOCK.get())
             )
     ));
 
     public static final ResourceKey<StructureProcessorList> SALEM_TOWN_CENTER = register("salem_town_center", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
-                    BWGRuleProcessors.lushDirtToCoarseDirt(.4f),
+                    createRuleProcessor(BWGRuleProcessors.lushDirtToCoarseDirt(.4f)),
                     BWGRuleProcessors.STONE_SLAB_RANDOM_ANDESITE_ROCKY_SLAB,
                     BWGRuleProcessors.STONE_RANDOM_ROCKY_ANDESITE
             )
@@ -106,13 +108,13 @@ public class BWGStructureProcessorLists {
 
     public static final ResourceKey<StructureProcessorList> SALEM_STREETS = register("salem_streets", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
-                    BWGRuleProcessors.lushDirtToCoarseDirt(.3f)
+                    createRuleProcessor(BWGRuleProcessors.lushDirtToCoarseDirt(.3f))
             )
     ));
 
     public static final ResourceKey<StructureProcessorList> SALEM_HOUSES = register("salem_houses", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
-                    BWGRuleProcessors.STRIPPED_OAK_LOG_60_PERCENT_OAK_PLANKS,
+                    createRuleProcessor(BWGRuleProcessors.STRIPPED_OAK_LOG_60_PERCENT_OAK_PLANKS),
                     BWGRuleProcessors.STONE_RANDOM_COBBLESTONE_MOSSY
             )
     ));
@@ -125,90 +127,99 @@ public class BWGStructureProcessorLists {
 
     public static final ResourceKey<StructureProcessorList> RED_ROCK_CRACKED_BRICKS_50_PERCENT_MOSSY_RED_ROCK_BRICKS = register("red_rock_cracked_bricks_50_percent_mossy_red_rock_bricks", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
-                    BWGRuleProcessors.RED_ROCK_CRACKED_BRICKS_50_PERCENT_MOSSY_RED_ROCK_BRICKS
+                    createRuleProcessor(BWGRuleProcessors.RED_ROCK_CRACKED_BRICKS_50_PERCENT_MOSSY_RED_ROCK_BRICKS)
             )
     ));
 
     public static final ResourceKey<StructureProcessorList> RED_ROCK_MEETING_POINT_1 = register("red_rock_meeting_point_1", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
-                    BWGRuleProcessors.RED_ROCK_BRICKS_TO_ORANGE_TERRACOTTA,
-                    BWGRuleProcessors.RED_ROCK_CRACKED_BRICKS_50_PERCENT_MOSSY_RED_ROCK_BRICKS
+                    createRuleProcessor(BWGRuleProcessors.RED_ROCK_BRICKS_TO_ORANGE_TERRACOTTA,
+                    BWGRuleProcessors.RED_ROCK_CRACKED_BRICKS_50_PERCENT_MOSSY_RED_ROCK_BRICKS)
             )
     ));
 
     public static final ResourceKey<StructureProcessorList> RED_ROCK_MEETING_POINT_3 = register("red_rock_meeting_point_3", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
-                    BWGRuleProcessors.STRIPPED_BAOBAB_WOOD_50_PERCENT_BAOBAB_PLANKS
+                    createRuleProcessor(BWGRuleProcessors.STRIPPED_BAOBAB_WOOD_50_PERCENT_BAOBAB_PLANKS)
             )
     ));
 
     public static final ResourceKey<StructureProcessorList> RED_ROCK_TO_BRICKS = register("red_rock_to_bricks", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
+                    createRuleProcessor(
                     BWGRuleProcessors.RED_ROCK_25_PERCENT_CRACKED_RED_ROCK_BRICKS,
-                    BWGRuleProcessors.RED_ROCK_25_PERCENT_RED_ROCK_BRICKS
+                    BWGRuleProcessors.RED_ROCK_25_PERCENT_RED_ROCK_BRICKS)
             )
     ));
 
     public static final ResourceKey<StructureProcessorList> RED_ROCK_HOUSE = register("red_rock_house", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
-                    BWGRuleProcessors.RED_ROCK_BRICKS_35_PERCENT_CRACKED_RED_ROCK_BRICKS,
+                    createRuleProcessor(BWGRuleProcessors.RED_ROCK_BRICKS_35_PERCENT_CRACKED_RED_ROCK_BRICKS),
                     BWGRuleProcessors.RANDOM_DESERT_POTTED_PLANT
             )
     ));
 
     public static final ResourceKey<StructureProcessorList> PUMPKIN_PATCH_STREETS = register("pumpkin_patch_streets", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
+                    createRuleProcessor(
                     BWGRuleProcessors.lushPathToBlock(0.15f, Blocks.PACKED_MUD),
                     BWGRuleProcessors.lushPathToBlock(0.45f, BWGBlocks.PEAT.get()),
-                    BWGRuleProcessors.lushPathToBlock(0.4f, Blocks.COARSE_DIRT)
+                    BWGRuleProcessors.lushPathToBlock(0.4f, Blocks.COARSE_DIRT))
             )
     ));
 
     public static final ResourceKey<StructureProcessorList> PUMPKIN_PATCH_HOUSE = register("pumpkin_patch_house", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
+                    createRuleProcessor(
                     BWGRuleProcessors.lushPathToBlock(0.15f, BWGBlocks.LUSH_GRASS_BLOCK.get()),
                     BWGRuleProcessors.lushPathToBlock(0.45f, BWGBlocks.PEAT.get()),
                     BWGRuleProcessors.lushPathToBlock(0.4f, Blocks.COARSE_DIRT),
                     BWGRuleProcessors.burrowToBlock(0.85f, Blocks.PUMPKIN),
+                    BWGRuleProcessors.STRIPPED_DARK_OAK_WOOD_35_PERCENT_DARK_OAK_PLANKS),
                     BWGRuleProcessors.DACITE_COBBLESTONE_VARIANTS,
-                    BWGRuleProcessors.SHORT_GRASS_TO_FLOWER_PUMPKIN_PATCH,
-                    BWGRuleProcessors.STRIPPED_DARK_OAK_WOOD_35_PERCENT_DARK_OAK_PLANKS
+                    BWGRuleProcessors.SHORT_GRASS_TO_FLOWER_PUMPKIN_PATCH
             )
     ));
 
     public static final ResourceKey<StructureProcessorList> SWAMP_STREETS = register("swamp_streets", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
-                    BWGRuleProcessors.tuffToBlock(0.15f, Blocks.MOSSY_COBBLESTONE),
-                    BWGRuleProcessors.tuffToBlock(0.5f, Blocks.POLISHED_TUFF),
-                    BWGRuleProcessors.tuffToBlock(0.5f, Blocks.TUFF_BRICKS)
+                    createRuleProcessor(BWGRuleProcessors.tuffToBlock(0.15f, Blocks.MOSSY_COBBLESTONE),
+                            BWGRuleProcessors.tuffToBlock(0.5f, Blocks.POLISHED_TUFF),
+                            BWGRuleProcessors.tuffToBlock(0.5f, Blocks.TUFF_BRICKS))
             )
     ));
 
     public static final ResourceKey<StructureProcessorList> SWAMP_HOUSE = register("swamp_house", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
+                    createRuleProcessor(
                     BWGRuleProcessors.tuffToBlock(0.15f, Blocks.MOSSY_COBBLESTONE),
                     BWGRuleProcessors.tuffToBlock(0.45f, Blocks.POLISHED_TUFF),
                     BWGRuleProcessors.tuffToBlock(0.4f, Blocks.TUFF_BRICKS),
                     BWGRuleProcessors.grassBlockToBlock(0.1f, Blocks.MOSS_BLOCK),
-                    BWGRuleProcessors.SHORT_GRASS_TO_FLOWER_SWAMP,
-                    BWGRuleProcessors.chestToBlock(0.2f, Blocks.AIR)
-                    )
+                    BWGRuleProcessors.chestToBlock(0.2f, Blocks.AIR)),
+                    BWGRuleProcessors.SHORT_GRASS_TO_FLOWER_SWAMP
+            )
     ));
 
     public static final ResourceKey<StructureProcessorList> MOSSIFY_10_PERCENT_WHITE_PUFFBALL = register("mossify_10_percent_white_puffball", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
-                    BWGRuleProcessors.MOSSIFY_10_PERCENT,
+                    createRuleProcessor(BWGRuleProcessors.MOSSIFY_10_PERCENT),
                     BWGRuleProcessors.WHITE_PUFFBALL_RANDOM_AGE
             )
     ));
 
     public static final ResourceKey<StructureProcessorList> BOG_TRIAL = register("bog_trial", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
-                    BWGRuleProcessors.spiritLeavesToFlowering(0.5f),
-                    BWGRuleProcessors.BOG_TRIAL_FLOOR,
+                    createRuleProcessor(BWGRuleProcessors.spiritLeavesToFlowering(0.5f),
+                            BWGRuleProcessors.BOG_TRIAL_FLOOR
+                            ),
                     BWGRuleProcessors.WHITE_PUFFBALL_RANDOM_AGE
             )
     ));
+
+    private static RuleProcessor createRuleProcessor(ProcessorRule... rules) {
+        return new RuleProcessor(ImmutableList.copyOf(rules));
+    }
 
     private static ResourceKey<StructureProcessorList> register(String id, StructureProcessorListFactory factory) {
         ResourceKey<StructureProcessorList> structureProcessorListResourceKey = BiomesWeveGone.key(Registries.PROCESSOR_LIST, id);

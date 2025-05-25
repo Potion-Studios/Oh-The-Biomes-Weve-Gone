@@ -62,12 +62,7 @@
               "dusted": "0"
             }
           }
-        }
-      ]
-    },
-    {
-      "processor_type": "minecraft:rule",
-      "rules": [
+        },
         {
           "input_predicate": {
             "block": "biomeswevegone:lush_grass_block",

@@ -20,23 +20,14 @@ class BWGRuleProcessors {
 			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.ROCKY_STONE_SET.getBase(), 0.25F, Blocks.STONE)
 	);
 
-	protected static final RuleProcessor FORGOTTEN_GRAVEL = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(Blocks.GRAVEL, 0.35F, Blocks.SUSPICIOUS_GRAVEL)
-	);
+	protected static final ProcessorRule FORGOTTEN_GRAVEL = createAlwaysTrueRandomBlockMatchTest(Blocks.GRAVEL, 0.35F, Blocks.SUSPICIOUS_GRAVEL);
 
-	protected static final RuleProcessor FORGOTTEN_LUSH_GRASS_BLOCK = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.LUSH_GRASS_BLOCK.get(), 0.45F, Blocks.MOSS_BLOCK)
-	);
+	protected static final ProcessorRule FORGOTTEN_LUSH_GRASS_BLOCK = createAlwaysTrueRandomBlockMatchTest(BWGBlocks.LUSH_GRASS_BLOCK.get(), 0.45F, Blocks.MOSS_BLOCK);
 
 	protected static final RuleProcessor FORGOTTEN_MOSSY_STONE_BRICKS = createRuleProcessor(
 			createAlwaysTrueRandomBlockMatchTest(Blocks.MOSSY_STONE_BRICKS, 0.1F, Blocks.STONE_BRICKS),
 			createAlwaysTrueRandomBlockMatchTest(Blocks.MOSSY_STONE_BRICKS, 0.2F, Blocks.CRACKED_STONE_BRICKS),
 			createAlwaysTrueRandomBlockMatchTest(Blocks.MOSSY_STONE_BRICKS, 0.1F, Blocks.TUFF)
-	);
-
-	protected static RuleProcessor DIRT_RANDOM_GRASS_COARSE_DIRT = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(Blocks.DIRT, 0.33F, Blocks.GRASS_BLOCK),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.DIRT, 0.33F, Blocks.COARSE_DIRT)
 	);
 
 	protected static final RuleProcessor DIRT_RANDOM_GRASS_COARSE_DIRT_PODZOL = createRuleProcessor(
@@ -76,15 +67,7 @@ class BWGRuleProcessors {
 			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.BLUEBERRY_BUSH.get(), 0.125F, Blocks.SWEET_BERRY_BUSH.defaultBlockState().setValue(SweetBerryBushBlock.AGE, 3)
 	));
 
-	protected static final RuleProcessor MOSSIFY_10_PERCENT = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.1F, Blocks.MOSSY_COBBLESTONE)
-	);
-
-	protected static final RuleProcessor MOSSIFY_50_PERCENT = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE, 0.5F, BWGBlocks.MOSSY_STONE_SET.getBase()),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.5F, Blocks.MOSSY_COBBLESTONE),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE_BRICKS, 0.5F, Blocks.MOSSY_STONE_BRICKS)
-	);
+	protected static final ProcessorRule MOSSIFY_10_PERCENT = createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.1F, Blocks.MOSSY_COBBLESTONE);
 
 	protected static final RuleProcessor WHITE_PUFFBALL_RANDOM_AGE = createRuleProcessor(
 			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_PUFFBALL.getBlock(), 0.33f, BWGBlocks.WHITE_PUFFBALL.getBlockState().setValue(WhitePuffballBlock.AGE, 0)),
@@ -92,41 +75,32 @@ class BWGRuleProcessors {
 			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_PUFFBALL.getBlock(), 0.33f, BWGBlocks.WHITE_PUFFBALL.getBlockState().setValue(WhitePuffballBlock.AGE, 2))
 	);
 
-	protected static RuleProcessor packedMudToBlock(float chance, Block newBlock) {
-		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(Blocks.PACKED_MUD, chance, newBlock));
+	protected static ProcessorRule burrowToBlock(float chance, Block newBlock) {
+		return createAlwaysTrueRandomBlockMatchTest(BWGBlocks.PUMPKIN_BURROW.get(), chance, newBlock);
 	}
 
-	protected static RuleProcessor burrowToBlock(float chance, Block newBlock) {
-		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(BWGBlocks.PUMPKIN_BURROW.get(), chance, newBlock));
+	protected static ProcessorRule lushPathToBlock(float chance, Block newBlock) {
+		return createAlwaysTrueRandomBlockMatchTest(BWGBlocks.LUSH_DIRT_PATH.get(), chance, newBlock);
 	}
 
-	protected static RuleProcessor lushPathToBlock(float chance, Block newBlock) {
-		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(BWGBlocks.LUSH_DIRT_PATH.get(), chance, newBlock));
+	protected static ProcessorRule tuffToBlock(float chance, Block newBlock) {
+		return createAlwaysTrueRandomBlockMatchTest(Blocks.TUFF, chance, newBlock);
 	}
 
-	protected static RuleProcessor tuffToBlock(float chance, Block newBlock) {
-		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(Blocks.TUFF, chance, newBlock));
+	protected static ProcessorRule grassBlockToBlock(float chance, Block newBlock) {
+		return createAlwaysTrueRandomBlockMatchTest(Blocks.GRASS_BLOCK, chance, newBlock);
 	}
 
-	protected static RuleProcessor grassBlockToBlock(float chance, Block newBlock) {
-		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(Blocks.GRASS_BLOCK, chance, newBlock));
+	protected static ProcessorRule chestToBlock(float chance, Block newBlock) {
+		return createAlwaysTrueRandomBlockMatchTest(Blocks.CHEST, chance, newBlock);
 	}
 
-	protected static RuleProcessor chestToBlock(float chance, Block newBlock) {
-		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(Blocks.CHEST, chance, newBlock));
-	}
+	protected static final ProcessorRule STRIPPED_DARK_OAK_WOOD_35_PERCENT_DARK_OAK_PLANKS = createAlwaysTrueRandomBlockMatchTest(Blocks.DARK_OAK_PLANKS, 0.35F, Blocks.STRIPPED_DARK_OAK_WOOD);
 
-	protected static final RuleProcessor STRIPPED_DARK_OAK_WOOD_35_PERCENT_DARK_OAK_PLANKS = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(Blocks.DARK_OAK_PLANKS, 0.35F, Blocks.STRIPPED_DARK_OAK_WOOD)
-	);
+	protected static final ProcessorRule STRIPPED_OAK_LOG_60_PERCENT_OAK_PLANKS = createAlwaysTrueRandomBlockMatchTest(Blocks.STRIPPED_OAK_LOG, 0.6F, Blocks.OAK_PLANKS);
 
-
-	protected static final RuleProcessor STRIPPED_OAK_LOG_60_PERCENT_OAK_PLANKS = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(Blocks.STRIPPED_OAK_LOG, 0.6F, Blocks.OAK_PLANKS)
-	);
-
-	protected static RuleProcessor lushDirtToCoarseDirt(float chance) {
-		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(BWGBlocks.LUSH_DIRT_PATH.get(), chance, Blocks.COARSE_DIRT));
+	protected static ProcessorRule lushDirtToCoarseDirt(float chance) {
+		return createAlwaysTrueRandomBlockMatchTest(BWGBlocks.LUSH_DIRT_PATH.get(), chance, Blocks.COARSE_DIRT);
 	}
 
 	protected static final RuleProcessor POLISHED_ANDESITE_RANDOM_ANDESITE_GRAVEL = createRuleProcessor(
@@ -150,29 +124,17 @@ class BWGRuleProcessors {
 			createAlwaysTrueRandomBlockMatchTest(Blocks.ORANGE_TERRACOTTA, 0.1F, BWGBlocks.RED_ROCK_BRICKS_SET.getBase())
 	);
 
-	protected static final RuleProcessor RED_ROCK_BRICKS_TO_ORANGE_TERRACOTTA = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.RED_ROCK_BRICKS_SET.getBase(), 0.33F, Blocks.ORANGE_TERRACOTTA)
-	);
+	protected static final ProcessorRule RED_ROCK_BRICKS_TO_ORANGE_TERRACOTTA = createAlwaysTrueRandomBlockMatchTest(BWGBlocks.RED_ROCK_BRICKS_SET.getBase(), 0.33F, Blocks.ORANGE_TERRACOTTA);
 
-	protected static final RuleProcessor RED_ROCK_CRACKED_BRICKS_50_PERCENT_MOSSY_RED_ROCK_BRICKS = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.CRACKED_RED_ROCK_BRICKS_SET.getBase(), 0.5F, BWGBlocks.MOSSY_RED_ROCK_BRICKS_SET.getBase())
-	);
+	protected static final ProcessorRule RED_ROCK_CRACKED_BRICKS_50_PERCENT_MOSSY_RED_ROCK_BRICKS = createAlwaysTrueRandomBlockMatchTest(BWGBlocks.CRACKED_RED_ROCK_BRICKS_SET.getBase(), 0.5F, BWGBlocks.MOSSY_RED_ROCK_BRICKS_SET.getBase());
 
-	protected static final RuleProcessor STRIPPED_BAOBAB_WOOD_50_PERCENT_BAOBAB_PLANKS = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(BWGWood.BAOBAB.strippedWood(), 0.5F, BWGWood.BAOBAB.planks())
-	);
+	protected static final ProcessorRule STRIPPED_BAOBAB_WOOD_50_PERCENT_BAOBAB_PLANKS = createAlwaysTrueRandomBlockMatchTest(BWGWood.BAOBAB.strippedWood(), 0.5F, BWGWood.BAOBAB.planks());
 
-	protected static final RuleProcessor RED_ROCK_25_PERCENT_RED_ROCK_BRICKS = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.RED_ROCK_SET.getBase(), 0.25F, BWGBlocks.RED_ROCK_BRICKS_SET.getBase())
-	);
+	protected static final ProcessorRule RED_ROCK_25_PERCENT_RED_ROCK_BRICKS = createAlwaysTrueRandomBlockMatchTest(BWGBlocks.RED_ROCK_SET.getBase(), 0.25F, BWGBlocks.RED_ROCK_BRICKS_SET.getBase());
 
-	protected static final RuleProcessor RED_ROCK_25_PERCENT_CRACKED_RED_ROCK_BRICKS = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.RED_ROCK_SET.getBase(), 0.25F, BWGBlocks.CRACKED_RED_ROCK_BRICKS_SET.getBase())
-	);
+	protected static final ProcessorRule RED_ROCK_25_PERCENT_CRACKED_RED_ROCK_BRICKS = createAlwaysTrueRandomBlockMatchTest(BWGBlocks.RED_ROCK_SET.getBase(), 0.25F, BWGBlocks.CRACKED_RED_ROCK_BRICKS_SET.getBase());
 
-	protected static final RuleProcessor RED_ROCK_BRICKS_35_PERCENT_CRACKED_RED_ROCK_BRICKS = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.RED_ROCK_BRICKS_SET.getBase(), 0.35F, BWGBlocks.CRACKED_RED_ROCK_BRICKS_SET.getBase())
-	);
+	protected static final ProcessorRule RED_ROCK_BRICKS_35_PERCENT_CRACKED_RED_ROCK_BRICKS = createAlwaysTrueRandomBlockMatchTest(BWGBlocks.RED_ROCK_BRICKS_SET.getBase(), 0.35F, BWGBlocks.CRACKED_RED_ROCK_BRICKS_SET.getBase());
 
 	protected static final RuleProcessor RANDOM_DESERT_POTTED_PLANT = createRuleProcessor(
 			createAlwaysTrueRandomBlockMatchTest(Blocks.POTTED_CACTUS, 0.1f, Blocks.POTTED_DEAD_BUSH),
@@ -181,9 +143,7 @@ class BWGRuleProcessors {
 			createAlwaysTrueRandomBlockMatchTest(Blocks.POTTED_CACTUS, 0.2f, BWGBlocks.GOLDEN_SPINED_CACTUS.getPottedBlock())
 	);
 
-	protected static final RuleProcessor WHITE_DACITE_10_PERCENT_COBBLED_WHITE_DACITE = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_DACITE_SET.getBase(), 0.1f, BWGBlocks.WHITE_DACITE_COBBLESTONE_SET.getBase())
-	);
+	protected static final ProcessorRule WHITE_DACITE_10_PERCENT_COBBLED_WHITE_DACITE = createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_DACITE_SET.getBase(), 0.1f, BWGBlocks.WHITE_DACITE_COBBLESTONE_SET.getBase());
 
 	protected static final RuleProcessor WHITE_DACITE_VARIANTS = createRuleProcessor(
 			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_DACITE_SET.getBase(), 0.3f, BWGBlocks.WHITE_DACITE_COBBLESTONE_SET.getBase()),
@@ -219,61 +179,29 @@ class BWGRuleProcessors {
 			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE_BRICKS, 0.3f, BWGBlocks.MOSSY_STONE_SET.getBase())
 	);
 
-	protected static final RuleProcessor STONEBRICKS_MORE_VARIANTS = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE_BRICKS, 0.3f, BWGBlocks.ROCKY_STONE_SET.getBase()),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE_BRICKS, 0.15f, Blocks.COBBLESTONE),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE_BRICKS, 0.15f, Blocks.MOSSY_COBBLESTONE),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE_BRICKS, 0.05f, Blocks.CHISELED_STONE_BRICKS)
-	);
+	protected static final ProcessorRule PODZOL_25_PERCENT_COARSE_DIRT = createAlwaysTrueRandomBlockMatchTest(Blocks.PODZOL, 0.25f, Blocks.COARSE_DIRT);
 
-	protected static final RuleProcessor COBBLESTONE_VARIANTS = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.3f, Blocks.MOSSY_COBBLESTONE),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.3f, BWGBlocks.MOSSY_STONE_SET.getBase()),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.3f, BWGBlocks.ROCKY_STONE_SET.getBase()),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.15f, Blocks.CRACKED_STONE_BRICKS),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.15f, Blocks.STONE)
-	);
-
-	protected static final RuleProcessor COBBLESTONE_50_PERCENT_DIRT_PATH = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.5f, Blocks.DIRT_PATH)
-	);
-
-	protected static final RuleProcessor COBBLESTONE_20_PERCENT_GRASS = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.2f, Blocks.GRASS_BLOCK),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.2f, BWGBlocks.LUSH_GRASS_BLOCK.get())
-	);
-
-
-	protected static final RuleProcessor PODZOL_25_PERCENT_COARSE_DIRT = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(Blocks.PODZOL, 0.25f, Blocks.COARSE_DIRT)
-	);
-
-	protected static final RuleProcessor PODZOL_10_PERCENT_GRAVEL = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(Blocks.PODZOL, 0.1f, Blocks.GRAVEL)
-	);
+	protected static final ProcessorRule PODZOL_10_PERCENT_GRAVEL = createAlwaysTrueRandomBlockMatchTest(Blocks.PODZOL, 0.1f, Blocks.GRAVEL);
 
 	protected static final RuleProcessor PODZOL_10_PERCENT_ANDESITE = createRuleProcessor(
 			createAlwaysTrueRandomBlockMatchTest(Blocks.PODZOL, 0.1f, Blocks.ANDESITE),
 			createAlwaysTrueRandomBlockMatchTest(Blocks.PODZOL, 0.1f, Blocks.POLISHED_ANDESITE)
 	);
 
-	protected static final RuleProcessor PODZOL_50_PERCENT_LUSH_GRASS = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(Blocks.PODZOL, 0.5f, BWGBlocks.LUSH_GRASS_BLOCK.get())
-	);
+	protected static final ProcessorRule PODZOL_50_PERCENT_LUSH_GRASS = createAlwaysTrueRandomBlockMatchTest(Blocks.PODZOL, 0.5f, BWGBlocks.LUSH_GRASS_BLOCK.get());
 
-	protected static final RuleProcessor BOG_TRIAL_FLOOR = createRuleProcessor(
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.PALE_MUD_BRICKS_SET.getBase(), 0.5f, BWGBlocks.PACKED_PALE_MUD.get()));
+	protected static final ProcessorRule BOG_TRIAL_FLOOR = createAlwaysTrueRandomBlockMatchTest(BWGBlocks.PALE_MUD_BRICKS_SET.getBase(), 0.5f, BWGBlocks.PACKED_PALE_MUD.get());
 
-	protected static RuleProcessor skyrisLeavesToGreenAppleLeaves(float chance) {
-		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(BWGWood.SKYRIS.leaves(), chance, BWGWood.SKYRIS_LEAVES_GREEN_APPLE.get()));
+	protected static ProcessorRule skyrisLeavesToGreenAppleLeaves(float chance) {
+		return createAlwaysTrueRandomBlockMatchTest(BWGWood.SKYRIS.leaves(), chance, BWGWood.SKYRIS_LEAVES_GREEN_APPLE.get());
 	}
 
-	protected static RuleProcessor skyrisLeavesToFlowering(float chance) {
-		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(BWGWood.SKYRIS.leaves(), chance, BWGWood.FLOWERING_SKYRIS_LEAVES.get()));
+	protected static ProcessorRule skyrisLeavesToFlowering(float chance) {
+		return createAlwaysTrueRandomBlockMatchTest(BWGWood.SKYRIS.leaves(), chance, BWGWood.FLOWERING_SKYRIS_LEAVES.get());
 	}
 
-	protected static RuleProcessor spiritLeavesToFlowering(float chance) {
-		return createRuleProcessor(createAlwaysTrueRandomBlockMatchTest(BWGWood.SPIRIT_LEAVES.get(), chance, BWGWood.FLOWERING_SPIRIT_LEAVES.get().defaultBlockState().setValue(LeavesBlock.PERSISTENT, true)));
+	protected static ProcessorRule spiritLeavesToFlowering(float chance) {
+		return createAlwaysTrueRandomBlockMatchTest(BWGWood.SPIRIT_LEAVES.get(), chance, BWGWood.FLOWERING_SPIRIT_LEAVES.get().defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
 	}
 
 	private static ProcessorRule createAlwaysTrueRandomBlockMatchTest(Block start, float chance, Block newBlock) {

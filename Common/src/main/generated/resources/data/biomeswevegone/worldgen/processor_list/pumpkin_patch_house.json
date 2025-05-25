@@ -18,12 +18,7 @@
               "snowy": "false"
             }
           }
-        }
-      ]
-    },
-    {
-      "processor_type": "minecraft:rule",
-      "rules": [
+        },
         {
           "input_predicate": {
             "block": "biomeswevegone:lush_dirt_path",
@@ -36,12 +31,7 @@
           "output_state": {
             "Name": "biomeswevegone:peat"
           }
-        }
-      ]
-    },
-    {
-      "processor_type": "minecraft:rule",
-      "rules": [
+        },
         {
           "input_predicate": {
             "block": "biomeswevegone:lush_dirt_path",
@@ -54,12 +44,7 @@
           "output_state": {
             "Name": "minecraft:coarse_dirt"
           }
-        }
-      ]
-    },
-    {
-      "processor_type": "minecraft:rule",
-      "rules": [
+        },
         {
           "input_predicate": {
             "block": "biomeswevegone:pumpkin_burrow",
@@ -71,6 +56,22 @@
           },
           "output_state": {
             "Name": "minecraft:pumpkin"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:dark_oak_planks",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.35
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:stripped_dark_oak_wood",
+            "Properties": {
+              "axis": "y"
+            }
           }
         }
       ]
@@ -185,27 +186,6 @@
           },
           "output_state": {
             "Name": "biomeswevegone:crocus"
-          }
-        }
-      ]
-    },
-    {
-      "processor_type": "minecraft:rule",
-      "rules": [
-        {
-          "input_predicate": {
-            "block": "minecraft:dark_oak_planks",
-            "predicate_type": "minecraft:random_block_match",
-            "probability": 0.35
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "minecraft:stripped_dark_oak_wood",
-            "Properties": {
-              "axis": "y"
-            }
           }
         }
       ]

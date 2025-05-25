@@ -20,12 +20,7 @@
               "waterlogged": "false"
             }
           }
-        }
-      ]
-    },
-    {
-      "processor_type": "minecraft:rule",
-      "rules": [
+        },
         {
           "input_predicate": {
             "block": "biomeswevegone:pale_mud_bricks",
