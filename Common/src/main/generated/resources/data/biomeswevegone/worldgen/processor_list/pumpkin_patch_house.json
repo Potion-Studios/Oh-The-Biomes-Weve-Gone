@@ -73,12 +73,7 @@
               "axis": "y"
             }
           }
-        }
-      ]
-    },
-    {
-      "processor_type": "minecraft:rule",
-      "rules": [
+        },
         {
           "input_predicate": {
             "block": "biomeswevegone:dacite_cobblestone",
@@ -130,12 +125,7 @@
           "output_state": {
             "Name": "biomeswevegone:mossy_dacite_bricks"
           }
-        }
-      ]
-    },
-    {
-      "processor_type": "minecraft:rule",
-      "rules": [
+        },
         {
           "input_predicate": {
             "block": "minecraft:short_grass",
