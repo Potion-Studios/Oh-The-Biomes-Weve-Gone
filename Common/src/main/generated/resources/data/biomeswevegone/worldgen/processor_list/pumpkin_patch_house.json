@@ -49,7 +49,7 @@
           "input_predicate": {
             "block": "biomeswevegone:pumpkin_burrow",
             "predicate_type": "minecraft:random_block_match",
-            "probability": 0.85
+            "probability": 0.5
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
