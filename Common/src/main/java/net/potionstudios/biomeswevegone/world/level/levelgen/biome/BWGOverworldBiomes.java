@@ -773,9 +773,9 @@ class BWGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
         BWGOverworldDefaultFeatures.addHugeMushrooms(generationSettings);
 
+        BiomeDefaultFeatures.addLightBambooVegetation(generationSettings);
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
-        BiomeDefaultFeatures.addLightBambooVegetation(generationSettings);
         BiomeDefaultFeatures.addSparseJungleTrees(generationSettings);
         BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
