@@ -185,7 +185,7 @@ public class TagsGenerator {
             tag(Tags.Blocks.PUMPKINS_NORMAL).add(BWGBlocks.PALE_PUMPKIN.get());
             tag(Tags.Blocks.PUMPKINS_CARVED).add(BWGBlocks.CARVED_PALE_PUMPKIN.get());
             tag(Tags.Blocks.PUMPKINS_JACK_O_LANTERNS).add(BWGBlocks.PALE_JACK_O_LANTERN.get());
-
+            tag(BlockTags.REPLACEABLE_BY_TREES).add(BWGBlocks.BLUE_ROSE_BUSH.get(), BWGBlocks.MAGENTA_PITCHER_PLANT.get(), BWGBlocks.CYAN_PITCHER_PLANT.get(), BWGBlocks.SHRUB.getBlock(), BWGBlocks.SKYRIS_VINE.get());
 
             tag(BWGBlockTags.STORAGE_BLOCKS_ALLIUM).add(BWGBlocks.ALLIUM_PETAL_BLOCK.get());
             tag(BWGBlockTags.STORAGE_BLOCKS_PINK_ALLIUM).add(BWGBlocks.PINK_ALLIUM_PETAL_BLOCK.get());
