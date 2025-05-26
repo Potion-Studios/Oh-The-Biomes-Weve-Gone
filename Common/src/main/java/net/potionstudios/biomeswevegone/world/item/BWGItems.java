@@ -93,6 +93,7 @@ public class BWGItems {
     public static final Supplier<PlaceOnWaterBlockItem> WATER_SILK = registerItemNoLang("water_silk", () -> new PlaceOnWaterBlockItem(BWGBlocks.WATER_SILK.get(), new Item.Properties()));
 
     public static final Supplier<Item> MUSIC_DISC_PIXIE_CLUB = registerItemNoLang("music_disc_pixie_club", () -> new Item((new Item.Properties()).stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(BWGJukeBoxSongs.PIXIE_CLUB)));
+    public static final Supplier<Item> MUSIC_DISC_BETTER_DAYS = registerItemNoLang("music_disc_better_days", () -> new Item((new Item.Properties()).stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(BWGJukeBoxSongs.BETTER_DAYS)));
 
     public static final Supplier<HangingEntityItem> WREATH = registerSimpleItem("wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.DEFAULT));
     public static final Supplier<HangingEntityItem> HOLLY_WREATH = registerSimpleItem("holly_wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.HOLLY));

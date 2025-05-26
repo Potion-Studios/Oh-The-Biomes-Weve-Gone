@@ -81,6 +81,7 @@ public class ModelGenerators {
                 simpleItem(set.chestBoatItem().get(), set.name() + "/chest_boat");
             });
             withExistingParent(key(BWGItems.MUSIC_DISC_PIXIE_CLUB.get()).getPath(), mcLoc("minecraft:item/template_music_disc")).texture("layer0", BiomesWeveGone.id(ModelProvider.ITEM_FOLDER + "/" + key(BWGItems.MUSIC_DISC_PIXIE_CLUB.get()).getPath()));
+            withExistingParent(key(BWGItems.MUSIC_DISC_BETTER_DAYS.get()).getPath(), mcLoc("minecraft:item/template_music_disc")).texture("layer0", BiomesWeveGone.id(ModelProvider.ITEM_FOLDER + "/" + key(BWGItems.MUSIC_DISC_BETTER_DAYS.get()).getPath()));
             simpleItemBlockTexture(BWGItems.TINY_LILY_PADS.get());
             singleTexture(key(BWGItems.FLOWERING_TINY_LILY_PADS.get()).getPath(), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/tiny_lily_pads")).texture("layer1", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/tiny_lily_pads_flower_overlay"));
             simpleItemBlockTexture(BWGItems.WATER_SILK.get());

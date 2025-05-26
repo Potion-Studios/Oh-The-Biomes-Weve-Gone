@@ -1,0 +1,121 @@
+{
+  "parent": "biomeswevegone:biomeswevegone/adventure/root",
+  "criteria": {
+    "pumpkin_patch_village": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "biomeswevegone:village/pumpkin_patch"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "red_rock_village": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "biomeswevegone:village/red_rock"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "salem_village": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "biomeswevegone:village/salem"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "skyris_village": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "biomeswevegone:village/skyris"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "swamp_village": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "biomeswevegone:village/swamp"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "background": "biomeswevegone:textures/block/lush_dirt.png",
+    "description": {
+      "translate": "advancements.biomeswevegone.adventure.true_traveler.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "biomeswevegone:music_disc_better_days"
+    },
+    "title": {
+      "translate": "advancements.biomeswevegone.adventure.true_traveler.title"
+    }
+  },
+  "requirements": [
+    [
+      "pumpkin_patch_village"
+    ],
+    [
+      "skyris_village"
+    ],
+    [
+      "salem_village"
+    ],
+    [
+      "red_rock_village"
+    ],
+    [
+      "swamp_village"
+    ]
+  ],
+  "rewards": {
+    "loot": [
+      "biomeswevegone:chests/advancement/true_traveler/better_days_music_disc"
+    ]
+  },
+  "sends_telemetry_event": true
+}

@@ -79,7 +79,7 @@
         "processors": "biomeswevegone:pumpkin_patch_farm",
         "projection": "rigid"
       },
-      "weight": 30
+      "weight": 3
     },
     {
       "element": {

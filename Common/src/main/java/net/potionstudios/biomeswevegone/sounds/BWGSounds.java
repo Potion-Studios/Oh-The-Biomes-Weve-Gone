@@ -22,6 +22,7 @@ public class BWGSounds {
     public static final Supplier<SoundEvent> SOUL_FRUIT_WAIL = createVariableRangeEvent("soul_fruit.wail");
 
     public static final Supplier<Holder.Reference<SoundEvent>> MUSIC_DISC_PIXIE_CLUB = registerSoundEventHolder("music_disc.pixie_club");
+    public static final Supplier<Holder.Reference<SoundEvent>> MUSIC_DISC_BETTER_DAYS = registerSoundEventHolder("music_disc.better_days");
 
     public static final Supplier<Holder.Reference<SoundEvent>> MUSIC_BIOME_CRAG_GARDENS = registerSoundEventHolder("music.overworld.crag_gardens");
     public static final Supplier<Holder.Reference<SoundEvent>> MUSIC_BIOME_ERODED_BOREALIS = registerSoundEventHolder("music.overworld.eroded_borealis");
