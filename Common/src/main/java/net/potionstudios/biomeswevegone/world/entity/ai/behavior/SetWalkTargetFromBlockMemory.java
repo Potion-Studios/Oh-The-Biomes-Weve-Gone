@@ -10,6 +10,7 @@ import net.minecraft.world.entity.ai.memory.WalkTarget;
 import net.minecraft.world.entity.ai.util.DefaultRandomPos;
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
+import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.custom.PumpkinBurrowBlock;
 
 import java.util.Optional;
@@ -32,7 +33,7 @@ public class SetWalkTargetFromBlockMemory {
                                         BlockPos targetPos = globalPos.pos();
 
                                         // Check if the memory module type is HOME
-                                        if (blockTargetMemory == MemoryModuleType.HOME) {
+                                        if (blockTargetMemory == MemoryModuleType.HOME && serverLevel.getBlockState(targetPos).is(BWGBlocks.PUMPKIN_BURROW.get())) {
                                             Direction facing = serverLevel.getBlockState(targetPos).getValue(PumpkinBurrowBlock.FACING);
                                             targetPos = targetPos.relative(facing);
                                         }
