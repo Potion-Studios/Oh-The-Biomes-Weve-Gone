@@ -16,7 +16,6 @@ dependencies {
     modCompileOnly("corgitaco.corgilib:Corgilib-Fabric:$minecraftVersion-${project.properties["corgilib_version"]}")
     modCompileOnly("dev.corgitaco:Oh-The-Trees-Youll-Grow-common:$minecraftVersion-${project.properties["ohthetreesyoullgrow_version"]}")
     modCompileOnly("software.bernie.geckolib:geckolib-common-$minecraftVersion:${project.properties["geckolib_version"]}")
-    modCompileOnly("tech.jt-dev:MoreStructureProcessors-common:${project.properties["moreprocessors_version"]}")
 
     modCompileOnly("mcp.mobius.waila:wthit-api:fabric-${project.properties["WTHIT"]}")
 }

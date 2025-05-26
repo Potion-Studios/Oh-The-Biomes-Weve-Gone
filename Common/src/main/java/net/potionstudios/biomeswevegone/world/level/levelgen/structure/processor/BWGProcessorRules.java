@@ -101,8 +101,8 @@ class BWGProcessorRules {
 		return createAlwaysTrueRandomBlockMatchTest(BWGBlocks.LUSH_DIRT_PATH.get(), chance, Blocks.COARSE_DIRT);
 	}
 
-	protected static ProcessorRule lushFarmLandToLushGrass(float chance) {
-		return createAlwaysTrueRandomBlockMatchTest(BWGBlocks.LUSH_FARMLAND.get(), chance, BWGBlocks.LUSH_GRASS_BLOCK.get());
+	protected static ProcessorRule lushFarmLandToBlock( Block block, float chance) {
+		return createAlwaysTrueRandomBlockMatchTest(BWGBlocks.LUSH_FARMLAND.get(), chance, block);
 	}
 
 	protected static final ProcessorRule[] POLISHED_ANDESITE_RANDOM_ANDESITE_GRAVEL = new ProcessorRule[]{
@@ -208,6 +208,10 @@ class BWGProcessorRules {
 
 	protected static ProcessorRule spiritLeavesToFlowering(float chance) {
 		return createAlwaysTrueRandomBlockMatchTest(BWGWood.SPIRIT_LEAVES.get(), chance, BWGWood.FLOWERING_SPIRIT_LEAVES.get().defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
+	}
+
+	protected static ProcessorRule airToBlock(Block block, float chance) {
+		return createAlwaysTrueRandomBlockMatchTest(Blocks.AIR, chance, block);
 	}
 
 	private static ProcessorRule createAlwaysTrueRandomBlockMatchTest(Block start, float chance, Block newBlock) {

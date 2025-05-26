@@ -56,12 +56,5 @@ versionRange = "[4.6,)"
 ordering = "AFTER"
 side = "BOTH"
 
-[[dependencies.biomeswevegone]]
-modId="moreprocessors"
-type = "required"
-versionRange = "[2.0.1,)"
-ordering = "AFTER"
-side = "SERVER"
-
 [[mixins]]
 config = "biomeswevegone-common.mixins.json"

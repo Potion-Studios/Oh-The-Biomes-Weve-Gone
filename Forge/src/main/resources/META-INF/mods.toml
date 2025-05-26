@@ -48,10 +48,3 @@ mandatory = true
 versionRange = "[4.6,)"
 ordering = "AFTER"
 side = "BOTH"
-
-[[dependencies.biomeswevegone]]
-modId="moreprocessors"
-mandatory = false
-versionRange = "[2.0.1,)"
-ordering = "AFTER"
-side = "SERVER"

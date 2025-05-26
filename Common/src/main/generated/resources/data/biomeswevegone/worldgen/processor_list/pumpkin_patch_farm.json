@@ -18,8 +18,30 @@
               "snowy": "false"
             }
           }
+        },
+        {
+          "input_predicate": {
+            "block": "biomeswevegone:lush_farmland",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.23
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:water",
+            "Properties": {
+              "level": "0"
+            }
+          }
         }
       ]
+    },
+    {
+      "chance": 0.5,
+      "ground": "biomeswevegone:lush_farmland",
+      "plant": "minecraft:pumpkin_stem",
+      "processor_type": "biomeswevegone:plant_processor"
     }
   ]
 }
