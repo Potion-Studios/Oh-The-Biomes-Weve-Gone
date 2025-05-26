@@ -70,7 +70,11 @@ public class PlaceInContainer extends Behavior<PumpkinWarden> {
 			targetPos = optionalBlockPos.get();
 			pumpkinWarden.getBrain().setMemory(MemoryModuleType.LOOK_TARGET, new BlockPosTracker(targetPos));
 			pumpkinWarden.getBrain().setMemory(MemoryModuleType.WALK_TARGET, new WalkTarget(targetPos, 1.0F, 0));
-		} else stop(level, pumpkinWarden, gameTime);
+		} else {
+			if (level.getRandom().nextBoolean())
+				level.broadcastEntityEvent(pumpkinWarden, (byte) 13);
+			stop(level, pumpkinWarden, gameTime);
+		}
 
 	}
 

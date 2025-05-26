@@ -9,6 +9,7 @@ import com.mojang.serialization.Dynamic;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.GlobalPos;
 import net.minecraft.core.Holder;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.game.DebugPackets;
@@ -456,6 +457,24 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
             stopRiding();
         if (level().getBlockEntity(pos) instanceof PumpkinBurrowBlockEntity pumpkinBurrow && pumpkinBurrow.isEmpty())
             pumpkinBurrow.addOccupant(this);
+    }
+
+    @Override
+    public void handleEntityEvent(byte id) {
+        super.handleEntityEvent(id);
+        if (id == 13)
+            addParticlesAroundSelf(ParticleTypes.ANGRY_VILLAGER);
+        else if (id == 14)
+            addParticlesAroundSelf(ParticleTypes.HAPPY_VILLAGER);
+    }
+
+    protected void addParticlesAroundSelf(ParticleOptions particleOption) {
+        for (int i = 0; i < 5; i++) {
+            double d = this.random.nextGaussian() * 0.02;
+            double e = this.random.nextGaussian() * 0.02;
+            double f = this.random.nextGaussian() * 0.02;
+            this.level().addParticle(particleOption, this.getRandomX(1.0), this.getRandomY() + 0.5, this.getRandomZ(1.0), d, e, f);
+        }
     }
 
     private void releaseAllPois() {
