@@ -101,6 +101,10 @@ class BWGProcessorRules {
 		return createAlwaysTrueRandomBlockMatchTest(BWGBlocks.LUSH_DIRT_PATH.get(), chance, Blocks.COARSE_DIRT);
 	}
 
+	protected static ProcessorRule lushFarmLandToLushGrass(float chance) {
+		return createAlwaysTrueRandomBlockMatchTest(BWGBlocks.LUSH_FARMLAND.get(), chance, BWGBlocks.LUSH_GRASS_BLOCK.get());
+	}
+
 	protected static final ProcessorRule[] POLISHED_ANDESITE_RANDOM_ANDESITE_GRAVEL = new ProcessorRule[]{
 			createAlwaysTrueRandomBlockMatchTest(Blocks.POLISHED_ANDESITE, 0.3F, Blocks.ANDESITE),
 			createAlwaysTrueRandomBlockMatchTest(Blocks.POLISHED_ANDESITE, 0.3F, Blocks.GRAVEL)

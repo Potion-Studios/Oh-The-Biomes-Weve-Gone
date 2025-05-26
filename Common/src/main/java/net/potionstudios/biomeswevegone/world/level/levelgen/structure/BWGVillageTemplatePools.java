@@ -337,7 +337,7 @@ public class BWGVillageTemplatePools {
                     singlePoolElement("pumpkin_patch/houses/pumpkin_patch_small_house_6", 3, templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_HOUSE),
                     singlePoolElement("pumpkin_patch/houses/pumpkin_patch_small_house_7", 3, templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_HOUSE),
                     singlePoolElement("pumpkin_patch/houses/pumpkin_patch_small_house_8", 3, templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_HOUSE),
-                    singlePoolElement("pumpkin_patch/houses/pumpkin_patch_farm_1", 3, templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_HOUSE),
+                    singlePoolElement("pumpkin_patch/houses/pumpkin_patch_farm_1", 3, templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_FARM),
                     singlePoolElement("pumpkin_patch/houses/pumpkin_patch_farm_2", 3, templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_HOUSE),
                     singlePoolElement("pumpkin_patch/houses/pumpkin_patch_accessory_1", templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_HOUSE),
                     singlePoolElement("pumpkin_patch/houses/pumpkin_patch_animal_pen_1", 2, templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_HOUSE),

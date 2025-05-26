@@ -5,12 +5,16 @@ import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.structure.templatesystem.*;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.processor.processors.FruitBlockProcessor;
+import tech.jt_dev.moreprocessors.processor.processors.RandomCropAgeRuleProcessor;
+import tech.jt_dev.moreprocessors.processor.processors.RandomCropRandomAgeProcessor;
+import tech.jt_dev.moreprocessors.processor.processors.SameStateRuleProcessor;
 
 import java.util.*;
 
@@ -171,6 +175,12 @@ public class BWGStructureProcessorLists {
                     BWGProcessorRules.SHORT_GRASS_TO_FLOWER_PUMPKIN_PATCH)
             )
     ));
+
+    public static final ResourceKey<StructureProcessorList> PUMPKIN_PATCH_FARM = register("pumpkin_patch_farm", structureProcessorListHolderGetter -> new StructureProcessorList(
+            ImmutableList.of(
+                    createRuleProcessor(BWGProcessorRules.lushFarmLandToLushGrass(0.5f))
+                    //new RandomCropRandomAgeProcessor(SimpleWeightedRandomList.single(Blocks.PUMPKIN_STEM), BWGBlocks.LUSH_FARMLAND.get(), 0.33f)
+            )));
 
     public static final ResourceKey<StructureProcessorList> SWAMP_STREETS = register("swamp_streets", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(

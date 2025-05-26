@@ -76,10 +76,10 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_farm_1",
-        "processors": "biomeswevegone:pumpkin_patch_house",
+        "processors": "biomeswevegone:pumpkin_patch_farm",
         "projection": "rigid"
       },
-      "weight": 3
+      "weight": 30
     },
     {
       "element": {
