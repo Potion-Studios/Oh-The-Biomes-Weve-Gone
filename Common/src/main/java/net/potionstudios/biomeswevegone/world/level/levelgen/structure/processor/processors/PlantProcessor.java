@@ -51,7 +51,7 @@ public class PlantProcessor extends StructureProcessor {
 			newInfo.stream().filter(structureBlockInfo -> structureBlockInfo.pos().equals(belowPos.above())).findFirst().ifPresent(spot -> {
 				if (spot.state().isAir() && serverLevel.getRandom().nextFloat() < chance) {
 					newInfo.remove(spot);
-					newInfo.add(new StructureTemplate.StructureBlockInfo(spot.pos(), plant.defaultBlockState().setValue(ageProperty, settings.getRandom(spot.pos()).nextInt(ageProperty.getPossibleValues().size() + 1)), spot.nbt()));
+					newInfo.add(new StructureTemplate.StructureBlockInfo(spot.pos(), plant.defaultBlockState().setValue(ageProperty, settings.getRandom(spot.pos()).nextInt(ageProperty.getPossibleValues().size())), spot.nbt()));
 				}
 			});
 		});

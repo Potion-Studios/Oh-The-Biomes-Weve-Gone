@@ -293,10 +293,10 @@ public class BWGVillageTemplatePools {
 
     public static final ResourceKey<StructureTemplatePool> PUMPKIN_PATCH_TOWN_CENTERS = register("pumpkin_patch/town_centers", templatePoolFactoryContext ->
             createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(
-                    singlePoolElement("pumpkin_patch/town_centers/pumpkin_patch_meeting_point_1", templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_HOUSE),
-                    singlePoolElement("pumpkin_patch/town_centers/pumpkin_patch_meeting_point_2", templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_HOUSE),
-                    singlePoolElement("pumpkin_patch/town_centers/pumpkin_patch_meeting_point_3", templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_HOUSE),
-                    singlePoolElement("pumpkin_patch/town_centers/pumpkin_patch_meeting_point_4", templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_HOUSE)
+                    singlePoolElement("pumpkin_patch/town_centers/pumpkin_patch_meeting_point_1", templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_MEETING_POINT),
+                    singlePoolElement("pumpkin_patch/town_centers/pumpkin_patch_meeting_point_2", templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_MEETING_POINT),
+                    singlePoolElement("pumpkin_patch/town_centers/pumpkin_patch_meeting_point_3", templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_MEETING_POINT),
+                    singlePoolElement("pumpkin_patch/town_centers/pumpkin_patch_meeting_point_4", templatePoolFactoryContext, BWGStructureProcessorLists.PUMPKIN_PATCH_MEETING_POINT)
             ), StructureTemplatePool.Projection.RIGID));
 
     private static final ResourceKey<StructureTemplatePool> PUMPKIN_PATCH_DECOR = register("pumpkin_patch/decor", templatePoolFactoryContext ->

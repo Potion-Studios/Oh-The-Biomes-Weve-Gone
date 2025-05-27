@@ -81,6 +81,10 @@ class BWGProcessorRules {
 		return createAlwaysTrueRandomBlockMatchTest(BWGBlocks.LUSH_DIRT_PATH.get(), chance, newBlock);
 	}
 
+	protected static ProcessorRule lushGrassToBlock(float chance, Block newBlock) {
+		return createAlwaysTrueRandomBlockMatchTest(BWGBlocks.LUSH_GRASS_BLOCK.get(), chance, newBlock);
+	}
+
 	protected static ProcessorRule tuffToBlock(float chance, Block newBlock) {
 		return createAlwaysTrueRandomBlockMatchTest(Blocks.TUFF, chance, newBlock);
 	}
