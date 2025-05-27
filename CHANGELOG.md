@@ -1,6 +1,6 @@
 # 2.4.0 -> The Village Update
 - Add Custom Biomes We've gone Villager Types to each of our Villages
-- Require NeoForge 21.1.117 or newer
+- Require NeoForge 21.1.173 or newer
 - Require Forge 52.0.47 or newer
 - Add Support for Fabric Permissions API & Luckperms (For Commands)
 
