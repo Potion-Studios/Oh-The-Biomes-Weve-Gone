@@ -45,7 +45,31 @@ public class PlaceInContainer extends Behavior<PumpkinWarden> {
 			if (blockEntity instanceof HopperBlockEntity hopperBlockEntity)
 				HopperBlockEntity.addItem(null, hopperBlockEntity, pumpkinWarden.getItemInHand(InteractionHand.MAIN_HAND), pumpkinWarden.getDirection());
 			else if (blockEntity instanceof BarrelBlockEntity barrelBlockEntity) {
-				//TODO: BarrelBlockEntity add item code
+				ItemStack itemStack = pumpkinWarden.getItemInHand(InteractionHand.MAIN_HAND);
+				ItemStack remaining = itemStack.copy();
+
+				for (int i = 0; i < barrelBlockEntity.getContainerSize(); i++) {
+					ItemStack slotStack = barrelBlockEntity.getItem(i);
+
+					if (slotStack.isEmpty()) {
+						barrelBlockEntity.setItem(i, remaining);
+						remaining = ItemStack.EMPTY;
+						break;
+					} else if (ItemStack.isSameItemSameComponents(slotStack, remaining)) {
+						int space = slotStack.getMaxStackSize() - slotStack.getCount();
+						if (space > 0) {
+							int transfer = Math.min(remaining.getCount(), space);
+							slotStack.grow(transfer);
+							remaining.shrink(transfer);
+							if (remaining.isEmpty()) break;
+						}
+					}
+				}
+
+				if (remaining.getCount() != itemStack.getCount()) {
+					pumpkinWarden.setItemInHand(InteractionHand.MAIN_HAND, remaining);
+					barrelBlockEntity.setChanged();
+				}
 			} else return;
 			pumpkinWarden.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
 			pumpkinWarden.getBrain().setMemory(BWGMemoryModuleType.HOPPER_BARREL_LOCATION.get(), targetPos);
