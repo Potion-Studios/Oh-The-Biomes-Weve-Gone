@@ -155,7 +155,7 @@ public class BWGStructureProcessorLists {
                     createRuleProcessor(
                         BWGProcessorRules.streetWater(BWGBlocks.LUSH_DIRT_PATH.get(), Blocks.DARK_OAK_PLANKS),
                         BWGProcessorRules.lushPathToBlock(0.15f, Blocks.PACKED_MUD),
-                        BWGProcessorRules.lushPathToBlock(0.45f, BWGBlocks.PEAT.get()),
+                        BWGProcessorRules.lushPathToBlock(0.4f, BWGBlocks.PEAT.get()),
                         BWGProcessorRules.lushPathToBlock(0.4f, Blocks.COARSE_DIRT)
             )
     )));
