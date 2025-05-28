@@ -27,7 +27,7 @@ import java.util.function.Function;
 @SuppressWarnings("unused")
 public class BWGVillageTemplatePools {
 
-    private static final ResourceKey<StructureTemplatePool> SKYRIS_TERMINATOR = createLegacyTerminatorPool("skyris");
+    private static final ResourceKey<StructureTemplatePool> SKYRIS_TERMINATOR = createTerminatorPool("skyris", BWGStructureProcessorLists.SKYRIS_STREETS, 2);
 
     private static final ResourceKey<StructureTemplatePool> SKYRIS_DECOR = register("skyris/decor", templatePoolFactoryContext ->
             createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(
