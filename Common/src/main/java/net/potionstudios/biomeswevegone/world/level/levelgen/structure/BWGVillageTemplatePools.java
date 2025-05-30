@@ -166,7 +166,7 @@ public class BWGVillageTemplatePools {
     
     
     // Salem Village Template Pools
-    private static final ResourceKey<StructureTemplatePool> SALEM_TERMINATOR = createLegacyTerminatorPool("salem", BWGStructureProcessorLists.SALEM_STREETS);
+    private static final ResourceKey<StructureTemplatePool> SALEM_TERMINATOR = createTerminatorPool("salem", BWGStructureProcessorLists.SALEM_STREETS, 2);
 
     public static final ResourceKey<StructureTemplatePool> SALEM_TOWN_CENTERS = register("salem/town_centers", templatePoolFactoryContext ->
             createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(
@@ -478,15 +478,6 @@ public class BWGVillageTemplatePools {
 
     private static Holder.Reference<StructureProcessorList> getProcessor(BootstrapContext<StructureTemplatePool> context, ResourceKey<StructureProcessorList> processorList) {
         return context.lookup(Registries.PROCESSOR_LIST).getOrThrow(processorList);
-    }
-
-    @Deprecated
-    private static ResourceKey<StructureTemplatePool> createLegacyTerminatorPool(String id, ResourceKey<StructureProcessorList> processorList) {
-        return register(id + "/terminators", templatePoolFactoryContext ->
-                createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(
-                        legacyPoolElement(id + "/terminators/" + id + "_terminator_01", templatePoolFactoryContext, processorList),
-                        legacyPoolElement(id + "/terminators/" + id + "_terminator_02", templatePoolFactoryContext, processorList)
-                ), StructureTemplatePool.Projection.TERRAIN_MATCHING));
     }
 
     private static ResourceKey<StructureTemplatePool> createTerminatorPool(String id, ResourceKey<StructureProcessorList> processorList, int count) {
