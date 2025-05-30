@@ -357,7 +357,7 @@ public class BWGVillageTemplatePools {
             ), StructureTemplatePool.Projection.RIGID));
 
     //Swamp Village Template Pools
-    private static final ResourceKey<StructureTemplatePool> SWAMP_TERMINATOR = createLegacyTerminatorPool("swamp", BWGStructureProcessorLists.SWAMP_STREETS);
+    private static final ResourceKey<StructureTemplatePool> SWAMP_TERMINATOR = createTerminatorPool("swamp", BWGStructureProcessorLists.SWAMP_STREETS, 4);
 
     public static final ResourceKey<StructureTemplatePool> SWAMP_TOWN_CENTERS = register("swamp/town_centers", templatePoolFactoryContext ->
             createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(
@@ -480,6 +480,7 @@ public class BWGVillageTemplatePools {
         return context.lookup(Registries.PROCESSOR_LIST).getOrThrow(processorList);
     }
 
+    @Deprecated
     private static ResourceKey<StructureTemplatePool> createLegacyTerminatorPool(String id) {
         return register(id + "/terminators", templatePoolFactoryContext ->
                 createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(
