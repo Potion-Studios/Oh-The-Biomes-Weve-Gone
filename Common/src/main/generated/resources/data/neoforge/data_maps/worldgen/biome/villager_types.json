@@ -21,6 +21,9 @@
     "biomeswevegone:pale_bog": {
       "villager_type": "minecraft:swamp"
     },
+    "biomeswevegone:red_rock_peaks": {
+      "villager_type": "biomeswevegone:red_rock"
+    },
     "biomeswevegone:red_rock_valley": {
       "villager_type": "biomeswevegone:red_rock"
     },
