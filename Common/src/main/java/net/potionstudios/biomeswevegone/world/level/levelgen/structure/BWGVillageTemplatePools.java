@@ -93,7 +93,7 @@ public class BWGVillageTemplatePools {
             ), StructureTemplatePool.Projection.RIGID));
 
     // Forgotten Village Template Pools
-    private static final ResourceKey<StructureTemplatePool> FORGOTTEN_TERMINATOR = createLegacyTerminatorPool("forgotten", BWGStructureProcessorLists.FORGOTTEN_VILLAGE_BLOCKS);
+    private static final ResourceKey<StructureTemplatePool> FORGOTTEN_TERMINATOR = createTerminatorPool("forgotten", BWGStructureProcessorLists.FORGOTTEN_VILLAGE_BLOCKS, 4);
 
     public static final ResourceKey<StructureTemplatePool> FORGOTTEN_TOWN_CENTERS = register("forgotten/town_centers", templatePoolFactoryContext ->
             createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(
