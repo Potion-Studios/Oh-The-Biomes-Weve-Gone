@@ -233,7 +233,7 @@ public class BWGVillageTemplatePools {
             ), StructureTemplatePool.Projection.RIGID));
 
     //Red Rock Village Template Pools
-    private static final ResourceKey<StructureTemplatePool> RED_ROCK_TERMINATOR = createLegacyTerminatorPool("red_rock");
+    private static final ResourceKey<StructureTemplatePool> RED_ROCK_TERMINATOR = createTerminatorPool("red_rock", BWGStructureProcessorLists.RED_ROCK_STREETS, 2);
 
     public static final ResourceKey<StructureTemplatePool> RED_ROCK_TOWN_CENTERS = register("red_rock/town_centers", templatePoolFactoryContext ->
             createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(
@@ -478,15 +478,6 @@ public class BWGVillageTemplatePools {
 
     private static Holder.Reference<StructureProcessorList> getProcessor(BootstrapContext<StructureTemplatePool> context, ResourceKey<StructureProcessorList> processorList) {
         return context.lookup(Registries.PROCESSOR_LIST).getOrThrow(processorList);
-    }
-
-    @Deprecated
-    private static ResourceKey<StructureTemplatePool> createLegacyTerminatorPool(String id) {
-        return register(id + "/terminators", templatePoolFactoryContext ->
-                createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(
-                        legacyPoolElement(id + "/terminators/" + id + "_terminator_01"),
-                        legacyPoolElement(id + "/terminators/" + id + "_terminator_02")
-                ), StructureTemplatePool.Projection.TERRAIN_MATCHING));
     }
 
     @Deprecated
