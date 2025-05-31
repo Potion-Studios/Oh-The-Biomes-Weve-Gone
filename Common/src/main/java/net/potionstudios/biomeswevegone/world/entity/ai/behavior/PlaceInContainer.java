@@ -9,6 +9,7 @@ import net.minecraft.world.entity.ai.behavior.BlockPosTracker;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
 import net.minecraft.world.entity.ai.memory.WalkTarget;
+import net.minecraft.world.entity.schedule.Activity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.BarrelBlock;
 import net.minecraft.world.level.block.Block;
@@ -109,7 +110,7 @@ public class PlaceInContainer extends Behavior<PumpkinWarden> {
 
 	@Override
 	protected boolean checkExtraStartConditions(@NotNull ServerLevel level, @NotNull PumpkinWarden pumpkinWarden) {
-		return pumpkinWarden.canMove() && !pumpkinWarden.getItemInHand(InteractionHand.MAIN_HAND).isEmpty();
+		return pumpkinWarden.canMove() && !pumpkinWarden.getItemInHand(InteractionHand.MAIN_HAND).isEmpty() && level.isDay();
 	}
 
 	@Override

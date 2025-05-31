@@ -29,6 +29,7 @@ public class PumpkinWardenGoalPackages {
                 Pair.of(0, ReactToBell.create()),
                 Pair.of(1, new MoveToTargetSink()),
                 Pair.of(4, new Eat()),
+                Pair.of(6, new PlaceInContainer()),
                 Pair.of(10, AcquirePoi.create(holder -> holder.is(BWGPoiTypes.PUMPKIN_BURROW), MemoryModuleType.HOME, false, Optional.of((byte)14))),
                 Pair.of(10, AcquirePoi.create(holder -> holder.is(PoiTypes.MEETING), MemoryModuleType.MEETING_POINT, false, Optional.of((byte)14)))
         );
@@ -38,7 +39,6 @@ public class PumpkinWardenGoalPackages {
         return ImmutableList.of(
                 getMinimalLookBehavior(),
                 Pair.of(1, new DestroyPumpkin()),
-                Pair.of(2, new PlaceInContainer()),
                 Pair.of(5, GoToWantedItem.create(SPEED_MODIFIER, false, 10)),
                 Pair.of(10, SetLookAndInteract.create(EntityType.PLAYER, 4)),
                 Pair.of(20, new RunOne<>(ImmutableList.of(Pair.of(VillageBoundRandomStroll.create(SPEED_MODIFIER), 1)))),
