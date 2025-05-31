@@ -35,7 +35,7 @@ public class EnterPumpkinBurrow extends Behavior<PumpkinWarden> {
         BlockState blockState = level.getBlockState(globalPos.pos());
         BlockPos entrancePos = globalPos.pos().relative(blockState.getValue(PumpkinBurrowBlock.FACING));
 
-        return level.getBlockState(entrancePos).isAir() && entrancePos.equals(pumpkinWarden.blockPosition()) && blockState.getBlock() instanceof PumpkinBurrowBlock && !blockState.getValue(PumpkinBurrowBlock.OCCUPIED);
+        return level.getBlockState(entrancePos).getCollisionShape(level, entrancePos).isEmpty() && entrancePos.equals(pumpkinWarden.blockPosition()) && blockState.getBlock() instanceof PumpkinBurrowBlock && !blockState.getValue(PumpkinBurrowBlock.OCCUPIED);
     }
 
     @Override

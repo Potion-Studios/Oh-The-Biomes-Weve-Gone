@@ -130,7 +130,7 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
                 if (entity instanceof PumpkinWarden pumpkinWarden) {
                     Direction direction = state.getValue(PumpkinBurrowBlock.FACING);
                     BlockPos blockPos = pos.relative(direction);
-                    if (level.getBlockState(blockPos).isAir()) {
+                    if (level.getBlockState(blockPos).getCollisionShape(level, blockPos).isEmpty()) {
                         pumpkinWarden.setPos(blockPos.getX() + 0.5, blockPos.getY(), blockPos.getZ() + 0.5);
                         level.addFreshEntity(pumpkinWarden);
                         pumpkinWarden.clearSleepingPos();
