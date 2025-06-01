@@ -17,6 +17,7 @@ import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
+import java.util.function.Predicate;
 
 public class DestroyPumpkin extends Behavior<PumpkinWarden> {
 
@@ -58,7 +59,7 @@ public class DestroyPumpkin extends Behavior<PumpkinWarden> {
 
     @Override
     protected void start(@NotNull ServerLevel level, @NotNull PumpkinWarden pumpkinWarden, long gameTime) {
-        Optional<BlockPos> optionalBlockPos = findAttachedStemFruit(level, pumpkinWarden.blockPosition());
+        Optional<BlockPos> optionalBlockPos = findNearestBlock(level, pumpkinWarden.blockPosition(), blockState -> blockState.getBlock() instanceof AttachedStemBlock, 15);
         if (optionalBlockPos.isPresent()) {
             targetBlock = optionalBlockPos.get().relative(level.getBlockState(optionalBlockPos.get()).getValue(AttachedStemBlock.FACING));
             fruitBlock = level.getBlockState(targetBlock).getBlock();
@@ -67,15 +68,18 @@ public class DestroyPumpkin extends Behavior<PumpkinWarden> {
         } else stop(level, pumpkinWarden, gameTime);
     }
 
-    private Optional<BlockPos> findAttachedStemFruit(@NotNull ServerLevel level, BlockPos entityPosition) {
+    private Optional<BlockPos> findNearestBlock(@NotNull ServerLevel level, BlockPos blockPos, Predicate<BlockState> predicate, double distance) {
         BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
-        for (int y = 2; -2 <= y; y--)
-            for (int x = -25; x < 25; x++)
-                for (int z = -25; z < 25; z++) {
-                    mutableBlockPos.setWithOffset(entityPosition, x, y, z);
-                    if (level.getBlockState(mutableBlockPos).getBlock() instanceof AttachedStemBlock)
-                        return Optional.of(mutableBlockPos.immutable());
-                }
+
+        for (int i = 0; i <= distance; i = i > 0 ? -i : 1 - i)
+            for (int j = 0; j < distance; j++)
+                for (int k = 0; k <= j; k = k > 0 ? -k : 1 - k)
+                    for (int l = k < j && k > -j ? j : 0; l <= j; l = l > 0 ? -l : 1 - l) {
+                        mutableBlockPos.setWithOffset(blockPos, k, i - 1, l);
+                        if (blockPos.closerThan(mutableBlockPos, distance) && predicate.test(level.getBlockState(mutableBlockPos)))
+                            return Optional.of(mutableBlockPos.immutable());
+                    }
+
         return Optional.empty();
     }
 

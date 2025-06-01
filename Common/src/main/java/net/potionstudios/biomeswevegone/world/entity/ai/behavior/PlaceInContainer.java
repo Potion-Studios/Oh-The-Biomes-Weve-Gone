@@ -17,11 +17,13 @@ import net.minecraft.world.level.block.HopperBlock;
 import net.minecraft.world.level.block.entity.BarrelBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.HopperBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
+import java.util.function.Predicate;
 
 public class PlaceInContainer extends Behavior<PumpkinWarden> {
 	private BlockPos targetPos;
@@ -80,7 +82,7 @@ public class PlaceInContainer extends Behavior<PumpkinWarden> {
 			}
 		}
 
-		Optional<BlockPos> optionalBlockPos = findHopperOrBarrel(level, pumpkinWarden.blockPosition());
+		Optional<BlockPos> optionalBlockPos = findHopperOrBarrel(level, pumpkinWarden.blockPosition(), 20);
 		if (optionalBlockPos.isPresent()) {
 			targetPos = optionalBlockPos.get();
 			pumpkinWarden.getBrain().setMemory(MemoryModuleType.LOOK_TARGET, new BlockPosTracker(targetPos));
@@ -93,18 +95,21 @@ public class PlaceInContainer extends Behavior<PumpkinWarden> {
 
 	}
 
-	private Optional<BlockPos> findHopperOrBarrel(@NotNull ServerLevel level, BlockPos entityPosition) {
+	private Optional<BlockPos> findHopperOrBarrel(@NotNull ServerLevel level, BlockPos blockPos, double distance) {
 		Optional<BlockPos> nearestBarrel = Optional.empty();
 		BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
-		for (int y = 2; -2 <= y; y--)
-			for (int x = -25; x < 25; x++)
-				for (int z = -25; z < 25; z++) {
-					mutableBlockPos.setWithOffset(entityPosition, x, y, z);
-					if (level.getBlockState(mutableBlockPos).getBlock() instanceof HopperBlock)
-						return Optional.of(mutableBlockPos.immutable());
-					else if (nearestBarrel.isEmpty() && level.getBlockState(mutableBlockPos).getBlock() instanceof BarrelBlock)
-						nearestBarrel = Optional.of(mutableBlockPos.immutable());
-				}
+
+		for (int i = 0; i <= distance; i = i > 0 ? -i : 1 - i)
+			for (int j = 0; j < distance; j++)
+				for (int k = 0; k <= j; k = k > 0 ? -k : 1 - k)
+					for (int l = k < j && k > -j ? j : 0; l <= j; l = l > 0 ? -l : 1 - l) {
+						mutableBlockPos.setWithOffset(blockPos, k, i - 1, l);
+						if (blockPos.closerThan(mutableBlockPos, distance) && level.getBlockState(mutableBlockPos).getBlock() instanceof HopperBlock)
+							return Optional.of(mutableBlockPos.immutable());
+						else if (nearestBarrel.isEmpty() && level.getBlockState(mutableBlockPos).getBlock() instanceof BarrelBlock)
+							nearestBarrel = Optional.of(mutableBlockPos.immutable());
+					}
+
 		return nearestBarrel;
 	}
 
