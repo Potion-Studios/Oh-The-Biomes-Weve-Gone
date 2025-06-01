@@ -125,6 +125,7 @@ public class PumpkinWardenGoalPackages {
         return ImmutableList.of(
                 Pair.of(1, SetWalkTargetAwayFrom.entity(MemoryModuleType.NEAREST_HOSTILE, SPEED_MODIFIER * 1.5F, 6, false)),
                 Pair.of(1, SetWalkTargetAwayFrom.entity(MemoryModuleType.HURT_BY_ENTITY, SPEED_MODIFIER * 1.5F, 6, false)),
+                Pair.of(3, VillageBoundRandomStroll.create(SPEED_MODIFIER * 1.5F, 2, 2)),
                 getMinimalLookBehavior()
         );
     }
