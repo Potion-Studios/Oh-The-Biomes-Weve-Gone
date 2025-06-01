@@ -3497,8 +3497,8 @@ public class BWGOverworldTreeConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILLOW_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("willow_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
             () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/willow/willow_tree_trunk1"),
-                    BiomesWeveGone.id("features/trees/willow/willow_tree_canopy1"),
+                    BiomesWeveGone.id("features/trees/willow/willow_trunk1"),
+                    BiomesWeveGone.id("features/trees/willow/willow_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.WILLOW.logstem()),
                     BlockStateProvider.simple(BWGWood.WILLOW.leaves()),
@@ -3510,8 +3510,8 @@ public class BWGOverworldTreeConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILLOW_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("willow_tree2",
             TYGFeatures.TREE_FROM_NBT_V1,
             () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/willow/willow_tree_trunk1"),
-                    BiomesWeveGone.id("features/trees/willow/willow_tree_canopy2"),
+                    BiomesWeveGone.id("features/trees/willow/willow_trunk1"),
+                    BiomesWeveGone.id("features/trees/willow/willow_canopy2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.WILLOW.logstem()),
                     BlockStateProvider.simple(BWGWood.WILLOW.leaves()),
@@ -3523,8 +3523,8 @@ public class BWGOverworldTreeConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILLOW_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("willow_tree3",
             TYGFeatures.TREE_FROM_NBT_V1,
             () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/willow/willow_tree_trunk1"),
-                    BiomesWeveGone.id("features/trees/willow/willow_tree_canopy3"),
+                    BiomesWeveGone.id("features/trees/willow/willow_trunk1"),
+                    BiomesWeveGone.id("features/trees/willow/willow_canopy3"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.WILLOW.logstem()),
                     BlockStateProvider.simple(BWGWood.WILLOW.leaves()),
@@ -3536,8 +3536,8 @@ public class BWGOverworldTreeConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILLOW_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("willow_tree4",
             TYGFeatures.TREE_FROM_NBT_V1,
             () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/willow/willow_tree_trunk2"),
-                    BiomesWeveGone.id("features/trees/willow/willow_tree_canopy4"),
+                    BiomesWeveGone.id("features/trees/willow/willow_trunk2"),
+                    BiomesWeveGone.id("features/trees/willow/willow_canopy4"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.WILLOW.logstem()),
                     BlockStateProvider.simple(BWGWood.WILLOW.leaves()),
