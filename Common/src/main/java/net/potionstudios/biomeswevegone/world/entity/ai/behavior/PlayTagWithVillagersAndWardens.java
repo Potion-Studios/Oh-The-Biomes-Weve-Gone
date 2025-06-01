@@ -37,13 +37,11 @@ public class PlayTagWithVillagersAndWardens {
                                 Optional<LivingEntity> optional = list.stream().filter(livingEntity -> isFriendChasingMe(pathfinderMob, livingEntity)).findAny();
                                 if (optional.isEmpty()) {
                                     Optional<LivingEntity> optional2 = findSomeoneBeingChased(list);
-                                    if (optional2.isPresent()) {
+                                    if (optional2.isPresent())
                                         chaseKid(memoryAccessor4, memoryAccessor3, memoryAccessor2, optional2.get());
-                                        return true;
-                                    } else {
+                                    else
                                         list.stream().findAny().ifPresent(livingEntity -> chaseKid(memoryAccessor4, memoryAccessor3, memoryAccessor2, livingEntity));
-                                        return true;
-                                    }
+	                                return true;
                                 } else {
                                     for (int i = 0; i < 10; i++) {
                                         Vec3 vec3 = LandRandomPos.getPos(pathfinderMob, 20, 8);

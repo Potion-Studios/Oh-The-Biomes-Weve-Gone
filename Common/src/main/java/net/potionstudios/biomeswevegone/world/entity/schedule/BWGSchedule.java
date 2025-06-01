@@ -10,7 +10,7 @@ import net.potionstudios.biomeswevegone.PlatformHandler;
 import java.util.function.Supplier;
 
 public class BWGSchedule {
-	public static Supplier<Schedule> PUMPKIN_WARDEN = register("pumpkin_warden", new ScheduleBuilder(new Schedule())
+	public static final Supplier<Schedule> PUMPKIN_WARDEN = register("pumpkin_warden", new ScheduleBuilder(new Schedule())
 			.changeActivityAt(10, Activity.IDLE)
 			.changeActivityAt(2000, Activity.WORK)
 			.changeActivityAt(5000, Activity.PLAY)

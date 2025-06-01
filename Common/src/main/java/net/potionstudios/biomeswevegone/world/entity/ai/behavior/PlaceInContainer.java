@@ -9,7 +9,6 @@ import net.minecraft.world.entity.ai.behavior.BlockPosTracker;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
 import net.minecraft.world.entity.ai.memory.WalkTarget;
-import net.minecraft.world.entity.schedule.Activity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.BarrelBlock;
 import net.minecraft.world.level.block.Block;
@@ -17,13 +16,11 @@ import net.minecraft.world.level.block.HopperBlock;
 import net.minecraft.world.level.block.entity.BarrelBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.HopperBlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
 import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
-import java.util.function.Predicate;
 
 public class PlaceInContainer extends Behavior<PumpkinWarden> {
 	private BlockPos targetPos;
