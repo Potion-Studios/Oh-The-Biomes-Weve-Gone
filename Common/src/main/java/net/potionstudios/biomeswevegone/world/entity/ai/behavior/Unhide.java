@@ -28,8 +28,8 @@ public class Unhide extends Behavior<PumpkinWarden> {
 
     @Override
     protected void stop(@NotNull ServerLevel level, @NotNull PumpkinWarden entity, long gameTime) {
+        entity.getBrain().eraseMemory(MemoryModuleType.HURT_BY_ENTITY);
         entity.unhide();
         entity.getBrain().updateActivityFromSchedule(level.getDayTime(), level.getGameTime());
-        entity.getBrain().eraseMemory(MemoryModuleType.HURT_BY_ENTITY);
     }
 }
