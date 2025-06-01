@@ -169,7 +169,9 @@ public class BWGStructureProcessorLists {
                     BWGProcessorRules.burrowToBlock(0.5f, Blocks.PUMPKIN),
                     BWGProcessorRules.STRIPPED_DARK_OAK_WOOD_35_PERCENT_DARK_OAK_PLANKS},
                     BWGProcessorRules.DACITE_COBBLESTONE_VARIANTS,
-                    BWGProcessorRules.SHORT_GRASS_TO_FLOWER_PUMPKIN_PATCH)
+                    BWGProcessorRules.SHORT_GRASS_TO_FLOWER_PUMPKIN_PATCH,
+                    BWGProcessorRules.WHITE_PUFFBALL_RANDOM_AGE,
+                    BWGProcessorRules.PUMPKIN_RANDOM_AGE)
             )
     ));
 

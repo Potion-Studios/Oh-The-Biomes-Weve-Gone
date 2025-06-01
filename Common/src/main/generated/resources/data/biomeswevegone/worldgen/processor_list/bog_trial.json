@@ -38,23 +38,7 @@
           "input_predicate": {
             "block": "biomeswevegone:white_puffball",
             "predicate_type": "minecraft:random_block_match",
-            "probability": 0.33
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "biomeswevegone:white_puffball",
-            "Properties": {
-              "age": "0"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block": "biomeswevegone:white_puffball",
-            "predicate_type": "minecraft:random_block_match",
-            "probability": 0.33
+            "probability": 0.33333334
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
@@ -70,7 +54,7 @@
           "input_predicate": {
             "block": "biomeswevegone:white_puffball",
             "predicate_type": "minecraft:random_block_match",
-            "probability": 0.33
+            "probability": 0.33333334
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
@@ -79,6 +63,22 @@
             "Name": "biomeswevegone:white_puffball",
             "Properties": {
               "age": "2"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "biomeswevegone:white_puffball",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.33333334
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "biomeswevegone:white_puffball",
+            "Properties": {
+              "age": "3"
             }
           }
         }

@@ -177,6 +177,166 @@
           "output_state": {
             "Name": "biomeswevegone:crocus"
           }
+        },
+        {
+          "input_predicate": {
+            "block": "biomeswevegone:white_puffball",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.33333334
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "biomeswevegone:white_puffball",
+            "Properties": {
+              "age": "1"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "biomeswevegone:white_puffball",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.33333334
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "biomeswevegone:white_puffball",
+            "Properties": {
+              "age": "2"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "biomeswevegone:white_puffball",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.33333334
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "biomeswevegone:white_puffball",
+            "Properties": {
+              "age": "3"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:pumpkin_stem",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.14285715
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:pumpkin_stem",
+            "Properties": {
+              "age": "1"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:pumpkin_stem",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.14285715
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:pumpkin_stem",
+            "Properties": {
+              "age": "2"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:pumpkin_stem",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.14285715
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:pumpkin_stem",
+            "Properties": {
+              "age": "3"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:pumpkin_stem",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.14285715
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:pumpkin_stem",
+            "Properties": {
+              "age": "4"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:pumpkin_stem",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.14285715
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:pumpkin_stem",
+            "Properties": {
+              "age": "5"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:pumpkin_stem",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.14285715
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:pumpkin_stem",
+            "Properties": {
+              "age": "6"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:pumpkin_stem",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.14285715
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:pumpkin_stem",
+            "Properties": {
+              "age": "7"
+            }
+          }
         }
       ]
     }

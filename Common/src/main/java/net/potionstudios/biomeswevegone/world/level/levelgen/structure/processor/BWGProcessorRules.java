@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.world.level.levelgen.structure.processo
 
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.AlwaysTrueTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
@@ -68,10 +69,22 @@ class BWGProcessorRules {
 
 	protected static final ProcessorRule MOSSIFY_10_PERCENT = createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.1F, Blocks.MOSSY_COBBLESTONE);
 
-	protected static final ProcessorRule[] WHITE_PUFFBALL_RANDOM_AGE = new ProcessorRule[] {
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_PUFFBALL.getBlock(), 0.33f, BWGBlocks.WHITE_PUFFBALL.getBlockState().setValue(WhitePuffballBlock.AGE, 0)),
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_PUFFBALL.getBlock(), 0.33f, BWGBlocks.WHITE_PUFFBALL.getBlockState().setValue(WhitePuffballBlock.AGE, 1)),
-			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.WHITE_PUFFBALL.getBlock(), 0.33f, BWGBlocks.WHITE_PUFFBALL.getBlockState().setValue(WhitePuffballBlock.AGE, 2))};
+	protected static final ProcessorRule[] WHITE_PUFFBALL_RANDOM_AGE = createEvenChanceAgeRules(BWGBlocks.WHITE_PUFFBALL.getBlock(), WhitePuffballBlock.AGE, WhitePuffballBlock.MAX_AGE);
+
+	protected static final ProcessorRule[] PUMPKIN_RANDOM_AGE = createEvenChanceAgeRules(Blocks.PUMPKIN_STEM, StemBlock.AGE, StemBlock.MAX_AGE);
+
+	protected static ProcessorRule[] createEvenChanceAgeRules(Block block, IntegerProperty ageProperty, int maxAge) {
+        float chance = 1.0f / maxAge;
+		ProcessorRule[] rules = new ProcessorRule[maxAge];
+		for (int i = 1; i <= maxAge; i++) {
+			rules[i - 1] = createAlwaysTrueRandomBlockMatchTest(
+					block,
+					chance,
+					block.defaultBlockState().setValue(ageProperty, i)
+			);
+		}
+		return rules;
+	}
 
 	protected static ProcessorRule burrowToBlock(float chance, Block newBlock) {
 		return createAlwaysTrueRandomBlockMatchTest(BWGBlocks.PUMPKIN_BURROW.get(), chance, newBlock);
