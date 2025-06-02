@@ -37,6 +37,7 @@ public class SocializeAtBell {
 													memoryAccessor2.set(new EntityTracker(livingEntityx, true));
 													memoryAccessor.set(new WalkTarget(new EntityTracker(livingEntityx, false), 0.3F, 1));
 												});
+										serverLevel.broadcastEntityEvent(livingEntity, (byte) 14);
 										return true;
 									} else {
 										return false;
