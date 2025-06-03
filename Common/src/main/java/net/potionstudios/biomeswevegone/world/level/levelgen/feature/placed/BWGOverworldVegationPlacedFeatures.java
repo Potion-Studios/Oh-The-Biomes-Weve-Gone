@@ -31,6 +31,7 @@ public class BWGOverworldVegationPlacedFeatures {
     public static final ResourceKey<PlacedFeature> CLOVER_PATCH = createWorldSurfaceSquared("clover_patch", BWGOverworldVegetationConfiguredFeatures.CLOVER_PATCH, 5);
     public static final ResourceKey<PlacedFeature> CLOVER_FLOWERS = createWorldSurfaceSquared("clover_flower_patch", BWGOverworldVegetationConfiguredFeatures.CLOVER_AND_FLOWERS, 2);
     public static final ResourceKey<PlacedFeature> LEAF_PILE = createWorldSurfaceSquared("leaf_pile", BWGOverworldVegetationConfiguredFeatures.LEAF_PILE, 2);
+    public static final ResourceKey<PlacedFeature> LEAF_PILE_ABUNDANT = createWorldSurfaceSquared("leaf_pile_abundant", BWGOverworldVegetationConfiguredFeatures.LEAF_PILE, 8);
     public static final ResourceKey<PlacedFeature> FLOWER_PATCHES = createWorldSurfaceSquared("flower_patches", BWGOverworldVegetationConfiguredFeatures.FLOWER_PATCH, 5);
     public static final ResourceKey<PlacedFeature> SAKURA_PETALS = createWorldSurfaceSquared("sakura_petals", BWGOverworldVegetationConfiguredFeatures.SAKURA_PETALS, 9);
 

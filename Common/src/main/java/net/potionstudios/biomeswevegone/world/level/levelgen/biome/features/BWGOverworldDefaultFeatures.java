@@ -19,6 +19,10 @@ public class BWGOverworldDefaultFeatures {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.LEAF_PILE);
     }
 
+    public static void addLeafPileAbundant(BiomeGenerationSettings.Builder gen) {
+        addVegetal(gen, BWGOverworldVegationPlacedFeatures.LEAF_PILE_ABUNDANT);
+    }
+
     public static void addBWGMushrooms(BiomeGenerationSettings.Builder gen) {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.MUSHROOMS);
     }
