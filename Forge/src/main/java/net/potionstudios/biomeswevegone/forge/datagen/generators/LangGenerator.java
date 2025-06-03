@@ -38,6 +38,8 @@ public class LangGenerator extends LanguageProvider {
         BWGItems.ITEMS.forEach(item -> add(item.get(), getItemName(item)));
         add(BWGItems.MUSIC_DISC_PIXIE_CLUB.get(), "Music Disc");
         add("item.biomeswevegone.music_disc_pixie_club.desc", "AOCAWOL - Pixie Club");
+        add(BWGItems.MUSIC_DISC_BETTER_DAYS.get(), "Music Disc");
+        add("item.biomeswevegone.music_disc_better_days.desc", "AOCAWOL - Better Days");
         BWGWood.WOOD_BLOCK_ITEMS.forEach(wood -> {
             if (!(wood.get() instanceof BWGBoatItem boatItem) || !boatItem.hasChest())
                 add(wood.get(), getItemName(wood));

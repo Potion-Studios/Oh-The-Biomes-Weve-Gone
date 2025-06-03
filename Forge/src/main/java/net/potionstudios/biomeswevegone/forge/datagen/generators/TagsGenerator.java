@@ -296,7 +296,7 @@ public class TagsGenerator {
 
             copy(BWGBlockTags.PALO_VERDE_LOGS, BWGItemTags.PALO_VERDE_LOGS);
             tag(BWGItemTags.SHEARS).addOptionalTag(Tags.Items.SHEARS).addOptionalTag(ResourceLocation.fromNamespaceAndPath("c", "shears"));
-            tag(ItemTags.MUSIC_DISCS).add(BWGItems.MUSIC_DISC_PIXIE_CLUB.get());
+            tag(ItemTags.MUSIC_DISCS).add(BWGItems.MUSIC_DISC_PIXIE_CLUB.get(), BWGItems.MUSIC_DISC_BETTER_DAYS.get());
             tag(ItemTags.STONE_CRAFTING_MATERIALS).add(BWGBlocks.ROCKY_STONE_SET.getBase().asItem());
             tag(ItemTags.VILLAGER_PLANTABLE_SEEDS).add(BWGItems.ODDION_BULB.get());
             tag(Tags.Items.MUSHROOMS).add(BWGBlocks.GREEN_MUSHROOM.get().asItem(), BWGBlocks.WEEPING_MILKCAP.get().asItem(), BWGBlocks.WOOD_BLEWIT.get().asItem());

@@ -71,6 +71,8 @@ public class BWGItems {
     public static final Supplier<PlaceOnWaterBlockItem> WATER_SILK = registerItemNoLang("water_silk", () -> new PlaceOnWaterBlockItem(BWGBlocks.WATER_SILK.get(), new Item.Properties()));
 
     public static final Supplier<RecordItem> MUSIC_DISC_PIXIE_CLUB = registerSimpleItemNoLang("music_disc_pixie_club", PlatformHandler.PLATFORM_HANDLER.createRecordItem(4, BWGSounds.MUSIC_DISC_PIXIE_CLUB, 213));
+    public static final Supplier<RecordItem> MUSIC_DISC_BETTER_DAYS = registerSimpleItemNoLang("music_disc_better_days", PlatformHandler.PLATFORM_HANDLER.createRecordItem(4, BWGSounds.MUSIC_DISC_BETTER_DAYS, 146));
+
 
     private static Supplier<SpawnEggItem> registerSpawnEgg(String id, Supplier<EntityType<? extends Mob>> entity, int backgroundColor, int highlightColor) {
         Supplier<SpawnEggItem> supplier = PlatformHandler.PLATFORM_HANDLER.createSpawnEgg(entity, backgroundColor, highlightColor);
