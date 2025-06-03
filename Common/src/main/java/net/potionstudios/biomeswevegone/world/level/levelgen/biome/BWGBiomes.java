@@ -41,6 +41,7 @@ public class BWGBiomes {
     public static final ResourceKey<Biome> CRAG_GARDENS = createBiome("crag_gardens", BWGOverworldBiomes::cragGardens, BWGBiomeTags.JUNGLE, BWGBiomeTags.MOUNTAIN, BWGBiomeTags.DENSE);
     public static final ResourceKey<Biome> CRIMSON_TUNDRA = createBiome("crimson_tundra", BWGOverworldBiomes::crimsonTundra, BWGBiomeTags.PLAINS, BWGBiomeTags.COLD);
     public static final ResourceKey<Biome> CYPRESS_SWAMPLANDS = createBiome("cypress_swamplands", BWGOverworldBiomes::cypressSwamplands, BWGBiomeTags.SWAMP);
+    public static final ResourceKey<Biome> CYPRESS_WETLANDS = createBiome("cypress_wetlands", BWGOverworldBiomes::cypressWetlands, BWGBiomeTags.SWAMP);
     public static final ResourceKey<Biome> DACITE_RIDGES = createBiome("dacite_ridges", BWGOverworldBiomes::daciteRidges, BWGBiomeTags.FOREST, BWGBiomeTags.CONIFEROUS);
     public static final ResourceKey<Biome> DACITE_SHORE = createBiome("dacite_shore", BWGOverworldBiomes::daciteShore, BWGBiomeTags.BEACH, BWGBiomeTags.WASTELAND, BiomeTags.HAS_BURIED_TREASURE);
     public static final ResourceKey<Biome> DEAD_SEA = createBiome("dead_sea", BWGOverworldBiomes::deadSea, BWGBiomeTags.OCEAN, BWGBiomeTags.DEAD, BWGBiomeTags.WASTELAND, BWGBiomeTags.DRIPSTONE_ARCH);

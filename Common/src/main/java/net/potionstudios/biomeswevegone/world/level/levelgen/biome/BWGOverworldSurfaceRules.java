@@ -159,6 +159,16 @@ public class BWGOverworldSurfaceRules {
             )
             ));
 
+    private static final SurfaceRules.RuleSource CYPRESS_WETLANDS = biomeAbovePreliminarySurface(BWGBiomes.CYPRESS_WETLANDS, SurfaceRules.sequence(
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
+                    SurfaceRules.sequence(
+                            makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.GRASS_BLOCK),
+                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT)
+                    )),
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), PODZOL_DIRT_SURFACE),
+            PEAT_SURFACE, MUD_SURFACE
+    ));
+
     private static final SurfaceRules.RuleSource DACITE_RIDGES = biomeAbovePreliminarySurface(BWGBiomes.DACITE_RIDGES, SurfaceRules.sequence(
             makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
                     SurfaceRules.sequence(
@@ -392,6 +402,7 @@ public class BWGOverworldSurfaceRules {
                 COCONINO_MEADOW,
                 CONIFEROUS_FOREST,
                 CYPRESS_MANGROVE,
+                CYPRESS_WETLANDS,
                 CRIMSON_TUNDRA,
                 DACITE_RIDGES,
                 DACITE_SHORE,
