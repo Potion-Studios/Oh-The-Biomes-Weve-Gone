@@ -4,6 +4,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
@@ -29,7 +30,7 @@ import java.util.Objects;
  * @author Joseph T. McQuigg
  */
 @Environment(EnvType.CLIENT)
-public class BiomesWeveGoneClientFabric implements ClientModInitializer {
+public class BiomesWeveGoneClientFabric implements ClientModInitializer, ModelLoadingPlugin {
     @Override
     public void onInitializeClient() {
         BiomesWeveGoneClient.onInitialize();
@@ -64,5 +65,10 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer {
             BlockRenderLayerMap.INSTANCE.putBlock(block, RenderType.cutoutMipped());
         else if (block instanceof StainedGlassPaneBlock || block instanceof HalfTransparentBlock)
             BlockRenderLayerMap.INSTANCE.putBlock(block, RenderType.translucent());
+    }
+
+    @Override
+    public void onInitializeModelLoader(Context context) {
+        BiomesWeveGoneClient.registerAdditionalModels((context::addModels));
     }
 }

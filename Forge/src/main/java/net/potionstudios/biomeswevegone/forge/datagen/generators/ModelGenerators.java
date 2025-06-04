@@ -17,7 +17,9 @@ import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
+import net.potionstudios.biomeswevegone.world.item.custom.WreathItem;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.PottedBlock;
@@ -34,6 +36,8 @@ import net.potionstudios.biomeswevegone.world.level.block.sand.BWGSandSet;
 import net.potionstudios.biomeswevegone.world.level.block.set.BWGBlockSet;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
+
+import java.util.Arrays;
 
 /**
  * Used to generate models for blocks and items.
@@ -65,6 +69,7 @@ public class ModelGenerators {
                 if (supplier.get() instanceof RecordItem)
                     withExistingParent(key(supplier.get()).getPath(), mcLoc("minecraft:item/template_music_disc")).texture("layer0", BiomesWeveGone.id(ModelProvider.ITEM_FOLDER + "/" + key(supplier.get()).getPath()));
                 else if (supplier.get() instanceof SpawnEggItem) spawnEggItem(supplier.get());
+                else if (supplier.get() instanceof WreathItem item) simpleItemBlockTexture(item, item.getType().getSerializedName() + "_wreath");
                 else basicItem(supplier.get());
             });
             BWGWoodSet.woodsets().forEach(set -> {
@@ -92,6 +97,10 @@ public class ModelGenerators {
 
         private void simpleItemBlockTexture(ItemLike item) {
             singleTexture(name(item), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/" + name(item)));
+        }
+
+        private void simpleItemBlockTexture(ItemLike item, String texture) {
+            singleTexture(name(item), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/" + texture));
         }
 
         private void spawnEggItem(Item item) {
@@ -366,6 +375,8 @@ public class ModelGenerators {
 
             registerPatchBlockStates(BWGBlocks.CLOVER_PATCH.get(), new String[]{"clover_patch", "clover_patch2", "clover_patch3", "clover_patch4"});
             registerPatchBlockStates(BWGBlocks.FLOWER_PATCH.get(), new String[]{"flower_patch", "flower_patch2", "flower_patch3"});
+
+            Arrays.stream(Wreath.Type.values()).forEach(type -> models().withExistingParent(BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString(), blockBWGTexture("template_wreath")).texture("wreath", BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString()).texture("particle", BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString()));
         }
 
         private void registerPatchBlockStates(Block block, String[] models) {
