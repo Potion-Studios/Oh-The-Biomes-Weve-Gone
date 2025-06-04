@@ -1,0 +1,30 @@
+package net.potionstudios.biomeswevegone.client.renderer.entity.wreath;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.block.BlockRenderDispatcher;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.texture.TextureAtlas;
+import net.minecraft.resources.ResourceLocation;
+import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
+import org.jetbrains.annotations.NotNull;
+
+public class WreathRenderer extends EntityRenderer<Wreath> {
+    private final BlockRenderDispatcher blockRenderer;
+
+    public WreathRenderer(EntityRendererProvider.Context context) {
+        super(context);
+        this.blockRenderer = context.getBlockRenderDispatcher();
+    }
+
+    @Override
+    public void render(@NotNull Wreath entity, float entityYaw, float partialTick, @NotNull PoseStack poseStack, @NotNull MultiBufferSource buffer, int packedLight) {
+        super.render(entity, entityYaw, partialTick, poseStack, buffer, packedLight);
+    }
+
+    @Override
+    public @NotNull ResourceLocation getTextureLocation(@NotNull Wreath entity) {
+        return TextureAtlas.LOCATION_BLOCKS;
+    }
+}

@@ -30,6 +30,7 @@ import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
 import net.potionstudios.biomeswevegone.client.particle.particles.FallingLeafParticle;
 import net.potionstudios.biomeswevegone.client.particle.particles.FireFlyParticle;
 import net.potionstudios.biomeswevegone.client.renderer.entity.boat.BWGBoatRenderer;
+import net.potionstudios.biomeswevegone.client.renderer.entity.wreath.WreathRenderer;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.boats.BWGBoatEntity;
 import net.potionstudios.biomeswevegone.client.renderer.entity.manowar.ManOWarRenderer;
@@ -80,6 +81,7 @@ public class BiomesWeveGoneClient {
         consumer.accept(BWGEntityType.ODDION.get(), OddionRenderer::new);
         consumer.accept(BWGEntityType.BWG_BOAT.get(), context -> new BWGBoatRenderer(context, false));
         consumer.accept(BWGEntityType.BWG_CHEST_BOAT.get(), context -> new BWGBoatRenderer(context, true));
+        consumer.accept(BWGEntityType.WREATH.get(), WreathRenderer::new);
     }
 
     /**

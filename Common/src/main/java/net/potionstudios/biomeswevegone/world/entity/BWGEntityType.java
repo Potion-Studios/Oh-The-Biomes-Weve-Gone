@@ -7,6 +7,7 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
 import net.potionstudios.biomeswevegone.world.entity.boats.BWGBoatEntity;
 import net.potionstudios.biomeswevegone.world.entity.boats.BWGChestBoatEntity;
+import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import net.potionstudios.biomeswevegone.world.entity.manowar.ManOWar;
 import net.potionstudios.biomeswevegone.world.entity.oddion.Oddion;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
@@ -28,6 +29,8 @@ public class BWGEntityType {
 
 	public static final Supplier<EntityType<BWGBoatEntity>> BWG_BOAT = createEntity("boat", BWGBoatEntity::new, MobCategory.MISC, EntityType.BOAT.getWidth(), EntityType.BOAT.getHeight(), 10);
 	public static final Supplier<EntityType<BWGChestBoatEntity>> BWG_CHEST_BOAT = createEntity("chest_boat", BWGChestBoatEntity::new, MobCategory.MISC, EntityType.CHEST_BOAT.getWidth(), EntityType.CHEST_BOAT.getHeight(), 10);
+
+	public static final Supplier<EntityType<Wreath>> WREATH = createEntity("wreath", Wreath::new, MobCategory.MISC, 0.5F, 0.5F, 10);
 
 	private static <E extends Entity> Supplier<EntityType<E>> createEntity(String id, EntityType.EntityFactory<E> factory, MobCategory category, float width, float height) {
 		return PlatformHandler.PLATFORM_HANDLER.registerEntity(id, factory, category, width, height);
