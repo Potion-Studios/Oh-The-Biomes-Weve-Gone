@@ -22,6 +22,7 @@ import net.potionstudios.biomeswevegone.client.color.item.FoliageColorSource;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
+import net.potionstudios.biomeswevegone.world.level.block.custom.PumpkinBurrowBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.BWGPlacementBushBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.HydrangeaHedgeBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.ShrubBlock;
@@ -338,7 +339,7 @@ public class ModelGenerator extends ModelProvider {
                                 .put(TextureSlot.BOTTOM, BiomesWeveGone.id("block/" + BuiltInRegistries.BLOCK.getKey(b).getPath().replace("_path", "")))
                                 .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(b, "_side"))
                                 .put(TextureSlot.TOP, TextureMapping.getBlockTexture(Blocks.DIRT_PATH, "_top")))
-                        .updateTemplate(modelTemplate -> modelTemplate.extend().parent(mcLocation("block/dirt_path")).build()).create(b, blockModels.modelOutput)));
+                                .updateTemplate(modelTemplate -> modelTemplate.extend().parent(mcLocation("block/dirt_path")).build()).create(b, blockModels.modelOutput)));
                 blockItemModel(blockModels, b);
             } else if (b instanceof HugeMushroomBlock) {
                 blockModels.createMushroomBlock(b);
@@ -373,6 +374,13 @@ public class ModelGenerator extends ModelProvider {
         blockItemModel(blockModels, BWGBlocks.PALE_PUMPKIN.get());
         blockItemModel(blockModels, BWGBlocks.CARVED_PALE_PUMPKIN.get());
         blockItemModel(blockModels, BWGBlocks.PALE_JACK_O_LANTERN.get());
+
+        // Define texture mappings
+        ResourceLocation unoccupiedModel = TexturedModel.createDefault(TextureMapping::defaultTexture, ModelTemplates.create(TextureSlot.FRONT)).updateTexture(textureMapping1 ->  textureMapping1.put(TextureSlot.FRONT, textureMapping1.getBlockTexture(BWGBlocks.PUMPKIN_BURROW.get()))).updateTemplate(modelTemplate -> modelTemplate.extend().parent(mcLocation("block/carved_pumpkin")).build()).create(BWGBlocks.PUMPKIN_BURROW.get(), blockModels.modelOutput);
+        ResourceLocation occupiedModel = TexturedModel.createDefault(TextureMapping::defaultTexture, ModelTemplates.create(TextureSlot.FRONT)).updateTexture(textureMapping1 ->  textureMapping1.put(TextureSlot.FRONT, textureMapping1.getBlockTexture(BWGBlocks.PUMPKIN_BURROW.get(), "_occupied"))).updateTemplate(modelTemplate -> modelTemplate.extend().parent(mcLocation("block/carved_pumpkin")).build()).createWithSuffix(BWGBlocks.PUMPKIN_BURROW.get(), "_occupied", blockModels.modelOutput);
+
+        blockModels.blockStateOutput.accept(MultiVariantGenerator.multiVariant(BWGBlocks.PUMPKIN_BURROW.get()).with(BlockModelGenerators.createHorizontalFacingDispatch())
+                .with(PropertyDispatch.property(PumpkinBurrowBlock.OCCUPIED).select(false, Variant.variant().with(VariantProperties.MODEL, unoccupiedModel)).select(true, Variant.variant().with(VariantProperties.MODEL, occupiedModel))));
 
 
         blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(BWGBlocks.WITCH_HAZEL_BLOSSOM.get(), ModelLocationUtils.getModelLocation(BWGBlocks.WITCH_HAZEL_BLOSSOM.get())));
