@@ -300,6 +300,7 @@ public class BWGBlocks {
     public static final Supplier<PalePumpkinBlock> PALE_PUMPKIN = registerBlockItem("pale_pumpkin", PalePumpkinBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.PUMPKIN).mapColor(MapColor.TERRACOTTA_WHITE));
     public static final Supplier<PaleCarvedPumpkinBlock> CARVED_PALE_PUMPKIN = registerBlockItem("carved_pale_pumpkin", PaleCarvedPumpkinBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CARVED_PUMPKIN).mapColor(MapColor.TERRACOTTA_WHITE), new Item.Properties().useBlockDescriptionPrefix().component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.HEAD).setSwappable(false).setCameraOverlay(BiomesWeveGone.id("misc/palepumpkinblur")).build()));
     public static final Supplier<PaleCarvedPumpkinBlock> PALE_JACK_O_LANTERN = registerBlockItem("pale_jack_o_lantern", PaleCarvedPumpkinBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.JACK_O_LANTERN).mapColor(MapColor.TERRACOTTA_WHITE));
+    public static final Supplier<PumpkinBurrowBlock> PUMPKIN_BURROW = registerBlock("pumpkin_burrow", PumpkinBurrowBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.PUMPKIN));
 
     private static FlowerBlockFeature registerFlower(String key) {
         Supplier<? extends Block> flower = registerBlockItem(key, BWGFlowerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).noOcclusion());

@@ -42,7 +42,7 @@ import net.potionstudios.biomeswevegone.client.renderer.entity.oddion.OddionRend
 import net.potionstudios.biomeswevegone.client.renderer.entity.pumpkinwarden.PumpkinWardenRenderer;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGSpreadableBlock;
-import net.potionstudios.biomeswevegone.world.level.block.entities.BWGBlockEntities;
+import net.potionstudios.biomeswevegone.world.level.block.entities.BWGBlockEntityType;
 import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.BWGCactusBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.BWGFruitBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.GlowCaneBlock;
@@ -97,11 +97,11 @@ public class BiomesWeveGoneClient {
     /**
      * Registers the block key renderers.
      * @see BlockEntityRenderers
-     * @see BWGBlockEntities
+     * @see BWGBlockEntityType
      */
     public static void registerBlockEntityRenderers(BiConsumer<BlockEntityType<? extends BlockEntity>, BlockEntityRendererProvider> consumer) {
-        consumer.accept(BWGBlockEntities.SIGNS.get(), SignRenderer::new);
-        consumer.accept(BWGBlockEntities.HANGING_SIGNS.get(), HangingSignRenderer::new);
+        consumer.accept(BWGBlockEntityType.SIGNS.get(), SignRenderer::new);
+        consumer.accept(BWGBlockEntityType.HANGING_SIGNS.get(), HangingSignRenderer::new);
     }
 
     /**

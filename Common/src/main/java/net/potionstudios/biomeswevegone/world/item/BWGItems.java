@@ -18,11 +18,13 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
+import net.potionstudios.biomeswevegone.component.BWGDataComponents;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
 import net.potionstudios.biomeswevegone.world.item.custom.CampfireExplodingBlockItem;
 import net.potionstudios.biomeswevegone.world.item.custom.PowderItem;
 import net.potionstudios.biomeswevegone.world.item.jukebox.BWGJukeBoxSongs;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+import net.potionstudios.biomeswevegone.world.level.block.entities.PumpkinBurrowBlockEntity;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cattail.ColorProperty;
 
 import java.util.ArrayList;
@@ -51,6 +53,8 @@ public class BWGItems {
 
     public static final Supplier<Item> CATTAIL_SPROUT = registerItemNoLang("cattail_sprout", properties-> new CampfireExplodingBlockItem(BWGBlocks.CATTAIL_SPROUT, properties), new Item.Properties().useBlockDescriptionPrefix());
     public static final Supplier<Item> FLUORESCENT_CATTAIL_SPROUT = registerItemNoLang("fluorescent_cattail_sprout", properties -> new CampfireExplodingBlockItem(BWGBlocks.FLUORESCENT_CATTAIL_SPROUT, properties), new Item.Properties().useBlockDescriptionPrefix());
+
+    public static final Supplier<Item> PUMPKIN_BURROW = registerItemNoLang("pumpkin_burrow", properties -> new BlockItem(BWGBlocks.PUMPKIN_BURROW.get(), properties), new Item.Properties().component(BWGDataComponents.PUMPKIN_WARDEN.get(), PumpkinBurrowBlockEntity.Occupant.EMPTY).useBlockDescriptionPrefix());
 
     public static final Supplier<Item> BLUE_GLOWCANE_SHOOT = registerSimpleItem("blue_glowcane_shoot", properties -> new BlockItem(BWGBlocks.BLUE_GLOWCANE.get(), properties), new Item.Properties().useItemDescriptionPrefix());
     public static final Supplier<Item> GREEN_GLOWCANE_SHOOT = registerSimpleItem("green_glowcane_shoot", properties -> new BlockItem(BWGBlocks.GREEN_GLOWCANE.get(), properties), new Item.Properties().useItemDescriptionPrefix());

@@ -5,6 +5,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
+import net.potionstudios.biomeswevegone.component.BWGDataComponents;
 import net.potionstudios.biomeswevegone.sounds.BWGSounds;
 import net.potionstudios.biomeswevegone.compat.vanilla.dispenser.BWGDispenseItemBehavior;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
@@ -14,7 +15,7 @@ import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTypes;
 import net.potionstudios.biomeswevegone.world.item.BWGCreativeTabs;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
-import net.potionstudios.biomeswevegone.world.level.block.entities.BWGBlockEntities;
+import net.potionstudios.biomeswevegone.world.level.block.entities.BWGBlockEntityType;
 import net.potionstudios.biomeswevegone.world.level.levelgen.blockpredicates.BWGBlockPredicateTypes;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.BWGFeatures;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.configured.BWGConfiguredFeatures;
@@ -46,9 +47,10 @@ public class BiomesWeveGone {
      * Initializes the mod.
      */
     public static void init() {
+        BWGDataComponents.dataComponents();
         BWGItems.items();
         BWGBlocks.blocks();
-        BWGBlockEntities.blockEntities();
+        BWGBlockEntityType.blockEntities();
         BWGEntities.entities();
         BWGCreativeTabs.tabs();
         BWGSounds.sounds();

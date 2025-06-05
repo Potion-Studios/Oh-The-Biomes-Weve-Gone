@@ -5,15 +5,17 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
+import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.entities.sign.BWGHangingSignBlockEntity;
 import net.potionstudios.biomeswevegone.world.level.block.entities.sign.BWGSignBlockEntity;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 
+import java.util.Set;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class BWGBlockEntities {
+public class BWGBlockEntityType {
     public static final Supplier<BlockEntityType<BWGSignBlockEntity>> SIGNS = register("sign", () -> new BlockEntityType<>(
             BWGSignBlockEntity::new,
             Stream.concat(
@@ -27,6 +29,11 @@ public class BWGBlockEntities {
                BWGWoodSet.woodsets().stream().map(BWGWoodSet::hangingSign),
                BWGWoodSet.woodsets().stream().map(BWGWoodSet::wallHangingSign)
        ).collect(Collectors.toSet())));
+
+    public static final Supplier<BlockEntityType<PumpkinBurrowBlockEntity>> PUMPKIN_BURROW = register("pumpkin_burrow", () -> new BlockEntityType<>(
+            PumpkinBurrowBlockEntity::new,
+            Set.of(BWGBlocks.PUMPKIN_BURROW.get())
+    ));
 
     private static <T extends BlockEntity> Supplier<BlockEntityType<T>> register(String key, Supplier<BlockEntityType<T>> blockEntity) {
         return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, key, blockEntity);
