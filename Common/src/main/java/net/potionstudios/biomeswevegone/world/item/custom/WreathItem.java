@@ -4,23 +4,21 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.HangingEntityItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import org.jetbrains.annotations.NotNull;
 
-public class WreathItem extends HangingEntityItem {
+public class WreathItem extends Item {
     private final Wreath.Type type;
     public WreathItem(Properties properties, Wreath.Type type) {
-        super(BWGEntityType.WREATH.get(), properties);
+        super(properties);
         this.type = type;
     }
 
-    @Override
     protected boolean mayPlace(@NotNull Player player, @NotNull Direction direction, @NotNull ItemStack hangingEntityStack, @NotNull BlockPos pos) {
         return !player.level().isOutsideBuildHeight(pos) && player.mayUseItemAt(pos, direction, hangingEntityStack);
     }
