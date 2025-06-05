@@ -40,8 +40,10 @@ public class LangGenerator extends LanguageProvider {
         BWGBlocks.BLOCKS.forEach(block -> add(block.get(), getBlockName(block)));
         BWGItems.ITEMS.forEach(item -> add(item.get(), getItemName(item)));
         add(BWGItems.MUSIC_DISC_PIXIE_CLUB.get(), "Music Disc");
+        add(BWGItems.MUSIC_DISC_BETTER_DAYS.get(), "Music Disc");
         add("item." + BiomesWeveGone.MOD_ID + ".music_disc_pixie_club.desc", "AOCAWOL - Pixie Club");
         add("jukebox_song." + BWGJukeBoxSongs.PIXIE_CLUB.location().toLanguageKey(), "AOCAWOL - Pixie Club");
+        add("jukebox_song." + BWGJukeBoxSongs.BETTER_DAYS.location().toLanguageKey(), "AOCAWOL - Better Days");
         BWGWood.WOOD_BLOCK_ITEMS.forEach(wood -> {
             if (!(wood.get() instanceof BoatItem))
                 if (wood.get() instanceof BlockItem blockItem)

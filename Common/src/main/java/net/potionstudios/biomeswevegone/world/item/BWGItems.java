@@ -95,6 +95,7 @@ public class BWGItems {
     public static final Supplier<PlaceOnWaterBlockItem> WATER_SILK = registerItemNoLang("water_silk", properties -> new PlaceOnWaterBlockItem(BWGBlocks.WATER_SILK.get(), properties), new Item.Properties().useBlockDescriptionPrefix());
 
     public static final Supplier<Item> MUSIC_DISC_PIXIE_CLUB = registerItemNoLang("music_disc_pixie_club", Item::new, (new Item.Properties()).stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(BWGJukeBoxSongs.PIXIE_CLUB));
+    public static final Supplier<Item> MUSIC_DISC_BETTER_DAYS = registerItemNoLang("music_disc_better_days", Item::new, (new Item.Properties()).stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(BWGJukeBoxSongs.BETTER_DAYS));
 
 
     private static Supplier<MobBucketItem> registerMobBucket(String id, Supplier<EntityType<? extends Mob>> entity, Supplier<Fluid> fluid, Supplier<SoundEvent> sound) {

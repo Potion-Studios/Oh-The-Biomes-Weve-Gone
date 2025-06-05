@@ -491,6 +491,7 @@ public class ModelGenerator extends ModelProvider {
         itemModels.declareCustomModelItem(BWGItems.WATER_SILK.get());
 
         itemModels.generateFlatItem(BWGItems.MUSIC_DISC_PIXIE_CLUB.get(), ModelTemplates.MUSIC_DISC);
+        itemModels.generateFlatItem(BWGItems.MUSIC_DISC_BETTER_DAYS.get(), ModelTemplates.MUSIC_DISC);
     }
 
     private void blockItemModel(BlockModelGenerators blockModels, Block block) {
