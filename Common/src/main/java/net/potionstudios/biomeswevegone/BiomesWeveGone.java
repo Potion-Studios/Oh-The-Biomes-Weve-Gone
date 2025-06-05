@@ -5,15 +5,20 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.potionstudios.biomeswevegone.component.BWGDataComponents;
 import net.potionstudios.biomeswevegone.sounds.BWGSounds;
 import net.potionstudios.biomeswevegone.compat.vanilla.dispenser.BWGDispenseItemBehavior;
+import net.potionstudios.biomeswevegone.tags.BWGEntityTypeTags;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
 import net.potionstudios.biomeswevegone.world.entity.ai.sensing.BWGSensorType;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerProfessions;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTypes;
+import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import net.potionstudios.biomeswevegone.world.entity.schedule.BWGSchedule;
 import net.potionstudios.biomeswevegone.world.item.BWGCreativeTabs;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
@@ -95,6 +100,16 @@ public class BiomesWeveGone {
      */
     public static void serverStart(MinecraftServer server) {
         PlaceInVillage.addStructuresToVillages(server);
+    }
+
+    /**
+     * Runs when an entity is loaded.
+     * This is used to add an attack goal to monsters that should attack Pumpkin Wardens.
+     * @param entity the entity that is loaded
+     */
+    public static void onEntityLoad(Entity entity) {
+        if (entity instanceof Mob mob && entity.getType().is(BWGEntityTypeTags.ATTACKS_PUMPKIN_WARDEN))
+            mob.goalSelector.addGoal(3, new NearestAttackableTargetGoal<>(mob, PumpkinWarden.class, false));
     }
 
     /**

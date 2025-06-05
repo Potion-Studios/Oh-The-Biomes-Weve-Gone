@@ -3,6 +3,7 @@ package net.potionstudios.biomeswevegone.fabric;
 import corgitaco.corgilib.fabric.CorgiLibFabric;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.world.entity.SpawnPlacements;
@@ -40,6 +41,7 @@ public class BiomesWeveGoneFabric implements ModInitializer {
         BiomesWeveGone.commonSetup();
         BiomesWeveGone.postInit();
         ServerLifecycleEvents.SERVER_STARTING.register(BiomesWeveGone::serverStart);
+        ServerEntityEvents.ENTITY_LOAD.register((entity, level) -> BiomesWeveGone.onEntityLoad(entity));
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> BWGReloadCommand.register(dispatcher::register));
     }
 }
