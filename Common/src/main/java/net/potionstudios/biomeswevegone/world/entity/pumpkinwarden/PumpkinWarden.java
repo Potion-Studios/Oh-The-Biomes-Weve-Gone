@@ -42,7 +42,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -475,7 +475,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         if (entity instanceof Villager villager && villager.isBaby() && villager.hasEffect(MobEffects.WEAKNESS)) {
             if (stack.is(Items.CARVED_PUMPKIN) || stack.is(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem())) {
                 if (level instanceof ServerLevel serverLevel) {
-                    PumpkinWarden warden = BWGEntities.PUMPKIN_WARDEN.get().create(serverLevel, EntitySpawnReason.TRIGGERED);
+                    PumpkinWarden warden = BWGEntityType.PUMPKIN_WARDEN.get().create(serverLevel, EntitySpawnReason.TRIGGERED);
                     warden.setPos(villager.position());
                     if (stack.is(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem()))
                         warden.setVariant(PumpkinWarden.Variant.PALE);

@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.item.BWGCreativeTabs;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.item.jukebox.BWGJukeBoxSongs;
@@ -52,9 +52,9 @@ public class LangGenerator extends LanguageProvider {
             else add(wood.get(), getItemName(wood).replace("Chest ", "") + " with Chest");
         });
         BWGWood.WOOD.stream().filter(wood -> wood.get() instanceof FlowerPotBlock).forEach(wood -> add(wood.get(), getBlockName(wood)));
-        add(BWGEntities.MAN_O_WAR.get(), "Man O' War");
-        add(BWGEntities.PUMPKIN_WARDEN.get(), "Pumpkin Warden");
-        add(BWGEntities.ODDION.get(), "Oddion");
+        add(BWGEntityType.MAN_O_WAR.get(), "Man O' War");
+        add(BWGEntityType.PUMPKIN_WARDEN.get(), "Pumpkin Warden");
+        add(BWGEntityType.ODDION.get(), "Oddion");
         BWGWoodSet.woodsets().forEach(bwgWoodSet -> {
             add(bwgWoodSet.boat().get(), getId(bwgWoodSet.name()) + " Boat");
             add(bwgWoodSet.chestBoat().get(), getId(bwgWoodSet.name()) + " Boat with Chest");

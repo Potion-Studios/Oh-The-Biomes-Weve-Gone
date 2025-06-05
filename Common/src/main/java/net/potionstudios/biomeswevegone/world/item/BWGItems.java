@@ -19,7 +19,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
 import net.potionstudios.biomeswevegone.component.BWGDataComponents;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.item.custom.CampfireExplodingBlockItem;
 import net.potionstudios.biomeswevegone.world.item.custom.PowderItem;
 import net.potionstudios.biomeswevegone.world.item.jukebox.BWGJukeBoxSongs;
@@ -45,11 +45,11 @@ public class BWGItems {
 
     public static final Supplier<Item> BWG_LOGO = register("bwg_logo", Item::new, new Item.Properties());
 
-    public static final Supplier<SpawnEggItem> MAN_O_WAR_SPAWN_EGG = registerItem("man_o_war_spawn_egg", properties -> new SpawnEggItem(BWGEntities.MAN_O_WAR.get(), properties), new Item.Properties());
-    public static final Supplier<SpawnEggItem> PUMPKIN_WARDEN_SPAWN_EGG = registerItem("pumpkin_warden_spawn_egg", properties -> new SpawnEggItem(BWGEntities.PUMPKIN_WARDEN.get(), properties), new Item.Properties());
-    public static final Supplier<SpawnEggItem> ODDION_SPAWN_EGG = registerItem("oddion_spawn_egg", properties -> new SpawnEggItem(BWGEntities.ODDION.get(), properties), new Item.Properties());
+    public static final Supplier<SpawnEggItem> MAN_O_WAR_SPAWN_EGG = registerItem("man_o_war_spawn_egg", properties -> new SpawnEggItem(BWGEntityType.MAN_O_WAR.get(), properties), new Item.Properties());
+    public static final Supplier<SpawnEggItem> PUMPKIN_WARDEN_SPAWN_EGG = registerItem("pumpkin_warden_spawn_egg", properties -> new SpawnEggItem(BWGEntityType.PUMPKIN_WARDEN.get(), properties), new Item.Properties());
+    public static final Supplier<SpawnEggItem> ODDION_SPAWN_EGG = registerItem("oddion_spawn_egg", properties -> new SpawnEggItem(BWGEntityType.ODDION.get(), properties), new Item.Properties());
 
-    public static final Supplier<MobBucketItem> MAN_O_WAR_BUCKET = registerMobBucket("man_o_war_bucket", BWGEntities.MAN_O_WAR::get, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH);
+    public static final Supplier<MobBucketItem> MAN_O_WAR_BUCKET = registerMobBucket("man_o_war_bucket", BWGEntityType.MAN_O_WAR::get, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH);
 
     public static final Supplier<Item> CATTAIL_SPROUT = registerItemNoLang("cattail_sprout", properties-> new CampfireExplodingBlockItem(BWGBlocks.CATTAIL_SPROUT, properties), new Item.Properties().useBlockDescriptionPrefix());
     public static final Supplier<Item> FLUORESCENT_CATTAIL_SPROUT = registerItemNoLang("fluorescent_cattail_sprout", properties -> new CampfireExplodingBlockItem(BWGBlocks.FLUORESCENT_CATTAIL_SPROUT, properties), new Item.Properties().useBlockDescriptionPrefix());

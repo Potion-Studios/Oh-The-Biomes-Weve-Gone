@@ -36,7 +36,7 @@ import net.potionstudios.biomeswevegone.client.color.item.FoliageColorSource;
 import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
 import net.potionstudios.biomeswevegone.client.particle.particles.FallingLeafParticle;
 import net.potionstudios.biomeswevegone.client.particle.particles.FireFlyParticle;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.client.renderer.entity.manowar.ManOWarRenderer;
 import net.potionstudios.biomeswevegone.client.renderer.entity.oddion.OddionRenderer;
 import net.potionstudios.biomeswevegone.client.renderer.entity.pumpkinwarden.PumpkinWardenRenderer;
@@ -82,12 +82,12 @@ public class BiomesWeveGoneClient {
     /**
      * Registers the entity renderers.
      * @see EntityRenderers
-     * @see BWGEntities
+     * @see BWGEntityType
      */
     public static void registerEntityRenderers(BiConsumer<EntityType<? extends Entity>, EntityRendererProvider> consumer) {
-        consumer.accept(BWGEntities.MAN_O_WAR.get(), ManOWarRenderer::new);
-        consumer.accept(BWGEntities.PUMPKIN_WARDEN.get(), PumpkinWardenRenderer::new);
-        consumer.accept(BWGEntities.ODDION.get(), OddionRenderer::new);
+        consumer.accept(BWGEntityType.MAN_O_WAR.get(), ManOWarRenderer::new);
+        consumer.accept(BWGEntityType.PUMPKIN_WARDEN.get(), PumpkinWardenRenderer::new);
+        consumer.accept(BWGEntityType.ODDION.get(), OddionRenderer::new);
         BWGWoodSet.woodsets().forEach(set -> {
             consumer.accept(set.boat().get(), context -> new BoatRenderer(context, set.boatModelLayer()));
             consumer.accept(set.chestBoat().get(), context -> new BoatRenderer(context, set.chestBoatModelLayer()));

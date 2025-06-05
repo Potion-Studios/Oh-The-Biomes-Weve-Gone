@@ -15,7 +15,7 @@ import net.potionstudios.biomeswevegone.tags.BWGBlockTags;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
 import net.potionstudios.biomeswevegone.tags.BWGStructureTags;
 import net.potionstudios.biomeswevegone.world.damagesource.BWGDamageTypes;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -497,8 +497,8 @@ public class TagsGenerator {
 
         @Override
         protected void addTags(HolderLookup.@NotNull Provider provider) {
-            tag(EntityTypeTags.CAN_BREATHE_UNDER_WATER).add(BWGEntities.MAN_O_WAR.get());
-            tag(EntityTypeTags.AQUATIC).add(BWGEntities.MAN_O_WAR.get());
+            tag(EntityTypeTags.CAN_BREATHE_UNDER_WATER).add(BWGEntityType.MAN_O_WAR.get());
+            tag(EntityTypeTags.AQUATIC).add(BWGEntityType.MAN_O_WAR.get());
             BWGWoodSet.woodsets().forEach(set -> tag(Tags.EntityTypes.BOATS).add(set.boat().get(), set.chestBoat().get()));
         }
     }

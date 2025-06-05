@@ -8,7 +8,9 @@ import net.minecraft.server.MinecraftServer;
 import net.potionstudios.biomeswevegone.component.BWGDataComponents;
 import net.potionstudios.biomeswevegone.sounds.BWGSounds;
 import net.potionstudios.biomeswevegone.compat.vanilla.dispenser.BWGDispenseItemBehavior;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
+import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
+import net.potionstudios.biomeswevegone.world.entity.ai.sensing.BWGSensorType;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerProfessions;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTypes;
@@ -51,7 +53,7 @@ public class BiomesWeveGone {
         BWGItems.items();
         BWGBlocks.blocks();
         BWGBlockEntityType.blockEntities();
-        BWGEntities.entities();
+        BWGEntityType.entities();
         BWGCreativeTabs.tabs();
         BWGSounds.sounds();
         BWGBlockPredicateTypes.blockPredicateTypes();
@@ -68,6 +70,8 @@ public class BiomesWeveGone {
         BWGVillagerProfessions.professions();
         BWGCustomStructureProcessors.processors();
         BWGVillagerTypes.villagerTypes();
+        BWGMemoryModuleType.memoryModuleTypes();
+        BWGSensorType.sensorTypes();
         BWGMapDecorationTypes.mapDecorationTypes();
     }
 

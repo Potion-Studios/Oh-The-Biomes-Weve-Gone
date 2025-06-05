@@ -26,7 +26,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.plants.PottedBlock;
 import net.potionstudios.biomeswevegone.world.level.block.wood.sign.BWGCeilingHangingSignBlock;
@@ -126,8 +126,8 @@ public class BWGWoodSet {
             else this.leaves = BWGWood.registerBlockItem(name + "_leaves", LeavesBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor));
         }
 
-        this.boat = BWGEntities.createEntity(name + "_boat", (type, level) -> new Boat(type, level, boatItem()), MobCategory.MISC, EntityType.OAK_BOAT.getWidth(), EntityType.OAK_BOAT.getHeight(), 0.5625F, 10);
-        this.chestBoat = BWGEntities.createEntity(name + "_chest_boat", (type, level) -> new ChestBoat(type, level, chestBoatItem()), MobCategory.MISC, EntityType.OAK_CHEST_BOAT.getWidth(), EntityType.OAK_CHEST_BOAT.getHeight(), 0.5625F, 10);
+        this.boat = BWGEntityType.createEntity(name + "_boat", (type, level) -> new Boat(type, level, boatItem()), MobCategory.MISC, EntityType.OAK_BOAT.getWidth(), EntityType.OAK_BOAT.getHeight(), 0.5625F, 10);
+        this.chestBoat = BWGEntityType.createEntity(name + "_chest_boat", (type, level) -> new ChestBoat(type, level, chestBoatItem()), MobCategory.MISC, EntityType.OAK_CHEST_BOAT.getWidth(), EntityType.OAK_CHEST_BOAT.getHeight(), 0.5625F, 10);
 
 
         this.boatItem = BWGWood.registerItem(name + "_boat", properties -> new BoatItem(boat.get(), properties), new Item.Properties().stacksTo(1));
