@@ -27,6 +27,7 @@ import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGTempla
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.processor.BWGCustomStructureProcessors;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.village.PlaceInVillage;
 import net.potionstudios.biomeswevegone.world.level.levelgen.surfacerules.BWGRuleSources;
+import net.potionstudios.biomeswevegone.world.level.saveddata.maps.BWGMapDecorationTypes;
 import org.slf4j.Logger;
 
 /**
@@ -65,6 +66,7 @@ public class BiomesWeveGone {
         BWGVillagerProfessions.professions();
         BWGCustomStructureProcessors.processors();
         BWGVillagerTypes.villagerTypes();
+        BWGMapDecorationTypes.mapDecorationTypes();
     }
 
     /**
