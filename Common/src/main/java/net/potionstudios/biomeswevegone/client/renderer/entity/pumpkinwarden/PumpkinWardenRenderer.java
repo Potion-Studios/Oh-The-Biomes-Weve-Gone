@@ -51,6 +51,6 @@ public class PumpkinWardenRenderer<T extends PumpkinWarden> extends GeoEntityRen
 
     @Override
     protected float getShadowRadius(@NotNull T entity) {
-        return 0.6f;
+	    return entity.isHiding() ? 0.0f : 0.6f;
     }
 }

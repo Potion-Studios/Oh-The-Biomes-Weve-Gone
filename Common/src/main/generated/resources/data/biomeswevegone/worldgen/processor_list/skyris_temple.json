@@ -28,30 +28,7 @@
           "output_state": {
             "Name": "minecraft:gravel"
           }
-        }
-      ]
-    },
-    {
-      "processor_type": "minecraft:rule",
-      "rules": [
-        {
-          "input_predicate": {
-            "block": "biomeswevegone:dacite",
-            "predicate_type": "minecraft:random_block_match",
-            "probability": 0.1
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "biomeswevegone:dacite_cobblestone"
-          }
-        }
-      ]
-    },
-    {
-      "processor_type": "minecraft:rule",
-      "rules": [
+        },
         {
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -89,6 +66,19 @@
           },
           "output_state": {
             "Name": "biomeswevegone:mossy_stone"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "biomeswevegone:white_dacite",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.1
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "biomeswevegone:white_dacite_cobblestone"
           }
         }
       ]

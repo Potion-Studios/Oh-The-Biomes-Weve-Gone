@@ -5,18 +5,20 @@ import com.google.common.collect.ImmutableMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.world.entity.npc.VillagerProfession;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.entity.npc.VillagerType;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.trading.ItemCost;
-import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
+import net.potionstudios.biomeswevegone.tags.BWGStructureTags;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.sand.BWGSandSet;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
+import net.potionstudios.biomeswevegone.world.level.saveddata.maps.BWGMapDecorationTypes;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,33 +27,42 @@ import java.util.Map;
 
 public class BWGVillagerTrades {
 
-    public static final Map<VillagerProfession, Int2ObjectMap<List<MerchantOffer>>> TRADES = new HashMap<>();
+    public static final Map<VillagerProfession, Int2ObjectMap<List<VillagerTrades.ItemListing>>> TRADES = new HashMap<>();
 
     public static void makeTrades() {
         if (BWGTradesConfig.INSTANCE.villagerTrades.allowBWGForagerTrades.value())
             TRADES.put(BWGVillagerProfessions.FORAGER.get(), toIntMap(ImmutableMap.of(
                     1, ImmutableList.of(
-                            createEmeraldForItemsOffer(Items.RED_MUSHROOM, 10, 12, 2),
-                            createEmeraldForItemsOffer(Items.BROWN_MUSHROOM, 10, 12, 2),
-                            createEmeraldForItemsOffer(BWGBlocks.GREEN_MUSHROOM.get(), 10, 12, 2)
+                            createEmeraldForItemsOffer(Items.RED_MUSHROOM, 5, 12, 2),
+                            createEmeraldForItemsOffer(Items.BROWN_MUSHROOM, 5, 12, 2),
+                            createEmeraldForItemsOffer(BWGBlocks.GREEN_MUSHROOM.get(), 5, 12, 2)
                     ),
                     2, ImmutableList.of(
-                            createEmeraldForItemsOffer(BWGBlocks.WOOD_BLEWIT.get(), 8, 12, 3),
-                            createItemsForEmeraldsOffer(BWGItems.WHITE_PUFFBALL_CAP.get(), 4, 5, 4, 2, 0.05f)
+                            createEmeraldForItemsOffer(BWGBlocks.WOOD_BLEWIT.get(), 5, 12, 3),
+                            createItemsForEmeraldsOffer(BWGItems.WHITE_PUFFBALL_SPORES.get(), 4, 3, 4, 2, 0.05f),
+                            createItemsForEmeraldsOffer(BWGItems.WREATH.get(), 1, 2, 8, 2, 0.05f)
                     ),
                     3, ImmutableList.of(
-                            createEmeraldForItemsOffer(BWGItems.WHITE_PUFFBALL_SPORES.get(), 4, 5, 4)
+                            createEmeraldForItemsOffer(BWGItems.WHITE_PUFFBALL_CAP.get(), 6, 12, 4),
+                            createItemsForEmeraldsOffer(BWGItems.HOLLY_WREATH.get(), 2, 1, 8, 2, 0.05f),
+                            createItemsForEmeraldsOffer(BWGItems.ROSY_WREATH.get(), 2, 1, 8, 2, 0.05f),
+                            createItemsForEmeraldsOffer(BWGItems.PETAL_WREATH.get(), 2, 1, 8, 2, 0.05f)
                     ),
                     4, ImmutableList.of(
                             createItemsForEmeraldsOffer(BWGBlocks.WITCH_HAZEL_BRANCH.get(), 4, 9, 4, 3, 0.05f),
                             createItemsForEmeraldsOffer(BWGBlocks.WITCH_HAZEL_BLOSSOM.get(), 10, 1, 10, 3, 0.05f)
                     ),
                     5, ImmutableList.of(
-                            createItemsForEmeraldsOffer(BWGBlocks.SHELF_FUNGI.get(), 3, 9, 4, 4, 0.05f),
+                            createItemsForEmeraldsOffer(BWGBlocks.FLUORESCENT_CATTAIL_SPROUT.get(), 4, 3, 4, 4, 0.05f),
                             createEmeraldForItemsOffer(Items.SWEET_BERRIES, 16, 4, 2),
                             createEmeraldForItemsOffer(BWGItems.BLUEBERRIES.get(), 16, 4, 2)
                     )
             )));
+        TRADES.put(VillagerProfession.FISHERMAN, toIntMap(ImmutableMap.of(
+                5, ImmutableList.of(
+                    new VillagerTrades.EmeraldsForVillagerTypeItem(1, 12, 30, ImmutableMap.<VillagerType, Item>builder().put(BWGVillagerTypes.SKYRIS.get(), BWGWood.SKYRIS.boatItem().get()).put(BWGVillagerTypes.SALEM.get(), BWGWood.WITCH_HAZEL.boatItem().get()).build())
+                )
+        )));
         if (!BWGTradesConfig.INSTANCE.villagerTrades.enableBWGVanillaProfessionTradeAdditions.value()) return;
         TRADES.put(VillagerProfession.BUTCHER, toIntMap(ImmutableMap.of(
                 2, ImmutableList.of(
@@ -81,16 +92,25 @@ public class BWGVillagerTrades {
                 4, ImmutableList.of(
                         createEmeraldForItemsOffer(BWGBlocks.DACITE_SET.getBase(), 12, 12, 30),
                         createItemsForEmeraldsOffer(BWGBlocks.DACITE_SET.getBase(), 1, 1, 12, 15, 0.05f),
+                        createEmeraldForItemsOffer(BWGBlocks.WHITE_DACITE_SET.getBase(), 12, 12, 30),
+                        createItemsForEmeraldsOffer(BWGBlocks.WHITE_DACITE_SET.getBase(), 1, 1, 12, 15, 0.05f),
                         createEmeraldForItemsOffer(BWGBlocks.RED_ROCK_SET.getBase(), 12, 12, 30),
                         createItemsForEmeraldsOffer(BWGBlocks.RED_ROCK_SET.getBase(), 1, 1, 12, 15, 0.05f)
                 )
         )));
+        TRADES.put(VillagerProfession.CARTOGRAPHER, toIntMap(ImmutableMap.of(
+                3, ImmutableList.of(
+                        new VillagerTrades.TreasureMapForEmeralds(
+                                12, BWGStructureTags.BOG_TRIALS, "filled_map.bog_trial", BWGMapDecorationTypes.BOG_TRIAL.get(), 12, 10
+                        )
+                )
+        )));
     }
 
-    public static final Int2ObjectMap<List<MerchantOffer>> WANDERING_TRADER_TRADES = new Int2ObjectOpenHashMap<>();
+    public static final Int2ObjectMap<List<VillagerTrades.ItemListing>> WANDERING_TRADER_TRADES = new Int2ObjectOpenHashMap<>();
 
     public static void makeWanderingTrades() {
-        List<MerchantOffer> level1Items = new ArrayList<>();
+        List<VillagerTrades.ItemListing> level1Items = new ArrayList<>();
         BWGWood.WOOD.stream().filter(item -> item.get() instanceof SaplingBlock).forEach(item ->
                 level1Items.add(createItemsForEmeraldsOffer(item.get(), 5, 1, 8, 1, 0.05f)));
         BWGSandSet.getSandSets().forEach(bwgSandSet -> level1Items.add(
@@ -105,15 +125,15 @@ public class BWGVillagerTrades {
         WANDERING_TRADER_TRADES.put(1, level1Items);
     }
 
-    private static MerchantOffer createEmeraldForItemsOffer(ItemLike item, int cost, int maxUses, int villagerXp) {
-        return new MerchantOffer(new ItemCost(item, cost), new ItemStack(Items.EMERALD), maxUses, villagerXp, 0.05F);
+    private static VillagerTrades.ItemListing createEmeraldForItemsOffer(ItemLike item, int cost, int maxUses, int villagerXp) {
+        return new VillagerTrades.EmeraldForItems(item.asItem(), cost, maxUses, villagerXp);
     }
 
-    private static MerchantOffer createItemsForEmeraldsOffer(ItemLike item, int emeraldCost, int numberOfItems, int maxUses, int villagerXp, float priceMultiplier) {
-        return new MerchantOffer(new ItemCost(Items.EMERALD, emeraldCost), new ItemStack(item, numberOfItems), maxUses, villagerXp, priceMultiplier);
+    private static VillagerTrades.ItemListing createItemsForEmeraldsOffer(ItemLike item, int emeraldCost, int numberOfItems, int maxUses, int villagerXp, float priceMultiplier) {
+        return new VillagerTrades.ItemsForEmeralds(item.asItem(), emeraldCost, numberOfItems, maxUses, villagerXp, priceMultiplier);
     }
 
-    private static Int2ObjectMap<List<MerchantOffer>> toIntMap(ImmutableMap<Integer, List<MerchantOffer>> map) {
+    private static Int2ObjectMap<List<VillagerTrades.ItemListing>> toIntMap(ImmutableMap<Integer, List<VillagerTrades.ItemListing>> map) {
         return new Int2ObjectOpenHashMap<>(map);
     }
 }

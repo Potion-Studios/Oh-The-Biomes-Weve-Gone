@@ -5,16 +5,26 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.potionstudios.biomeswevegone.advancements.critereon.BWGEntitySubPredicates;
+import net.potionstudios.biomeswevegone.component.BWGDataComponents;
 import net.potionstudios.biomeswevegone.sounds.BWGSounds;
 import net.potionstudios.biomeswevegone.compat.vanilla.dispenser.BWGDispenseItemBehavior;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.tags.BWGEntityTypeTags;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
+import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
+import net.potionstudios.biomeswevegone.world.entity.ai.sensing.BWGSensorType;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerProfessions;
-import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerType;
+import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTypes;
+import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
+import net.potionstudios.biomeswevegone.world.entity.schedule.BWGSchedule;
 import net.potionstudios.biomeswevegone.world.item.BWGCreativeTabs;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
-import net.potionstudios.biomeswevegone.world.level.block.entities.BWGBlockEntities;
+import net.potionstudios.biomeswevegone.world.level.block.entities.BWGBlockEntityType;
 import net.potionstudios.biomeswevegone.world.level.levelgen.blockpredicates.BWGBlockPredicateTypes;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.BWGFeatures;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.configured.BWGConfiguredFeatures;
@@ -27,6 +37,7 @@ import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGTempla
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.processor.BWGCustomStructureProcessors;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.village.PlaceInVillage;
 import net.potionstudios.biomeswevegone.world.level.levelgen.surfacerules.BWGRuleSources;
+import net.potionstudios.biomeswevegone.world.level.saveddata.maps.BWGMapDecorationTypes;
 import org.slf4j.Logger;
 
 /**
@@ -45,10 +56,11 @@ public class BiomesWeveGone {
      * Initializes the mod.
      */
     public static void init() {
+        BWGDataComponents.dataComponents();
         BWGItems.items();
         BWGBlocks.blocks();
-        BWGBlockEntities.blockEntities();
-        BWGEntities.entities();
+        BWGBlockEntityType.blockEntities();
+        BWGEntityType.entities();
         BWGCreativeTabs.tabs();
         BWGSounds.sounds();
         BWGBlockPredicateTypes.blockPredicateTypes();
@@ -64,13 +76,18 @@ public class BiomesWeveGone {
         BWGPoiTypes.poiTypes();
         BWGVillagerProfessions.professions();
         BWGCustomStructureProcessors.processors();
+        BWGVillagerTypes.villagerTypes();
+        BWGSchedule.schedules();
+        BWGMemoryModuleType.memoryModuleTypes();
+        BWGSensorType.sensorTypes();
+        BWGMapDecorationTypes.mapDecorationTypes();
+        BWGEntitySubPredicates.entitySubPredicates();
     }
 
     /**
      * Ran later in the initialization process to set up common things.
      */
     public static void commonSetup() {
-        BWGVillagerType.setVillagerBWGBiomes();
     }
 
     /**
@@ -86,6 +103,16 @@ public class BiomesWeveGone {
      */
     public static void serverStart(MinecraftServer server) {
         PlaceInVillage.addStructuresToVillages(server);
+    }
+
+    /**
+     * Runs when an entity is loaded.
+     * This is used to add an attack goal to monsters that should attack Pumpkin Wardens.
+     * @param entity the entity that is loaded
+     */
+    public static void onEntityLoad(Entity entity) {
+        if (entity instanceof Mob mob && entity.getType().is(BWGEntityTypeTags.ATTACKS_PUMPKIN_WARDEN))
+            mob.goalSelector.addGoal(3, new NearestAttackableTargetGoal<>(mob, PumpkinWarden.class, false));
     }
 
     /**

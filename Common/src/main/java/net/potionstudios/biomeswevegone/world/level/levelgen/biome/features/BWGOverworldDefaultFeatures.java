@@ -19,6 +19,10 @@ public class BWGOverworldDefaultFeatures {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.LEAF_PILE);
     }
 
+    public static void addLeafPileAbundant(BiomeGenerationSettings.Builder gen) {
+        addVegetal(gen, BWGOverworldVegationPlacedFeatures.LEAF_PILE_ABUNDANT);
+    }
+
     public static void addBWGMushrooms(BiomeGenerationSettings.Builder gen) {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.MUSHROOMS);
     }
@@ -205,12 +209,20 @@ public class BWGOverworldDefaultFeatures {
         gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BWGPlacedFeatures.SWAMP_GRASS_BLOCK_DELTA);
     }
 
+    public static void addExtraCattails(BiomeGenerationSettings.Builder gen) {
+        addVegetal(gen, BWGOverworldVegationPlacedFeatures.EXTRA_CATTAILS);
+    }
+
     public static void addCattails(BiomeGenerationSettings.Builder gen) {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.CATTAILS);
     }
 
     public static void addFluorscentCattails(BiomeGenerationSettings.Builder gen) {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.FLUORESCENT_CATTAILS);
+    }
+
+    public static void addSparseFluorscentCattails(BiomeGenerationSettings.Builder gen) {
+        addVegetal(gen, BWGOverworldVegationPlacedFeatures.SPARSE_FLUORESCENT_CATTAILS);
     }
 
     private static void addVegetal(BiomeGenerationSettings.@NotNull Builder builder, ResourceKey<PlacedFeature> feature) {

@@ -19,6 +19,7 @@ public interface BWGJukeBoxSongs {
     Map<ResourceKey<JukeboxSong>, JukeBoxSongFactory> JUKEBOX_SONG_FACTORIES = new Reference2ObjectOpenHashMap<>();
 
     ResourceKey<JukeboxSong> PIXIE_CLUB = register("pixie_club", BWGSounds.MUSIC_DISC_PIXIE_CLUB, 213, 4);
+    ResourceKey<JukeboxSong> BETTER_DAYS = register("better_days", BWGSounds.MUSIC_DISC_BETTER_DAYS, 146, 4);
 
     private static ResourceKey<JukeboxSong> register(String id, Supplier<Holder.Reference<SoundEvent>> soundEvent, int lengthInSeconds, int comparatorOutput) {
         ResourceKey<JukeboxSong> key = BiomesWeveGone.key(Registries.JUKEBOX_SONG, id);

@@ -25,6 +25,10 @@
     {
       "structure": "biomeswevegone:village/pumpkin_patch",
       "weight": 1
+    },
+    {
+      "structure": "biomeswevegone:village/swamp",
+      "weight": 1
     }
   ]
 }

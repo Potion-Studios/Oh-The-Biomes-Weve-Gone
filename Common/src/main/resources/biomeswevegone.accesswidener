@@ -40,8 +40,6 @@ accessible field net/minecraft/data/worldgen/ProcessorLists EMPTY Lnet/minecraft
 accessible field net/minecraft/tags/TagBuilder entries Ljava/util/List;
 
 accessible method net/minecraft/world/entity/ai/village/poi/PoiTypes getBlockStates (Lnet/minecraft/world/level/block/Block;)Ljava/util/Set;
-accessible field net/minecraft/world/entity/npc/VillagerType BY_BIOME Ljava/util/Map;
-mutable field net/minecraft/world/entity/npc/VillagerType BY_BIOME Ljava/util/Map;
 
 accessible field net/minecraft/world/level/levelgen/structure/pools/StructureTemplatePool rawTemplates Ljava/util/List;
 mutable field net/minecraft/world/level/levelgen/structure/pools/StructureTemplatePool rawTemplates Ljava/util/List;
@@ -53,3 +51,10 @@ extendable method net/minecraft/world/level/block/grower/TreeGrower getConfigure
 extendable method net/minecraft/world/level/block/grower/TreeGrower getConfiguredFeature (Lnet/minecraft/util/RandomSource;Z)Lnet/minecraft/resources/ResourceKey;
 
 extendable method net/minecraft/world/entity/LivingEntity getDimensions (Lnet/minecraft/world/entity/Pose;)Lnet/minecraft/world/entity/EntityDimensions;
+
+accessible field net/minecraft/world/level/block/AttachedStemBlock fruit Lnet/minecraft/resources/ResourceKey;
+
+accessible field net/minecraft/world/entity/Mob goalSelector Lnet/minecraft/world/entity/ai/goal/GoalSelector;
+
+accessible field net/minecraft/advancements/critereon/EntitySubPredicates$EntityVariantPredicateType codec Lcom/mojang/serialization/MapCodec;
+accessible class net/minecraft/advancements/critereon/EntitySubPredicates$EntityVariantPredicateType$Instance

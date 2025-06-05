@@ -32,9 +32,9 @@ public class CragGardenExtension {
         NormalNoise cliffJumpNoise = NormalNoise.create(randomSource, cliffSpacingParams);
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
-        WeightedStateProvider topBlocksProvider = new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.OVERGROWN_STONE.get().defaultBlockState(), 3).add(Blocks.MOSS_BLOCK.defaultBlockState(), 1));
+        WeightedStateProvider topBlocksProvider = new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.OVERGROWN_STONE.get().defaultBlockState(), 3).add(Blocks.MOSS_BLOCK.defaultBlockState()));
 
-        WeightedStateProvider stonesProvider = new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.STONE.defaultBlockState(), 1).add(Blocks.ANDESITE.defaultBlockState(), 1).add(BWGBlocks.ROCKY_STONE_SET.getBase().defaultBlockState(), 1));
+        WeightedStateProvider stonesProvider = new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.STONE.defaultBlockState()).add(Blocks.ANDESITE.defaultBlockState()).add(BWGBlocks.ROCKY_STONE_SET.getBase().defaultBlockState()));
 
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {

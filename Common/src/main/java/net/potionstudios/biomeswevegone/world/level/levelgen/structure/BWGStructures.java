@@ -95,17 +95,17 @@ public class BWGStructures {
                                                     new RandomChancePredicate(ConstantFloat.of(0.4F)),
                                                     BlockPredicate.anyOf(BWGWorldGenerationUtil.blockMatchesInAllDirections(blockPos -> BlockPredicate.matchesBlocks(blockPos, Blocks.AIR, Blocks.CAVE_AIR)))
                                             ),
-                                            new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.MOSS_BLOCK.defaultBlockState(), 1).add(Blocks.MOSSY_COBBLESTONE.defaultBlockState(), 2))
+                                            new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.MOSS_BLOCK.defaultBlockState()).add(Blocks.MOSSY_COBBLESTONE.defaultBlockState(), 2))
                                     )
                             )),
                             new ArchConfig.ArchGeneratorConfig(8, 8,
                                     SimpleWeightedRandomList.single(new ArchConfig.GenerationConfig(UniformInt.of(10, 30), UniformFloat.of(0.05F, 0.1F))),
                                     SimpleWeightedRandomList.<BlendingFunction>builder()
-                                            .add(BlendingFunction.EaseOutCubic.INSTANCE, 1)
-                                            .add(BlendingFunction.EaseInCirc.INSTANCE, 1)
-                                            .add(BlendingFunction.EaseOutQuint.INSTANCE, 1)
-                                            .add(BlendingFunction.EaseOutElastic.INSTANCE, 1)
-                                            .add(BlendingFunction.EaseOutBounce.INSTANCE, 1)
+                                            .add(BlendingFunction.EaseOutCubic.INSTANCE)
+                                            .add(BlendingFunction.EaseInCirc.INSTANCE)
+                                            .add(BlendingFunction.EaseOutQuint.INSTANCE)
+                                            .add(BlendingFunction.EaseOutElastic.INSTANCE)
+                                            .add(BlendingFunction.EaseOutBounce.INSTANCE)
                                             .build()
                             ))
             )
@@ -122,17 +122,17 @@ public class BWGStructures {
                                                             new RandomChancePredicate(ConstantFloat.of(0.4F)),
                                                             BlockPredicate.anyOf(BWGWorldGenerationUtil.blockMatchesInAllDirections(blockPos -> BlockPredicate.matchesBlocks(blockPos, Blocks.AIR, Blocks.CAVE_AIR, Blocks.WATER)))
                                                     ),
-                                                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.DRIPSTONE_BLOCK.defaultBlockState(), 1))
+                                                    new WeightedStateProvider(SimpleWeightedRandomList.single(Blocks.DRIPSTONE_BLOCK.defaultBlockState()))
                                             )
                                     )
                             ),
                             new ArchConfig.ArchGeneratorConfig(8, 8,
                                     SimpleWeightedRandomList.single(new ArchConfig.GenerationConfig(UniformInt.of(10, 30), UniformFloat.of(0.09F, 0.2F))),
                                     SimpleWeightedRandomList.<BlendingFunction>builder()
-                                            .add(BlendingFunction.EaseOutCubic.INSTANCE, 1)
-                                            .add(BlendingFunction.EaseInCirc.INSTANCE, 1)
-                                            .add(BlendingFunction.EaseOutQuint.INSTANCE, 1)
-                                            .add(BlendingFunction.EaseOutBounce.INSTANCE, 1)
+                                            .add(BlendingFunction.EaseOutCubic.INSTANCE)
+                                            .add(BlendingFunction.EaseInCirc.INSTANCE)
+                                            .add(BlendingFunction.EaseOutQuint.INSTANCE)
+                                            .add(BlendingFunction.EaseOutBounce.INSTANCE)
                                             .build()
                             ))
             )
@@ -144,22 +144,22 @@ public class BWGStructures {
                     structure(structureFactoryBootstapContext.lookup(Registries.BIOME).getOrThrow(BWGBiomeTags.RED_ROCK_ARCH), GenerationStep.Decoration.RAW_GENERATION, TerrainAdjustment.NONE),
                     new ArchConfig(UniformInt.of(64, 200), UniformInt.of(50, 150),
                             new CheckedBlockPlacement(List.of(
-                                    Pair.of(BlockPredicate.ONLY_IN_AIR_OR_WATER_PREDICATE, BlockStateProvider.simple(BWGBlocks.RED_ROCK_SET.getBase())),
+                                    Pair.of(BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockStateProvider.simple(BWGBlocks.RED_ROCK_SET.getBase())),
                                     Pair.of(BlockPredicate.allOf(
                                                     new RandomChancePredicate(ConstantFloat.of(0.4F)),
                                                     BlockPredicate.anyOf(BWGWorldGenerationUtil.blockMatchesInAllDirections(blockPos -> BlockPredicate.matchesBlocks(blockPos, Blocks.AIR, Blocks.CAVE_AIR, Blocks.WATER)))
                                             ),
-                                            new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.ORANGE_TERRACOTTA.defaultBlockState(), 1))
+                                            new WeightedStateProvider(SimpleWeightedRandomList.single(Blocks.ORANGE_TERRACOTTA.defaultBlockState()))
                                     )
                             )),
 
                             new ArchConfig.ArchGeneratorConfig(4, 4,
                                     SimpleWeightedRandomList.single(new ArchConfig.GenerationConfig(UniformInt.of(20, 25), UniformFloat.of(0.05F, 0.1F))),
                                     SimpleWeightedRandomList.<BlendingFunction>builder()
-                                            .add(BlendingFunction.EaseOutCubic.INSTANCE, 1)
-                                            .add(BlendingFunction.EaseInCirc.INSTANCE, 1)
-                                            .add(BlendingFunction.EaseOutQuint.INSTANCE, 1)
-                                            .add(BlendingFunction.EaseOutBounce.INSTANCE, 1)
+                                            .add(BlendingFunction.EaseOutCubic.INSTANCE)
+                                            .add(BlendingFunction.EaseInCirc.INSTANCE)
+                                            .add(BlendingFunction.EaseOutQuint.INSTANCE)
+                                            .add(BlendingFunction.EaseOutBounce.INSTANCE)
                                             .build()
                             ))
             )
@@ -284,6 +284,17 @@ public class BWGStructures {
                     ConstantHeight.of(VerticalAnchor.absolute(1)),
                     Heightmap.Types.WORLD_SURFACE_WG
             )));
+
+    public static final ResourceKey<Structure> SWAMP_VILLAGE = register("village/swamp", (structureFactoryBootstapContext ->
+            createJigsawWithExpansion(
+                    structure(structureFactoryBootstapContext.lookup(Registries.BIOME).getOrThrow(BWGBiomeTags.StructureHasTags.HAS_VILLAGE_SWAMP),
+                            TerrainAdjustment.BEARD_THIN),
+                    structureFactoryBootstapContext.lookup(Registries.TEMPLATE_POOL).getOrThrow(BWGVillageTemplatePools.SWAMP_TOWN_CENTERS),
+                    6,
+                    ConstantHeight.of(VerticalAnchor.absolute(1)),
+                    Heightmap.Types.WORLD_SURFACE_WG
+            )));
+
 
     private static ResourceKey<Structure> register(String id, StructureFactory factory) {
         ResourceKey<Structure> structureSetResourceKey = BiomesWeveGone.key(Registries.STRUCTURE, id);

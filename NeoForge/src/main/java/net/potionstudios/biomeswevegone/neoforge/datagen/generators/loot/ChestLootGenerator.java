@@ -100,6 +100,32 @@ public class ChestLootGenerator implements LootTableSubProvider {
                 lootItem(Items.BOOK).apply(EnchantWithLevelsFunction.enchantWithLevels(lookupProvider, ConstantValue.exactly(30))),
                 lootItem(Items.MAP).apply(ExplorationMapFunction.makeExplorationMap().setZoom((byte)1).setMapDecoration(MapDecorationTypes.RED_X).setSkipKnownStructures(false)));
 
+        createTable(output,"village/swamp/house", 3.0f, 8.0f,
+                lootItemWithCount(BWGItems.CATTAIL_SPROUT.get(), 1, 4).setWeight(9),
+                lootItemWithCount(Items.STRING, 1, 7).setWeight(8),
+                lootItemWithCount(BWGBlocks.GREEN_MUSHROOM.get(), 1, 2).setWeight(7),
+                lootItemWithCount(BWGItems.WHITE_PUFFBALL_CAP.get(), 2, 8).setWeight(7),
+                lootItemWithCount(Items.AMETHYST_SHARD, 2, 4).setWeight(2),
+                lootItemWithCount(Items.EMERALD, 1, 4).setWeight(1),
+                lootItemWithCount(Items.COD, 1, 9).setWeight(8),
+                lootItemWithCount(Items.SALMON, 1, 9).setWeight(8));
+
+        createTable(output, "village/swamp/forager", 3.0f, 8.0f,
+                lootItemWithCount(BWGBlocks.POISON_IVY.get(), 3, 6).setWeight(2),
+                lootItem(BWGBlocks.GREEN_MUSHROOM.get()).setWeight(8),
+                lootItem(Items.PODZOL).setWeight(7),
+                lootItemWithCount(BWGItems.WHITE_PUFFBALL_SPORES.get(), 3, 7).setWeight(10),
+                lootItemWithCount(Items.STICK, 10, 15).setWeight(10),
+                lootItemWithCount(BWGItems.BLUE_GLOWCANE_SHOOT.get(), 1, 3).setWeight(1),
+                lootItemWithCount(BWGItems.YELLOW_GLOWCANE_SHOOT.get(), 1, 3).setWeight(1),
+                lootItemWithCount(BWGItems.RED_GLOWCANE_SHOOT.get(), 1, 3).setWeight(1),
+                lootItemWithCount(BWGItems.GREEN_GLOWCANE_SHOOT.get(), 1, 3).setWeight(1),
+                lootItemWithCount(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get(), 1, 3).setWeight(2),
+                lootItem(BWGBlocks.WOOD_BLEWIT.get()),
+                lootItem(BWGBlocks.WEEPING_MILKCAP.get()),
+                lootItemWithCount(Items.BROWN_MUSHROOM, 1, 4).setWeight(4),
+                lootItemWithCount(Items.RED_MUSHROOM, 1, 2).setWeight(5));
+
         createTable(output, "village/salem/house", 3.0f, 8.0f,
                 lootItemWithCount(BWGItems.WHITE_PUFFBALL_STEW.get(), 1, 3).setWeight(6),
                 lootItem(Items.EMERALD).setWeight(2),
@@ -191,6 +217,10 @@ public class ChestLootGenerator implements LootTableSubProvider {
                 lootItem(BWGItems.CATTAIL_SPROUT.get()),
                 lootItemWithCount(Items.EMERALD, 1, 4).setWeight(2),
                 lootItemWithCount(BWGItems.ALOE_VERA_JUICE.get(), 1, 2).setWeight(5));
+
+        createTable(output, "advancement/true_traveler/better_days_music_disc", 1.0f, 1.0f,
+                lootItem(BWGItems.MUSIC_DISC_BETTER_DAYS.get())
+        );
     }
 
     private LootPoolSingletonContainer.Builder<?> lootItem(ItemLike item) {

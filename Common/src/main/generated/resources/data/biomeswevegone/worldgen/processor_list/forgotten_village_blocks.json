@@ -41,51 +41,7 @@
           "output_state": {
             "Name": "minecraft:stone"
           }
-        }
-      ]
-    },
-    {
-      "processor_type": "minecraft:rule",
-      "rules": [
-        {
-          "input_predicate": {
-            "block": "minecraft:gravel",
-            "predicate_type": "minecraft:random_block_match",
-            "probability": 0.35
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "minecraft:suspicious_gravel",
-            "Properties": {
-              "dusted": "0"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "processor_type": "minecraft:rule",
-      "rules": [
-        {
-          "input_predicate": {
-            "block": "biomeswevegone:lush_grass_block",
-            "predicate_type": "minecraft:random_block_match",
-            "probability": 0.45
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "minecraft:moss_block"
-          }
-        }
-      ]
-    },
-    {
-      "processor_type": "minecraft:rule",
-      "rules": [
+        },
         {
           "input_predicate": {
             "block": "minecraft:mossy_stone_bricks",
@@ -123,6 +79,35 @@
           },
           "output_state": {
             "Name": "minecraft:tuff"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:gravel",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.35
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:suspicious_gravel",
+            "Properties": {
+              "dusted": "0"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "biomeswevegone:lush_grass_block",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.45
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:moss_block"
           }
         }
       ]

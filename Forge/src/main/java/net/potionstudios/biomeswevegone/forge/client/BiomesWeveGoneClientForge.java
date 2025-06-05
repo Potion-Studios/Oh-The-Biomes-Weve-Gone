@@ -1,9 +1,11 @@
 package net.potionstudios.biomeswevegone.forge.client;
 
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -23,12 +25,16 @@ public class BiomesWeveGoneClientForge {
      * @param eventBus The event bus to register the client side of the mod to.
      */
     public static void init(final IEventBus eventBus) {
-        eventBus.addListener((FMLClientSetupEvent event) -> BiomesWeveGoneClient.onInitialize());
+        eventBus.addListener((FMLClientSetupEvent event) -> {
+            BiomesWeveGoneClient.onInitialize();
+            event.enqueueWork(() -> BiomesWeveGoneClient.registerItemProperties(ItemProperties::register));
+        });
         eventBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> BiomesWeveGoneClient.registerEntityRenderers(event::registerEntityRenderer));
         eventBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> BiomesWeveGoneClient.registerBlockEntityRenderers(event::registerBlockEntityRenderer));
         eventBus.addListener((RegisterParticleProvidersEvent event) -> BiomesWeveGoneClient.registerParticles((type, spriteProviderFactory) -> event.registerSpriteSet(type, spriteProviderFactory::apply)));
         eventBus.addListener((EntityRenderersEvent.RegisterLayerDefinitions event) -> BiomesWeveGoneClient.registerLayerDefinitions(event::registerLayerDefinition));
         eventBus.addListener((RegisterColorHandlersEvent.Block event) -> BiomesWeveGoneClient.registerBlockColors(event::register));
         eventBus.addListener((RegisterColorHandlersEvent.Item event) -> BiomesWeveGoneClient.registerBlockItemColors(consumer -> event.register((stack, tintIndex) -> event.getBlockColors().getColor(((BlockItem) stack.getItem()).getBlock().defaultBlockState(), null, null, tintIndex), consumer)));
+        eventBus.addListener((ModelEvent.RegisterAdditional event) -> BiomesWeveGoneClient.registerAdditionalModels(event::register));
     }
 }

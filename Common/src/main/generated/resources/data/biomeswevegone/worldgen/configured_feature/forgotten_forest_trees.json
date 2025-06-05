@@ -9,6 +9,13 @@
       {
         "chance": 0.15,
         "feature": {
+          "feature": "biomeswevegone:ancient_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.15,
+        "feature": {
           "feature": "biomeswevegone:ancient_tree2",
           "placement": []
         }

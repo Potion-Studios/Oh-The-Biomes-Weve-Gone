@@ -24,46 +24,46 @@ public class BWGSandSet {
     private final String name;
     private final Supplier<ColoredFallingBlock> sand;
     private final Supplier<Block> sandstone;
-    private final Supplier<SlabBlock> sandstoneSlab;
     private final Supplier<StairBlock> sandstoneStairs;
+    private final Supplier<SlabBlock> sandstoneSlab;
     private final Supplier<WallBlock> sandstoneWall;
     private final Supplier<Block> chiseledSandstone;
     private final Supplier<Block> smoothSandstone;
-    private final Supplier<SlabBlock> smoothSandstoneSlab;
     private final Supplier<StairBlock> smoothSandstoneStairs;
+    private final Supplier<SlabBlock> smoothSandstoneSlab;
     private final Supplier<Block> cutSandstone;
     private final Supplier<SlabBlock> cutSandstoneSlab;
     private final TagKey<Block> sandstoneBlocksTag;
     private final TagKey<Item> sandstoneBlocksItemTag;
     private final TagKey<Block> sandBlockTag;
     private final TagKey<Item> sandItemTag;
-    private final TagKey<Block> sandstoneSlabsTag;
-    private final TagKey<Item> sandstoneSlabsItemTag;
     private final TagKey<Block> sandstoneStairsTag;
     private final TagKey<Item> sandstoneStairsItemTag;
+    private final TagKey<Block> sandstoneSlabsTag;
+    private final TagKey<Item> sandstoneSlabsItemTag;
 
 
     public BWGSandSet(String name, int dustColor) {
         this.name = name;
         this.sand = BWGBlocks.registerCubeAllBlockItem(name + "_sand", () -> new ColoredFallingBlock(new ColorRGBA(dustColor), BlockBehaviour.Properties.ofFullCopy(Blocks.SAND)));
         this.sandstone = BWGBlocks.registerBlockItem(name + "_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
-        this.sandstoneSlab = BWGBlocks.registerBlockItem(name + "_sandstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE_SLAB)));
         this.sandstoneStairs = BWGBlocks.registerBlockItem(name + "_sandstone_stairs", () -> new StairBlock(sandstone.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE_STAIRS)));
+        this.sandstoneSlab = BWGBlocks.registerBlockItem(name + "_sandstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE_SLAB)));
         this.sandstoneWall = BWGBlocks.registerBlockItem(name + "_sandstone_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE_WALL)));
         this.chiseledSandstone = BWGBlocks.registerBlockItem("chiseled_" + name + "_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_SANDSTONE)));
         this.smoothSandstone = BWGBlocks.registerBlockItem("smooth_" + name + "_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_SANDSTONE)));
-        this.smoothSandstoneSlab = BWGBlocks.registerBlockItem("smooth_" + name + "_sandstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_SANDSTONE_SLAB)));
         this.smoothSandstoneStairs = BWGBlocks.registerBlockItem("smooth_" + name + "_sandstone_stairs", () -> new StairBlock(smoothSandstone.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_SANDSTONE_STAIRS)));
+        this.smoothSandstoneSlab = BWGBlocks.registerBlockItem("smooth_" + name + "_sandstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_SANDSTONE_SLAB)));
         this.cutSandstone = BWGBlocks.registerBlockItem("cut_" + name + "_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CUT_SANDSTONE)));
         this.cutSandstoneSlab = BWGBlocks.registerBlockItem("cut_" + name + "_sandstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CUT_SANDSTONE_SLAB)));
         this.sandstoneBlocksTag = TagKey.create(Registries.BLOCK, BiomesWeveGone.id(name + "_sandstone_blocks"));
         this.sandstoneBlocksItemTag = TagKey.create(Registries.ITEM, BiomesWeveGone.id(name + "_sandstone_blocks"));
         this.sandBlockTag = TagKey.create(Registries.BLOCK, BiomesWeveGone.id("sand/" + name));
         this.sandItemTag = TagKey.create(Registries.ITEM, BiomesWeveGone.id("sand/" + name));
-        this.sandstoneSlabsTag = TagKey.create(Registries.BLOCK, BiomesWeveGone.id(name + "_sandstone_slabs"));
-        this.sandstoneSlabsItemTag = TagKey.create(Registries.ITEM, BiomesWeveGone.id(name + "_sandstone_slabs"));
         this.sandstoneStairsTag = TagKey.create(Registries.BLOCK, BiomesWeveGone.id(name + "_sandstone_stairs"));
         this.sandstoneStairsItemTag = TagKey.create(Registries.ITEM, BiomesWeveGone.id(name + "_sandstone_stairs"));
+        this.sandstoneSlabsTag = TagKey.create(Registries.BLOCK, BiomesWeveGone.id(name + "_sandstone_slabs"));
+        this.sandstoneSlabsItemTag = TagKey.create(Registries.ITEM, BiomesWeveGone.id(name + "_sandstone_slabs"));
         sandSets.add(this);
     }
 
@@ -79,12 +79,12 @@ public class BWGSandSet {
         return sandstone.get();
     }
 
-    public SlabBlock getSandstoneSlab() {
-        return sandstoneSlab.get();
-    }
-
     public StairBlock getSandstoneStairs() {
         return sandstoneStairs.get();
+    }
+
+    public SlabBlock getSandstoneSlab() {
+        return sandstoneSlab.get();
     }
 
     public WallBlock getSandstoneWall() {
@@ -99,12 +99,12 @@ public class BWGSandSet {
         return smoothSandstone.get();
     }
 
-    public SlabBlock getSmoothSandstoneSlab() {
-        return smoothSandstoneSlab.get();
-    }
-
     public StairBlock getSmoothSandstoneStairs() {
         return smoothSandstoneStairs.get();
+    }
+
+    public SlabBlock getSmoothSandstoneSlab() {
+        return smoothSandstoneSlab.get();
     }
 
     public Block getCutSandstone() {

@@ -31,12 +31,12 @@ public class BWGOverworldVegationPlacedFeatures {
     public static final ResourceKey<PlacedFeature> CLOVER_PATCH = createWorldSurfaceSquared("clover_patch", BWGOverworldVegetationConfiguredFeatures.CLOVER_PATCH, 5);
     public static final ResourceKey<PlacedFeature> CLOVER_FLOWERS = createWorldSurfaceSquared("clover_flower_patch", BWGOverworldVegetationConfiguredFeatures.CLOVER_AND_FLOWERS, 2);
     public static final ResourceKey<PlacedFeature> LEAF_PILE = createWorldSurfaceSquared("leaf_pile", BWGOverworldVegetationConfiguredFeatures.LEAF_PILE, 2);
+    public static final ResourceKey<PlacedFeature> LEAF_PILE_ABUNDANT = createWorldSurfaceSquared("leaf_pile_abundant", BWGOverworldVegetationConfiguredFeatures.LEAF_PILE, 8);
     public static final ResourceKey<PlacedFeature> FLOWER_PATCHES = createWorldSurfaceSquared("flower_patches", BWGOverworldVegetationConfiguredFeatures.FLOWER_PATCH, 5);
     public static final ResourceKey<PlacedFeature> SAKURA_PETALS = createWorldSurfaceSquared("sakura_petals", BWGOverworldVegetationConfiguredFeatures.SAKURA_PETALS, 9);
 
-
-    public static final ResourceKey<PlacedFeature> ALLIUM_SHRUBLAND_FLOWERS = createWorldSurfaceSquared("allium_shrubland_flowers", BWGOverworldVegetationConfiguredFeatures.ALLIUM_SHRUBLAND_FLOWERS, 15);
-    public static final ResourceKey<PlacedFeature> AMARANTH_GRASSLAND_FLOWERS = createWorldSurfaceSquared("amaranth_grassland_flowers", BWGOverworldVegetationConfiguredFeatures.AMARANTH_GRASSLAND_FLOWERS,15);
+    public static final ResourceKey<PlacedFeature> ALLIUM_SHRUBLAND_FLOWERS = createWorldSurfaceSquared("allium_shrubland_flowers", BWGOverworldVegetationConfiguredFeatures.ALLIUM_SHRUBLAND_FLOWERS, 20);
+    public static final ResourceKey<PlacedFeature> AMARANTH_GRASSLAND_FLOWERS = createWorldSurfaceSquared("amaranth_grassland_flowers", BWGOverworldVegetationConfiguredFeatures.AMARANTH_GRASSLAND_FLOWERS,30);
     public static final ResourceKey<PlacedFeature> ROSE_FIELD_FLOWERS = createWorldSurfaceSquared("rose_field_flowers", BWGOverworldVegetationConfiguredFeatures.ROSE_FIELD_FLOWERS, 25);
 
     public static final ResourceKey<PlacedFeature> BLUE_BERRY_BUSH = PlacedFeaturesUtil.createPlacedFeature("blue_berry_bush", BWGOverworldVegetationConfiguredFeatures.PATCH_BLUEBERRY, () -> List.of(RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
@@ -98,8 +98,10 @@ public class BWGOverworldVegationPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> SWAMP_WATER_VEGETATION = createWorldSurfaceSquared("swamp_water_vegetation", BWGOverworldVegetationConfiguredFeatures.SWAMP_WATER_VEGETATION, 20);
     public static final ResourceKey<PlacedFeature> MANGROVE_SWAMP_WATER_VEGETATION = createWorldSurfaceSquared("mangrove_swamp_water_vegetation", BWGOverworldVegetationConfiguredFeatures.MANGROVE_SWAMP_WATER_VEGETATION, 15);
+    public static final ResourceKey<PlacedFeature> EXTRA_CATTAILS = PlacedFeaturesUtil.createPlacedFeature("extra_cattails", BWGOverworldVegetationConfiguredFeatures.CATTAILS, PlacedFeaturesUtil.oceanFloorSquaredWithCountAndMaxDepth(18, OptionalInt.of(2)));
     public static final ResourceKey<PlacedFeature> CATTAILS = PlacedFeaturesUtil.createPlacedFeature("cattails", BWGOverworldVegetationConfiguredFeatures.CATTAILS, PlacedFeaturesUtil.oceanFloorSquaredWithCountAndMaxDepth(12, OptionalInt.of(2)));
     public static final ResourceKey<PlacedFeature> FLUORESCENT_CATTAILS = PlacedFeaturesUtil.createPlacedFeature("fluorescent_cattails", BWGOverworldVegetationConfiguredFeatures.FLUORESCENT_CATTAILS, PlacedFeaturesUtil.oceanFloorSquaredWithCountAndMaxDepth(6, OptionalInt.of(2)));
+    public static final ResourceKey<PlacedFeature> SPARSE_FLUORESCENT_CATTAILS = PlacedFeaturesUtil.createPlacedFeature("sparse_fluorescent_cattails", BWGOverworldVegetationConfiguredFeatures.FLUORESCENT_CATTAILS, PlacedFeaturesUtil.oceanFloorSquaredWithCountAndMaxDepth(2, OptionalInt.of(2)));
 
     public static final ResourceKey<PlacedFeature> IRONWOOD_PLATEAU_GLOW_LICHEN = PlacedFeaturesUtil.createPlacedFeature("ironwood_plateau_glow_lichen", CaveFeatures.GLOW_LICHEN, () -> List.of(CountPlacement.of(256), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(63), VerticalAnchor.absolute(140)), SurfaceRelativeThresholdFilter.of(Heightmap.Types.WORLD_SURFACE, Integer.MIN_VALUE, -1), SurfaceRelativeThresholdFilter.of(Heightmap.Types.WORLD_SURFACE_WG, 1, Integer.MAX_VALUE), BiomeFilter.biome()));
 

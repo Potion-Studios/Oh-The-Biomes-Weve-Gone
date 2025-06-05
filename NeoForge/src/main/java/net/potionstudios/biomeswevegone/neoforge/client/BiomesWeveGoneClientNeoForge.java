@@ -2,15 +2,13 @@ package net.potionstudios.biomeswevegone.neoforge.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.item.BlockItem;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
-import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
-import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.client.BiomesWeveGoneClient;
@@ -29,7 +27,10 @@ public class BiomesWeveGoneClientNeoForge {
      * @param eventBus The event bus to register the client side of the mod to.
      */
     public BiomesWeveGoneClientNeoForge(final IEventBus eventBus) {
-        eventBus.addListener((FMLClientSetupEvent event) -> BiomesWeveGoneClient.onInitialize());
+        eventBus.addListener((FMLClientSetupEvent event) -> {
+            BiomesWeveGoneClient.onInitialize();
+            event.enqueueWork(() -> BiomesWeveGoneClient.registerItemProperties(ItemProperties::register));
+        });
         eventBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> BiomesWeveGoneClient.registerEntityRenderers(event::registerEntityRenderer));
         eventBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> BiomesWeveGoneClient.registerBlockEntityRenderers(event::registerBlockEntityRenderer));
         eventBus.addListener((RegisterParticleProvidersEvent event) -> BiomesWeveGoneClient.registerParticles((type, spriteProviderFactory) -> event.registerSpriteSet(type, spriteProviderFactory::apply)));
@@ -37,6 +38,7 @@ public class BiomesWeveGoneClientNeoForge {
         eventBus.addListener((RegisterColorHandlersEvent.Block event) -> BiomesWeveGoneClient.registerBlockColors(event::register));
         eventBus.addListener((RegisterColorHandlersEvent.Item event) -> BiomesWeveGoneClient.registerBlockItemColors(consumer -> event.register((stack, tintIndex) -> event.getBlockColors().getColor(((BlockItem) stack.getItem()).getBlock().defaultBlockState(), null, null, tintIndex), consumer)));
         eventBus.addListener(BiomesWeveGoneClientNeoForge::registerGUILayers);
+        eventBus.addListener((ModelEvent.RegisterAdditional event) -> BiomesWeveGoneClient.registerAdditionalModels(event::register));
     }
 
     /**

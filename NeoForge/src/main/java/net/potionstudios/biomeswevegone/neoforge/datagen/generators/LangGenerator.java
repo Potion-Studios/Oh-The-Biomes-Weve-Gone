@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.item.BWGCreativeTabs;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.item.jukebox.BWGJukeBoxSongs;
@@ -40,17 +40,20 @@ public class LangGenerator extends LanguageProvider {
         add(BWGItems.MUSIC_DISC_PIXIE_CLUB.get(), "Music Disc");
         add("item." + BiomesWeveGone.MOD_ID + ".music_disc_pixie_club.desc", "AOCAWOL - Pixie Club");
         add("jukebox_song." + BWGJukeBoxSongs.PIXIE_CLUB.location().toLanguageKey(), "AOCAWOL - Pixie Club");
+        add(BWGItems.MUSIC_DISC_BETTER_DAYS.get(), "Music Disc");
+        add("item." + BiomesWeveGone.MOD_ID + ".music_disc_better_days.desc", "AOCAWOL - Better Days");
+        add("jukebox_song." + BWGJukeBoxSongs.BETTER_DAYS.location().toLanguageKey(), "AOCAWOL - Better Days");
         BWGWood.WOOD_BLOCK_ITEMS.forEach(wood -> {
             if (!(wood.get() instanceof BWGBoatItem boatItem) || !boatItem.hasChest())
                 add(wood.get(), getItemName(wood));
             else add(wood.get(), getItemName(wood).replace("Chest ", "") + " with Chest");
         });
         BWGWood.WOOD.stream().filter(wood -> wood.get() instanceof FlowerPotBlock).forEach(wood -> add(wood.get(), getBlockName(wood)));
-        add(BWGEntities.MAN_O_WAR.get(), "Man O' War");
-        add(BWGEntities.PUMPKIN_WARDEN.get(), "Pumpkin Warden");
-        add(BWGEntities.ODDION.get(), "Oddion");
-        add(BWGEntities.BWG_BOAT.get(), "Boat");
-        add(BWGEntities.BWG_CHEST_BOAT.get(), "Boat with Chest");
+        add(BWGEntityType.MAN_O_WAR.get(), "Man O' War");
+        add(BWGEntityType.PUMPKIN_WARDEN.get(), "Pumpkin Warden");
+        add(BWGEntityType.ODDION.get(), "Oddion");
+        add(BWGEntityType.BWG_BOAT.get(), "Boat");
+        add(BWGEntityType.BWG_CHEST_BOAT.get(), "Boat with Chest");
         BWGBiomes.BIOME_FACTORIES.forEach((key, factory) -> add("biome." + BiomesWeveGone.MOD_ID + "." + key.location().getPath(), getBiomeName(key)));
 
         add(advancement("title.root"), "Oh The Biomes We've Gone");
@@ -63,6 +66,8 @@ public class LangGenerator extends LanguageProvider {
         add(advancement("adventure.inside_quicksand.description"), "Fall into quicksand");
         add(advancement("adventure.little_house_on_the_prairie.title"), "Little House on the Prairie");
         add(advancement("adventure.little_house_on_the_prairie.description"), "Find all the Prairie houses");
+        add(advancement("adventure.true_traveler.title"), "True Traveler");
+        add(advancement("adventure.true_traveler.description"), "Find all the inhabited BWG Villages");
         add(advancement("adventure.forgotten_fae.title"), "Forgotten Fae");
         add(advancement("adventure.forgotten_fae.description"), "Find a Pixie Club Music Disc");
         add(advancement("adventure.pale_in_comparison.title"), "Pale in Comparison");
@@ -100,9 +105,12 @@ public class LangGenerator extends LanguageProvider {
         add(death("inQuicksand"), "%s tried to swim in the desert");
         add(death("cattailExplosion"), "%s got too curious and put a cattail in a campfire");
 
+        add("filled_map.bog_trial", "Bog Trial Explorer Map");
+
         add("biomeswevegone.commands.reload.success", "Successfully reloaded all configs");
         add("biomeswevegone.commands.reload.misc.success", "Successfully reloaded misc config");
         add("biomeswevegone.commands.reload.spawn.success", "Successfully reloaded Mob Spawn config");
+        add("biomeswevegone.commands.upgrade_villagers.success", "Successfully Updated Villager Types");
 
         add("tooltip.waila.hatch_chance", "Hatch Chance: %s");
     }

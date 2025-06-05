@@ -197,6 +197,20 @@ public class RecipeGenerator extends RecipeProvider {
         chiseledBuilder(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_RED_ROCK_BRICKS_SET.getBase(), Ingredient.of(BWGBlocks.RED_ROCK_BRICKS_SET.getSlab()))
                 .unlockedBy("has_tag", has(BWGItemTags.RED_ROCK_BRICKS))
                 .save(recipeOutput);
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGBlocks.RED_ROCK_BRICKS_SET.getBase()), RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CRACKED_RED_ROCK_BRICKS_SET.getBase(), 0.35F, 200)
+                .unlockedBy("has_tag", has(BWGItemTags.RED_ROCK_BRICKS))
+                .save(recipeOutput, BiomesWeveGone.id("cracked_red_rock_bricks_from_smelting"));
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGBlocks.RED_ROCK_SET.getBase()), RecipeCategory.BUILDING_BLOCKS, BWGBlocks.POLISHED_RED_ROCK_SET.getBase(), 0.35F, 200)
+                .unlockedBy(getHasName(BWGBlocks.RED_ROCK_SET.getBase()), has(BWGBlocks.RED_ROCK_SET.getBase()))
+                .save(recipeOutput, BiomesWeveGone.id("polished_red_rock_from_smelting"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.RED_ROCK_TILES_SET.getBase())
+                .define('#', BWGBlocks.POLISHED_RED_ROCK_SET.getBase())
+                .define('X', BWGBlocks.POLISHED_RED_ROCK_SET.getBase())
+                .pattern("#")
+                .pattern("X")
+                .unlockedBy(getHasName(BWGBlocks.POLISHED_RED_ROCK_SET.getBase()), has(BWGBlocks.POLISHED_RED_ROCK_SET.getBase()))
+                .save(recipeOutput);
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.ROCKY_STONE_SET.getBase(), 2)
                 .requires(Items.COBBLESTONE)
                 .requires(Items.STONE)
@@ -225,6 +239,16 @@ public class RecipeGenerator extends RecipeProvider {
                 .pattern("#")
                 .pattern("#")
                 .unlockedBy(getHasName(BWGBlocks.DACITE_SET.getBase()), has(BWGBlocks.DACITE_SET.getBase()))
+                .save(recipeOutput);
+
+        smeltingResultFromBase(recipeOutput, BWGBlocks.WHITE_DACITE_SET.getBase(), BWGBlocks.WHITE_DACITE_COBBLESTONE_SET.getBase());
+        twoByTwoPackertoFourWithStoneCutting(recipeOutput, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase(), BWGBlocks.WHITE_DACITE_SET.getBase());
+        twoByTwoPackertoFourWithStoneCutting(recipeOutput, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.WHITE_DACITE_TILE_SET.getBase(), BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase());
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.WHITE_DACITE_PILLAR.get())
+                .define('#', BWGBlocks.WHITE_DACITE_SET.getBase())
+                .pattern("#")
+                .pattern("#")
+                .unlockedBy(getHasName(BWGBlocks.WHITE_DACITE_SET.getBase()), has(BWGBlocks.WHITE_DACITE_SET.getBase()))
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.WINDSWEPT_SANDSTONE_PILLAR.get())
@@ -383,7 +407,7 @@ public class RecipeGenerator extends RecipeProvider {
                 .requires(Items.EGG)
                 .unlockedBy(getHasName(BWGBlocks.CARVED_PALE_PUMPKIN.get()), has(BWGBlocks.CARVED_PALE_PUMPKIN.get()))
                 .unlockedBy(getHasName(BWGBlocks.PALE_PUMPKIN.get()), has(BWGBlocks.PALE_PUMPKIN.get()))
-                .save(recipeOutput);
+                .save(recipeOutput, BiomesWeveGone.id("pumpkin_pie"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.PALE_JACK_O_LANTERN.get())
                 .define('A', BWGBlocks.CARVED_PALE_PUMPKIN.get())
@@ -422,6 +446,12 @@ public class RecipeGenerator extends RecipeProvider {
                 .unlockedBy(getHasName(BWGItems.SOUL_FRUIT.get()), has(BWGItems.SOUL_FRUIT.get()))
                 .save(recipeOutput);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BWGItems.PUMPKIN_BURROW.get())
+                .requires(ItemTags.SHOVELS)
+                .requires(Tags.Items.PUMPKINS_CARVED)
+                .unlockedBy("has_carved_pumpkin", has(Tags.Items.PUMPKINS_CARVED))
+                .save(recipeOutput);
+
         oneToOneConversionRecipe(recipeOutput, Items.BLACK_DYE, BWGItemTags.MAKES_BLACK_DYE);
         oneToOneConversionRecipe(recipeOutput, Items.BLUE_DYE, BWGItemTags.MAKES_BLUE_DYE);
         oneToOneConversionRecipe(recipeOutput, Items.CYAN_DYE, BWGItemTags.MAKES_CYAN_DYE);
@@ -441,6 +471,72 @@ public class RecipeGenerator extends RecipeProvider {
         oneToTwoConversionRecipe(recipeOutput, Items.PINK_DYE, BWGItemTags.MAKES_2_PINK_DYE);
         oneToTwoConversionRecipe(recipeOutput, Items.PURPLE_DYE, BWGItemTags.MAKES_2_PURPLE_DYE);
         oneToTwoConversionRecipe(recipeOutput, Items.WHITE_DYE, BWGItemTags.MAKES_2_WHITE_DYE);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.WREATH.get())
+                .define('#', ItemTags.LEAVES)
+                .pattern(" # ")
+                .pattern("# #")
+                .pattern(" # ")
+                .unlockedBy("has_leaves", has(ItemTags.LEAVES))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.HOLLY_WREATH.get())
+                .define('#', Items.SWEET_BERRIES)
+                .define('X', BWGItems.WREATH.get())
+                .pattern(" # ")
+                .pattern("#X#")
+                .pattern(" # ")
+                .unlockedBy(getHasName(BWGItems.WREATH.get()), has(BWGItems.WREATH.get()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.ODDION_WREATH.get())
+                .define('#', BWGItems.ODDION_BULB.get())
+                .define('X', BWGItems.WREATH.get())
+                .pattern(" # ")
+                .pattern("#X#")
+                .pattern(" # ")
+                .unlockedBy(getHasName(BWGItems.WREATH.get()), has(BWGItems.WREATH.get()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.MUSHROOM_WREATH.get())
+                .define('#', Tags.Items.MUSHROOMS)
+                .define('X', BWGItems.WREATH.get())
+                .pattern(" # ")
+                .pattern("#X#")
+                .pattern(" # ")
+                .unlockedBy(getHasName(BWGItems.WREATH.get()), has(BWGItems.WREATH.get()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.ROSY_WREATH.get())
+                .define('#', BWGBlocks.ROSE.getItem())
+                .define('X', BWGBlocks.OSIRIA_ROSE.getItem())
+                .define('Y', BWGItems.WREATH.get())
+                .pattern(" # ")
+                .pattern("XYX")
+                .pattern(" # ")
+                .unlockedBy(getHasName(BWGItems.WREATH.get()), has(BWGItems.WREATH.get()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.PETAL_WREATH.get())
+                .define('#', Items.PINK_PETALS)
+                .define('X', BWGBlocks.WHITE_SAKURA_PETALS.get())
+                .define('Y', BWGBlocks.YELLOW_SAKURA_PETALS.get())
+                .define('Z', BWGItems.WREATH.get())
+                .pattern(" X ")
+                .pattern("YZY")
+                .pattern(" # ")
+                .unlockedBy(getHasName(BWGItems.WREATH.get()), has(BWGItems.WREATH.get()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.WINTER_ROSY_WREATH.get())
+                .define('#', BWGBlocks.WINTER_ROSE.getItem())
+                .define('X', BWGBlocks.BLACK_ROSE.getItem())
+                .define('Y', BWGItems.WREATH.get())
+                .pattern(" # ")
+                .pattern("XYX")
+                .pattern(" # ")
+                .unlockedBy(getHasName(BWGItems.WREATH.get()), has(BWGItems.WREATH.get()))
+                .save(recipeOutput);
     }
 
     private static void oneToOneConversionRecipe(RecipeOutput recipeOutput, ItemLike result, TagKey<Item> ingredient) {

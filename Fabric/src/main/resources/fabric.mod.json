@@ -42,7 +42,8 @@
     "geckolib": ">=4.6"
   },
   "suggests": {
-    "WTHIT": ">=8.15.0"
+    "WTHIT": ">=8.15.0",
+    "fabric-permissions-api-v0": "*"
   },
   "custom": {
     "modmenu": {

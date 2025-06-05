@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carved_pumpkin",
+  "textures": {
+    "front": "biomeswevegone:block/pumpkin_burrow_occupied"
+  }
+}

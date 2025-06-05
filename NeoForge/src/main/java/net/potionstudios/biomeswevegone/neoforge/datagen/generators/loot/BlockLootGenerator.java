@@ -22,9 +22,11 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.potionstudios.biomeswevegone.component.BWGDataComponents;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+import net.potionstudios.biomeswevegone.world.level.block.custom.PumpkinBurrowBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.BWGBerryBush;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.OddionCrop;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.WhitePuffballBlock;
@@ -168,6 +170,9 @@ class BlockLootGenerator extends BlockLootSubProvider {
         dropOther(BWGBlocks.SANDY_FARMLAND.get(), BWGBlocks.SANDY_DIRT.get());
         dropOther(BWGBlocks.SANDY_DIRT_PATH.get(), BWGBlocks.SANDY_DIRT.get());
 
+        add(BWGBlocks.WHITE_DACITE_SET.getBase(), createSingleItemTableWithSilkTouch(BWGBlocks.WHITE_DACITE_SET.getBase(), BWGBlocks.WHITE_DACITE_COBBLESTONE_SET.getBase()));
+        add(BWGBlocks.WHITE_PODZOL_DACITE.get(), createSingleItemTableWithSilkTouch(BWGBlocks.WHITE_PODZOL_DACITE.get(), BWGBlocks.WHITE_DACITE_COBBLESTONE_SET.getBase()));
+        add(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), createSingleItemTableWithSilkTouch(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.WHITE_DACITE_COBBLESTONE_SET.getBase()));
         add(BWGBlocks.DACITE_SET.getBase(), createSingleItemTableWithSilkTouch(BWGBlocks.DACITE_SET.getBase(), BWGBlocks.DACITE_COBBLESTONE_SET.getBase()));
         add(BWGBlocks.PODZOL_DACITE.get(), createSingleItemTableWithSilkTouch(BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.DACITE_COBBLESTONE_SET.getBase()));
         add(BWGBlocks.OVERGROWN_DACITE.get(), createSingleItemTableWithSilkTouch(BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.DACITE_COBBLESTONE_SET.getBase()));
@@ -217,6 +222,19 @@ class BlockLootGenerator extends BlockLootSubProvider {
 
         add(BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get(), createAttachedStemDrops(BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get(), BWGItems.PALE_PUMPKIN_SEEDS.get()));
         add(BWGBlocks.PALE_PUMPKIN_STEM.get(), createStemDrops(BWGBlocks.PALE_PUMPKIN_STEM.get(), BWGItems.PALE_PUMPKIN_SEEDS.get()));
+
+        add(BWGBlocks.PUMPKIN_BURROW.get(), LootTable.lootTable()
+                .withPool(
+                        LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1.0F))
+                                .add(
+                                        LootItem.lootTableItem(BWGItems.PUMPKIN_BURROW.get())
+                                                .when(hasSilkTouch())
+                                                .apply(CopyComponentsFunction.copyComponents(CopyComponentsFunction.Source.BLOCK_ENTITY).include(BWGDataComponents.PUMPKIN_WARDEN.get()))
+                                                .apply(CopyBlockState.copyState(BWGBlocks.PUMPKIN_BURROW.get()).copy(PumpkinBurrowBlock.OCCUPIED))
+                                                .otherwise(LootItem.lootTableItem(BWGItems.PUMPKIN_BURROW.get()))
+                                )
+                ));
     }
 
     private LootTable.Builder createFruitLeavesDrops(LeavesBlock leaves, Block saplingBlock, Item fruit, float... chances) {

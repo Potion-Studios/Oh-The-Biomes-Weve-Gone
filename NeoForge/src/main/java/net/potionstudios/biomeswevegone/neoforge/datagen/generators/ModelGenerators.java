@@ -16,9 +16,12 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.neoforged.neoforge.client.model.generators.*;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
+import net.potionstudios.biomeswevegone.world.item.custom.WreathItem;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
+import net.potionstudios.biomeswevegone.world.level.block.custom.PumpkinBurrowBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.PottedBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.*;
 import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.CarvedBarrelCactusBlock;
@@ -35,6 +38,8 @@ import net.potionstudios.biomeswevegone.world.level.block.sand.BWGSandSet;
 import net.potionstudios.biomeswevegone.world.level.block.set.BWGBlockSet;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
+
+import java.util.Arrays;
 
 /**
  * Used to generate models for blocks and items.
@@ -63,7 +68,8 @@ public class ModelGenerators {
         protected void registerModels() {
             basicItem(BWGItems.BWG_LOGO.get());
             BWGItems.SIMPLE_ITEMS.forEach(supplier -> {
-                if (supplier.get() instanceof SpawnEggItem) spawnEggItem(supplier.get());
+                if (supplier.get() instanceof SpawnEggItem spawnEggItem) spawnEggItem(spawnEggItem);
+                else if (supplier.get() instanceof WreathItem item) simpleItemBlockTexture(item, item.getType().getSerializedName() + "_wreath");
                 else basicItem(supplier.get());
             });
             BWGWoodSet.woodsets().forEach(set -> {
@@ -74,6 +80,7 @@ public class ModelGenerators {
                 simpleItem(set.chestBoatItem().get(), set.name() + "/chest_boat");
             });
             withExistingParent(key(BWGItems.MUSIC_DISC_PIXIE_CLUB.get()).getPath(), mcLoc("minecraft:item/template_music_disc")).texture("layer0", BiomesWeveGone.id(ModelProvider.ITEM_FOLDER + "/" + key(BWGItems.MUSIC_DISC_PIXIE_CLUB.get()).getPath()));
+            withExistingParent(key(BWGItems.MUSIC_DISC_BETTER_DAYS.get()).getPath(), mcLoc("minecraft:item/template_music_disc")).texture("layer0", BiomesWeveGone.id(ModelProvider.ITEM_FOLDER + "/" + key(BWGItems.MUSIC_DISC_BETTER_DAYS.get()).getPath()));
             simpleItemBlockTexture(BWGItems.TINY_LILY_PADS.get());
             singleTexture(key(BWGItems.FLOWERING_TINY_LILY_PADS.get()).getPath(), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/tiny_lily_pads")).texture("layer1", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/tiny_lily_pads_flower_overlay"));
             simpleItemBlockTexture(BWGItems.WATER_SILK.get());
@@ -85,6 +92,13 @@ public class ModelGenerators {
             simpleItem(BWGBlocks.CYAN_PITCHER_PLANT.get().asItem(), "cyan_pitcher_plant");
             simpleItem(BWGBlocks.MAGENTA_PITCHER_PLANT.get().asItem(), "magenta_pitcher_plant");
             simpleItemBlockTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get());
+
+            getBuilder(name(BWGItems.PUMPKIN_BURROW.get()))
+                    .parent(new ModelFile.UncheckedModelFile("biomeswevegone:block/pumpkin_burrow"))
+                    .override()
+                    .predicate(BiomesWeveGone.id("occupied"), 1.0f)
+                    .model(new ModelFile.UncheckedModelFile("biomeswevegone:block/pumpkin_burrow_occupied"))
+                    .end();
         }
 
         private void simpleItem(ItemLike item, String texture) {
@@ -93,6 +107,10 @@ public class ModelGenerators {
 
         private void simpleItemBlockTexture(ItemLike item) {
             singleTexture(name(item), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/" + name(item)));
+        }
+
+        private void simpleItemBlockTexture(ItemLike item, String texture) {
+            singleTexture(name(item), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/" + texture));
         }
 
         private String name(ItemLike item) {
@@ -123,6 +141,7 @@ public class ModelGenerators {
             simpleBlockItem(BWGBlocks.SANDY_DIRT_PATH.get(), models().getExistingFile(blockBWGTexture(BWGBlocks.SANDY_DIRT_PATH.get())));
             models().withExistingParent(name(BWGBlocks.LUSH_GRASS_BLOCK.get()), mcLoc("block/grass_block")).texture("particle", blockBWGTexture(BWGBlocks.LUSH_DIRT.get())).texture("top", blockBWGTexture(BWGBlocks.LUSH_GRASS_BLOCK.get(), "top")).texture("side", blockBWGTexture(BWGBlocks.LUSH_GRASS_BLOCK.get(), "side")).texture("bottom", blockBWGTexture(BWGBlocks.LUSH_DIRT.get())).texture("overlay", blockBWGTexture(BWGBlocks.LUSH_GRASS_BLOCK.get(), "side_overlay")).renderType("cutout_mipped");
             models().withExistingParent(name(BWGBlocks.OVERGROWN_DACITE.get()), mcLoc("block/grass_block")).texture("particle", blockBWGTexture(BWGBlocks.DACITE_SET.getBase())).texture("top", blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "top")).texture("side", blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "side")).texture("bottom", blockBWGTexture(BWGBlocks.DACITE_SET.getBase())).texture("overlay", blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "side_overlay")).renderType("cutout_mipped");
+            models().withExistingParent(name(BWGBlocks.WHITE_OVERGROWN_DACITE.get()), mcLoc("block/grass_block")).texture("particle", blockBWGTexture(BWGBlocks.WHITE_DACITE_SET.getBase())).texture("top", blockBWGTexture(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), "top")).texture("side", blockBWGTexture(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), "side")).texture("bottom", blockBWGTexture(BWGBlocks.WHITE_DACITE_SET.getBase())).texture("overlay", blockBWGTexture(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), "side_overlay")).renderType("cutout_mipped");
             models().withExistingParent(name(BWGBlocks.OVERGROWN_STONE.get()), mcLoc("block/grass_block")).texture("particle", blockTexture(Blocks.STONE)).texture("top", blockBWGTexture(BWGBlocks.OVERGROWN_STONE.get(), "top")).texture("side", blockBWGTexture(BWGBlocks.OVERGROWN_STONE.get(), "side")).texture("bottom", blockTexture(Blocks.STONE)).texture("overlay", blockBWGTexture(BWGBlocks.OVERGROWN_STONE.get(), "side_overlay")).renderType("cutout_mipped");
 
             BWGBlocks.BLOCKS.forEach(entry -> {
@@ -309,6 +328,10 @@ public class ModelGenerators {
             simpleBlockWithItem(BWGBlocks.PODZOL_DACITE.get(),
                     models().cubeBottomTop(name(BWGBlocks.PODZOL_DACITE.get()), blockBWGTexture(BWGBlocks.PODZOL_DACITE.get()), blockBWGTexture(BWGBlocks.DACITE_SET.getBase()), mcLoc("block/podzol_top")));
 
+            simpleBlockWithItem(BWGBlocks.WHITE_PODZOL_DACITE.get(),
+                    models().cubeBottomTop(name(BWGBlocks.WHITE_PODZOL_DACITE.get()), blockBWGTexture(BWGBlocks.WHITE_PODZOL_DACITE.get()), blockBWGTexture(BWGBlocks.WHITE_DACITE_SET.getBase()), mcLoc("block/podzol_top")));
+
+
             registerSlab(BWGBlocks.CATTAIL_THATCH_SLAB.get(), BWGBlocks.CATTAIL_THATCH.get());
             registerStairs(BWGBlocks.CATTAIL_THATCH_STAIRS.get(), BWGBlocks.CATTAIL_THATCH.get());
 
@@ -317,6 +340,10 @@ public class ModelGenerators {
             models().cubeBottomTop(name(BWGBlocks.OVERGROWN_DACITE.get()) + "_snowy",  blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "snow_side"), blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "bottom"), blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "top")).texture("particle", blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "bottom")).renderType("cutout_mipped");
             snowyRotatableBlock(BWGBlocks.OVERGROWN_DACITE.get());
             simpleBlockItemExistingModel(BWGBlocks.OVERGROWN_DACITE.get());
+
+            models().cubeBottomTop(name(BWGBlocks.WHITE_OVERGROWN_DACITE.get()) + "_snowy",  blockBWGTexture(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), "snow_side"), blockBWGTexture(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), "bottom"), blockBWGTexture(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), "top")).texture("particle", blockBWGTexture(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), "bottom")).renderType("cutout_mipped");
+            snowyRotatableBlock(BWGBlocks.WHITE_OVERGROWN_DACITE.get());
+            simpleBlockItemExistingModel(BWGBlocks.WHITE_OVERGROWN_DACITE.get());
 
             models().cubeBottomTop(name(BWGBlocks.OVERGROWN_STONE.get()) + "_snowy",  blockBWGTexture(BWGBlocks.OVERGROWN_STONE.get(), "snow_side"), blockTexture(Blocks.STONE), blockBWGTexture(BWGBlocks.OVERGROWN_STONE.get(), "top")).texture("particle", blockTexture(Blocks.STONE)).renderType("cutout_mipped");
             snowyRotatableBlock(BWGBlocks.OVERGROWN_STONE.get());
@@ -416,6 +443,34 @@ public class ModelGenerators {
 
             registerPatchBlockStates(BWGBlocks.CLOVER_PATCH.get(), new String[]{"clover_patch", "clover_patch2", "clover_patch3", "clover_patch4"});
             registerPatchBlockStates(BWGBlocks.FLOWER_PATCH.get(), new String[]{"flower_patch", "flower_patch2", "flower_patch3"});
+
+            var unoccupied = models().withExistingParent(name(BWGBlocks.PUMPKIN_BURROW.get()), mcLoc("block/carved_pumpkin")).texture("front", blockBWGTexture(BWGBlocks.PUMPKIN_BURROW.get()));
+            var occupied = models().withExistingParent(name(BWGBlocks.PUMPKIN_BURROW.get()) + "_occupied", mcLoc("block/carved_pumpkin")).texture("front", blockBWGTexture(BWGBlocks.PUMPKIN_BURROW.get(), "occupied"));
+
+            getVariantBuilder(BWGBlocks.PUMPKIN_BURROW.get()).forAllStates(state -> {
+                if (state.getValue(PumpkinBurrowBlock.OCCUPIED)) {
+                    if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.EAST)
+                        return ConfiguredModel.builder().rotationY(90).modelFile(occupied).build();
+                    else if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.WEST)
+                        return ConfiguredModel.builder().rotationY(270).modelFile(occupied).build();
+                    else if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.SOUTH)
+                        return ConfiguredModel.builder().rotationY(180).modelFile(occupied).build();
+                    else
+                        return ConfiguredModel.builder().modelFile(occupied).build();
+                } else {
+                    if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.EAST)
+                        return ConfiguredModel.builder().rotationY(90).modelFile(unoccupied).build();
+                    else if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.WEST)
+                        return ConfiguredModel.builder().rotationY(270).modelFile(unoccupied).build();
+                    else if (state.getValue(CarvedPumpkinBlock.FACING) == Direction.SOUTH)
+                        return ConfiguredModel.builder().rotationY(180).modelFile(unoccupied).build();
+                    else
+                        return ConfiguredModel.builder().modelFile(unoccupied).build();
+                }
+            });
+
+            Arrays.stream(Wreath.Type.values()).forEach(type -> models().withExistingParent(BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString(), blockBWGTexture("template_wreath")).texture("wreath", BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString()).texture("particle", BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString()));
+
         }
 
         private void registerPatchBlockStates(Block block, String[] models) {

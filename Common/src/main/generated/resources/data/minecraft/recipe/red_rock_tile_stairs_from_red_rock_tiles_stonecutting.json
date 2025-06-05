@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "biomeswevegone:red_rock_tiles"
+  },
+  "result": {
+    "count": 1,
+    "id": "biomeswevegone:red_rock_tile_stairs"
+  }
+}

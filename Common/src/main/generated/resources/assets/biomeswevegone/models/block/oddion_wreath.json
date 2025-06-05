@@ -1,0 +1,7 @@
+{
+  "parent": "biomeswevegone:block/template_wreath",
+  "textures": {
+    "particle": "biomeswevegone:block/oddion_wreath",
+    "wreath": "biomeswevegone:block/oddion_wreath"
+  }
+}

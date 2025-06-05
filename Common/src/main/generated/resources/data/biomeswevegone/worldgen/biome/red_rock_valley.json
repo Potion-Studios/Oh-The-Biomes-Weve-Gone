@@ -78,14 +78,15 @@
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:flower_default",
-      "minecraft:patch_grass_forest",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
-      "minecraft:patch_sugar_cane",
-      "minecraft:patch_pumpkin",
+      "minecraft:patch_dead_bush_2",
+      "minecraft:flower_warm",
+      "minecraft:patch_grass_savanna",
+      "biomeswevegone:red_rock_valley_trees",
       "biomeswevegone:palo_verde_trees",
+      "biomeswevegone:rugged_badlands_vegetation",
+      "biomeswevegone:shrub",
       "biomeswevegone:firecracker_bush",
+      "biomeswevegone:horseweed",
       "biomeswevegone:mushrooms"
     ],
     [
@@ -105,6 +106,30 @@
     ],
     "axolotls": [],
     "creature": [
+      {
+        "type": "minecraft:sheep",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 12
+      },
+      {
+        "type": "minecraft:pig",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 10
+      },
+      {
+        "type": "minecraft:chicken",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 10
+      },
+      {
+        "type": "minecraft:cow",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 8
+      },
       {
         "type": "minecraft:rabbit",
         "maxCount": 3,
@@ -127,7 +152,7 @@
         "weight": 100
       },
       {
-        "type": "minecraft:husk",
+        "type": "minecraft:zombie",
         "maxCount": 4,
         "minCount": 4,
         "weight": 95
@@ -169,7 +194,14 @@
         "weight": 5
       }
     ],
-    "underground_water_creature": [],
+    "underground_water_creature": [
+      {
+        "type": "minecraft:glow_squid",
+        "maxCount": 6,
+        "minCount": 4,
+        "weight": 10
+      }
+    ],
     "water_ambient": [],
     "water_creature": []
   },
