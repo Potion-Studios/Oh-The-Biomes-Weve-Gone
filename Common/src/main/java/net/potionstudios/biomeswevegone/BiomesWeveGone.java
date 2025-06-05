@@ -14,6 +14,7 @@ import net.potionstudios.biomeswevegone.world.entity.ai.sensing.BWGSensorType;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerProfessions;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTypes;
+import net.potionstudios.biomeswevegone.world.entity.schedule.BWGSchedule;
 import net.potionstudios.biomeswevegone.world.item.BWGCreativeTabs;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -70,6 +71,7 @@ public class BiomesWeveGone {
         BWGVillagerProfessions.professions();
         BWGCustomStructureProcessors.processors();
         BWGVillagerTypes.villagerTypes();
+        BWGSchedule.schedules();
         BWGMemoryModuleType.memoryModuleTypes();
         BWGSensorType.sensorTypes();
         BWGMapDecorationTypes.mapDecorationTypes();
