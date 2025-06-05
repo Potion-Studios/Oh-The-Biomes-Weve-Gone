@@ -56,6 +56,7 @@ public class BWGOverworldSurfaceRules {
     private static final SurfaceRules.RuleSource CRIMSON_ROCKY_STONE_SURFACE = makeifTrueRule(SurfaceRules.noiseCondition(Noises.POWDER_SNOW, 0.45, 0.5), makeifTrueRule(WATER_CHECK, SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, makeStateRule(BWGBlocks.ROCKY_STONE_SET.getBase())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, makeStateRule(BWGBlocks.ROCKY_STONE_SET.getBase())))));
     private static final SurfaceRules.RuleSource POWDER_SNOW_SURFACE = makeifTrueRule(SurfaceRules.noiseCondition(Noises.POWDER_SNOW, 0.45, 0.5), makeifTrueRule(WATER_CHECK, SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, makeStateRule(Blocks.POWDER_SNOW)), makeifTrueRule(SurfaceRules.UNDER_FLOOR, makeStateRule(Blocks.POWDER_SNOW)))));
     private static final SurfaceRules.RuleSource RED_QUICKSAND_SURFACE = makeifTrueRule(SurfaceRules.noiseCondition(Noises.POWDER_SNOW, 0.45, 0.5), makeifTrueRule(WATER_CHECK, SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, makeStateRule(BWGBlocks.RED_QUICKSAND.get())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, makeStateRule(BWGBlocks.RED_QUICKSAND.get())))));
+    private static final SurfaceRules.RuleSource RAW_COPPER_SURFACE = makeifTrueRule(SurfaceRules.noiseCondition(Noises.POWDER_SNOW, 0.45, 0.5), makeifTrueRule(WATER_CHECK, SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, makeStateRule(Blocks.RAW_COPPER_BLOCK)), makeifTrueRule(SurfaceRules.UNDER_FLOOR, makeStateRule(Blocks.RAW_COPPER_BLOCK)))));
     private static final SurfaceRules.RuleSource ROOTED_DIRT_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.ROOTED_DIRT)), makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.ROOTED_DIRT));
     private static final SurfaceRules.RuleSource GRASS_DIRT_DIRT_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.GRASS_BLOCK)), makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT));
     private static final SurfaceRules.RuleSource MUD_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.MUD)), makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.MUD));
@@ -155,6 +156,16 @@ public class BWGOverworldSurfaceRules {
                     )
             )
             ));
+
+    private static final SurfaceRules.RuleSource CYPRESS_WETLANDS = biomeAbovePreliminarySurface(BWGBiomes.CYPRESS_WETLANDS, SurfaceRules.sequence(
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
+                    SurfaceRules.sequence(
+                            makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.GRASS_BLOCK),
+                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT)
+                    )),
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), PODZOL_DIRT_SURFACE),
+            PEAT_SURFACE, MUD_SURFACE
+    ));
 
     private static final SurfaceRules.RuleSource DACITE_RIDGES = biomeAbovePreliminarySurface(BWGBiomes.DACITE_RIDGES, SurfaceRules.sequence(
             makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
@@ -308,7 +319,15 @@ public class BWGOverworldSurfaceRules {
             )
     );
 
-    private static final SurfaceRules.RuleSource PUMPKIN_VALLEY = biomeAbovePreliminarySurface(BWGBiomes.PUMPKIN_VALLEY, LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE);
+    private static final SurfaceRules.RuleSource PUMPKIN_VALLEY = biomeAbovePreliminarySurface(BWGBiomes.PUMPKIN_VALLEY, SurfaceRules.sequence(
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
+                    SurfaceRules.sequence(
+                            makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.LUSH_GRASS_BLOCK.get()),
+                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.LUSH_DIRT.get())
+                    )),
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE),
+            PODZOL_DIRT_SURFACE
+    ));
 
     private static final SurfaceRules.RuleSource RAINBOW_BEACH = biomeAbovePreliminarySurface(BWGBiomes.RAINBOW_BEACH,
         SurfaceRules.sequence(
@@ -316,11 +335,26 @@ public class BWGOverworldSurfaceRules {
                 BLUE_SAND
         ));
 
+    private static final SurfaceRules.RuleSource RED_ROCK_PEAKS = biomeAbovePreliminarySurface(BWGBiomes.RED_ROCK_PEAKS, SurfaceRules.sequence(
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
+                    SurfaceRules.sequence(
+                            makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.RED_ROCK_SET.getBase()),
+                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.RED_ROCK_SET.getBase())
+                    )),
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), GRASS_DIRT_DIRT_SURFACE),
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.45D), RED_QUICKSAND_SURFACE),
+            RAW_COPPER_SURFACE
+    ));
 
     private static final SurfaceRules.RuleSource RED_ROCK_VALLEY = biomeAbovePreliminarySurface(BWGBiomes.RED_ROCK_VALLEY, SurfaceRules.sequence(
-       NOISE_COARSE_DIRT,
-       makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), SurfaceRules.bandlands()),
-       makeStateRule(BWGBlocks.RED_ROCK_SET.getBase())
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
+                    SurfaceRules.sequence(
+                            makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.RED_ROCK_SET.getBase()),
+                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.RED_ROCK_SET.getBase())
+                    )),
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), GRASS_DIRT_DIRT_SURFACE),
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.75D), COARSE_DIRT_DIRT_SURFACE),
+            CRACKED_RED_SAND_SURFACE
     ));
 
     private static final SurfaceRules.RuleSource REDWOOD_THICKET = biomeAbovePreliminarySurface(BWGBiomes.REDWOOD_THICKET,
@@ -399,6 +433,7 @@ public class BWGOverworldSurfaceRules {
                 COCONINO_MEADOW,
                 CONIFEROUS_FOREST,
                 CYPRESS_MANGROVE,
+                CYPRESS_WETLANDS,
                 CRIMSON_TUNDRA,
                 DACITE_RIDGES,
                 DACITE_SHORE,
@@ -419,6 +454,7 @@ public class BWGOverworldSurfaceRules {
                 PALE_BOG,
                 PUMPKIN_VALLEY,
                 RAINBOW_BEACH,
+                RED_ROCK_PEAKS,
                 RED_ROCK_VALLEY,
                 REDWOOD_THICKET,
                 RUGGED_BADLANDS,

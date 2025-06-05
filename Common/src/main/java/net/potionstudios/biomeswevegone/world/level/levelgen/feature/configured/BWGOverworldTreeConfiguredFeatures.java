@@ -4097,6 +4097,22 @@ public class BWGOverworldTreeConfiguredFeatures {
             }
     );
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> RED_ROCK_VALLEY_TREES = ConfiguredFeaturesUtil.createConfiguredFeature("red_rock_valley_trees",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(IRONWOOD_TREE1)), 0.05F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(IRONWOOD_TREE2)), 0.05F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(FLOWERING_IRONWOOD_TREE3)), 0.05F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(FLOWERING_IRONWOOD_TREE4)), 0.05F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PINE_LARGE_TREE1)), 0.2F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PINE_LARGE_TREE2)), 0.2F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PINE_TREE1)), 0.2F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PINE_TREE2)));
+            }
+    );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> CIKA_TREES = ConfiguredFeaturesUtil.createConfiguredFeature("cika_trees",
             Feature.RANDOM_SELECTOR,
             (configuredFeatureBootstrapContext) -> {
