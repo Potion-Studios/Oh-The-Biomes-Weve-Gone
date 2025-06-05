@@ -6,6 +6,7 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.blockstates.*;
 import net.minecraft.client.data.models.model.*;
+import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -19,6 +20,7 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.client.color.item.BorealisIceColorSource;
 import net.potionstudios.biomeswevegone.client.color.item.FoliageColorSource;
+import net.potionstudios.biomeswevegone.component.BWGDataComponents;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
@@ -500,6 +502,15 @@ public class ModelGenerator extends ModelProvider {
 
         itemModels.generateFlatItem(BWGItems.MUSIC_DISC_PIXIE_CLUB.get(), ModelTemplates.MUSIC_DISC);
         itemModels.generateFlatItem(BWGItems.MUSIC_DISC_BETTER_DAYS.get(), ModelTemplates.MUSIC_DISC);
+
+        ItemModel.Unbaked occupiedItem = ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(BWGBlocks.PUMPKIN_BURROW.get()));
+        ItemModel.Unbaked unoccupiedItem = ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(BWGBlocks.PUMPKIN_BURROW.get(), "_unoccupied"));
+
+        itemModels.itemModelOutput.accept(BWGItems.PUMPKIN_BURROW.get(), ItemModelUtils.conditional(
+                ItemModelUtils.hasComponent(BWGDataComponents.PUMPKIN_WARDEN.get()),
+                occupiedItem,
+                unoccupiedItem
+        ));
     }
 
     private void blockItemModel(BlockModelGenerators blockModels, Block block) {
