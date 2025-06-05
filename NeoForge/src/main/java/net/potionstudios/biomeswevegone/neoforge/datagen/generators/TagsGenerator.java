@@ -168,7 +168,7 @@ public class TagsGenerator {
             tag(BlockTags.SNIFFER_EGG_HATCH_BOOST).add(BWGBlocks.LUSH_GRASS_BLOCK.get());
             tag(BlockTags.MAINTAINS_FARMLAND).add(BWGBlocks.ODDION_CROP.get(), BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get(), BWGBlocks.PALE_PUMPKIN_STEM.get());
             tag(BlockTags.MINEABLE_WITH_HOE).add(BWGBlocks.ALLIUM_PETAL_BLOCK.get(), BWGBlocks.PINK_ALLIUM_PETAL_BLOCK.get(), BWGBlocks.WHITE_ALLIUM_PETAL_BLOCK.get(), BWGBlocks.ROSE_PETAL_BLOCK.get());
-            tag(BlockTags.MINEABLE_WITH_PICKAXE).addTag(BWGBlockTags.BLACK_ICE).addTag(BWGBlockTags.BOREALIS_ICE);
+            tag(BlockTags.MINEABLE_WITH_PICKAXE).addTag(BWGBlockTags.BLACK_ICE).addTag(BWGBlockTags.BOREALIS_ICE).addTag(BWGBlockTags.GLOW_BOTTLE);
             tag(BlockTags.REPLACEABLE).add(BWGBlocks.PRAIRIE_GRASS.get(), BWGBlocks.TALL_PRAIRIE_GRASS.get(), BWGBlocks.BEACH_GRASS.get(), BWGBlocks.TALL_BEACH_GRASS.get(), BWGBlocks.SKYRIS_VINE.get());
             tag(BlockTags.SAND).add(BWGBlocks.SANDY_DIRT.get(), BWGBlocks.CRACKED_SAND.get());
             tag(Tags.Blocks.BUDDING_BLOCKS).add(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get(), BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get());
