@@ -18,11 +18,17 @@
     "biomeswevegone:pale_bog": {
       "villager_type": "minecraft:swamp"
     },
+    "biomeswevegone:red_rock_valley": {
+      "villager_type": "biomeswevegone:red_rock"
+    },
+    "biomeswevegone:skyrise_vale": {
+      "villager_type": "biomeswevegone:skyris"
+    },
     "biomeswevegone:tropical_rainforest": {
       "villager_type": "minecraft:jungle"
     },
     "biomeswevegone:weeping_witch_forest": {
-      "villager_type": "minecraft:taiga"
+      "villager_type": "biomeswevegone:salem"
     },
     "biomeswevegone:white_mangrove_marshes": {
       "villager_type": "minecraft:swamp"

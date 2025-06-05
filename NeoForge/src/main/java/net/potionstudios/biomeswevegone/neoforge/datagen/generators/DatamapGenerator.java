@@ -13,7 +13,7 @@ import net.neoforged.neoforge.registries.datamaps.builtin.Compostable;
 import net.neoforged.neoforge.registries.datamaps.builtin.FurnaceFuel;
 import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerType;
+import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTypes;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
 import org.jetbrains.annotations.NotNull;
 
@@ -41,7 +41,7 @@ public class DatamapGenerator extends DataMapProvider {
         compostableBuilder.conditions(new ModLoadedCondition(BiomesWeveGone.MOD_ID));
 
         Builder<BiomeVillagerType, Biome> biomeVillagerTypeBuilder = builder(NeoForgeDataMaps.VILLAGER_TYPES);
-        BWGVillagerType.setVillagerBiomes(((biomeResourceKey, villagerType) -> biomeVillagerTypeBuilder.add(biomeResourceKey, new BiomeVillagerType(villagerType), false)));
+        BWGVillagerTypes.setVillagerBiomes(((biomeResourceKey, villagerType) -> biomeVillagerTypeBuilder.add(biomeResourceKey, new BiomeVillagerType(villagerType), false)));
         biomeVillagerTypeBuilder.conditions(new ModLoadedCondition(BiomesWeveGone.MOD_ID));
     }
 
