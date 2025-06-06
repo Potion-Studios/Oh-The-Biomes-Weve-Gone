@@ -1,4 +1,5 @@
 # 2.4.1
+- Update Chinese (Simplified) Translations (zh_cn) (Credits: Crown-Fairy) for Village Update
 
 # 2.4.0 The Village Update -> https://github.com/Potion-Studios/Oh-The-Biomes-Weve-Gone/discussions/279
 - This is a major update not all changes are listed here, please check the discussion for more details
