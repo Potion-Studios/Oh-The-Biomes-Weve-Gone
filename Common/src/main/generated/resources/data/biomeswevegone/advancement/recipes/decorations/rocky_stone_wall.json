@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_rocky_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:rocky_stone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomeswevegone:rocky_stone_wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_rocky_stone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomeswevegone:rocky_stone_wall"
+    ]
+  }
+}

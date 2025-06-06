@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cracked_dacite_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:cracked_dacite_bricks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomeswevegone:cracked_dacite_brick_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cracked_dacite_bricks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomeswevegone:cracked_dacite_brick_stairs"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mossy_red_rock_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:mossy_red_rock_bricks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomeswevegone:mossy_red_rock_brick_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_mossy_red_rock_bricks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomeswevegone:mossy_red_rock_brick_stairs"
+    ]
+  }
+}

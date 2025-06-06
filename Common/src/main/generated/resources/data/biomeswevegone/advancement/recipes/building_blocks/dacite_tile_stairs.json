@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_tag": {
+    "has_dacite_tile": {
       "conditions": {
         "items": [
           {
-            "items": "#biomeswevegone:red_rock_bricks"
+            "items": "biomeswevegone:dacite_tile"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomeswevegone:cracked_red_rock_bricks_from_smelting"
+        "recipe": "biomeswevegone:dacite_tile_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_tag"
+      "has_dacite_tile"
     ]
   ],
   "rewards": {
     "recipes": [
-      "biomeswevegone:cracked_red_rock_bricks_from_smelting"
+      "biomeswevegone:dacite_tile_stairs"
     ]
   }
 }
