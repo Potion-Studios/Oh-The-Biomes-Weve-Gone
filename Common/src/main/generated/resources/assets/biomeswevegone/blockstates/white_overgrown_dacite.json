@@ -18,7 +18,7 @@
       }
     ],
     "snowy=true": {
-      "model": "biomeswevegone:block/white_overgrown_dacite_snowy"
+      "model": "biomeswevegone:block/white_overgrown_dacite_snow"
     }
   }
 }

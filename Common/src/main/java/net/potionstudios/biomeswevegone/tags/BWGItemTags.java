@@ -30,6 +30,8 @@ public final class BWGItemTags {
     public static final TagKey<Item> DAFFODILS = create("flowers/daffodils");
 
     public static final TagKey<Item> RED_ROCK_BRICKS = create("red_rock_bricks");
+    public static final TagKey<Item> DACITE_BRICKS = create("dacite_bricks");
+    public static final TagKey<Item> WHITE_DACITE_BRICKS = create("white_dacite_bricks");
 
     public static final TagKey<Item> GLOWCANE_POWDER = create("glowcane_powder");
     public static final TagKey<Item> GLOWCANE_SHOOT = create("glowcane_shoot");

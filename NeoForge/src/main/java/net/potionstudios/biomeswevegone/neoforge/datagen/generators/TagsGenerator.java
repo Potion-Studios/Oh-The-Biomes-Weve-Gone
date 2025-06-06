@@ -142,6 +142,8 @@ public class TagsGenerator {
                     BWGWood.FLOWERING_INDIGO_JACARANDA_LEAVES.get(), BWGWood.FLOWERING_JACARANDA_LEAVES.get(), BWGWood.FLOWERING_YUCCA_LEAVES.get(), BWGWood.FLOWERING_ORCHARD_LEAVES.get(), BWGWood.FLOWERING_BAOBAB_LEAVES.get());
 
             tag(BWGBlockTags.RED_ROCK_BRICKS).add(BWGBlocks.RED_ROCK_BRICKS_SET.getBase(), BWGBlocks.POLISHED_RED_ROCK_SET.getBase(), BWGBlocks.RED_ROCK_TILES_SET.getBase(), BWGBlocks.MOSSY_RED_ROCK_BRICKS_SET.getBase(), BWGBlocks.CRACKED_RED_ROCK_BRICKS_SET.getBase(), BWGBlocks.CHISELED_RED_ROCK_BRICKS_SET.getBase());
+            tag(BWGBlockTags.DACITE_BRICKS).add(BWGBlocks.DACITE_BRICKS_SET.getBase(), BWGBlocks.MOSSY_DACITE_BRICKS_SET.getBase(), BWGBlocks.CRACKED_DACITE_BRICKS_SET.getBase(), BWGBlocks.CHISELED_DACITE_BRICKS_SET.getBase());
+            tag(BWGBlockTags.WHITE_DACITE_BRICKS).add(BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase(), BWGBlocks.MOSSY_WHITE_DACITE_BRICKS_SET.getBase(), BWGBlocks.CRACKED_WHITE_DACITE_BRICKS_SET.getBase(), BWGBlocks.CHISELED_WHITE_DACITE_BRICKS_SET.getBase());
             tag(BWGBlockTags.GLOW_BOTTLE).add(BWGBlocks.BLUE_GLOW_BOTTLE.get(), BWGBlocks.GREEN_GLOW_BOTTLE.get(), BWGBlocks.RED_GLOW_BOTTLE.get(), BWGBlocks.YELLOW_GLOW_BOTTLE.get());
 
             tag(BWGBlockTags.BLACK_ICE).add(BWGBlocks.BLACK_ICE.get(), BWGBlocks.PACKED_BLACK_ICE.get());
@@ -305,6 +307,8 @@ public class TagsGenerator {
             copy(BlockTags.LEAVES, ItemTags.LEAVES);
             copy(BlockTags.WOOL_CARPETS, ItemTags.WOOL_CARPETS);
             copy(BWGBlockTags.RED_ROCK_BRICKS, BWGItemTags.RED_ROCK_BRICKS);
+            copy(BWGBlockTags.DACITE_BRICKS, BWGItemTags.DACITE_BRICKS);
+            copy(BWGBlockTags.WHITE_DACITE_BRICKS, BWGItemTags.WHITE_DACITE_BRICKS);
             copy(BWGBlockTags.GLOW_BOTTLE, BWGItemTags.GLOW_BOTTLE);
 
             BWGSandSet.getSandSets().forEach(set -> {

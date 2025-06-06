@@ -429,12 +429,19 @@ public class ModelGenerator extends ModelProvider {
 
         createGrassBlockModel(blockModels, BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.LUSH_DIRT.get());
         createGrassBlockModel(blockModels, BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.DACITE_SET.getBase());
+        createGrassBlockModel(blockModels, BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.WHITE_DACITE_SET.getBase());
         createGrassBlockModel(blockModels, BWGBlocks.OVERGROWN_STONE.get(), Blocks.STONE);
         blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(BWGBlocks.PODZOL_DACITE.get(), ModelTemplates.CUBE_BOTTOM_TOP.create(BWGBlocks.PODZOL_DACITE.get(),
             new TextureMapping().put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(BWGBlocks.DACITE_SET.getBase()))
             .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(BWGBlocks.PODZOL_DACITE.get()))
             .put(TextureSlot.TOP, TextureMapping.getBlockTexture(Blocks.PODZOL, "_top")), blockModels.modelOutput)));
         blockItemModel(blockModels, BWGBlocks.PODZOL_DACITE.get());
+
+        blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(BWGBlocks.WHITE_PODZOL_DACITE.get(), ModelTemplates.CUBE_BOTTOM_TOP.create(BWGBlocks.WHITE_PODZOL_DACITE.get(),
+                new TextureMapping().put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(BWGBlocks.WHITE_DACITE_SET.getBase()))
+                        .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(BWGBlocks.WHITE_PODZOL_DACITE.get()))
+                        .put(TextureSlot.TOP, TextureMapping.getBlockTexture(Blocks.PODZOL, "_top")), blockModels.modelOutput)));
+        blockItemModel(blockModels, BWGBlocks.WHITE_PODZOL_DACITE.get());
 
         blockModels.registerSimpleTintedItemModel(BWGBlocks.POISON_IVY.get(), ModelTemplates.FLAT_ITEM.create(BWGBlocks.POISON_IVY.get(), TextureMapping.layer0(TextureMapping.getBlockTexture(BWGBlocks.POISON_IVY.get())), itemModels.modelOutput), new FoliageColorSource());
         basicItem(itemModels, BWGBlocks.SKYRIS_VINE.get().asItem());

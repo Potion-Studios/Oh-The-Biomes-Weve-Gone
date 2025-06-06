@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "biomeswevegone:chiseled_dacite_bricks"
-  },
+  "ingredient": "biomeswevegone:chiseled_dacite_bricks",
   "result": {
     "count": 1,
     "id": "biomeswevegone:chiseled_dacite_brick_wall"
