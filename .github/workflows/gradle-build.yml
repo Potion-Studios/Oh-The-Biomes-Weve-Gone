@@ -1,8 +1,9 @@
 name: Build Gradle for Pull Request
 
 on:
-  pull-request:
+  pull_request:
     branches:
+      - 1.21.4
       - 1.21.1
       - 1.20.1
 
