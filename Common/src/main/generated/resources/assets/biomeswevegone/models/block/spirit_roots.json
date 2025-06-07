@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/mangrove_roots",
+  "render_type": "minecraft:cutout_mipped",
+  "textures": {
+    "side": "biomeswevegone:block/spirit/roots_top",
+    "top": "biomeswevegone:block/spirit/roots_side"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/pumpkin",
+  "textures": {
+    "end": "biomeswevegone:block/pale_pumpkin_top",
+    "side": "biomeswevegone:block/pale_pumpkin_side"
+  }
+}

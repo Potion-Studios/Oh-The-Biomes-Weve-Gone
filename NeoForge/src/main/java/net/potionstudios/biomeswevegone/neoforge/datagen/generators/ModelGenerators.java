@@ -401,7 +401,7 @@ public class ModelGenerators {
             simpleItemBlockTexture(BWGBlocks.CLOVER_PATCH.get(), name(BWGBlocks.CLOVER_PATCH.get()));
             simpleItemBlockTexture(BWGBlocks.FLOWER_PATCH.get(), name(BWGBlocks.FLOWER_PATCH.get()));
             rotatableBlock(BWGBlocks.LEAF_PILE.get());
-            simpleBlockWithItem(BWGBlocks.PALE_PUMPKIN.get(), models().getExistingFile(blockBWGTexture(BWGBlocks.PALE_PUMPKIN.get())));
+            simpleBlockWithItem(BWGBlocks.PALE_PUMPKIN.get(), models().withExistingParent(name(BWGBlocks.PALE_PUMPKIN.get()), "block/pumpkin").texture("end", blockBWGTexture(BWGBlocks.PALE_PUMPKIN.get(), "top")).texture("side", blockBWGTexture(BWGBlocks.PALE_PUMPKIN.get(), "side")));
             ModelFile carved = models().orientable(name(BWGBlocks.CARVED_PALE_PUMPKIN.get()), blockBWGTexture(BWGBlocks.PALE_PUMPKIN.get(), "side"), blockBWGTexture(BWGBlocks.CARVED_PALE_PUMPKIN.get()), blockBWGTexture(BWGBlocks.PALE_PUMPKIN.get(), "top"));
             simpleBlockItem(BWGBlocks.CARVED_PALE_PUMPKIN.get(), carved);
             getVariantBuilder(BWGBlocks.CARVED_PALE_PUMPKIN.get()).forAllStates(state -> {
@@ -441,7 +441,7 @@ public class ModelGenerators {
                         ConfiguredModel.builder().modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get()))).build();
             }, TreeBranchBlock.WATERLOGGED);
             simpleBlockWithItem(BWGBlocks.WITCH_HAZEL_BLOSSOM.get(), models().getExistingFile(blockBWGTexture(BWGBlocks.WITCH_HAZEL_BLOSSOM.get())));
-            simpleBlockWithItem(BWGWood.SPIRIT_ROOTS.get(), models().getExistingFile(blockBWGTexture(BWGWood.SPIRIT_ROOTS.get())));
+            simpleBlockWithItem(BWGWood.SPIRIT_ROOTS.get(), models().withExistingParent(name(BWGWood.SPIRIT_ROOTS.get()), "block/mangrove_roots").texture("side", BiomesWeveGone.id("block/spirit/roots_top")).texture("top", BiomesWeveGone.id("block/spirit/roots_side")).renderType("cutout_mipped"));
 
             registerPatchBlockStates(BWGBlocks.CLOVER_PATCH.get(), new String[]{"clover_patch", "clover_patch2", "clover_patch3", "clover_patch4"});
             registerPatchBlockStates(BWGBlocks.FLOWER_PATCH.get(), new String[]{"flower_patch", "flower_patch2", "flower_patch3"});
