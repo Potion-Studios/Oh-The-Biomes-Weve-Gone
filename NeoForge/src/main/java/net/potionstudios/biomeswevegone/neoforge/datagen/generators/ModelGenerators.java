@@ -212,9 +212,10 @@ public class ModelGenerators {
                     if (((FlowerPotBlock) block).getPotted() == BWGBlocks.WHITE_PUFFBALL.getBlock())
                         simpleBlock(block, models().getExistingFile(blockBWGTexture(BWGBlocks.WHITE_PUFFBALL.getPottedBlock())));
                     else simpleBlock(block, models().withExistingParent(name(block), mcLoc("block/flower_pot_cross")).texture("plant", blockBWGTexture(((FlowerPotBlock) block).getPotted())).renderType("cutout"));
-                } else if (block instanceof HugeMushroomBlock)
+                } else if (block instanceof HugeMushroomBlock) {
+                    models().withExistingParent(name(block), "block/template_single_face").texture("texture", blockBWGTexture(block));
                     simpleBlockItem(block, models().cubeAll(name(block) + "_inventory", blockBWGTexture(block)));
-                else if (block instanceof PinkPetalsBlock) {
+                } else if (block instanceof PinkPetalsBlock) {
                     for (int i = PinkPetalsBlock.MIN_FLOWERS; i <= PinkPetalsBlock.MAX_FLOWERS; i++)
                         models().withExistingParent(name(block) + "_" + i, mcLoc("block/flowerbed_" + i))
                                 .texture("flowerbed", blockBWGTexture(block))
@@ -471,6 +472,7 @@ public class ModelGenerators {
             });
 
             Arrays.stream(Wreath.Type.values()).forEach(type -> models().withExistingParent(BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString(), blockBWGTexture("template_wreath")).texture("wreath", BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString()).texture("particle", BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString()));
+
 
         }
 
