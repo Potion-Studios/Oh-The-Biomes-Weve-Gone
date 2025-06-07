@@ -73,7 +73,8 @@ public class ModelGenerators {
                 else basicItem(supplier.get());
             });
             BWGWoodSet.woodsets().forEach(set -> {
-                simpleItem(set.door(), set.name() + "/door");
+                if (set == BWGWood.MAPLE) singleTexture(name(set.door()), mcLoc("item/generated"), "layer0", BiomesWeveGone.id(ModelProvider.ITEM_FOLDER + "/" + set.name() + "/door")).renderType("translucent");
+                else simpleItem(set.door(), set.name() + "/door");
                 simpleItem(set.signItem(), set.name() + "/sign");
                 simpleItem(set.hangingSignItem(), set.name() + "/hanging_sign");
                 simpleItem(set.boatItem().get(), set.name() + "/boat");
@@ -247,8 +248,8 @@ public class ModelGenerators {
                 registerFenceAndGate(set.fence(), set.fenceGate(), planksTexture);
                 signBlock(set.sign(), set.wallSign(), planksTexture);
                 hangingSignBlock(set.hangingSign(), set.wallHangingSign(), models().sign(name(set.hangingSign()), strippedLogTexture));
-                trapdoorBlockWithRenderType(set.trapdoor(), woodBlockTexture(set.name(), "trapdoor"), true, "cutout");
-                itemModels().trapdoorBottom(name(set.trapdoor()), woodBlockTexture(set.name(), "trapdoor"));
+                trapdoorBlockWithRenderType(set.trapdoor(), woodBlockTexture(set.name(), "trapdoor"), true, set != BWGWood.MAPLE ? "cutout" : "translucent");
+                itemModels().trapdoorBottom(name(set.trapdoor()), woodBlockTexture(set.name(), "trapdoor")).renderType(set != BWGWood.MAPLE ? "cutout" : "translucent");
 	            doorBlockWithRenderType(set.door(), woodBlockTexture(set.name(), "door_bottom"), woodBlockTexture(set.name(), "door_top"), set != BWGWood.MAPLE ? "cutout" : "translucent");
                 pressurePlateBlock(set.pressurePlate(), planksTexture);
                 itemModels().pressurePlate(name(set.pressurePlate()), planksTexture);
