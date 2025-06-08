@@ -7,7 +7,7 @@
 
 ### Official Downloads
 * Curseforge: https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-weve-gone
-* Modrinth: https://modrinth.com/project/oh-the-biomes-weve-gone/
+* Modrinth: https://modrinth.com/mod/oh-the-biomes-weve-gone
 
 ### Maven Information
 - Releases: https://maven.jt-dev.tech/releases
