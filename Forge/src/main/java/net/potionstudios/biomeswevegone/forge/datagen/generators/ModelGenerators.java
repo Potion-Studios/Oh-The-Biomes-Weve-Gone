@@ -209,8 +209,8 @@ public class ModelGenerators {
                 ModelFile thing = models().sign(name(set.hangingSign()), strippedLogTexture);
                 simpleBlock(set.hangingSign(), thing);
                 simpleBlock(set.wallHangingSign(), thing);
-                trapdoorBlockWithRenderType(set.trapdoor(), woodBlockTexture(set.name(), "trapdoor"), true, "cutout");
-                itemModels().trapdoorBottom(name(set.trapdoor()), woodBlockTexture(set.name(), "trapdoor"));
+                trapdoorBlockWithRenderType(set.trapdoor(), woodBlockTexture(set.name(), "trapdoor"), true, set != BWGWood.MAPLE ? "cutout" : "translucent");
+                itemModels().trapdoorBottom(name(set.trapdoor()), woodBlockTexture(set.name(), "trapdoor")).renderType(set != BWGWood.MAPLE ? "cutout" : "translucent");
 	            doorBlockWithRenderType(set.door(), woodBlockTexture(set.name(), "door_bottom"), woodBlockTexture(set.name(), "door_top"), set != BWGWood.MAPLE ? "cutout" : "translucent");
                 pressurePlateBlock(set.pressurePlate(), planksTexture);
                 itemModels().pressurePlate(name(set.pressurePlate()), planksTexture);

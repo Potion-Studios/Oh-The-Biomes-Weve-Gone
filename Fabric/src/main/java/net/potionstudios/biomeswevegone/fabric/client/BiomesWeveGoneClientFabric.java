@@ -53,7 +53,7 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer, ModelLo
     private void registerRenderTypes() {
         BWGWood.WOOD.forEach(entry -> renderTypeBlock(entry.get()));
         BWGBlocks.BLOCKS.forEach(entry -> renderTypeBlock(entry.get()));
-        BlockRenderLayerMap.INSTANCE.putBlock(BWGWood.MAPLE.door(), RenderType.translucent());
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.translucent(), BWGWood.MAPLE.door(), BWGWood.MAPLE.trapdoor());
     }
 
     private void renderTypeBlock(Block block) {
