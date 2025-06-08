@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_dacite_tile": {
+    "has_dacite_tiles": {
       "conditions": {
         "items": [
           {
             "items": [
-              "biomeswevegone:dacite_tile"
+              "biomeswevegone:dacite_tiles"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_dacite_tile",
+      "has_dacite_tiles",
       "has_the_recipe"
     ]
   ],

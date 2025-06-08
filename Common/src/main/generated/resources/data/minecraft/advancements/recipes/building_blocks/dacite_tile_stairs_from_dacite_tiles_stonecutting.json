@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_dacite_tile": {
+    "has_dacite_tiles": {
       "conditions": {
         "items": [
           {
             "items": [
-              "biomeswevegone:dacite_tile"
+              "biomeswevegone:dacite_tiles"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:dacite_tile_slab_from_dacite_tile_stonecutting"
+        "recipe": "minecraft:dacite_tile_stairs_from_dacite_tiles_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_dacite_tile",
+      "has_dacite_tiles",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:dacite_tile_slab_from_dacite_tile_stonecutting"
+      "minecraft:dacite_tile_stairs_from_dacite_tiles_stonecutting"
     ]
   },
   "sends_telemetry_event": false

@@ -7,12 +7,12 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_white_dacite_tile": {
+    "has_white_dacite_tiles": {
       "conditions": {
         "items": [
           {
             "items": [
-              "biomeswevegone:white_dacite_tile"
+              "biomeswevegone:white_dacite_tiles"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_white_dacite_tile",
+      "has_white_dacite_tiles",
       "has_the_recipe"
     ]
   ],

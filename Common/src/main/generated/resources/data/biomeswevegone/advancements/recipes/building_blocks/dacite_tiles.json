@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:dacite_tile_from_dacite_bricks_stonecutting"
+        "recipe": "biomeswevegone:dacite_tiles"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:dacite_tile_from_dacite_bricks_stonecutting"
+      "biomeswevegone:dacite_tiles"
     ]
   },
   "sends_telemetry_event": false
