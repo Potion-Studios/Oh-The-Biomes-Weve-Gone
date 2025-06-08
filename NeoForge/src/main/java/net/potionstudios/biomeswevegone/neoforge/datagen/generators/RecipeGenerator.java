@@ -205,13 +205,8 @@ public class RecipeGenerator extends RecipeProvider {
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGBlocks.RED_ROCK_SET.getBase()), RecipeCategory.BUILDING_BLOCKS, BWGBlocks.POLISHED_RED_ROCK_SET.getBase(), 0.35F, 200)
                 .unlockedBy(getHasName(BWGBlocks.RED_ROCK_SET.getBase()), has(BWGBlocks.RED_ROCK_SET.getBase()))
                 .save(recipeOutput, BiomesWeveGone.id("polished_red_rock_from_smelting"));
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.RED_ROCK_TILES_SET.getBase())
-                .define('#', BWGBlocks.POLISHED_RED_ROCK_SET.getBase())
-                .define('X', BWGBlocks.POLISHED_RED_ROCK_SET.getBase())
-                .pattern("#")
-                .pattern("X")
-                .unlockedBy(getHasName(BWGBlocks.POLISHED_RED_ROCK_SET.getBase()), has(BWGBlocks.POLISHED_RED_ROCK_SET.getBase()))
-                .save(recipeOutput);
+        twoByTwoPackertoFourWithStoneCutting(recipeOutput, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.RED_ROCK_TILES_SET.getBase(), BWGBlocks.RED_ROCK_BRICKS_SET.getBase());
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.RED_ROCK_TILES_SET.getBase(), BWGBlocks.POLISHED_RED_ROCK_SET.getBase());
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.ROCKY_STONE_SET.getBase(), 2)
                 .requires(Items.COBBLESTONE)

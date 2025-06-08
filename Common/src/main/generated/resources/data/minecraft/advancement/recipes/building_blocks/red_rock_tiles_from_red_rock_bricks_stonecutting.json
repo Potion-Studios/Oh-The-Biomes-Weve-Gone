@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomeswevegone:red_rock_tiles"
+        "recipe": "minecraft:red_rock_tiles_from_red_rock_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "biomeswevegone:red_rock_tiles"
+      "minecraft:red_rock_tiles_from_red_rock_bricks_stonecutting"
     ]
   }
 }

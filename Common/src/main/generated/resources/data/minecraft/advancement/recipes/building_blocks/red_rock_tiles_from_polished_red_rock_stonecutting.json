@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_red_rock_bricks": {
+    "has_polished_red_rock": {
       "conditions": {
         "items": [
           {
-            "items": "biomeswevegone:red_rock_bricks"
+            "items": "biomeswevegone:polished_red_rock"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomeswevegone:red_rock_tiles"
+        "recipe": "minecraft:red_rock_tiles_from_polished_red_rock_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_red_rock_bricks"
+      "has_polished_red_rock"
     ]
   ],
   "rewards": {
     "recipes": [
-      "biomeswevegone:red_rock_tiles"
+      "minecraft:red_rock_tiles_from_polished_red_rock_stonecutting"
     ]
   }
 }

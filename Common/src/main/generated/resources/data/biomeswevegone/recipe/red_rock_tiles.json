@@ -3,18 +3,15 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "biomeswevegone:polished_red_rock"
-    },
-    "X": {
-      "item": "biomeswevegone:polished_red_rock"
+      "item": "biomeswevegone:red_rock_bricks"
     }
   },
   "pattern": [
-    "#",
-    "X"
+    "##",
+    "##"
   ],
   "result": {
-    "count": 1,
+    "count": 4,
     "id": "biomeswevegone:red_rock_tiles"
   }
 }
