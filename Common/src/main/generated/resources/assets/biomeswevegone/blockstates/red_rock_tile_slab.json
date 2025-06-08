@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "biomeswevegone:block/red_rock_tile_slab"
+    },
+    "type=double": {
+      "model": "biomeswevegone:block/red_rock_tiles"
+    },
+    "type=top": {
+      "model": "biomeswevegone:block/red_rock_tile_slab_top"
+    }
+  }
+}
