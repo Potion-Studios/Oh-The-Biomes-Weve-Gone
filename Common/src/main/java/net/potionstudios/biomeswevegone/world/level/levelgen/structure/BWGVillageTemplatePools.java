@@ -233,7 +233,7 @@ public class BWGVillageTemplatePools {
             ), StructureTemplatePool.Projection.RIGID));
 
     //Red Rock Village Template Pools
-    private static final ResourceKey<StructureTemplatePool> RED_ROCK_TERMINATOR = createTerminatorPool("red_rock");
+    private static final ResourceKey<StructureTemplatePool> RED_ROCK_TERMINATOR = createTerminatorPool("red_rock", BWGStructureProcessorLists.RED_ROCK_STREETS, 2);
 
     public static final ResourceKey<StructureTemplatePool> RED_ROCK_TOWN_CENTERS = register("red_rock/town_centers", templatePoolFactoryContext ->
             createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(
