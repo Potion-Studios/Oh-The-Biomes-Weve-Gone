@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "biomeswevegone:dacite_tile"
+          "name": "biomeswevegone:white_dacite_tiles"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "biomeswevegone:blocks/dacite_tile"
+  "random_sequence": "biomeswevegone:blocks/white_dacite_tiles"
 }

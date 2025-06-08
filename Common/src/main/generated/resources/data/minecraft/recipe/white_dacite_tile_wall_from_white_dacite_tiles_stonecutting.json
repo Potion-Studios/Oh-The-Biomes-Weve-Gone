@@ -1,7 +1,7 @@
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "biomeswevegone:white_dacite_tile"
+    "item": "biomeswevegone:white_dacite_tiles"
   },
   "result": {
     "count": 1,

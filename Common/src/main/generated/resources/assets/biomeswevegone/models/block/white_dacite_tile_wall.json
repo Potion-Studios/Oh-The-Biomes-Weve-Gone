@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/wall_inventory",
   "textures": {
-    "wall": "biomeswevegone:block/white_dacite_tile"
+    "wall": "biomeswevegone:block/white_dacite_tiles"
   }
 }

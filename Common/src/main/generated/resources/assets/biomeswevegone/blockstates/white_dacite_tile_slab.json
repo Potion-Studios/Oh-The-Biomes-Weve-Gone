@@ -4,7 +4,7 @@
       "model": "biomeswevegone:block/white_dacite_tile_slab"
     },
     "type=double": {
-      "model": "biomeswevegone:block/white_dacite_tile"
+      "model": "biomeswevegone:block/white_dacite_tiles"
     },
     "type=top": {
       "model": "biomeswevegone:block/white_dacite_tile_slab_top"

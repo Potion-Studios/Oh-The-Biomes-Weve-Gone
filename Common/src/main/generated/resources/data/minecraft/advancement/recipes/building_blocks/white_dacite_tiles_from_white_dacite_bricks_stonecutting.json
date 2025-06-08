@@ -3,15 +3,15 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:white_dacite_tile_wall_from_white_dacite_tile_stonecutting"
+        "recipe": "minecraft:white_dacite_tiles_from_white_dacite_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_white_dacite_tile": {
+    "has_white_dacite_bricks": {
       "conditions": {
         "items": [
           {
-            "items": "biomeswevegone:white_dacite_tile"
+            "items": "biomeswevegone:white_dacite_bricks"
           }
         ]
       },
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_white_dacite_tile"
+      "has_white_dacite_bricks"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:white_dacite_tile_wall_from_white_dacite_tile_stonecutting"
+      "minecraft:white_dacite_tiles_from_white_dacite_bricks_stonecutting"
     ]
   }
 }
