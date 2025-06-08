@@ -1,3 +1,5 @@
+# 2.4.2
+
 # 2.4.1
 - Update Chinese (Simplified) Translations (zh_cn) (Credits: Crown-Fairy) for Village Update
 - Fix a bunch of Missing Recipes
