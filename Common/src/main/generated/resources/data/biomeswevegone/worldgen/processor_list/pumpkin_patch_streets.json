@@ -5,7 +5,20 @@
       "rules": [
         {
           "input_predicate": {
-            "block": "minecraft:packed_mud",
+            "block": "biomeswevegone:lush_dirt_path",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "block": "minecraft:water",
+            "predicate_type": "minecraft:block_match"
+          },
+          "output_state": {
+            "Name": "minecraft:dark_oak_planks"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "biomeswevegone:lush_dirt_path",
             "predicate_type": "minecraft:random_block_match",
             "probability": 0.15
           },
@@ -13,19 +26,14 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "biomeswevegone:lush_dirt_path"
+            "Name": "minecraft:packed_mud"
           }
-        }
-      ]
-    },
-    {
-      "processor_type": "minecraft:rule",
-      "rules": [
+        },
         {
           "input_predicate": {
-            "block": "minecraft:packed_mud",
+            "block": "biomeswevegone:lush_dirt_path",
             "predicate_type": "minecraft:random_block_match",
-            "probability": 0.45
+            "probability": 0.4
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
@@ -33,15 +41,10 @@
           "output_state": {
             "Name": "biomeswevegone:peat"
           }
-        }
-      ]
-    },
-    {
-      "processor_type": "minecraft:rule",
-      "rules": [
+        },
         {
           "input_predicate": {
-            "block": "minecraft:packed_mud",
+            "block": "biomeswevegone:lush_dirt_path",
             "predicate_type": "minecraft:random_block_match",
             "probability": 0.4
           },
