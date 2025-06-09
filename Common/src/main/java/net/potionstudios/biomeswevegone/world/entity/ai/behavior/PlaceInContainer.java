@@ -54,7 +54,7 @@ public class PlaceInContainer extends Behavior<PumpkinWarden> {
 						barrelBlockEntity.setItem(i, itemStack);
 						barrelBlockEntity.setChanged();
 						break;
-					} else if (ItemStack.isSameItemSameComponents(slotStack, itemStack) && slotStack.getCount() < slotStack.getMaxStackSize()) {
+					} else if (ItemStack.isSameItemSameTags(slotStack, itemStack) && slotStack.getCount() < slotStack.getMaxStackSize()) {
 						slotStack.grow(1);
 						barrelBlockEntity.setChanged();
 						break;

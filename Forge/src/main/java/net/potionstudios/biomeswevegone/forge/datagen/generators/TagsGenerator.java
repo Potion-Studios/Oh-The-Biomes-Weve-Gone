@@ -6,16 +6,14 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.*;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.tags.BWGBiomeTags;
-import net.potionstudios.biomeswevegone.tags.BWGBlockTags;
-import net.potionstudios.biomeswevegone.tags.BWGItemTags;
-import net.potionstudios.biomeswevegone.tags.BWGStructureTags;
+import net.potionstudios.biomeswevegone.tags.*;
 import net.potionstudios.biomeswevegone.world.damagesource.BWGDamageTypes;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
@@ -43,6 +41,7 @@ public class TagsGenerator {
         generator.addProvider(run, new ItemTagGenerator(output, lookupProvider, BlockTags, helper));
         generator.addProvider(run, new BiomeTagGenerator(output, lookupProvider, helper));
         generator.addProvider(run, new StructureTagGenerator(output, lookupProvider, helper));
+        generator.addProvider(run, new EntityTypeTagGenerator(output, lookupProvider, helper));
         generator.addProvider(run, new PoiTagGenerator(output, lookupProvider, helper));
         generator.addProvider(run, new DamageTypeTagGenerator(output, lookupProvider, helper));
     }
@@ -325,6 +324,9 @@ public class TagsGenerator {
             tag(BWGItemTags.MAKES_2_PURPLE_DYE).add(BWGBlocks.TALL_ALLIUM.get().asItem());
             tag(BWGItemTags.MAKES_2_WHITE_DYE).add(BWGBlocks.TALL_WHITE_ALLIUM.get().asItem());
 
+            //Pumpkin Warden
+            tag(BWGItemTags.PUMPKIN_WARDEN_PICKS_UP).addTag(Tags.Items.EGGS).add(Items.PUMPKIN_PIE, Items.PUMPKIN, Items.CARVED_PUMPKIN, Items.JACK_O_LANTERN);
+
             //Serene Seasons
             tag(ModTags.Items.YEAR_ROUND_CROPS).add(BWGBlocks.GREEN_MUSHROOM.get().asItem(), BWGBlocks.WEEPING_MILKCAP.get().asItem(), BWGBlocks.WOOD_BLEWIT.get().asItem(), BWGWood.ASPEN.sapling().getBlock().asItem(), BWGWood.RED_MAPLE_SAPLING.getBlock().asItem()).addTag(BWGItemTags.OAK_SAPLINGS);
             tag(ModTags.Items.AUTUMN_CROPS).add(BWGWood.CYPRESS.sapling().getBlock().asItem(), BWGWood.EBONY.sapling().getBlock().asItem(), BWGWood.FIR.sapling().getBlock().asItem(), BWGWood.HOLLY.sapling().getBlock().asItem(), BWGWood.JACARANDA.sapling().getBlock().asItem(), BWGWood.INDIGO_JACARANDA_SAPLING.getBlock().asItem(), BWGWood.MAPLE.sapling().getBlock().asItem(), BWGWood.SILVER_MAPLE_SAPLING.getBlock().asItem(), BWGWood.PINE.sapling().getBlock().asItem(),
@@ -431,6 +433,19 @@ public class TagsGenerator {
         }
     }
 
+    private static class EntityTypeTagGenerator extends EntityTypeTagsProvider {
+
+        private EntityTypeTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture, @Nullable ExistingFileHelper existingFileHelper) {
+            super(arg, completableFuture, BiomesWeveGone.MOD_ID, existingFileHelper);
+        }
+
+        @Override
+        protected void addTags(HolderLookup.@NotNull Provider provider) {
+            tag(BWGEntityTypeTags.ATTACKS_PUMPKIN_WARDEN).add(EntityType.DROWNED, EntityType.EVOKER, EntityType.HUSK, EntityType.ILLUSIONER, EntityType.PILLAGER, EntityType.RAVAGER,
+                    EntityType.VEX, EntityType.VINDICATOR, EntityType.ZOGLIN, EntityType.ZOMBIE, EntityType.ZOMBIE_VILLAGER);
+        }
+    }
+
     private static class PoiTagGenerator extends PoiTypeTagsProvider {
 
         private PoiTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture, @Nullable ExistingFileHelper existingFileHelper) {
@@ -440,6 +455,7 @@ public class TagsGenerator {
         @Override
         protected void addTags(HolderLookup.@NotNull Provider provider) {
             tag(PoiTypeTags.ACQUIRABLE_JOB_SITE).add(BWGPoiTypes.FORAGER);
+            tag(PoiTypeTags.VILLAGE).add(BWGPoiTypes.PUMPKIN_BURROW);
         }
     }
 

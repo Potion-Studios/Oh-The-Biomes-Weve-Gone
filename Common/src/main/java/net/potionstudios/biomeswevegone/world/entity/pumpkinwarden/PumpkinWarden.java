@@ -506,9 +506,9 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     public enum Variant implements StringRepresentable {
         DEFAULT(0, "default"),
-        CHEERY(2, "cheery"),
-        FROWNY(3, "frowny"),
-        SILLY(4, "silly");
+        CHEERY(1, "cheery"),
+        FROWNY(2, "frowny"),
+        SILLY(3, "silly");
 
         private static final IntFunction<Variant> BY_ID = ByIdMap.continuous(Variant::getId, values(), ByIdMap.OutOfBoundsStrategy.ZERO);
         public static final Codec<Variant> CODEC = StringRepresentable.fromEnum(Variant::values);

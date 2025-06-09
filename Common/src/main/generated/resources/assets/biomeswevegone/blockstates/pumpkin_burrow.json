@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,occupied=false": {
+      "model": "biomeswevegone:block/pumpkin_burrow",
+      "y": 90
+    },
+    "facing=east,occupied=true": {
+      "model": "biomeswevegone:block/pumpkin_burrow_occupied",
+      "y": 90
+    },
+    "facing=north,occupied=false": {
+      "model": "biomeswevegone:block/pumpkin_burrow"
+    },
+    "facing=north,occupied=true": {
+      "model": "biomeswevegone:block/pumpkin_burrow_occupied"
+    },
+    "facing=south,occupied=false": {
+      "model": "biomeswevegone:block/pumpkin_burrow",
+      "y": 180
+    },
+    "facing=south,occupied=true": {
+      "model": "biomeswevegone:block/pumpkin_burrow_occupied",
+      "y": 180
+    },
+    "facing=west,occupied=false": {
+      "model": "biomeswevegone:block/pumpkin_burrow",
+      "y": 270
+    },
+    "facing=west,occupied=true": {
+      "model": "biomeswevegone:block/pumpkin_burrow_occupied",
+      "y": 270
+    }
+  }
+}

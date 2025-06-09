@@ -280,6 +280,8 @@ public class BWGBlocks {
     public static final Supplier<StairBlock> CATTAIL_THATCH_STAIRS = registerBlockItem("cattail_thatch_stairs", () -> new StairBlock(CATTAIL_THATCH.get().defaultBlockState(), BlockBehaviour.Properties.copy(CATTAIL_THATCH.get())));
     public static final Supplier<WoolCarpetBlock> CATTAIL_THATCH_CARPET = registerBlockItem("cattail_thatch_carpet", () -> new WoolCarpetBlock(DyeColor.BROWN, BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.5f)));
 
+    public static final Supplier<PumpkinBurrowBlock> PUMPKIN_BURROW = registerBlockItem("pumpkin_burrow", () -> new PumpkinBurrowBlock(BlockBehaviour.Properties.copy(Blocks.PUMPKIN)));
+
     private static FlowerBlockFeature registerFlower(String key) {
         Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGFlowerBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_TULIP).noOcclusion()));
         return new FlowerBlockFeature(key, flower);
