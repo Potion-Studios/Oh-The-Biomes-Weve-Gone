@@ -48,3 +48,5 @@ accessible field net/minecraft/world/level/levelgen/structure/pools/StructureTem
 mutable field net/minecraft/world/level/levelgen/structure/pools/StructureTemplatePool rawTemplates Ljava/util/List;
 accessible field net/minecraft/world/level/levelgen/structure/pools/StructureTemplatePool templates Lit/unimi/dsi/fastutil/objects/ObjectArrayList;
 accessible method net/minecraft/data/advancements/packs/VanillaAdventureAdvancements addBiomes (Lnet/minecraft/advancements/Advancement$Builder;Ljava/util/List;)Lnet/minecraft/advancements/Advancement$Builder;
+
+accessible field net/minecraft/world/entity/Mob goalSelector Lnet/minecraft/world/entity/ai/goal/GoalSelector;
