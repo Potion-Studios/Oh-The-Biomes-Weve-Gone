@@ -95,6 +95,18 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
         components.set(BWGDataComponents.PUMPKIN_WARDEN.get(), stored);
     }
 
+    public void emptyOccupant(Level level) {
+        if (!isEmpty()) {
+            Entity entity = stored.createEntity(level);
+            if (entity instanceof PumpkinWarden pumpkinWarden) {
+                pumpkinWarden.setPos(getBlockPos().getX() + 0.5, getBlockPos().getY(), getBlockPos().getZ() + 0.5);
+                pumpkinWarden.clearSleepingPos();
+                level.addFreshEntity(pumpkinWarden);
+                stored = Occupant.EMPTY;
+            }
+        }
+    }
+
     public record Occupant(CustomData entityData) {
         public static final Occupant EMPTY = new Occupant(CustomData.EMPTY);
 

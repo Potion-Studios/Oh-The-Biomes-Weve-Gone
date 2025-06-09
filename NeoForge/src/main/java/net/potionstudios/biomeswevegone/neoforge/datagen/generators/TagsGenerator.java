@@ -8,6 +8,7 @@ import net.minecraft.data.tags.*;
 import net.minecraft.tags.*;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
@@ -46,6 +47,7 @@ public class TagsGenerator {
         generator.addProvider(run, new EntityTypeTagGenerator(output, lookupProvider, helper));
         generator.addProvider(run, new PoiTagGenerator(output, lookupProvider, helper));
         generator.addProvider(run, new DamageTypeTagGenerator(output, lookupProvider, helper));
+        generator.addProvider(run, new EnchantmentTagGenerator(output, lookupProvider, helper));
     }
 
     private static void sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(Map<?, TagBuilder> tags) {
@@ -537,6 +539,18 @@ public class TagsGenerator {
             tag(DamageTypeTags.BYPASSES_ARMOR).add(BWGDamageTypes.IN_QUICKSAND);
             tag(Tags.DamageTypes.IS_ENVIRONMENT).add(BWGDamageTypes.IN_QUICKSAND);
             tag(DamageTypeTags.IS_EXPLOSION).add(BWGDamageTypes.CATTAIL_EXPLOSION);
+        }
+    }
+
+    private static class EnchantmentTagGenerator extends EnchantmentTagsProvider {
+
+        private EnchantmentTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture, @Nullable ExistingFileHelper existingFileHelper) {
+            super(arg, completableFuture, BiomesWeveGone.MOD_ID, existingFileHelper);
+        }
+
+        @Override
+        protected void addTags(HolderLookup.@NotNull Provider provider) {
+            tag(BWGEnchantmentTags.PREVENTS_PUMPKIN_WARDENS_SPAWNS_WHEN_MINING).add(Enchantments.SILK_TOUCH);
         }
     }
 }
