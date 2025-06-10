@@ -446,6 +446,8 @@ public class ModelGenerators {
             registerPatchBlockStates(BWGBlocks.CLOVER_PATCH.get(), new String[]{"clover_patch", "clover_patch2", "clover_patch3", "clover_patch4"});
             registerPatchBlockStates(BWGBlocks.FLOWER_PATCH.get(), new String[]{"flower_patch", "flower_patch2", "flower_patch3"});
 
+            models().withExistingParent(name(BWGBlocks.TINY_LILY_PADS.get()), "block/lily_pad").texture("particle", blockBWGTexture(BWGBlocks.TINY_LILY_PADS.get())).texture("texture", blockBWGTexture(BWGBlocks.TINY_LILY_PADS.get())).renderType("cutout");
+
             var unoccupied = models().withExistingParent(name(BWGBlocks.PUMPKIN_BURROW.get()), mcLoc("block/carved_pumpkin")).texture("front", blockBWGTexture(BWGBlocks.PUMPKIN_BURROW.get()));
             var occupied = models().withExistingParent(name(BWGBlocks.PUMPKIN_BURROW.get()) + "_occupied", mcLoc("block/carved_pumpkin")).texture("front", blockBWGTexture(BWGBlocks.PUMPKIN_BURROW.get(), "occupied"));
 
@@ -472,8 +474,6 @@ public class ModelGenerators {
             });
 
             Arrays.stream(Wreath.Type.values()).forEach(type -> models().withExistingParent(BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString(), blockBWGTexture("template_wreath")).texture("wreath", BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString()).texture("particle", BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString()));
-
-
         }
 
         private void registerPatchBlockStates(Block block, String[] models) {
