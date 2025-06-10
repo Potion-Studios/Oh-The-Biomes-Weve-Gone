@@ -158,7 +158,6 @@ public class BWGStructureProcessorLists {
                             BWGProcessorRules.lushPathToBlock(0.4f, Blocks.COARSE_DIRT)
                     )
             )));
-/*
     public static final ResourceKey<StructureProcessorList> PUMPKIN_PATCH_HOUSE = register("pumpkin_patch_house", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
                     createRuleProcessor(new ProcessorRule[]{
@@ -176,8 +175,8 @@ public class BWGStructureProcessorLists {
 
     public static final ResourceKey<StructureProcessorList> PUMPKIN_PATCH_FARM = register("pumpkin_patch_farm", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
-                    createRuleProcessor(BWGProcessorRules.lushFarmLandToBlock(BWGBlocks.LUSH_GRASS_BLOCK.get(), 0.5f), BWGProcessorRules.lushFarmLandToBlock(Blocks.WATER, 0.23f)),
-                    new PlantProcessor(BWGBlocks.LUSH_FARMLAND.get(), Blocks.PUMPKIN_STEM, 0.5f)
+                    createRuleProcessor(BWGProcessorRules.lushFarmLandToBlock(BWGBlocks.LUSH_GRASS_BLOCK.get(), 0.5f), BWGProcessorRules.lushFarmLandToBlock(Blocks.WATER, 0.23f))
+                   // new PlantProcessor(BWGBlocks.LUSH_FARMLAND.get(), Blocks.PUMPKIN_STEM, 0.5f)
             )));
 
     public static final ResourceKey<StructureProcessorList> PUMPKIN_PATCH_MEETING_POINT = register("pumpkin_patch_meeting_point", structureProcessorListHolderGetter -> new StructureProcessorList(
@@ -185,10 +184,9 @@ public class BWGStructureProcessorLists {
                     createRuleProcessor(new ProcessorRule[]{BWGProcessorRules.lushFarmLandToBlock(BWGBlocks.LUSH_GRASS_BLOCK.get(), 0.5f),
                             BWGProcessorRules.lushFarmLandToBlock(Blocks.WATER, 0.23f),
                             BWGProcessorRules.lushPathToBlock(0.35f, BWGBlocks.LUSH_GRASS_BLOCK.get()),
-                            BWGProcessorRules.grassBlockToBlock(0.4f, BWGBlocks.LUSH_DIRT_PATH.get())}, BWGProcessorRules.DACITE_COBBLESTONE_VARIANTS),
-                    new PlantProcessor(BWGBlocks.LUSH_FARMLAND.get(), Blocks.PUMPKIN_STEM, 0.5f)
-            )));*/
-
+                            BWGProcessorRules.grassBlockToBlock(0.4f, BWGBlocks.LUSH_DIRT_PATH.get())}, BWGProcessorRules.DACITE_COBBLESTONE_VARIANTS)
+                    //new PlantProcessor(BWGBlocks.LUSH_FARMLAND.get(), Blocks.PUMPKIN_STEM, 0.5f)
+            )));
 
     public static final ResourceKey<StructureProcessorList> MOSSIFY_10_PERCENT_WHITE_PUFFBALL = register("mossify_10_percent_white_puffball", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(

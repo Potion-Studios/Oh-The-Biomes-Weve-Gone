@@ -85,10 +85,10 @@ class BWGProcessorRules {
 		}
 		return rules;
 	}
-/*
+
 	protected static ProcessorRule burrowToBlock(float chance, Block newBlock) {
 		return createAlwaysTrueRandomBlockMatchTest(BWGBlocks.PUMPKIN_BURROW.get(), chance, newBlock);
-	}*/
+	}
 
 	protected static ProcessorRule lushPathToBlock(float chance, Block newBlock) {
 		return createAlwaysTrueRandomBlockMatchTest(BWGBlocks.LUSH_DIRT_PATH.get(), chance, newBlock);
@@ -177,20 +177,20 @@ class BWGProcessorRules {
 			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.DACITE_COBBLESTONE_SET.getBase(), 0.1f, BWGBlocks.CRACKED_DACITE_BRICKS_SET.getBase()),
 			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.DACITE_COBBLESTONE_SET.getBase(), 0.1f, BWGBlocks.MOSSY_DACITE_BRICKS_SET.getBase())
 	};
-/*
+
 	protected static final ProcessorRule[] SHORT_GRASS_TO_FLOWER_PUMPKIN_PATCH = new ProcessorRule[]{
-			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.15f, BWGBlocks.LEAF_PILE.get()),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.15f, BWGBlocks.CLOVER_PATCH.get()),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.1f, BWGBlocks.WHITE_ANEMONE.getBlock()),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.1f, BWGBlocks.CROCUS.getBlock())
+			createAlwaysTrueRandomBlockMatchTest(Blocks.GRASS, 0.15f, BWGBlocks.LEAF_PILE.get()),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.GRASS, 0.15f, BWGBlocks.CLOVER_PATCH.get()),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.GRASS, 0.1f, BWGBlocks.WHITE_ANEMONE.getBlock()),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.GRASS, 0.1f, BWGBlocks.CROCUS.getBlock())
 	};
 
 	protected static final ProcessorRule[] SHORT_GRASS_TO_FLOWER_SWAMP = new ProcessorRule[]{
-			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.15f, BWGBlocks.PEACH_LEATHER_FLOWER.getBlock()),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.15f, BWGBlocks.CLOVER_PATCH.get()),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.1f, BWGBlocks.VIOLET_LEATHER_FLOWER.getBlock()),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.1f, Blocks.MOSS_CARPET)
-	};*/
+			createAlwaysTrueRandomBlockMatchTest(Blocks.GRASS, 0.15f, BWGBlocks.PEACH_LEATHER_FLOWER.getBlock()),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.GRASS, 0.15f, BWGBlocks.CLOVER_PATCH.get()),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.GRASS, 0.1f, BWGBlocks.VIOLET_LEATHER_FLOWER.getBlock()),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.GRASS, 0.1f, Blocks.MOSS_CARPET)
+	};
 
 	protected static final ProcessorRule[] STONEBRICKS_VARIANTS = new ProcessorRule[]{
 			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE_BRICKS, 0.3f, Blocks.MOSSY_STONE_BRICKS),
