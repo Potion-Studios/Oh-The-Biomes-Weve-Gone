@@ -192,6 +192,18 @@ public class RecipeGenerator extends RecipeProvider {
         chiseledBuilder(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_RED_ROCK_BRICKS_SET.getBase(), Ingredient.of(BWGBlocks.RED_ROCK_BRICKS_SET.getSlab()))
                 .unlockedBy("has_tag", has(BWGItemTags.RED_ROCK_BRICKS))
                 .save(writer);
+        stonecutterResultFromBase(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_RED_ROCK_BRICKS_SET.getBase(), BWGBlocks.RED_ROCK_SET.getSlab());
+        stonecutterResultFromBase(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_RED_ROCK_BRICKS_SET.getBase(), BWGBlocks.RED_ROCK_BRICKS_SET.getBase());
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGBlocks.RED_ROCK_BRICKS_SET.getBase()), RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CRACKED_RED_ROCK_BRICKS_SET.getBase(), 0.1F, 200)
+                .unlockedBy(getHasName(BWGBlocks.RED_ROCK_BRICKS_SET.getBase()), has(BWGBlocks.RED_ROCK_BRICKS_SET.getBase()))
+                .save(writer);
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGBlocks.RED_ROCK_SET.getBase()), RecipeCategory.BUILDING_BLOCKS, BWGBlocks.POLISHED_RED_ROCK_SET.getBase(), 0.35F, 200)
+                .unlockedBy(getHasName(BWGBlocks.RED_ROCK_SET.getBase()), has(BWGBlocks.RED_ROCK_SET.getBase()))
+                .save(writer, BiomesWeveGone.id("polished_red_rock_from_smelting"));
+        twoByTwoPackertoFourWithStoneCutting(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.RED_ROCK_TILES_SET.getBase(), BWGBlocks.RED_ROCK_BRICKS_SET.getBase());
+        stonecutterResultFromBase(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.RED_ROCK_TILES_SET.getBase(), BWGBlocks.POLISHED_RED_ROCK_SET.getBase());
+
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.ROCKY_STONE_SET.getBase(), 2)
                 .requires(Items.COBBLESTONE)
                 .requires(Items.STONE)
@@ -220,6 +232,58 @@ public class RecipeGenerator extends RecipeProvider {
                 .pattern("#")
                 .pattern("#")
                 .unlockedBy(getHasName(BWGBlocks.DACITE_SET.getBase()), has(BWGBlocks.DACITE_SET.getBase()))
+                .save(writer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.MOSSY_DACITE_BRICKS_SET.getBase())
+                .requires(BWGBlocks.DACITE_BRICKS_SET.getBase())
+                .requires(Items.VINE)
+                .group("mossy_dacite_bricks")
+                .unlockedBy(getHasName(Items.VINE), has(Items.VINE))
+                .save(writer, getConversionRecipeName(BWGBlocks.MOSSY_DACITE_BRICKS_SET.getBase(), Items.VINE));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.MOSSY_DACITE_BRICKS_SET.getBase())
+                .requires(BWGBlocks.DACITE_BRICKS_SET.getBase())
+                .requires(Items.MOSS_BLOCK)
+                .group("mossy_dacite_bricks")
+                .unlockedBy(getHasName(Items.MOSS_BLOCK), has(Items.MOSS_BLOCK))
+                .save(writer, getConversionRecipeName(BWGBlocks.MOSSY_DACITE_BRICKS_SET.getBase(), Items.MOSS_BLOCK));
+        chiseledBuilder(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_DACITE_BRICKS_SET.getBase(), Ingredient.of(BWGBlocks.DACITE_BRICKS_SET.getSlab()))
+                .unlockedBy("has_tag", has(BWGItemTags.DACITE_BRICKS))
+                .save(writer);
+        stonecutterResultFromBase(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_DACITE_BRICKS_SET.getBase(), BWGBlocks.DACITE_SET.getSlab());
+        stonecutterResultFromBase(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_DACITE_BRICKS_SET.getBase(), BWGBlocks.DACITE_BRICKS_SET.getBase());
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGBlocks.DACITE_BRICKS_SET.getBase()), RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CRACKED_DACITE_BRICKS_SET.getBase(), 0.1F, 200)
+                .unlockedBy(getHasName(BWGBlocks.DACITE_BRICKS_SET.getBase()), has(BWGBlocks.DACITE_BRICKS_SET.getBase()))
+                .save(writer);
+
+        smeltingResultFromBase(writer, BWGBlocks.WHITE_DACITE_SET.getBase(), BWGBlocks.WHITE_DACITE_COBBLESTONE_SET.getBase());
+        twoByTwoPackertoFourWithStoneCutting(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase(), BWGBlocks.WHITE_DACITE_SET.getBase());
+        twoByTwoPackertoFourWithStoneCutting(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.WHITE_DACITE_TILES_SET.getBase(), BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase());
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.WHITE_DACITE_PILLAR.get())
+                .define('#', BWGBlocks.WHITE_DACITE_SET.getBase())
+                .pattern("#")
+                .pattern("#")
+                .unlockedBy(getHasName(BWGBlocks.WHITE_DACITE_SET.getBase()), has(BWGBlocks.WHITE_DACITE_SET.getBase()))
+                .save(writer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.MOSSY_WHITE_DACITE_BRICKS_SET.getBase())
+                .requires(BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase())
+                .requires(Items.VINE)
+                .group("mossy_white_dacite_bricks")
+                .unlockedBy(getHasName(Items.VINE), has(Items.VINE))
+                .save(writer, getConversionRecipeName(BWGBlocks.MOSSY_WHITE_DACITE_BRICKS_SET.getBase(), Items.VINE));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.MOSSY_WHITE_DACITE_BRICKS_SET.getBase())
+                .requires(BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase())
+                .requires(Items.MOSS_BLOCK)
+                .group("mossy_white_dacite_bricks")
+                .unlockedBy(getHasName(Items.MOSS_BLOCK), has(Items.MOSS_BLOCK))
+                .save(writer, getConversionRecipeName(BWGBlocks.MOSSY_WHITE_DACITE_BRICKS_SET.getBase(), Items.MOSS_BLOCK));
+        chiseledBuilder(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_WHITE_DACITE_BRICKS_SET.getBase(), Ingredient.of(BWGBlocks.WHITE_DACITE_BRICKS_SET.getSlab()))
+                .unlockedBy("has_tag", has(BWGItemTags.WHITE_DACITE_BRICKS))
+                .save(writer);
+        stonecutterResultFromBase(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_WHITE_DACITE_BRICKS_SET.getBase(), BWGBlocks.WHITE_DACITE_SET.getSlab());
+        stonecutterResultFromBase(writer, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_WHITE_DACITE_BRICKS_SET.getBase(), BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase());
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase()), RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CRACKED_WHITE_DACITE_BRICKS_SET.getBase(), 0.1F, 200)
+                .unlockedBy(getHasName(BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase()), has(BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase()))
                 .save(writer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.WINDSWEPT_SANDSTONE_PILLAR.get())
