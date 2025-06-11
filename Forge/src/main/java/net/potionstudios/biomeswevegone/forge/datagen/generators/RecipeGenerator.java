@@ -379,6 +379,72 @@ public class RecipeGenerator extends RecipeProvider {
                 .unlockedBy("has_mushrooms", has(BWGItemTags.MUSHROOMS))
                 .save(writer);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.WREATH.get())
+                .define('#', ItemTags.LEAVES)
+                .pattern(" # ")
+                .pattern("# #")
+                .pattern(" # ")
+                .unlockedBy("has_leaves", has(ItemTags.LEAVES))
+                .save(writer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.HOLLY_WREATH.get())
+                .define('#', Items.SWEET_BERRIES)
+                .define('X', BWGItems.WREATH.get())
+                .pattern(" # ")
+                .pattern("#X#")
+                .pattern(" # ")
+                .unlockedBy(getHasName(BWGItems.WREATH.get()), has(BWGItems.WREATH.get()))
+                .save(writer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.ODDION_WREATH.get())
+                .define('#', BWGItems.ODDION_BULB.get())
+                .define('X', BWGItems.WREATH.get())
+                .pattern(" # ")
+                .pattern("#X#")
+                .pattern(" # ")
+                .unlockedBy(getHasName(BWGItems.WREATH.get()), has(BWGItems.WREATH.get()))
+                .save(writer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.MUSHROOM_WREATH.get())
+                .define('#', BWGItemTags.MUSHROOMS)
+                .define('X', BWGItems.WREATH.get())
+                .pattern(" # ")
+                .pattern("#X#")
+                .pattern(" # ")
+                .unlockedBy(getHasName(BWGItems.WREATH.get()), has(BWGItems.WREATH.get()))
+                .save(writer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.ROSY_WREATH.get())
+                .define('#', BWGBlocks.ROSE.getItem())
+                .define('X', BWGBlocks.OSIRIA_ROSE.getItem())
+                .define('Y', BWGItems.WREATH.get())
+                .pattern(" # ")
+                .pattern("XYX")
+                .pattern(" # ")
+                .unlockedBy(getHasName(BWGItems.WREATH.get()), has(BWGItems.WREATH.get()))
+                .save(writer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.PETAL_WREATH.get())
+                .define('#', Items.PINK_PETALS)
+                .define('X', BWGBlocks.WHITE_SAKURA_PETALS.get())
+                .define('Y', BWGBlocks.YELLOW_SAKURA_PETALS.get())
+                .define('Z', BWGItems.WREATH.get())
+                .pattern(" X ")
+                .pattern("YZY")
+                .pattern(" # ")
+                .unlockedBy(getHasName(BWGItems.WREATH.get()), has(BWGItems.WREATH.get()))
+                .save(writer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.WINTER_ROSY_WREATH.get())
+                .define('#', BWGBlocks.WINTER_ROSE.getItem())
+                .define('X', BWGBlocks.BLACK_ROSE.getItem())
+                .define('Y', BWGItems.WREATH.get())
+                .pattern(" # ")
+                .pattern("XYX")
+                .pattern(" # ")
+                .unlockedBy(getHasName(BWGItems.WREATH.get()), has(BWGItems.WREATH.get()))
+                .save(writer);
+
         oneToOneConversionRecipe(writer, Items.BLACK_DYE, BWGItemTags.MAKES_BLACK_DYE);
         oneToOneConversionRecipe(writer, Items.BLUE_DYE, BWGItemTags.MAKES_BLUE_DYE);
         oneToOneConversionRecipe(writer, Items.CYAN_DYE, BWGItemTags.MAKES_CYAN_DYE);
