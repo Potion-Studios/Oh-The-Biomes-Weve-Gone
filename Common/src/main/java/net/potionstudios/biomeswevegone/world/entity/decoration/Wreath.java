@@ -69,12 +69,12 @@ public class Wreath extends HangingEntity implements VariantHolder<Wreath.Type> 
 
     @Override
     public int getWidth() {
-        return 0;
+        return 16;
     }
 
     @Override
     public int getHeight() {
-        return 0;
+        return 16;
     }
 
     @Override

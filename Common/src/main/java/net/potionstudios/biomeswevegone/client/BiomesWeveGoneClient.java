@@ -114,7 +114,7 @@ public class BiomesWeveGoneClient {
      * @see ModelResourceLocation
      */
     public static void registerAdditionalModels(Consumer<ModelResourceLocation> consumer) {
-        Arrays.stream(Wreath.Type.values()).forEach(type -> consumer.accept(new ModelResourceLocation(BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath"), "standalone")));
+        Arrays.stream(Wreath.Type.values()).forEach(type -> consumer.accept(new ModelResourceLocation(BiomesWeveGone.MOD_ID, type.getSerializedName() + "_wreath", "")));
     }
 
     /**
