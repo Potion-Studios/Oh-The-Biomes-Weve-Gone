@@ -14,11 +14,14 @@ import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.Block;
@@ -40,9 +43,11 @@ import net.potionstudios.biomeswevegone.client.renderer.entity.oddion.OddionRend
 import net.potionstudios.biomeswevegone.client.renderer.entity.pumpkinwarden.PumpkinWardenRenderer;
 import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+import net.potionstudios.biomeswevegone.world.level.block.custom.PumpkinBurrowBlock;
 import net.potionstudios.biomeswevegone.world.level.block.entities.BWGBlockEntityType;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
+import org.apache.logging.log4j.util.TriConsumer;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -130,6 +135,15 @@ public class BiomesWeveGoneClient {
         consumer.accept(BWGParticles.RED_MAPLE_LEAVES.get(), FallingLeafParticle.Provider::new);
         consumer.accept(BWGParticles.SILVER_MAPLE_LEAVES.get(), FallingLeafParticle.Provider::new);
         consumer.accept(BWGParticles.IRONWOOD_LEAVES.get(), FallingLeafParticle.Provider::new);
+    }
+
+    public static void registerItemProperties(TriConsumer<Item, ResourceLocation, ClampedItemPropertyFunction> consumer) {
+        consumer.accept(BWGBlocks.PUMPKIN_BURROW.get().asItem(), BiomesWeveGone.id("occupied"), (itemStack, clientLevel, livingEntity, i) -> {
+            if (livingEntity != null && itemStack.is(BWGBlocks.PUMPKIN_BURROW.get().asItem()))
+                if (Boolean.TRUE.equals(true))
+                    return 1F;
+            return 0F;
+        });
     }
 
     /**

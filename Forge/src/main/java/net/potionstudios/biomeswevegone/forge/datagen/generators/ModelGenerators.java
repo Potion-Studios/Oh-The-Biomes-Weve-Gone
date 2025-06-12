@@ -90,6 +90,13 @@ public class ModelGenerators {
             simpleItemBlockTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get());
             simpleItem(BWGBlocks.CYAN_PITCHER_PLANT.get().asItem(), "cyan_pitcher_plant");
             simpleItem(BWGBlocks.MAGENTA_PITCHER_PLANT.get().asItem(), "magenta_pitcher_plant");
+
+            getBuilder(name(BWGBlocks.PUMPKIN_BURROW.get().asItem()))
+                    .parent(new ModelFile.UncheckedModelFile("biomeswevegone:block/pumpkin_burrow"))
+                    .override()
+                    .predicate(BiomesWeveGone.id("occupied"), 1.0f)
+                    .model(new ModelFile.UncheckedModelFile("biomeswevegone:block/pumpkin_burrow_occupied"))
+                    .end();
         }
 
         private void simpleItem(ItemLike item, String texture) {
