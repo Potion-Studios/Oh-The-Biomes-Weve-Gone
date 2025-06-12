@@ -187,6 +187,10 @@ class ChestLootGenerator implements LootTableSubProvider {
                 lootItem(BWGItems.CATTAIL_SPROUT.get()),
                 lootItemWithCount(Items.EMERALD, 1, 4).setWeight(2),
                 lootItemWithCount(BWGItems.ALOE_VERA_JUICE.get(), 1, 2).setWeight(5));
+
+        createTable(output, "advancement/true_traveler/better_days_music_disc", 1.0f, 1.0f,
+                lootItem(BWGItems.MUSIC_DISC_BETTER_DAYS.get())
+        );
     }
 
     private LootPoolSingletonContainer.Builder<?> lootItem(ItemLike item) {
