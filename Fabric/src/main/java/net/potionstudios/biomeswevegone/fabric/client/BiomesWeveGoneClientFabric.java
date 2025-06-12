@@ -44,6 +44,7 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer, ModelLo
             Block block = ((BlockItem) stack.getItem()).getBlock();
             return Objects.requireNonNull(ColorProviderRegistry.BLOCK.get(block)).getColor(block.defaultBlockState(), null, null, tintIndex);
         }, consumer));
+        ModelLoadingPlugin.register(this);
     }
 
     /**
