@@ -427,7 +427,8 @@ public class TagsGenerator {
                     .add(BWGStructures.SKYRIS_VILLAGE)
                     .add(BWGStructures.SALEM_VILLAGE)
                     .add(BWGStructures.RED_ROCK_VILLAGE)
-                    .add(BWGStructures.PUMPKIN_PATCH_VILLAGE);
+                    .add(BWGStructures.PUMPKIN_PATCH_VILLAGE)
+                    .add(BWGStructures.SWAMP_VILLAGE);
             tag(StructureTags.VILLAGE).addTag(BWGStructureTags.VILLAGE);
             sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
         }

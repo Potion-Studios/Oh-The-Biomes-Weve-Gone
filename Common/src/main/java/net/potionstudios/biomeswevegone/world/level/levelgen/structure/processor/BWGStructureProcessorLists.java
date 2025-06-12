@@ -188,6 +188,22 @@ public class BWGStructureProcessorLists {
                     //new PlantProcessor(BWGBlocks.LUSH_FARMLAND.get(), Blocks.PUMPKIN_STEM, 0.5f)
             )));
 
+    public static final ResourceKey<StructureProcessorList> SWAMP_STREETS = register("swamp_streets", structureProcessorListHolderGetter -> new StructureProcessorList(
+            ImmutableList.of(
+                    createRuleProcessor(BWGProcessorRules.tuffToBlock(0.15f, Blocks.MOSSY_COBBLESTONE))
+            )
+    ));
+
+    public static final ResourceKey<StructureProcessorList> SWAMP_HOUSE = register("swamp_house", structureProcessorListHolderGetter -> new StructureProcessorList(
+            ImmutableList.of(
+                    createRuleProcessor(
+                            new ProcessorRule[]{BWGProcessorRules.tuffToBlock(0.15f, Blocks.MOSSY_COBBLESTONE),
+                                    BWGProcessorRules.grassBlockToBlock(0.1f, Blocks.MOSS_BLOCK),
+                                    BWGProcessorRules.chestToBlock(0.2f, Blocks.AIR)},
+                            BWGProcessorRules.SHORT_GRASS_TO_FLOWER_SWAMP)
+            )
+    ));
+
     public static final ResourceKey<StructureProcessorList> MOSSIFY_10_PERCENT_WHITE_PUFFBALL = register("mossify_10_percent_white_puffball", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
                     createRuleProcessor(new ProcessorRule[]{BWGProcessorRules.MOSSIFY_10_PERCENT}, BWGProcessorRules.WHITE_PUFFBALL_RANDOM_AGE)

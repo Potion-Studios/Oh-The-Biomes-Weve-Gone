@@ -350,6 +350,74 @@ public class BWGVillageTemplatePools {
                     singlePoolElement("pumpkin_patch/wards/pumpkin_ward")
             ), StructureTemplatePool.Projection.RIGID));
 
+    //Swamp Village Template Pools
+    private static final ResourceKey<StructureTemplatePool> SWAMP_TERMINATOR = createTerminatorPool("swamp", BWGStructureProcessorLists.SWAMP_STREETS, 4);
+
+    public static final ResourceKey<StructureTemplatePool> SWAMP_TOWN_CENTERS = register("swamp/town_centers", templatePoolFactoryContext ->
+            createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(
+                    singlePoolElement("swamp/town_centers/swamp_meeting_point_1", templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
+                    singlePoolElement("swamp/town_centers/swamp_meeting_point_2", templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
+                    singlePoolElement("swamp/town_centers/swamp_meeting_point_3", templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE)
+            ), StructureTemplatePool.Projection.RIGID));
+
+    private static final ResourceKey<StructureTemplatePool> SWAMP_DECOR = register("swamp/decor", templatePoolFactoryContext ->
+            createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(
+                    singlePoolElement("swamp/swamp_lamp_1", 10),
+                    featureElement(templatePoolFactoryContext, VillagePlacements.PILE_PUMPKIN_VILLAGE, 2),
+                    featureElement(templatePoolFactoryContext, VillagePlacements.PILE_HAY_VILLAGE, 1),
+                    emptyPoolElement(5)
+            ), StructureTemplatePool.Projection.RIGID));
+
+    public static final ResourceKey<StructureTemplatePool> SWAMP_STREETS = register("swamp/streets", templatePoolFactoryContext ->
+            createTemplatePool(getPool(templatePoolFactoryContext, SWAMP_TERMINATOR), ImmutableList.of(
+                    singlePoolElement("swamp/streets/swamp_corner_01", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_STREETS),
+                    singlePoolElement("swamp/streets/swamp_corner_02", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_STREETS),
+                    singlePoolElement("swamp/streets/swamp_corner_03", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_STREETS),
+                    singlePoolElement("swamp/streets/swamp_straight_01", 4, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_STREETS),
+                    singlePoolElement("swamp/streets/swamp_straight_02", 4, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_STREETS),
+                    singlePoolElement("swamp/streets/swamp_straight_03", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_STREETS),
+                    singlePoolElement("swamp/streets/swamp_straight_04", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_STREETS),
+                    singlePoolElement("swamp/streets/swamp_straight_05", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_STREETS),
+                    singlePoolElement("swamp/streets/swamp_straight_06", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_STREETS),
+                    singlePoolElement("swamp/streets/swamp_crossroad_01", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_STREETS),
+                    singlePoolElement("swamp/streets/swamp_crossroad_02", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_STREETS),
+                    singlePoolElement("swamp/streets/swamp_crossroad_03", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_STREETS),
+                    singlePoolElement("swamp/streets/swamp_crossroad_04", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_STREETS),
+                    singlePoolElement("swamp/streets/swamp_crossroad_05", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_STREETS),
+                    singlePoolElement("swamp/streets/swamp_crossroad_06", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_STREETS),
+                    singlePoolElement("swamp/streets/swamp_turn_01", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_STREETS)
+            ), StructureTemplatePool.Projection.TERRAIN_MATCHING));
+
+    public static final ResourceKey<StructureTemplatePool> SWAMP_HOUSES = register("swamp/houses", templatePoolFactoryContext ->
+            createTemplatePool(getPool(templatePoolFactoryContext, SWAMP_TERMINATOR), ImmutableList.of(
+                    singlePoolElement("swamp/houses/cleric_1", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
+                    singlePoolElement("swamp/houses/cleric_2", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
+                    singlePoolElement("swamp/houses/cleric_3", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
+                    singlePoolElement("swamp/houses/fisher_1", 4, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
+                    singlePoolElement("swamp/houses/fisher_2", 4, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
+                    singlePoolElement("swamp/houses/fisher_3", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
+                    singlePoolElement("swamp/houses/fletcher_1", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
+                    singlePoolElement("swamp/houses/fletcher_2", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
+                    singlePoolElement("swamp/houses/farm_1", 2, templatePoolFactoryContext, ProcessorLists.FARM_PLAINS),
+                    singlePoolElement("swamp/houses/forager_1", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
+                    singlePoolElement("swamp/houses/forager_2", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
+                    singlePoolElement("swamp/houses/mason_1", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
+                    singlePoolElement("swamp/houses/mason_2", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
+                    singlePoolElement("swamp/houses/house_1", 4, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
+                    singlePoolElement("swamp/houses/house_2", 4, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
+                    singlePoolElement("swamp/houses/house_3", 4, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
+                    singlePoolElement("swamp/houses/house_4", 4, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
+                    singlePoolElement("swamp/houses/house_5", 4, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
+                    singlePoolElement("swamp/houses/house_6", 4, templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
+                    emptyPoolElement(1)
+            ), StructureTemplatePool.Projection.RIGID));
+
+    private static final ResourceKey<StructureTemplatePool> SWAMP_VILLAGERS = register("swamp/villagers", templatePoolFactoryContext ->
+            createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(
+                    singlePoolElement("swamp/villagers/baby", 2),
+                    singlePoolElement("swamp/villagers/unemployed", 10)
+            ), StructureTemplatePool.Projection.RIGID));
+
     private static Pair<Function<StructureTemplatePool.Projection, ? extends StructurePoolElement>, Integer> emptyPoolElement(int weight) {
         return Pair.of(StructurePoolElement.empty(), weight);
     }
