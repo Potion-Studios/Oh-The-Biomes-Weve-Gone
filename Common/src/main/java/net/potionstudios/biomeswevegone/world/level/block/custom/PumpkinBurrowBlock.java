@@ -18,8 +18,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class PumpkinBurrowBlock extends BaseEntityBlock {
-    public static final BooleanProperty OCCUPIED = BooleanProperty.create("occupied");
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    public static final BooleanProperty OCCUPIED = BooleanProperty.create("occupied");
 
     public PumpkinBurrowBlock(Properties properties) {
         super(properties.lightLevel(state -> state.getValue(OCCUPIED) ? 10 : 0));
@@ -33,7 +33,7 @@ public class PumpkinBurrowBlock extends BaseEntityBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> builder) {
-        super.createBlockStateDefinition(builder.add(OCCUPIED).add(FACING));
+        super.createBlockStateDefinition(builder.add(FACING, OCCUPIED));
     }
 
     @Override
@@ -58,10 +58,6 @@ public class PumpkinBurrowBlock extends BaseEntityBlock {
 
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NotNull Level level, @NotNull BlockState state, @NotNull BlockEntityType<T> blockEntityType) {
-        return createTickerHelper(level, blockEntityType, BWGBlockEntityType.PUMPKIN_BURROW.get());
-    }
-
-    public static <T extends BlockEntity> BlockEntityTicker<T> createTickerHelper(Level level, BlockEntityType<T> serverType, BlockEntityType<? extends PumpkinBurrowBlockEntity> clientType) {
-        return level.isClientSide() ? null : createTickerHelper(serverType, clientType, PumpkinBurrowBlockEntity::serverTick);
+        return level.isClientSide() ? null :createTickerHelper(blockEntityType, BWGBlockEntityType.PUMPKIN_BURROW.get(), PumpkinBurrowBlockEntity::serverTick);
     }
 }
