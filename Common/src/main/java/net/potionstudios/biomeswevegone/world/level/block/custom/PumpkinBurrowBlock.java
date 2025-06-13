@@ -4,8 +4,14 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.item.PrimedTnt;
+import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.WitherSkull;
+import net.minecraft.world.entity.vehicle.MinecartTNT;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.BlockItemStateProperties;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -20,11 +26,15 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.storage.loot.LootParams;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.potionstudios.biomeswevegone.tags.BWGEnchantmentTags;
 import net.potionstudios.biomeswevegone.world.level.block.entities.BWGBlockEntityType;
 import net.potionstudios.biomeswevegone.world.level.block.entities.PumpkinBurrowBlockEntity;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class PumpkinBurrowBlock extends BaseEntityBlock {
     public static final BooleanProperty OCCUPIED = BooleanProperty.create("occupied");
@@ -98,11 +108,21 @@ public class PumpkinBurrowBlock extends BaseEntityBlock {
     }
 
     @Override
-    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NotNull Level level, @NotNull BlockState state, @NotNull BlockEntityType<T> blockEntityType) {
-        return createTickerHelper(level, blockEntityType, BWGBlockEntityType.PUMPKIN_BURROW.get());
+    protected @NotNull List<ItemStack> getDrops(@NotNull BlockState state, LootParams.@NotNull Builder params) {
+        Entity entity = params.getOptionalParameter(LootContextParams.THIS_ENTITY);
+        if (entity instanceof PrimedTnt || entity instanceof Creeper
+                || entity instanceof WitherSkull
+                || entity instanceof WitherBoss
+                || entity instanceof MinecartTNT) {
+            BlockEntity blockEntity = params.getOptionalParameter(LootContextParams.BLOCK_ENTITY);
+            if (blockEntity instanceof PumpkinBurrowBlockEntity pumpkinBurrowBlockEntity)
+                pumpkinBurrowBlockEntity.emptyOccupant(params.getLevel());
+        }
+        return super.getDrops(state, params);
     }
 
-    public static <T extends BlockEntity> BlockEntityTicker<T> createTickerHelper(Level level, BlockEntityType<T> serverType, BlockEntityType<? extends PumpkinBurrowBlockEntity> clientType) {
-        return level.isClientSide() ? null : createTickerHelper(serverType, clientType, PumpkinBurrowBlockEntity::serverTick);
+    @Override
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NotNull Level level, @NotNull BlockState state, @NotNull BlockEntityType<T> blockEntityType) {
+        return level.isClientSide() ? null : createTickerHelper(blockEntityType, BWGBlockEntityType.PUMPKIN_BURROW.get(), PumpkinBurrowBlockEntity::serverTick);
     }
 }
