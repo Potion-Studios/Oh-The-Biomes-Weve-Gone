@@ -32,6 +32,7 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
             "ArmorDropChances",
             "ArmorItems",
             "CanPickUpLoot",
+            "DeathTime",
             "FallDistance",
             "FallFlying",
             "Fire",
@@ -40,9 +41,12 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
             "HurtByTimestamp",
             "HurtTime",
             "LeftHanded",
+            "Motion",
             "OnGround",
+            "PortalCooldown",
             "Pos",
-            "Rotation"
+            "Rotation",
+            "UUID"
     );
     private Occupant stored = Occupant.EMPTY;
     public PumpkinBurrowBlockEntity(BlockPos pos, BlockState blockState) {

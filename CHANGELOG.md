@@ -1,5 +1,6 @@
 # 2.4.3
 - Release Pumpkin Warden from Pumpkin Burrow when broken by TNT, Creeper, or Wither
+- Ignore more info for Pumpkin Burrow Storage
 
 # 2.4.2
 - Fix Forgotten Village Terminators
