@@ -1,3 +1,5 @@
+# 2.4.3
+
 # 2.4.2
 - Fix Forgotten Village Terminators
 - Fix Pumpkin Burrow not releasing Warden on break
