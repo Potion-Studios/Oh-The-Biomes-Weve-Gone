@@ -57,8 +57,8 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
         if (isEmpty()) {
             occupant.stopRiding();
             occupant.ejectPassengers();
-            stored = Occupant.of(occupant);
             occupant.setSleepingPos(getBlockPos());
+            stored = Occupant.of(occupant);
             occupant.discard();
             if (getLevel() != null)
                 getLevel().setBlockAndUpdate(getBlockPos(), getBlockState().setValue(PumpkinBurrowBlock.OCCUPIED, true));
