@@ -11,6 +11,7 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.processor.processors.FruitBlockProcessor;
+import net.potionstudios.biomeswevegone.world.level.levelgen.structure.processor.processors.PlantProcessor;
 
 import java.util.*;
 
@@ -175,8 +176,8 @@ public class BWGStructureProcessorLists {
 
     public static final ResourceKey<StructureProcessorList> PUMPKIN_PATCH_FARM = register("pumpkin_patch_farm", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
-                    createRuleProcessor(BWGProcessorRules.lushFarmLandToBlock(BWGBlocks.LUSH_GRASS_BLOCK.get(), 0.5f), BWGProcessorRules.lushFarmLandToBlock(Blocks.WATER, 0.23f))
-                   // new PlantProcessor(BWGBlocks.LUSH_FARMLAND.get(), Blocks.PUMPKIN_STEM, 0.5f)
+                    createRuleProcessor(BWGProcessorRules.lushFarmLandToBlock(BWGBlocks.LUSH_GRASS_BLOCK.get(), 0.5f), BWGProcessorRules.lushFarmLandToBlock(Blocks.WATER, 0.23f)),
+                    new PlantProcessor(BWGBlocks.LUSH_FARMLAND.get(), Blocks.PUMPKIN_STEM, 0.5f)
             )));
 
     public static final ResourceKey<StructureProcessorList> PUMPKIN_PATCH_MEETING_POINT = register("pumpkin_patch_meeting_point", structureProcessorListHolderGetter -> new StructureProcessorList(
@@ -184,8 +185,8 @@ public class BWGStructureProcessorLists {
                     createRuleProcessor(new ProcessorRule[]{BWGProcessorRules.lushFarmLandToBlock(BWGBlocks.LUSH_GRASS_BLOCK.get(), 0.5f),
                             BWGProcessorRules.lushFarmLandToBlock(Blocks.WATER, 0.23f),
                             BWGProcessorRules.lushPathToBlock(0.35f, BWGBlocks.LUSH_GRASS_BLOCK.get()),
-                            BWGProcessorRules.grassBlockToBlock(0.4f, BWGBlocks.LUSH_DIRT_PATH.get())}, BWGProcessorRules.DACITE_COBBLESTONE_VARIANTS)
-                    //new PlantProcessor(BWGBlocks.LUSH_FARMLAND.get(), Blocks.PUMPKIN_STEM, 0.5f)
+                            BWGProcessorRules.grassBlockToBlock(0.4f, BWGBlocks.LUSH_DIRT_PATH.get())}, BWGProcessorRules.DACITE_COBBLESTONE_VARIANTS),
+                    new PlantProcessor(BWGBlocks.LUSH_FARMLAND.get(), Blocks.PUMPKIN_STEM, 0.5f)
             )));
 
     public static final ResourceKey<StructureProcessorList> SWAMP_STREETS = register("swamp_streets", structureProcessorListHolderGetter -> new StructureProcessorList(

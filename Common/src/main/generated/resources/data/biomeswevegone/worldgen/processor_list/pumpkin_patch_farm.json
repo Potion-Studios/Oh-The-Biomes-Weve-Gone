@@ -36,6 +36,12 @@
           }
         }
       ]
+    },
+    {
+      "chance": 0.5,
+      "ground": "biomeswevegone:lush_farmland",
+      "plant": "minecraft:pumpkin_stem",
+      "processor_type": "biomeswevegone:plant_processor"
     }
   ]
 }
