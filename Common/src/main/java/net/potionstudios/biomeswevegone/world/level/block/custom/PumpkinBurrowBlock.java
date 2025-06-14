@@ -58,7 +58,7 @@ public class PumpkinBurrowBlock extends BaseEntityBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> builder) {
-        super.createBlockStateDefinition(builder.add(OCCUPIED).add(FACING));
+        super.createBlockStateDefinition(builder.add(FACING, OCCUPIED));
     }
 
     @Override
@@ -99,7 +99,7 @@ public class PumpkinBurrowBlock extends BaseEntityBlock {
                 ItemStack itemStack = new ItemStack(this);
                 itemStack.applyComponents(pumpkinBurrow.collectComponents());
                 itemStack.set(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY.with(OCCUPIED, true));
-                ItemEntity itemEntity = new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), itemStack);
+                ItemEntity itemEntity = new ItemEntity( level, pos.getX(), pos.getY(), pos.getZ(), itemStack);
                 itemEntity.setDefaultPickUpDelay();
                 level.addFreshEntity(itemEntity);
             }

@@ -104,7 +104,7 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
             Entity entity = stored.createEntity(level);
             if (entity instanceof PumpkinWarden pumpkinWarden) {
                 pumpkinWarden.setPos(getBlockPos().getX() + 0.5, getBlockPos().getY(), getBlockPos().getZ() + 0.5);
-                pumpkinWarden.clearSleepingPos();
+                pumpkinWarden.stopSleeping();
                 level.addFreshEntity(pumpkinWarden);
                 stored = Occupant.EMPTY;
             }
@@ -149,7 +149,7 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
                     if (level.getBlockState(blockPos).getCollisionShape(level, blockPos).isEmpty()) {
                         pumpkinWarden.setPos(blockPos.getX() + 0.5, blockPos.getY(), blockPos.getZ() + 0.5);
                         level.addFreshEntity(pumpkinWarden);
-                        pumpkinWarden.clearSleepingPos();
+                        pumpkinWarden.stopSleeping();
                         blockEntity.stored = Occupant.EMPTY;
                         state = state.setValue(PumpkinBurrowBlock.OCCUPIED, false);
                         level.setBlockAndUpdate(pos, state);

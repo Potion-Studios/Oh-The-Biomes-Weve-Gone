@@ -460,6 +460,12 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     }
 
     @Override
+    public void stopSleeping() {
+        setPose(Pose.STANDING);
+        clearSleepingPos();
+    }
+
+    @Override
     public void handleEntityEvent(byte id) {
         super.handleEntityEvent(id);
         if (id == 13)
