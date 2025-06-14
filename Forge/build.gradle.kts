@@ -49,7 +49,6 @@ loom {
 dependencies {
     forge("net.minecraftforge:forge:$minecraftVersion-${project.properties["forge_version"]}")
 
-
     "common"(project(":Common", "namedElements")) { isTransitive = false }
     "shadowBundle"(project(":Common", "transformProductionForge"))
 
@@ -68,7 +67,7 @@ dependencies {
 
     modLocalRuntime("maven.modrinth:cyanide:4.1.1")
 
-    modApi("com.github.glitchfiend:SereneSeasons-forge:$minecraftVersion-9.1.0.1")
+    modApi("com.github.glitchfiend:SereneSeasons-forge:$minecraftVersion-9.1.0.2")
     modLocalRuntime("com.github.glitchfiend:GlitchCore-forge:$minecraftVersion-0.0.1.1")
 }
 

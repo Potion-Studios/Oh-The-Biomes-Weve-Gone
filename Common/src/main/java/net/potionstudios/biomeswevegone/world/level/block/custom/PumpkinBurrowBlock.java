@@ -2,7 +2,21 @@ package net.potionstudios.biomeswevegone.world.level.block.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.boss.wither.WitherBoss;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.item.PrimedTnt;
+import net.minecraft.world.entity.monster.Creeper;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.WitherSkull;
+import net.minecraft.world.entity.vehicle.MinecartTNT;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -12,10 +26,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.storage.loot.LootParams;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.potionstudios.biomeswevegone.world.level.block.entities.BWGBlockEntityType;
 import net.potionstudios.biomeswevegone.world.level.block.entities.PumpkinBurrowBlockEntity;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class PumpkinBurrowBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
@@ -54,6 +72,48 @@ public class PumpkinBurrowBlock extends BaseEntityBlock {
     @Override
     public @NotNull BlockState mirror(@NotNull BlockState state, @NotNull Mirror mirror) {
         return state.rotate(mirror.getRotation(state.getValue(FACING)));
+    }
+
+    @Override
+    public void playerDestroy(@NotNull Level level, @NotNull Player player, @NotNull BlockPos pos, @NotNull BlockState state, @Nullable BlockEntity blockEntity, @NotNull ItemStack tool) {
+        super.playerDestroy(level, player, pos, state, blockEntity, tool);
+        if (!level.isClientSide() && blockEntity instanceof PumpkinBurrowBlockEntity pumpkinBurrowBlockEntity)
+            if (EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, tool) == 0)
+                pumpkinBurrowBlockEntity.emptyOccupant(level);
+
+    }
+
+    @Override
+    public void playerWillDestroy(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Player player) {
+        if (!level.isClientSide() && player.isCreative() && level.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS)
+                && level.getBlockEntity(pos) instanceof PumpkinBurrowBlockEntity pumpkinBurrowBlockEntity) {
+            if (!pumpkinBurrowBlockEntity.isEmpty()) {
+                ItemStack itemStack = new ItemStack(this);
+                CompoundTag compoundTag = new CompoundTag();
+                compoundTag.put("occupant", pumpkinBurrowBlockEntity.stored.entityData());
+                BlockItem.setBlockEntityData(itemStack, BWGBlockEntityType.PUMPKIN_BURROW.get(), compoundTag);
+                ItemEntity itemEntity = new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), itemStack);
+                itemEntity.setDefaultPickUpDelay();
+                level.addFreshEntity(itemEntity);
+            }
+        }
+        super.playerWillDestroy(level, pos, state, player);
+    }
+
+    @Override
+    public @NotNull List<ItemStack> getDrops(@NotNull BlockState state, LootParams.@NotNull Builder params) {
+        Entity entity = params.getOptionalParameter(LootContextParams.THIS_ENTITY);
+        if (entity instanceof PrimedTnt
+                || entity instanceof Creeper
+                || entity instanceof WitherSkull
+                || entity instanceof WitherBoss
+                || entity instanceof MinecartTNT) {
+            BlockEntity blockEntity = params.getOptionalParameter(LootContextParams.BLOCK_ENTITY);
+            if (blockEntity instanceof PumpkinBurrowBlockEntity pumpkinBurrowBlockEntity)
+                pumpkinBurrowBlockEntity.emptyOccupant(params.getLevel());
+        }
+
+        return super.getDrops(state, params);
     }
 
     @Override

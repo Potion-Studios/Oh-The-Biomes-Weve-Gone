@@ -43,7 +43,6 @@ import net.potionstudios.biomeswevegone.client.renderer.entity.oddion.OddionRend
 import net.potionstudios.biomeswevegone.client.renderer.entity.pumpkinwarden.PumpkinWardenRenderer;
 import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
-import net.potionstudios.biomeswevegone.world.level.block.custom.PumpkinBurrowBlock;
 import net.potionstudios.biomeswevegone.world.level.block.entities.BWGBlockEntityType;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
@@ -140,8 +139,7 @@ public class BiomesWeveGoneClient {
     public static void registerItemProperties(TriConsumer<Item, ResourceLocation, ClampedItemPropertyFunction> consumer) {
         consumer.accept(BWGBlocks.PUMPKIN_BURROW.get().asItem(), BiomesWeveGone.id("occupied"), (itemStack, clientLevel, livingEntity, i) -> {
             if (livingEntity != null && itemStack.is(BWGBlocks.PUMPKIN_BURROW.get().asItem()))
-                if (Boolean.TRUE.equals(true))
-                    return 1F;
+                if (itemStack.getTag() != null) return 1F;
             return 0F;
         });
     }
