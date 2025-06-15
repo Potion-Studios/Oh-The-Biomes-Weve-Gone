@@ -12,6 +12,7 @@ import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
 import net.minecraft.world.level.block.state.BlockState;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
+import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.custom.PumpkinBurrowBlock;
 import org.jetbrains.annotations.NotNull;
 
@@ -33,6 +34,7 @@ public class EnterPumpkinBurrow extends Behavior<PumpkinWarden> {
         if (level.dimension() != globalPos.dimension()) return false;
 
         BlockState blockState = level.getBlockState(globalPos.pos());
+        if (!blockState.is(BWGBlocks.PUMPKIN_BURROW.get())) return false;
         BlockPos entrancePos = globalPos.pos().relative(blockState.getValue(PumpkinBurrowBlock.FACING));
 
         return level.getBlockState(entrancePos).getCollisionShape(level, entrancePos).isEmpty() && entrancePos.equals(pumpkinWarden.blockPosition()) && blockState.getBlock() instanceof PumpkinBurrowBlock && !blockState.getValue(PumpkinBurrowBlock.OCCUPIED);
