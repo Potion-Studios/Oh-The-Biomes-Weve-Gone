@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.GlobalPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.nbt.CompoundTag;
@@ -13,6 +14,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -148,11 +150,11 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
                     BlockPos blockPos = pos.relative(direction);
                     if (level.getBlockState(blockPos).getCollisionShape(level, blockPos).isEmpty()) {
                         pumpkinWarden.setPos(blockPos.getX() + 0.5, blockPos.getY(), blockPos.getZ() + 0.5);
-                        level.addFreshEntity(pumpkinWarden);
                         pumpkinWarden.stopSleeping();
+                        pumpkinWarden.getBrain().setMemory(MemoryModuleType.HOME, new GlobalPos(level.dimension(), pos));
+                        level.addFreshEntity(pumpkinWarden);
                         blockEntity.stored = Occupant.EMPTY;
-                        state = state.setValue(PumpkinBurrowBlock.OCCUPIED, false);
-                        level.setBlockAndUpdate(pos, state);
+                        level.setBlockAndUpdate(pos, state.setValue(PumpkinBurrowBlock.OCCUPIED, false));
                     }
                 }
         }

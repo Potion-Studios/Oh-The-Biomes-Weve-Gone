@@ -2,6 +2,8 @@
 - Release Pumpkin Warden from Pumpkin Burrow when broken by TNT, Creeper, or Wither
 - Ignore more info for Pumpkin Burrow Storage
 - Fix Enter Pumpkin Burrow Crash
+- Fix Pumpkin Wardens not going to their burrows when they are broken and replaced with the warden inside them
+- Fix Pumpkin Warden Teleporting to the Pumpkin Burrow when it is broken and replaced with the warden inside it
 
 # 2.4.2
 - Fix Forgotten Village Terminators
