@@ -87,6 +87,7 @@ public class TagsGenerator {
                 tag(BlockTags.WALL_HANGING_SIGNS).add(set.wallHangingSign());
                 tag(Tags.Blocks.BOOKSHELVES).add(set.bookshelf());
                 tag(BlockTags.ENCHANTMENT_POWER_PROVIDER).add(set.bookshelf());
+                tag(BlockTags.create(ResourceLocation.fromNamespaceAndPath("forge", "stripped_logs"))).add(set.strippedLogStem());
                 tag(set.logBlockTag()).add(set.logstem(), set.wood(), set.strippedLogStem(), set.strippedWood());
                 tag(BlockTags.OVERWORLD_NATURAL_LOGS).add(set.logstem());
                 tag(BlockTags.LOGS).addTag(set.logBlockTag());
@@ -184,7 +185,6 @@ public class TagsGenerator {
             tag(BWGBlockTags.OAK_SAPLINGS).add(BWGWood.BROWN_OAK_SAPLING.getBlock(), BWGWood.ORANGE_OAK_SAPLING.getBlock(), BWGWood.RED_OAK_SAPLING.getBlock());
             tag(BWGBlockTags.SPRUCE_SAPLINGS).add(BWGWood.BLUE_SPRUCE_SAPLING.getBlock(), BWGWood.RED_SPRUCE_SAPLING.getBlock(), BWGWood.YELLOW_SPRUCE_SAPLING.getBlock(), BWGWood.ORANGE_SPRUCE_SAPLING.getBlock());
             tag(BWGBlockTags.BIRCH_SAPLINGS).add(BWGWood.YELLOW_BIRCH_SAPLING.getBlock(), BWGWood.ORANGE_BIRCH_SAPLING.getBlock(), BWGWood.RED_BIRCH_SAPLING.getBlock(), BWGWood.BROWN_BIRCH_SAPLING.getBlock());
-
 
             //Serene Seasons
             tag(ModTags.Blocks.YEAR_ROUND_CROPS).add(BWGBlocks.GREEN_MUSHROOM.get(), BWGBlocks.WEEPING_MILKCAP.get(), BWGBlocks.WOOD_BLEWIT.get(), BWGWood.ASPEN.sapling().getBlock(), BWGWood.RED_MAPLE_SAPLING.getBlock())
@@ -292,6 +292,7 @@ public class TagsGenerator {
             copy(BWGBlockTags.OAK_SAPLINGS, BWGItemTags.OAK_SAPLINGS);
             copy(BWGBlockTags.SPRUCE_SAPLINGS, BWGItemTags.SPRUCE_SAPLINGS);
             copy(BWGBlockTags.BIRCH_SAPLINGS, BWGItemTags.BIRCH_SAPLINGS);
+            copy(BlockTags.create(ResourceLocation.fromNamespaceAndPath("forge", "stripped_logs")), ItemTags.create(ResourceLocation.fromNamespaceAndPath("forge", "stripped_logs")));
 
             copy(BWGBlockTags.PALO_VERDE_LOGS, BWGItemTags.PALO_VERDE_LOGS);
             tag(BWGItemTags.SHEARS).addOptionalTag(Tags.Items.SHEARS).addOptionalTag(ResourceLocation.fromNamespaceAndPath("c", "shears"));
