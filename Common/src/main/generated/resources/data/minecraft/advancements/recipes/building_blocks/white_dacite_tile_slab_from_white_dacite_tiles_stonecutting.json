@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:white_dacite_tile_slab_from_white_dacite_tiles_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_white_dacite_tiles": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "biomeswevegone:white_dacite_tiles"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_white_dacite_tiles",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:white_dacite_tile_slab_from_white_dacite_tiles_stonecutting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

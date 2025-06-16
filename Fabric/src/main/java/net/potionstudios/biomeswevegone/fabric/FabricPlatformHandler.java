@@ -71,7 +71,7 @@ public final class FabricPlatformHandler implements PlatformHandler {
 	}
 
 	@Override
-	public Supplier<PoiType> registerPOIType(String id, Supplier<Block> block, int maxTickets, int validRange) {
+	public Supplier<PoiType> registerPOIType(String id, Supplier<? extends Block> block, int maxTickets, int validRange) {
 		PoiType poi = PointOfInterestHelper.register(BiomesWeveGone.id(id), maxTickets, validRange, block.get());
 		return () -> poi;
 	}

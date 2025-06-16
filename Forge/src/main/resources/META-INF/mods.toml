@@ -17,7 +17,7 @@ displayURL="https://potionstudios.net/"
 [[dependencies.biomeswevegone]]
 modId = "forge"
 mandatory = true
-versionRange = "[47.1.101,)"
+versionRange = "[47.4,)"
 ordering = "NONE"
 side = "BOTH"
 

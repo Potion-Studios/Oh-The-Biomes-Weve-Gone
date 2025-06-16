@@ -1,0 +1,11 @@
+{
+  "parent": "biomeswevegone:block/pumpkin_burrow",
+  "overrides": [
+    {
+      "model": "biomeswevegone:block/pumpkin_burrow_occupied",
+      "predicate": {
+        "biomeswevegone:occupied": 1.0
+      }
+    }
+  ]
+}

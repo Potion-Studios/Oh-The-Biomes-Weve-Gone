@@ -3,9 +3,9 @@ package net.potionstudios.biomeswevegone.forge;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.entity.npc.VillagerType;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ShovelItem;
-import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolActions;
@@ -20,6 +20,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.potionstudios.biomeswevegone.util.BoneMealHandler;
 import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
+import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTypes;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -41,6 +42,7 @@ public class VanillaCompatForge {
         BlockFeatures.registerFlammable(((FireBlock) Blocks.FIRE)::setFlammable);
         BlockFeatures.registerCompostables((item, chance) -> ComposterBlock.COMPOSTABLES.put(item.asItem(), chance.floatValue()));
         ToolInteractions.registerFlattenables(ShovelItem.FLATTENABLES::put);
+        BWGVillagerTypes.setVillagerBiomes(VillagerType::registerBiomeType);
     }
 
     public static void registerVanillaCompatEvents(final IEventBus bus) {
@@ -91,7 +93,7 @@ public class VanillaCompatForge {
             BWGVillagerTrades.TRADES.get(event.getType())
                     .forEach((level, offers) -> {
                         List<VillagerTrades.ItemListing> tradeList = trades.get(level.intValue());
-                            for (MerchantOffer offer : offers) tradeList.add((trader, random) -> offer);
+                        tradeList.addAll(offers);
                     });
         }
     }
@@ -102,7 +104,7 @@ public class VanillaCompatForge {
      */
     private static void onWanderingTrade(final WandererTradesEvent event) {
         BWGVillagerTrades.WANDERING_TRADER_TRADES.forEach((level, offers) -> {
-            for (MerchantOffer offer : offers) event.getGenericTrades().add((trader, random) -> offer);
+            for (VillagerTrades.ItemListing itemListing : offers) event.getGenericTrades().add(itemListing);
         });
     }
 

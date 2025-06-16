@@ -34,7 +34,7 @@ import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.config.configs.BWGMobSpawnConfig;
 import net.potionstudios.biomeswevegone.tags.BWGBiomeTags;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -226,7 +226,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(@NotNull ServerLevel serverLevel, @NotNull AgeableMob ageableMob) {
-        ManOWar manOWar = BWGEntities.MAN_O_WAR.get().create(serverLevel);
+        ManOWar manOWar = BWGEntityType.MAN_O_WAR.get().create(serverLevel);
         manOWar.setColor(getRandColor(serverLevel.getRandom()));
         return manOWar;
     }

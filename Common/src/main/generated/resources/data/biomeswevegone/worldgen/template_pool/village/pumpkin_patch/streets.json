@@ -21,6 +21,15 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/pumpkin_patch/streets/pumpkin_patch_corner_03",
+        "processors": "biomeswevegone:pumpkin_patch_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
         "location": "biomeswevegone:village/pumpkin_patch/streets/pumpkin_patch_straight_01",
         "processors": "biomeswevegone:pumpkin_patch_streets",
         "projection": "terrain_matching"
@@ -48,6 +57,33 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/pumpkin_patch/streets/pumpkin_patch_straight_04",
+        "processors": "biomeswevegone:pumpkin_patch_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/pumpkin_patch/streets/pumpkin_patch_straight_05",
+        "processors": "biomeswevegone:pumpkin_patch_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/pumpkin_patch/streets/pumpkin_patch_straight_06",
+        "processors": "biomeswevegone:pumpkin_patch_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
         "location": "biomeswevegone:village/pumpkin_patch/streets/pumpkin_patch_crossroad_01",
         "processors": "biomeswevegone:pumpkin_patch_streets",
         "projection": "terrain_matching"
@@ -66,7 +102,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "biomeswevegone:village/pumpkin_patch/streets/pumpkin_patch_square_01",
+        "location": "biomeswevegone:village/pumpkin_patch/streets/pumpkin_patch_crossroad_03",
         "processors": "biomeswevegone:pumpkin_patch_streets",
         "projection": "terrain_matching"
       },
@@ -75,7 +111,25 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "biomeswevegone:village/pumpkin_patch/streets/pumpkin_patch_square_02",
+        "location": "biomeswevegone:village/pumpkin_patch/streets/pumpkin_patch_crossroad_04",
+        "processors": "biomeswevegone:pumpkin_patch_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/pumpkin_patch/streets/pumpkin_patch_crossroad_05",
+        "processors": "biomeswevegone:pumpkin_patch_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/pumpkin_patch/streets/pumpkin_patch_crossroad_06",
         "processors": "biomeswevegone:pumpkin_patch_streets",
         "projection": "terrain_matching"
       },

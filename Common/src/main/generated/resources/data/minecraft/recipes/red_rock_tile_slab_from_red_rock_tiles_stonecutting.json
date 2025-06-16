@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "biomeswevegone:red_rock_tiles"
+  },
+  "result": "biomeswevegone:red_rock_tile_slab"
+}

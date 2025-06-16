@@ -23,7 +23,7 @@ class PumpkinWardenModel<T extends PumpkinWarden> extends GeoModel<T> {
 
     @Override
     public ResourceLocation getTextureResource(T pumpkinWarden) {
-	    return pumpkinWarden.isHiding() ? BiomesWeveGone.id("textures/entity/pumpkin_warden/hiding.png") : BiomesWeveGone.id("textures/entity/pumpkin_warden/default.png");
+        return pumpkinWarden.isHiding() ? BiomesWeveGone.id("textures/entity/pumpkin_warden/" + pumpkinWarden.getVariant().getName() + "_hiding.png") : BiomesWeveGone.id("textures/entity/pumpkin_warden/" + pumpkinWarden.getVariant().getName() + ".png");
     }
 
     @Override

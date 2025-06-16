@@ -6,6 +6,19 @@
         {
           "input_predicate": {
             "block": "biomeswevegone:lush_dirt_path",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "block": "minecraft:water",
+            "predicate_type": "minecraft:block_match"
+          },
+          "output_state": {
+            "Name": "biomeswevegone:witch_hazel_planks"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "biomeswevegone:lush_dirt_path",
             "predicate_type": "minecraft:random_block_match",
             "probability": 0.3
           },

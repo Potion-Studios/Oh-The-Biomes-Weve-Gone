@@ -1,3 +1,29 @@
+# 1.6.0 The Village Update → https://github.com/Potion-Studios/Oh-The-Biomes-Weve-Gone/discussions/279
+- This is a major update not all changes are listed here, please check the discussion for more details
+- New Biomes
+  - Cypress Wetlands
+  - Red Rock Peaks
+- Biome Revamps
+  - Pumpkin Valley
+  - Red Rock Valley
+- Structures
+  - New Swamp Village
+  - Skyis Village Reworked with White Dacite
+  - Red Rock Village Updated Look
+  - Pumpkin Patch Village Completely Reworked
+  - Add Custom Biomes We've gone Villager Types to each of our Villages
+- Pumpkin Warden
+  - Reworked AI system to be closer to Villagers
+- New Time Traveler Advancement
+- New Better Days Music Disc
+- Blocks
+  - New White Dacite Sets
+  - Normal Dacite Cracked, Chiseled, Cracked and Mossy Variants
+  - New Polished and Tiled Red Rock Sets
+  - New Pumpkin Burrow Block
+  - New Wreath Blocks
+- Require Forge 47.4.0 or newer, drop support for 1.20.1 NeoForge
+
 # 1.5.11
 - Fix Missing or Non-Existent Pool error village/pumpkin_patch/streetsa
 - Update Russian (ru_ru) Translations (Credits: rfin0)

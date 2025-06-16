@@ -4,12 +4,14 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.*;
 import net.potionstudios.biomeswevegone.client.BiomesWeveGoneClient;
@@ -29,7 +31,7 @@ import java.util.Objects;
  * @author Joseph T. McQuigg
  */
 @Environment(EnvType.CLIENT)
-public class BiomesWeveGoneClientFabric implements ClientModInitializer {
+public class BiomesWeveGoneClientFabric implements ClientModInitializer, ModelLoadingPlugin {
     @Override
     public void onInitializeClient() {
         BiomesWeveGoneClient.onInitialize();
@@ -43,6 +45,8 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer {
             Block block = ((BlockItem) stack.getItem()).getBlock();
             return Objects.requireNonNull(ColorProviderRegistry.BLOCK.get(block)).getColor(block.defaultBlockState(), null, null, tintIndex);
         }, consumer));
+        ModelLoadingPlugin.register(this);
+        BiomesWeveGoneClient.registerItemProperties(ItemProperties::register);
     }
 
     /**
@@ -52,7 +56,7 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer {
     private void registerRenderTypes() {
         BWGWood.WOOD.forEach(entry -> renderTypeBlock(entry.get()));
         BWGBlocks.BLOCKS.forEach(entry -> renderTypeBlock(entry.get()));
-        BlockRenderLayerMap.INSTANCE.putBlock(BWGWood.MAPLE.door(), RenderType.translucent());
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.translucent(), BWGWood.MAPLE.door(), BWGWood.MAPLE.trapdoor());
     }
 
     private void renderTypeBlock(Block block) {
@@ -64,5 +68,10 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer {
             BlockRenderLayerMap.INSTANCE.putBlock(block, RenderType.cutoutMipped());
         else if (block instanceof StainedGlassPaneBlock || block instanceof HalfTransparentBlock)
             BlockRenderLayerMap.INSTANCE.putBlock(block, RenderType.translucent());
+    }
+
+    @Override
+    public void onInitializeModelLoader(Context context) {
+        BiomesWeveGoneClient.registerAdditionalModels((context::addModels));
     }
 }

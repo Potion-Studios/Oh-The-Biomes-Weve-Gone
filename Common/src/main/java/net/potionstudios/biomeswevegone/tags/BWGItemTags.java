@@ -12,6 +12,7 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
  */
 public final class BWGItemTags {
     public static final TagKey<Item> SHEARS = create("shears");
+    public static final TagKey<Item> PUMPKIN_WARDEN_PICKS_UP = create("pumpkin_warden_picks_up");
 
     public static final TagKey<Item> BLACK_ICE = create("black_ice");
     public static final TagKey<Item> BOREALIS_ICE = create("borealis_ice");
@@ -27,6 +28,10 @@ public final class BWGItemTags {
     public static final TagKey<Item> SAGES = create("flowers/sages");
     public static final TagKey<Item> DAFFODILS = create("flowers/daffodils");
 
+    public static final TagKey<Item> WREATHS = create("wreaths");
+
+    public static final TagKey<Item> DACITE_BRICKS = create("dacite_bricks");
+    public static final TagKey<Item> WHITE_DACITE_BRICKS = create("white_dacite_bricks");
     public static final TagKey<Item> RED_ROCK_BRICKS = create("red_rock_bricks");
 
     /** Saplings **/

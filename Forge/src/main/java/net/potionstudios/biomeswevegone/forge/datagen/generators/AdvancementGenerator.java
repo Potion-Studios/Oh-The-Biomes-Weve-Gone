@@ -91,6 +91,24 @@ public class AdvancementGenerator implements ForgeAdvancementProvider.Advancemen
 
         Advancement.Builder.advancement()
                 .parent(adventureRoot)
+                .rewards(new AdvancementRewards.Builder().addLootTable(BiomesWeveGone.id("chests/advancement/true_traveler/better_days_music_disc")))
+                .requirements(RequirementsStrategy.AND)
+                .addCriterion("pumpkin_patch_village", PlayerTrigger.TriggerInstance.located(LocationPredicate.inStructure(BWGStructures.PUMPKIN_PATCH_VILLAGE)))
+                .addCriterion("skyris_village", PlayerTrigger.TriggerInstance.located(LocationPredicate.inStructure(BWGStructures.SKYRIS_VILLAGE)))
+                .addCriterion("salem_village", PlayerTrigger.TriggerInstance.located(LocationPredicate.inStructure(BWGStructures.SALEM_VILLAGE)))
+                .addCriterion("red_rock_village", PlayerTrigger.TriggerInstance.located(LocationPredicate.inStructure(BWGStructures.RED_ROCK_VILLAGE)))
+                .addCriterion("swamp_village", PlayerTrigger.TriggerInstance.located(LocationPredicate.inStructure(BWGStructures.SWAMP_VILLAGE)))
+                .display(
+                        BWGItems.MUSIC_DISC_BETTER_DAYS.get(),
+                        translateAble("adventure.true_traveler.title"),
+                        translateAble("adventure.true_traveler.description"),
+                        BiomesWeveGone.id("textures/block/lush_dirt.png"),
+                        FrameType.TASK, true, true, false
+                )
+                .save(consumer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/adventure/true_traveler"), existingFileHelper);
+
+        Advancement.Builder.advancement()
+                .parent(adventureRoot)
                 .addCriterion("pixe_club_music_disc", InventoryChangeTrigger.TriggerInstance.hasItems(BWGItems.MUSIC_DISC_PIXIE_CLUB.get()))
                 .display(
                         BWGItems.MUSIC_DISC_PIXIE_CLUB.get(),

@@ -240,11 +240,26 @@ public class BWGBlocks {
 
     public static final BWGBlockSet DACITE_SET = new BWGBlockSet("dacite", MapColor.TERRACOTTA_WHITE);
     public static final BWGBlockSet DACITE_BRICKS_SET = new BWGBlockSet("dacite_bricks", "dacite_brick", BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).mapColor(MapColor.TERRACOTTA_WHITE));
+    public static final BWGBlockSet CRACKED_DACITE_BRICKS_SET = new BWGBlockSet("cracked_dacite_bricks", "cracked_dacite_brick", BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).mapColor(MapColor.TERRACOTTA_BROWN));
+    public static final BWGBlockSet MOSSY_DACITE_BRICKS_SET = new BWGBlockSet("mossy_dacite_bricks", "mossy_dacite_brick", BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).mapColor(MapColor.TERRACOTTA_BROWN));
+    public static final BWGBlockSet CHISELED_DACITE_BRICKS_SET = new BWGBlockSet("chiseled_dacite_bricks", "chiseled_dacite_brick", BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).mapColor(MapColor.TERRACOTTA_BROWN));
     public static final BWGBlockSet DACITE_COBBLESTONE_SET = new BWGBlockSet("dacite_cobblestone", BlockBehaviour.Properties.copy(Blocks.COBBLESTONE).mapColor(MapColor.TERRACOTTA_WHITE));
     public static final Supplier<RotatedPillarBlock> DACITE_PILLAR = registerBlockItem("dacite_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STONE).mapColor(MapColor.TERRACOTTA_WHITE)));
-    public static final BWGBlockSet DACITE_TILE_SET = new BWGBlockSet("dacite_tile", MapColor.TERRACOTTA_WHITE);
+    public static final BWGBlockSet DACITE_TILES_SET = new BWGBlockSet("dacite_tiles", "dacite_tile", MapColor.TERRACOTTA_WHITE);
     public static final Supplier<SnowyDirtBlock> PODZOL_DACITE = registerBlockItem("podzol_dacite", () -> new SnowyDirtBlock(BlockBehaviour.Properties.copy(Blocks.STONE).mapColor(MapColor.TERRACOTTA_WHITE)));
     public static final Supplier<BWGSpreadableBlock> OVERGROWN_DACITE = registerBlockItem("overgrown_dacite", () -> new BWGSpreadableBlock(BlockBehaviour.Properties.copy(Blocks.STONE).randomTicks(), DACITE_SET::getBase));
+
+    public static final BWGBlockSet WHITE_DACITE_SET = new BWGBlockSet("white_dacite", MapColor.TERRACOTTA_WHITE);
+    public static final BWGBlockSet WHITE_DACITE_BRICKS_SET = new BWGBlockSet("white_dacite_bricks", "white_dacite_brick", BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).mapColor(MapColor.TERRACOTTA_WHITE));
+    public static final BWGBlockSet CRACKED_WHITE_DACITE_BRICKS_SET = new BWGBlockSet("cracked_white_dacite_bricks", "cracked_white_dacite_brick", BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).mapColor(MapColor.TERRACOTTA_WHITE));
+    public static final BWGBlockSet MOSSY_WHITE_DACITE_BRICKS_SET = new BWGBlockSet("mossy_white_dacite_bricks", "mossy_white_dacite_brick", BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).mapColor(MapColor.TERRACOTTA_WHITE));
+    public static final BWGBlockSet CHISELED_WHITE_DACITE_BRICKS_SET = new BWGBlockSet("chiseled_white_dacite_bricks", "chiseled_white_dacite_brick", BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).mapColor(MapColor.TERRACOTTA_WHITE));
+    public static final BWGBlockSet WHITE_DACITE_COBBLESTONE_SET = new BWGBlockSet("white_dacite_cobblestone", BlockBehaviour.Properties.copy(Blocks.COBBLESTONE).mapColor(MapColor.TERRACOTTA_WHITE));
+    public static final Supplier<RotatedPillarBlock> WHITE_DACITE_PILLAR = registerBlockItem("white_dacite_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STONE).mapColor(MapColor.TERRACOTTA_WHITE)));
+    public static final BWGBlockSet WHITE_DACITE_TILES_SET = new BWGBlockSet("white_dacite_tiles", "white_dacite_tile", MapColor.TERRACOTTA_WHITE);
+    public static final Supplier<SnowyDirtBlock> WHITE_PODZOL_DACITE = registerBlockItem("white_podzol_dacite", () -> new SnowyDirtBlock(BlockBehaviour.Properties.copy(Blocks.STONE).mapColor(MapColor.TERRACOTTA_WHITE)));
+    public static final Supplier<BWGSpreadableBlock> WHITE_OVERGROWN_DACITE = registerBlockItem("white_overgrown_dacite", () -> new BWGSpreadableBlock(BlockBehaviour.Properties.copy(Blocks.STONE).randomTicks(), WHITE_DACITE_SET::getBase));
+
     public static final Supplier<BWGSpreadableBlock> OVERGROWN_STONE = registerBlockItem("overgrown_stone", () -> new BWGSpreadableBlock(BlockBehaviour.Properties.copy(Blocks.STONE).randomTicks(), () -> Blocks.STONE));
 
     public static final BWGBlockSet RED_ROCK_SET = new BWGBlockSet("red_rock", MapColor.COLOR_RED);
@@ -252,6 +267,8 @@ public class BWGBlocks {
     public static final BWGBlockSet CRACKED_RED_ROCK_BRICKS_SET = new BWGBlockSet("cracked_red_rock_bricks", "cracked_red_rock_brick", BlockBehaviour.Properties.copy(Blocks.CRACKED_STONE_BRICKS).mapColor(MapColor.COLOR_RED));
     public static final BWGBlockSet CHISELED_RED_ROCK_BRICKS_SET = new BWGBlockSet("chiseled_red_rock_bricks", "chiseled_red_rock_brick", BlockBehaviour.Properties.copy(Blocks.CHISELED_STONE_BRICKS).mapColor(MapColor.COLOR_RED));
     public static final BWGBlockSet MOSSY_RED_ROCK_BRICKS_SET = new BWGBlockSet("mossy_red_rock_bricks", "mossy_red_rock_brick", BlockBehaviour.Properties.copy(Blocks.MOSSY_STONE_BRICKS).mapColor(MapColor.COLOR_RED));
+    public static final BWGBlockSet POLISHED_RED_ROCK_SET = new BWGBlockSet("polished_red_rock", "polished_red_rock", BlockBehaviour.Properties.copy(Blocks.POLISHED_BLACKSTONE).mapColor(MapColor.COLOR_RED));
+    public static final BWGBlockSet RED_ROCK_TILES_SET = new BWGBlockSet("red_rock_tiles", "red_rock_tile", BlockBehaviour.Properties.copy(Blocks.POLISHED_BLACKSTONE).mapColor(MapColor.COLOR_RED));
 
     public static final BWGBlockSet MOSSY_STONE_SET = new BWGBlockSet("mossy_stone", BlockBehaviour.Properties.copy(Blocks.MOSSY_COBBLESTONE));
     public static final BWGBlockSet ROCKY_STONE_SET = new BWGBlockSet("rocky_stone", BlockBehaviour.Properties.copy(Blocks.COBBLESTONE));
@@ -262,6 +279,8 @@ public class BWGBlocks {
     public static final Supplier<SlabBlock> CATTAIL_THATCH_SLAB = registerBlockItem("cattail_thatch_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(CATTAIL_THATCH.get())));
     public static final Supplier<StairBlock> CATTAIL_THATCH_STAIRS = registerBlockItem("cattail_thatch_stairs", () -> new StairBlock(CATTAIL_THATCH.get().defaultBlockState(), BlockBehaviour.Properties.copy(CATTAIL_THATCH.get())));
     public static final Supplier<WoolCarpetBlock> CATTAIL_THATCH_CARPET = registerBlockItem("cattail_thatch_carpet", () -> new WoolCarpetBlock(DyeColor.BROWN, BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.5f)));
+
+    public static final Supplier<PumpkinBurrowBlock> PUMPKIN_BURROW = registerBlockItem("pumpkin_burrow", () -> new PumpkinBurrowBlock(BlockBehaviour.Properties.copy(Blocks.PUMPKIN)));
 
     private static FlowerBlockFeature registerFlower(String key) {
         Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGFlowerBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_TULIP).noOcclusion()));

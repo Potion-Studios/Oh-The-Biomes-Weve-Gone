@@ -47,10 +47,7 @@ loom {
 }
 
 dependencies {
-    if ((project.properties["use_neoforge"] as String).toBoolean())
-        forge("net.neoforged:forge:$minecraftVersion-${project.properties["neoforge_version"]}")
-    else forge("net.minecraftforge:forge:$minecraftVersion-${project.properties["forge_version"]}")
-
+    forge("net.minecraftforge:forge:$minecraftVersion-${project.properties["forge_version"]}")
 
     "common"(project(":Common", "namedElements")) { isTransitive = false }
     "shadowBundle"(project(":Common", "transformProductionForge"))
@@ -61,7 +58,7 @@ dependencies {
     forgeRuntimeLibrary("com.eliotlash.mclib:mclib:20")
     modApi("com.github.glitchfiend:TerraBlender-forge:$minecraftVersion-${project.properties["terrablender_version"]}")
     modApi("corgitaco.corgilib:Corgilib-Forge:$minecraftVersion-${project.properties["corgilib_version"]}")
-    modApi("dev.corgitaco:Oh-The-Trees-Youll-Grow-forge:$minecraftVersion-${project.properties["ohthetreesyoullgrow_version"]}")
+    modApi("dev.corgitaco:Oh-The-Trees-Youll-Grow-forge:$minecraftVersion-${project.properties["ohthetreesyoullgrow_version"]}-mixin")
     modApi("software.bernie.geckolib:geckolib-forge-$minecraftVersion:${project.properties["geckolib_version"]}")
 
     modCompileOnly("mcp.mobius.waila:wthit-api:forge-${project.properties["WTHIT"]}")
@@ -70,7 +67,7 @@ dependencies {
 
     modLocalRuntime("maven.modrinth:cyanide:4.1.1")
 
-    modApi("com.github.glitchfiend:SereneSeasons-forge:$minecraftVersion-9.1.0.1")
+    modApi("com.github.glitchfiend:SereneSeasons-forge:$minecraftVersion-9.1.0.2")
     modLocalRuntime("com.github.glitchfiend:GlitchCore-forge:$minecraftVersion-0.0.1.1")
 }
 
@@ -97,7 +94,7 @@ tasks {
 }
 
 publisher {
-    setLoaders(ModLoader.FORGE, ModLoader.NEOFORGE)
+    setLoaders(ModLoader.FORGE)
     val depends = mutableListOf("terrablender", "geckolib", "corgilib", "oh-the-trees-youll-grow")
     curseDepends.required.set(depends)
     modrinthDepends.required.set(depends)

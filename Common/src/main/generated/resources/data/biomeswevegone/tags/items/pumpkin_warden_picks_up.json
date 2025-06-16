@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "#forge:eggs",
+      "required": false
+    },
+    "minecraft:carved_pumpkin",
+    "minecraft:jack_o_lantern",
+    "minecraft:pumpkin",
+    "minecraft:pumpkin_pie"
+  ]
+}

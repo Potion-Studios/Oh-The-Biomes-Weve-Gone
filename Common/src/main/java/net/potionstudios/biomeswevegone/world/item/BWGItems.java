@@ -16,8 +16,10 @@ import net.minecraft.world.level.material.Fluids;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
 import net.potionstudios.biomeswevegone.sounds.BWGSounds;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
+import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import net.potionstudios.biomeswevegone.world.item.custom.CampfireExplodingBlockItem;
+import net.potionstudios.biomeswevegone.world.item.custom.WreathItem;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 
 import java.util.ArrayList;
@@ -37,11 +39,11 @@ public class BWGItems {
 
     public static final Supplier<Item> BWG_LOGO = register("bwg_logo", () -> new Item(new Item.Properties()));
 
-    public static final Supplier<SpawnEggItem> MAN_O_WAR_SPAWN_EGG = registerSpawnEgg("man_o_war_spawn_egg", BWGEntities.MAN_O_WAR::get, FastColor.ARGB32.color(0, 210, 166, 246) , FastColor.ARGB32.color(0, 199, 165, 104));
-    public static final Supplier<SpawnEggItem> PUMPKIN_WARDEN_SPAWN_EGG = registerSpawnEgg("pumpkin_warden_spawn_egg", BWGEntities.PUMPKIN_WARDEN::get, FastColor.ARGB32.color(0, 79, 57, 46), FastColor.ARGB32.color(0,192, 106, 5));
-    public static final Supplier<SpawnEggItem> ODDION_SPAWN_EGG = registerSpawnEgg("oddion_spawn_egg", BWGEntities.ODDION::get, FastColor.ARGB32.color(0, 199, 165, 104), FastColor.ARGB32.color(0, 210, 166, 246));
+    public static final Supplier<SpawnEggItem> MAN_O_WAR_SPAWN_EGG = registerSpawnEgg("man_o_war_spawn_egg", BWGEntityType.MAN_O_WAR::get, FastColor.ARGB32.color(0, 210, 166, 246) , FastColor.ARGB32.color(0, 199, 165, 104));
+    public static final Supplier<SpawnEggItem> PUMPKIN_WARDEN_SPAWN_EGG = registerSpawnEgg("pumpkin_warden_spawn_egg", BWGEntityType.PUMPKIN_WARDEN::get, FastColor.ARGB32.color(0, 79, 57, 46), FastColor.ARGB32.color(0,192, 106, 5));
+    public static final Supplier<SpawnEggItem> ODDION_SPAWN_EGG = registerSpawnEgg("oddion_spawn_egg", BWGEntityType.ODDION::get, FastColor.ARGB32.color(0, 199, 165, 104), FastColor.ARGB32.color(0, 210, 166, 246));
 
-    public static final Supplier<MobBucketItem> MAN_O_WAR_BUCKET = registerMobBucket("man_o_war_bucket", BWGEntities.MAN_O_WAR::get, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH);
+    public static final Supplier<MobBucketItem> MAN_O_WAR_BUCKET = registerMobBucket("man_o_war_bucket", BWGEntityType.MAN_O_WAR::get, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH);
 
     public static final Supplier<Item> CATTAIL_SPROUT = registerItemNoLang("cattail_sprout", () -> new CampfireExplodingBlockItem(BWGBlocks.CATTAIL_SPROUT, new Item.Properties()));
 
@@ -71,6 +73,15 @@ public class BWGItems {
     public static final Supplier<PlaceOnWaterBlockItem> WATER_SILK = registerItemNoLang("water_silk", () -> new PlaceOnWaterBlockItem(BWGBlocks.WATER_SILK.get(), new Item.Properties()));
 
     public static final Supplier<RecordItem> MUSIC_DISC_PIXIE_CLUB = registerSimpleItemNoLang("music_disc_pixie_club", PlatformHandler.PLATFORM_HANDLER.createRecordItem(4, BWGSounds.MUSIC_DISC_PIXIE_CLUB, 213));
+    public static final Supplier<RecordItem> MUSIC_DISC_BETTER_DAYS = registerSimpleItemNoLang("music_disc_better_days", PlatformHandler.PLATFORM_HANDLER.createRecordItem(4, BWGSounds.MUSIC_DISC_BETTER_DAYS, 146));
+
+    public static final Supplier<WreathItem> WREATH = registerSimpleItem("wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.DEFAULT));
+    public static final Supplier<WreathItem> HOLLY_WREATH = registerSimpleItem("holly_wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.HOLLY));
+    public static final Supplier<WreathItem> MUSHROOM_WREATH = registerSimpleItem("mushroom_wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.MUSHROOM));
+    public static final Supplier<WreathItem> ODDION_WREATH = registerSimpleItem("oddion_wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.ODDION));
+    public static final Supplier<WreathItem> PETAL_WREATH = registerSimpleItem("petal_wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.PETAL));
+    public static final Supplier<WreathItem> ROSY_WREATH = registerSimpleItem("rosy_wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.ROSY));
+    public static final Supplier<WreathItem> WINTER_ROSY_WREATH = registerSimpleItem("winter_rosy_wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.WINTER_ROSY));
 
     private static Supplier<SpawnEggItem> registerSpawnEgg(String id, Supplier<EntityType<? extends Mob>> entity, int backgroundColor, int highlightColor) {
         Supplier<SpawnEggItem> supplier = PlatformHandler.PLATFORM_HANDLER.createSpawnEgg(entity, backgroundColor, highlightColor);

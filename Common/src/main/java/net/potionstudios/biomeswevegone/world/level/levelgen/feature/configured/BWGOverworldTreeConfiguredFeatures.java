@@ -3577,8 +3577,8 @@ public class BWGOverworldTreeConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILLOW_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("willow_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
             () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/willow/willow_tree_trunk1"),
-                    BiomesWeveGone.id("features/trees/willow/willow_tree_canopy1"),
+                    BiomesWeveGone.id("features/trees/willow/willow_trunk1"),
+                    BiomesWeveGone.id("features/trees/willow/willow_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.WILLOW.logstem()),
                     BlockStateProvider.simple(BWGWood.WILLOW.leaves()),
@@ -3590,8 +3590,8 @@ public class BWGOverworldTreeConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILLOW_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("willow_tree2",
             TYGFeatures.TREE_FROM_NBT_V1,
             () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/willow/willow_tree_trunk1"),
-                    BiomesWeveGone.id("features/trees/willow/willow_tree_canopy2"),
+                    BiomesWeveGone.id("features/trees/willow/willow_trunk1"),
+                    BiomesWeveGone.id("features/trees/willow/willow_canopy2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.WILLOW.logstem()),
                     BlockStateProvider.simple(BWGWood.WILLOW.leaves()),
@@ -3603,8 +3603,8 @@ public class BWGOverworldTreeConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILLOW_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("willow_tree3",
             TYGFeatures.TREE_FROM_NBT_V1,
             () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/willow/willow_tree_trunk1"),
-                    BiomesWeveGone.id("features/trees/willow/willow_tree_canopy3"),
+                    BiomesWeveGone.id("features/trees/willow/willow_trunk1"),
+                    BiomesWeveGone.id("features/trees/willow/willow_canopy3"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.WILLOW.logstem()),
                     BlockStateProvider.simple(BWGWood.WILLOW.leaves()),
@@ -3616,8 +3616,8 @@ public class BWGOverworldTreeConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILLOW_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("willow_tree4",
             TYGFeatures.TREE_FROM_NBT_V1,
             () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/willow/willow_tree_trunk2"),
-                    BiomesWeveGone.id("features/trees/willow/willow_tree_canopy4"),
+                    BiomesWeveGone.id("features/trees/willow/willow_trunk2"),
+                    BiomesWeveGone.id("features/trees/willow/willow_canopy4"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BWGWood.WILLOW.logstem()),
                     BlockStateProvider.simple(BWGWood.WILLOW.leaves()),
@@ -3921,6 +3921,22 @@ public class BWGOverworldTreeConfiguredFeatures {
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(ASPEN_TREE2)), 0.05F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(CONIFER_TREE6)), 0.05F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(CONIFER_TREE7)), 0.05F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PINE_LARGE_TREE1)), 0.2F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PINE_LARGE_TREE2)), 0.2F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PINE_TREE1)), 0.2F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PINE_TREE2)));
+            }
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> RED_ROCK_VALLEY_TREES = ConfiguredFeaturesUtil.createConfiguredFeature("red_rock_valley_trees",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(IRONWOOD_TREE1)), 0.05F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(IRONWOOD_TREE2)), 0.05F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(FLOWERING_IRONWOOD_TREE3)), 0.05F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(FLOWERING_IRONWOOD_TREE4)), 0.05F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PINE_LARGE_TREE1)), 0.2F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PINE_LARGE_TREE2)), 0.2F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PINE_TREE1)), 0.2F)),
