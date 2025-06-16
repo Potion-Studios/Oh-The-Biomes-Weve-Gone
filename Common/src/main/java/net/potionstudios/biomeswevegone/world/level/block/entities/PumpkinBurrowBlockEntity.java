@@ -2,10 +2,12 @@ package net.potionstudios.biomeswevegone.world.level.block.entities;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.GlobalPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -123,6 +125,7 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
                 if (level.getBlockState(blockPos).getCollisionShape(level, blockPos).isEmpty()) {
                     pumpkinWarden.setPos(blockPos.getX() + 0.5, blockPos.getY(), blockPos.getZ() + 0.5);
                     pumpkinWarden.stopSleeping();
+                    pumpkinWarden.getBrain().setMemory(MemoryModuleType.HOME, GlobalPos.of(level.dimension(), pos));
                     level.addFreshEntity(pumpkinWarden);
                     blockEntity.stored = Occupant.EMPTY;
                     level.setBlockAndUpdate(pos, state.setValue(PumpkinBurrowBlock.OCCUPIED, false));
