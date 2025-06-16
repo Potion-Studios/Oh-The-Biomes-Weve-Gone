@@ -117,7 +117,7 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, PumpkinBurrowBlockEntity blockEntity) {
-        if (!blockEntity.isEmpty() && level.isDay()) {
+        if (!blockEntity.isEmpty() && level.isDay() && level.getRandom().nextBoolean()) {
             Entity entity = blockEntity.stored.createEntity(level);
             if (entity instanceof PumpkinWarden pumpkinWarden) {
                 Direction direction = state.getValue(PumpkinBurrowBlock.FACING);
