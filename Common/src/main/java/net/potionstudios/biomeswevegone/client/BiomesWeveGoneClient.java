@@ -142,6 +142,7 @@ public class BiomesWeveGoneClient {
             if (type != null) consumer.accept(entry.get(), type);
         });
         consumer.accept(BWGWood.MAPLE.door(), RenderType.translucent());
+        consumer.accept(BWGWood.MAPLE.trapdoor(), RenderType.translucent());
     }
 
     @Nullable
