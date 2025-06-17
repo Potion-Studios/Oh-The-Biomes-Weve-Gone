@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.GlobalPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.nbt.CompoundTag;
@@ -14,6 +15,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -33,6 +35,7 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
             "ArmorDropChances",
             "ArmorItems",
             "CanPickUpLoot",
+            "DeathTime",
             "FallDistance",
             "FallFlying",
             "Fire",
@@ -41,9 +44,12 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
             "HurtByTimestamp",
             "HurtTime",
             "LeftHanded",
+            "Motion",
             "OnGround",
+            "PortalCooldown",
             "Pos",
-            "Rotation"
+            "Rotation",
+            "UUID"
     );
     private Occupant stored = Occupant.EMPTY;
     public PumpkinBurrowBlockEntity(BlockPos pos, BlockState blockState) {
@@ -96,6 +102,18 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
         components.set(BWGDataComponents.PUMPKIN_WARDEN.get(), stored);
     }
 
+    public void emptyOccupant(Level level) {
+        if (!isEmpty()) {
+            Entity entity = stored.createEntity(level);
+            if (entity instanceof PumpkinWarden pumpkinWarden) {
+                pumpkinWarden.setPos(getBlockPos().getX() + 0.5, getBlockPos().getY(), getBlockPos().getZ() + 0.5);
+                pumpkinWarden.stopSleeping();
+                level.addFreshEntity(pumpkinWarden);
+                stored = Occupant.EMPTY;
+            }
+        }
+    }
+
     public record Occupant(CustomData entityData) {
         public static final Occupant EMPTY = new Occupant(CustomData.EMPTY);
 
@@ -126,20 +144,20 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, PumpkinBurrowBlockEntity blockEntity) {
-        if (!blockEntity.isEmpty() && level.isDay()) {
-                Entity entity = blockEntity.stored.createEntity(level);
-                if (entity instanceof PumpkinWarden pumpkinWarden) {
-                    Direction direction = state.getValue(PumpkinBurrowBlock.FACING);
-                    BlockPos blockPos = pos.relative(direction);
-                    if (level.getBlockState(blockPos).getCollisionShape(level, blockPos).isEmpty()) {
-                        pumpkinWarden.setPos(blockPos.getX() + 0.5, blockPos.getY(), blockPos.getZ() + 0.5);
-                        level.addFreshEntity(pumpkinWarden);
-                        pumpkinWarden.clearSleepingPos();
-                        blockEntity.stored = Occupant.EMPTY;
-                        state = state.setValue(PumpkinBurrowBlock.OCCUPIED, false);
-                        level.setBlockAndUpdate(pos, state);
-                    }
+        if (!blockEntity.isEmpty() && level.isDay() && level.getRandom().nextBoolean()) {
+            Entity entity = blockEntity.stored.createEntity(level);
+            if (entity instanceof PumpkinWarden pumpkinWarden) {
+                Direction direction = state.getValue(PumpkinBurrowBlock.FACING);
+                BlockPos blockPos = pos.relative(direction);
+                if (level.getBlockState(blockPos).getCollisionShape(level, blockPos).isEmpty()) {
+                    pumpkinWarden.setPos(blockPos.getX() + 0.5, blockPos.getY(), blockPos.getZ() + 0.5);
+                    pumpkinWarden.stopSleeping();
+                    pumpkinWarden.getBrain().setMemory(MemoryModuleType.HOME, new GlobalPos(level.dimension(), pos));
+                    level.addFreshEntity(pumpkinWarden);
+                    blockEntity.stored = Occupant.EMPTY;
+                    level.setBlockAndUpdate(pos, state.setValue(PumpkinBurrowBlock.OCCUPIED, false));
                 }
+            }
         }
     }
 }
