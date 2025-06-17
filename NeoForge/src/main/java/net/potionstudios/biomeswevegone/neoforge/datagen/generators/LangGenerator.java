@@ -71,6 +71,8 @@ public class LangGenerator extends LanguageProvider {
         add(advancement("adventure.inside_quicksand.description"), "Fall into quicksand");
         add(advancement("adventure.little_house_on_the_prairie.title"), "Little House on the Prairie");
         add(advancement("adventure.little_house_on_the_prairie.description"), "Find all the Prairie houses");
+        add(advancement("adventure.true_traveler.title"), "True Traveler");
+        add(advancement("adventure.true_traveler.description"), "Find all the inhabited BWG Villages");
         add(advancement("adventure.forgotten_fae.title"), "Forgotten Fae");
         add(advancement("adventure.forgotten_fae.description"), "Find a Pixie Club Music Disc");
         add(advancement("adventure.pale_in_comparison.title"), "Pale in Comparison");
