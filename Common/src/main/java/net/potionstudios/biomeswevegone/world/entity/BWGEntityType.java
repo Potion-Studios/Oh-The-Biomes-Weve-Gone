@@ -7,6 +7,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
+import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import net.potionstudios.biomeswevegone.world.entity.manowar.ManOWar;
 import net.potionstudios.biomeswevegone.world.entity.oddion.Oddion;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
@@ -25,6 +26,7 @@ public class BWGEntityType {
 	public static final Supplier<EntityType<ManOWar>> MAN_O_WAR = createEntity("man_o_war", ManOWar::new, MobCategory.WATER_CREATURE,0.6F, 1F, 0.7F);
 	public static final Supplier<EntityType<PumpkinWarden>> PUMPKIN_WARDEN = createEntity("pumpkin_warden", PumpkinWarden::new, MobCategory.AMBIENT,0.64F, 1.1F, 0.9F);
 	public static final Supplier<EntityType<Oddion>> ODDION = createEntity("oddion", Oddion::new, MobCategory.CREATURE,0.5F, 0.75F, 0.37F);
+	public static final Supplier<EntityType<Wreath>> WREATH = createEntity("wreath", Wreath::new, MobCategory.MISC, 0.5F, 0.5F, 0.25F);
 
 	private static <E extends Entity> Supplier<EntityType<E>> createEntity(String id, EntityType.EntityFactory<E> factory, MobCategory category, float width, float height, float eyeHeight) {
 		return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.ENTITY_TYPE, id, ()-> EntityType.Builder.of(factory, category).sized(width, height).eyeHeight(eyeHeight).build(BiomesWeveGone.key(Registries.ENTITY_TYPE, id)));

@@ -20,8 +20,10 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
 import net.potionstudios.biomeswevegone.component.BWGDataComponents;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
+import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import net.potionstudios.biomeswevegone.world.item.custom.CampfireExplodingBlockItem;
 import net.potionstudios.biomeswevegone.world.item.custom.PowderItem;
+import net.potionstudios.biomeswevegone.world.item.custom.WreathItem;
 import net.potionstudios.biomeswevegone.world.item.jukebox.BWGJukeBoxSongs;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.entities.PumpkinBurrowBlockEntity;
@@ -97,6 +99,13 @@ public class BWGItems {
     public static final Supplier<Item> MUSIC_DISC_PIXIE_CLUB = registerItemNoLang("music_disc_pixie_club", Item::new, (new Item.Properties()).stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(BWGJukeBoxSongs.PIXIE_CLUB));
     public static final Supplier<Item> MUSIC_DISC_BETTER_DAYS = registerItemNoLang("music_disc_better_days", Item::new, (new Item.Properties()).stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(BWGJukeBoxSongs.BETTER_DAYS));
 
+    public static final Supplier<WreathItem> WREATH = registerItem("wreath", properties -> new WreathItem(properties, Wreath.Type.DEFAULT), new Item.Properties());
+    public static final Supplier<WreathItem> HOLLY_WREATH = registerItem("holly_wreath", properties -> new WreathItem(properties, Wreath.Type.HOLLY), new Item.Properties());
+    public static final Supplier<WreathItem> MUSHROOM_WREATH = registerItem("mushroom_wreath", properties -> new WreathItem(properties, Wreath.Type.MUSHROOM), new Item.Properties());
+    public static final Supplier<WreathItem> ODDION_WREATH = registerItem("oddion_wreath", properties -> new WreathItem(properties, Wreath.Type.ODDION), new Item.Properties());
+    public static final Supplier<WreathItem> PETAL_WREATH = registerItem("petal_wreath", properties -> new WreathItem(properties, Wreath.Type.PETAL), new Item.Properties());
+    public static final Supplier<WreathItem> ROSY_WREATH = registerItem("rosy_wreath", properties -> new WreathItem(properties, Wreath.Type.ROSY), new Item.Properties());
+    public static final Supplier<WreathItem> WINTER_ROSY_WREATH = registerItem("winter_rosy_wreath", properties -> new WreathItem(properties, Wreath.Type.WINTER_ROSY), new Item.Properties());
 
     private static Supplier<MobBucketItem> registerMobBucket(String id, Supplier<EntityType<? extends Mob>> entity, Supplier<Fluid> fluid, Supplier<SoundEvent> sound) {
         Supplier<MobBucketItem> supplier = PlatformHandler.PLATFORM_HANDLER.createMobBucket(entity, fluid, sound);

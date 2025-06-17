@@ -518,6 +518,14 @@ public class ModelGenerator extends ModelProvider {
                 occupiedItem,
                 unoccupiedItem
         ));
+
+        itemModels.itemModelOutput.accept(BWGItems.WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/default_wreath")), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.HOLLY_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.HOLLY_WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/holly_wreath")), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.MUSHROOM_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.MUSHROOM_WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/mushroom_wreath")), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.ODDION_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.ODDION_WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/oddion_wreath")), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.PETAL_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.PETAL_WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/petal_wreath")), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.ROSY_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.ROSY_WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/rosy_wreath")), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.WINTER_ROSY_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.WINTER_ROSY_WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/winter_rosy_wreath")), itemModels.modelOutput)));
     }
 
     private void blockItemModel(BlockModelGenerators blockModels, Block block) {
