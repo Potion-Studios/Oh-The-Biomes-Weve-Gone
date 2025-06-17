@@ -5,85 +5,39 @@
       "rules": [
         {
           "input_predicate": {
-            "block": "biomeswevegone:rocky_stone",
+            "block": "biomeswevegone:lush_farmland",
             "predicate_type": "minecraft:random_block_match",
-            "probability": 0.25
+            "probability": 0.5
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "biomeswevegone:mossy_stone"
+            "Name": "biomeswevegone:lush_grass_block",
+            "Properties": {
+              "snowy": "false"
+            }
           }
         },
         {
           "input_predicate": {
-            "block": "biomeswevegone:rocky_stone",
+            "block": "biomeswevegone:lush_farmland",
             "predicate_type": "minecraft:random_block_match",
-            "probability": 0.25
+            "probability": 0.23
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:gravel"
+            "Name": "minecraft:water",
+            "Properties": {
+              "level": "0"
+            }
           }
         },
         {
           "input_predicate": {
-            "block": "biomeswevegone:rocky_stone",
-            "predicate_type": "minecraft:random_block_match",
-            "probability": 0.25
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "minecraft:stone"
-          }
-        },
-        {
-          "input_predicate": {
-            "block": "minecraft:mossy_stone_bricks",
-            "predicate_type": "minecraft:random_block_match",
-            "probability": 0.1
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "minecraft:stone_bricks"
-          }
-        },
-        {
-          "input_predicate": {
-            "block": "minecraft:mossy_stone_bricks",
-            "predicate_type": "minecraft:random_block_match",
-            "probability": 0.2
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "minecraft:cracked_stone_bricks"
-          }
-        },
-        {
-          "input_predicate": {
-            "block": "minecraft:mossy_stone_bricks",
-            "predicate_type": "minecraft:random_block_match",
-            "probability": 0.1
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "minecraft:tuff"
-          }
-        },
-        {
-          "input_predicate": {
-            "block": "minecraft:gravel",
+            "block": "biomeswevegone:lush_dirt_path",
             "predicate_type": "minecraft:random_block_match",
             "probability": 0.35
           },
@@ -91,26 +45,84 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:suspicious_gravel",
+            "Name": "biomeswevegone:lush_grass_block",
             "Properties": {
-              "dusted": "0"
+              "snowy": "false"
             }
           }
         },
         {
           "input_predicate": {
-            "block": "biomeswevegone:lush_grass_block",
+            "block": "minecraft:grass_block",
             "predicate_type": "minecraft:random_block_match",
-            "probability": 0.45
+            "probability": 0.4
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:moss_block"
+            "Name": "biomeswevegone:lush_dirt_path"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "biomeswevegone:dacite_cobblestone",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.1
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "biomeswevegone:dacite"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "biomeswevegone:dacite_cobblestone",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "biomeswevegone:dacite_bricks"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "biomeswevegone:dacite_cobblestone",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.1
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "biomeswevegone:cracked_dacite_bricks"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "biomeswevegone:dacite_cobblestone",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.1
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "biomeswevegone:mossy_dacite_bricks"
           }
         }
       ]
+    },
+    {
+      "chance": 0.5,
+      "ground": "biomeswevegone:lush_farmland",
+      "plant": "minecraft:pumpkin_stem",
+      "processor_type": "biomeswevegone:plant_processor"
     }
   ]
 }

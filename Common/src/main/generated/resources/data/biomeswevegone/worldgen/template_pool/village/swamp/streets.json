@@ -1,0 +1,149 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/swamp/streets/swamp_corner_01",
+        "processors": "biomeswevegone:swamp_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/swamp/streets/swamp_corner_02",
+        "processors": "biomeswevegone:swamp_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/swamp/streets/swamp_corner_03",
+        "processors": "biomeswevegone:swamp_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/swamp/streets/swamp_straight_01",
+        "processors": "biomeswevegone:swamp_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/swamp/streets/swamp_straight_02",
+        "processors": "biomeswevegone:swamp_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/swamp/streets/swamp_straight_03",
+        "processors": "biomeswevegone:swamp_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/swamp/streets/swamp_straight_04",
+        "processors": "biomeswevegone:swamp_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/swamp/streets/swamp_straight_05",
+        "processors": "biomeswevegone:swamp_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/swamp/streets/swamp_straight_06",
+        "processors": "biomeswevegone:swamp_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/swamp/streets/swamp_crossroad_01",
+        "processors": "biomeswevegone:swamp_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/swamp/streets/swamp_crossroad_02",
+        "processors": "biomeswevegone:swamp_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/swamp/streets/swamp_crossroad_03",
+        "processors": "biomeswevegone:swamp_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/swamp/streets/swamp_crossroad_04",
+        "processors": "biomeswevegone:swamp_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/swamp/streets/swamp_crossroad_05",
+        "processors": "biomeswevegone:swamp_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/swamp/streets/swamp_crossroad_06",
+        "processors": "biomeswevegone:swamp_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/swamp/streets/swamp_turn_01",
+        "processors": "biomeswevegone:swamp_streets",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    }
+  ],
+  "fallback": "biomeswevegone:village/swamp/terminators"
+}

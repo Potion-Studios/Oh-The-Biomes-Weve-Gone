@@ -6,6 +6,19 @@
         {
           "input_predicate": {
             "block": "minecraft:orange_terracotta",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "block": "minecraft:water",
+            "predicate_type": "minecraft:block_match"
+          },
+          "output_state": {
+            "Name": "biomeswevegone:pine_planks"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:orange_terracotta",
             "predicate_type": "minecraft:random_block_match",
             "probability": 0.33
           },

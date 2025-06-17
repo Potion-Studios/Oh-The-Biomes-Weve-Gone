@@ -39,7 +39,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_medium_house_1",
+        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_small_house_5",
         "processors": "biomeswevegone:pumpkin_patch_house",
         "projection": "rigid"
       },
@@ -48,16 +48,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_medium_house_2",
-        "processors": "biomeswevegone:pumpkin_patch_house",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_medium_house_3",
+        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_small_house_6",
         "processors": "biomeswevegone:pumpkin_patch_house",
         "projection": "rigid"
       },
@@ -66,17 +57,8 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_small_farm_1",
-        "processors": "minecraft:farm_taiga",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_small_farm_2",
-        "processors": "minecraft:farm_taiga",
+        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_small_house_7",
+        "processors": "biomeswevegone:pumpkin_patch_house",
         "projection": "rigid"
       },
       "weight": 3
@@ -84,17 +66,8 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_small_farm_3",
-        "processors": "minecraft:farm_taiga",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_small_farm_4",
-        "processors": "minecraft:farm_taiga",
+        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_small_house_8",
+        "processors": "biomeswevegone:pumpkin_patch_house",
         "projection": "rigid"
       },
       "weight": 3
@@ -102,17 +75,98 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_small_farm_5",
-        "processors": "minecraft:farm_taiga",
+        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_farm_1",
+        "processors": "biomeswevegone:pumpkin_patch_farm",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_farm_2",
+        "processors": "biomeswevegone:pumpkin_patch_farm",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_accessory_1",
+        "processors": "biomeswevegone:pumpkin_patch_house",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_animal_pen_1",
+        "processors": "biomeswevegone:pumpkin_patch_house",
         "projection": "rigid"
       },
       "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_animal_pen_2",
+        "processors": "biomeswevegone:pumpkin_patch_house",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_animal_pen_3",
+        "processors": "biomeswevegone:pumpkin_patch_house",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_temple_4",
+        "processors": "biomeswevegone:pumpkin_patch_house",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_weaponsmith_1",
+        "processors": "biomeswevegone:pumpkin_patch_house",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_meeting_point_5",
+        "processors": "biomeswevegone:pumpkin_patch_house",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/pumpkin_patch/houses/pumpkin_patch_meeting_point_6",
+        "processors": "biomeswevegone:pumpkin_patch_house",
+        "projection": "rigid"
+      },
+      "weight": 1
     },
     {
       "element": {
         "element_type": "minecraft:empty_pool_element"
       },
-      "weight": 10
+      "weight": 1
     }
   ],
   "fallback": "biomeswevegone:village/pumpkin_patch/terminators"
