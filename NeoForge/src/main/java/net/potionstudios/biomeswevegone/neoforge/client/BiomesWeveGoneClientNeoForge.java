@@ -6,6 +6,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
@@ -34,5 +35,6 @@ public class BiomesWeveGoneClientNeoForge {
         eventBus.addListener((EntityRenderersEvent.RegisterLayerDefinitions event) -> BiomesWeveGoneClient.registerLayerDefinitions(event::registerLayerDefinition));
         eventBus.addListener((RegisterColorHandlersEvent.Block event) -> BiomesWeveGoneClient.registerBlockColors(event::register));
         eventBus.addListener((RegisterColorHandlersEvent.ItemTintSources event) -> BiomesWeveGoneClient.registerItemTintSources(event::register));
+        eventBus.addListener((ModelEvent.RegisterAdditional event) -> BiomesWeveGoneClient.registerAdditionalModels(wreath -> event.register(wreath.id())));
     }
 }

@@ -16,6 +16,7 @@ import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.resources.ResourceLocation;
@@ -36,10 +37,12 @@ import net.potionstudios.biomeswevegone.client.color.item.FoliageColorSource;
 import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
 import net.potionstudios.biomeswevegone.client.particle.particles.FallingLeafParticle;
 import net.potionstudios.biomeswevegone.client.particle.particles.FireFlyParticle;
+import net.potionstudios.biomeswevegone.client.renderer.entity.wreath.WreathRenderer;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.client.renderer.entity.manowar.ManOWarRenderer;
 import net.potionstudios.biomeswevegone.client.renderer.entity.oddion.OddionRenderer;
 import net.potionstudios.biomeswevegone.client.renderer.entity.pumpkinwarden.PumpkinWardenRenderer;
+import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGSpreadableBlock;
 import net.potionstudios.biomeswevegone.world.level.block.entities.BWGBlockEntityType;
@@ -51,8 +54,10 @@ import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -88,6 +93,7 @@ public class BiomesWeveGoneClient {
         consumer.accept(BWGEntityType.MAN_O_WAR.get(), ManOWarRenderer::new);
         consumer.accept(BWGEntityType.PUMPKIN_WARDEN.get(), PumpkinWardenRenderer::new);
         consumer.accept(BWGEntityType.ODDION.get(), OddionRenderer::new);
+        consumer.accept(BWGEntityType.WREATH.get(), WreathRenderer::new);
         BWGWoodSet.woodsets().forEach(set -> {
             consumer.accept(set.boat().get(), context -> new BoatRenderer(context, set.boatModelLayer()));
             consumer.accept(set.chestBoat().get(), context -> new BoatRenderer(context, set.chestBoatModelLayer()));
@@ -113,6 +119,14 @@ public class BiomesWeveGoneClient {
             consumer.accept(set.boatModelLayer(), BoatModel::createBoatModel);
             consumer.accept(set.chestBoatModelLayer(), BoatModel::createChestBoatModel);
         });
+    }
+
+    /**
+     * Registers additional models
+     * @see ModelResourceLocation
+     */
+    public static void registerAdditionalModels(Consumer<ModelResourceLocation> consumer) {
+        Arrays.stream(Wreath.Type.values()).forEach(type -> consumer.accept(new ModelResourceLocation(BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath"), "standalone")));
     }
 
     /**
