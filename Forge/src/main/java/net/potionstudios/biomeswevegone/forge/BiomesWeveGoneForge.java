@@ -14,7 +14,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.commands.BWGReloadCommand;
+import net.potionstudios.biomeswevegone.commands.BWGCommands;
 import net.potionstudios.biomeswevegone.forge.loot.LootModifiersRegister;
 import net.potionstudios.biomeswevegone.forge.client.BiomesWeveGoneClientForge;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
@@ -41,7 +41,7 @@ public class BiomesWeveGoneForge {
         EVENT_BUS.addListener((ServerAboutToStartEvent event) -> BiomesWeveGone.serverStart(event.getServer()));
         MOD_BUS.addListener((EntityAttributeCreationEvent event) -> BWGEntityType.registerEntityAttributes(event::put));
         MOD_BUS.addListener((SpawnPlacementRegisterEvent event) -> BWGEntityType.registerSpawnPlacements((consumer) -> event.register(consumer.entityType(), consumer.spawnPlacementType(), consumer.heightmapType(), consumer.predicate(), SpawnPlacementRegisterEvent.Operation.OR)));
-        EVENT_BUS.addListener((RegisterCommandsEvent event) -> BWGReloadCommand.register(event.getDispatcher()::register));
+        EVENT_BUS.addListener((RegisterCommandsEvent event) -> BWGCommands.register(event.getDispatcher()::register));
         EVENT_BUS.addListener((EntityJoinLevelEvent event) -> BiomesWeveGone.onEntityLoad(event.getEntity()));
         VanillaCompatForge.registerVanillaCompatEvents(EVENT_BUS);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> BiomesWeveGoneClientForge.init(MOD_BUS));

@@ -42,6 +42,7 @@ dependencies {
     modApi("corgitaco.corgilib:Corgilib-Fabric:$minecraftVersion-${project.properties["corgilib_version"]}")
     modApi("dev.corgitaco:Oh-The-Trees-Youll-Grow-fabric:$minecraftVersion-${project.properties["ohthetreesyoullgrow_version"]}")
     modApi("software.bernie.geckolib:geckolib-fabric-$minecraftVersion:${project.properties["geckolib_version"]}")
+    modApi("me.lucko:fabric-permissions-api:0.3.1")
 
     modCompileOnly("mcp.mobius.waila:wthit-api:fabric-${project.properties["WTHIT"]}")
     modLocalRuntime("mcp.mobius.waila:wthit:fabric-${project.properties["WTHIT"]}")
