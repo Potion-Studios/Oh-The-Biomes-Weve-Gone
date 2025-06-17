@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomeswevegone:white_dacite_tile"
+        "recipe": "biomeswevegone:white_dacite_tiles"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "biomeswevegone:white_dacite_tile"
+      "biomeswevegone:white_dacite_tiles"
     ]
   }
 }

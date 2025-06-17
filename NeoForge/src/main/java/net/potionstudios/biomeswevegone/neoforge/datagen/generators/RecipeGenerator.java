@@ -235,7 +235,7 @@ public class RecipeGenerator extends RecipeProvider {
 
         smeltingResultFromBase(BWGBlocks.DACITE_SET.getBase(), BWGBlocks.DACITE_COBBLESTONE_SET.getBase());
         twoByTwoPackertoFourWithStoneCutting(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.DACITE_BRICKS_SET.getBase(), BWGBlocks.DACITE_SET.getBase());
-        twoByTwoPackertoFourWithStoneCutting(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.DACITE_TILE_SET.getBase(), BWGBlocks.DACITE_BRICKS_SET.getBase());
+        twoByTwoPackertoFourWithStoneCutting(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.DACITE_TILES_SET.getBase(), BWGBlocks.DACITE_BRICKS_SET.getBase());
         ShapedRecipeBuilder.shaped(itemRegistry, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.DACITE_PILLAR.get())
                 .define('#', BWGBlocks.DACITE_SET.getBase())
                 .pattern("#")
@@ -245,7 +245,7 @@ public class RecipeGenerator extends RecipeProvider {
 
         smeltingResultFromBase(BWGBlocks.WHITE_DACITE_SET.getBase(), BWGBlocks.WHITE_DACITE_COBBLESTONE_SET.getBase());
         twoByTwoPackertoFourWithStoneCutting(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase(), BWGBlocks.WHITE_DACITE_SET.getBase());
-        twoByTwoPackertoFourWithStoneCutting(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.WHITE_DACITE_TILE_SET.getBase(), BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase());
+        twoByTwoPackertoFourWithStoneCutting(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.WHITE_DACITE_TILES_SET.getBase(), BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase());
         ShapedRecipeBuilder.shaped(itemRegistry, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.WHITE_DACITE_PILLAR.get())
                 .define('#', BWGBlocks.WHITE_DACITE_SET.getBase())
                 .pattern("#")
