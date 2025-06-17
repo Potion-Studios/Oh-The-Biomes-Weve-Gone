@@ -105,7 +105,7 @@ public class AdvancementGenerator extends AdvancementProvider {
 
             Advancement.Builder.advancement()
                     .parent(adventureRoot)
-                    .rewards(new AdvancementRewards.Builder().addLootTable(BiomesWeveGone.key(Registries.LOOT_TABLE, "chests/advancement/true_traveler/better_days_music_disc")))
+                    .rewards(AdvancementRewards.Builder.loot(BiomesWeveGone.key(Registries.LOOT_TABLE, "advancement_rewards/true_traveler/better_days_music_disc")))
                     .requirements(AdvancementRequirements.Strategy.AND)
                     .addCriterion("pumpkin_patch_village", PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(registries.holderOrThrow(BWGStructures.PUMPKIN_PATCH_VILLAGE))))
                     .addCriterion("skyris_village", PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(registries.holderOrThrow(BWGStructures.SKYRIS_VILLAGE))))

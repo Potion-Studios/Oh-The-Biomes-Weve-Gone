@@ -14,7 +14,8 @@ public class LootGenerator extends LootTableProvider {
         super(output, Collections.emptySet(), ImmutableList.of(
                 new SubProviderEntry(BlockLootGenerator::new, LootContextParamSets.BLOCK),
                 new SubProviderEntry(EntityLootGenerator::new, LootContextParamSets.ENTITY),
-                new SubProviderEntry(ChestLootGenerator::new, LootContextParamSets.CHEST)
+                new SubProviderEntry(ChestLootGenerator::new, LootContextParamSets.CHEST),
+                new SubProviderEntry(AdvancementLootGenerator::new, LootContextParamSets.ADVANCEMENT_REWARD)
         ), registries);
     }
 }

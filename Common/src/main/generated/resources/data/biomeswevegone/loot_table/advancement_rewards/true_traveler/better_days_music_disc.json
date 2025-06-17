@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:chest",
+  "type": "minecraft:advancement_reward",
   "pools": [
     {
       "bonus_rolls": 0.0,
@@ -16,5 +16,5 @@
       }
     }
   ],
-  "random_sequence": "biomeswevegone:chests/advancement/true_traveler/better_days_music_disc"
+  "random_sequence": "biomeswevegone:advancement_rewards/true_traveler/better_days_music_disc"
 }

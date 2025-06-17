@@ -21,7 +21,7 @@ import java.util.stream.Stream;
 
 class EntityLootGenerator extends EntityLootSubProvider {
     private static final ArrayList<EntityType<?>> knownEntities = new ArrayList<>();
-    protected EntityLootGenerator(HolderLookup.Provider lookupProvider) {
+    EntityLootGenerator(HolderLookup.Provider lookupProvider) {
         super(FeatureFlags.REGISTRY.allFlags(), lookupProvider);
     }
 

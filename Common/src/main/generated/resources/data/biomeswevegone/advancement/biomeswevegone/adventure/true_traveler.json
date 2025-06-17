@@ -114,7 +114,7 @@
   ],
   "rewards": {
     "loot": [
-      "biomeswevegone:chests/advancement/true_traveler/better_days_music_disc"
+      "biomeswevegone:advancement_rewards/true_traveler/better_days_music_disc"
     ]
   },
   "sends_telemetry_event": true

@@ -42,7 +42,7 @@ class BlockLootGenerator extends BlockLootSubProvider {
 
     private final List<Block> knownBlocks = new ArrayList<>();
 
-    protected BlockLootGenerator(HolderLookup.Provider registries) {
+    BlockLootGenerator(HolderLookup.Provider registries) {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags(), registries);
     }
 
