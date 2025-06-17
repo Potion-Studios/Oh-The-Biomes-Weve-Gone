@@ -29,11 +29,11 @@ public class BWGVillagerTypes {
 		consumer.accept(BWGBiomes.WHITE_MANGROVE_MARSHES, VillagerType.SWAMP);
 		consumer.accept(BWGBiomes.BAYOU, VillagerType.SWAMP);
 		consumer.accept(BWGBiomes.CYPRESS_SWAMPLANDS, VillagerType.SWAMP);
-		//consumer.accept(BWGBiomes.CYPRESS_WETLANDS, VillagerType.SWAMP);
+		consumer.accept(BWGBiomes.CYPRESS_WETLANDS, VillagerType.SWAMP);
 		consumer.accept(BWGBiomes.BAYOU, VillagerType.SWAMP);
 		consumer.accept(BWGBiomes.PALE_BOG, VillagerType.SWAMP);
 		consumer.accept(BWGBiomes.RED_ROCK_VALLEY, RED_ROCK.get());
-		//consumer.accept(BWGBiomes.RED_ROCK_PEAKS, RED_ROCK.get());
+		consumer.accept(BWGBiomes.RED_ROCK_PEAKS, RED_ROCK.get());
 		consumer.accept(BWGBiomes.SKYRIS_VALE, SKYRIS.get());
 		consumer.accept(BWGBiomes.WEEPING_WITCH_FOREST, SALEM.get());
 	}
