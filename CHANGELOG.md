@@ -1,6 +1,8 @@
 # 1.6.1
 - Add Wreaths to Compostable Blocks
 - Fix Overgrown White Dacite not taking Biome Color
+- Add Wreaths to Forager Trades
+- Add White Dacite to Mason Level 4 Trades
 
 # 1.6.0 The Village Update → https://github.com/Potion-Studios/Oh-The-Biomes-Weve-Gone/discussions/279
 - This is a major update not all changes are listed here, please check the discussion for more details
