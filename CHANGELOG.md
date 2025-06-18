@@ -1,4 +1,5 @@
 # 1.6.1
+- Add Wreaths to Compostable Blocks
 
 # 1.6.0 The Village Update → https://github.com/Potion-Studios/Oh-The-Biomes-Weve-Gone/discussions/279
 - This is a major update not all changes are listed here, please check the discussion for more details
