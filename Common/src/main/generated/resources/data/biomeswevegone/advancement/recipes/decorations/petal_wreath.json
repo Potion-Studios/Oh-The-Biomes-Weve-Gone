@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomeswevegone:petal_wreath"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wreath": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:wreath"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_wreath"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomeswevegone:petal_wreath"
+    ]
+  }
+}

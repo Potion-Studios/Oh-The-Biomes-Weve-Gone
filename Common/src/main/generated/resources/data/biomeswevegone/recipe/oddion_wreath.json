@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "biomeswevegone:oddion_bulb",
+    "X": "biomeswevegone:wreath"
+  },
+  "pattern": [
+    " # ",
+    "#X#",
+    " # "
+  ],
+  "result": {
+    "count": 1,
+    "id": "biomeswevegone:oddion_wreath"
+  }
+}

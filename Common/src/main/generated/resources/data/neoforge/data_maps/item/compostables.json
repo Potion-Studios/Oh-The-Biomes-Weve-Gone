@@ -279,6 +279,9 @@
     "biomeswevegone:holly_sapling": {
       "chance": 0.3
     },
+    "biomeswevegone:holly_wreath": {
+      "chance": 0.75
+    },
     "biomeswevegone:horseweed": {
       "chance": 0.65
     },
@@ -351,8 +354,14 @@
     "biomeswevegone:mini_cactus": {
       "chance": 0.5
     },
+    "biomeswevegone:mushroom_wreath": {
+      "chance": 0.75
+    },
     "biomeswevegone:oddion_bulb": {
       "chance": 0.65
+    },
+    "biomeswevegone:oddion_wreath": {
+      "chance": 0.75
     },
     "biomeswevegone:orange_amaranth": {
       "chance": 0.65
@@ -410,6 +419,9 @@
     },
     "biomeswevegone:peach_leather_flower": {
       "chance": 0.65
+    },
+    "biomeswevegone:petal_wreath": {
+      "chance": 0.75
     },
     "biomeswevegone:pine_leaves": {
       "chance": 0.3
@@ -503,6 +515,9 @@
     },
     "biomeswevegone:rose": {
       "chance": 0.65
+    },
+    "biomeswevegone:rosy_wreath": {
+      "chance": 0.75
     },
     "biomeswevegone:silver_maple_leaves": {
       "chance": 0.3
@@ -615,6 +630,9 @@
     "biomeswevegone:winter_rose": {
       "chance": 0.65
     },
+    "biomeswevegone:winter_rosy_wreath": {
+      "chance": 0.75
+    },
     "biomeswevegone:winter_scilla": {
       "chance": 0.65
     },
@@ -632,6 +650,9 @@
     },
     "biomeswevegone:wood_blewit_mushroom_block": {
       "chance": 0.85
+    },
+    "biomeswevegone:wreath": {
+      "chance": 0.75
     },
     "biomeswevegone:yellow_birch_leaves": {
       "chance": 0.3

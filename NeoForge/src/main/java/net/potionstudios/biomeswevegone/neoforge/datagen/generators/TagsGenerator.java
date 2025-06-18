@@ -355,6 +355,7 @@ public class TagsGenerator {
             tag(ItemTags.PIGLIN_REPELLENTS).add(BWGItems.SOUL_FRUIT.get());
             tag(ItemTags.MAP_INVISIBILITY_EQUIPMENT).add(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem());
             tag(ItemTags.GAZE_DISGUISE_EQUIPMENT).add(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem());
+            tag(BWGItemTags.WREATHS).add(BWGItems.WREATH.get(), BWGItems.HOLLY_WREATH.get(), BWGItems.MUSHROOM_WREATH.get(), BWGItems.ODDION_WREATH.get(), BWGItems.PETAL_WREATH.get(), BWGItems.ROSY_WREATH.get(), BWGItems.WINTER_ROSY_WREATH.get());
 
             // Dye Recipes
             tag(BWGItemTags.MAKES_BLACK_DYE).add(BWGBlocks.BLACK_ROSE.getItem());

@@ -1,0 +1,7 @@
+{
+  "parent": "biomeswevegone:block/template_wreath",
+  "textures": {
+    "particle": "biomeswevegone:block/default_wreath",
+    "wreath": "biomeswevegone:block/default_wreath"
+  }
+}
