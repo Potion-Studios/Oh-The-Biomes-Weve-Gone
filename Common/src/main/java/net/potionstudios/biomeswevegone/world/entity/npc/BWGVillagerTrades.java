@@ -39,10 +39,14 @@ public class BWGVillagerTrades {
                     ),
                     2, ImmutableList.of(
                             createEmeraldForItemsOffer(BWGBlocks.WOOD_BLEWIT.get(), 8, 12, 3),
-                            createItemsForEmeraldsOffer(BWGItems.WHITE_PUFFBALL_CAP.get(), 4, 5, 4, 2, 0.05f)
+                            createItemsForEmeraldsOffer(BWGItems.WHITE_PUFFBALL_CAP.get(), 4, 5, 4, 2, 0.05f),
+                            createItemsForEmeraldsOffer(BWGItems.WREATH.get(), 1, 2, 8, 2, 0.05f)
                     ),
                     3, ImmutableList.of(
-                            createEmeraldForItemsOffer(BWGItems.WHITE_PUFFBALL_SPORES.get(), 4, 5, 4)
+                            createEmeraldForItemsOffer(BWGItems.WHITE_PUFFBALL_SPORES.get(), 4, 5, 4),
+                            createItemsForEmeraldsOffer(BWGItems.HOLLY_WREATH.get(), 2, 1, 8, 2, 0.05f),
+                            createItemsForEmeraldsOffer(BWGItems.ROSY_WREATH.get(), 2, 1, 8, 2, 0.05f),
+                            createItemsForEmeraldsOffer(BWGItems.PETAL_WREATH.get(), 2, 1, 8, 2, 0.05f)
                     ),
                     4, ImmutableList.of(
                             createItemsForEmeraldsOffer(BWGBlocks.WITCH_HAZEL_BRANCH.get(), 4, 9, 4, 3, 0.05f),
