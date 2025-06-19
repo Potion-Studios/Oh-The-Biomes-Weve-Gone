@@ -35,6 +35,6 @@ public class BiomesWeveGoneClientNeoForge {
         eventBus.addListener((EntityRenderersEvent.RegisterLayerDefinitions event) -> BiomesWeveGoneClient.registerLayerDefinitions(event::registerLayerDefinition));
         eventBus.addListener((RegisterColorHandlersEvent.Block event) -> BiomesWeveGoneClient.registerBlockColors(event::register));
         eventBus.addListener((RegisterColorHandlersEvent.ItemTintSources event) -> BiomesWeveGoneClient.registerItemTintSources(event::register));
-        eventBus.addListener((ModelEvent.RegisterAdditional event) -> BiomesWeveGoneClient.registerAdditionalModels(wreath -> event.register(wreath.id())));
+        eventBus.addListener((ModelEvent.RegisterAdditional event) -> BiomesWeveGoneClient.registerAdditionalModels(event::register));
     }
 }

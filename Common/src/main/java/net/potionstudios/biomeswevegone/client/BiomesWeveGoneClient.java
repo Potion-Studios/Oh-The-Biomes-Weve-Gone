@@ -16,7 +16,6 @@ import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.resources.ResourceLocation;
@@ -123,10 +122,10 @@ public class BiomesWeveGoneClient {
 
     /**
      * Registers additional models
-     * @see ModelResourceLocation
+     * @see net.potionstudios.biomeswevegone.client.model.ModelAccess
      */
-    public static void registerAdditionalModels(Consumer<ModelResourceLocation> consumer) {
-        Arrays.stream(Wreath.Type.values()).forEach(type -> consumer.accept(new ModelResourceLocation(BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath"), "standalone")));
+    public static void registerAdditionalModels(Consumer<ResourceLocation> consumer) {
+        Arrays.stream(Wreath.Type.values()).forEach(type -> consumer.accept(BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath")));
     }
 
     /**

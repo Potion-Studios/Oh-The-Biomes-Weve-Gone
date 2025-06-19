@@ -10,10 +10,10 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.resources.model.ModelManager;
-import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.Direction;
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.client.model.ModelAccess;
 import net.potionstudios.biomeswevegone.client.renderer.entity.state.WreathRenderState;
 import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import org.jetbrains.annotations.NotNull;
@@ -53,7 +53,7 @@ public class WreathRenderer extends EntityRenderer<Wreath, WreathRenderState> {
 					poseStack.last(),
 					bufferSource.getBuffer(RenderType.entityCutout(TextureAtlas.LOCATION_BLOCKS)),
 					null,
-					modelManager.getModel(new ModelResourceLocation(BiomesWeveGone.id(renderState.type.getSerializedName() + "_wreath"), "standalone")),
+					ModelAccess.MODEL_ACCESS.getModel(BiomesWeveGone.id("block/" + renderState.type.getSerializedName() + "_wreath")),
 					1.0F, 1.0F, 1.0F,
 					packedLight,
 					OverlayTexture.NO_OVERLAY);

@@ -36,6 +36,6 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer, ModelLo
 
     @Override
     public void initialize(Context context) {
-        BiomesWeveGoneClient.registerAdditionalModels((modelResourceLocation -> context.addModels(modelResourceLocation.id())));
+        BiomesWeveGoneClient.registerAdditionalModels((context::addModels));
     }
 }
