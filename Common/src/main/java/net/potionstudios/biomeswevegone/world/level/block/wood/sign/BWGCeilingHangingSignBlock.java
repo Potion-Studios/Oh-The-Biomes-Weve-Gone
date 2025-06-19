@@ -14,7 +14,7 @@ public class BWGCeilingHangingSignBlock extends CeilingHangingSignBlock {
 	}
 
 	@Override
-	public BlockEntity newBlockEntity(@NotNull BlockPos arg, @NotNull BlockState arg2) {
+	public @NotNull BlockEntity newBlockEntity(@NotNull BlockPos arg, @NotNull BlockState arg2) {
 		return new BWGHangingSignBlockEntity(arg, arg2);
 	}
 }
