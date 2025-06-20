@@ -1,6 +1,9 @@
 {
   "values": [
-    "#c:eggs",
+    {
+      "id": "#c:eggs",
+      "required": false
+    },
     "#c:pumpkins",
     "minecraft:pumpkin_pie"
   ]
