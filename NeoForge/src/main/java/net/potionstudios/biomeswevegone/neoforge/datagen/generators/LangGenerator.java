@@ -42,6 +42,7 @@ public class LangGenerator extends LanguageProvider {
         add(BWGItems.MUSIC_DISC_PIXIE_CLUB.get(), "Music Disc");
         add(BWGItems.MUSIC_DISC_BETTER_DAYS.get(), "Music Disc");
         add("item." + BiomesWeveGone.MOD_ID + ".music_disc_pixie_club.desc", "AOCAWOL - Pixie Club");
+        add("item." + BiomesWeveGone.MOD_ID + ".music_disc_better_days.desc", "AOCAWOL - Better Days");
         add("jukebox_song." + BWGJukeBoxSongs.PIXIE_CLUB.location().toLanguageKey(), "AOCAWOL - Pixie Club");
         add("jukebox_song." + BWGJukeBoxSongs.BETTER_DAYS.location().toLanguageKey(), "AOCAWOL - Better Days");
         BWGWood.WOOD_BLOCK_ITEMS.forEach(wood -> {
@@ -109,6 +110,8 @@ public class LangGenerator extends LanguageProvider {
 
         add(death("inQuicksand"), "%s tried to swim in the desert");
         add(death("cattailExplosion"), "%s got too curious and put a cattail in a campfire");
+
+        add("filled_map.bog_trial", "Bog Trial Explorer Map");
 
         add("biomeswevegone.commands.reload.success", "Successfully reloaded all configs");
         add("biomeswevegone.commands.reload.misc.success", "Successfully reloaded misc config");
