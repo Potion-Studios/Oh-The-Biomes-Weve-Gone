@@ -4,11 +4,11 @@
     "component": "biomeswevegone:pumpkin_warden",
     "on_false": {
       "type": "minecraft:model",
-      "model": "biomeswevegone:block/pumpkin_burrow_unoccupied"
+      "model": "biomeswevegone:block/pumpkin_burrow"
     },
     "on_true": {
       "type": "minecraft:model",
-      "model": "biomeswevegone:block/pumpkin_burrow"
+      "model": "biomeswevegone:block/pumpkin_burrow_occupied"
     },
     "property": "minecraft:has_component"
   }

@@ -99,7 +99,7 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
     @Override
     protected void collectImplicitComponents(DataComponentMap.@NotNull Builder components) {
         super.collectImplicitComponents(components);
-        components.set(BWGDataComponents.PUMPKIN_WARDEN.get(), stored);
+        if (!isEmpty()) components.set(BWGDataComponents.PUMPKIN_WARDEN.get(), stored);
     }
 
     public void emptyOccupant(Level level) {

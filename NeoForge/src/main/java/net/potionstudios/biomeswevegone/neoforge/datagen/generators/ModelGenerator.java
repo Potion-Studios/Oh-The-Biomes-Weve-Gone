@@ -510,8 +510,8 @@ public class ModelGenerator extends ModelProvider {
         itemModels.generateFlatItem(BWGItems.MUSIC_DISC_PIXIE_CLUB.get(), ModelTemplates.MUSIC_DISC);
         itemModels.generateFlatItem(BWGItems.MUSIC_DISC_BETTER_DAYS.get(), ModelTemplates.MUSIC_DISC);
 
-        ItemModel.Unbaked occupiedItem = ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(BWGBlocks.PUMPKIN_BURROW.get()));
-        ItemModel.Unbaked unoccupiedItem = ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(BWGBlocks.PUMPKIN_BURROW.get(), "_unoccupied"));
+        ItemModel.Unbaked occupiedItem = ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(BWGBlocks.PUMPKIN_BURROW.get(), "_occupied"));
+        ItemModel.Unbaked unoccupiedItem = ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(BWGBlocks.PUMPKIN_BURROW.get()));
 
         itemModels.itemModelOutput.accept(BWGItems.PUMPKIN_BURROW.get(), ItemModelUtils.conditional(
                 ItemModelUtils.hasComponent(BWGDataComponents.PUMPKIN_WARDEN.get()),
