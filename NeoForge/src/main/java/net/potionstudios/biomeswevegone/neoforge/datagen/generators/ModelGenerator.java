@@ -6,6 +6,7 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.blockstates.*;
 import net.minecraft.client.data.models.model.*;
+import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -19,9 +20,11 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.client.color.item.BorealisIceColorSource;
 import net.potionstudios.biomeswevegone.client.color.item.FoliageColorSource;
+import net.potionstudios.biomeswevegone.component.BWGDataComponents;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGFarmLandBlock;
+import net.potionstudios.biomeswevegone.world.level.block.custom.PumpkinBurrowBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.BWGPlacementBushBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.HydrangeaHedgeBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.ShrubBlock;
@@ -338,7 +341,7 @@ public class ModelGenerator extends ModelProvider {
                                 .put(TextureSlot.BOTTOM, BiomesWeveGone.id("block/" + BuiltInRegistries.BLOCK.getKey(b).getPath().replace("_path", "")))
                                 .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(b, "_side"))
                                 .put(TextureSlot.TOP, TextureMapping.getBlockTexture(Blocks.DIRT_PATH, "_top")))
-                        .updateTemplate(modelTemplate -> modelTemplate.extend().parent(mcLocation("block/dirt_path")).build()).create(b, blockModels.modelOutput)));
+                                .updateTemplate(modelTemplate -> modelTemplate.extend().parent(mcLocation("block/dirt_path")).build()).create(b, blockModels.modelOutput)));
                 blockItemModel(blockModels, b);
             } else if (b instanceof HugeMushroomBlock) {
                 blockModels.createMushroomBlock(b);
@@ -373,6 +376,13 @@ public class ModelGenerator extends ModelProvider {
         blockItemModel(blockModels, BWGBlocks.PALE_PUMPKIN.get());
         blockItemModel(blockModels, BWGBlocks.CARVED_PALE_PUMPKIN.get());
         blockItemModel(blockModels, BWGBlocks.PALE_JACK_O_LANTERN.get());
+
+        // Define texture mappings
+        ResourceLocation unoccupiedModel = TexturedModel.createDefault(TextureMapping::defaultTexture, ModelTemplates.create(TextureSlot.FRONT)).updateTexture(textureMapping1 ->  textureMapping1.put(TextureSlot.FRONT, textureMapping1.getBlockTexture(BWGBlocks.PUMPKIN_BURROW.get()))).updateTemplate(modelTemplate -> modelTemplate.extend().parent(mcLocation("block/carved_pumpkin")).build()).create(BWGBlocks.PUMPKIN_BURROW.get(), blockModels.modelOutput);
+        ResourceLocation occupiedModel = TexturedModel.createDefault(TextureMapping::defaultTexture, ModelTemplates.create(TextureSlot.FRONT)).updateTexture(textureMapping1 ->  textureMapping1.put(TextureSlot.FRONT, textureMapping1.getBlockTexture(BWGBlocks.PUMPKIN_BURROW.get(), "_occupied"))).updateTemplate(modelTemplate -> modelTemplate.extend().parent(mcLocation("block/carved_pumpkin")).build()).createWithSuffix(BWGBlocks.PUMPKIN_BURROW.get(), "_occupied", blockModels.modelOutput);
+
+        blockModels.blockStateOutput.accept(MultiVariantGenerator.multiVariant(BWGBlocks.PUMPKIN_BURROW.get()).with(BlockModelGenerators.createHorizontalFacingDispatch())
+                .with(PropertyDispatch.property(PumpkinBurrowBlock.OCCUPIED).select(false, Variant.variant().with(VariantProperties.MODEL, unoccupiedModel)).select(true, Variant.variant().with(VariantProperties.MODEL, occupiedModel))));
 
 
         blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(BWGBlocks.WITCH_HAZEL_BLOSSOM.get(), ModelLocationUtils.getModelLocation(BWGBlocks.WITCH_HAZEL_BLOSSOM.get())));
@@ -419,12 +429,19 @@ public class ModelGenerator extends ModelProvider {
 
         createGrassBlockModel(blockModels, BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.LUSH_DIRT.get());
         createGrassBlockModel(blockModels, BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.DACITE_SET.getBase());
+        createGrassBlockModel(blockModels, BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.WHITE_DACITE_SET.getBase());
         createGrassBlockModel(blockModels, BWGBlocks.OVERGROWN_STONE.get(), Blocks.STONE);
         blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(BWGBlocks.PODZOL_DACITE.get(), ModelTemplates.CUBE_BOTTOM_TOP.create(BWGBlocks.PODZOL_DACITE.get(),
             new TextureMapping().put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(BWGBlocks.DACITE_SET.getBase()))
             .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(BWGBlocks.PODZOL_DACITE.get()))
             .put(TextureSlot.TOP, TextureMapping.getBlockTexture(Blocks.PODZOL, "_top")), blockModels.modelOutput)));
         blockItemModel(blockModels, BWGBlocks.PODZOL_DACITE.get());
+
+        blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(BWGBlocks.WHITE_PODZOL_DACITE.get(), ModelTemplates.CUBE_BOTTOM_TOP.create(BWGBlocks.WHITE_PODZOL_DACITE.get(),
+                new TextureMapping().put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(BWGBlocks.WHITE_DACITE_SET.getBase()))
+                        .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(BWGBlocks.WHITE_PODZOL_DACITE.get()))
+                        .put(TextureSlot.TOP, TextureMapping.getBlockTexture(Blocks.PODZOL, "_top")), blockModels.modelOutput)));
+        blockItemModel(blockModels, BWGBlocks.WHITE_PODZOL_DACITE.get());
 
         blockModels.registerSimpleTintedItemModel(BWGBlocks.POISON_IVY.get(), ModelTemplates.FLAT_ITEM.create(BWGBlocks.POISON_IVY.get(), TextureMapping.layer0(TextureMapping.getBlockTexture(BWGBlocks.POISON_IVY.get())), itemModels.modelOutput), new FoliageColorSource());
         basicItem(itemModels, BWGBlocks.SKYRIS_VINE.get().asItem());
@@ -491,6 +508,24 @@ public class ModelGenerator extends ModelProvider {
         itemModels.declareCustomModelItem(BWGItems.WATER_SILK.get());
 
         itemModels.generateFlatItem(BWGItems.MUSIC_DISC_PIXIE_CLUB.get(), ModelTemplates.MUSIC_DISC);
+        itemModels.generateFlatItem(BWGItems.MUSIC_DISC_BETTER_DAYS.get(), ModelTemplates.MUSIC_DISC);
+
+        ItemModel.Unbaked occupiedItem = ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(BWGBlocks.PUMPKIN_BURROW.get(), "_occupied"));
+        ItemModel.Unbaked unoccupiedItem = ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(BWGBlocks.PUMPKIN_BURROW.get()));
+
+        itemModels.itemModelOutput.accept(BWGItems.PUMPKIN_BURROW.get(), ItemModelUtils.conditional(
+                ItemModelUtils.hasComponent(BWGDataComponents.PUMPKIN_WARDEN.get()),
+                occupiedItem,
+                unoccupiedItem
+        ));
+
+        itemModels.itemModelOutput.accept(BWGItems.WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/default_wreath")), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.HOLLY_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.HOLLY_WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/holly_wreath")), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.MUSHROOM_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.MUSHROOM_WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/mushroom_wreath")), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.ODDION_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.ODDION_WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/oddion_wreath")), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.PETAL_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.PETAL_WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/petal_wreath")), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.ROSY_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.ROSY_WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/rosy_wreath")), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.WINTER_ROSY_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.WINTER_ROSY_WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/winter_rosy_wreath")), itemModels.modelOutput)));
     }
 
     private void blockItemModel(BlockModelGenerators blockModels, Block block) {

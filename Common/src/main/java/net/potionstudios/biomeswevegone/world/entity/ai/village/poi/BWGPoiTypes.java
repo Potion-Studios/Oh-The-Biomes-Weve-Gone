@@ -18,8 +18,9 @@ import java.util.function.Supplier;
 public class BWGPoiTypes {
 
     public static final ResourceKey<PoiType> FORAGER = register("forager", BWGBlocks.FORAGERS_TABLE, 1, 1);
+    public static final ResourceKey<PoiType> PUMPKIN_BURROW = register("pumpkin_burrow", BWGBlocks.PUMPKIN_BURROW, 1, 1);
 
-    private static ResourceKey<PoiType> register(String id, Supplier<Block> block, int maxTickets, int validRange) {
+    private static ResourceKey<PoiType> register(String id, Supplier<? extends Block> block, int maxTickets, int validRange) {
         PlatformHandler.PLATFORM_HANDLER.registerPOIType(id, block, maxTickets, validRange);
         return BiomesWeveGone.key(Registries.POINT_OF_INTEREST_TYPE, id);
     }

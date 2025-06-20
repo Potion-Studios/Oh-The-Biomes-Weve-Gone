@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:pink_petals",
+    "X": "biomeswevegone:white_sakura_petals",
+    "Y": "biomeswevegone:yellow_sakura_petals",
+    "Z": "biomeswevegone:wreath"
+  },
+  "pattern": [
+    " X ",
+    "YZY",
+    " # "
+  ],
+  "result": {
+    "count": 1,
+    "id": "biomeswevegone:petal_wreath"
+  }
+}

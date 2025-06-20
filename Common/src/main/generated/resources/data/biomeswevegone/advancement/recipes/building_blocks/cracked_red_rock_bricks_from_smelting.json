@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_tag": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#biomeswevegone:red_rock_bricks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomeswevegone:cracked_red_rock_bricks_from_smelting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tag"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomeswevegone:cracked_red_rock_bricks_from_smelting"
+    ]
+  }
+}

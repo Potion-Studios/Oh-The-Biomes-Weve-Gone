@@ -1,3 +1,4 @@
+
 package net.potionstudios.biomeswevegone.world.level.levelgen.biome.selector;
 
 import corgitaco.corgilib.serialization.codec.Wrapped;
@@ -26,7 +27,7 @@ public class BWGBiomeSelectors {
             {BWGBiomes.PUMPKIN_VALLEY, BWGBiomes.PUMPKIN_VALLEY, BWGBiomes.SKYRIS_VALE, BWGBiomes.SKYRIS_VALE, BWGBiomes.CIKA_WOODS},
             {BWGBiomes.PRAIRIE, BWGBiomes.ALLIUM_SHRUBLAND, BWGBiomes.ALLIUM_SHRUBLAND, BWGBiomes.TEMPERATE_GROVE, BWGBiomes.TEMPERATE_GROVE},
             {BWGBiomes.ARAUCARIA_SAVANNA, BWGBiomes.IRONWOOD_GOUR, BWGBiomes.AMARANTH_GRASSLAND, BWGBiomes.EBONY_WOODS, BWGBiomes.JACARANDA_JUNGLE},
-            {BWGBiomes.MOJAVE_DESERT, BWGBiomes.MOJAVE_DESERT, BWGBiomes.WINDSWEPT_DESERT, BWGBiomes.ATACAMA_OUTBACK, BWGBiomes.ATACAMA_OUTBACK}
+            {BWGBiomes.MOJAVE_DESERT, BWGBiomes.MOJAVE_DESERT, BWGBiomes.WINDSWEPT_DESERT, BWGBiomes.ATACAMA_OUTBACK, BWGBiomes.RED_ROCK_VALLEY}
     });
 
     public static final Wrapped<List<List<ResourceKey<Biome>>>> MIDDLE_BIOMES_2_BWG = BiomeSelectorsUtil.create("middle_biomes/middle_biomes_2_biomes_weve_gone", "", new ResourceKey[][]{
@@ -34,7 +35,7 @@ public class BWGBiomeSelectors {
             {BWGBiomes.COCONINO_MEADOW, BWGBiomes.COCONINO_MEADOW, BWGBiomes.MAPLE_TAIGA, BWGBiomes.DACITE_RIDGES, BWGBiomes.DACITE_RIDGES},
             {BWGBiomes.PRAIRIE, BWGBiomes.ORCHARD, BWGBiomes.ORCHARD, BWGBiomes.ASPEN_BOREAL, BWGBiomes.WEEPING_WITCH_FOREST},
             {BWGBiomes.BAOBAB_SAVANNA, BWGBiomes.BAOBAB_SAVANNA, BWGBiomes.AMARANTH_GRASSLAND, BWGBiomes.CRAG_GARDENS, BWGBiomes.TROPICAL_RAINFOREST},
-            {BWGBiomes.MOJAVE_DESERT, BWGBiomes.RUGGED_BADLANDS, BWGBiomes.WINDSWEPT_DESERT, BWGBiomes.ATACAMA_OUTBACK, BWGBiomes.ATACAMA_OUTBACK}
+            {BWGBiomes.MOJAVE_DESERT, BWGBiomes.RUGGED_BADLANDS, BWGBiomes.WINDSWEPT_DESERT, BWGBiomes.ATACAMA_OUTBACK, BWGBiomes.RED_ROCK_VALLEY}
     });
 
     public static final Wrapped<List<List<ResourceKey<Biome>>>> MIDDLE_BIOMES_3_BWG = BiomeSelectorsUtil.create("middle_biomes/middle_biomes_3_biomes_weve_gone", "", new ResourceKey[][]{
@@ -42,7 +43,7 @@ public class BWGBiomeSelectors {
             {BWGBiomes.COCONINO_MEADOW, BWGBiomes.COCONINO_MEADOW, BWGBiomes.MAPLE_TAIGA, BWGBiomes.ZELKOVA_FOREST, BWGBiomes.ZELKOVA_FOREST},
             {BWGBiomes.PRAIRIE, BWGBiomes.PRAIRIE, BWGBiomes.ALLIUM_SHRUBLAND, BWGBiomes.ASPEN_BOREAL, BWGBiomes.WEEPING_WITCH_FOREST},
             {BWGBiomes.FIRECRACKER_CHAPARRAL, BWGBiomes.IRONWOOD_GOUR, BWGBiomes.AMARANTH_GRASSLAND, BWGBiomes.ENCHANTED_TANGLE, BWGBiomes.FRAGMENT_JUNGLE},
-            {BWGBiomes.MOJAVE_DESERT, BWGBiomes.RUGGED_BADLANDS, BWGBiomes.WINDSWEPT_DESERT, BWGBiomes.ATACAMA_OUTBACK, BWGBiomes.ATACAMA_OUTBACK}
+            {BWGBiomes.MOJAVE_DESERT, BWGBiomes.RUGGED_BADLANDS, BWGBiomes.WINDSWEPT_DESERT, BWGBiomes.ATACAMA_OUTBACK, BWGBiomes.RED_ROCK_VALLEY}
     });
 
     public static final Wrapped<List<List<ResourceKey<Biome>>>> MIDDLE_BIOMES_VARIANT_BWG = BiomeSelectorsUtil.create("middle_biomes_variant/middle_biomes_variant_biomes_weve_gone", "", new ResourceKey[][]{
@@ -57,7 +58,7 @@ public class BWGBiomeSelectors {
             {BWGBiomes.COCONINO_MEADOW, BWGBiomes.COCONINO_MEADOW, BWGBiomes.ASPEN_BOREAL, BWGBiomes.SKYRIS_VALE, BWGBiomes.SKYRIS_VALE},
             {BWGBiomes.TEMPERATE_GROVE, BWGBiomes.TEMPERATE_GROVE, BWGBiomes.TEMPERATE_GROVE, BWGBiomes.ROSE_FIELDS, BWGBiomes.DACITE_RIDGES},
             {BWGBiomes.BAOBAB_SAVANNA, BWGBiomes.BAOBAB_SAVANNA, BWGBiomes.REDWOOD_THICKET, BWGBiomes.JACARANDA_JUNGLE, BWGBiomes.CRAG_GARDENS},
-            {BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS}
+            {BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.RED_ROCK_VALLEY}
     });
 
     public static final Wrapped<List<List<ResourceKey<Biome>>>> PLATEAU_BIOMES_2_BWG = BiomeSelectorsUtil.create("plateau_biomes/plateau_biomes_2_biomes_weve_gone", "", new ResourceKey[][]{
@@ -65,7 +66,7 @@ public class BWGBiomeSelectors {
             {BWGBiomes.COCONINO_MEADOW, BWGBiomes.COCONINO_MEADOW, BWGBiomes.BLACK_FOREST, BWGBiomes.BLACK_FOREST, BWGBiomes.BLACK_FOREST},
             {BWGBiomes.SAKURA_GROVE, BWGBiomes.SAKURA_GROVE, BWGBiomes.SAKURA_GROVE, BWGBiomes.ROSE_FIELDS, BWGBiomes.WEEPING_WITCH_FOREST},
             {BWGBiomes.ARAUCARIA_SAVANNA, BWGBiomes.ARAUCARIA_SAVANNA, BWGBiomes.REDWOOD_THICKET, BWGBiomes.EBONY_WOODS, BWGBiomes.TROPICAL_RAINFOREST},
-            {BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS}
+            {BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.RED_ROCK_VALLEY}
     });
 
     public static final Wrapped<List<List<ResourceKey<Biome>>>> PLATEAU_BIOMES_3_BWG = BiomeSelectorsUtil.create("plateau_biomes/plateau_biomes_3_biomes_weve_gone", "", new ResourceKey[][]{
@@ -73,7 +74,7 @@ public class BWGBiomeSelectors {
             {BWGBiomes.COCONINO_MEADOW, BWGBiomes.COCONINO_MEADOW, BWGBiomes.CIKA_WOODS, BWGBiomes.CIKA_WOODS, BWGBiomes.CIKA_WOODS},
             {BWGBiomes.TEMPERATE_GROVE, BWGBiomes.TEMPERATE_GROVE, BWGBiomes.TEMPERATE_GROVE, BWGBiomes.ROSE_FIELDS, BWGBiomes.WEEPING_WITCH_FOREST},
             {BWGBiomes.FIRECRACKER_CHAPARRAL, BWGBiomes.FIRECRACKER_CHAPARRAL, BWGBiomes.REDWOOD_THICKET, BWGBiomes.EBONY_WOODS, BWGBiomes.ENCHANTED_TANGLE},
-            {BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS}
+            {BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.RED_ROCK_VALLEY}
     });
 
     public static final Wrapped<List<List<ResourceKey<Biome>>>> PLATEAU_BIOMES_VARIANT_BWG = BiomeSelectorsUtil.create("plateau_biomes_variant/plateau_biomes_variant_biomes_weve_gone", "", new ResourceKey[][]{
@@ -89,7 +90,7 @@ public class BWGBiomeSelectors {
             {Region.DEFERRED_PLACEHOLDER, BWGBiomes.HOWLING_PEAKS, BWGBiomes.ERODED_BOREALIS, BWGBiomes.ERODED_BOREALIS, BWGBiomes.ERODED_BOREALIS},
             {Region.DEFERRED_PLACEHOLDER, BWGBiomes.HOWLING_PEAKS, BWGBiomes.HOWLING_PEAKS, BWGBiomes.HOWLING_PEAKS, BWGBiomes.HOWLING_PEAKS},
             {Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, BWGBiomes.HOWLING_PEAKS, BWGBiomes.HOWLING_PEAKS, BWGBiomes.CRAG_GARDENS},
-            {BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS}
+            {BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.RED_ROCK_PEAKS, BWGBiomes.RED_ROCK_PEAKS}
     });
 
     public static final Wrapped<List<List<ResourceKey<Biome>>>> SHATTERED_BIOMES_BWG = BiomeSelectorsUtil.create("shattered_biomes/shattered_biomes_biomes_weve_gone", "", new ResourceKey[][]{
@@ -113,14 +114,14 @@ public class BWGBiomeSelectors {
             {Region.DEFERRED_PLACEHOLDER, BWGBiomes.HOWLING_PEAKS, BWGBiomes.HOWLING_PEAKS, BWGBiomes.HOWLING_PEAKS, BWGBiomes.HOWLING_PEAKS},
             {Region.DEFERRED_PLACEHOLDER, BWGBiomes.HOWLING_PEAKS, BWGBiomes.HOWLING_PEAKS, BWGBiomes.HOWLING_PEAKS, BWGBiomes.HOWLING_PEAKS},
             {Region.DEFERRED_PLACEHOLDER, BWGBiomes.HOWLING_PEAKS, BWGBiomes.HOWLING_PEAKS, BWGBiomes.HOWLING_PEAKS, BWGBiomes.CRAG_GARDENS},
-            {BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS}
+            {BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.RED_ROCK_PEAKS, BWGBiomes.RED_ROCK_PEAKS}
     });
 
     public static final Wrapped<List<List<ResourceKey<Biome>>>> SLOPE_BIOMES_BWG = BiomeSelectorsUtil.create("slope_biomes/slope_biomes_biomes_weve_gone", "", new ResourceKey[][]{
             {BWGBiomes.SHATTERED_GLACIER, BWGBiomes.ERODED_BOREALIS, BWGBiomes.ERODED_BOREALIS, BWGBiomes.FROSTED_TAIGA, BWGBiomes.FROSTED_TAIGA},
             {BWGBiomes.SHATTERED_GLACIER, BWGBiomes.ERODED_BOREALIS, BWGBiomes.CANADIAN_SHIELD, BWGBiomes.CONIFEROUS_FOREST, BWGBiomes.FROSTED_CONIFEROUS_FOREST},
             {BWGBiomes.SHATTERED_GLACIER, BWGBiomes.HOWLING_PEAKS, BWGBiomes.CANADIAN_SHIELD, BWGBiomes.CONIFEROUS_FOREST, BWGBiomes.FROSTED_CONIFEROUS_FOREST},
-            {BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.REDWOOD_THICKET, BWGBiomes.REDWOOD_THICKET, BWGBiomes.CRAG_GARDENS},
-            {BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS}
+            {BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.REDWOOD_THICKET, BWGBiomes.REDWOOD_THICKET, BWGBiomes.CRAG_GARDENS},
+            {BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.SIERRA_BADLANDS, BWGBiomes.RED_ROCK_PEAKS, BWGBiomes.RED_ROCK_PEAKS}
     });
 }

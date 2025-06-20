@@ -36,13 +36,15 @@ import net.potionstudios.biomeswevegone.client.color.item.FoliageColorSource;
 import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
 import net.potionstudios.biomeswevegone.client.particle.particles.FallingLeafParticle;
 import net.potionstudios.biomeswevegone.client.particle.particles.FireFlyParticle;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.client.renderer.entity.wreath.WreathRenderer;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.client.renderer.entity.manowar.ManOWarRenderer;
 import net.potionstudios.biomeswevegone.client.renderer.entity.oddion.OddionRenderer;
 import net.potionstudios.biomeswevegone.client.renderer.entity.pumpkinwarden.PumpkinWardenRenderer;
+import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.custom.BWGSpreadableBlock;
-import net.potionstudios.biomeswevegone.world.level.block.entities.BWGBlockEntities;
+import net.potionstudios.biomeswevegone.world.level.block.entities.BWGBlockEntityType;
 import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.BWGCactusBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.BWGFruitBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.GlowCaneBlock;
@@ -51,8 +53,10 @@ import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -82,12 +86,13 @@ public class BiomesWeveGoneClient {
     /**
      * Registers the entity renderers.
      * @see EntityRenderers
-     * @see BWGEntities
+     * @see BWGEntityType
      */
     public static void registerEntityRenderers(BiConsumer<EntityType<? extends Entity>, EntityRendererProvider> consumer) {
-        consumer.accept(BWGEntities.MAN_O_WAR.get(), ManOWarRenderer::new);
-        consumer.accept(BWGEntities.PUMPKIN_WARDEN.get(), PumpkinWardenRenderer::new);
-        consumer.accept(BWGEntities.ODDION.get(), OddionRenderer::new);
+        consumer.accept(BWGEntityType.MAN_O_WAR.get(), ManOWarRenderer::new);
+        consumer.accept(BWGEntityType.PUMPKIN_WARDEN.get(), PumpkinWardenRenderer::new);
+        consumer.accept(BWGEntityType.ODDION.get(), OddionRenderer::new);
+        consumer.accept(BWGEntityType.WREATH.get(), WreathRenderer::new);
         BWGWoodSet.woodsets().forEach(set -> {
             consumer.accept(set.boat().get(), context -> new BoatRenderer(context, set.boatModelLayer()));
             consumer.accept(set.chestBoat().get(), context -> new BoatRenderer(context, set.chestBoatModelLayer()));
@@ -97,11 +102,11 @@ public class BiomesWeveGoneClient {
     /**
      * Registers the block key renderers.
      * @see BlockEntityRenderers
-     * @see BWGBlockEntities
+     * @see BWGBlockEntityType
      */
     public static void registerBlockEntityRenderers(BiConsumer<BlockEntityType<? extends BlockEntity>, BlockEntityRendererProvider> consumer) {
-        consumer.accept(BWGBlockEntities.SIGNS.get(), SignRenderer::new);
-        consumer.accept(BWGBlockEntities.HANGING_SIGNS.get(), HangingSignRenderer::new);
+        consumer.accept(BWGBlockEntityType.SIGNS.get(), SignRenderer::new);
+        consumer.accept(BWGBlockEntityType.HANGING_SIGNS.get(), HangingSignRenderer::new);
     }
 
     /**
@@ -113,6 +118,14 @@ public class BiomesWeveGoneClient {
             consumer.accept(set.boatModelLayer(), BoatModel::createBoatModel);
             consumer.accept(set.chestBoatModelLayer(), BoatModel::createChestBoatModel);
         });
+    }
+
+    /**
+     * Registers additional models
+     * @see net.potionstudios.biomeswevegone.client.model.ModelAccess
+     */
+    public static void registerAdditionalModels(Consumer<ResourceLocation> consumer) {
+        Arrays.stream(Wreath.Type.values()).forEach(type -> consumer.accept(BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath")));
     }
 
     /**
@@ -142,6 +155,7 @@ public class BiomesWeveGoneClient {
             if (type != null) consumer.accept(entry.get(), type);
         });
         consumer.accept(BWGWood.MAPLE.door(), RenderType.translucent());
+        consumer.accept(BWGWood.MAPLE.trapdoor(), RenderType.translucent());
     }
 
     @Nullable
@@ -162,7 +176,7 @@ public class BiomesWeveGoneClient {
      * @see BlockColors
      */
     public static void registerBlockColors(BiConsumer<BlockColor, Block[]> consumer) {
-        consumer.accept((state, view, pos, tintIndex) -> view != null && pos != null ? BiomeColors.getAverageGrassColor(view, pos) : GrassColor.getDefaultColor(), new Block[] {BWGBlocks.FLOWER_PATCH.get(), BWGBlocks.TINY_LILY_PADS.get(), BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.WHITE_SAKURA_PETALS.get(), BWGBlocks.YELLOW_SAKURA_PETALS.get()});
+        consumer.accept((state, view, pos, tintIndex) -> view != null && pos != null ? BiomeColors.getAverageGrassColor(view, pos) : GrassColor.getDefaultColor(), new Block[] {BWGBlocks.FLOWER_PATCH.get(), BWGBlocks.TINY_LILY_PADS.get(), BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.WHITE_SAKURA_PETALS.get(), BWGBlocks.YELLOW_SAKURA_PETALS.get()});
         consumer.accept((state, view, pos, tintIndex) -> view != null && pos != null ? BiomeColors.getAverageFoliageColor(view, pos) : FoliageColor.get(0.5D, 1.0D), new Block[] {
                 BWGBlocks.CLOVER_PATCH.get(), BWGBlocks.LEAF_PILE.get(), BWGBlocks.POISON_IVY.get(), BWGWood.MAHOGANY.leaves(),
                 BWGWood.WILLOW.leaves(), BWGWood.MAPLE.leaves(), BWGWood.YUCCA_LEAVES.get(), BWGWood.FLOWERING_YUCCA_LEAVES.get(), BWGWood.RIPE_YUCCA_LEAVES.get(), BWGWood.CYPRESS.leaves()});

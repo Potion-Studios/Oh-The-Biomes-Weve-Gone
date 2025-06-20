@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "biomeswevegone:cracked_white_dacite_bricks",
+  "result": {
+    "count": 2,
+    "id": "biomeswevegone:cracked_white_dacite_brick_slab"
+  }
+}

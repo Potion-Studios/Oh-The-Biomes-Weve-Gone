@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "biomeswevegone:mossy_dacite_bricks",
+  "result": {
+    "count": 2,
+    "id": "biomeswevegone:mossy_dacite_brick_slab"
+  }
+}

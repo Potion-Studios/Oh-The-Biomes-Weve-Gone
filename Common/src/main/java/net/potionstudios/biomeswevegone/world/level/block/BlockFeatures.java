@@ -44,7 +44,8 @@ public class BlockFeatures {
                 BWGItems.YELLOW_GLOWCANE_SHOOT.get(), BWGItems.CATTAIL_SPROUT.get(), BWGItems.FLUORESCENT_CATTAIL_SPROUT.get());
         compostItems(consumer, 0.65f, BWGItems.GREEN_APPLE.get(), BWGItems.BAOBAB_FRUIT.get(), BWGItems.SOUL_FRUIT.get(), BWGItems.YUCCA_FRUIT.get(),
                 BWGItems.ODDION_BULB.get(), BWGItems.WHITE_PUFFBALL_SPORES.get(), BWGItems.WHITE_PUFFBALL_CAP.get());
-        compostItems(consumer, 0.75f, BWGItems.COOKED_YUCCA_FRUIT.get(), BWGItems.COOKED_ODDION_BULB.get(), BWGItems.COOKED_WHITE_PUFFBALL_CAP.get());
+        compostItems(consumer, 0.75f, BWGItems.COOKED_YUCCA_FRUIT.get(), BWGItems.COOKED_ODDION_BULB.get(), BWGItems.COOKED_WHITE_PUFFBALL_CAP.get(),
+                BWGItems.WREATH.get(), BWGItems.HOLLY_WREATH.get(), BWGItems.PETAL_WREATH.get(), BWGItems.ROSY_WREATH.get(), BWGItems.WINTER_ROSY_WREATH.get(), BWGItems.ODDION_WREATH.get(), BWGItems.MUSHROOM_WREATH.get());
         compostItems(consumer, 1f, BWGItems.GREEN_APPLE_PIE.get(), BWGItems.BLUEBERRY_PIE.get());
     }
 

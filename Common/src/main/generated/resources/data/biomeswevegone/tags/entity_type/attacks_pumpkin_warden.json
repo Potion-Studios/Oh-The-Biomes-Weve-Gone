@@ -1,0 +1,15 @@
+{
+  "values": [
+    "minecraft:drowned",
+    "minecraft:evoker",
+    "minecraft:husk",
+    "minecraft:illusioner",
+    "minecraft:pillager",
+    "minecraft:ravager",
+    "minecraft:vex",
+    "minecraft:vindicator",
+    "minecraft:zoglin",
+    "minecraft:zombie",
+    "minecraft:zombie_villager"
+  ]
+}

@@ -32,10 +32,11 @@ public class LargePumpkinFeature extends Feature<NoneFeatureConfiguration> {
 
         BlockPos featureOrigin = context.origin();
         BlockPos origin = featureOrigin.offset(0, diameter / 2, 0);
-
+        WorldGenLevel level = context.level();
+        if (level.getLevel().structureManager().hasAnyStructureAt(origin))
+            return false;
 
         BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
-        WorldGenLevel level = context.level();
 
         int surfaceRadiusCheck = radius - 1;
 

@@ -1,11 +1,13 @@
 package net.potionstudios.biomeswevegone.fabric;
 
 import com.google.auto.service.AutoService;
+import me.lucko.fabric.api.permissions.v0.Permissions;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.world.poi.PointOfInterestHelper;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.SimpleParticleType;
@@ -38,8 +40,15 @@ public final class FabricPlatformHandler implements PlatformHandler {
 		return FabricLoader.getInstance().getConfigDir().resolve(BiomesWeveGone.MOD_ID);
 	}
 
+	private static final boolean fabricPermissionsApi = FabricLoader.getInstance().isModLoaded("fabric-permissions-api-v0");
+
+	@Override
+	public boolean hasPermission(@NotNull CommandSourceStack sourceStack, @NotNull String permission) {
+		return PlatformHandler.super.hasPermission(sourceStack, permission) || (fabricPermissionsApi && Permissions.check(sourceStack, permission));
+	}
+
     @Override
-	public Supplier<PoiType> registerPOIType(String id, Supplier<Block> block, int maxTickets, int validRange) {
+	public Supplier<PoiType> registerPOIType(String id, Supplier<? extends Block> block, int maxTickets, int validRange) {
 		PoiType poi = PointOfInterestHelper.register(BiomesWeveGone.id(id), maxTickets, validRange, block.get());
 		return () -> poi;
 	}

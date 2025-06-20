@@ -21,6 +21,11 @@ public class MediumPumpkinFeature extends Feature<NoneFeatureConfiguration> {
 
         BlockPos origin = context.origin();
         WorldGenLevel level = context.level();
+
+        if (level.getLevel().structureManager().hasAnyStructureAt(origin))
+            return false;
+
+
         for (int x = 0; x < 2; x++) {
             for (int z = 0; z < 2; z++) {
                 mutable.setWithOffset(origin, x, -1, z);

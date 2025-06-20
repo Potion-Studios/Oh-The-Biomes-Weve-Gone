@@ -4,6 +4,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
@@ -19,7 +20,7 @@ import net.potionstudios.biomeswevegone.client.BiomesWeveGoneClient;
  * @author Joseph T. McQuigg
  */
 @Environment(EnvType.CLIENT)
-public class BiomesWeveGoneClientFabric implements ClientModInitializer {
+public class BiomesWeveGoneClientFabric implements ClientModInitializer, ModelLoadingPlugin {
     @Override
     public void onInitializeClient() {
         BiomesWeveGoneClient.onInitialize();
@@ -30,5 +31,11 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer {
         BiomesWeveGoneClient.registerLayerDefinitions((a, b) -> EntityModelLayerRegistry.registerModelLayer(a, b::get));
         BiomesWeveGoneClient.registerBlockColors(ColorProviderRegistry.BLOCK::register);
         BiomesWeveGoneClient.registerItemTintSources(ItemTintSources.ID_MAPPER::put);
+        ModelLoadingPlugin.register(this);
+    }
+
+    @Override
+    public void initialize(Context context) {
+        BiomesWeveGoneClient.registerAdditionalModels((context::addModels));
     }
 }

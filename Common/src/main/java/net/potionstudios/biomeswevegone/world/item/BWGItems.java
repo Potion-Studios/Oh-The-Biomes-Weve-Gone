@@ -18,11 +18,15 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.component.BWGDataComponents;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
+import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import net.potionstudios.biomeswevegone.world.item.custom.CampfireExplodingBlockItem;
 import net.potionstudios.biomeswevegone.world.item.custom.PowderItem;
+import net.potionstudios.biomeswevegone.world.item.custom.WreathItem;
 import net.potionstudios.biomeswevegone.world.item.jukebox.BWGJukeBoxSongs;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
+import net.potionstudios.biomeswevegone.world.level.block.entities.PumpkinBurrowBlockEntity;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cattail.ColorProperty;
 
 import java.util.ArrayList;
@@ -43,14 +47,16 @@ public class BWGItems {
 
     public static final Supplier<Item> BWG_LOGO = register("bwg_logo", Item::new, new Item.Properties());
 
-    public static final Supplier<SpawnEggItem> MAN_O_WAR_SPAWN_EGG = registerItem("man_o_war_spawn_egg", properties -> new SpawnEggItem(BWGEntities.MAN_O_WAR.get(), properties), new Item.Properties());
-    public static final Supplier<SpawnEggItem> PUMPKIN_WARDEN_SPAWN_EGG = registerItem("pumpkin_warden_spawn_egg", properties -> new SpawnEggItem(BWGEntities.PUMPKIN_WARDEN.get(), properties), new Item.Properties());
-    public static final Supplier<SpawnEggItem> ODDION_SPAWN_EGG = registerItem("oddion_spawn_egg", properties -> new SpawnEggItem(BWGEntities.ODDION.get(), properties), new Item.Properties());
+    public static final Supplier<SpawnEggItem> MAN_O_WAR_SPAWN_EGG = registerItem("man_o_war_spawn_egg", properties -> new SpawnEggItem(BWGEntityType.MAN_O_WAR.get(), properties), new Item.Properties());
+    public static final Supplier<SpawnEggItem> PUMPKIN_WARDEN_SPAWN_EGG = registerItem("pumpkin_warden_spawn_egg", properties -> new SpawnEggItem(BWGEntityType.PUMPKIN_WARDEN.get(), properties), new Item.Properties());
+    public static final Supplier<SpawnEggItem> ODDION_SPAWN_EGG = registerItem("oddion_spawn_egg", properties -> new SpawnEggItem(BWGEntityType.ODDION.get(), properties), new Item.Properties());
 
-    public static final Supplier<MobBucketItem> MAN_O_WAR_BUCKET = registerMobBucket("man_o_war_bucket", BWGEntities.MAN_O_WAR::get, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH);
+    public static final Supplier<MobBucketItem> MAN_O_WAR_BUCKET = registerMobBucket("man_o_war_bucket", BWGEntityType.MAN_O_WAR::get, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH);
 
     public static final Supplier<Item> CATTAIL_SPROUT = registerItemNoLang("cattail_sprout", properties-> new CampfireExplodingBlockItem(BWGBlocks.CATTAIL_SPROUT, properties), new Item.Properties().useBlockDescriptionPrefix());
     public static final Supplier<Item> FLUORESCENT_CATTAIL_SPROUT = registerItemNoLang("fluorescent_cattail_sprout", properties -> new CampfireExplodingBlockItem(BWGBlocks.FLUORESCENT_CATTAIL_SPROUT, properties), new Item.Properties().useBlockDescriptionPrefix());
+
+    public static final Supplier<Item> PUMPKIN_BURROW = registerItemNoLang("pumpkin_burrow", properties -> new BlockItem(BWGBlocks.PUMPKIN_BURROW.get(), properties), new Item.Properties().useBlockDescriptionPrefix());
 
     public static final Supplier<Item> BLUE_GLOWCANE_SHOOT = registerSimpleItem("blue_glowcane_shoot", properties -> new BlockItem(BWGBlocks.BLUE_GLOWCANE.get(), properties), new Item.Properties().useItemDescriptionPrefix());
     public static final Supplier<Item> GREEN_GLOWCANE_SHOOT = registerSimpleItem("green_glowcane_shoot", properties -> new BlockItem(BWGBlocks.GREEN_GLOWCANE.get(), properties), new Item.Properties().useItemDescriptionPrefix());
@@ -91,7 +97,15 @@ public class BWGItems {
     public static final Supplier<PlaceOnWaterBlockItem> WATER_SILK = registerItemNoLang("water_silk", properties -> new PlaceOnWaterBlockItem(BWGBlocks.WATER_SILK.get(), properties), new Item.Properties().useBlockDescriptionPrefix());
 
     public static final Supplier<Item> MUSIC_DISC_PIXIE_CLUB = registerItemNoLang("music_disc_pixie_club", Item::new, (new Item.Properties()).stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(BWGJukeBoxSongs.PIXIE_CLUB));
+    public static final Supplier<Item> MUSIC_DISC_BETTER_DAYS = registerItemNoLang("music_disc_better_days", Item::new, (new Item.Properties()).stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(BWGJukeBoxSongs.BETTER_DAYS));
 
+    public static final Supplier<WreathItem> WREATH = registerItem("wreath", properties -> new WreathItem(properties, Wreath.Type.DEFAULT), new Item.Properties());
+    public static final Supplier<WreathItem> HOLLY_WREATH = registerItem("holly_wreath", properties -> new WreathItem(properties, Wreath.Type.HOLLY), new Item.Properties());
+    public static final Supplier<WreathItem> MUSHROOM_WREATH = registerItem("mushroom_wreath", properties -> new WreathItem(properties, Wreath.Type.MUSHROOM), new Item.Properties());
+    public static final Supplier<WreathItem> ODDION_WREATH = registerItem("oddion_wreath", properties -> new WreathItem(properties, Wreath.Type.ODDION), new Item.Properties());
+    public static final Supplier<WreathItem> PETAL_WREATH = registerItem("petal_wreath", properties -> new WreathItem(properties, Wreath.Type.PETAL), new Item.Properties());
+    public static final Supplier<WreathItem> ROSY_WREATH = registerItem("rosy_wreath", properties -> new WreathItem(properties, Wreath.Type.ROSY), new Item.Properties());
+    public static final Supplier<WreathItem> WINTER_ROSY_WREATH = registerItem("winter_rosy_wreath", properties -> new WreathItem(properties, Wreath.Type.WINTER_ROSY), new Item.Properties());
 
     private static Supplier<MobBucketItem> registerMobBucket(String id, Supplier<EntityType<? extends Mob>> entity, Supplier<Fluid> fluid, Supplier<SoundEvent> sound) {
         Supplier<MobBucketItem> supplier = PlatformHandler.PLATFORM_HANDLER.createMobBucket(entity, fluid, sound);

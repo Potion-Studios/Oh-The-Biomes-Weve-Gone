@@ -30,7 +30,7 @@ public class ChestLootGenerator implements LootTableSubProvider {
 
     private final HolderLookup.Provider lookupProvider;
 
-    public ChestLootGenerator(HolderLookup.Provider lookupProvider) {
+    ChestLootGenerator(HolderLookup.Provider lookupProvider) {
         this.lookupProvider = lookupProvider;
     }
 

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "biomeswevegone:rose",
+    "X": "biomeswevegone:osiria_rose",
+    "Y": "biomeswevegone:wreath"
+  },
+  "pattern": [
+    " # ",
+    "XYX",
+    " # "
+  ],
+  "result": {
+    "count": 1,
+    "id": "biomeswevegone:rosy_wreath"
+  }
+}

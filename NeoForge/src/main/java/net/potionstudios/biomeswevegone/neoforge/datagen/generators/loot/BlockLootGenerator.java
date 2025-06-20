@@ -42,7 +42,7 @@ class BlockLootGenerator extends BlockLootSubProvider {
 
     private final List<Block> knownBlocks = new ArrayList<>();
 
-    protected BlockLootGenerator(HolderLookup.Provider registries) {
+    BlockLootGenerator(HolderLookup.Provider registries) {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags(), registries);
     }
 
@@ -169,6 +169,9 @@ class BlockLootGenerator extends BlockLootSubProvider {
         dropOther(BWGBlocks.SANDY_FARMLAND.get(), BWGBlocks.SANDY_DIRT.get());
         dropOther(BWGBlocks.SANDY_DIRT_PATH.get(), BWGBlocks.SANDY_DIRT.get());
 
+        add(BWGBlocks.WHITE_DACITE_SET.getBase(), createSingleItemTableWithSilkTouch(BWGBlocks.WHITE_DACITE_SET.getBase(), BWGBlocks.WHITE_DACITE_COBBLESTONE_SET.getBase()));
+        add(BWGBlocks.WHITE_PODZOL_DACITE.get(), createSingleItemTableWithSilkTouch(BWGBlocks.WHITE_PODZOL_DACITE.get(), BWGBlocks.WHITE_DACITE_COBBLESTONE_SET.getBase()));
+        add(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), createSingleItemTableWithSilkTouch(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.WHITE_DACITE_COBBLESTONE_SET.getBase()));
         add(BWGBlocks.DACITE_SET.getBase(), createSingleItemTableWithSilkTouch(BWGBlocks.DACITE_SET.getBase(), BWGBlocks.DACITE_COBBLESTONE_SET.getBase()));
         add(BWGBlocks.PODZOL_DACITE.get(), createSingleItemTableWithSilkTouch(BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.DACITE_COBBLESTONE_SET.getBase()));
         add(BWGBlocks.OVERGROWN_DACITE.get(), createSingleItemTableWithSilkTouch(BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.DACITE_COBBLESTONE_SET.getBase()));

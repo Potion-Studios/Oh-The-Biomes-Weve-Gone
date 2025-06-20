@@ -15,7 +15,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Items;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
@@ -102,6 +102,24 @@ public class AdvancementGenerator extends AdvancementProvider {
                             AdvancementType.TASK, true, true, false
                     )
                     .save(writer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/adventure/little_house_on_the_prairie"));
+
+            Advancement.Builder.advancement()
+                    .parent(adventureRoot)
+                    .rewards(AdvancementRewards.Builder.loot(BiomesWeveGone.key(Registries.LOOT_TABLE, "advancement_rewards/true_traveler/better_days_music_disc")))
+                    .requirements(AdvancementRequirements.Strategy.AND)
+                    .addCriterion("pumpkin_patch_village", PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(registries.holderOrThrow(BWGStructures.PUMPKIN_PATCH_VILLAGE))))
+                    .addCriterion("skyris_village", PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(registries.holderOrThrow(BWGStructures.SKYRIS_VILLAGE))))
+                    .addCriterion("salem_village", PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(registries.holderOrThrow(BWGStructures.SALEM_VILLAGE))))
+                    .addCriterion("red_rock_village", PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(registries.holderOrThrow(BWGStructures.RED_ROCK_VILLAGE))))
+                    .addCriterion("swamp_village", PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(registries.holderOrThrow(BWGStructures.SWAMP_VILLAGE))))
+                    .display(
+                            BWGItems.MUSIC_DISC_BETTER_DAYS.get(),
+                            translateAble("adventure.true_traveler.title"),
+                            translateAble("adventure.true_traveler.description"),
+                            BiomesWeveGone.id("textures/block/lush_dirt.png"),
+                            AdvancementType.TASK, true, true, false
+                    )
+                    .save(writer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/adventure/true_traveler"));
 
             Advancement.Builder.advancement()
                     .parent(adventureRoot)
@@ -217,7 +235,7 @@ public class AdvancementGenerator extends AdvancementProvider {
             Advancement.Builder.advancement()
                     .parent(husbandryRoot)
                     .rewards(new AdvancementRewards.Builder().addLootTable(BiomesWeveGone.key(Registries.LOOT_TABLE, "blocks/pale_pumpkin")))
-                    .addCriterion("forgotten_nostalgia", PlayerInteractTrigger.TriggerInstance.itemUsedOnEntity(ItemPredicate.Builder.item().of(registries.lookupOrThrow(Registries.ITEM), BWGItemTags.ROSES), Optional.of(EntityPredicate.wrap(EntityPredicate.Builder.entity().of(registries.lookupOrThrow(Registries.ENTITY_TYPE), BWGEntities.PUMPKIN_WARDEN.get())))))
+                    .addCriterion("forgotten_nostalgia", PlayerInteractTrigger.TriggerInstance.itemUsedOnEntity(ItemPredicate.Builder.item().of(registries.lookupOrThrow(Registries.ITEM), BWGItemTags.ROSES), Optional.of(EntityPredicate.wrap(EntityPredicate.Builder.entity().of(registries.lookupOrThrow(Registries.ENTITY_TYPE), BWGEntityType.PUMPKIN_WARDEN.get())))))
                     .display(
                             BWGBlocks.ROSE.getBlock().asItem(),
                             translateAble("husbandry.forgotten_nostalgia.title"),

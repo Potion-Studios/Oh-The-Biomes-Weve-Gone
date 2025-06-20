@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mossy_dacite_bricks",
+  "ingredients": [
+    "biomeswevegone:dacite_bricks",
+    "minecraft:vine"
+  ],
+  "result": {
+    "count": 1,
+    "id": "biomeswevegone:mossy_dacite_bricks"
+  }
+}

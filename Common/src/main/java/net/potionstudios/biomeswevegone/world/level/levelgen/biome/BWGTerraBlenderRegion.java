@@ -66,7 +66,7 @@ public class BWGTerraBlenderRegion extends Region {
             TerraBlenderBiomeSelectors.SLOPE_BIOMES_VARIANT_TERRABLENDER,
             Util.make(new IdentityHashMap<>(), map -> {
                 map.put(Biomes.MANGROVE_SWAMP, BWGBiomes.WHITE_MANGROVE_MARSHES);
-                map.put(Biomes.SWAMP, BWGBiomes.BAYOU);
+                map.put(Biomes.SWAMP, BWGBiomes.CYPRESS_WETLANDS);
             }),
             Map.of());
 

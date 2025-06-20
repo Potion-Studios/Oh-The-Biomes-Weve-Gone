@@ -66,7 +66,8 @@ public class BWGStructureSets {
                     StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.SKYRIS_VILLAGE)),
                     StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.SALEM_VILLAGE)),
                     StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.RED_ROCK_VILLAGE)),
-                    StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.PUMPKIN_PATCH_VILLAGE))
+                    StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.PUMPKIN_PATCH_VILLAGE)),
+                    StructureSet.entry(structureHolderGetter.getOrThrow(BWGStructures.SWAMP_VILLAGE))
             ), new RandomSpreadStructurePlacement(34, 8, RandomSpreadType.LINEAR, 437845874)
     ));
 

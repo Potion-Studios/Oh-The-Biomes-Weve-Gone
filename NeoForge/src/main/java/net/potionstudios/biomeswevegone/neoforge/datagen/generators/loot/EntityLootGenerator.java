@@ -12,7 +12,7 @@ import net.minecraft.world.level.storage.loot.functions.EnchantedCountIncreaseFu
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.potionstudios.biomeswevegone.world.entity.BWGEntities;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import org.jetbrains.annotations.NotNull;
 
@@ -21,20 +21,20 @@ import java.util.stream.Stream;
 
 class EntityLootGenerator extends EntityLootSubProvider {
     private static final ArrayList<EntityType<?>> knownEntities = new ArrayList<>();
-    protected EntityLootGenerator(HolderLookup.Provider lookupProvider) {
+    EntityLootGenerator(HolderLookup.Provider lookupProvider) {
         super(FeatureFlags.REGISTRY.allFlags(), lookupProvider);
     }
 
     @Override
     public void generate() {
-        add(BWGEntities.ODDION.get(), LootTable.lootTable()
+        add(BWGEntityType.ODDION.get(), LootTable.lootTable()
                 .withPool(
                         LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1.0F))
                                 .add(LootItem.lootTableItem(BWGItems.ODDION_BULB.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F))))
                 ));
 
-        add(BWGEntities.MAN_O_WAR.get(), LootTable.lootTable()
+        add(BWGEntityType.MAN_O_WAR.get(), LootTable.lootTable()
                 .withPool(
                         LootPool.lootPool()
                                 .setRolls(ConstantValue.exactly(1))

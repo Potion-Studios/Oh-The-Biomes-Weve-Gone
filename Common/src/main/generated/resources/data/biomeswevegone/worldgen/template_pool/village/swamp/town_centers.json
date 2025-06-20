@@ -1,0 +1,32 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/swamp/town_centers/swamp_meeting_point_1",
+        "processors": "biomeswevegone:swamp_house",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/swamp/town_centers/swamp_meeting_point_2",
+        "processors": "biomeswevegone:swamp_house",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "biomeswevegone:village/swamp/town_centers/swamp_meeting_point_3",
+        "processors": "biomeswevegone:swamp_house",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}
