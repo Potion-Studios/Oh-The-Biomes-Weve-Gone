@@ -15,30 +15,30 @@ public class BWGBlockSet {
     private static final ArrayList<BWGBlockSet> blockSets = new ArrayList<>();
 
     private final Supplier<Block> base;
-    private final Supplier<SlabBlock> slab;
     private final Supplier<StairBlock> stairs;
+    private final Supplier<SlabBlock> slab;
     private final Supplier<WallBlock> wall;
 
     public BWGBlockSet(String name, BlockBehaviour.Properties properties) {
         this.base = BWGBlocks.registerBlockItem(name, Block::new, properties);
-        this.slab = BWGBlocks.registerBlockItem(name + "_slab", SlabBlock::new, properties);
         this.stairs = BWGBlocks.registerBlockItem(name + "_stairs", properties1 -> new StairBlock(base.get().defaultBlockState(), properties1), properties);
+        this.slab = BWGBlocks.registerBlockItem(name + "_slab", SlabBlock::new, properties);
         this.wall = BWGBlocks.registerBlockItem(name + "_wall", WallBlock::new, properties);
         blockSets.add(this);
     }
 
     public BWGBlockSet(String name, String alt, BlockBehaviour.Properties properties) {
         this.base = BWGBlocks.registerBlockItem(name, Block::new, properties);
-        this.slab = BWGBlocks.registerBlockItem(alt + "_slab", SlabBlock::new, properties);
         this.stairs = BWGBlocks.registerBlockItem(alt + "_stairs", properties1 -> new StairBlock(base.get().defaultBlockState(), properties1), properties);
+        this.slab = BWGBlocks.registerBlockItem(alt + "_slab", SlabBlock::new, properties);
         this.wall = BWGBlocks.registerBlockItem(alt + "_wall", WallBlock::new, properties);
         blockSets.add(this);
     }
 
     public BWGBlockSet(Supplier<Block> base, Supplier<SlabBlock> slab, Supplier<StairBlock> stairs, Supplier<WallBlock> wall) {
         this.base = base;
-        this.slab = slab;
         this.stairs = stairs;
+        this.slab = slab;
         this.wall = wall;
         blockSets.add(this);
     }
@@ -46,8 +46,8 @@ public class BWGBlockSet {
     public BWGBlockSet(String name, MapColor color) {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).mapColor(color);
         this.base = BWGBlocks.registerBlockItem(name, Block::new, properties);
-        this.slab = BWGBlocks.registerBlockItem(name + "_slab", SlabBlock::new, properties);
         this.stairs = BWGBlocks.registerBlockItem(name + "_stairs", properties1 -> new StairBlock(base.get().defaultBlockState(), properties1), properties);
+        this.slab = BWGBlocks.registerBlockItem(name + "_slab", SlabBlock::new, properties);
         this.wall = BWGBlocks.registerBlockItem(name + "_wall", WallBlock::new, properties);
         blockSets.add(this);
     }
@@ -55,8 +55,8 @@ public class BWGBlockSet {
     public BWGBlockSet(String name, String alt, MapColor color) {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).mapColor(color);
         this.base = BWGBlocks.registerBlockItem(name, Block::new, properties);
-        this.slab = BWGBlocks.registerBlockItem(alt + "_slab", SlabBlock::new, properties);
         this.stairs = BWGBlocks.registerBlockItem(alt + "_stairs", properties1 -> new StairBlock(base.get().defaultBlockState(), properties1), properties);
+        this.slab = BWGBlocks.registerBlockItem(alt + "_slab", SlabBlock::new, properties);
         this.wall = BWGBlocks.registerBlockItem(alt + "_wall", WallBlock::new, properties);
         blockSets.add(this);
     }
@@ -65,12 +65,12 @@ public class BWGBlockSet {
         return base.get();
     }
 
-    public SlabBlock getSlab() {
-        return slab.get();
-    }
-
     public StairBlock getStairs() {
         return stairs.get();
+    }
+
+    public SlabBlock getSlab() {
+        return slab.get();
     }
 
     public WallBlock getWall() {
@@ -81,7 +81,7 @@ public class BWGBlockSet {
 
     public BlockFamily getBlockFamily() {
         if (family == null)
-            family = BlockFamilies.familyBuilder(getBase()).slab(getSlab()).stairs(getStairs()).wall(getWall()).getFamily();
+            family = BlockFamilies.familyBuilder(getBase()).stairs(getStairs()).slab(getSlab()).wall(getWall()).getFamily();
         return family;
     }
 
