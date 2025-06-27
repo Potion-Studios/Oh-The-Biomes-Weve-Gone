@@ -50,7 +50,7 @@ public class WhitePuffballBlock extends BWGBerryBush {
 	@Override
 	public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
 		int age = state.getValue(AGE);
-		if (age < MAX_AGE && random.nextInt(5) == 0 && level.getRawBrightness(pos.above(), 0) > 13) {
+		if (age < MAX_AGE && random.nextInt(5) == 0 && level.getRawBrightness(pos.above(), 0) < 13) {
 			BlockState blockState = state.setValue(AGE, age + 1);
 			level.setBlock(pos, blockState, 2);
 			level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(blockState));
