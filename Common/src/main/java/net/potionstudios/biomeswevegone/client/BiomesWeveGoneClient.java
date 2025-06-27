@@ -124,8 +124,8 @@ public class BiomesWeveGoneClient {
      * Registers additional models
      * @see net.potionstudios.biomeswevegone.client.model.ModelAccess
      */
-    public static void registerAdditionalModels(Consumer<ResourceLocation> consumer) {
-        Arrays.stream(Wreath.Type.values()).forEach(type -> consumer.accept(BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath")));
+    public static void registerAdditionalModels(Consumer<String> consumer) {
+        Arrays.stream(Wreath.Type.values()).forEach(type -> consumer.accept(type.getSerializedName() + "_wreath"));
     }
 
     /**

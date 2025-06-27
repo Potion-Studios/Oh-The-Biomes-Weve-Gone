@@ -11,6 +11,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.color.item.ItemTintSources;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.client.BiomesWeveGoneClient;
 
 /**
@@ -36,6 +37,6 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer, ModelLo
 
     @Override
     public void initialize(Context context) {
-        BiomesWeveGoneClient.registerAdditionalModels((context::addModels));
+        BiomesWeveGoneClient.registerAdditionalModels(modelLocation -> context.addModels(BiomesWeveGone.id("block/" + modelLocation)));
     }
 }

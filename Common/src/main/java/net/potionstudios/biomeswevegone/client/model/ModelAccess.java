@@ -1,7 +1,6 @@
 package net.potionstudios.biomeswevegone.client.model;
 
 import net.minecraft.client.resources.model.BakedModel;
-import net.minecraft.resources.ResourceLocation;
 
 import java.util.ServiceLoader;
 
@@ -14,5 +13,5 @@ public interface ModelAccess {
 				.orElseThrow(() -> new NullPointerException("Failed to load service ModelAccess"));
 	}
 
-	BakedModel getModel(ResourceLocation location);
+	BakedModel getModel(String location);
 }

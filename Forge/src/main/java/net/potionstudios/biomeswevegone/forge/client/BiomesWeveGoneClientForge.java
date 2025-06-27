@@ -14,6 +14,7 @@ import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.client.BiomesWeveGoneClient;
 
 /**
@@ -39,6 +40,6 @@ public class BiomesWeveGoneClientForge {
         eventBus.addListener((EntityRenderersEvent.RegisterLayerDefinitions event) -> BiomesWeveGoneClient.registerLayerDefinitions(event::registerLayerDefinition));
         eventBus.addListener((RegisterColorHandlersEvent.Block event) -> BiomesWeveGoneClient.registerBlockColors(event::register));
         BiomesWeveGoneClient.registerItemTintSources(ItemTintSources.ID_MAPPER::put);
-        eventBus.addListener((ModelEvent.RegisterModelStateDefinitions event) -> BiomesWeveGoneClient.registerAdditionalModels((modelLocation) -> event.register(modelLocation, new StateDefinition.Builder<Block, BlockState>(Blocks.AIR).create(Block::defaultBlockState, BlockState::new))));
+        eventBus.addListener((ModelEvent.RegisterModelStateDefinitions event) -> BiomesWeveGoneClient.registerAdditionalModels((modelLocation) -> event.register(BiomesWeveGone.id(modelLocation), new StateDefinition.Builder<Block, BlockState>(Blocks.AIR).create(Block::defaultBlockState, BlockState::new))));
     }
 }
