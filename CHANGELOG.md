@@ -2,6 +2,7 @@
 - Adjust BWG Blocks to match the same order in the creative tab as vanilla
 - Fix White Puffball not growing over time
 - Add Wreaths to Forge
+- Fix Bucket of ManOWar missing texture and Lang on Forge
 
 # 3.1.0 The Village Update -> https://github.com/Potion-Studios/Oh-The-Biomes-Weve-Gone/discussions/279
 - This is a major update not all changes are listed here, please check the discussion for more details
