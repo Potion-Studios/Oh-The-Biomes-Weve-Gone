@@ -10,6 +10,8 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.potionstudios.biomeswevegone.advancements.critereon.BWGEntitySubPredicates;
 import net.potionstudios.biomeswevegone.component.BWGDataComponents;
+import net.potionstudios.biomeswevegone.config.configs.BWGMiscConfig;
+import net.potionstudios.biomeswevegone.config.configs.BWGMobSpawnConfig;
 import net.potionstudios.biomeswevegone.sounds.BWGSounds;
 import net.potionstudios.biomeswevegone.compat.vanilla.dispenser.BWGDispenseItemBehavior;
 import net.potionstudios.biomeswevegone.tags.BWGEntityTypeTags;
@@ -88,6 +90,8 @@ public class BiomesWeveGone {
      * Ran later in the initialization process to set up common things.
      */
     public static void commonSetup() {
+        BWGMobSpawnConfig.reload();
+        BWGMiscConfig.reload();
     }
 
     /**

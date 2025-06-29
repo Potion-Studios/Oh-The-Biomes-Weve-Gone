@@ -1,5 +1,6 @@
 # 2.4.4
 - Fix White Puffball not growing over time
+- Fix Misc and Mob Spawn Configs not generating sometimes
 
 # 2.4.3
 - Release Pumpkin Warden from Pumpkin Burrow when broken by TNT, Creeper, or Wither
