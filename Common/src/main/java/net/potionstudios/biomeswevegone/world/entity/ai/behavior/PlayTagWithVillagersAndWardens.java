@@ -41,7 +41,6 @@ public class PlayTagWithVillagersAndWardens {
                                         chaseKid(memoryAccessor4, memoryAccessor3, memoryAccessor2, optional2.get());
                                     else
                                         list.stream().findAny().ifPresent(livingEntity -> chaseKid(memoryAccessor4, memoryAccessor3, memoryAccessor2, livingEntity));
-	                                return true;
                                 } else {
                                     for (int i = 0; i < 10; i++) {
                                         Vec3 vec3 = LandRandomPos.getPos(pathfinderMob, 20, 8);
@@ -50,9 +49,8 @@ public class PlayTagWithVillagersAndWardens {
                                             break;
                                         }
                                     }
-
-                                    return true;
                                 }
+                                return true;
                             }
                         })
         );
