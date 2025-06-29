@@ -41,7 +41,7 @@ import java.util.stream.Collectors;
  * @see GatherDataEvent
  * @author Joseph T. McQuigg
  */
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, modid = BiomesWeveGone.MOD_ID)
+@EventBusSubscriber(modid = BiomesWeveGone.MOD_ID)
 class DataGeneratorsRegister {
 
     @SubscribeEvent
