@@ -1,3 +1,5 @@
+# 1.6.2
+
 # 1.6.1
 - Add Wreaths to Compostable Blocks
 - Fix Overgrown White Dacite not taking Biome Color
