@@ -1,4 +1,5 @@
 # 1.6.2
+- Fix White Puffball not growing over time
 
 # 1.6.1
 - Add Wreaths to Compostable Blocks
