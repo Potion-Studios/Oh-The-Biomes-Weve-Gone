@@ -1,3 +1,5 @@
+# 2.4.5
+
 # 2.4.4
 - Fix White Puffball not growing over time
 - Fix Misc and Mob Spawn Configs not generating sometimes
