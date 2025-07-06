@@ -37,10 +37,10 @@ public class LangGenerator extends LanguageProvider {
     protected void addTranslations() {
         add("itemGroup." + BWGCreativeTabs.CREATIVE_TAB.location().toLanguageKey(), "Biomes We've Gone");
         add("itemGroup." + BWGCreativeTabs.WOOD_TAB.location().toLanguageKey(), "Biomes We've Gone Wood");
-        BWGBlocks.BLOCKS.forEach(block -> add(block.get(), getBlockName(block)));
-        BWGItems.ITEMS.forEach(item -> add(item.get(), getItemName(item)));
-        add(BWGItems.MUSIC_DISC_PIXIE_CLUB.get(), "Music Disc");
-        add(BWGItems.MUSIC_DISC_BETTER_DAYS.get(), "Music Disc");
+        BWGBlocks.BLOCKS.forEach(block -> addBlock(block, getBlockName(block)));
+        BWGItems.ITEMS.forEach(item -> addItem(item, getItemName(item)));
+        addItem(BWGItems.MUSIC_DISC_PIXIE_CLUB, "Music Disc");
+        addItem(BWGItems.MUSIC_DISC_BETTER_DAYS, "Music Disc");
         add("item." + BiomesWeveGone.MOD_ID + ".music_disc_pixie_club.desc", "AOCAWOL - Pixie Club");
         add("item." + BiomesWeveGone.MOD_ID + ".music_disc_better_days.desc", "AOCAWOL - Better Days");
         add("jukebox_song." + BWGJukeBoxSongs.PIXIE_CLUB.location().toLanguageKey(), "AOCAWOL - Pixie Club");
@@ -49,16 +49,16 @@ public class LangGenerator extends LanguageProvider {
             if (!(wood.get() instanceof BoatItem))
                 if (wood.get() instanceof BlockItem blockItem)
                     add(blockItem.getBlock(), getBlockName(blockItem::getBlock));
-                else add(wood.get(), getItemName(wood));
-            else add(wood.get(), getItemName(wood).replace("Chest ", "") + " with Chest");
+                else addItem(wood, getItemName(wood));
+            else addItem(wood, getItemName(wood).replace("Chest ", "") + " with Chest");
         });
-        BWGWood.WOOD.stream().filter(wood -> wood.get() instanceof FlowerPotBlock).forEach(wood -> add(wood.get(), getBlockName(wood)));
-        add(BWGEntityType.MAN_O_WAR.get(), "Man O' War");
-        add(BWGEntityType.PUMPKIN_WARDEN.get(), "Pumpkin Warden");
-        add(BWGEntityType.ODDION.get(), "Oddion");
+        BWGWood.WOOD.stream().filter(wood -> wood.get() instanceof FlowerPotBlock).forEach(wood -> addBlock(wood, getBlockName(wood)));
+        addEntityType(BWGEntityType.MAN_O_WAR, "Man O' War");
+        addEntityType(BWGEntityType.PUMPKIN_WARDEN, "Pumpkin Warden");
+        addEntityType(BWGEntityType.ODDION, "Oddion");
         BWGWoodSet.woodsets().forEach(bwgWoodSet -> {
-            add(bwgWoodSet.boat().get(), getId(bwgWoodSet.name()) + " Boat");
-            add(bwgWoodSet.chestBoat().get(), getId(bwgWoodSet.name()) + " Boat with Chest");
+            addEntityType(bwgWoodSet.boat(), getId(bwgWoodSet.name()) + " Boat");
+            addEntityType(bwgWoodSet.chestBoat(), getId(bwgWoodSet.name()) + " Boat with Chest");
         });
         BWGBiomes.BIOME_FACTORIES.forEach((key, factory) -> add("biome." + BiomesWeveGone.MOD_ID + "." + key.location().getPath(), getBiomeName(key)));
 
