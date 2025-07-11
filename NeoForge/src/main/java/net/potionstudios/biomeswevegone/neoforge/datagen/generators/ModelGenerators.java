@@ -145,6 +145,9 @@ public class ModelGenerators {
             models().withExistingParent(name(BWGBlocks.WHITE_OVERGROWN_DACITE.get()), mcLoc("block/grass_block")).texture("particle", blockBWGTexture(BWGBlocks.WHITE_DACITE_SET.getBase())).texture("top", blockBWGTexture(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), "top")).texture("side", blockBWGTexture(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), "side")).texture("bottom", blockBWGTexture(BWGBlocks.WHITE_DACITE_SET.getBase())).texture("overlay", blockBWGTexture(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), "side_overlay")).renderType("cutout_mipped");
             models().withExistingParent(name(BWGBlocks.OVERGROWN_STONE.get()), mcLoc("block/grass_block")).texture("particle", blockTexture(Blocks.STONE)).texture("top", blockBWGTexture(BWGBlocks.OVERGROWN_STONE.get(), "top")).texture("side", blockBWGTexture(BWGBlocks.OVERGROWN_STONE.get(), "side")).texture("bottom", blockTexture(Blocks.STONE)).texture("overlay", blockBWGTexture(BWGBlocks.OVERGROWN_STONE.get(), "side_overlay")).renderType("cutout_mipped");
 
+            models().withExistingParent(name(BWGBlocks.TINY_LILY_PADS.get()), "block/lily_pad").texture("particle", blockBWGTexture(BWGBlocks.TINY_LILY_PADS.get())).texture("texture", blockBWGTexture(BWGBlocks.TINY_LILY_PADS.get())).renderType("cutout");
+
+
             BWGBlocks.BLOCKS.forEach(entry -> {
                 Block block = entry.get();
                 if (block instanceof StemBlock){
@@ -445,8 +448,6 @@ public class ModelGenerators {
 
             registerPatchBlockStates(BWGBlocks.CLOVER_PATCH.get(), new String[]{"clover_patch", "clover_patch2", "clover_patch3", "clover_patch4"});
             registerPatchBlockStates(BWGBlocks.FLOWER_PATCH.get(), new String[]{"flower_patch", "flower_patch2", "flower_patch3"});
-
-            models().withExistingParent(name(BWGBlocks.TINY_LILY_PADS.get()), "block/lily_pad").texture("particle", blockBWGTexture(BWGBlocks.TINY_LILY_PADS.get())).texture("texture", blockBWGTexture(BWGBlocks.TINY_LILY_PADS.get())).renderType("cutout");
 
             var unoccupied = models().withExistingParent(name(BWGBlocks.PUMPKIN_BURROW.get()), mcLoc("block/carved_pumpkin")).texture("front", blockBWGTexture(BWGBlocks.PUMPKIN_BURROW.get()));
             var occupied = models().withExistingParent(name(BWGBlocks.PUMPKIN_BURROW.get()) + "_occupied", mcLoc("block/carved_pumpkin")).texture("front", blockBWGTexture(BWGBlocks.PUMPKIN_BURROW.get(), "occupied"));
