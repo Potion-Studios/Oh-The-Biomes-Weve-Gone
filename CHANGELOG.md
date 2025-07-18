@@ -1,4 +1,5 @@
 # 2.4.5
+- Use c:chests/wooden Item tag for BWG Chest Boats
 
 # 2.4.4
 - Fix White Puffball not growing over time

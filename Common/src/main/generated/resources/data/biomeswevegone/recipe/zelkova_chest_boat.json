@@ -4,7 +4,7 @@
   "group": "chest_boat",
   "ingredients": [
     {
-      "item": "minecraft:chest"
+      "tag": "c:chests/wooden"
     },
     {
       "item": "biomeswevegone:zelkova_boat"
