@@ -121,8 +121,10 @@ public class VanillaCompatNeoForge {
      * @see BonemealEvent
      */
     private static void onBoneMealUse(final BonemealEvent event) {
-        if (!event.getLevel().isClientSide() && BoneMealHandler.bwgBoneMealEventHandler((ServerLevel) event.getLevel(), event.getPos(), event.getState()))
+        if (!event.getLevel().isClientSide() && BoneMealHandler.bwgBoneMealEventHandler((ServerLevel) event.getLevel(), event.getPos(), event.getState())) {
             event.setSuccessful(true);
+            event.getStack().shrink(1);
+        }
     }
 
     /**
