@@ -3,7 +3,7 @@
   "category": "misc",
   "group": "chest_boat",
   "ingredients": [
-    "minecraft:chest",
+    "#c:chests/wooden",
     "biomeswevegone:skyris_boat"
   ],
   "result": {

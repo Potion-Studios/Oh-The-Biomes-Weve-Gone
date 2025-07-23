@@ -65,7 +65,7 @@ public class RecipeGenerator extends RecipeProvider {
                     .save(output);
             hangingSign(set.hangingSignItem(), set.strippedLogStem());
             woodenBoat(set.boatItem().get(), set.planks());
-            chestBoat(set.chestBoatItem().get(), set.boatItem().get());
+            ShapelessRecipeBuilder.shapeless(itemRegistry, RecipeCategory.TRANSPORTATION, set.chestBoatItem().get()).requires(Tags.Items.CHESTS_WOODEN).requires(set.boatItem().get()).group("chest_boat").unlockedBy("has_boat", has(ItemTags.BOATS)).save(output);
         });
 
         woodFromLogs(BWGWood.PALO_VERDE_WOOD.get(), BWGWood.PALO_VERDE_LOG.get());
