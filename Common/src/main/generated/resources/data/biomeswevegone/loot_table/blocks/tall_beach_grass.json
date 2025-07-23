@@ -45,7 +45,7 @@
                   "function": "minecraft:set_count"
                 }
               ],
-              "name": "biomeswevegone:tall_beach_grass"
+              "name": "biomeswevegone:beach_grass"
             },
             {
               "type": "minecraft:item",
@@ -109,7 +109,7 @@
                   "function": "minecraft:set_count"
                 }
               ],
-              "name": "biomeswevegone:tall_beach_grass"
+              "name": "biomeswevegone:beach_grass"
             },
             {
               "type": "minecraft:item",

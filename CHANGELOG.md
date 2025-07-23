@@ -2,6 +2,7 @@
 - Use c:chests/wooden Item tag for BWG Chest Boats
 - Fix bonemeal not using up when bonemealing grass blocks on NeoForge
 - Fix incompatibility with Slayer's Beasts, remove duplicate feature from Coniferous Forest(s)
+- Fix Tall Beach and Prairie Grass dropping two tall grass instead of normal grass
 
 # 2.4.4
 - Fix White Puffball not growing over time
