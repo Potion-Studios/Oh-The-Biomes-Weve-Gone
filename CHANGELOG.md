@@ -1,6 +1,7 @@
 # 3.1.2
 - Fix Misc and Mob Spawn Configs not generating sometimes
 - Use c:chests/wooden Item tag for BWG Chest Boats
+- Fix bonemeal not using up when bonemealing grass blocks on NeoForge
 
 # 3.1.1
 - Adjust BWG Blocks to match the same order in the creative tab as vanilla
