@@ -4,6 +4,7 @@
 - Fix bonemeal not using up when bonemealing grass blocks on NeoForge
 - Fix incompatibility with Slayer's Beasts, remove duplicate feature from Coniferous Forest(s)
 - Fix Tall Beach and Prairie Grass dropping two tall grass instead of normal grass
+- Fix sniffer dropping all bwg loot instead of just one (Forge/NeoForge Only)
 
 # 3.1.1
 - Adjust BWG Blocks to match the same order in the creative tab as vanilla
