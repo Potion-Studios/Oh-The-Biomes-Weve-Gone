@@ -96,9 +96,8 @@ class BlockLootGenerator extends BlockLootSubProvider {
                 add(block, createSlabItemTable(block));
             else if (block.defaultBlockState().getSoundType() == SoundType.GLASS)
                 dropWhenSilkTouch(block);
-            else if (Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath().contains("_grass"))
-                if (block instanceof DoublePlantBlock) add(block, createDoublePlantWithSeedDrops(block, block));
-                else add(block, createGrassDrops(block));
+            else if (Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath().contains("_grass") && !(block instanceof DoublePlantBlock))
+                add(block, createGrassDrops(block));
             else if (block instanceof DoublePlantBlock)
                 add(block, createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
             else if (block instanceof CampfireBlock)
@@ -122,6 +121,9 @@ class BlockLootGenerator extends BlockLootSubProvider {
                 });
             } else dropSelf(block);
         });
+
+        add(BWGBlocks.TALL_PRAIRIE_GRASS.get(), createDoublePlantWithSeedDrops(BWGBlocks.TALL_PRAIRIE_GRASS.get(), BWGBlocks.PRAIRIE_GRASS.get()));
+        add(BWGBlocks.TALL_BEACH_GRASS.get(), createDoublePlantWithSeedDrops(BWGBlocks.TALL_BEACH_GRASS.get(), BWGBlocks.BEACH_GRASS.get()));
 
         add(BWGWood.PALO_VERDE_LEAVES.get(), createLeavesDrops(BWGWood.PALO_VERDE_LEAVES.get(), BWGWood.PALO_VERDE_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
         add(BWGWood.FLOWERING_PALO_VERDE_LEAVES.get(), createLeavesDrops(BWGWood.FLOWERING_PALO_VERDE_LEAVES.get(), BWGWood.PALO_VERDE_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
