@@ -45,7 +45,8 @@ public class AddItemModifier extends LootModifier {
         for(LootItemCondition condition : this.conditions)
             if(!condition.test(arg)) return objectArrayList;
 
-        items.forEach(item -> objectArrayList.add(new ItemStack(item)));
+        if (!items.isEmpty())
+            objectArrayList.add(items.get(arg.getRandom().nextInt(items.size())).getDefaultInstance());
         return objectArrayList;
     }
 
