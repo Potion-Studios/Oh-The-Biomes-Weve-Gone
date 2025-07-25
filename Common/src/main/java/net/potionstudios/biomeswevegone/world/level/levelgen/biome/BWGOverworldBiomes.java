@@ -407,7 +407,6 @@ class BWGOverworldBiomes {
 
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BiomeDefaultFeatures.addGiantTaigaVegetation(generationSettings);
-        BiomeDefaultFeatures.addTaigaGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
         BiomeDefaultFeatures.addRareBerryBushes(generationSettings);

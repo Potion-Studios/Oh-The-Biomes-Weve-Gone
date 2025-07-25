@@ -1,4 +1,5 @@
 # 1.6.3
+- Fix incompatibility with Slayer's Beasts, remove duplicate feature from Coniferous Forest(s)
 
 # 1.6.2
 - Fix White Puffball not growing over time
