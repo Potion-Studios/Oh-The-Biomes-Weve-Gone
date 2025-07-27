@@ -1,4 +1,5 @@
 # 3.1.3
+- Add Vietnamese (vi_vn) Translations (Credits: Celyne)
 
 # 3.1.2
 - Fix Misc and Mob Spawn Configs not generating sometimes
