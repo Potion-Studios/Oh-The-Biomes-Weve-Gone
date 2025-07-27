@@ -2,6 +2,7 @@
 - Fix incompatibility with Slayer's Beasts, remove duplicate feature from Coniferous Forest(s)
 - Fix Tall Beach and Prairie Grass dropping two tall grass instead of normal grass
 - Fix sniffer dropping all bwg loot instead of just one (Forge Only)
+- Add Vietnamese (vi_vn) Translations (Credits: Celyne)
 
 # 1.6.2
 - Fix White Puffball not growing over time
