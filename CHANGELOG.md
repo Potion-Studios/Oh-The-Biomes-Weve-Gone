@@ -1,3 +1,5 @@
+# 3.1.3
+
 # 3.1.2
 - Fix Misc and Mob Spawn Configs not generating sometimes
 - Use c:chests/wooden Item tag for BWG Chest Boats
