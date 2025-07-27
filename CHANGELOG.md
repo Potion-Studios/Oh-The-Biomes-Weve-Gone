@@ -1,4 +1,5 @@
 # 2.4.6
+- Add Vietnamese (vi_vn) Translations (Credits: Celyne)
 
 # 2.4.5
 - Use c:chests/wooden Item tag for BWG Chest Boats
