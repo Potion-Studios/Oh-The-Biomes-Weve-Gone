@@ -1,3 +1,5 @@
+# 2.4.6
+
 # 2.4.5
 - Use c:chests/wooden Item tag for BWG Chest Boats
 - Fix bonemeal not using up when bonemealing grass blocks on NeoForge
