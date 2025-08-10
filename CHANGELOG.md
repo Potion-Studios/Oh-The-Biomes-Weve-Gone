@@ -1,6 +1,11 @@
 # 2.4.6
 - Add Vietnamese (vi_vn) Translations (Credits: Celyne)
 - Fix Pale Mud Series missing Mineable Tags
+- Add Wood Blewit to Enderman Holdable BlockTag
+- Add BWG Ice to Geode invalid BlockTag
+- Add BWG Lily Pads and Sakura Petal Blocks to Inside Step Sound BlockTag
+- Add Pale Mud to Mangrove logs and roots can grow through BlockTag
+- Fix Replaceable Tag
 
 # 2.4.5
 - Use c:chests/wooden Item tag for BWG Chest Boats
