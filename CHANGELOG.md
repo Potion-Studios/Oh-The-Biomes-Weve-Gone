@@ -7,6 +7,7 @@
 - Add Pale Mud to Mangrove logs and roots can grow through BlockTag
 - Fix Replaceable Tag
 - Fix Boat Japanese and Brazilian Portuguese Translations
+- Add Missing Brazilian Portuguese (pt_br) Language Keys
 
 # 3.1.2
 - Fix Misc and Mob Spawn Configs not generating sometimes
