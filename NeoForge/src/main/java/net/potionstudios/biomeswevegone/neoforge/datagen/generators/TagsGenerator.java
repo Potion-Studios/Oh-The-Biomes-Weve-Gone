@@ -238,11 +238,11 @@ public class TagsGenerator {
             else if (object instanceof FlowerPotBlock) tag(BlockTags.FLOWER_POTS).add(object);
             else if (object instanceof GlowCaneBlock) tag(BWGBlockTags.GLOWCANE).add(object);
             SoundType type = object.defaultBlockState().getSoundType();
-            if (type == SoundType.STONE || type == SoundType.DEEPSLATE)
+            if (type == SoundType.STONE || type == SoundType.DEEPSLATE || type == SoundType.MUD_BRICKS || type == SoundType.PACKED_MUD)
                 tag(BlockTags.MINEABLE_WITH_PICKAXE).add(object);
             else if (type == SoundType.WOOD || type == SoundType.SWEET_BERRY_BUSH)
                 tag(BlockTags.MINEABLE_WITH_AXE).add(object);
-            else if (type == SoundType.GRAVEL || type == SoundType.SAND || type == SoundType.SNOW || type == SoundType.GRASS)
+            else if (type == SoundType.GRAVEL || type == SoundType.SAND || type == SoundType.SNOW || type == SoundType.GRASS || type == SoundType.MUD)
                 if (object instanceof LeavesBlock) tag(BlockTags.MINEABLE_WITH_HOE).add(object);
                 else tag(BlockTags.MINEABLE_WITH_SHOVEL).add(object);
         }
