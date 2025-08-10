@@ -1,6 +1,11 @@
 # 3.1.3
 - Add Vietnamese (vi_vn) Translations (Credits: Celyne)
 - Fix Pale Mud Series missing Mineable Tags
+- Add Wood Blewit to Enderman Holdable BlockTag
+- Add BWG Ice to Geode invalid BlockTag
+- Add BWG Lily Pads and Sakura Petal Blocks to Inside Step Sound BlockTag
+- Add Pale Mud to Mangrove logs and roots can grow through BlockTag
+- Fix Replaceable Tag
 
 # 3.1.2
 - Fix Misc and Mob Spawn Configs not generating sometimes
