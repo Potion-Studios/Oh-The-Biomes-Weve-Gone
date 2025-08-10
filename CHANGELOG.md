@@ -8,6 +8,7 @@
 - Fix Replaceable Tag
 - Fix Boat Japanese and Brazilian Portuguese Translations
 - Add Missing Brazilian Portuguese (pt_br) Language Keys
+- Fix Better Days Music Disc not having sound event
 
 # 3.1.2
 - Fix Misc and Mob Spawn Configs not generating sometimes

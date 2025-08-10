@@ -19,6 +19,14 @@
       "biomeswevegone:music/overworld/pale_bog"
     ]
   },
+  "music_disc.better_days": {
+    "sounds": [
+      {
+        "name": "biomeswevegone:music/disc/better_days",
+        "stream": true
+      }
+    ]
+  },
   "music_disc.pixie_club": {
     "sounds": [
       {
