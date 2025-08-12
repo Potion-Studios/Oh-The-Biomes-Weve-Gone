@@ -1,6 +1,7 @@
 package net.potionstudios.biomeswevegone.forge.datagen.generators;
 
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.*;
@@ -167,8 +168,10 @@ public class TagsGenerator {
             tag(BlockTags.REPLACEABLE).add(BWGBlocks.PRAIRIE_GRASS.get(), BWGBlocks.TALL_PRAIRIE_GRASS.get(), BWGBlocks.BEACH_GRASS.get(), BWGBlocks.TALL_BEACH_GRASS.get(), BWGBlocks.SKYRIS_VINE.get());
             tag(BlockTags.SAND).add(BWGBlocks.SANDY_DIRT.get(), BWGBlocks.CRACKED_SAND.get());
             tag(BlockTags.ENDERMAN_HOLDABLE).add(BWGBlocks.WINDSWEPT_SAND_SET.getSand(), BWGBlocks.BLACK_SAND_SET.getSand(), BWGBlocks.WHITE_SAND_SET.getSand(), BWGBlocks.BLUE_SAND_SET.getSand(), BWGBlocks.PURPLE_SAND_SET.getSand(), BWGBlocks.PINK_SAND_SET.getSand(),
-                    BWGBlocks.GREEN_MUSHROOM.get(), BWGBlocks.WEEPING_MILKCAP.get());
+                    BWGBlocks.GREEN_MUSHROOM.get(), BWGBlocks.WEEPING_MILKCAP.get(), BWGBlocks.WOOD_BLEWIT.get());
             tag(BlockTags.FALL_DAMAGE_RESETTING).add(BWGBlocks.BLUEBERRY_BUSH.get());
+            tag(BlockTags.INSIDE_STEP_SOUND_BLOCKS).add(BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), BWGBlocks.TINY_LILY_PADS.get(), BWGBlocks.WHITE_SAKURA_PETALS.get(), BWGBlocks.YELLOW_SAKURA_PETALS.get());
+            tag(BlockTags.GEODE_INVALID_BLOCKS).add(BWGBlocks.BLACK_ICE.get(), BWGBlocks.PACKED_BLACK_ICE.get(), BWGBlocks.BOREALIS_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get());
 
             // Entity Integration Tags
             tag(BlockTags.ANIMALS_SPAWNABLE_ON).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.WHITE_PODZOL_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.PEAT.get());
@@ -185,6 +188,13 @@ public class TagsGenerator {
             tag(BWGBlockTags.OAK_SAPLINGS).add(BWGWood.BROWN_OAK_SAPLING.getBlock(), BWGWood.ORANGE_OAK_SAPLING.getBlock(), BWGWood.RED_OAK_SAPLING.getBlock());
             tag(BWGBlockTags.SPRUCE_SAPLINGS).add(BWGWood.BLUE_SPRUCE_SAPLING.getBlock(), BWGWood.RED_SPRUCE_SAPLING.getBlock(), BWGWood.YELLOW_SPRUCE_SAPLING.getBlock(), BWGWood.ORANGE_SPRUCE_SAPLING.getBlock());
             tag(BWGBlockTags.BIRCH_SAPLINGS).add(BWGWood.YELLOW_BIRCH_SAPLING.getBlock(), BWGWood.ORANGE_BIRCH_SAPLING.getBlock(), BWGWood.RED_BIRCH_SAPLING.getBlock(), BWGWood.BROWN_BIRCH_SAPLING.getBlock());
+
+            IntrinsicHolderTagsProvider.IntrinsicTagAppender<Block> intrinsicTagAppender = this.tag(BlockTags.REPLACEABLE);
+            provider.lookupOrThrow(Registries.BLOCK)
+                    .filterElements(block -> block.defaultBlockState().canBeReplaced())
+                    .filterElements(block -> block.getDescriptionId().contains(BiomesWeveGone.MOD_ID))
+                    .listElementIds()
+                    .forEach(intrinsicTagAppender::add);
 
             //Serene Seasons
             tag(ModTags.Blocks.YEAR_ROUND_CROPS).add(BWGBlocks.GREEN_MUSHROOM.get(), BWGBlocks.WEEPING_MILKCAP.get(), BWGBlocks.WOOD_BLEWIT.get(), BWGWood.ASPEN.sapling().getBlock(), BWGWood.RED_MAPLE_SAPLING.getBlock())
