@@ -44,7 +44,7 @@ public class BWGEntityType {
 	@SuppressWarnings("unchecked")
 	public static <T extends Mob> void registerSpawnPlacements(Consumer<SpawnPlacement<T>> consumer) {
 		consumer.accept((SpawnPlacement<T>) new SpawnPlacement<>(MAN_O_WAR.get(), SpawnPlacementTypes.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ManOWar::checkManOWarSpawnRules));
-		consumer.accept((SpawnPlacement<T>) new SpawnPlacement<>(ODDION.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.WORLD_SURFACE, Oddion::checkOddionSpawnRules));
+		consumer.accept((SpawnPlacement<T>) new SpawnPlacement<>(ODDION.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Oddion::checkOddionSpawnRules));
 	}
 
 	public record SpawnPlacement<T extends Mob>(EntityType<T> entityType, SpawnPlacementType spawnPlacementType, Heightmap.Types heightmapType, SpawnPlacements.SpawnPredicate<T> predicate) {}

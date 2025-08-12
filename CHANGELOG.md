@@ -6,6 +6,7 @@
 - Add BWG Lily Pads and Sakura Petal Blocks to Inside Step Sound BlockTag
 - Add Pale Mud to Mangrove logs and roots can grow through BlockTag
 - Fix Replaceable Tag
+- Fix Oddions Not spawning 
 
 # 2.4.5
 - Use c:chests/wooden Item tag for BWG Chest Boats
