@@ -3,6 +3,7 @@
 - Add BWG Ice to Geode invalid BlockTag
 - Add BWG Lily Pads and Sakura Petal Blocks to Inside Step Sound BlockTag
 - Fix Replaceable Tag
+- Fix Oddions Not spawning
 
 # 1.6.3
 - Fix incompatibility with Slayer's Beasts, remove duplicate feature from Coniferous Forest(s)
