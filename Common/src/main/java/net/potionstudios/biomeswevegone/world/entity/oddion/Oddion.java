@@ -54,7 +54,7 @@ import java.util.function.IntFunction;
 /**
  * The Oddion Entity
  *
- * @author YaBoiChips
+ * @author Joseph T. McQuigg
  * @see PathfinderMob
  * @see GeoEntity
  */
@@ -127,13 +127,18 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
     }
 
     public static boolean checkOddionSpawnRules(EntityType<? extends Oddion> entity, LevelAccessor world, EntitySpawnReason spawnType, BlockPos pos, RandomSource rand) {
-        return BWGMobSpawnConfig.INSTANCE.oddion && world.getBlockState(pos.below()).is(BlockTags.DIRT);
+        return BWGMobSpawnConfig.INSTANCE.oddion && world.getBlockState(pos.below()).is(BlockTags.ANIMALS_SPAWNABLE_ON);
     }
 
     @Override
     public @Nullable SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull EntitySpawnReason spawnReason, @Nullable SpawnGroupData spawnGroupData) {
         this.setVariant(Variant.getSpawnVariant(level.getRandom()));
         return super.finalizeSpawn(level, difficulty, spawnReason, spawnGroupData);
+    }
+
+    @Override
+    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
+        return false;
     }
 
     @Override
