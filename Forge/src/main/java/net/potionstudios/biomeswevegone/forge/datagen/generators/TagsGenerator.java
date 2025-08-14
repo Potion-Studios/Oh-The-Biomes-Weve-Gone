@@ -165,7 +165,6 @@ public class TagsGenerator {
             tag(BlockTags.MAINTAINS_FARMLAND).add(BWGBlocks.ODDION_CROP.get());
             tag(BlockTags.MINEABLE_WITH_HOE).add(BWGBlocks.ALLIUM_PETAL_BLOCK.get(), BWGBlocks.PINK_ALLIUM_PETAL_BLOCK.get(), BWGBlocks.WHITE_ALLIUM_PETAL_BLOCK.get(), BWGBlocks.ROSE_PETAL_BLOCK.get());
             tag(BlockTags.MINEABLE_WITH_PICKAXE).addTag(BWGBlockTags.BLACK_ICE).addTag(BWGBlockTags.BOREALIS_ICE);
-            tag(BlockTags.REPLACEABLE).add(BWGBlocks.PRAIRIE_GRASS.get(), BWGBlocks.TALL_PRAIRIE_GRASS.get(), BWGBlocks.BEACH_GRASS.get(), BWGBlocks.TALL_BEACH_GRASS.get(), BWGBlocks.SKYRIS_VINE.get());
             tag(BlockTags.SAND).add(BWGBlocks.SANDY_DIRT.get(), BWGBlocks.CRACKED_SAND.get());
             tag(BlockTags.ENDERMAN_HOLDABLE).add(BWGBlocks.WINDSWEPT_SAND_SET.getSand(), BWGBlocks.BLACK_SAND_SET.getSand(), BWGBlocks.WHITE_SAND_SET.getSand(), BWGBlocks.BLUE_SAND_SET.getSand(), BWGBlocks.PURPLE_SAND_SET.getSand(), BWGBlocks.PINK_SAND_SET.getSand(),
                     BWGBlocks.GREEN_MUSHROOM.get(), BWGBlocks.WEEPING_MILKCAP.get(), BWGBlocks.WOOD_BLEWIT.get());
