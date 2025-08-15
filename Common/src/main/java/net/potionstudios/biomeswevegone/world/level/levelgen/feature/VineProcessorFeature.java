@@ -65,11 +65,11 @@ public class VineProcessorFeature extends Feature<NoneFeatureConfiguration> {
                                                    length = context.random().nextInt(3, 10);
                                                 }
                                                 BlockState state = Blocks.VINE.defaultBlockState().setValue(VineBlock.getPropertyForFace(direction), true);
-                                                chunk.setBlockState(mutableBlockPos.set(minWorldX + x, worldY, minWorldZ + z), state, false);
+                                                chunk.setBlockState(mutableBlockPos.set(minWorldX + x, worldY, minWorldZ + z), state);
 
                                                 for (int vineLength = 0; vineLength < length; vineLength++) {
                                                     if(chunk.getBlockState(mutableBlockPos.move(Direction.DOWN)).isAir()) {
-                                                        chunk.setBlockState(mutableBlockPos, state, false);
+                                                        chunk.setBlockState(mutableBlockPos, state);
                                                     } else {
                                                         break;
                                                     }

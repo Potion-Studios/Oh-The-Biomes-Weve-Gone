@@ -1,31 +1,26 @@
 package net.potionstudios.biomeswevegone.world.level.block.plants.tree.leaves;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.UntintedParticleLeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
-public class BWGChangingLeavesBlock extends BWGLeavesBlock implements BonemealableBlock {
+public class BWGChangingLeavesBlock extends UntintedParticleLeavesBlock implements BonemealableBlock {
 
     private final Supplier<LeavesBlock> next;
     private final float chance;
 
-    public BWGChangingLeavesBlock(Properties properties, Supplier<LeavesBlock> next, float chance, Supplier<SimpleParticleType> particleTypes) {
-        super(properties, particleTypes);
-        this.next = next;
-        this.chance = chance;
-    }
-
-    public BWGChangingLeavesBlock(Properties properties, Supplier<LeavesBlock> next, float chance) {
-        super(properties);
+    public BWGChangingLeavesBlock(Properties properties, ParticleOptions leafParticle, Supplier<LeavesBlock> next, float chance) {
+        super(0.01F, leafParticle, properties);
         this.next = next;
         this.chance = chance;
     }

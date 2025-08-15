@@ -73,14 +73,16 @@
     ],
     [
       "minecraft:glow_lichen",
+      "minecraft:patch_bush",
       "minecraft:trees_savanna",
       "minecraft:patch_grass_badlands",
       "minecraft:flower_warm",
       "minecraft:patch_grass_savanna",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
-      "minecraft:patch_sugar_cane",
       "minecraft:patch_pumpkin",
+      "minecraft:patch_sugar_cane",
+      "minecraft:patch_firefly_bush_near_water",
       "biomeswevegone:sparse_araucaria_trees",
       "biomeswevegone:mushrooms"
     ],

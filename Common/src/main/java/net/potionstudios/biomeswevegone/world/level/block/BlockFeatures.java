@@ -22,7 +22,7 @@ public class BlockFeatures {
     public static void registerCompostables(BiConsumer<ItemLike, Float> consumer) {
         BWGBlocks.BLOCKS.forEach(object -> {
             Block block = object.get();
-            if (block instanceof TallGrassBlock || block instanceof BWGDoublePlantBlock || block instanceof PinkPetalsBlock)
+            if (block instanceof TallGrassBlock || block instanceof BWGDoublePlantBlock || block instanceof FlowerBedBlock)
                 consumer.accept(block, 0.3F);
             else if (block instanceof VineBlock || block instanceof DesertPlantBlock || block instanceof BWGCactusBlock)
                 consumer.accept(block, 0.5F);
@@ -85,7 +85,7 @@ public class BlockFeatures {
             Block block = entry.get();
             if (block instanceof LeavesBlock)
                 consumer.accept(block, 30, 60);
-            else if (block instanceof SweetBerryBushBlock || block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof TallGrassBlock || block instanceof PinkPetalsBlock || block instanceof FlatVegetationBlock)
+            else if (block instanceof SweetBerryBushBlock || block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof TallGrassBlock || block instanceof FlowerBedBlock || block instanceof FlatVegetationBlock)
                 consumer.accept(block, 60, 100);
             else if (block instanceof FloweringBushBlock || block instanceof FlowerableBushBlock || block instanceof ShrubBlock || block instanceof VineBlock)
                 consumer.accept(block, 15, 100);

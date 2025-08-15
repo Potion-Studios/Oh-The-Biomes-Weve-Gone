@@ -56,7 +56,7 @@ public class BWGFarmLandBlock extends FarmBlock {
     }
 
     @Override
-    public void fallOn(@NotNull Level level, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull Entity entity, float fallDistance) {
+    public void fallOn(@NotNull Level level, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull Entity entity, double fallDistance) {
         if (level instanceof ServerLevel serverLevel
                 && level.getRandom().nextFloat() < fallDistance - 0.5F
                 && entity instanceof LivingEntity
@@ -64,10 +64,8 @@ public class BWGFarmLandBlock extends FarmBlock {
                 && entity.getBbWidth() * entity.getBbWidth() * entity.getBbHeight() > 0.512F) {
             turnToDirtBlock(entity, state, level, pos);
         }
-
         super.fallOn(level, state, pos, entity, fallDistance);
     }
-
 
     private void turnToDirtBlock(@Nullable Entity entity, BlockState state, Level level, BlockPos pos) {
         BlockState blockState = pushEntitiesUp(state, dirt.get().defaultBlockState(), level, pos);

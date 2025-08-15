@@ -5,7 +5,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
@@ -32,9 +32,9 @@ public class CragGardenExtension {
         NormalNoise cliffJumpNoise = NormalNoise.create(randomSource, cliffSpacingParams);
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
-        WeightedStateProvider topBlocksProvider = new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.OVERGROWN_STONE.get().defaultBlockState(), 3).add(Blocks.MOSS_BLOCK.defaultBlockState(), 1));
+        WeightedStateProvider topBlocksProvider = new WeightedStateProvider(new WeightedList.Builder<BlockState>().add(BWGBlocks.OVERGROWN_STONE.get().defaultBlockState(), 3).add(Blocks.MOSS_BLOCK.defaultBlockState(), 1));
 
-        WeightedStateProvider stonesProvider = new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.STONE.defaultBlockState(), 1).add(Blocks.ANDESITE.defaultBlockState(), 1).add(BWGBlocks.ROCKY_STONE_SET.getBase().defaultBlockState(), 1));
+        WeightedStateProvider stonesProvider = new WeightedStateProvider(new WeightedList.Builder<BlockState>().add(Blocks.STONE.defaultBlockState(), 1).add(Blocks.ANDESITE.defaultBlockState(), 1).add(BWGBlocks.ROCKY_STONE_SET.getBase().defaultBlockState(), 1));
 
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {
@@ -70,7 +70,7 @@ public class CragGardenExtension {
                     }
 
 
-                    chunk.setBlockState(mutable, state, false);
+                    chunk.setBlockState(mutable, state);
                 }
             }
         }

@@ -1,6 +1,5 @@
 package net.potionstudios.biomeswevegone.world.level.block.plants.bush;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -17,14 +16,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class FloweringBushBlock extends BushBlock implements BonemealableBlock {
     public static final IntegerProperty STAGE = BlockStateProperties.STAGE;
-    private static final MapCodec<FloweringBushBlock> CODEC = simpleCodec(FloweringBushBlock::new);
     public FloweringBushBlock(Properties properties) {
         super(properties);
-    }
-
-    @Override
-    protected @NotNull MapCodec<? extends BushBlock> codec() {
-        return CODEC;
     }
 
     @Override

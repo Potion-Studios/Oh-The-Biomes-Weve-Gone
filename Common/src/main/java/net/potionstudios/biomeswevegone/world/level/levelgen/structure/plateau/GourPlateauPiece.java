@@ -4,7 +4,6 @@ import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.NbtUtils;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
@@ -22,6 +21,7 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 import net.minecraft.world.level.levelgen.synth.ImprovedNoise;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraft.world.level.levelgen.synth.SimplexNoise;
+import net.potionstudios.biomeswevegone.util.BWGUtil;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGStructurePieceTypes;
 import org.jetbrains.annotations.NotNull;
 
@@ -44,14 +44,14 @@ public class GourPlateauPiece extends StructurePiece {
 
     public GourPlateauPiece(StructurePieceSerializationContext context, CompoundTag tag) {
         super(BWGStructurePieceTypes.GOUR_PLATEAU_PIECE.get(), tag);
-        this.origin = NbtUtils.readBlockPos(tag, "origin").orElseThrow();
-        this.radius = tag.getInt("radius");
-        this.topY = tag.getInt("topY");
+        this.origin = BWGUtil.readBlockPos(tag, "origin").orElseThrow();
+        this.radius = tag.getIntOr("radius", 0);
+        this.topY = tag.getIntOr("topY", 0);
     }
 
     @Override
     protected void addAdditionalSaveData(@NotNull StructurePieceSerializationContext context, CompoundTag tag) {
-        tag.put("origin", NbtUtils.writeBlockPos(this.origin));
+        tag.put("origin", BWGUtil.writeBlockPos(this.origin));
         tag.putInt("radius", this.radius);
         tag.putInt("topY", this.topY);
     }

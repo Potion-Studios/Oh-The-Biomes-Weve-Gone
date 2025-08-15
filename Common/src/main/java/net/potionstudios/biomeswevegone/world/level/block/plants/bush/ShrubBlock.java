@@ -1,12 +1,12 @@
 package net.potionstudios.biomeswevegone.world.level.block.plants.bush;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -27,7 +27,6 @@ public class ShrubBlock extends BushBlock implements BonemealableBlock {
 
 	private static final IntegerProperty STAGE = BlockStateProperties.STAGE;
 	private final @Nullable Supplier<TreeGrower> treeGrower;
-	private static final MapCodec<ShrubBlock> CODEC = MapCodec.unit(() -> new ShrubBlock(null, null));
 
 	public ShrubBlock(Properties properties, @Nullable Supplier<TreeGrower> treeGrower) {
 		super(properties);
@@ -36,17 +35,12 @@ public class ShrubBlock extends BushBlock implements BonemealableBlock {
 	}
 
 	@Override
-	protected @NotNull MapCodec<? extends BushBlock> codec() {
-		return CODEC;
-	}
-
-	@Override
 	protected boolean mayPlaceOn(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
 		return super.mayPlaceOn(state, level, pos) || state.is(BlockTags.SAND);
 	}
 
 	@Override
-	public void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, Entity entity) {
+	protected void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, Entity entity, @NotNull InsideBlockEffectApplier effectApplier) {
 		EntityType<?> entityType = entity.getType();
 		if (entity instanceof LivingEntity && entityType != EntityType.FOX && entityType != EntityType.BEE)
 			entity.makeStuckInBlock(state, new Vec3(0.8D, 0.75D, 0.8D));

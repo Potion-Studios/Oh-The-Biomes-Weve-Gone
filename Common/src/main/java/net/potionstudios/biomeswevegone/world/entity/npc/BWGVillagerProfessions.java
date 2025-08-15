@@ -2,6 +2,8 @@ package net.potionstudios.biomeswevegone.world.entity.npc;
 
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
@@ -18,18 +20,14 @@ import java.util.function.Supplier;
 
 public class BWGVillagerProfessions {
 
-    public static final Supplier<VillagerProfession> FORAGER = register("forager", () -> create("forager", BWGPoiTypes.FORAGER, null, ImmutableSet.of(
+    public static final ResourceKey<VillagerProfession> FORAGER = register("forager", BWGPoiTypes.FORAGER, null, () -> ImmutableSet.of(
             BWGItems.WHITE_PUFFBALL_SPORES.get(), BWGBlocks.WHITE_PUFFBALL.getBlock().asItem()
-    )));
+    ));
 
-    private static VillagerProfession create(String name, ResourceKey<PoiType> poiType, @Nullable SoundEvent soundEvent, ImmutableSet<Item> requestedItems) {
-        return new VillagerProfession(name, poiTypeHolder -> poiTypeHolder.is(poiType), (poiTypeHolder) -> poiTypeHolder.is(poiType),
-                requestedItems, ImmutableSet.of(), soundEvent);
-
-    }
-
-    private static Supplier<VillagerProfession> register(String id, Supplier<VillagerProfession> villagerProfession){
-        return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.VILLAGER_PROFESSION, id, villagerProfession);
+    private static ResourceKey<VillagerProfession> register(String id, ResourceKey<PoiType> poiType, @Nullable SoundEvent soundEvent, Supplier<ImmutableSet<Item>> requestedItems){
+        ResourceKey<VillagerProfession> name = BiomesWeveGone.key(Registries.VILLAGER_PROFESSION, id);
+        PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.VILLAGER_PROFESSION, id, () -> new VillagerProfession(Component.translatable("entity." + name.location().getNamespace() + ".villager." + name.location().getPath()), poiTypeHolder -> poiTypeHolder.is(poiType), (poiTypeHolder) -> poiTypeHolder.is(poiType), requestedItems.get(), ImmutableSet.of(), soundEvent));
+        return name;
     }
 
     public static void professions() {

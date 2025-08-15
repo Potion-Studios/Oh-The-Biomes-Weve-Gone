@@ -7,12 +7,13 @@ import net.minecraft.client.color.item.ItemTintSource;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.particle.FallingLeavesParticle;
 import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.renderer.BiomeColors;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.*;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -122,7 +123,6 @@ public class BiomesWeveGoneClient {
 
     /**
      * Registers additional models
-     * @see net.potionstudios.biomeswevegone.client.model.ModelAccess
      */
     public static void registerAdditionalModels(Consumer<String> consumer) {
         Arrays.stream(Wreath.Type.values()).forEach(type -> consumer.accept(type.getSerializedName() + "_wreath"));
@@ -136,38 +136,38 @@ public class BiomesWeveGoneClient {
         consumer.accept(BWGParticles.FIREFLY.get(), FireFlyParticle.Provider::new);
         consumer.accept(BWGParticles.BOREALIS_GLINT.get(), FallingLeafParticle.Provider::new);
         consumer.accept(BWGParticles.WITCH_HAZEL_LEAVES.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.WHITE_SAKURA_LEAVES.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.YELLOW_SAKURA_LEAVES.get(), FallingLeafParticle.Provider::new);
+        consumer.accept(BWGParticles.WHITE_SAKURA_LEAVES.get(), FallingLeavesParticle.CherryProvider::new);
+        consumer.accept(BWGParticles.YELLOW_SAKURA_LEAVES.get(), FallingLeavesParticle.CherryProvider::new);
         consumer.accept(BWGParticles.RED_MAPLE_LEAVES.get(), FallingLeafParticle.Provider::new);
         consumer.accept(BWGParticles.SILVER_MAPLE_LEAVES.get(), FallingLeafParticle.Provider::new);
         consumer.accept(BWGParticles.IRONWOOD_LEAVES.get(), FallingLeafParticle.Provider::new);
         consumer.accept(BWGParticles.SPIRIT.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.SPIRIT_LEAVES.get(), FallingLeafParticle.Provider::new);
+        consumer.accept(BWGParticles.SPIRIT_LEAVES.get(), FallingLeavesParticle.PaleOakProvider::new);
     }
 
-    public static void registerBlockRenderTypes(BiConsumer<Block, RenderType> consumer) {
+    public static void registerBlockRenderTypes(BiConsumer<Block, ChunkSectionLayer> consumer) {
         BWGWood.WOOD.forEach(entry -> {
-            RenderType type = renderTypeBlock(entry.get());
+            ChunkSectionLayer type = renderTypeBlock(entry.get());
             if (type != null) consumer.accept(entry.get(), type);
         });
         BWGBlocks.BLOCKS.forEach(entry -> {
-            RenderType type = renderTypeBlock(entry.get());
+            ChunkSectionLayer type = renderTypeBlock(entry.get());
             if (type != null) consumer.accept(entry.get(), type);
         });
-        consumer.accept(BWGWood.MAPLE.door(), RenderType.translucent());
-        consumer.accept(BWGWood.MAPLE.trapdoor(), RenderType.translucent());
+        consumer.accept(BWGWood.MAPLE.door(), ChunkSectionLayer.TRANSLUCENT);
+        consumer.accept(BWGWood.MAPLE.trapdoor(), ChunkSectionLayer.TRANSLUCENT);
     }
 
     @Nullable
-    private static RenderType renderTypeBlock(Block block) {
-        if (block instanceof BWGFruitBlock || block instanceof DoorBlock || block instanceof TrapDoorBlock || block instanceof BushBlock || block instanceof GlowCaneBlock || block instanceof LanternBlock)
-            return RenderType.cutout();
+    private static ChunkSectionLayer renderTypeBlock(Block block) {
+        if (block instanceof BWGFruitBlock || block instanceof DoorBlock || block instanceof TrapDoorBlock || block instanceof VegetationBlock || block instanceof GlowCaneBlock || block instanceof LanternBlock)
+            return ChunkSectionLayer.CUTOUT;
         else if (block instanceof LeavesBlock || block instanceof VineBlock || block instanceof MangroveRootsBlock
                 || block instanceof FlowerPotBlock || block instanceof BWGCactusBlock || block instanceof CattailSproutBlock
                 || block instanceof BWGSpreadableBlock || block instanceof SporeBlossomBlock || block instanceof BaseCoralPlantTypeBlock)
-            return RenderType.cutoutMipped();
+            return ChunkSectionLayer.CUTOUT_MIPPED;
         else if (block instanceof StainedGlassPaneBlock || block instanceof HalfTransparentBlock)
-            return RenderType.translucent();
+            return ChunkSectionLayer.TRANSLUCENT;
         return null;
     }
 

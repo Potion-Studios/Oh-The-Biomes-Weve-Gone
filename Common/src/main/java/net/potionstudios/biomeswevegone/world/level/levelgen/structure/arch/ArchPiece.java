@@ -18,6 +18,7 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.phys.Vec3;
+import net.potionstudios.biomeswevegone.util.BWGUtil;
 import net.potionstudios.biomeswevegone.world.level.levelgen.CheckedBlockPlacement;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGStructurePieceTypes;
 import org.jetbrains.annotations.NotNull;
@@ -44,21 +45,21 @@ public class ArchPiece extends StructurePiece {
 
     public ArchPiece(StructurePieceSerializationContext context, CompoundTag tag) {
         super(BWGStructurePieceTypes.ARCH_PIECE.get(), tag);
-        this.origin = NbtUtils.readBlockPos(tag, "origin").orElseThrow();
-        this.first = NbtUtils.readBlockPos(tag, "first").orElseThrow();
-        this.second = NbtUtils.readBlockPos(tag, "second").orElseThrow();
-        this.yOffset = tag.getInt("yOffset");
+        this.origin = BWGUtil.readBlockPos(tag, "origin").orElseThrow();
+        this.first = BWGUtil.readBlockPos(tag, "first").orElseThrow();
+        this.second = BWGUtil.readBlockPos(tag, "second").orElseThrow();
+        this.yOffset = tag.getIntOr("yOffset", 0);
 
         RegistryOps<Tag> ops = RegistryOps.create(NbtOps.INSTANCE, context.registryAccess());
-        this.generatorConfig = ArchConfig.ArchGeneratorConfig.CODEC.decode(ops, tag.getCompound("generatorConfig")).result().orElseThrow().getFirst();
+        this.generatorConfig = ArchConfig.ArchGeneratorConfig.CODEC.decode(ops, tag.getCompound("generatorConfig").orElseThrow()).result().orElseThrow().getFirst();
         this.blockPlacement = CheckedBlockPlacement.CODEC.decode(ops, tag.get("blockPlacements")).result().orElseThrow().getFirst();
     }
 
     @Override
     protected void addAdditionalSaveData(StructurePieceSerializationContext context, CompoundTag tag) {
-        tag.put("origin", NbtUtils.writeBlockPos(this.origin));
-        tag.put("first", NbtUtils.writeBlockPos(this.first));
-        tag.put("second", NbtUtils.writeBlockPos(this.second));
+        tag.put("origin", BWGUtil.writeBlockPos(this.origin));
+        tag.put("first", BWGUtil.writeBlockPos(this.first));
+        tag.put("second", BWGUtil.writeBlockPos(this.second));
         tag.putInt("yOffset", this.yOffset);
 
         RegistryOps<Tag> ops = RegistryOps.create(NbtOps.INSTANCE, context.registryAccess());
@@ -86,7 +87,7 @@ public class ArchPiece extends StructurePiece {
             cache.forEach(packedPos -> {
                 mutableBlockPos.set(packedPos);
                 if (blockPlacement.getFirst().test(level, mutableBlockPos)) {
-                    chunk.setBlockState(mutableBlockPos, blockPlacement.getSecond().getState(random, mutableBlockPos), false);
+                    chunk.setBlockState(mutableBlockPos, blockPlacement.getSecond().getState(random, mutableBlockPos), 0);
                 }
             });
         }

@@ -12,11 +12,11 @@ import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.BiasedToBottomInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.PinkPetalsBlock;
+import net.minecraft.world.level.block.FlowerBedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -428,11 +428,11 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
 
 
-    private static SimpleWeightedRandomList.Builder<BlockState> createPetalBlockStateList(Supplier<? extends Block> block) {
-        SimpleWeightedRandomList.Builder<BlockState> builder = SimpleWeightedRandomList.builder();
-        for (int i = PinkPetalsBlock.MIN_FLOWERS; i <= PinkPetalsBlock.MAX_FLOWERS; i++)
+    private static WeightedList.Builder<BlockState> createPetalBlockStateList(Supplier<? extends Block> block) {
+       WeightedList.Builder<BlockState> builder = WeightedList.builder();
+        for (int i = FlowerBedBlock.MIN_SEGMENT; i <= FlowerBedBlock.MAX_SEGMENT; i++)
             for (Direction direction : Direction.Plane.HORIZONTAL)
-                builder.add(block.get().defaultBlockState().setValue(PinkPetalsBlock.AMOUNT, i).setValue(PinkPetalsBlock.FACING, direction), 1);
+                builder.add(block.get().defaultBlockState().setValue(FlowerBedBlock.AMOUNT, i).setValue(FlowerBedBlock.FACING, direction), 1);
         return builder;
     }
 

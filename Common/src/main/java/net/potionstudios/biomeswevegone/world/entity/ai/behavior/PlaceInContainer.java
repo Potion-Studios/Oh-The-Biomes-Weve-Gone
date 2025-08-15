@@ -112,7 +112,7 @@ public class PlaceInContainer extends Behavior<PumpkinWarden> {
 
 	@Override
 	protected boolean checkExtraStartConditions(@NotNull ServerLevel level, @NotNull PumpkinWarden pumpkinWarden) {
-		return pumpkinWarden.canMove() && !pumpkinWarden.getItemInHand(InteractionHand.MAIN_HAND).isEmpty() && level.isDay();
+		return pumpkinWarden.canMove() && !pumpkinWarden.getItemInHand(InteractionHand.MAIN_HAND).isEmpty() && level.isBrightOutside();
 	}
 
 	@Override

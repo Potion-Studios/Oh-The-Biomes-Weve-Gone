@@ -1,13 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "biomeswevegone:item/flower_patch",
-    "tints": [
-      {
-        "type": "minecraft:grass",
-        "downfall": 1.0,
-        "temperature": 0.5
-      }
-    ]
+    "model": "biomeswevegone:item/flower_patch"
   }
 }

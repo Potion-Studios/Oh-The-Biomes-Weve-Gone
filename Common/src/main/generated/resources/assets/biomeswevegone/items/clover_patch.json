@@ -4,7 +4,7 @@
     "model": "biomeswevegone:item/clover_patch",
     "tints": [
       {
-        "type": "biomeswevegone:foliage",
+        "type": "minecraft:grass",
         "downfall": 1.0,
         "temperature": 0.5
       }

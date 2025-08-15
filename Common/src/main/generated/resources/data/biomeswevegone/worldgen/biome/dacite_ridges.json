@@ -78,6 +78,7 @@
     ],
     [
       "minecraft:glow_lichen",
+      "minecraft:patch_bush",
       "minecraft:flower_default",
       "minecraft:patch_grass_taiga",
       "minecraft:patch_dead_bush",
@@ -85,8 +86,9 @@
       "minecraft:red_mushroom_old_growth",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
-      "minecraft:patch_sugar_cane",
       "minecraft:patch_pumpkin",
+      "minecraft:patch_sugar_cane",
+      "minecraft:patch_firefly_bush_near_water",
       "biomeswevegone:dacite_ridge_trees",
       "biomeswevegone:holly_trees",
       "biomeswevegone:blue_berry_bush",

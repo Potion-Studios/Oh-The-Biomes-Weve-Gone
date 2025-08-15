@@ -5,7 +5,7 @@ import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -27,7 +27,7 @@ public class BWGVanillaConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWER_DEFAULT = ConfiguredFeaturesUtil.createConfiguredFeature(
             "vanilla/flower_default",
             Feature.FLOWER,
-            () -> VegetationFeatures.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+            () -> VegetationFeatures.grassPatch(new WeightedStateProvider(WeightedList.<BlockState>builder()
                     .add(BWGBlocks.FLOWER_PATCH.get().defaultBlockState(), 2)
                     .add(BWGBlocks.CLOVER_PATCH.get().defaultBlockState(), 2)
                     .add(BWGBlocks.WHITE_ANEMONE.getBlockState(), 1)

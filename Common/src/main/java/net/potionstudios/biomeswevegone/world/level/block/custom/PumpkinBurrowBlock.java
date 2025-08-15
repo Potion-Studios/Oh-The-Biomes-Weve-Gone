@@ -83,7 +83,7 @@ public class PumpkinBurrowBlock extends BaseEntityBlock {
     }
 
     @Override
-    public void playerDestroy(@NotNull Level level, @NotNull Player player, @NotNull BlockPos pos, @NotNull BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
+    public void playerDestroy(@NotNull Level level, @NotNull Player player, @NotNull BlockPos pos, @NotNull BlockState state, @Nullable BlockEntity blockEntity, @NotNull ItemStack tool) {
         super.playerDestroy(level, player, pos, state, blockEntity, tool);
         if (!level.isClientSide() && blockEntity instanceof PumpkinBurrowBlockEntity pumpkinBurrow) {
             if (!EnchantmentHelper.hasTag(tool, BWGEnchantmentTags.PREVENTS_PUMPKIN_WARDENS_SPAWNS_WHEN_MINING))

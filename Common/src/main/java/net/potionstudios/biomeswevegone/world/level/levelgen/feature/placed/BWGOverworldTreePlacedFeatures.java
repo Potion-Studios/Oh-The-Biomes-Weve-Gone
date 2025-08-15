@@ -8,8 +8,10 @@ import net.minecraft.util.valueproviders.BiasedToBottomInt;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.configured.BWGOverworldTreeConfiguredFeatures;
 
+import java.util.List;
 import java.util.OptionalInt;
 
 public class BWGOverworldTreePlacedFeatures {
@@ -53,7 +55,7 @@ public class BWGOverworldTreePlacedFeatures {
     public static final ResourceKey<PlacedFeature> BWG_OAK_TREES = PlacedFeaturesUtil.createPlacedFeature("bwg_oak_trees", BWGOverworldTreeConfiguredFeatures.OAK_TREES, () -> VegetationPlacements.treePlacement(PlacementUtils.countExtra(12, 0.25F, 1)));
 
     public static final ResourceKey<PlacedFeature> PRAIRIE_SHRUBS = PlacedFeaturesUtil.createPlacedFeature("prairie_shrubs", BWGOverworldTreeConfiguredFeatures.PRAIRIE_SHRUBS, PlacedFeaturesUtil.clearingTreePlacement(PlacementUtils.countExtra(0, 0.25F, 2)));
-    public static final ResourceKey<PlacedFeature> ZELKOVA_TREES = PlacedFeaturesUtil.createPlacedFeature("zelkova_trees", BWGOverworldTreeConfiguredFeatures.ZELKOVA_TREES, PlacedFeaturesUtil.clearingTreePlacement(PlacementUtils.countExtra(5, 0.2F, 2)));
+    public static final ResourceKey<PlacedFeature> ZELKOVA_TREES = PlacedFeaturesUtil.createPlacedFeature("zelkova_trees", BWGOverworldTreeConfiguredFeatures.ZELKOVA_TREES, PlacedFeaturesUtil.clearingTreePlacement(PlacementUtils.countExtra(4, 0.2F, 1)));
     public static final ResourceKey<PlacedFeature> PALO_VERDE_TREES = PlacedFeaturesUtil.createPlacedFeature("palo_verde_trees", BWGOverworldTreeConfiguredFeatures.PALO_VERDE_TREES, PlacedFeaturesUtil.clearingTreePlacement(PlacementUtils.countExtra(0, 0.2F, 1)));
     public static final ResourceKey<PlacedFeature> FRAGMENT_JUNGLE_TREES = PlacedFeaturesUtil.createPlacedFeature("fragment_jungle_trees", BWGOverworldTreeConfiguredFeatures.FRAGMENT_JUNGLE_TREES, () -> VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.25F, 2)));
     public static final ResourceKey<PlacedFeature> SPRUCE_TREES = PlacedFeaturesUtil.createPlacedFeature("spruce_trees", BWGOverworldTreeConfiguredFeatures.SPRUCE_TREES, PlacedFeaturesUtil.clearingTreePlacement(PlacementUtils.countExtra(3,0.2F, 1)));
@@ -63,6 +65,9 @@ public class BWGOverworldTreePlacedFeatures {
     public static final ResourceKey<PlacedFeature> JACARANDA_TREES = PlacedFeaturesUtil.createPlacedFeature("jacaranda_trees", BWGOverworldTreeConfiguredFeatures.JACARANDA_TREES, () -> VegetationPlacements.treePlacement(PlacementUtils.countExtra(13, 0.25F, 4)));
     public static final ResourceKey<PlacedFeature> SPARSE_BWG_BIRCH_TREES = PlacedFeaturesUtil.createPlacedFeature("sparse_bwg_birch_trees", BWGOverworldTreeConfiguredFeatures.BIRCH_TREES, PlacedFeaturesUtil.clearingTreePlacement(PlacementUtils.countExtra(1, 0.25F, 2)));
     public static final ResourceKey<PlacedFeature> BWG_BIRCH_TREES = PlacedFeaturesUtil.createPlacedFeature("bwg_birch_trees", BWGOverworldTreeConfiguredFeatures.BIRCH_TREES, () -> VegetationPlacements.treePlacement(PlacementUtils.countExtra(12, 0.25F, 1)));
+    public static final ResourceKey<PlacedFeature> BROWN_BIRCH_TREES = PlacedFeaturesUtil.createPlacedFeature("brown_birch_trees", BWGOverworldTreeConfiguredFeatures.BROWN_BIRCH_TREES, PlacedFeaturesUtil.clearingTreePlacement(PlacementUtils.countExtra(2, 0.2F, 1)));
+    public static final ResourceKey<PlacedFeature> BROWN_ZELKOVA_TREES = PlacedFeaturesUtil.createPlacedFeature("brown_zelkova_trees", BWGOverworldTreeConfiguredFeatures.BROWN_ZELKOVA_TREES, PlacedFeaturesUtil.clearingTreePlacement(PlacementUtils.countExtra(2, 0.2F, 1)));
+
 
     public static final ResourceKey<PlacedFeature> WHITE_SAKURA_TREES = PlacedFeaturesUtil.createPlacedFeature("white_sakura_trees", BWGOverworldTreeConfiguredFeatures.WHITE_SAKURA_TREES, PlacedFeaturesUtil.clearingTreePlacement(PlacementUtils.countExtra(2, 0.2F, 2)));
     public static final ResourceKey<PlacedFeature> YELLOW_SAKURA_TREES = PlacedFeaturesUtil.createPlacedFeature("yellow_sakura_trees", BWGOverworldTreeConfiguredFeatures.YELLOW_SAKURA_TREES, PlacedFeaturesUtil.clearingTreePlacement(PlacementUtils.countExtra(2, 0.2F, 2)));
@@ -83,6 +88,8 @@ public class BWGOverworldTreePlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> FIRECRACKER_SHRUBS = PlacedFeaturesUtil.createPlacedFeature("firecracker_shrubs", BWGOverworldTreeConfiguredFeatures.FIRECRACKER_SHRUBS, PlacedFeaturesUtil.clearingTreePlacement(PlacementUtils.countExtra(1, 0.25F, 2)));
     public static final ResourceKey<PlacedFeature> CRAG_BUSHES = PlacedFeaturesUtil.createPlacedFeature("crag_bushes", BWGOverworldTreeConfiguredFeatures.JUNGLE_BUSH1, () -> VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.25F, 2)));
+
+    public static final ResourceKey<PlacedFeature> FALLEN_ASPEN_TREE = PlacedFeaturesUtil.createPlacedFeature("fallen_aspen_tree", BWGOverworldTreeConfiguredFeatures.FALLEN_ASPEN_TREE, () -> List.of(PlacementUtils.filteredByBlockSurvival(BWGWood.ASPEN.sapling().getBlock())));
 
     protected static void init() {
         BiomesWeveGone.LOGGER.info("Creating and Registering Overworld Tree Placed Features");

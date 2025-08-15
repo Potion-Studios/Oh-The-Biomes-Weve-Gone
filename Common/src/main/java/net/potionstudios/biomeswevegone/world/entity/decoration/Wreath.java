@@ -2,7 +2,6 @@ package net.potionstudios.biomeswevegone.world.entity.decoration;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -17,13 +16,14 @@ import net.minecraft.util.ByIdMap;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.VariantHolder;
 import net.minecraft.world.entity.decoration.HangingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
@@ -36,7 +36,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.function.IntFunction;
 import java.util.function.Supplier;
 
-public class Wreath extends HangingEntity implements VariantHolder<Wreath.Type> {
+public class Wreath extends HangingEntity {
 	private static final EntityDataAccessor<Integer> DATA_ID_TYPE = SynchedEntityData.defineId(Wreath.class, EntityDataSerializers.INT);
 
 	public Wreath(EntityType<? extends HangingEntity> entityType, Level level) {
@@ -57,10 +57,10 @@ public class Wreath extends HangingEntity implements VariantHolder<Wreath.Type> 
 	@Override
 	protected void setDirection(@NotNull Direction facingDirection) {
 		Validate.notNull(facingDirection);
-		this.direction = facingDirection;
+		super.setDirectionRaw(facingDirection);
 		if (facingDirection.getAxis().isHorizontal()) {
 			this.setXRot(0.0F);
-			this.setYRot(this.direction.get2DDataValue() * 90);
+			this.setYRot(getDirection().get2DDataValue() * 90);
 		} else {
 			this.setXRot(-90 * facingDirection.getAxisDirection().getStep());
 			this.setYRot(0.0F);
@@ -99,27 +99,27 @@ public class Wreath extends HangingEntity implements VariantHolder<Wreath.Type> 
 
 	@Override
 	protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
-		builder.define(DATA_ID_TYPE, Type.DEFAULT.ordinal());
+		super.defineSynchedData(builder);
+        builder.define(DATA_ID_TYPE, Type.DEFAULT.ordinal());
 	}
 
 	@Override
-	public void addAdditionalSaveData(@NotNull CompoundTag tag) {
-		super.addAdditionalSaveData(tag);
-		tag.putString("Type", getVariant().getSerializedName());
-		tag.putByte("Facing", (byte)direction.get3DDataValue());
+	protected void addAdditionalSaveData(@NotNull ValueOutput valueOutput) {
+		super.addAdditionalSaveData(valueOutput);
+		valueOutput.putString("Type", getVariant().getSerializedName());
+		valueOutput.store("Facing", Direction.LEGACY_ID_CODEC, getDirection());
 	}
 
 	@Override
-	public void readAdditionalSaveData(@NotNull CompoundTag tag) {
-		super.readAdditionalSaveData(tag);
-		if (tag.contains("Type", 8))
-			setVariant(Type.byName(tag.getString("Type")));
-		setDirection(Direction.from3DDataValue(tag.getByte("Facing")));
+	protected void readAdditionalSaveData(@NotNull ValueInput valueInput) {
+		super.readAdditionalSaveData(valueInput);
+		setVariant(Type.byName(valueInput.getStringOr("Type", Type.DEFAULT.getSerializedName())));
+		setDirection(valueInput.read("Facing", Direction.LEGACY_ID_CODEC).orElse(Direction.DOWN));
 	}
 
 	@Override
 	public @NotNull Packet<ClientGamePacketListener> getAddEntityPacket(@NotNull ServerEntity entity) {
-		return new ClientboundAddEntityPacket(this, this.direction.get3DDataValue(), this.getPos());
+		return new ClientboundAddEntityPacket(this, getDirection().get3DDataValue(), this.getPos());
 	}
 
 	@Override
@@ -138,12 +138,10 @@ public class Wreath extends HangingEntity implements VariantHolder<Wreath.Type> 
 		return Component.translatable(getVariant().getItem().getDescriptionId());
 	}
 
-	@Override
 	public void setVariant(@NotNull Type variant) {
 		entityData.set(DATA_ID_TYPE, variant.ordinal());
 	}
 
-	@Override
 	public @NotNull Type getVariant() {
 		return Type.byId(entityData.get(DATA_ID_TYPE));
 	}

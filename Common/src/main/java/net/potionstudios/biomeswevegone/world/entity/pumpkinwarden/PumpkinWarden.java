@@ -11,7 +11,6 @@ import net.minecraft.core.GlobalPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.game.DebugPackets;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -39,7 +38,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
-import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
 import net.minecraft.world.entity.ai.sensing.Sensor;
 import net.minecraft.world.entity.ai.sensing.SensorType;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
@@ -55,6 +53,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.pathfinder.PathType;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
@@ -67,11 +67,12 @@ import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.entities.PumpkinBurrowBlockEntity;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animatable.manager.AnimatableManager;
+import software.bernie.geckolib.animatable.processing.AnimationController;
+import software.bernie.geckolib.animatable.processing.AnimationTest;
 import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.Map;
@@ -85,7 +86,7 @@ import java.util.function.IntFunction;
  * @see GeoEntity
  * @author JT122406
  */
-public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHolder<PumpkinWarden.Variant> {
+public class PumpkinWarden extends PathfinderMob implements GeoEntity {
 
     private final AnimatableInstanceCache animatableInstanceCache = GeckoLibUtil.createInstanceCache(this);
     private BlockPos jukebox;
@@ -134,7 +135,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         super(entityType, level);
         setPathfindingMalus(PathType.DANGER_FIRE, 16.0F);
         setPathfindingMalus(PathType.DAMAGE_FIRE, -1.0F);
-        ((GroundPathNavigation)getNavigation()).setCanOpenDoors(true);
+        getNavigation().setCanOpenDoors(true);
         getNavigation().setCanFloat(true);
     }
 
@@ -191,17 +192,17 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     }
 
     @Override
-    public void addAdditionalSaveData(@NotNull CompoundTag compound) {
-        super.addAdditionalSaveData(compound);
-        compound.putInt("Variant", this.getVariant().getId());
-        compound.putBoolean("Hiding", this.isHiding());
+    protected void addAdditionalSaveData(@NotNull ValueOutput valueOutput) {
+        super.addAdditionalSaveData(valueOutput);
+        valueOutput.putInt("Variant", this.getVariant().getId());
+        valueOutput.putBoolean("Hiding", this.isHiding());
     }
 
     @Override
-    public void readAdditionalSaveData(@NotNull CompoundTag compound) {
-        super.readAdditionalSaveData(compound);
-        this.setVariant(Variant.byId(compound.getInt("Variant")));
-        this.setHiding(compound.getBoolean("Hiding"));
+    protected void readAdditionalSaveData(@NotNull ValueInput valueInput) {
+        super.readAdditionalSaveData(valueInput);
+        this.setVariant(Variant.byId(valueInput.getIntOr("Variant", 0)));
+        this.setHiding(valueInput.getBooleanOr("Hiding", false));
         if (level() instanceof ServerLevel serverLevel)
             refreshBrain(serverLevel);
     }
@@ -238,7 +239,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-        controllerRegistrar.add(new AnimationController<>(this, "controller", 0, this::predicate)
+        controllerRegistrar.add(new AnimationController<>("controller", 0, this::predicate)
                 .triggerableAnim("hide_start", HIDE_START)
                 .triggerableAnim("hide_end", HIDE_END));
     }
@@ -258,10 +259,10 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     private static final RawAnimation WAVE = RawAnimation.begin().thenPlay("animation.pumpkinwarden.wave");
 
 
-    private <E extends GeoAnimatable> PlayState predicate(@NotNull AnimationState<E> event) {
-        event.getController().transitionLength(0);
+    private PlayState predicate(@NotNull AnimationTest<PumpkinWarden> event) {
+        event.controller().transitionLength(0);
         if (isHiding())
-            if (event.getController().hasAnimationFinished())
+            if (event.controller().hasAnimationFinished())
                 return event.setAndContinue(HIDE);
             else return PlayState.CONTINUE;
 
@@ -269,11 +270,10 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
             if (event.isMoving())
                 return event.setAndContinue(HOLDING_WALKING);
             return event.setAndContinue(HOLDING_IDLE);
-        } else if (event.isMoving()) {
+        } else if (event.isMoving())
             return event.setAndContinue(WALKING);
-        } else if (this.party) {
+        else if (this.party)
             return event.setAndContinue(WAVE);
-        }
         return event.setAndContinue(IDLE);
     }
 
@@ -372,9 +372,9 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     }
 
     @Override
-    protected float tickHeadTurn(float yRot, float animStep) {
-        if (isHiding()) return 0;
-        return super.tickHeadTurn(yRot, animStep);
+    protected void tickHeadTurn(float yBodyRot) {
+        if (isHiding()) return;
+        super.tickHeadTurn(yBodyRot);
     }
 
     @Override
@@ -409,12 +409,10 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         entityData.set(HIDING, flag);
     }
 
-    @Override
     public void setVariant(@NotNull Variant variant) {
         this.entityData.set(DATA_VARIANT, variant.getId());
     }
 
-    @Override
     public @NotNull Variant getVariant() {
         return Variant.byId(this.entityData.get(DATA_VARIANT));
     }

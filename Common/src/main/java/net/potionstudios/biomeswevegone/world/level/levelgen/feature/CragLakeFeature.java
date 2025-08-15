@@ -110,19 +110,19 @@ public class CragLakeFeature extends Feature<NoneFeatureConfiguration> {
                                 double normalizedLakeDepth = (lakeDepthSampler.noise(mutable.getX() * 0.3, 0, mutable.getZ() * 0.3) + 1) * 0.5F;
                                 double lakeDepth = BlendingFunction.EaseInOutCirc.INSTANCE.apply(clampedDelta, 1, normalizedLakeDepth * 5);
                                 mutable.set(worldX, heightmap, worldZ);
-                                chunk.setBlockState(mutable, Blocks.WATER.defaultBlockState(), false);
+                                chunk.setBlockState(mutable, Blocks.WATER.defaultBlockState());
                                 level.scheduleTick(mutable.immutable(), Fluids.WATER, 0);
                                 chunk.markPosForPostprocessing(mutable.move(Direction.UP));
                                 chunk.markPosForPostprocessing(mutable.move(Direction.UP));
 
                                 for (int lakeY = 1; lakeY < lakeDepth; lakeY++) {
                                     mutable.set(worldX, heightmap - lakeY, worldZ);
-                                    chunk.setBlockState(mutable, Blocks.WATER.defaultBlockState(), false);
+                                    chunk.setBlockState(mutable, Blocks.WATER.defaultBlockState());
                                     level.scheduleTick(mutable.immutable(), Fluids.WATER, 0);
                                 }
                             } else {
                                 mutable.set(worldX, heightmap, worldZ);
-                                chunk.setBlockState(mutable, Blocks.WATER.defaultBlockState(), false);
+                                chunk.setBlockState(mutable, Blocks.WATER.defaultBlockState());
                                 level.scheduleTick(mutable.immutable(), Fluids.WATER, 0);
                                 chunk.markPosForPostprocessing(mutable.move(Direction.UP));
                                 chunk.markPosForPostprocessing(mutable.move(Direction.UP));

@@ -2,7 +2,7 @@ package net.potionstudios.biomeswevegone.world.level.levelgen.biome;
 
 import net.minecraft.data.worldgen.SurfaceRuleData;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
@@ -200,7 +200,7 @@ public class BWGOverworldSurfaceRules {
             makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D), COARSE_DIRT_DIRT_SURFACE));
 
     private static final SurfaceRules.RuleSource ENCHANTED_TANGLE = biomeAbovePreliminarySurface(BWGBiomes.ENCHANTED_TANGLE, BWGRuleSources.weightedRuleSource(
-            SimpleWeightedRandomList.<SurfaceRules.RuleSource>builder()
+            WeightedList.<SurfaceRules.RuleSource>builder()
                     .add(LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE, 5)
                     .add(PEAT_SURFACE, 3)
                     .add(COARSE_DIRT_DIRT_SURFACE, 1)
@@ -268,7 +268,7 @@ public class BWGOverworldSurfaceRules {
     ));
 
     private static final SurfaceRules.RuleSource JACARANDA_JUNGLE = biomeAbovePreliminarySurface(BWGBiomes.JACARANDA_JUNGLE, BWGRuleSources.weightedRuleSource(
-            SimpleWeightedRandomList.<SurfaceRules.RuleSource>builder()
+            WeightedList.<SurfaceRules.RuleSource>builder()
                     .add(LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE, 5)
                     .add(PEAT_SURFACE, 3)
                     .add(COARSE_DIRT_DIRT_SURFACE, 1)
@@ -285,7 +285,7 @@ public class BWGOverworldSurfaceRules {
             ));
 
     private static final SurfaceRules.RuleSource MOJAVE_DESERT = biomeAbovePreliminarySurface(BWGBiomes.MOJAVE_DESERT, BWGRuleSources.weightedRuleSource(
-            SimpleWeightedRandomList.<SurfaceRules.RuleSource>builder()
+            WeightedList.<SurfaceRules.RuleSource>builder()
                     .add(SAND_SURFACE, 3)
                     .add(SANDY_DIRT_SURFACE, 1)
                     .add(CRACKED_SAND_SURFACE, 1)
@@ -414,7 +414,7 @@ public class BWGOverworldSurfaceRules {
             PEAT_SURFACE
     ));
 
-    private static final SurfaceRules.RuleSource BLACK_ICE_BANDS = biomeAbovePreliminarySurface(BWGBiomes.SHATTERED_GLACIER, new BandsRuleSource(SimpleWeightedRandomList.<BlockState>builder().add(BWGBlocks.PACKED_BLACK_ICE.get().defaultBlockState(), 3).add(BWGBlocks.BLACK_ICE.get().defaultBlockState(), 1).build(), UniformInt.of(1, 5), UniformInt.of(20, 40), 1, 10));
+    private static final SurfaceRules.RuleSource BLACK_ICE_BANDS = biomeAbovePreliminarySurface(BWGBiomes.SHATTERED_GLACIER, new BandsRuleSource(WeightedList.<BlockState>builder().add(BWGBlocks.PACKED_BLACK_ICE.get().defaultBlockState(), 3).add(BWGBlocks.BLACK_ICE.get().defaultBlockState(), 1).build(), UniformInt.of(1, 5), UniformInt.of(20, 40), 1, 10));
 //    public static final SurfaceRules.RuleSource BOREALIS_ICE_BANDS = biomeAbovePreliminarySurface(BWGBiomes.ERODED_BOREALIS, new BandsRuleSource(SimpleWeightedRandomList.<BlockState>builder().add(BWGBlocks.PACKED_BOREALIS_ICE.get().defaultBlockState(), 3).add(BWGBlocks.BOREALIS_ICE.get().defaultBlockState(), 1).build(), UniformInt.of(1, 5), UniformInt.of(20, 40), 1, 10));
 
     private static final SurfaceRules.RuleSource WINDSWEPT_DESERT = biomeAbovePreliminarySurface(BWGBiomes.WINDSWEPT_DESERT, makeSandRule(BWGBlocks.WINDSWEPT_SAND_SET));

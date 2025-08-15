@@ -38,16 +38,19 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.pathfinder.PathType;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.config.configs.BWGMobSpawnConfig;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimationState;
+import software.bernie.geckolib.animatable.manager.AnimatableManager;
+import software.bernie.geckolib.animatable.processing.AnimationController;
+import software.bernie.geckolib.animatable.processing.AnimationTest;
 import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
@@ -93,7 +96,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     }
 
     protected void handleAirSupply(int air) {
-        if (this.isAlive() && !this.isInWaterOrBubble()) {
+        if (this.isAlive() && !this.isInWater()) {
             this.setAirSupply(air - 1);
             if (this.getAirSupply() == -20) {
                 this.setAirSupply(0);
@@ -154,7 +157,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
     @Override
     public void playerTouch(@NotNull Player player) {
-        if (player instanceof ServerPlayer serverPlayer && serverPlayer.hurtServer(serverPlayer.serverLevel(), serverPlayer.damageSources().mobAttack(this), (float) (1))) {
+        if (player instanceof ServerPlayer serverPlayer && serverPlayer.hurtServer(serverPlayer.level(), serverPlayer.damageSources().mobAttack(this), (float) (1))) {
             RandomSource rand = player.getRandom();
             int i = rand.nextInt(4);
             if (i <= 2) {
@@ -163,7 +166,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
                 serverPlayer.addEffect(new MobEffectInstance(MobEffects.POISON, 200), this);
             }
             if (serverPlayer.hasEffect(MobEffects.UNLUCK)) {
-                serverPlayer.kill(serverPlayer.serverLevel());
+                serverPlayer.kill(serverPlayer.level());
             }
         }
     }
@@ -232,19 +235,18 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     }
 
     @Override
-    public void addAdditionalSaveData(@NotNull CompoundTag compoundTag) {
-        super.addAdditionalSaveData(compoundTag);
-        compoundTag.putInt("Color", this.getRawColor());
-        compoundTag.putBoolean("FromBucket", this.fromBucket());
+    protected void addAdditionalSaveData(@NotNull ValueOutput valueOutput) {
+        super.addAdditionalSaveData(valueOutput);
+        valueOutput.putInt("Color", this.getRawColor());
+        valueOutput.putBoolean("FromBucket", this.fromBucket());
     }
 
     @Override
-    public void readAdditionalSaveData(@NotNull CompoundTag compoundTag) {
-        super.readAdditionalSaveData(compoundTag);
-        this.setColor(compoundTag.getInt("Color"));
-        this.setFromBucket(compoundTag.getBoolean("FromBucket"));
+    protected void readAdditionalSaveData(@NotNull ValueInput valueInput) {
+        super.readAdditionalSaveData(valueInput);
+        this.setColor(valueInput.getIntOr("Color", 0));
+        this.setFromBucket(valueInput.getBooleanOr("FromBucket", false));
     }
-
 
     @Override
     public void aiStep() {
@@ -274,7 +276,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
             }
         }
 
-        if (this.isInWaterOrBubble()) {
+        if (this.isInWater()) {
             if (this.tentacleMovement < 3.1415927F) {
                 float f = this.tentacleMovement / 3.1415927F;
                 this.tentacleAngle = Mth.sin(f * f * 3.1415927F) * 3.1415927F * 0.25F;
@@ -342,7 +344,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-        controllerRegistrar.add(new AnimationController<>(this, "controller", 0, this::predicate));
+        controllerRegistrar.add(new AnimationController<>("controller", 0, this::predicate));
     }
 
     @Override
@@ -353,8 +355,8 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     private static final RawAnimation SWIM_ANIMATION = RawAnimation.begin().thenPlay("animation.man_o_war.swim");
     private static final RawAnimation BEACHED_ANIMATION = RawAnimation.begin().thenPlay("animation.man_o_war.beached");
 
-    private <E extends GeoAnimatable> PlayState predicate(AnimationState<E> event) {
-        AnimationController<E> controller = event.getController();
+    private PlayState predicate(AnimationTest<ManOWar> event) {
+        AnimationController<ManOWar> controller = event.controller();
         controller.transitionLength(0);
         controller.setAnimation(this.isInWater() ? SWIM_ANIMATION : BEACHED_ANIMATION);
         return PlayState.CONTINUE;
@@ -402,10 +404,9 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     @Override
     public void loadFromBucketTag(@NotNull CompoundTag tag) {
         Bucketable.loadDefaultDataFromBucketTag(this, tag);
-        this.setColor(Colors.byIndex(tag.getInt("Variant")));
-        if (tag.contains("Age")) {
-            this.setAge(tag.getInt("Age"));
-        }
+        this.setColor(Colors.byIndex(tag.getIntOr("Variant", 0)));
+        if (tag.contains("Age"))
+            this.setAge(tag.getIntOr("Age", 0));
     }
 
     @Override

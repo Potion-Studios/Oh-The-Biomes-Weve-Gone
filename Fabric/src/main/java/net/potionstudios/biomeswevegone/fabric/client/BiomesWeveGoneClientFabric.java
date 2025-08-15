@@ -3,16 +3,24 @@ package net.potionstudios.biomeswevegone.fabric.client;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.model.loading.v1.ExtraModelKey;
 import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
+import net.fabricmc.fabric.api.client.model.loading.v1.SimpleUnbakedExtraModel;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.color.item.ItemTintSources;
+import net.minecraft.client.renderer.block.model.*;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.resources.model.BlockModelRotation;
+import net.minecraft.resources.ResourceLocation;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.client.BiomesWeveGoneClient;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Initializes the Fabric client.
@@ -22,10 +30,13 @@ import net.potionstudios.biomeswevegone.client.BiomesWeveGoneClient;
  */
 @Environment(EnvType.CLIENT)
 public class BiomesWeveGoneClientFabric implements ClientModInitializer, ModelLoadingPlugin {
+
+    public static final Map<String, ExtraModelKey<BlockStateModel>> EXTRA_MODELS = new HashMap<>();
+
     @Override
     public void onInitializeClient() {
         BiomesWeveGoneClient.onInitialize();
-        BiomesWeveGoneClient.registerBlockRenderTypes(BlockRenderLayerMap.INSTANCE::putBlock);
+        BiomesWeveGoneClient.registerBlockRenderTypes(BlockRenderLayerMap::putBlock);
         BiomesWeveGoneClient.registerEntityRenderers(EntityRendererRegistry::register);
         BiomesWeveGoneClient.registerBlockEntityRenderers(BlockEntityRenderers::register);
         BiomesWeveGoneClient.registerParticles((type, spriteProviderFactory) -> ParticleFactoryRegistry.getInstance().register(type, spriteProviderFactory::apply));
@@ -37,6 +48,21 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer, ModelLo
 
     @Override
     public void initialize(Context context) {
-        BiomesWeveGoneClient.registerAdditionalModels(modelLocation -> context.addModels(BiomesWeveGone.id("block/" + modelLocation)));
+        BiomesWeveGoneClient.registerAdditionalModels((name) -> {
+            ExtraModelKey<BlockStateModel> key = ExtraModelKey.create(() -> name);
+            EXTRA_MODELS.put(name, key);
+            context.addModel(key, blockStateModel(BiomesWeveGone.id("block/" + name)));
+        });
+    }
+
+    private static SimpleUnbakedExtraModel<BlockStateModel> blockStateModel(ResourceLocation model) {
+        return new SimpleUnbakedExtraModel<>(model, (baked, baker) -> {
+            TextureSlots textures = baked.getTopTextureSlots();
+            return new SingleVariant(new SimpleModelWrapper(
+                    baked.bakeTopGeometry(textures, baker, BlockModelRotation.X0_Y0),
+                    baked.getTopAmbientOcclusion(),
+                    baked.resolveParticleSprite(textures, baker)
+            ));
+        });
     }
 }

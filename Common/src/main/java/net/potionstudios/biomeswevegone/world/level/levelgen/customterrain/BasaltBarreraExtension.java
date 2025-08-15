@@ -96,7 +96,7 @@ public class BasaltBarreraExtension {
 
                     for (int worldY = landHeight - 5; worldY <= blendedY; worldY++) {
                         mutable.set(worldX, worldY, worldZ);
-                        chunk.setBlockState(mutable, state, false);
+                        chunk.setBlockState(mutable, state);
                     }
                 }
             }

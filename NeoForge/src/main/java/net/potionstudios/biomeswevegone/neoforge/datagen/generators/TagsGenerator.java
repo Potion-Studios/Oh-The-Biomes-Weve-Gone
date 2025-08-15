@@ -1,5 +1,6 @@
 package net.potionstudios.biomeswevegone.neoforge.datagen.generators;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
@@ -11,7 +12,9 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.data.BlockTagCopyingItemTagProvider;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
+import net.neoforged.neoforge.common.data.ItemTagsProvider;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.tags.*;
 import net.potionstudios.biomeswevegone.world.damagesource.BWGDamageTypes;
@@ -38,8 +41,8 @@ import java.util.concurrent.CompletableFuture;
 public class TagsGenerator {
 
     public static void init(DataGenerator generator, boolean run, PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        BlockTagGenerator BlockTags = generator.addProvider(run, new BlockTagGenerator(output, lookupProvider));
-        generator.addProvider(run, new ItemTagGenerator(output, lookupProvider, BlockTags));
+        CompletableFuture<TagsProvider.TagLookup<Block>> blockTags = generator.addProvider(run, new BlockTagGenerator(output, lookupProvider)).contentsGetter();
+        generator.addProvider(run, new ItemTagGenerator(output, lookupProvider, blockTags));
         generator.addProvider(run, new BiomeTagGenerator(output, lookupProvider));
         generator.addProvider(run, new StructureTagGenerator(output, lookupProvider));
         generator.addProvider(run, new EntityTypeTagGenerator(output, lookupProvider));
@@ -209,12 +212,11 @@ public class TagsGenerator {
             tag(BWGBlockTags.SPRUCE_SAPLINGS).add(BWGWood.BLUE_SPRUCE_SAPLING.getBlock(), BWGWood.RED_SPRUCE_SAPLING.getBlock(), BWGWood.YELLOW_SPRUCE_SAPLING.getBlock(), BWGWood.ORANGE_SPRUCE_SAPLING.getBlock());
             tag(BWGBlockTags.BIRCH_SAPLINGS).add(BWGWood.YELLOW_BIRCH_SAPLING.getBlock(), BWGWood.ORANGE_BIRCH_SAPLING.getBlock(), BWGWood.RED_BIRCH_SAPLING.getBlock(), BWGWood.BROWN_BIRCH_SAPLING.getBlock());
 
-            IntrinsicHolderTagsProvider.IntrinsicTagAppender<Block> intrinsicTagAppender = this.tag(BlockTags.REPLACEABLE);
-            provider.lookupOrThrow(Registries.BLOCK)
-                    .filterElements(block -> block.defaultBlockState().canBeReplaced())
-                    .filterElements(block -> block.getDescriptionId().contains(BiomesWeveGone.MOD_ID))
-                    .listElementIds()
-                    .forEach(intrinsicTagAppender::add);
+	        tag(BlockTags.REPLACEABLE)
+			        .addAll(provider.lookupOrThrow(Registries.BLOCK)
+					        .listElements().map(Holder.Reference::value)
+					        .filter(block -> block.defaultBlockState().canBeReplaced())
+					        .filter(block -> block.getDescriptionId().contains(BiomesWeveGone.MOD_ID)));
 
             tag(BlockTags.MANGROVE_LOGS_CAN_GROW_THROUGH).add(BWGBlocks.PALE_MUD.get());
             tag(BlockTags.MANGROVE_ROOTS_CAN_GROW_THROUGH).add(BWGBlocks.PALE_MUD.get());
@@ -262,10 +264,10 @@ public class TagsGenerator {
      * Used to generate tags for items.
      * @see ItemTagsProvider
      */
-    private static class ItemTagGenerator extends ItemTagsProvider {
+    private static class ItemTagGenerator extends BlockTagCopyingItemTagProvider {
 
-        private ItemTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture, BlockTagGenerator blockTagGenerator) {
-            super(arg, completableFuture, blockTagGenerator.contentsGetter(), BiomesWeveGone.MOD_ID);
+        private ItemTagGenerator(PackOutput arg, CompletableFuture<HolderLookup.Provider> completableFuture, CompletableFuture<TagLookup<Block>> blockTags) {
+            super(arg, completableFuture, blockTags, BiomesWeveGone.MOD_ID);
         }
 
         @SuppressWarnings("DataFlowIssue")

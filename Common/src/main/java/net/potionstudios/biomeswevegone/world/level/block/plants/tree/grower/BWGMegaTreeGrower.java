@@ -2,27 +2,27 @@ package net.potionstudios.biomeswevegone.world.level.block.plants.tree.grower;
 
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
-import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class BWGMegaTreeGrower extends BWGTreeGrower {
 
-    private final SimpleWeightedRandomList<ResourceKey<ConfiguredFeature<?, ?>>> megaKeys;
+    private final WeightedList<ResourceKey<ConfiguredFeature<?, ?>>> megaKeys;
 
-    public BWGMegaTreeGrower(String name, SimpleWeightedRandomList<ResourceKey<ConfiguredFeature<?, ?>>> keys, SimpleWeightedRandomList<ResourceKey<ConfiguredFeature<?, ?>>> megaKeys) {
+    public BWGMegaTreeGrower(String name, WeightedList<ResourceKey<ConfiguredFeature<?, ?>>> keys, WeightedList<ResourceKey<ConfiguredFeature<?, ?>>> megaKeys) {
         super(name, keys);
         this.megaKeys = megaKeys;
     }
 
-    public BWGMegaTreeGrower(String name, SimpleWeightedRandomList<ResourceKey<ConfiguredFeature<?, ?>>> megaKeys) {
-        this(name, SimpleWeightedRandomList.empty(), megaKeys);
+    public BWGMegaTreeGrower(String name, WeightedList<ResourceKey<ConfiguredFeature<?, ?>>> megaKeys) {
+        this(name, WeightedList.of(), megaKeys);
     }
 
     @Nullable
     @Override
     protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredMegaFeature(@NotNull RandomSource random) {
-        return this.megaKeys.getRandomValue(random).orElse(null);
+        return this.megaKeys.getRandomOrThrow(random);
     }
 }

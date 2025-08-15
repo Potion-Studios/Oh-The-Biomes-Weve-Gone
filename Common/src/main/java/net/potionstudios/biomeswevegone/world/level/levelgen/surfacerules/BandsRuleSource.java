@@ -3,20 +3,20 @@ package net.potionstudios.biomeswevegone.world.level.levelgen.surfacerules;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.util.KeyDispatchDataCodec;
-import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import org.jetbrains.annotations.NotNull;
 
-public record BandsRuleSource(SimpleWeightedRandomList<BlockState> bandStates, IntProvider bandSizeProvider,
+public record BandsRuleSource(WeightedList<BlockState> bandStates, IntProvider bandSizeProvider,
                               IntProvider bandsCountProvider, float frequency,
                               int noiseScale) implements SurfaceRules.RuleSource {
 
 	public static final KeyDispatchDataCodec<BandsRuleSource> CODEC = KeyDispatchDataCodec.of(RecordCodecBuilder.mapCodec(builder ->
 			builder.group(
-					SimpleWeightedRandomList.wrappedCodec(BlockState.CODEC).fieldOf("band_states").forGetter(bandsRuleSource -> bandsRuleSource.bandStates),
+					WeightedList.codec(BlockState.CODEC).fieldOf("band_states").forGetter(bandsRuleSource -> bandsRuleSource.bandStates),
 					IntProvider.POSITIVE_CODEC.fieldOf("band_size").forGetter(bandsRuleSource -> bandsRuleSource.bandSizeProvider),
 					IntProvider.POSITIVE_CODEC.fieldOf("bands_count").forGetter(bandsRuleSource -> bandsRuleSource.bandsCountProvider),
 					Codec.FLOAT.fieldOf("frequency").forGetter(bandsRuleSource -> bandsRuleSource.frequency),

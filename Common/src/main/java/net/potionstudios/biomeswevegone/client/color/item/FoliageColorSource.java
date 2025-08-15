@@ -4,7 +4,6 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.client.color.item.ItemTintSource;
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -22,8 +21,7 @@ public record FoliageColorSource(float temperature, float downfall) implements I
 
     @Override
     public int calculate(@NotNull ItemStack stack, @Nullable ClientLevel level, @Nullable LivingEntity entity) {
-        if (entity == null || level == null) return FoliageColor.get(temperature, downfall);
-        return BiomeColors.getAverageFoliageColor(level, entity.getOnPos());
+        return FoliageColor.get(temperature, downfall);
     }
 
     @Override

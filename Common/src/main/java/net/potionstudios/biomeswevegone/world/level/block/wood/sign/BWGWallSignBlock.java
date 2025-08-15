@@ -14,7 +14,7 @@ public class BWGWallSignBlock extends WallSignBlock {
     }
 
     @Override
-    public BlockEntity newBlockEntity(@NotNull BlockPos arg, @NotNull BlockState arg2) {
+    public @NotNull BlockEntity newBlockEntity(@NotNull BlockPos arg, @NotNull BlockState arg2) {
         return new BWGSignBlockEntity(arg, arg2);
     }
 }

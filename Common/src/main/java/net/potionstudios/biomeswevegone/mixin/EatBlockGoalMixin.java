@@ -25,14 +25,14 @@ public abstract class EatBlockGoalMixin {
 
     @Shadow @Final private Mob mob;
 
-    @Shadow @Final private static Predicate<BlockState> IS_TALL_GRASS;
-
     @Shadow @Final private Level level;
+
+    @Shadow @Final private static Predicate<BlockState> IS_EDIBLE;
 
     @Inject(method = "canUse", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Mob;blockPosition()Lnet/minecraft/core/BlockPos;"), cancellable = true)
     private void canUse(CallbackInfoReturnable<Boolean> cir) {
         BlockPos blockPos = mob.blockPosition();
-        if (IS_TALL_GRASS.test(level.getBlockState(blockPos)))
+        if (IS_EDIBLE.test(level.getBlockState(blockPos)))
             cir.setReturnValue(true);
         else if (level.getBlockState(blockPos.below()).is(BWGBlocks.LUSH_GRASS_BLOCK.get()))
             cir.setReturnValue(true);

@@ -6,11 +6,11 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.GlobalPos;
-import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponentGetter;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.NbtOps;
 import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
@@ -20,6 +20,9 @@ import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.TagValueOutput;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.component.BWGDataComponents;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
@@ -74,26 +77,21 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
     }
 
     @Override
-    protected void loadAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
-        super.loadAdditional(tag, registries);
-        if (tag.contains("occupant")) {
-            Occupant.CODEC
-                    .parse(NbtOps.INSTANCE, tag.getCompound("occupant"))
-                    .resultOrPartial(string -> BiomesWeveGone.LOGGER.error("Failed to parse occupants: '{}'", string))
-                    .ifPresent(occupant -> stored = occupant);
-        }
+    protected void loadAdditional(@NotNull ValueInput valueInput) {
+        super.loadAdditional(valueInput);
+        valueInput.read("occupant", Occupant.CODEC).ifPresent(stored -> this.stored = stored);
     }
 
     @Override
-    protected void saveAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
-        super.saveAdditional(tag, registries);
-        tag.put("occupant", Occupant.CODEC.encodeStart(NbtOps.INSTANCE, stored).getOrThrow());
+    protected void saveAdditional(@NotNull ValueOutput valueOutput) {
+        super.saveAdditional(valueOutput);
+        valueOutput.store("occupant", Occupant.CODEC, stored);
     }
 
     @Override
-    protected void applyImplicitComponents(@NotNull DataComponentInput componentInput) {
-        super.applyImplicitComponents(componentInput);
-        stored = componentInput.getOrDefault(BWGDataComponents.PUMPKIN_WARDEN.get(), Occupant.EMPTY);
+    protected void applyImplicitComponents(@NotNull DataComponentGetter componentGetter) {
+        super.applyImplicitComponents(componentGetter);
+        stored = componentGetter.getOrDefault(BWGDataComponents.PUMPKIN_WARDEN.get(), Occupant.EMPTY);
     }
 
     @Override
@@ -130,10 +128,15 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
         );
 
         public static Occupant of(Entity entity) {
-            CompoundTag compoundTag = new CompoundTag();
-            entity.save(compoundTag);
-            IGNORED_TAGS.forEach(compoundTag::remove);
-            return new Occupant(CustomData.of(compoundTag));
+            Occupant occupant;
+            try (ProblemReporter.ScopedCollector scopedCollector = new ProblemReporter.ScopedCollector(entity.problemPath(), BiomesWeveGone.LOGGER)) {
+                TagValueOutput tagValueOutput = TagValueOutput.createWithContext(scopedCollector, entity.registryAccess());
+                entity.save(tagValueOutput);
+                IGNORED_TAGS.forEach(tagValueOutput::discard);
+                CompoundTag tag = tagValueOutput.buildResult();
+                occupant = new Occupant(CustomData.of(tag));
+            }
+            return occupant;
         }
 
         @Nullable
@@ -144,7 +147,7 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, PumpkinBurrowBlockEntity blockEntity) {
-        if (!blockEntity.isEmpty() && level.isDay() && level.getRandom().nextBoolean()) {
+        if (!blockEntity.isEmpty() && level.isBrightOutside() && level.getRandom().nextBoolean()) {
             Entity entity = blockEntity.stored.createEntity(level);
             if (entity instanceof PumpkinWarden pumpkinWarden) {
                 Direction direction = state.getValue(PumpkinBurrowBlock.FACING);

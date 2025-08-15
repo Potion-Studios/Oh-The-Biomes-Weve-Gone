@@ -11,6 +11,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
@@ -37,7 +38,7 @@ public class BWGQuickSand extends ColoredFallingBlock {
 	}
 
 	@Override
-	public void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity) {
+	protected void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity, @NotNull InsideBlockEffectApplier effectApplier) {
 		if (entity instanceof LivingEntity) {
 			entity.makeStuckInBlock(state, new Vec3(0.9F, 1.5, 0.9F));
 			if (level.isClientSide()) {
@@ -72,10 +73,10 @@ public class BWGQuickSand extends ColoredFallingBlock {
 	}
 
 	@Override
-	public void fallOn(@NotNull Level level, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull Entity entity, float fallDistance) {
-		if (!((double)fallDistance < 4.0) && entity instanceof LivingEntity livingEntity) {
+	public void fallOn(@NotNull Level level, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull Entity entity, double fallDistance) {
+		if (!(fallDistance < 4.0) && entity instanceof LivingEntity livingEntity) {
 			LivingEntity.Fallsounds fallsounds = livingEntity.getFallSounds();
-			SoundEvent soundEvent = (double)fallDistance < 7.0 ? fallsounds.small() : fallsounds.big();
+			SoundEvent soundEvent = fallDistance < 7.0 ? fallsounds.small() : fallsounds.big();
 			entity.playSound(soundEvent, 1.0F, 1.0F);
 		}
 	}

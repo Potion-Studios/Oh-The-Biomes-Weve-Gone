@@ -4,7 +4,7 @@ import com.mojang.datafixers.util.Pair;
 import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.ConstantFloat;
 import net.minecraft.util.valueproviders.UniformFloat;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -80,11 +80,11 @@ public class BWGOverworldConfiguredFeatures {
                                                     new RandomChancePredicate(ConstantFloat.of(0.4F)),
                                                     BlockPredicate.anyOf(BWGWorldGenerationUtil.blockMatchesInAllDirections(blockPos -> BlockPredicate.matchesBlocks(blockPos, Blocks.AIR, Blocks.CAVE_AIR)))
                                             ),
-                                            new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.MOSS_BLOCK.defaultBlockState(), 1).add(Blocks.MOSSY_COBBLESTONE.defaultBlockState(), 2))
+                                            new WeightedStateProvider(new WeightedList.Builder<BlockState>().add(Blocks.MOSS_BLOCK.defaultBlockState(), 1).add(Blocks.MOSSY_COBBLESTONE.defaultBlockState(), 2))
                                     )
                             )
                     ),
-                    SimpleWeightedRandomList.single(BlendingFunction.EaseOutCubic.INSTANCE) // TODO: We need to configure the exponent by adding a config option in CorgiLib
+                    WeightedList.of(BlendingFunction.EaseOutCubic.INSTANCE) // TODO: We need to configure the exponent by adding a config option in CorgiLib
             )
     );
 
@@ -101,11 +101,11 @@ public class BWGOverworldConfiguredFeatures {
                                                     new RandomChancePredicate(ConstantFloat.of(0.4F)),
                                                     BlockPredicate.anyOf(BWGWorldGenerationUtil.blockMatchesInAllDirections(blockPos -> BlockPredicate.matchesBlocks(blockPos, Blocks.AIR, Blocks.CAVE_AIR, Blocks.WATER)))
                                             ),
-                                            new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.DRIPSTONE_BLOCK.defaultBlockState(), 1))
+                                            new WeightedStateProvider(new WeightedList.Builder<BlockState>().add(Blocks.DRIPSTONE_BLOCK.defaultBlockState(), 1))
                                     )
                             )
                     ),
-                    SimpleWeightedRandomList.<BlendingFunction>builder().add(new BlendingFunction.EaseInCirc(0.8), 4).build()
+                    WeightedList.<BlendingFunction>builder().add(new BlendingFunction.EaseInCirc(0.8), 4).build()
             )
     );
 
@@ -130,13 +130,13 @@ public class BWGOverworldConfiguredFeatures {
                     new CheckedBlockPlacement(List.of(
                             Pair.of(BlockPredicate.alwaysTrue(), BlockStateProvider.simple(Blocks.STONE)),
                             Pair.of(BlockPredicate.matchesBlocks(new BlockPos(0,1,0), Blocks.AIR, Blocks.CAVE_AIR), BlockStateProvider.simple(BWGBlocks.OVERGROWN_STONE.get())),
-                            Pair.of(BlockPredicate.allOf(new RandomChancePredicate(ConstantFloat.of(0.4F)), BlockPredicate.not(BlockPredicate.matchesBlocks(BWGBlocks.OVERGROWN_STONE.get())), BlockPredicate.anyOf(BWGWorldGenerationUtil.blockMatchesInAllDirections(blockPos -> BlockPredicate.matchesBlocks(blockPos, Blocks.AIR, Blocks.CAVE_AIR)))), new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.MOSSY_COBBLESTONE.defaultBlockState(), 3).add(Blocks.MOSS_BLOCK.defaultBlockState(), 1)))
+                            Pair.of(BlockPredicate.allOf(new RandomChancePredicate(ConstantFloat.of(0.4F)), BlockPredicate.not(BlockPredicate.matchesBlocks(BWGBlocks.OVERGROWN_STONE.get())), BlockPredicate.anyOf(BWGWorldGenerationUtil.blockMatchesInAllDirections(blockPos -> BlockPredicate.matchesBlocks(blockPos, Blocks.AIR, Blocks.CAVE_AIR)))), new WeightedStateProvider(new WeightedList.Builder<BlockState>().add(Blocks.MOSSY_COBBLESTONE.defaultBlockState(), 3).add(Blocks.MOSS_BLOCK.defaultBlockState(), 1)))
                     )),
                     UniformInt.of(15, 75),
                     UniformInt.of(7, 15),
                     UniformFloat.of(0.01F, 0.1F),
                     UniformFloat.of(0.1F, 0.5F),
-                    new SimpleWeightedRandomList.Builder<PillarFeature.DistanceTestType>().add(PillarFeature.DistanceTestType.EUCLIDEAN, 20).add(PillarFeature.DistanceTestType.MANHATTAN, 2).add(PillarFeature.DistanceTestType.CHEBYSHEV, 1).build()
+                    new WeightedList.Builder<PillarFeature.DistanceTestType>().add(PillarFeature.DistanceTestType.EUCLIDEAN, 20).add(PillarFeature.DistanceTestType.MANHATTAN, 2).add(PillarFeature.DistanceTestType.CHEBYSHEV, 1).build()
             )
     );
 

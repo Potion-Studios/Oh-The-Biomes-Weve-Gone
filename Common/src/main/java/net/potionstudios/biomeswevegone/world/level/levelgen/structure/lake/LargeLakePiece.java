@@ -8,7 +8,6 @@ import net.minecraft.core.SectionPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtOps;
-import net.minecraft.nbt.NbtUtils;
 import net.minecraft.nbt.Tag;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.util.Mth;
@@ -34,6 +33,7 @@ import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.synth.ImprovedNoise;
 import net.minecraft.world.level.material.Fluids;
+import net.potionstudios.biomeswevegone.util.BWGUtil;
 import net.potionstudios.biomeswevegone.util.UnsafeBoundingBox;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGStructurePieceTypes;
 import org.apache.commons.lang3.mutable.MutableBoolean;
@@ -62,16 +62,16 @@ public class LargeLakePiece extends StructurePiece {
 
     public LargeLakePiece(StructurePieceSerializationContext context, CompoundTag tag) {
         super(BWGStructurePieceTypes.LARGE_LAKE.get(), tag);
-        this.origin = NbtUtils.readBlockPos(tag, "origin").orElseThrow();
-        this.radius = tag.getInt("radius");
-        this.lakeDepth = tag.getInt("lakeDepth");
+        this.origin = BWGUtil.readBlockPos(tag, "origin").orElseThrow();
+        this.radius = tag.getIntOr("radius", 0);
+        this.lakeDepth = tag.getIntOr("lakeDepth", 0);
         RegistryOps<Tag> tagRegistryOps = RegistryOps.create(NbtOps.INSTANCE, context.registryAccess());
         this.lakeFeatures = PlacedFeature.LIST_CODEC.decode(tagRegistryOps, tag.get("lake_features")).getOrThrow().getFirst();
     }
 
     @Override
     protected void addAdditionalSaveData(StructurePieceSerializationContext context, CompoundTag tag) {
-        tag.put("origin", NbtUtils.writeBlockPos(this.origin));
+        tag.put("origin", BWGUtil.writeBlockPos(this.origin));
         tag.putInt("radius", this.radius);
         tag.putInt("lakeDepth", this.lakeDepth);
         RegistryOps<Tag> tagRegistryOps = RegistryOps.create(NbtOps.INSTANCE, context.registryAccess());
@@ -191,22 +191,22 @@ public class LargeLakePiece extends StructurePiece {
             mutableBlockPos.set(blockX, y, blockZ);
 
             if (y == depth - 1) {
-                chunk.setBlockState(mutableBlockPos, Blocks.STONE.defaultBlockState(), false);
+                chunk.setBlockState(mutableBlockPos, Blocks.STONE.defaultBlockState());
             } else if (y <= depth + 3) {
 
                 if (y < waterGenY) {
-                    chunk.setBlockState(mutableBlockPos, stateProvider.getState(random, mutableBlockPos), false);
+                    chunk.setBlockState(mutableBlockPos, stateProvider.getState(random, mutableBlockPos));
                 } else {
-                    chunk.setBlockState(mutableBlockPos, topBlocks[Math.min(origin.getY() - y, topBlocks.length - 1)], false);
+                    chunk.setBlockState(mutableBlockPos, topBlocks[Math.min(origin.getY() - y, topBlocks.length - 1)]);
                     ((RandomTickScheduler) chunk).scheduleRandomTick(mutableBlockPos.immutable());
                     chunk.markPosForPostprocessing(mutableBlockPos);
                 }
 
             } else if (y > waterGenY) {
-                chunk.setBlockState(mutableBlockPos, Blocks.AIR.defaultBlockState(), false);
+                chunk.setBlockState(mutableBlockPos, Blocks.AIR.defaultBlockState());
             } else {
                 placedWater = true;
-                chunk.setBlockState(mutableBlockPos, Blocks.WATER.defaultBlockState(), false);
+                chunk.setBlockState(mutableBlockPos, Blocks.WATER.defaultBlockState());
                 worldGenLevel.scheduleTick(mutableBlockPos.immutable(), Fluids.WATER, 0);
             }
             unsafeBoundingBox.encapsulate(mutableBlockPos);
@@ -228,13 +228,13 @@ public class LargeLakePiece extends StructurePiece {
         if (origin.getY() >= worldSurfaceY) {
             for (int y = worldSurfaceY; y <= height; y++) {
                 mutableBlockPos.set(blockX, y, blockZ);
-                chunk.setBlockState(mutableBlockPos, topBlocks[topBlocks.length  -1], false);
+                chunk.setBlockState(mutableBlockPos, topBlocks[topBlocks.length  -1]);
                 unsafeBoundingBox.encapsulate(mutableBlockPos);
             }
         } else {
             for (int y = worldSurfaceY; y > height; y--) {
                 mutableBlockPos.set(blockX, y, blockZ);
-                chunk.setBlockState(mutableBlockPos, Blocks.AIR.defaultBlockState(), false);
+                chunk.setBlockState(mutableBlockPos, Blocks.AIR.defaultBlockState());
                 unsafeBoundingBox.encapsulate(mutableBlockPos);
             }
         }
@@ -242,7 +242,7 @@ public class LargeLakePiece extends StructurePiece {
         for (int y = 0; y < topBlocks.length; y++) {
             mutableBlockPos.set(blockX, height - y, blockZ);
 
-            chunk.setBlockState(mutableBlockPos, topBlocks[y], false);
+            chunk.setBlockState(mutableBlockPos, topBlocks[y]);
 
             ((RandomTickScheduler) chunk).scheduleRandomTick(mutableBlockPos.immutable());
             chunk.markPosForPostprocessing(mutableBlockPos);

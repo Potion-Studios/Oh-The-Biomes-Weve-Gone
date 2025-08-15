@@ -4,7 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
 import net.minecraft.core.BlockPos;
-import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.FloatProvider;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
@@ -34,26 +34,26 @@ public record ArchConfig(
     public record ArchGeneratorConfig(
             int xzStepDistance,
             int xyzStepDistance,
-            SimpleWeightedRandomList<GenerationConfig> generationConfigs,
-            SimpleWeightedRandomList<BlendingFunction> blendFunction
+            WeightedList<GenerationConfig> generationConfigs,
+            WeightedList<BlendingFunction> blendFunction
     ) {
         public static final Codec<ArchGeneratorConfig> CODEC = RecordCodecBuilder.create(instance ->
                 instance.group(
                         Codec.INT.fieldOf("xz_step_distance").forGetter(ArchGeneratorConfig::xzStepDistance),
                         Codec.INT.fieldOf("xyz_step_distance").forGetter(ArchGeneratorConfig::xyzStepDistance),
-                        SimpleWeightedRandomList.wrappedCodec(GenerationConfig.CODEC).fieldOf("generation_configs").forGetter(ArchGeneratorConfig::generationConfigs),
-                        SimpleWeightedRandomList.wrappedCodec(BlendingFunction.CODEC).fieldOf("blending_function_picker").forGetter(ArchGeneratorConfig::blendFunction)
+                        WeightedList.codec(GenerationConfig.CODEC).fieldOf("generation_configs").forGetter(ArchGeneratorConfig::generationConfigs),
+                        WeightedList.codec(BlendingFunction.CODEC).fieldOf("blending_function_picker").forGetter(ArchGeneratorConfig::blendFunction)
                 ).apply(instance, ArchGeneratorConfig::new)
         );
 
 
         public void generate(long seed, int height, Vec3 start, Vec3 origin, Vec3 end, BoundingBox box, Consumer<BlockPos> action) {
             XoroshiroRandomSource xoroshiroRandomSource = new XoroshiroRandomSource(seed);
-            ArchStructure.between(origin, start, this.xzStepDistance, height, this.xyzStepDistance, this.blendFunction.getRandomValue(xoroshiroRandomSource).orElseThrow(), stepOrigin ->
-                    this.generationConfigs.getRandomValue(xoroshiroRandomSource).orElseThrow().generate(seed, stepOrigin, box, action)
+            ArchStructure.between(origin, start, this.xzStepDistance, height, this.xyzStepDistance, this.blendFunction.getRandomOrThrow(xoroshiroRandomSource), stepOrigin ->
+                    this.generationConfigs.getRandomOrThrow(xoroshiroRandomSource).generate(seed, stepOrigin, box, action)
             );
-            ArchStructure.between(origin, end, this.xzStepDistance, height, this.xyzStepDistance, this.blendFunction.getRandomValue(xoroshiroRandomSource).orElseThrow(), stepOrigin ->
-                    this.generationConfigs.getRandomValue(xoroshiroRandomSource).orElseThrow().generate(seed, stepOrigin, box, action)
+            ArchStructure.between(origin, end, this.xzStepDistance, height, this.xyzStepDistance, this.blendFunction.getRandomOrThrow(xoroshiroRandomSource), stepOrigin ->
+                    this.generationConfigs.getRandomOrThrow(xoroshiroRandomSource).generate(seed, stepOrigin, box, action)
             );
         }
     }

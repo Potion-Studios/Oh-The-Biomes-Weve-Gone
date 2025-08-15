@@ -1,6 +1,7 @@
 package net.potionstudios.biomeswevegone.world.level.block.plants.tree.leaves;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
@@ -10,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BonemealableBlock;
-import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.UntintedParticleLeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.BWGFruitBlock;
@@ -18,12 +19,12 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
-public class BWGFruitLeavesBlock extends LeavesBlock implements BonemealableBlock {
+public class BWGFruitLeavesBlock extends UntintedParticleLeavesBlock implements BonemealableBlock {
     private final Supplier<BWGFruitBlock> fruitBlock;
     private final float tickSpawnChance;
 
-    public BWGFruitLeavesBlock(Properties properties, Supplier<BWGFruitBlock> fruitBlock, float tickSpawnChance) {
-        super(properties);
+    public BWGFruitLeavesBlock(ParticleOptions leafParticle, Properties properties, Supplier<BWGFruitBlock> fruitBlock, float tickSpawnChance) {
+        super(0.1F, leafParticle, properties);
         this.fruitBlock = fruitBlock;
         this.tickSpawnChance = tickSpawnChance;
     }

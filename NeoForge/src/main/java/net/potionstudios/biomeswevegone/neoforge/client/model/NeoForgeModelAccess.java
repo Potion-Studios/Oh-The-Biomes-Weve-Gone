@@ -2,14 +2,15 @@ package net.potionstudios.biomeswevegone.neoforge.client.model;
 
 import com.google.auto.service.AutoService;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.model.BakedModel;
-import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.minecraft.client.renderer.block.BlockRenderDispatcher;
+import net.minecraft.client.renderer.block.model.BlockStateModel;
 import net.potionstudios.biomeswevegone.client.model.ModelAccess;
+import net.potionstudios.biomeswevegone.neoforge.client.BiomesWeveGoneClientNeoForge;
 
 @AutoService(ModelAccess.class)
-public final class NeoForgeModelAccess implements ModelAccess {
-	@Override
-	public BakedModel getModel(String location) {
-		return Minecraft.getInstance().getModelManager().getStandaloneModel(BiomesWeveGone.id("block/" + location));
-	}
+public class NeoForgeModelAccess implements ModelAccess {
+    @Override
+    public BlockStateModel getModel(String name, BlockRenderDispatcher blockRenderDispatcher) {
+        return Minecraft.getInstance().getModelManager().getStandaloneModel(BiomesWeveGoneClientNeoForge.ADDITIONAL_MODELS.get(name));
+    }
 }

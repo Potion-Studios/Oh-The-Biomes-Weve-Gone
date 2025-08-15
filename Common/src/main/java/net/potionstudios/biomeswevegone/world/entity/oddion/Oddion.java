@@ -3,7 +3,6 @@ package net.potionstudios.biomeswevegone.world.entity.oddion;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -32,6 +31,8 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.potionstudios.biomeswevegone.config.configs.BWGMobSpawnConfig;
 import net.potionstudios.biomeswevegone.sounds.BWGSounds;
@@ -39,12 +40,11 @@ import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.AnimationState;
+import software.bernie.geckolib.animatable.manager.AnimatableManager;
+import software.bernie.geckolib.animatable.processing.AnimationController;
+import software.bernie.geckolib.animatable.processing.AnimationTest;
 import software.bernie.geckolib.animation.PlayState;
 import software.bernie.geckolib.animation.RawAnimation;
 import software.bernie.geckolib.util.GeckoLibUtil;
@@ -58,7 +58,7 @@ import java.util.function.IntFunction;
  * @see PathfinderMob
  * @see GeoEntity
  */
-public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Oddion.Variant> {
+public class Oddion extends PathfinderMob implements GeoEntity {
 
     private final AnimatableInstanceCache animatableInstanceCache = GeckoLibUtil.createInstanceCache(this);
 
@@ -115,15 +115,15 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
     }
 
     @Override
-    public void addAdditionalSaveData(@NotNull CompoundTag compound) {
-        super.addAdditionalSaveData(compound);
-        compound.putInt("Variant", this.getVariant().getId());
+    protected void addAdditionalSaveData(@NotNull ValueOutput valueOutput) {
+        super.addAdditionalSaveData(valueOutput);
+        valueOutput.putInt("Variant", this.getVariant().getId());
     }
 
     @Override
-    public void readAdditionalSaveData(@NotNull CompoundTag compound) {
-        super.readAdditionalSaveData(compound);
-        this.setVariant(Variant.byId(compound.getInt("Variant")));
+    protected void readAdditionalSaveData(@NotNull ValueInput valueInput) {
+        super.readAdditionalSaveData(valueInput);
+        this.setVariant(Variant.byId(valueInput.getIntOr("Variant", 0)));
     }
 
     public static boolean checkOddionSpawnRules(EntityType<? extends Oddion> entity, LevelAccessor world, EntitySpawnReason spawnType, BlockPos pos, RandomSource rand) {
@@ -143,7 +143,7 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "controller", 0, this::predicate));
+        controllers.add(new AnimationController<>("controller", 0, this::predicate));
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -260,7 +260,7 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
             this.goalSelector.addGoal(1, movementGoal);
     }
 
-    private <E extends GeoAnimatable> PlayState predicate(AnimationState<E> event) {
+    private PlayState predicate(AnimationTest<Oddion> event) {
         if (isGrounded()) {
             return event.setAndContinue(GROUND);
         }
@@ -344,10 +344,7 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
         return getPetTime() > 0;
     }
 
-    @Override
-    public void setVariant(@NotNull Variant variant) {
-        this.entityData.set(DATA_VARIANT, variant.getId());
-    }
+
 
     @Override
     public @NotNull EntityDimensions getDimensions(@NotNull Pose pose) {
@@ -355,7 +352,10 @@ public class Oddion extends PathfinderMob implements GeoEntity, VariantHolder<Od
         return super.getDimensions(pose);
     }
 
-    @Override
+    public void setVariant(@NotNull Variant variant) {
+        this.entityData.set(DATA_VARIANT, variant.getId());
+    }
+
     public @NotNull Variant getVariant() {
         return Variant.byId(this.entityData.get(DATA_VARIANT));
     }

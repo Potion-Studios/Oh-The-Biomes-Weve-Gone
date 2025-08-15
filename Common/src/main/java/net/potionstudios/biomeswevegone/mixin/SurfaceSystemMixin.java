@@ -6,7 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.util.RandomSource;
-import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.biome.Biome;
@@ -54,7 +54,7 @@ public abstract class SurfaceSystemMixin implements BandsContext {
     }
 
     @Override
-    public BlockState getBandsState(BandsRuleSource bandsRuleSource, SimpleWeightedRandomList<BlockState> bandStates, IntProvider bandSizeProvider, IntProvider bandsCountProvider, int x, int y, int z, float frequency, int noiseScale) {
+    public BlockState getBandsState(BandsRuleSource bandsRuleSource, WeightedList<BlockState> bandStates, IntProvider bandSizeProvider, IntProvider bandsCountProvider, int x, int y, int z, float frequency, int noiseScale) {
         BlockState[] blockStates = bandsLookup.computeIfAbsent(bandsRuleSource, key -> {
             List<BlockState> states = new ArrayList<>();
             RandomSource random = this.noiseRandom.at(BlockPos.ZERO);
@@ -62,7 +62,7 @@ public abstract class SurfaceSystemMixin implements BandsContext {
 
             for (int bandIdx = 0; bandIdx < bandsCount; bandIdx++) {
                 int bandSize = bandSizeProvider.sample(random);
-                BlockState state = bandStates.getRandomValue(random).orElseThrow();
+                BlockState state = bandStates.getRandomOrThrow(random);
                 for (int size = 0; size < bandSize; size++) {
                     states.add(state);
                 }

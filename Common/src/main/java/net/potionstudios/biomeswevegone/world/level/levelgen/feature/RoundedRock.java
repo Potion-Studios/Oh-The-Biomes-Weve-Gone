@@ -33,7 +33,7 @@ public class RoundedRock extends Feature<RoundedRockConfig> {
         int height = config.height().sample(random);
         float frequency = config.noiseFrequency().sample(random);
 
-        BlendingFunction blendingFunction = config.blendFunction().getRandomValue(random).orElseThrow();
+        BlendingFunction blendingFunction = config.blendFunction().getRandomOrThrow(random);
 
         LongSet cached = new LongOpenHashSet();
         BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();

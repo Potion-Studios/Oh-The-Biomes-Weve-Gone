@@ -1,4 +1,4 @@
-package net.potionstudios.biomeswevegone.client.renderer.entity.state;
+package net.potionstudios.biomeswevegone.client.renderer.entity.wreath;
 
 import net.minecraft.client.renderer.entity.state.EntityRenderState;
 import net.minecraft.core.Direction;

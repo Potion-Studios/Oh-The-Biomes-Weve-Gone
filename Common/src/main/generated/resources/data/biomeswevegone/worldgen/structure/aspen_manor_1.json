@@ -12,7 +12,7 @@
           "type": "minecraft:vindicator",
           "maxCount": 4,
           "minCount": 2,
-          "weight": 25
+          "weight": 1
         }
       ]
     }

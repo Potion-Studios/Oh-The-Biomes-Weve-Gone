@@ -12,6 +12,7 @@ import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTypes;
@@ -84,7 +85,7 @@ public class VanillaCompatFabric {
         if (!BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value()) return;
         BWGVillagerTrades.makeWanderingTrades();
         BWGVillagerTrades.WANDERING_TRADER_TRADES.forEach((level, offers) ->
-                TradeOfferHelper.registerWanderingTraderOffers(level, factory -> factory.addAll(offers))
+                TradeOfferHelper.registerWanderingTraderOffers(factory -> factory.addAll(BiomesWeveGone.id("wandering_trader_trades"), offers))
         );
     }
 }

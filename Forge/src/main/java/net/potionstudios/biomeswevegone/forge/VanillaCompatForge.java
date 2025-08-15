@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.forge;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.npc.VillagerType;
 import net.minecraft.world.item.AxeItem;
@@ -9,6 +10,7 @@ import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolActions;
+import net.minecraftforge.common.util.Result;
 import net.minecraftforge.event.brewing.BrewingRecipeRegisterEvent;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -16,8 +18,7 @@ import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
-import net.minecraftforge.eventbus.api.Event;
-import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.bus.BusGroup;
 import net.potionstudios.biomeswevegone.util.BoneMealHandler;
 import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
@@ -47,17 +48,17 @@ public class VanillaCompatForge {
         BWGVillagerTypes.setVillagerBiomes(VillagerType::registerBiomeType);
     }
 
-    public static void registerVanillaCompatEvents(final IEventBus bus) {
-        bus.addListener(VanillaCompatForge::registerTillables);
-        bus.addListener(VanillaCompatForge::registerFuels);
+    public static void registerVanillaCompatEvents(final BusGroup bus) {
+        BlockEvent.BlockToolModificationEvent.BUS.addListener(VanillaCompatForge::registerTillables);
+        FurnaceFuelBurnTimeEvent.BUS.addListener(VanillaCompatForge::registerFuels);
         if (!BWGTradesConfig.INSTANCE.trades.disableTrades.value()) {
-            bus.addListener(VanillaCompatForge::onVillagerTrade);
+            VillagerTradesEvent.BUS.addListener(VanillaCompatForge::onVillagerTrade);
             if (BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value())
-                bus.addListener(VanillaCompatForge::onWanderingTrade);
+                WandererTradesEvent.BUS.addListener(VanillaCompatForge::onWanderingTrade);
         }
-        bus.addListener(VanillaCompatForge::registerBrewingRecipes);
-        bus.addListener(VanillaCompatForge::onBoneMealUse);
-        bus.addListener(VanillaCompatForge::onVillagerInteract);
+        BrewingRecipeRegisterEvent.BUS.addListener(VanillaCompatForge::registerBrewingRecipes);
+        BonemealEvent.BUS.addListener(VanillaCompatForge::onBoneMealUse);
+        PlayerInteractEvent.EntityInteractSpecific.BUS.addListener(VanillaCompatForge::onVillagerInteract);
     }
 
     /**
@@ -106,9 +107,7 @@ public class VanillaCompatForge {
      * @see WandererTradesEvent
      */
     private static void onWanderingTrade(final WandererTradesEvent event) {
-        BWGVillagerTrades.WANDERING_TRADER_TRADES.forEach((level, offers) -> {
-            for (VillagerTrades.ItemListing itemListing : offers) event.getGenericTrades().add(itemListing);
-        });
+        BWGVillagerTrades.WANDERING_TRADER_TRADES.forEach((level, offers) -> event.getPools().add(new WandererTradesEvent.Pool(offers, level)));
     }
 
     /**
@@ -125,7 +124,7 @@ public class VanillaCompatForge {
      */
     private static void onBoneMealUse(final BonemealEvent event) {
         if (!event.getLevel().isClientSide() && BoneMealHandler.bwgBoneMealEventHandler((ServerLevel) event.getLevel(), event.getPos(), event.getBlock()))
-            event.setResult(Event.Result.ALLOW);
+            event.setResult(Result.ALLOW);
     }
 
     /**
@@ -133,6 +132,6 @@ public class VanillaCompatForge {
      * @see PlayerInteractEvent.EntityInteractSpecific
      */
     private static void onVillagerInteract(final PlayerInteractEvent.EntityInteractSpecific event) {
-        event.setResult(PumpkinWarden.villagerToPumpkinWarden(event.getTarget(), event.getItemStack(), event.getLevel()) ? Event.Result.DENY : Event.Result.DEFAULT);
+        event.setCancellationResult(PumpkinWarden.villagerToPumpkinWarden(event.getTarget(), event.getItemStack(), event.getLevel()) ? InteractionResult.FAIL : InteractionResult.PASS);
     }
 }

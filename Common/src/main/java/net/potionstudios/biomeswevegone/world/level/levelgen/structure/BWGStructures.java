@@ -9,7 +9,7 @@ import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.ConstantFloat;
 import net.minecraft.util.valueproviders.UniformFloat;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -73,7 +73,7 @@ public class BWGStructures {
                         new Structure.StructureSettings(structureFactoryBootstapContext.lookup(Registries.BIOME).getOrThrow(BWGBiomeTags.LARGE_COLD_LAKE),
                                 Map.of(
                                         MobCategory.WATER_AMBIENT,
-                                        new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.PIECE, SimpleWeightedRandomList.create(new MobSpawnSettings.SpawnerData(EntityType.SALMON, 5, 4, 10)))
+                                        new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.PIECE, WeightedList.of(new MobSpawnSettings.SpawnerData(EntityType.SALMON, 4, 10)))
                                 ),
                                 GenerationStep.Decoration.RAW_GENERATION, TerrainAdjustment.NONE),
                         new LargeLakeConfig(
@@ -95,12 +95,12 @@ public class BWGStructures {
                                                     new RandomChancePredicate(ConstantFloat.of(0.4F)),
                                                     BlockPredicate.anyOf(BWGWorldGenerationUtil.blockMatchesInAllDirections(blockPos -> BlockPredicate.matchesBlocks(blockPos, Blocks.AIR, Blocks.CAVE_AIR)))
                                             ),
-                                            new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.MOSS_BLOCK.defaultBlockState(), 1).add(Blocks.MOSSY_COBBLESTONE.defaultBlockState(), 2))
+                                            new WeightedStateProvider(new WeightedList.Builder<BlockState>().add(Blocks.MOSS_BLOCK.defaultBlockState(), 1).add(Blocks.MOSSY_COBBLESTONE.defaultBlockState(), 2))
                                     )
                             )),
                             new ArchConfig.ArchGeneratorConfig(8, 8,
-                                    SimpleWeightedRandomList.single(new ArchConfig.GenerationConfig(UniformInt.of(10, 30), UniformFloat.of(0.05F, 0.1F))),
-                                    SimpleWeightedRandomList.<BlendingFunction>builder()
+                                    WeightedList.of(new ArchConfig.GenerationConfig(UniformInt.of(10, 30), UniformFloat.of(0.05F, 0.1F))),
+                                    WeightedList.<BlendingFunction>builder()
                                             .add(BlendingFunction.EaseOutCubic.INSTANCE, 1)
                                             .add(BlendingFunction.EaseInCirc.INSTANCE, 1)
                                             .add(BlendingFunction.EaseOutQuint.INSTANCE, 1)
@@ -122,13 +122,13 @@ public class BWGStructures {
                                                             new RandomChancePredicate(ConstantFloat.of(0.4F)),
                                                             BlockPredicate.anyOf(BWGWorldGenerationUtil.blockMatchesInAllDirections(blockPos -> BlockPredicate.matchesBlocks(blockPos, Blocks.AIR, Blocks.CAVE_AIR, Blocks.WATER)))
                                                     ),
-                                                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.DRIPSTONE_BLOCK.defaultBlockState(), 1))
+                                                    new WeightedStateProvider(new WeightedList.Builder<BlockState>().add(Blocks.DRIPSTONE_BLOCK.defaultBlockState(), 1))
                                             )
                                     )
                             ),
                             new ArchConfig.ArchGeneratorConfig(8, 8,
-                                    SimpleWeightedRandomList.single(new ArchConfig.GenerationConfig(UniformInt.of(10, 30), UniformFloat.of(0.09F, 0.2F))),
-                                    SimpleWeightedRandomList.<BlendingFunction>builder()
+                                    WeightedList.of(new ArchConfig.GenerationConfig(UniformInt.of(10, 30), UniformFloat.of(0.09F, 0.2F))),
+                                    WeightedList.<BlendingFunction>builder()
                                             .add(BlendingFunction.EaseOutCubic.INSTANCE, 1)
                                             .add(BlendingFunction.EaseInCirc.INSTANCE, 1)
                                             .add(BlendingFunction.EaseOutQuint.INSTANCE, 1)
@@ -149,13 +149,13 @@ public class BWGStructures {
                                                     new RandomChancePredicate(ConstantFloat.of(0.4F)),
                                                     BlockPredicate.anyOf(BWGWorldGenerationUtil.blockMatchesInAllDirections(blockPos -> BlockPredicate.matchesBlocks(blockPos, Blocks.AIR, Blocks.CAVE_AIR, Blocks.WATER)))
                                             ),
-                                            new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.ORANGE_TERRACOTTA.defaultBlockState(), 1))
+                                            new WeightedStateProvider(new WeightedList.Builder<BlockState>().add(Blocks.ORANGE_TERRACOTTA.defaultBlockState(), 1))
                                     )
                             )),
 
                             new ArchConfig.ArchGeneratorConfig(4, 4,
-                                    SimpleWeightedRandomList.single(new ArchConfig.GenerationConfig(UniformInt.of(20, 25), UniformFloat.of(0.05F, 0.1F))),
-                                    SimpleWeightedRandomList.<BlendingFunction>builder()
+                                    WeightedList.of(new ArchConfig.GenerationConfig(UniformInt.of(20, 25), UniformFloat.of(0.05F, 0.1F))),
+                                    WeightedList.<BlendingFunction>builder()
                                             .add(BlendingFunction.EaseOutCubic.INSTANCE, 1)
                                             .add(BlendingFunction.EaseInCirc.INSTANCE, 1)
                                             .add(BlendingFunction.EaseOutQuint.INSTANCE, 1)
@@ -200,7 +200,7 @@ public class BWGStructures {
                     structure(structureFactoryBootstapContext.lookup(Registries.BIOME).getOrThrow(BWGBiomeTags.StructureHasTags.HAS_ASPEN_MANOR),
                             Map.of(
                                     MobCategory.MONSTER,
-                                    new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, SimpleWeightedRandomList.create(new MobSpawnSettings.SpawnerData(EntityType.VINDICATOR, 25, 2, 4)))
+                                    new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, WeightedList.of(new MobSpawnSettings.SpawnerData(EntityType.VINDICATOR, 2, 4)))
                             ),
                             TerrainAdjustment.BEARD_THIN),
                     structureFactoryBootstapContext.lookup(Registries.TEMPLATE_POOL).getOrThrow(BWGTemplatePools.ASPEN_MANOR_1),
@@ -215,7 +215,7 @@ public class BWGStructures {
                     structure(structureFactoryBootstapContext.lookup(Registries.BIOME).getOrThrow(BWGBiomeTags.StructureHasTags.HAS_ASPEN_MANOR),
                             Map.of(
                                     MobCategory.MONSTER,
-                                    new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, SimpleWeightedRandomList.create(new MobSpawnSettings.SpawnerData(EntityType.VINDICATOR, 25, 2, 4)))
+                                    new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, WeightedList.of(new MobSpawnSettings.SpawnerData(EntityType.VINDICATOR, 2, 4)))
                             ),
                             TerrainAdjustment.BEARD_THIN),
                     structureFactoryBootstapContext.lookup(Registries.TEMPLATE_POOL).getOrThrow(BWGTemplatePools.ASPEN_MANOR_2),

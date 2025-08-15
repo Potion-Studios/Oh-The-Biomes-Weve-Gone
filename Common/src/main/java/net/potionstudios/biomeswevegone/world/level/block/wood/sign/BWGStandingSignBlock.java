@@ -14,7 +14,7 @@ public class BWGStandingSignBlock extends StandingSignBlock {
     }
 
     @Override
-    public BlockEntity newBlockEntity(@NotNull BlockPos arg, @NotNull BlockState arg2) {
+    public @NotNull BlockEntity newBlockEntity(@NotNull BlockPos arg, @NotNull BlockState arg2) {
         return new BWGSignBlockEntity(arg, arg2);
     }
 }

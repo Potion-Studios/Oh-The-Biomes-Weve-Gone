@@ -1,18 +1,16 @@
 package net.potionstudios.biomeswevegone.forge;
 
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.event.server.ServerAboutToStartEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.eventbus.api.bus.BusGroup;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.commands.BWGCommands;
 import net.potionstudios.biomeswevegone.forge.loot.LootModifiersRegister;
@@ -32,20 +30,19 @@ import terrablender.api.SurfaceRuleManager;
 @Mod(BiomesWeveGone.MOD_ID)
 public class BiomesWeveGoneForge {
     public BiomesWeveGoneForge(final FMLJavaModLoadingContext context) {
-        IEventBus MOD_BUS = context.getModEventBus();
-        IEventBus EVENT_BUS = MinecraftForge.EVENT_BUS;
+        BusGroup modBusGroup = context.getModBusGroup();
         BiomesWeveGone.init();
-        ForgePlatformHandler.register(MOD_BUS);
-        MOD_BUS.addListener(this::onInitialize);
-        MOD_BUS.addListener(this::onPostInitialize);
-        EVENT_BUS.addListener((ServerAboutToStartEvent event) -> BiomesWeveGone.serverStart(event.getServer()));
-        MOD_BUS.addListener((EntityAttributeCreationEvent event) -> BWGEntityType.registerEntityAttributes(event::put));
-        MOD_BUS.addListener((SpawnPlacementRegisterEvent event) -> BWGEntityType.registerSpawnPlacements((consumer) -> event.register(consumer.entityType(), consumer.spawnPlacementType(), consumer.heightmapType(), consumer.predicate(), SpawnPlacementRegisterEvent.Operation.OR)));
-        EVENT_BUS.addListener((RegisterCommandsEvent event) -> BWGCommands.register(event.getDispatcher()::register));
-        EVENT_BUS.addListener((EntityJoinLevelEvent event) -> BiomesWeveGone.onEntityLoad(event.getEntity()));
-        VanillaCompatForge.registerVanillaCompatEvents(EVENT_BUS);
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> BiomesWeveGoneClientForge.init(MOD_BUS));
-        LootModifiersRegister.register(MOD_BUS);
+        ForgePlatformHandler.register(modBusGroup);
+        FMLCommonSetupEvent.getBus(modBusGroup).addListener(this::onInitialize);
+        FMLLoadCompleteEvent.getBus(modBusGroup).addListener(this::onPostInitialize);
+        ServerAboutToStartEvent.BUS.addListener((ServerAboutToStartEvent event) -> BiomesWeveGone.serverStart(event.getServer()));
+        EntityAttributeCreationEvent.getBus(modBusGroup).addListener((EntityAttributeCreationEvent event) -> BWGEntityType.registerEntityAttributes(event::put));
+        SpawnPlacementRegisterEvent.getBus(modBusGroup).addListener((SpawnPlacementRegisterEvent event) -> BWGEntityType.registerSpawnPlacements((consumer) -> event.register(consumer.entityType(), consumer.spawnPlacementType(), consumer.heightmapType(), consumer.predicate(), SpawnPlacementRegisterEvent.Operation.OR)));
+        RegisterCommandsEvent.BUS.addListener((RegisterCommandsEvent event) -> BWGCommands.register(event.getDispatcher()::register));
+        EntityJoinLevelEvent.BUS.addListener((EntityJoinLevelEvent event) -> BiomesWeveGone.onEntityLoad(event.getEntity()));
+        VanillaCompatForge.registerVanillaCompatEvents(modBusGroup);
+        if (FMLEnvironment.dist.isClient()) BiomesWeveGoneClientForge.init(modBusGroup);
+        LootModifiersRegister.register(modBusGroup);
     }
 
     /**

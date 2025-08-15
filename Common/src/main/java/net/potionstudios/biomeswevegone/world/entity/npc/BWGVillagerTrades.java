@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.npc.VillagerType;
@@ -27,11 +28,11 @@ import java.util.Map;
 
 public class BWGVillagerTrades {
 
-    public static final Map<VillagerProfession, Int2ObjectMap<List<VillagerTrades.ItemListing>>> TRADES = new HashMap<>();
+    public static final Map<ResourceKey<VillagerProfession>, Int2ObjectMap<List<VillagerTrades.ItemListing>>> TRADES = new HashMap<>();
 
     public static void makeTrades() {
         if (BWGTradesConfig.INSTANCE.villagerTrades.allowBWGForagerTrades.value())
-            TRADES.put(BWGVillagerProfessions.FORAGER.get(), toIntMap(ImmutableMap.of(
+            TRADES.put(BWGVillagerProfessions.FORAGER, toIntMap(ImmutableMap.of(
                     1, ImmutableList.of(
                             createEmeraldForItemsOffer(Items.RED_MUSHROOM, 10, 12, 2),
                             createEmeraldForItemsOffer(Items.BROWN_MUSHROOM, 10, 12, 2),
@@ -60,7 +61,7 @@ public class BWGVillagerTrades {
             )));
         TRADES.put(VillagerProfession.FISHERMAN, toIntMap(ImmutableMap.of(
                 5, ImmutableList.of(
-                        new VillagerTrades.EmeraldsForVillagerTypeItem(1, 12, 30, ImmutableMap.<VillagerType, Item>builder().put(BWGVillagerTypes.SKYRIS.get(), BWGWood.SKYRIS.boatItem().get()).put(BWGVillagerTypes.SALEM.get(), BWGWood.WITCH_HAZEL.boatItem().get()).build())
+                        new VillagerTrades.EmeraldsForVillagerTypeItem(1, 12, 30, ImmutableMap.<ResourceKey<VillagerType>, Item>builder().put(BWGVillagerTypes.SKYRIS, BWGWood.SKYRIS.boatItem().get()).put(BWGVillagerTypes.SALEM, BWGWood.WITCH_HAZEL.boatItem().get()).build())
                 )
         )));
         if (!BWGTradesConfig.INSTANCE.villagerTrades.enableBWGVanillaProfessionTradeAdditions.value()) return;

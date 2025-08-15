@@ -9,7 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.FloatProvider;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -45,7 +45,7 @@ public class PillarFeature extends Feature<PillarFeature.Config> {
 
         double minRadiusScale = config.minRadiusScale.sample(random);
 
-        DistanceTestType tester = config.distanceTestType.getRandomValue(random).orElseThrow();
+        DistanceTestType tester = config.distanceTestType.getRandomOrThrow(random);
 
         ImprovedNoise noise = new ImprovedNoise(random);
 
@@ -149,7 +149,7 @@ public class PillarFeature extends Feature<PillarFeature.Config> {
             IntProvider radius,
             FloatProvider noisefreq,
             FloatProvider minRadiusScale,
-            SimpleWeightedRandomList<DistanceTestType> distanceTestType
+            WeightedList<DistanceTestType> distanceTestType
     ) implements FeatureConfiguration {
         public static final Codec<Config> CODEC = RecordCodecBuilder.create(instance ->
                 instance.group(
@@ -158,7 +158,7 @@ public class PillarFeature extends Feature<PillarFeature.Config> {
                         IntProvider.CODEC.fieldOf("radius").forGetter(Config::radius),
                         FloatProvider.CODEC.fieldOf("noise_frequency").forGetter(Config::noisefreq),
                         FloatProvider.CODEC.fieldOf("min_radius_scale").forGetter(Config::minRadiusScale),
-                        SimpleWeightedRandomList.wrappedCodec(DistanceTestType.CODEC).fieldOf("distance_test_type").forGetter(Config::distanceTestType)
+                        WeightedList.codec(DistanceTestType.CODEC).fieldOf("distance_test_type").forGetter(Config::distanceTestType)
                 ).apply(instance, Config::new)
         );
     }

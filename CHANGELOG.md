@@ -1,3 +1,6 @@
+# 4.0.0
+- Update to 1.21.8
+
 # 3.1.3
 - Add Vietnamese (vi_vn) Translations (Credits: Celyne)
 - Fix Pale Mud Series missing Mineable Tags

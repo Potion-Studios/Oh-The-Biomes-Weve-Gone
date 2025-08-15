@@ -4,9 +4,8 @@ import it.unimi.dsi.fastutil.longs.LongOpenHashSet;
 import it.unimi.dsi.fastutil.longs.LongSet;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.NbtUtils;
 import net.minecraft.util.RandomSource;
-import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.WorldGenLevel;
@@ -18,6 +17,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStatePr
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
+import net.potionstudios.biomeswevegone.util.BWGUtil;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGStructurePieceTypes;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Quaterniond;
@@ -44,18 +44,18 @@ public class SharpenedRockPiece extends StructurePiece {
 
     public SharpenedRockPiece(StructurePieceSerializationContext context, CompoundTag tag) {
         super(BWGStructurePieceTypes.SHARPENED_ROCK_PIECE.get(), tag);
-        this.origin = NbtUtils.readBlockPos(tag, "origin").orElseThrow();
-        this.radius = tag.getInt("radius");
-        this.hasFoundation = tag.getBoolean("foundation");
-        this.hasSpike = tag.getBoolean("spike");
-        this.pitch = tag.getDouble("pitch");
-        this.yaw = tag.getDouble("yaw");
-        this.cache = tag.getIntArray("height_cache");
+        this.origin = BWGUtil.readBlockPos(tag, "origin").orElseThrow();
+        this.radius = tag.getIntOr("radius", 0);
+        this.hasFoundation = tag.getBooleanOr("foundation", false);
+        this.hasSpike = tag.getBooleanOr("spike", false);
+        this.pitch = tag.getDoubleOr("pitch", 0);
+        this.yaw = tag.getDoubleOr("yaw", 0);
+        this.cache = tag.getIntArray("height_cache").orElseThrow();
     }
 
     @Override
     protected void addAdditionalSaveData(@NotNull StructurePieceSerializationContext structurePieceSerializationContext, CompoundTag compoundTag) {
-        compoundTag.put("origin", NbtUtils.writeBlockPos(this.origin));
+        compoundTag.put("origin", BWGUtil.writeBlockPos(this.origin));
         compoundTag.putInt("radius", this.radius);
         compoundTag.putBoolean("foundation", this.hasFoundation);
         compoundTag.putBoolean("spike", this.hasSpike);
@@ -69,7 +69,7 @@ public class SharpenedRockPiece extends StructurePiece {
         RandomSource randomSource = RandomSource.create(worldGenLevel.getLevel().getServer().getWorldData().worldGenOptions().seed() + origin.asLong());
 
 
-        BlockStateProvider blocks = new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.WHITE_TERRACOTTA.defaultBlockState(), 10).add(Blocks.LIGHT_GRAY_TERRACOTTA.defaultBlockState(), 1).build());
+        BlockStateProvider blocks = new WeightedStateProvider(WeightedList.<BlockState>builder().add(Blocks.WHITE_TERRACOTTA.defaultBlockState(), 10).add(Blocks.LIGHT_GRAY_TERRACOTTA.defaultBlockState(), 1).build());
         LongSet placed = new LongOpenHashSet();
 
         Quaterniond quaternion = new Quaterniond();

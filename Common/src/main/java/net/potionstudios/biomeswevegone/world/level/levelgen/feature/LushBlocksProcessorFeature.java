@@ -4,7 +4,7 @@ import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
@@ -39,7 +39,7 @@ public class LushBlocksProcessorFeature extends Feature<NoneFeatureConfiguration
 
 
         ImprovedNoise noise = new ImprovedNoise(new XoroshiroRandomSource(context.level().getSeed()));
-        WeightedStateProvider lushStatesProvider = new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.MOSSY_COBBLESTONE.defaultBlockState(), 1).add(Blocks.MOSS_BLOCK.defaultBlockState(), 1).add(BWGBlocks.MOSSY_STONE_SET.getBase().defaultBlockState(), 1));
+        WeightedStateProvider lushStatesProvider = new WeightedStateProvider(new WeightedList.Builder<BlockState>().add(Blocks.MOSSY_COBBLESTONE.defaultBlockState(), 1).add(Blocks.MOSS_BLOCK.defaultBlockState(), 1).add(BWGBlocks.MOSSY_STONE_SET.getBase().defaultBlockState(), 1));
 
 
         for (int x = 0; x < 16; x++) {
@@ -58,7 +58,7 @@ public class LushBlocksProcessorFeature extends Feature<NoneFeatureConfiguration
                                 int offsetHeight = level.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, mutableBlockPos.getX(), mutableBlockPos.getZ());
                                 if (level.getBlockState(mutableBlockPos).isAir() && mutableBlockPos.getY() > offsetHeight) {
                                     mutableBlockPos.set(minWorldX + x, y, minWorldZ + z);
-                                    chunk.setBlockState(mutableBlockPos, lushStatesProvider.getState(context.random(), mutableBlockPos), false);
+                                    chunk.setBlockState(mutableBlockPos, lushStatesProvider.getState(context.random(), mutableBlockPos));
                                 }
                             }
                         }

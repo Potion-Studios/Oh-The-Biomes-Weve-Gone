@@ -111,8 +111,8 @@ class BlockLootGenerator extends BlockLootSubProvider {
                 dropWhenSilkTouch(block);
             else if (block instanceof FlowerPotBlock)
                 dropPottedContents(block);
-            else if (block instanceof PinkPetalsBlock)
-                add(block, createPetalsDrops(block));
+            else if (block instanceof FlowerBedBlock)
+                add(block, createSegmentedBlockDrops(block));
             else if (block instanceof LeavesBlock) {
                 BWGWoodSet.woodsets().forEach(set -> {
                     if (BuiltInRegistries.BLOCK.getKey(block).getPath().contains(set.name().toLowerCase() + "_"))

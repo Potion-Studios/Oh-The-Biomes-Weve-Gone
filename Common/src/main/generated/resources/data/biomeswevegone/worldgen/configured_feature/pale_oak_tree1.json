@@ -84,8 +84,8 @@
           "data": {
             "Name": "minecraft:creaking_heart",
             "Properties": {
-              "active": "false",
               "axis": "y",
+              "creaking_heart_state": "uprooted",
               "natural": "false"
             }
           },
