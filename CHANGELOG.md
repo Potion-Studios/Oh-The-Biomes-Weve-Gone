@@ -1,4 +1,5 @@
 # 1.6.5
+- Fix Vanilla Additions Config not working (Fabric Only)
 
 # 1.6.4
 - Add Wood Blewit to Enderman Holdable BlockTag

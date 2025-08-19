@@ -49,7 +49,8 @@ public class VanillaCompatFabric {
     private static void registerBiomeModifiers() {
         if (BWGWorldGenConfig.INSTANCE.get().vanillaAdditions()) {
             BWGBiomeModifiers.init();
-            BWGBiomeModifiers.BIOME_MODIFIERS_FACTORIES.forEach((id, modifier) -> BiomeModifications.addFeature(BiomeSelectors.includeByKey(modifier.biomes()), modifier.step(), modifier.feature()));
+            BWGBiomeModifiers.BIOME_MODIFIERS_FACTORIES.values().stream().filter(BWGBiomeModifiers.BWGBiomeModifier::enabled).forEach((modifier) ->
+                    BiomeModifications.addFeature(BiomeSelectors.includeByKey(modifier.biomes()), modifier.step(), modifier.feature()));
         }
     }
 
