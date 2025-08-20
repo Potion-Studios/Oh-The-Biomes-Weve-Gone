@@ -362,6 +362,11 @@ public class TagsGenerator {
             tag(Tags.Items.FOODS_PIE).add(BWGItems.GREEN_APPLE_PIE.get(), BWGItems.BLUEBERRY_PIE.get());
             tag(Tags.Items.FOODS).add(BWGItems.COOKED_ODDION_BULB.get(), BWGItems.COOKED_WHITE_PUFFBALL_CAP.get(), BWGItems.COOKED_YUCCA_FRUIT.get(), BWGItems.ALOE_VERA_JUICE.get());
             tag(Tags.Items.SEEDS_PUMPKIN).add(BWGItems.PALE_PUMPKIN_SEEDS.get());
+            tag(ItemTags.CHICKEN_FOOD).add(BWGItems.PALE_PUMPKIN_SEEDS.get());
+            tag(ItemTags.PARROT_FOOD).add(BWGItems.PALE_PUMPKIN_SEEDS.get());
+            tag(ItemTags.FOX_FOOD).add(BWGItems.BLUEBERRIES.get());
+            tag(ItemTags.CAMEL_FOOD).add(BWGBlocks.MINI_CACTUS.getItem(), BWGBlocks.BARREL_CACTUS.get().asItem(), BWGBlocks.CARVED_BARREL_CACTUS.get().asItem(),
+                    BWGBlocks.FLOWERING_BARREL_CACTUS.get().asItem(), BWGBlocks.PRICKLY_PEAR_CACTUS.getItem(), BWGBlocks.GOLDEN_SPINED_CACTUS.getItem());
             tag(Tags.Items.CROPS_PUMPKIN).add(BWGBlocks.PALE_PUMPKIN.get().asItem());
             tag(ItemTags.EQUIPPABLE_ENCHANTABLE).add(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem());
             tag(ItemTags.VANISHING_ENCHANTABLE).add(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem());
