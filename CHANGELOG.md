@@ -1,4 +1,7 @@
 # 4.0.1
+- Add Pale Pumpkin Seeds to Chicken and Parrot Food
+- Add Blueberries to Fox Food
+- Add Cacti to Camel Food
 
 # 4.0.0
 - Update to 1.21.8
