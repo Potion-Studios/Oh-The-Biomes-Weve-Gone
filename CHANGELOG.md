@@ -1,4 +1,7 @@
 # 3.1.4
+- Add Pale Pumpkin Seeds to Chicken and Parrot Food
+- Add Blueberries to Fox Food
+- Add Cacti to Camel Food
 
 # 3.1.3
 - Add Vietnamese (vi_vn) Translations (Credits: Celyne)
