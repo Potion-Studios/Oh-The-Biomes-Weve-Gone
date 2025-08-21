@@ -310,6 +310,7 @@ public class TagsGenerator {
             tag(ItemTags.VILLAGER_PLANTABLE_SEEDS).add(BWGItems.ODDION_BULB.get());
             tag(Tags.Items.MUSHROOMS).add(BWGBlocks.GREEN_MUSHROOM.get().asItem(), BWGBlocks.WEEPING_MILKCAP.get().asItem(), BWGBlocks.WOOD_BLEWIT.get().asItem());
             tag(Tags.Items.CROPS).add(BWGItems.ODDION_BULB.get());
+	        tag(ItemTags.FOX_FOOD).add(BWGItems.BLUEBERRIES.get());
             tag(BWGItemTags.MUSHROOMS).add(Items.BROWN_MUSHROOM, Items.RED_MUSHROOM, BWGBlocks.GREEN_MUSHROOM.get().asItem(), BWGBlocks.WEEPING_MILKCAP.get().asItem(), BWGBlocks.WOOD_BLEWIT.get().asItem()).addOptionalTag(Tags.Items.MUSHROOMS);
             tag(BWGItemTags.WREATHS).add(BWGItems.WREATH.get(), BWGItems.HOLLY_WREATH.get(), BWGItems.MUSHROOM_WREATH.get(), BWGItems.ODDION_WREATH.get(), BWGItems.PETAL_WREATH.get(), BWGItems.ROSY_WREATH.get(), BWGItems.WINTER_ROSY_WREATH.get());
 

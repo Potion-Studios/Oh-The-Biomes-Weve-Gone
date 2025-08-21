@@ -1,5 +1,6 @@
 # 1.6.5
 - Fix Vanilla Additions Config not working (Fabric Only)
+- Add Blueberries to Fox Food
 
 # 1.6.4
 - Add Wood Blewit to Enderman Holdable BlockTag
