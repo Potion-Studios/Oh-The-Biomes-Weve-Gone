@@ -14,6 +14,7 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
 public final class BWGItemTags {
     public static final TagKey<Item> SHEARS = create("shears");
     public static final TagKey<Item> PUMPKIN_WARDEN_PICKS_UP = create("pumpkin_warden_picks_up");
+    public static final TagKey<Item> CARVED_PUMPKINS = create("carved_pumpkins");
 
     public static final TagKey<Item> BLACK_ICE = create("black_ice");
     public static final TagKey<Item> BOREALIS_ICE = create("borealis_ice");

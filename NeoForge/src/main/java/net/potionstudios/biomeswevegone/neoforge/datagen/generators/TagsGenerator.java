@@ -396,6 +396,7 @@ public class TagsGenerator {
 
             //Pumpkin Warden
             tag(BWGItemTags.PUMPKIN_WARDEN_PICKS_UP).addTag(Tags.Items.PUMPKINS).addTag(Tags.Items.EGGS).add(Items.PUMPKIN_PIE);
+            tag(BWGItemTags.CARVED_PUMPKINS).addTag(Tags.Items.PUMPKINS_CARVED).add(Items.CARVED_PUMPKIN);
 
             //Serene Seasons
             tag(ModTags.Items.YEAR_ROUND_CROPS).add(BWGBlocks.GREEN_MUSHROOM.get().asItem(), BWGBlocks.WEEPING_MILKCAP.get().asItem(), BWGBlocks.WOOD_BLEWIT.get().asItem(), BWGWood.ASPEN.sapling().getBlock().asItem(), BWGWood.RED_MAPLE_SAPLING.getBlock().asItem()).addTag(BWGItemTags.OAK_SAPLINGS);

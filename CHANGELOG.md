@@ -2,6 +2,7 @@
 - Add Pale Pumpkin Seeds to Chicken and Parrot Food
 - Add Blueberries to Fox Food
 - Add Cacti to Camel Food
+- Allow Other Modded Carved pumpkins to be used to change villagers into Pumpkin Wardens (Using Tag)
 
 # 2.4.6
 - Add Vietnamese (vi_vn) Translations (Credits: Celyne)
