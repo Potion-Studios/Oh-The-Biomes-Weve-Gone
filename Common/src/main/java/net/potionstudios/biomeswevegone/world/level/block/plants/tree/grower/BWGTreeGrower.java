@@ -22,6 +22,6 @@ public class BWGTreeGrower extends TreeGrower {
     @Nullable
     @Override
     protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(@NotNull RandomSource random, boolean hasFlowers) {
-        return this.keys.getRandomOrThrow(random);
+        return this.keys.getRandom(random).orElse(null);
     }
 }

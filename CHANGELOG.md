@@ -2,6 +2,7 @@
 - Add Pale Pumpkin Seeds to Chicken and Parrot Food
 - Add Blueberries to Fox Food
 - Add Cacti to Camel Food
+- Fix Sapling Grow Crash
 
 # 4.0.0
 - Update to 1.21.8
