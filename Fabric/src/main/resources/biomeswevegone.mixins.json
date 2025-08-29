@@ -7,9 +7,10 @@
   ],
   "mixins": [
     "AttachedStemBlockMixin",
+    "BushBlockMixin",
     "CropBlockMixin",
-    "PitcherCropBlockMixin",
     "GrassBlockBoneMealMixin",
+    "PitcherCropBlockMixin",
     "StemBlockMixin"
   ],
   "injectors": {

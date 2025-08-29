@@ -3,6 +3,7 @@
 - Add Blueberries to Fox Food
 - Add Cacti to Camel Food
 - Allow placing BWG Saplings on all FarmLand Blocks
+- Allow planting BushBlock on all FarmLand Blocks (Fabric Only)
 
 # 3.1.3
 - Add Vietnamese (vi_vn) Translations (Credits: Celyne)
