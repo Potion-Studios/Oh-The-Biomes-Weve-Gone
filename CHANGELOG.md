@@ -3,7 +3,8 @@
 - Add Blueberries to Fox Food
 - Add Cacti to Camel Food
 - Fix Sapling Grow Crash
-- Allow placing BWG Saplings on FarmLand Blocks
+- Allow placing BWG Saplings on all FarmLand Blocks
+- Allow planting VegetationBlock on all FarmLand Blocks (Fabric Only)
 
 # 4.0.0
 - Update to 1.21.8

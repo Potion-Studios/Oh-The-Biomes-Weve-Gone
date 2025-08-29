@@ -8,9 +8,10 @@
   "mixins": [
     "AttachedStemBlockMixin",
     "CropBlockMixin",
-    "PitcherCropBlockMixin",
     "GrassBlockBoneMealMixin",
-    "StemBlockMixin"
+    "PitcherCropBlockMixin",
+    "StemBlockMixin",
+    "VegetationBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1
