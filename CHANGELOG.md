@@ -5,6 +5,7 @@
 - Fix Sapling Grow Crash
 - Allow placing BWG Saplings on all FarmLand Blocks
 - Allow planting VegetationBlock on all FarmLand Blocks (Fabric Only)
+- Update Ukrainian (uk_ua) Translations (Credits: unroman)
 
 # 4.0.0
 - Update to 1.21.8
