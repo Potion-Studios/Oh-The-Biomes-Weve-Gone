@@ -4,6 +4,7 @@
 - Add Cacti to Camel Food
 - Allow placing BWG Saplings on all FarmLand Blocks
 - Allow planting BushBlock on all FarmLand Blocks (Fabric Only)
+- Update Ukrainian (uk_ua) Translations (Credits: unroman)
 
 # 3.1.3
 - Add Vietnamese (vi_vn) Translations (Credits: Celyne)
