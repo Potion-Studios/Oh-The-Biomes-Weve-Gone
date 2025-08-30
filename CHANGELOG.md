@@ -5,6 +5,7 @@
 - Allow Other Modded Carved pumpkins to be used to change villagers into Pumpkin Wardens (Using Tag)
 - Allow placing BWG Saplings on all FarmLand Blocks
 - Allow planting BushBlock on all FarmLand Blocks (Fabric Only)
+- Update Ukrainian (uk_ua) Translations (Credits: unroman)
 
 # 2.4.6
 - Add Vietnamese (vi_vn) Translations (Credits: Celyne)
