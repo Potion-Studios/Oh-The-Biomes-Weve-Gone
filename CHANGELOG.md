@@ -3,6 +3,7 @@
 - Add Blueberries to Fox Food
 - Allow placing BWG Saplings on all FarmLand Blocks
 - Allow planting BushBlock on all FarmLand Blocks (Fabric Only)
+- Update Ukrainian (uk_ua) Translations (Credits: unroman)
 
 # 1.6.4
 - Add Wood Blewit to Enderman Holdable BlockTag
