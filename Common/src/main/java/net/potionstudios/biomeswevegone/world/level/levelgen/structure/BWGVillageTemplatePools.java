@@ -356,6 +356,11 @@ public class BWGVillageTemplatePools {
                     singlePoolElement("pumpkin_patch/wards/pumpkin_ward")
             ), StructureTemplatePool.Projection.RIGID));
 
+    private static final ResourceKey<StructureTemplatePool> PUMPKIN_PATCH_CHICKEN = register("pumpkin_patch/chicken", templatePoolFactoryContext ->
+            createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(
+                    singlePoolElement("pumpkin_patch/chicken")
+            ), StructureTemplatePool.Projection.RIGID));
+
     //Swamp Village Template Pools
     private static final ResourceKey<StructureTemplatePool> SWAMP_TERMINATOR = createTerminatorPool("swamp", BWGStructureProcessorLists.SWAMP_STREETS, 4);
 
