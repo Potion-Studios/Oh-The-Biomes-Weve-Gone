@@ -1,4 +1,5 @@
 # 4.0.2
+- Fix missing Chicken Pool and Missing Pool warnings in Pumpkin Patch Village
 
 # 4.0.1
 - Add Pale Pumpkin Seeds to Chicken and Parrot Food
