@@ -1,3 +1,5 @@
+# 1.6.6
+
 # 1.6.5
 - Fix Vanilla Additions Config not working (Fabric Only)
 - Add Blueberries to Fox Food
