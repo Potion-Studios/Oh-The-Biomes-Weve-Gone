@@ -639,6 +639,12 @@
     "biomeswevegone:winter_succulent": {
       "chance": 0.65
     },
+    "biomeswevegone:witch_hazel_blossom": {
+      "chance": 0.65
+    },
+    "biomeswevegone:witch_hazel_branch": {
+      "chance": 0.3
+    },
     "biomeswevegone:witch_hazel_leaves": {
       "chance": 0.3
     },
