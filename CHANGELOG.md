@@ -2,6 +2,7 @@
 - Fix missing Chicken Pool and Missing Pool warnings in Pumpkin Patch Village
 - Add some Missing Block and Item Tags
 - Fix Witch Hazel Blossom and Branch not being compostable and flammable
+- Witch Hazel Branch to Stick Recipe, allow branch to be used as furnace fuel
 
 # 2.4.7
 - Add Pale Pumpkin Seeds to Chicken and Parrot Food

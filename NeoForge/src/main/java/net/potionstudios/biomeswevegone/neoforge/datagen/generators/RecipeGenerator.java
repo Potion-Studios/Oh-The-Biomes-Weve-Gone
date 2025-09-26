@@ -576,6 +576,8 @@ public class RecipeGenerator extends RecipeProvider {
                 .pattern(" # ")
                 .unlockedBy(getHasName(BWGItems.WREATH.get()), has(BWGItems.WREATH.get()))
                 .save(recipeOutput);
+
+        oneToOneConversionRecipe(recipeOutput, Items.STICK, BWGBlocks.WITCH_HAZEL_BRANCH.get(), "sticks");
     }
 
     private static void oneToOneConversionRecipe(RecipeOutput recipeOutput, ItemLike result, TagKey<Item> ingredient) {

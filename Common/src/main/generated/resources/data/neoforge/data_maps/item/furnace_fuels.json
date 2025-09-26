@@ -165,6 +165,9 @@
     "biomeswevegone:witch_hazel_bookshelf": {
       "burn_time": 300
     },
+    "biomeswevegone:witch_hazel_branch": {
+      "burn_time": 100
+    },
     "biomeswevegone:witch_hazel_crafting_table": {
       "burn_time": 300
     },
