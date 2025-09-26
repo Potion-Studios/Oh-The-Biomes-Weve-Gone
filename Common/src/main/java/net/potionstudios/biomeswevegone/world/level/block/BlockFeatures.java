@@ -26,7 +26,7 @@ public class BlockFeatures {
                 consumer.accept(block, 0.3F);
             else if (block instanceof VineBlock || block instanceof DesertPlantBlock || block instanceof BWGCactusBlock)
                 consumer.accept(block, 0.5F);
-            else if (block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof WaterlilyBlock || block instanceof MushroomBlock || block instanceof FlatVegetationBlock || block instanceof BWGPlacementBushBlock || block instanceof PumpkinBlock || block instanceof CarvedPumpkinBlock)
+            else if (block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof WaterlilyBlock || block instanceof MushroomBlock || block instanceof FlatVegetationBlock || block instanceof BWGPlacementBushBlock || block instanceof PumpkinBlock || block instanceof CarvedPumpkinBlock || block instanceof SporeBlossomBlock)
                 consumer.accept(block, 0.65F);
             else if (block instanceof HugeMushroomBlock || block instanceof HayBlock)
                 consumer.accept(block, 0.85F);
@@ -39,7 +39,7 @@ public class BlockFeatures {
         });
         compostItems(consumer, 0.85F, BWGBlocks.CYAN_PITCHER_PLANT.get(), BWGBlocks.MAGENTA_PITCHER_PLANT.get());
 
-        compostItems(consumer, 0.3F, BWGItems.PALE_PUMPKIN_SEEDS.get(), BWGItems.BLUEBERRIES.get());
+        compostItems(consumer, 0.3F, BWGItems.PALE_PUMPKIN_SEEDS.get(), BWGItems.BLUEBERRIES.get(), BWGBlocks.WITCH_HAZEL_BRANCH.get());
         compostItems(consumer, 0.5f, BWGItems.BLUE_GLOWCANE_SHOOT.get(), BWGItems.GREEN_GLOWCANE_SHOOT.get(), BWGItems.RED_GLOWCANE_SHOOT.get(),
                 BWGItems.YELLOW_GLOWCANE_SHOOT.get(), BWGItems.CATTAIL_SPROUT.get(), BWGItems.FLUORESCENT_CATTAIL_SPROUT.get());
         compostItems(consumer, 0.65f, BWGItems.GREEN_APPLE.get(), BWGItems.BAOBAB_FRUIT.get(), BWGItems.SOUL_FRUIT.get(), BWGItems.YUCCA_FRUIT.get(),
@@ -85,7 +85,7 @@ public class BlockFeatures {
             Block block = entry.get();
             if (block instanceof LeavesBlock)
                 consumer.accept(block, 30, 60);
-            else if (block instanceof SweetBerryBushBlock || block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof TallGrassBlock || block instanceof PinkPetalsBlock || block instanceof FlatVegetationBlock)
+            else if (block instanceof SweetBerryBushBlock || block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof TallGrassBlock || block instanceof PinkPetalsBlock || block instanceof FlatVegetationBlock || block instanceof SporeBlossomBlock)
                 consumer.accept(block, 60, 100);
             else if (block instanceof FloweringBushBlock || block instanceof FlowerableBushBlock || block instanceof ShrubBlock || block instanceof VineBlock)
                 consumer.accept(block, 15, 100);
@@ -96,6 +96,7 @@ public class BlockFeatures {
         consumer.accept(BWGBlocks.CATTAIL_THATCH_SLAB.get(), 60, 20);
         consumer.accept(BWGBlocks.CATTAIL_THATCH_STAIRS.get(), 60, 20);
         consumer.accept(BWGBlocks.CATTAIL_THATCH_CARPET.get(), 60, 20);
+		consumer.accept(BWGBlocks.WITCH_HAZEL_BRANCH.get(), 30, 60);
     }
 
     public static void registerFurnaceFuels(BiConsumer<ItemLike, Integer> consumer) {
