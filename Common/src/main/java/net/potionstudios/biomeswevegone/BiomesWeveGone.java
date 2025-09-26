@@ -82,7 +82,7 @@ public class BiomesWeveGone {
     }
 
     /**
-     * Ran later in the initialization process to setup common things.
+     * Ran later in the initialization process to set up common things.
      */
     public static void commonSetup() {
         BWGMobSpawnConfig.reload();
