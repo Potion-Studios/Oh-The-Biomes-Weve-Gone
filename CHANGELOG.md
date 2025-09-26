@@ -1,5 +1,7 @@
 # 4.0.2
 - Fix missing Chicken Pool and Missing Pool warnings in Pumpkin Patch Village
+- Add some Missing Block and Item Tags
+- Fix Witch Hazel Blossom and Branch not being compostable and flammable
 
 # 4.0.1
 - Add Pale Pumpkin Seeds to Chicken and Parrot Food
