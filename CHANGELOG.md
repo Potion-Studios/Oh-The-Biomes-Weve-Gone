@@ -1,4 +1,6 @@
 # 1.6.6
+- Fix Witch Hazel Blossom and Branch not being compostable and flammable
+
 
 # 1.6.5
 - Fix Vanilla Additions Config not working (Fabric Only)
