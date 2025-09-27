@@ -445,6 +445,8 @@ public class RecipeGenerator extends RecipeProvider {
                 .unlockedBy(getHasName(BWGItems.WREATH.get()), has(BWGItems.WREATH.get()))
                 .save(writer);
 
+        oneToOneConversionRecipe(writer, Items.STICK, BWGBlocks.WITCH_HAZEL_BRANCH.get(), "sticks");
+
         oneToOneConversionRecipe(writer, Items.BLACK_DYE, BWGItemTags.MAKES_BLACK_DYE);
         oneToOneConversionRecipe(writer, Items.BLUE_DYE, BWGItemTags.MAKES_BLUE_DYE);
         oneToOneConversionRecipe(writer, Items.CYAN_DYE, BWGItemTags.MAKES_CYAN_DYE);

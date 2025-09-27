@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "sticks",
+  "ingredients": [
+    {
+      "item": "biomeswevegone:witch_hazel_branch"
+    }
+  ],
+  "result": {
+    "item": "minecraft:stick"
+  }
+}
