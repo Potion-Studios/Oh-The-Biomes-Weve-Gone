@@ -1,6 +1,7 @@
 # 1.6.6
 - Fix Witch Hazel Blossom and Branch not being compostable and flammable
 - Witch Hazel Branch to Stick Recipe, allow branch to be used as furnace fuel
+- Fix missing Chicken Pool and Missing Pool warnings in Pumpkin Patch Village
 
 # 1.6.5
 - Fix Vanilla Additions Config not working (Fabric Only)
