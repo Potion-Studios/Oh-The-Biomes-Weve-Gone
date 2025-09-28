@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:stick_from_witch_hazel_branch"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_witch_hazel_branch": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:witch_hazel_branch"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_witch_hazel_branch"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:stick_from_witch_hazel_branch"
+    ]
+  }
+}
