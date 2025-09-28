@@ -110,5 +110,6 @@ public class BlockFeatures {
             consumer.accept(bwgWoodSet.craftingTable(), 300);
         });
         consumer.accept(BWGBlocks.FORAGERS_TABLE.get(), 300);
+        consumer.accept(BWGBlocks.WITCH_HAZEL_BRANCH.get().asItem(), 100);
     }
 }
