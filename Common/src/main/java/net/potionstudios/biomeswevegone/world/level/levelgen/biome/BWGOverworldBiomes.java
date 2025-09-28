@@ -68,7 +68,6 @@ class BWGOverworldBiomes {
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.ALLIUM_SHRUBLAND_FLOWERS);
         BWGOverworldDefaultFeatures.addCloverPatches(generationSettings);
         BWGOverworldDefaultFeatures.addOakBushes(generationSettings);
-//        BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
 
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.GIANT_ALLIUMS);
@@ -92,7 +91,6 @@ class BWGOverworldBiomes {
         BWGOverworldDefaultFeatures.addJacarandaBushes(generationSettings);
         BWGOverworldDefaultFeatures.addOakBushes(generationSettings);
         BWGOverworldDefaultFeatures.addSparseJacarandaTrees(generationSettings);
-//        BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
@@ -136,7 +134,6 @@ class BWGOverworldBiomes {
         BWGOverworldDefaultFeatures.addSparseSpruceTrees(generationSettings);
         BWGOverworldDefaultFeatures.addLeafPile(generationSettings);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.ORANGE_DAISY);
-//        BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
         BWGOverworldDefaultFeatures.addRose(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
 
@@ -347,7 +344,6 @@ class BWGOverworldBiomes {
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
         BiomeDefaultFeatures.addCherryGroveVegetation(generationSettings);
-        //BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
@@ -358,7 +354,6 @@ class BWGOverworldBiomes {
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.SAKURA_PETALS);
         BWGOverworldDefaultFeatures.addFlowerPatches(generationSettings);
         BWGOverworldDefaultFeatures.addCloverPatches(generationSettings);
-//        BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
@@ -659,7 +654,6 @@ class BWGOverworldBiomes {
         BWGOverworldDefaultFeatures.addLeafPile(generationSettings);
         BWGOverworldDefaultFeatures.addAnemones(generationSettings);
         BWGOverworldDefaultFeatures.addHorseWeed(generationSettings);
-//        BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
@@ -745,7 +739,6 @@ class BWGOverworldBiomes {
 
         BiomeDefaultFeatures.addPlainGrass(generationSettings);
         addVegetal(generationSettings, VegetationPlacements.PATCH_SUNFLOWER);
-       // BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BiomeDefaultFeatures.addDefaultGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
@@ -757,7 +750,6 @@ class BWGOverworldBiomes {
         BWGOverworldDefaultFeatures.addWhitePuffball(generationSettings);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.BISTORT);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.ANGELICA);
-//        BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
@@ -957,7 +949,6 @@ class BWGOverworldBiomes {
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.LOLLIPOP_FLOWERS);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.YELLOW_DAFFODIL);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.WHITE_ALLIUMS);
-//        BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
@@ -1019,7 +1010,6 @@ class BWGOverworldBiomes {
 
         BWGOverworldDefaultFeatures.addCaliforniaPoppy(generationSettings);
         BWGOverworldDefaultFeatures.addWhitePuffball(generationSettings);
-//        BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.plainsSpawns(spawnSettings);
@@ -1193,7 +1183,6 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultSprings(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
-//        generationSettings.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BYGPlacedFeatures.BLACK_ICE_SNOW);
         BiomeDefaultFeatures.addSurfaceFreezing(generationSettings);
         BiomeDefaultFeatures.addFerns(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
@@ -1490,7 +1479,6 @@ class BWGOverworldBiomes {
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.RAINFOREST_TREES);
         BWGOverworldDefaultFeatures.addBWGTropicFlowers(generationSettings);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.DELPHINIUM);
-//        BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
@@ -1554,7 +1542,6 @@ class BWGOverworldBiomes {
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.ANGELICA);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.PINK_DAFFODIL);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.HORSEWEED);
-        //BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
