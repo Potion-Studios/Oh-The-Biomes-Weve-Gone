@@ -10,11 +10,13 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.event.server.ServerAboutToStartEvent;
+import net.neoforged.neoforge.registries.RegisterEvent;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.commands.BWGCommands;
 import net.potionstudios.biomeswevegone.neoforge.loot.LootModifiersRegister;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
+import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGOverworldSurfaceRules;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGTerraBlenderRegion;
 import terrablender.api.SurfaceRuleManager;
@@ -34,6 +36,7 @@ public class BiomesWeveGoneNeoForge {
 		EVENT_BUS.addListener((EntityJoinLevelEvent event) -> BiomesWeveGone.onEntityLoad(event.getEntity()));
 		VanillaCompatNeoForge.registerVanillaCompatEvents(EVENT_BUS);
 		LootModifiersRegister.register(eventBus);
+        eventBus.addListener(this::onRegister);
 	}
 
 	/**
@@ -59,4 +62,12 @@ public class BiomesWeveGoneNeoForge {
 		BWGVillagerTrades.makeTrades();
 		BWGVillagerTrades.makeWanderingTrades();
 	}
+
+    /**
+     * Handles missing mappings for biomes and other registries.
+     * @see RegisterEvent
+     */
+    private void onRegister(RegisterEvent event) {
+        event.getRegistry().addAlias(BiomesWeveGone.id("skyrise_vale"), BWGBiomes.SKYRIS_VALE.location());
+    }
 }

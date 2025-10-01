@@ -1,4 +1,5 @@
 # 2.4.9
+- Fix Skyris Vale having incorrect Registered Name (skyrise_vale -> skyris_vale)
 
 # 2.4.8
 - Fix missing Chicken Pool and Missing Pool warnings in Pumpkin Patch Village

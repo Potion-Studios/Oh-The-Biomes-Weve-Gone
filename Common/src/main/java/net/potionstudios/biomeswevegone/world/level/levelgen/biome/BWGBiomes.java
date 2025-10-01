@@ -77,7 +77,7 @@ public class BWGBiomes {
     public static final ResourceKey<Biome> SAKURA_GROVE = createBiome("sakura_grove", BWGOverworldBiomes::sakuraGrove, BWGBiomeTags.FOREST, BWGBiomeTags.FLORAL, BWGBiomeTags.DENSE);
     public static final ResourceKey<Biome> SHATTERED_GLACIER = createBiome("shattered_glacier", BWGOverworldBiomes::shatteredGlacier, BWGBiomeTags.SLOPE, BWGBiomeTags.ICY);
     public static final ResourceKey<Biome> SIERRA_BADLANDS = createBiome("sierra_badlands", BWGOverworldBiomes::sierraBadlands, BWGBiomeTags.BADLANDS);
-    public static final ResourceKey<Biome> SKYRIS_VALE = createBiome("skyrise_vale", BWGOverworldBiomes::skyrisVale, BWGBiomeTags.FOREST, BWGBiomeTags.MAGICAL, BWGBiomeTags.DENSE, BWGBiomeTags.StructureHasTags.HAS_VILLAGE_SKYRIS);
+    public static final ResourceKey<Biome> SKYRIS_VALE = createBiome("skyris_vale", BWGOverworldBiomes::skyrisVale, BWGBiomeTags.FOREST, BWGBiomeTags.MAGICAL, BWGBiomeTags.DENSE, BWGBiomeTags.StructureHasTags.HAS_VILLAGE_SKYRIS);
     public static final ResourceKey<Biome> TROPICAL_RAINFOREST = createBiome("tropical_rainforest", BWGOverworldBiomes::tropicalRainforest, BWGBiomeTags.JUNGLE, BiomeTags.HAS_BURIED_TREASURE);
     public static final ResourceKey<Biome> TEMPERATE_GROVE = createBiome("temperate_grove", BWGOverworldBiomes::temperateGrove, BWGBiomeTags.PLAINS, BWGBiomeTags.SPARSE, BiomeTags.HAS_VILLAGE_PLAINS, BiomeTags.HAS_PILLAGER_OUTPOST);
     public static final ResourceKey<Biome> WEEPING_WITCH_FOREST = createBiome("weeping_witch_forest", BWGOverworldBiomes::weepingWitchForest, BWGBiomeTags.FOREST, BWGBiomeTags.MAGICAL, BWGBiomeTags.DENSE, BiomeTags.HAS_WOODLAND_MANSION, BWGBiomeTags.StructureHasTags.HAS_VILLAGE_SALEM);
