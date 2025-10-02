@@ -1,5 +1,6 @@
 # 2.4.9
 - Fix Skyris Vale having incorrect Registered Name (skyrise_vale -> skyris_vale)
+- Fix Pumpkin Warden Picks up Items tag not loading on Forge
 
 # 2.4.8
 - Fix missing Chicken Pool and Missing Pool warnings in Pumpkin Patch Village

@@ -5,6 +5,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.*;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Items;
@@ -397,7 +398,7 @@ public class TagsGenerator {
             tag(BWGItemTags.MAKES_2_WHITE_DYE).add(BWGBlocks.TALL_WHITE_ALLIUM.get().asItem());
 
             //Pumpkin Warden
-            tag(BWGItemTags.PUMPKIN_WARDEN_PICKS_UP).addTag(Tags.Items.PUMPKINS).addTag(Tags.Items.EGGS).add(Items.PUMPKIN_PIE);
+            tag(BWGItemTags.PUMPKIN_WARDEN_PICKS_UP).add(Items.PUMPKIN_PIE).addOptionalTag(Tags.Items.EGGS).addOptionalTag(Tags.Items.PUMPKINS).addOptionalTag(ResourceLocation.fromNamespaceAndPath("forge", "eggs"));
             tag(BWGItemTags.CARVED_PUMPKINS).addTag(Tags.Items.PUMPKINS_CARVED).add(Items.CARVED_PUMPKIN);
 
             //Serene Seasons
