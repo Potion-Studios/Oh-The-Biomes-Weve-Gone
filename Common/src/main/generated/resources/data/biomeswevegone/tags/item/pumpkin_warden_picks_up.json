@@ -4,7 +4,14 @@
       "id": "#c:eggs",
       "required": false
     },
-    "#c:pumpkins",
+    {
+      "id": "#c:pumpkins",
+      "required": false
+    },
+    {
+      "id": "#forge:eggs",
+      "required": false
+    },
     "minecraft:pumpkin_pie"
   ]
 }
