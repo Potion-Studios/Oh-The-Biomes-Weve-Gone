@@ -1,3 +1,5 @@
+# 1.6.7
+
 # 1.6.6
 - Fix Witch Hazel Blossom and Branch not being compostable and flammable
 - Witch Hazel Branch to Stick Recipe, allow branch to be used as furnace fuel
