@@ -1,7 +1,5 @@
 package net.potionstudios.biomeswevegone.forge;
 
-import net.minecraft.core.registries.Registries;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
@@ -15,15 +13,12 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.MissingMappingsEvent;
-import net.minecraftforge.registries.NewRegistryEvent;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.commands.BWGCommands;
 import net.potionstudios.biomeswevegone.forge.loot.LootModifiersRegister;
 import net.potionstudios.biomeswevegone.forge.client.BiomesWeveGoneClientForge;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
-import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGOverworldSurfaceRules;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGTerraBlenderRegion;
 import terrablender.api.SurfaceRuleManager;
@@ -51,7 +46,6 @@ public class BiomesWeveGoneForge {
         VanillaCompatForge.registerVanillaCompatEvents(EVENT_BUS);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> BiomesWeveGoneClientForge.init(MOD_BUS));
         LootModifiersRegister.register(MOD_BUS);
-        EVENT_BUS.addListener(this::onMissingMappings);
     }
 
     /**
@@ -76,16 +70,5 @@ public class BiomesWeveGoneForge {
         event.enqueueWork(BiomesWeveGone::postInit);
         BWGVillagerTrades.makeTrades();
         BWGVillagerTrades.makeWanderingTrades();
-    }
-
-    /**
-     * Handles missing mappings for biomes.
-     * @see MissingMappingsEvent
-     */
-    private void onMissingMappings(MissingMappingsEvent event) {
-        event.getMappings(Registries.BIOME, BiomesWeveGone.MOD_ID).forEach((biomeMapping -> {
-            if (biomeMapping.getKey().equals(BiomesWeveGone.id("skyrise_vale")))
-                biomeMapping.remap((Biome) event.getRegistry().getDelegateOrThrow(BWGBiomes.SKYRIS_VALE.registry()).get());
-        }));
     }
 }
