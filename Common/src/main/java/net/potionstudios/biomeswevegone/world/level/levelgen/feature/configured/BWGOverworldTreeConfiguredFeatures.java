@@ -43,6 +43,7 @@ import java.util.Set;
 import java.util.function.Supplier;
 
 
+@SuppressWarnings("DataFlowIssue")
 public class BWGOverworldTreeConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ARAUCARIA_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("araucaria_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
@@ -1038,915 +1039,1059 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("cypress_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/cypress/cypress_trunk1"),
-                    BiomesWeveGone.id("features/trees/cypress/cypress_canopy1"),
-                    BiasedToBottomInt.of(14, 16),
-                    BlockStateProvider.simple(BWGWood.CYPRESS.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.CYPRESS.leaves().defaultBlockState())),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 14, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/cypress/cypress_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/cypress/cypress_canopy1"))
+                    .height(BiasedToBottomInt.of(14, 16))
+                    .logProvider(BlockStateProvider.simple(BWGWood.CYPRESS.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.CYPRESS.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get()))
+                    .build()
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("cypress_tree2",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/cypress/cypress_trunk2"),
-                    BiomesWeveGone.id("features/trees/cypress/cypress_canopy2"),
-                    BiasedToBottomInt.of(10, 13),
-                    BlockStateProvider.simple(BWGWood.CYPRESS.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.CYPRESS.leaves().defaultBlockState())),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 14, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/cypress/cypress_trunk2"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/cypress/cypress_canopy2"))
+                    .height(BiasedToBottomInt.of(10, 13))
+                    .logProvider(BlockStateProvider.simple(BWGWood.CYPRESS.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.CYPRESS.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get()))
+                    .build()
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("cypress_tree3",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/cypress/cypress_trunk3"),
-                    BiomesWeveGone.id("features/trees/cypress/cypress_canopy3"),
-                    BiasedToBottomInt.of(10, 13),
-                    BlockStateProvider.simple(BWGWood.CYPRESS.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.CYPRESS.leaves().defaultBlockState())),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 14, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/cypress/cypress_trunk3"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/cypress/cypress_canopy3"))
+                    .height(BiasedToBottomInt.of(10, 13))
+                    .logProvider(BlockStateProvider.simple(BWGWood.CYPRESS.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.CYPRESS.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get()))
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WITCH_HAZEL1 = ConfiguredFeaturesUtil.createConfiguredFeature("witch_hazel1",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_trunk_1"),
-                    BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_canopy_1"),
-                    BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BWGWood.WITCH_HAZEL.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLOOMING_WITCH_HAZEL_LEAVES.get().defaultBlockState()).add(BWGWood.WITCH_HAZEL.leaves().defaultBlockState(), 4)),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get())
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_trunk_1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_canopy_1"))
+                    .height(BiasedToBottomInt.of(5, 15))
+                    .logProvider(BlockStateProvider.simple(BWGWood.WITCH_HAZEL.logstem()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.BLOOMING_WITCH_HAZEL_LEAVES.get().defaultBlockState())
+                            .add(BWGWood.WITCH_HAZEL.leaves().defaultBlockState(), 4)))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get()))
+                    .build()
     );
-
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WITCH_HAZEL2 = ConfiguredFeaturesUtil.createConfiguredFeature("witch_hazel2",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_trunk_2"),
-                    BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_canopy_2"),
-                    BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BWGWood.WITCH_HAZEL.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BWGWood.BLOOMING_WITCH_HAZEL_LEAVES.get().defaultBlockState()).add(BWGWood.WITCH_HAZEL.leaves().defaultBlockState(), 4)),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get())
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_trunk_2"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_canopy_2"))
+                    .height(BiasedToBottomInt.of(5, 15))
+                    .logProvider(BlockStateProvider.simple(BWGWood.WITCH_HAZEL.logstem()))
+                    .leavesProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BWGWood.BLOOMING_WITCH_HAZEL_LEAVES.get().defaultBlockState())
+                            .add(BWGWood.WITCH_HAZEL.leaves().defaultBlockState(), 4)))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get()))
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WITCH_HAZEL3 = ConfiguredFeaturesUtil.createConfiguredFeature("witch_hazel3",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_trunk_3"),
-                    BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_canopy_3"),
-                    BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BWGWood.WITCH_HAZEL.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLOOMING_WITCH_HAZEL_LEAVES.get().defaultBlockState()).add(BWGWood.WITCH_HAZEL.leaves().defaultBlockState(), 4)),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get())
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_trunk_3"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_canopy_3"))
+                    .height(BiasedToBottomInt.of(5, 15))
+                    .logProvider(BlockStateProvider.simple(BWGWood.WITCH_HAZEL.logstem()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.BLOOMING_WITCH_HAZEL_LEAVES.get().defaultBlockState())
+                            .add(BWGWood.WITCH_HAZEL.leaves().defaultBlockState(), 4)))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get()))
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WITCH_HAZEL4 = ConfiguredFeaturesUtil.createConfiguredFeature("witch_hazel4",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_trunk_4"),
-                    BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_canopy_4"),
-                    BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BWGWood.WITCH_HAZEL.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLOOMING_WITCH_HAZEL_LEAVES.get().defaultBlockState()).add(BWGWood.WITCH_HAZEL.leaves().defaultBlockState(), 4)),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get())
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_trunk_4"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_canopy_4"))
+                    .height(BiasedToBottomInt.of(5, 15))
+                    .logProvider(BlockStateProvider.simple(BWGWood.WITCH_HAZEL.logstem()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.BLOOMING_WITCH_HAZEL_LEAVES.get().defaultBlockState())
+                            .add(BWGWood.WITCH_HAZEL.leaves().defaultBlockState(), 4)))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get()))
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WITCH_HAZEL5 = ConfiguredFeaturesUtil.createConfiguredFeature("witch_hazel5",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_trunk_5"),
-                    BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_canopy_5"),
-                    BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BWGWood.WITCH_HAZEL.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.BLOOMING_WITCH_HAZEL_LEAVES.get().defaultBlockState()).add(BWGWood.WITCH_HAZEL.leaves().defaultBlockState(), 4)),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get())
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_trunk_5"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_canopy_5"))
+                    .height(BiasedToBottomInt.of(5, 15))
+                    .logProvider(BlockStateProvider.simple(BWGWood.WITCH_HAZEL.logstem()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.BLOOMING_WITCH_HAZEL_LEAVES.get().defaultBlockState())
+                            .add(BWGWood.WITCH_HAZEL.leaves().defaultBlockState(), 4)))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get()))
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> FIRECRACKER_SHRUB = ConfiguredFeaturesUtil.createConfiguredFeature("firecracker_shrub",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/generic_trunk"),
-                    BiomesWeveGone.id("features/trees/meadow/meadow_shrub_canopy1"),
-                    ConstantInt.ZERO,
-                    BlockStateProvider.simple(Blocks.OAK_LOG),
-                    BlockStateProvider.simple(BWGWood.FIRECRACKER_LEAVES.get()),
-                    Blocks.DARK_OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/meadow/meadow_shrub_canopy1"))
+                    .height(ConstantInt.ZERO)
+                    .logProvider(BlockStateProvider.simple(Blocks.OAK_LOG))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.FIRECRACKER_LEAVES.get()))
+                    .logTarget(Set.of(Blocks.DARK_OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> FIRECRACKER_SHRUB2 = ConfiguredFeaturesUtil.createConfiguredFeature("firecracker_shrub2",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/generic_trunk"),
-                    BiomesWeveGone.id("features/trees/meadow/meadow_shrub_canopy1"),
-                    ConstantInt.ZERO,
-                    BlockStateProvider.simple(Blocks.OAK_LOG),
-                    BlockStateProvider.simple(BWGWood.FIRECRACKER_LEAVES.get()),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT,  5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/meadow/meadow_shrub_canopy1"))
+                    .height(ConstantInt.ZERO)
+                    .logProvider(BlockStateProvider.simple(Blocks.OAK_LOG))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.FIRECRACKER_LEAVES.get()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> FIRECRACKER_BUSH1 = ConfiguredFeaturesUtil.createConfiguredFeature("firecracker_bush1",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/bush/trunk_bush1"),
-                    BiomesWeveGone.id("features/trees/bush/canopy_bush1"),
-                    BiasedToBottomInt.of(1, 2),
-                    BlockStateProvider.simple(Blocks.OAK_LOG),
-                    BlockStateProvider.simple(BWGWood.FIRECRACKER_LEAVES.get()),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/bush/trunk_bush1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/bush/canopy_bush1"))
+                    .height(BiasedToBottomInt.of(1, 2))
+                    .logProvider(BlockStateProvider.simple(Blocks.OAK_LOG))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.FIRECRACKER_LEAVES.get()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> EBONY_BUSH1 = ConfiguredFeaturesUtil.createConfiguredFeature("ebony_bush1",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/ebony/ebony_bush_trunk"),
-                    BiomesWeveGone.id("features/trees/ebony/ebony_canopy2"),
-                    ConstantInt.ZERO,
-                    BlockStateProvider.simple(BWGWood.EBONY.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.EBONY.leaves().defaultBlockState())),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 6
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/ebony/ebony_bush_trunk"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/ebony/ebony_canopy2"))
+                    .height(ConstantInt.ZERO)
+                    .logProvider(BlockStateProvider.simple(BWGWood.EBONY.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.EBONY.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(6)
+                    .build()
     );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> EBONY_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("ebony_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/ebony/ebony_trunk1"),
-                    BiomesWeveGone.id("features/trees/ebony/ebony_canopy1"),
-                    BiasedToBottomInt.of(4, 6),
-                    BlockStateProvider.simple(BWGWood.EBONY.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.EBONY.leaves().defaultBlockState())),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 6
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/ebony/ebony_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/ebony/ebony_canopy1"))
+                    .height(BiasedToBottomInt.of(4, 6))
+                    .logProvider(BlockStateProvider.simple(BWGWood.EBONY.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.EBONY.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(6)
+                    .build()
     );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> EBONY_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("ebony_tree2",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/ebony/ebony_trunk2"),
-                    BiomesWeveGone.id("features/trees/ebony/ebony_canopy2"),
-                    BiasedToBottomInt.of(4, 6),
-                    BlockStateProvider.simple(BWGWood.EBONY.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.EBONY.leaves().defaultBlockState())),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 6
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/ebony/ebony_trunk2"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/ebony/ebony_canopy2"))
+                    .height(BiasedToBottomInt.of(4, 6))
+                    .logProvider(BlockStateProvider.simple(BWGWood.EBONY.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.EBONY.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(6)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("holly_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/generic_trunk"),
-                    BiomesWeveGone.id("features/trees/holly/holly_canopy1"),
-                    BiasedToBottomInt.of(10, 16),
-                    BlockStateProvider.simple(BWGWood.HOLLY.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.HOLLY.leaves().defaultBlockState(), 7).add(BWGWood.HOLLY_BERRY_LEAVES.get().defaultBlockState())),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 6
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/holly/holly_canopy1"))
+                    .height(BiasedToBottomInt.of(10, 16))
+                    .logProvider(BlockStateProvider.simple(BWGWood.HOLLY.logstem()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.HOLLY.leaves().defaultBlockState(), 7)
+                            .add(BWGWood.HOLLY_BERRY_LEAVES.get().defaultBlockState())))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(6)
+                    .build()
     );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("holly_tree2",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/generic_trunk"),
-                    BiomesWeveGone.id("features/trees/holly/holly_canopy2"),
-                    BiasedToBottomInt.of(8, 14),
-                    BlockStateProvider.simple(BWGWood.HOLLY.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.HOLLY.leaves().defaultBlockState(), 7).add(BWGWood.HOLLY_BERRY_LEAVES.get().defaultBlockState())),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 6
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/holly/holly_canopy2"))
+                    .height(BiasedToBottomInt.of(8, 14))
+                    .logProvider(BlockStateProvider.simple(BWGWood.HOLLY.logstem()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.HOLLY.leaves().defaultBlockState(), 7)
+                            .add(BWGWood.HOLLY_BERRY_LEAVES.get().defaultBlockState())))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(6)
+                    .build()
     );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("holly_tree3",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/holly/holly_trunk3"),
-                    BiomesWeveGone.id("features/trees/holly/holly_canopy3"),
-                    BiasedToBottomInt.of(2, 12),
-                    BlockStateProvider.simple(BWGWood.HOLLY.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.HOLLY.leaves().defaultBlockState(), 7).add(BWGWood.HOLLY_BERRY_LEAVES.get().defaultBlockState())),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 6
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/holly/holly_trunk3"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/holly/holly_canopy3"))
+                    .height(BiasedToBottomInt.of(2, 12))
+                    .logProvider(BlockStateProvider.simple(BWGWood.HOLLY.logstem()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.HOLLY.leaves().defaultBlockState(), 7)
+                            .add(BWGWood.HOLLY_BERRY_LEAVES.get().defaultBlockState())))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(6)
+                    .build()
     );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("holly_tree4",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/generic_trunk"),
-                    BiomesWeveGone.id("features/trees/holly/holly_canopy4"),
-                    BiasedToBottomInt.of(10, 16),
-                    BlockStateProvider.simple(BWGWood.HOLLY.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.HOLLY.leaves().defaultBlockState(), 7).add(BWGWood.HOLLY_BERRY_LEAVES.get().defaultBlockState())),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 6
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/holly/holly_canopy4"))
+                    .height(BiasedToBottomInt.of(10, 16))
+                    .logProvider(BlockStateProvider.simple(BWGWood.HOLLY.logstem()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.HOLLY.leaves().defaultBlockState(), 7)
+                            .add(BWGWood.HOLLY_BERRY_LEAVES.get().defaultBlockState())))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(6)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ENCHANTED_SAPLING_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("blue_enchanted_sapling_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_1"),
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_1"),
-                    BiasedToBottomInt.of(2, 5),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.BLUE_ENCHANTED.logstem().defaultBlockState())),
-                    BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves()),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_1"))
+                    .height(BiasedToBottomInt.of(2, 5))
+                    .logProvider(SimpleStateProvider.simple(BWGWood.BLUE_ENCHANTED.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ENCHANTED_SAPLING_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("blue_enchanted_sapling_tree2",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_2"),
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_2"),
-                    BiasedToBottomInt.of(2, 5),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.BLUE_ENCHANTED.logstem().defaultBlockState())),
-                    BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves()),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_2"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_2"))
+                    .height(BiasedToBottomInt.of(2, 5))
+                    .logProvider(SimpleStateProvider.simple(BWGWood.BLUE_ENCHANTED.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ENCHANTED_SAPLING_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("blue_enchanted_sapling_tree3",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_3"),
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_3"),
-                    BiasedToBottomInt.of(2, 5),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.BLUE_ENCHANTED.logstem().defaultBlockState())),
-                    BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves()),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_3"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_3"))
+                    .height(BiasedToBottomInt.of(2, 5))
+                    .logProvider(SimpleStateProvider.simple(BWGWood.BLUE_ENCHANTED.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ENCHANTED_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("blue_enchanted_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_1"),
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_1"),
-                    BiasedToBottomInt.of(1, 5),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get().defaultBlockState().setValue(ImbuedBlock.PERSISTENT, false)).add(BWGWood.BLUE_ENCHANTED.logstem().defaultBlockState(), 10)),
-                    BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves()),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_1"))
+                    .height(BiasedToBottomInt.of(1, 5))
+                    .logProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get().defaultBlockState().setValue(ImbuedBlock.PERSISTENT, false))
+                            .add(BWGWood.BLUE_ENCHANTED.logstem().defaultBlockState(), 10)))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ENCHANTED_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("blue_enchanted_tree2",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_2"),
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_2"),
-                    BiasedToBottomInt.of(1, 5),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get().defaultBlockState().setValue(ImbuedBlock.PERSISTENT, false)).add(BWGWood.BLUE_ENCHANTED.logstem().defaultBlockState(), 10)),
-                    BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves()),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_2"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_2"))
+                    .height(BiasedToBottomInt.of(1, 5))
+                    .logProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get().defaultBlockState().setValue(ImbuedBlock.PERSISTENT, false))
+                            .add(BWGWood.BLUE_ENCHANTED.logstem().defaultBlockState(), 10)))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ENCHANTED_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("blue_enchanted_tree3",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_3"),
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_3"),
-                    BiasedToBottomInt.of(1, 5),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get().defaultBlockState().setValue(ImbuedBlock.PERSISTENT, false)).add(BWGWood.BLUE_ENCHANTED.logstem().defaultBlockState(), 10)),
-                    BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves()),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_3"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_3"))
+                    .height(BiasedToBottomInt.of(1, 5))
+                    .logProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get().defaultBlockState().setValue(ImbuedBlock.PERSISTENT, false))
+                            .add(BWGWood.BLUE_ENCHANTED.logstem().defaultBlockState(), 10)))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ENCHANTED_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("blue_enchanted_tree4",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_4"),
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_4"),
-                    ConstantInt.ZERO
-                    ,
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get().defaultBlockState().setValue(ImbuedBlock.PERSISTENT, false)).add(BWGWood.BLUE_ENCHANTED.logstem().defaultBlockState(), 10)),
-                    BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves()),
-                    BWGWood.BLUE_ENCHANTED.wood(),
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_4"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_4"))
+                    .height(ConstantInt.ZERO)
+                    .logProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get().defaultBlockState().setValue(ImbuedBlock.PERSISTENT, false))
+                            .add(BWGWood.BLUE_ENCHANTED.logstem().defaultBlockState(), 10)))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.BLUE_ENCHANTED.leaves()))
+                    .logTarget(Set.of(BWGWood.BLUE_ENCHANTED.wood()))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
-
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_ENCHANTED_SAPLING_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("green_enchanted_sapling_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_1"),
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_1"),
-                    BiasedToBottomInt.of(2, 5),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.GREEN_ENCHANTED.logstem().defaultBlockState())),
-                    BlockStateProvider.simple(BWGWood.GREEN_ENCHANTED.leaves()),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_1"))
+                    .height(BiasedToBottomInt.of(2, 5))
+                    .logProvider(SimpleStateProvider.simple(BWGWood.GREEN_ENCHANTED.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.GREEN_ENCHANTED.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_ENCHANTED_SAPLING_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("green_enchanted_sapling_tree2",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_2"),
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_2"),
-                    BiasedToBottomInt.of(2, 5),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.GREEN_ENCHANTED.logstem().defaultBlockState())),
-                    BlockStateProvider.simple(BWGWood.GREEN_ENCHANTED.leaves()),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_2"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_2"))
+                    .height(BiasedToBottomInt.of(2, 5))
+                    .logProvider(SimpleStateProvider.simple(BWGWood.GREEN_ENCHANTED.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.GREEN_ENCHANTED.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_ENCHANTED_SAPLING_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("green_enchanted_sapling_tree3",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_3"),
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_3"),
-                    BiasedToBottomInt.of(2, 5),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.GREEN_ENCHANTED.logstem().defaultBlockState())),
-                    BlockStateProvider.simple(BWGWood.GREEN_ENCHANTED.leaves()),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_3"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_3"))
+                    .height(BiasedToBottomInt.of(2, 5))
+                    .logProvider(SimpleStateProvider.simple(BWGWood.GREEN_ENCHANTED.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.GREEN_ENCHANTED.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_ENCHANTED_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("green_enchanted_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_1"),
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_1"),
-                    BiasedToBottomInt.of(2, 5),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get().defaultBlockState().setValue(ImbuedBlock.PERSISTENT, false)).add(BWGWood.GREEN_ENCHANTED.logstem().defaultBlockState(), 45)),
-                    BlockStateProvider.simple(BWGWood.GREEN_ENCHANTED.leaves()),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of(GLOW_BERRY_DECORATOR.get())
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_1"))
+                    .height(BiasedToBottomInt.of(2, 5))
+                    .logProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get().defaultBlockState().setValue(ImbuedBlock.PERSISTENT, false))
+                            .add(BWGWood.GREEN_ENCHANTED.logstem().defaultBlockState(), 45)))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.GREEN_ENCHANTED.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(GLOW_BERRY_DECORATOR.get()))
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_ENCHANTED_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("green_enchanted_tree2",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_2"),
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_2"),
-                    BiasedToBottomInt.of(2, 5),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get().defaultBlockState().setValue(ImbuedBlock.PERSISTENT, false)).add(BWGWood.GREEN_ENCHANTED.logstem().defaultBlockState(), 45)),
-                    BlockStateProvider.simple(BWGWood.GREEN_ENCHANTED.leaves()),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of(GLOW_BERRY_DECORATOR.get())
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_2"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_2"))
+                    .height(BiasedToBottomInt.of(2, 5))
+                    .logProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get().defaultBlockState().setValue(ImbuedBlock.PERSISTENT, false))
+                            .add(BWGWood.GREEN_ENCHANTED.logstem().defaultBlockState(), 45)))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.GREEN_ENCHANTED.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(GLOW_BERRY_DECORATOR.get()))
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_ENCHANTED_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("green_enchanted_tree3",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_3"),
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_3"),
-                    BiasedToBottomInt.of(2, 5),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get().defaultBlockState().setValue(ImbuedBlock.PERSISTENT, false)).add(BWGWood.GREEN_ENCHANTED.logstem().defaultBlockState(), 45)),
-                    BlockStateProvider.simple(BWGWood.GREEN_ENCHANTED.leaves()),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of(GLOW_BERRY_DECORATOR.get())
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_3"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_3"))
+                    .height(BiasedToBottomInt.of(2, 5))
+                    .logProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get().defaultBlockState().setValue(ImbuedBlock.PERSISTENT, false))
+                            .add(BWGWood.GREEN_ENCHANTED.logstem().defaultBlockState(), 45)))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.GREEN_ENCHANTED.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(GLOW_BERRY_DECORATOR.get()))
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_ENCHANTED_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("green_enchanted_tree4",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_4"),
-                    BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_4"),
-                    BiasedToBottomInt.of(2, 5),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get().defaultBlockState().setValue(ImbuedBlock.PERSISTENT, false)).add(BWGWood.GREEN_ENCHANTED.logstem().defaultBlockState(), 45)),
-                    BlockStateProvider.simple(BWGWood.GREEN_ENCHANTED.leaves()),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_4"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_4"))
+                    .height(BiasedToBottomInt.of(2, 5))
+                    .logProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get().defaultBlockState().setValue(ImbuedBlock.PERSISTENT, false))
+                            .add(BWGWood.GREEN_ENCHANTED.logstem().defaultBlockState(), 45)))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.GREEN_ENCHANTED.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> JACARANDA_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("jacaranda_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_1"),
-                    BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_1"),
-                    BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BWGWood.JACARANDA.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState()).add(BWGWood.JACARANDA.leaves().defaultBlockState(), 4)),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_1"))
+                    .height(BiasedToBottomInt.of(5, 15))
+                    .logProvider(BlockStateProvider.simple(BWGWood.JACARANDA.logstem()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState())
+                            .add(BWGWood.JACARANDA.leaves().defaultBlockState(), 4)))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> JACARANDA_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("jacaranda_tree2",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_2"),
-                    BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_2"),
-                    BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BWGWood.JACARANDA.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState()).add(BWGWood.JACARANDA.leaves().defaultBlockState(), 4)),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_2"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_2"))
+                    .height(BiasedToBottomInt.of(5, 15))
+                    .logProvider(BlockStateProvider.simple(BWGWood.JACARANDA.logstem()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState())
+                            .add(BWGWood.JACARANDA.leaves().defaultBlockState(), 4)))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> JACARANDA_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("jacaranda_tree3",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_3"),
-                    BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_3"),
-                    BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BWGWood.JACARANDA.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState()).add(BWGWood.JACARANDA.leaves().defaultBlockState(), 4)),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_3"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_3"))
+                    .height(BiasedToBottomInt.of(5, 15))
+                    .logProvider(BlockStateProvider.simple(BWGWood.JACARANDA.logstem()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState())
+                            .add(BWGWood.JACARANDA.leaves().defaultBlockState(), 4)))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> JACARANDA_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("jacaranda_tree4",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_4"),
-                    BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_4"),
-                    BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BWGWood.JACARANDA.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState()).add(BWGWood.JACARANDA.leaves().defaultBlockState(), 4)),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_4"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_4"))
+                    .height(BiasedToBottomInt.of(5, 15))
+                    .logProvider(BlockStateProvider.simple(BWGWood.JACARANDA.logstem()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState())
+                            .add(BWGWood.JACARANDA.leaves().defaultBlockState(), 4)))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> INDIGO_JACARANDA_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("indigo_jacaranda_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_1"),
-                    BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_1"),
-                    BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BWGWood.JACARANDA.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_INDIGO_JACARANDA_LEAVES.get().defaultBlockState()).add(BWGWood.INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 4)),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_1"))
+                    .height(BiasedToBottomInt.of(5, 15))
+                    .logProvider(BlockStateProvider.simple(BWGWood.JACARANDA.logstem()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.FLOWERING_INDIGO_JACARANDA_LEAVES.get().defaultBlockState())
+                            .add(BWGWood.INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 4)))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> INDIGO_JACARANDA_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("indigo_jacaranda_tree2",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_2"),
-                    BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_2"),
-                    BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BWGWood.JACARANDA.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_INDIGO_JACARANDA_LEAVES.get().defaultBlockState()).add(BWGWood.INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 4)),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_2"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_2"))
+                    .height(BiasedToBottomInt.of(5, 15))
+                    .logProvider(BlockStateProvider.simple(BWGWood.JACARANDA.logstem()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.FLOWERING_INDIGO_JACARANDA_LEAVES.get().defaultBlockState())
+                            .add(BWGWood.INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 4)))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> INDIGO_JACARANDA_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("indigo_jacaranda_tree3",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_3"),
-                    BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_3"),
-                    BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BWGWood.JACARANDA.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_INDIGO_JACARANDA_LEAVES.get().defaultBlockState()).add(BWGWood.INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 4)),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_3"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_3"))
+                    .height(BiasedToBottomInt.of(5, 15))
+                    .logProvider(BlockStateProvider.simple(BWGWood.JACARANDA.logstem()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.FLOWERING_INDIGO_JACARANDA_LEAVES.get().defaultBlockState())
+                            .add(BWGWood.INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 4)))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> INDIGO_JACARANDA_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("indigo_jacaranda_tree4",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_4"),
-                    BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_4"),
-                    BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BWGWood.JACARANDA.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.FLOWERING_INDIGO_JACARANDA_LEAVES.get().defaultBlockState()).add(BWGWood.INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 4)),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_4"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_4"))
+                    .height(BiasedToBottomInt.of(5, 15))
+                    .logProvider(BlockStateProvider.simple(BWGWood.JACARANDA.logstem()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.FLOWERING_INDIGO_JACARANDA_LEAVES.get().defaultBlockState())
+                            .add(BWGWood.INDIGO_JACARANDA_LEAVES.get().defaultBlockState(), 4)))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
-    private static final Supplier<AttachedToLeavesDecorator> YUCCA_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.1F, 2, 0, BWGWood.RIPE_YUCCA_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.YUCCA_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+    private static final Supplier<AttachedToLeavesDecorator> YUCCA_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.1F, 2, 0, BWGWood.RIPE_YUCCA_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.YUCCA_FRUIT_BLOCK.get()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> YUCCA_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("yucca_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/yucca/yucca_trunk1"),
-                    BiomesWeveGone.id("features/trees/yucca/yucca_canopy1"),
-                    BiasedToBottomInt.of(1, 2),
-                    BlockStateProvider.simple(Blocks.OAK_LOG),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/yucca/yucca_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/yucca/yucca_canopy1"))
+                    .height(BiasedToBottomInt.of(1, 2))
+                    .logProvider(BlockStateProvider.simple(Blocks.OAK_LOG))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
                             .add(BWGWood.YUCCA_LEAVES.get().defaultBlockState(), 10)
                             .add(BWGWood.FLOWERING_YUCCA_LEAVES.get().defaultBlockState(), 2)
-                            .add(BWGWood.RIPE_YUCCA_LEAVES.get().defaultBlockState())
-                    ),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.SAND, 4, ImmutableList.of(YUCCA_FRUIT.get())
-            )
+                            .add(BWGWood.RIPE_YUCCA_LEAVES.get().defaultBlockState())))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.SAND))
+                    .maxLogDepth(4)
+                    .treeDecorators(ImmutableList.of(YUCCA_FRUIT.get()))
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> YUCCA_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("yucca_tree2",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/yucca/yucca_trunk2"),
-                    BiomesWeveGone.id("features/trees/yucca/yucca_canopy2"),
-                    BiasedToBottomInt.of(5, 8),
-                    BlockStateProvider.simple(Blocks.OAK_LOG),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/yucca/yucca_trunk2"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/yucca/yucca_canopy2"))
+                    .height(BiasedToBottomInt.of(5, 8))
+                    .logProvider(BlockStateProvider.simple(Blocks.OAK_LOG))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
                             .add(BWGWood.YUCCA_LEAVES.get().defaultBlockState(), 10)
                             .add(BWGWood.FLOWERING_YUCCA_LEAVES.get().defaultBlockState(), 2)
-                            .add(BWGWood.RIPE_YUCCA_LEAVES.get().defaultBlockState())
-                    ),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.SAND, 6, ImmutableList.of(YUCCA_FRUIT.get())
-            )
+                            .add(BWGWood.RIPE_YUCCA_LEAVES.get().defaultBlockState())))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.SAND))
+                    .maxLogDepth(6)
+                    .treeDecorators(ImmutableList.of(YUCCA_FRUIT.get()))
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_MANGROVE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("white_mangrove_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_base1"),
-                    BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_canopy1"),
-                    BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BWGWood.WHITE_MANGROVE.logstem()),
-                    BlockStateProvider.simple(BWGWood.WHITE_MANGROVE.leaves()),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_base1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_canopy1"))
+                    .height(BiasedToBottomInt.of(5, 15))
+                    .logProvider(BlockStateProvider.simple(BWGWood.WHITE_MANGROVE.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.WHITE_MANGROVE.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get()))
+                    .build()
     );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_MANGROVE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("white_mangrove_tree2",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_base2"),
-                    BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_canopy2"),
-                    BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BWGWood.WHITE_MANGROVE.logstem()),
-                    BlockStateProvider.simple(BWGWood.WHITE_MANGROVE.leaves()),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_base2"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_canopy2"))
+                    .height(BiasedToBottomInt.of(5, 15))
+                    .logProvider(BlockStateProvider.simple(BWGWood.WHITE_MANGROVE.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.WHITE_MANGROVE.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get()))
+                    .build()
     );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_MANGROVE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("white_mangrove_tree3",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_base3"),
-                    BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_canopy3"),
-                    BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BWGWood.WHITE_MANGROVE.logstem()),
-                    BlockStateProvider.simple(BWGWood.WHITE_MANGROVE.leaves()),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_base3"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_canopy3"))
+                    .height(BiasedToBottomInt.of(5, 15))
+                    .logProvider(BlockStateProvider.simple(BWGWood.WHITE_MANGROVE.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.WHITE_MANGROVE.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get()))
+                    .build()
     );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_MANGROVE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("white_mangrove_tree4",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_base4"),
-                    BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_canopy4"),
-                    BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BWGWood.WHITE_MANGROVE.logstem()),
-                    BlockStateProvider.simple(BWGWood.WHITE_MANGROVE.leaves()),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_base4"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_canopy4"))
+                    .height(BiasedToBottomInt.of(5, 15))
+                    .logProvider(BlockStateProvider.simple(BWGWood.WHITE_MANGROVE.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.WHITE_MANGROVE.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get()))
+                    .build()
     );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_MANGROVE_TREE5 = ConfiguredFeaturesUtil.createConfiguredFeature("white_mangrove_tree5",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_base5"),
-                    BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_canopy5"),
-                    BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BWGWood.WHITE_MANGROVE.logstem()),
-                    BlockStateProvider.simple(BWGWood.WHITE_MANGROVE.leaves()),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_base5"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_canopy5"))
+                    .height(BiasedToBottomInt.of(5, 15))
+                    .logProvider(BlockStateProvider.simple(BWGWood.WHITE_MANGROVE.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.WHITE_MANGROVE.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get()))
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> IRONWOOD_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("ironwood_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk1"),
-                    BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy1"),
-                    BiasedToBottomInt.of(5, 10),
-                    BlockStateProvider.simple(BWGWood.IRONWOOD.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.IRONWOOD.leaves().defaultBlockState())),
-                    Blocks.BIRCH_LOG,
-                    Blocks.AZALEA_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy1"))
+                    .height(BiasedToBottomInt.of(5, 10))
+                    .logProvider(BlockStateProvider.simple(BWGWood.IRONWOOD.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.IRONWOOD.leaves()))
+                    .logTarget(Set.of(Blocks.BIRCH_LOG))
+                    .leavesTarget(Set.of(Blocks.AZALEA_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> IRONWOOD_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("ironwood_tree2",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk2"),
-                    BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy2"),
-                    BiasedToBottomInt.of(5, 10),
-                    BlockStateProvider.simple(BWGWood.IRONWOOD.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.IRONWOOD.leaves().defaultBlockState())),
-                    Blocks.BIRCH_LOG,
-                    Blocks.AZALEA_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk2"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy2"))
+                    .height(BiasedToBottomInt.of(5, 10))
+                    .logProvider(BlockStateProvider.simple(BWGWood.IRONWOOD.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.IRONWOOD.leaves()))
+                    .logTarget(Set.of(Blocks.BIRCH_LOG))
+                    .leavesTarget(Set.of(Blocks.AZALEA_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> IRONWOOD_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("ironwood_tree3",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk3"),
-                    BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy3"),
-                    BiasedToBottomInt.of(5, 10),
-                    BlockStateProvider.simple(BWGWood.IRONWOOD.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.IRONWOOD.leaves().defaultBlockState())),
-                    Blocks.BIRCH_LOG,
-                    Blocks.AZALEA_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk3"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy3"))
+                    .height(BiasedToBottomInt.of(5, 10))
+                    .logProvider(BlockStateProvider.simple(BWGWood.IRONWOOD.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.IRONWOOD.leaves()))
+                    .logTarget(Set.of(Blocks.BIRCH_LOG))
+                    .leavesTarget(Set.of(Blocks.AZALEA_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> IRONWOOD_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("ironwood_tree4",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk4"),
-                    BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy4"),
-                    BiasedToBottomInt.of(5, 10),
-                    BlockStateProvider.simple(BWGWood.IRONWOOD.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.IRONWOOD.leaves().defaultBlockState())),
-                    Blocks.BIRCH_LOG,
-                    Blocks.AZALEA_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk4"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy4"))
+                    .height(BiasedToBottomInt.of(5, 10))
+                    .logProvider(BlockStateProvider.simple(BWGWood.IRONWOOD.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.IRONWOOD.leaves()))
+                    .logTarget(Set.of(Blocks.BIRCH_LOG))
+                    .leavesTarget(Set.of(Blocks.AZALEA_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
-
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_IRONWOOD_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("flowering_ironwood_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk1"),
-                    BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy1"),
-                    BiasedToBottomInt.of(5, 10),
-                    BlockStateProvider.simple(BWGWood.IRONWOOD.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IRONWOOD.leaves().defaultBlockState(), 2).add(BWGWood.FLOWERING_IRONWOOD_LEAVES.get().defaultBlockState(), 3)),
-                    Blocks.BIRCH_LOG,
-                    Blocks.AZALEA_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy1"))
+                    .height(BiasedToBottomInt.of(5, 10))
+                    .logProvider(BlockStateProvider.simple(BWGWood.IRONWOOD.logstem()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.IRONWOOD.leaves().defaultBlockState(), 2)
+                            .add(BWGWood.FLOWERING_IRONWOOD_LEAVES.get().defaultBlockState(), 3)))
+                    .logTarget(Set.of(Blocks.BIRCH_LOG))
+                    .leavesTarget(Set.of(Blocks.AZALEA_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_IRONWOOD_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("flowering_ironwood_tree2",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk2"),
-                    BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy2"),
-                    BiasedToBottomInt.of(5, 10),
-                    BlockStateProvider.simple(BWGWood.IRONWOOD.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IRONWOOD.leaves().defaultBlockState(), 2).add(BWGWood.FLOWERING_IRONWOOD_LEAVES.get().defaultBlockState(), 3)),
-                    Blocks.BIRCH_LOG,
-                    Blocks.AZALEA_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk2"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy2"))
+                    .height(BiasedToBottomInt.of(5, 10))
+                    .logProvider(BlockStateProvider.simple(BWGWood.IRONWOOD.logstem()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.IRONWOOD.leaves().defaultBlockState(), 2)
+                            .add(BWGWood.FLOWERING_IRONWOOD_LEAVES.get().defaultBlockState(), 3)))
+                    .logTarget(Set.of(Blocks.BIRCH_LOG))
+                    .leavesTarget(Set.of(Blocks.AZALEA_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_IRONWOOD_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("flowering_ironwood_tree3",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk3"),
-                    BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy3"),
-                    BiasedToBottomInt.of(5, 10),
-                    BlockStateProvider.simple(BWGWood.IRONWOOD.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IRONWOOD.leaves().defaultBlockState(), 2).add(BWGWood.FLOWERING_IRONWOOD_LEAVES.get().defaultBlockState(), 3)),
-                    Blocks.BIRCH_LOG,
-                    Blocks.AZALEA_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk3"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy3"))
+                    .height(BiasedToBottomInt.of(5, 10))
+                    .logProvider(BlockStateProvider.simple(BWGWood.IRONWOOD.logstem()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.IRONWOOD.leaves().defaultBlockState(), 2)
+                            .add(BWGWood.FLOWERING_IRONWOOD_LEAVES.get().defaultBlockState(), 3)))
+                    .logTarget(Set.of(Blocks.BIRCH_LOG))
+                    .leavesTarget(Set.of(Blocks.AZALEA_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_IRONWOOD_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("flowering_ironwood_tree4",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk4"),
-                    BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy4"),
-                    BiasedToBottomInt.of(5, 10),
-                    BlockStateProvider.simple(BWGWood.IRONWOOD.logstem()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGWood.IRONWOOD.leaves().defaultBlockState(), 2).add(BWGWood.FLOWERING_IRONWOOD_LEAVES.get().defaultBlockState(), 3)),
-                    Blocks.BIRCH_LOG,
-                    Blocks.AZALEA_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk4"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy4"))
+                    .height(BiasedToBottomInt.of(5, 10))
+                    .logProvider(BlockStateProvider.simple(BWGWood.IRONWOOD.logstem()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.IRONWOOD.leaves().defaultBlockState(), 2)
+                            .add(BWGWood.FLOWERING_IRONWOOD_LEAVES.get().defaultBlockState(), 3)))
+                    .logTarget(Set.of(Blocks.BIRCH_LOG))
+                    .leavesTarget(Set.of(Blocks.AZALEA_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MAPLE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("maple_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/maple/maple_trunk1"),
-                    BiomesWeveGone.id("features/trees/maple/maple_canopy1"),
-                    BiasedToBottomInt.of(4, 6),
-                    BlockStateProvider.simple(BWGWood.MAPLE.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.MAPLE.leaves().defaultBlockState())),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy1"))
+                    .height(BiasedToBottomInt.of(4, 6))
+                    .logProvider(BlockStateProvider.simple(BWGWood.MAPLE.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.MAPLE.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MAPLE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("maple_tree2",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/maple/maple_trunk2"),
-                    BiomesWeveGone.id("features/trees/maple/maple_canopy2"),
-                    BiasedToBottomInt.of(4, 6),
-                    BlockStateProvider.simple(BWGWood.MAPLE.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.MAPLE.leaves().defaultBlockState())),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk2"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy2"))
+                    .height(BiasedToBottomInt.of(4, 6))
+                    .logProvider(BlockStateProvider.simple(BWGWood.MAPLE.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.MAPLE.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MAPLE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("maple_tree3",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/maple/maple_trunk3"),
-                    BiomesWeveGone.id("features/trees/maple/maple_canopy3"),
-                    BiasedToBottomInt.of(4, 6),
-                    BlockStateProvider.simple(BWGWood.MAPLE.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.MAPLE.leaves().defaultBlockState())),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk3"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy3"))
+                    .height(BiasedToBottomInt.of(4, 6))
+                    .logProvider(BlockStateProvider.simple(BWGWood.MAPLE.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.MAPLE.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MAPLE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("maple_tree4",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/maple/maple_trunk4"),
-                    BiomesWeveGone.id("features/trees/maple/maple_canopy4"),
-                    BiasedToBottomInt.of(4, 6),
-                    BlockStateProvider.simple(BWGWood.MAPLE.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.MAPLE.leaves().defaultBlockState())),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk4"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy4"))
+                    .height(BiasedToBottomInt.of(4, 6))
+                    .logProvider(BlockStateProvider.simple(BWGWood.MAPLE.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.MAPLE.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MAPLE_TREE5 = ConfiguredFeaturesUtil.createConfiguredFeature("maple_tree5",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/maple/maple_trunk4"),
-                    BiomesWeveGone.id("features/trees/maple/maple_canopy5"),
-                    BiasedToBottomInt.of(4, 6),
-                    BlockStateProvider.simple(BWGWood.MAPLE.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.MAPLE.leaves().defaultBlockState())),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk4"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy5"))
+                    .height(BiasedToBottomInt.of(4, 6))
+                    .logProvider(BlockStateProvider.simple(BWGWood.MAPLE.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.MAPLE.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MAPLE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("red_maple_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/maple/maple_trunk1"),
-                    BiomesWeveGone.id("features/trees/maple/maple_canopy1"),
-                    BiasedToBottomInt.of(4, 6),
-                    BlockStateProvider.simple(BWGWood.MAPLE.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.RED_MAPLE_LEAVES.get().defaultBlockState())),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy1"))
+                    .height(BiasedToBottomInt.of(4, 6))
+                    .logProvider(BlockStateProvider.simple(BWGWood.MAPLE.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.RED_MAPLE_LEAVES.get()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MAPLE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("red_maple_tree2",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/maple/maple_trunk2"),
-                    BiomesWeveGone.id("features/trees/maple/maple_canopy2"),
-                    BiasedToBottomInt.of(4, 6),
-                    BlockStateProvider.simple(BWGWood.MAPLE.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.RED_MAPLE_LEAVES.get().defaultBlockState())),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk2"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy2"))
+                    .height(BiasedToBottomInt.of(4, 6))
+                    .logProvider(BlockStateProvider.simple(BWGWood.MAPLE.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.RED_MAPLE_LEAVES.get()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MAPLE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("red_maple_tree3",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/maple/maple_trunk3"),
-                    BiomesWeveGone.id("features/trees/maple/maple_canopy3"),
-                    BiasedToBottomInt.of(4, 6),
-                    BlockStateProvider.simple(BWGWood.MAPLE.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.RED_MAPLE_LEAVES.get().defaultBlockState())),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk3"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy3"))
+                    .height(BiasedToBottomInt.of(4, 6))
+                    .logProvider(BlockStateProvider.simple(BWGWood.MAPLE.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.RED_MAPLE_LEAVES.get()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MAPLE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("red_maple_tree4",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/maple/maple_trunk4"),
-                    BiomesWeveGone.id("features/trees/maple/maple_canopy4"),
-                    BiasedToBottomInt.of(4, 6),
-                    BlockStateProvider.simple(BWGWood.MAPLE.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.RED_MAPLE_LEAVES.get().defaultBlockState())),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk4"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy4"))
+                    .height(BiasedToBottomInt.of(4, 6))
+                    .logProvider(BlockStateProvider.simple(BWGWood.MAPLE.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.RED_MAPLE_LEAVES.get()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MAPLE_TREE5 = ConfiguredFeaturesUtil.createConfiguredFeature("red_maple_tree5",
             TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig(
-                    BiomesWeveGone.id("features/trees/maple/maple_trunk4"),
-                    BiomesWeveGone.id("features/trees/maple/maple_canopy5"),
-                    BiasedToBottomInt.of(4, 6),
-                    BlockStateProvider.simple(BWGWood.MAPLE.logstem()),
-                    new WeightedStateProvider(SimpleWeightedRandomList.single(BWGWood.RED_MAPLE_LEAVES.get().defaultBlockState())),
-                    Blocks.OAK_LOG,
-                    Blocks.OAK_LEAVES,
-                    BlockTags.DIRT, 5
-            )
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk4"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy5"))
+                    .height(BiasedToBottomInt.of(4, 6))
+                    .logProvider(BlockStateProvider.simple(BWGWood.MAPLE.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.RED_MAPLE_LEAVES.get()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SILVER_MAPLE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("silver_maple_tree1",
