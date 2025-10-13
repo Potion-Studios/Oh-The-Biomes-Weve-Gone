@@ -30,18 +30,13 @@
       "minecraft:oak_leaves"
     ],
     "log_provider": {
-      "type": "minecraft:weighted_state_provider",
-      "entries": [
-        {
-          "data": {
-            "Name": "biomeswevegone:blue_enchanted_log",
-            "Properties": {
-              "axis": "y"
-            }
-          },
-          "weight": 45
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "biomeswevegone:blue_enchanted_log",
+        "Properties": {
+          "axis": "y"
         }
-      ]
+      }
     },
     "log_target": [
       "minecraft:oak_log"
