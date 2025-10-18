@@ -238,7 +238,7 @@ public class BWGVillageTemplatePools {
     public static final ResourceKey<StructureTemplatePool> RED_ROCK_TOWN_CENTERS = register("red_rock/town_centers", templatePoolFactoryContext ->
             createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(
                     singlePoolElement("red_rock/town_centers/red_rock_meeting_point_1", templatePoolFactoryContext, BWGStructureProcessorLists.RED_ROCK_MEETING_POINT_1),
-                    singlePoolElement("red_rock/town_centers/red_rock_meeting_point_2", templatePoolFactoryContext, BWGStructureProcessorLists.RED_ROCK_CRACKED_BRICKS_50_PERCENT_MOSSY_RED_ROCK_BRICKS),
+                    singlePoolElement("red_rock/town_centers/red_rock_meeting_point_2", templatePoolFactoryContext, BWGStructureProcessorLists.RED_ROCK_MEETING_POINT_2),
                     singlePoolElement("red_rock/town_centers/red_rock_meeting_point_3", templatePoolFactoryContext, BWGStructureProcessorLists.RED_ROCK_MEETING_POINT_3)
             ), StructureTemplatePool.Projection.RIGID));
 

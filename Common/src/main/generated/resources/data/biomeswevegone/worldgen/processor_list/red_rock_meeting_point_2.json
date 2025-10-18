@@ -5,7 +5,7 @@
       "rules": [
         {
           "input_predicate": {
-            "block": "biomeswevegone:stripped_baobab_wood",
+            "block": "biomeswevegone:cracked_red_rock_bricks",
             "predicate_type": "minecraft:random_block_match",
             "probability": 0.5
           },
@@ -13,46 +13,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "biomeswevegone:baobab_planks"
-          }
-        },
-        {
-          "input_predicate": {
-            "block": "biomeswevegone:red_rock_bricks",
-            "predicate_type": "minecraft:random_block_match",
-            "probability": 0.35
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "biomeswevegone:cracked_red_rock_bricks"
-          }
-        },
-        {
-          "input_predicate": {
-            "block": "biomeswevegone:red_rock",
-            "predicate_type": "minecraft:random_block_match",
-            "probability": 0.25
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "biomeswevegone:red_rock_bricks"
-          }
-        },
-        {
-          "input_predicate": {
-            "block": "biomeswevegone:red_rock_bricks",
-            "predicate_type": "minecraft:random_block_match",
-            "probability": 0.35
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "biomeswevegone:cracked_red_rock_bricks"
+            "Name": "biomeswevegone:mossy_red_rock_bricks"
           }
         },
         {
