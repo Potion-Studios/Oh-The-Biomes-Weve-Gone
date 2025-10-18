@@ -13,7 +13,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "location": "biomeswevegone:village/red_rock/town_centers/red_rock_meeting_point_2",
-        "processors": "biomeswevegone:red_rock_cracked_bricks_50_percent_mossy_red_rock_bricks",
+        "processors": "biomeswevegone:red_rock_meeting_point_2",
         "projection": "rigid"
       },
       "weight": 1
