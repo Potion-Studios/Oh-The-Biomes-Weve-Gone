@@ -147,6 +147,12 @@ class BWGProcessorRules {
 
 	protected static final ProcessorRule RED_ROCK_CRACKED_BRICKS_50_PERCENT_MOSSY_RED_ROCK_BRICKS = createAlwaysTrueRandomBlockMatchTest(BWGBlocks.CRACKED_RED_ROCK_BRICKS_SET.getBase(), 0.5F, BWGBlocks.MOSSY_RED_ROCK_BRICKS_SET.getBase());
 
+	protected static final ProcessorRule[] RED_ROCK_25_PERCENT_SPLIT = new ProcessorRule[]{
+		createAlwaysTrueRandomBlockMatchTest(BWGBlocks.RED_ROCK_SET.getBase(), 0.3F, Blocks.TERRACOTTA),
+		createAlwaysTrueRandomBlockMatchTest(BWGBlocks.RED_ROCK_SET.getBase(),	0.3F, Blocks.ORANGE_TERRACOTTA),
+		createAlwaysTrueRandomBlockMatchTest(BWGBlocks.RED_ROCK_SET.getBase(), 0.3F, Blocks.RED_SAND)
+	};
+
 	protected static final ProcessorRule STRIPPED_BAOBAB_WOOD_50_PERCENT_BAOBAB_PLANKS = createAlwaysTrueRandomBlockMatchTest(BWGWood.BAOBAB.strippedWood(), 0.5F, BWGWood.BAOBAB.planks());
 
 	protected static final ProcessorRule RED_ROCK_25_PERCENT_RED_ROCK_BRICKS = createAlwaysTrueRandomBlockMatchTest(BWGBlocks.RED_ROCK_SET.getBase(), 0.25F, BWGBlocks.RED_ROCK_BRICKS_SET.getBase());

@@ -120,10 +120,6 @@ public class BWGStructureProcessorLists {
             ImmutableList.of(createRuleProcessor(new ProcessorRule[]{BWGProcessorRules.streetWater(Blocks.ORANGE_TERRACOTTA, BWGWood.PINE.planks())}, BWGProcessorRules.ORANGE_TERRACOTTA_TO_RED_ROCK_CRACKED_RED_ROCK_BRICKS))
     ));
 
-    public static final ResourceKey<StructureProcessorList> RED_ROCK_CRACKED_BRICKS_50_PERCENT_MOSSY_RED_ROCK_BRICKS = register("red_rock_cracked_bricks_50_percent_mossy_red_rock_bricks", structureProcessorListHolderGetter -> new StructureProcessorList(
-            ImmutableList.of(createRuleProcessor(BWGProcessorRules.RED_ROCK_CRACKED_BRICKS_50_PERCENT_MOSSY_RED_ROCK_BRICKS))
-    ));
-
     public static final ResourceKey<StructureProcessorList> RED_ROCK_MEETING_POINT_1 = register("red_rock_meeting_point_1", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
                     createRuleProcessor(BWGProcessorRules.RED_ROCK_BRICKS_TO_ORANGE_TERRACOTTA,
@@ -131,8 +127,18 @@ public class BWGStructureProcessorLists {
             )
     ));
 
+	public static final ResourceKey<StructureProcessorList> RED_ROCK_MEETING_POINT_2 = register("red_rock_meeting_point_2", structureProcessorListHolderGetter -> new StructureProcessorList(
+			ImmutableList.of(
+					createRuleProcessor(new ProcessorRule[]{BWGProcessorRules.RED_ROCK_CRACKED_BRICKS_50_PERCENT_MOSSY_RED_ROCK_BRICKS},
+							BWGProcessorRules.RED_ROCK_25_PERCENT_SPLIT)
+			)
+	));
+
     public static final ResourceKey<StructureProcessorList> RED_ROCK_MEETING_POINT_3 = register("red_rock_meeting_point_3", structureProcessorListHolderGetter -> new StructureProcessorList(
-            ImmutableList.of(createRuleProcessor(BWGProcessorRules.STRIPPED_BAOBAB_WOOD_50_PERCENT_BAOBAB_PLANKS))
+            ImmutableList.of(
+		            createRuleProcessor(new ProcessorRule[]{BWGProcessorRules.STRIPPED_BAOBAB_WOOD_50_PERCENT_BAOBAB_PLANKS, BWGProcessorRules.RED_ROCK_BRICKS_35_PERCENT_CRACKED_RED_ROCK_BRICKS, BWGProcessorRules.RED_ROCK_25_PERCENT_RED_ROCK_BRICKS, BWGProcessorRules.RED_ROCK_BRICKS_35_PERCENT_CRACKED_RED_ROCK_BRICKS},
+                    BWGProcessorRules.RED_ROCK_25_PERCENT_SPLIT)
+            )
     ));
 
     public static final ResourceKey<StructureProcessorList> RED_ROCK_TO_BRICKS = register("red_rock_to_bricks", structureProcessorListHolderGetter -> new StructureProcessorList(
