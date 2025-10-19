@@ -11,9 +11,7 @@ public class BWGCommands {
         LiteralArgumentBuilder<CommandSourceStack> base = LiteralArgumentBuilder.literal(BiomesWeveGone.MOD_ID);
         LiteralArgumentBuilder<CommandSourceStack> bwg = LiteralArgumentBuilder.literal("bwg");
         base.then(BWGReloadCommand.register());
-        base.then(BWGVillagerUpgradeCommand.register());
         bwg.then(BWGReloadCommand.register());
-        bwg.then(BWGVillagerUpgradeCommand.register());
         dispatcher.accept(base);
         dispatcher.accept(bwg);
     }
