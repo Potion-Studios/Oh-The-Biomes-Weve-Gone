@@ -3,7 +3,7 @@
 - Fix Pumpkin Warden Picks up Items tag not loading on Forge
 - Update Tree Configured Features to use Builders
 - Slight Performance Improvement during generation of most Trees
-- Add Iron Golems to Red Rock Village
+- Add Iron Golems to Red Rock, Salem Village
 - Add More Processing for Red Rock Town Center 2 and 3
 
 # 2.4.8
