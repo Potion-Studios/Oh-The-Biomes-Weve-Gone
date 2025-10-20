@@ -249,7 +249,7 @@
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
         "location": "biomeswevegone:village/salem/houses/salem_large_farm_1",
-        "processors": "minecraft:farm_taiga",
+        "processors": "biomeswevegone:salem_large_farm",
         "projection": "rigid"
       },
       "weight": 3
