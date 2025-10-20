@@ -116,6 +116,16 @@ public class BWGStructureProcessorLists {
                     )
             )));
 
+	public static final ResourceKey<StructureProcessorList> SALEM_LARGE_FARM = register("salem_large_farm", structureProcessorListHolderGetter -> new StructureProcessorList(
+			ImmutableList.of(
+					createRuleProcessor(
+							BWGProcessorRules.STONE_SLAB_RANDOM_ANDESITE_COBBLE_SLAB,
+							BWGProcessorRules.LUSH_DIRT_PATH_PEAT_COARSE_DIRT,
+							BWGProcessorRules.POTATO, BWGProcessorRules.CARROT, BWGProcessorRules.BEETROOT
+					)
+			)
+	));
+
     public static final ResourceKey<StructureProcessorList> RED_ROCK_STREETS = register("red_rock_streets", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(createRuleProcessor(new ProcessorRule[]{BWGProcessorRules.streetWater(Blocks.ORANGE_TERRACOTTA, BWGWood.PINE.planks())}, BWGProcessorRules.ORANGE_TERRACOTTA_TO_RED_ROCK_CRACKED_RED_ROCK_BRICKS))
     ));
