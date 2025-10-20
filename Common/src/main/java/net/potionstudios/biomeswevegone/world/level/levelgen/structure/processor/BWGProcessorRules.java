@@ -132,6 +132,20 @@ class BWGProcessorRules {
 			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE_SLAB, 0.33F, BWGBlocks.ROCKY_STONE_SET.getSlab().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))
 	};
 
+	protected static final ProcessorRule[] STONE_SLAB_RANDOM_ANDESITE_COBBLE_SLAB = new ProcessorRule[]{
+			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE_SLAB, 0.33F, Blocks.ANDESITE_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM)),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE_SLAB, 0.33F, Blocks.COBBLESTONE_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))
+	};
+
+	protected static final ProcessorRule[] LUSH_DIRT_PATH_PEAT_COARSE_DIRT = new ProcessorRule[]{
+			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.LUSH_DIRT_PATH.get(), 0.2F, BWGBlocks.PEAT.get()),
+			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.LUSH_DIRT_PATH.get(), 0.2F, Blocks.COARSE_DIRT)
+	};
+
+	protected static final ProcessorRule[] POTATO = createEvenChanceAgeRules(Blocks.POTATOES, PotatoBlock.AGE, PotatoBlock.MAX_AGE);
+	protected static final ProcessorRule[] CARROT = createEvenChanceAgeRules(Blocks.CARROTS, CarrotBlock.AGE, CarrotBlock.MAX_AGE);
+	protected static final ProcessorRule[] BEETROOT = createEvenChanceAgeRules(Blocks.BEETROOTS, BeetrootBlock.AGE, BeetrootBlock.MAX_AGE);
+
 	protected static final ProcessorRule[] STONE_RANDOM_ROCKY_ANDESITE = new ProcessorRule[]{
 			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE, 0.33F, Blocks.ANDESITE),
 			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE, 0.33F, BWGBlocks.ROCKY_STONE_SET.getBase())
