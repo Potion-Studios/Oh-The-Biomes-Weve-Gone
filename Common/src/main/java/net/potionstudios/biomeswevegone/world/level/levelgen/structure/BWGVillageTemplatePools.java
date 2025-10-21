@@ -219,10 +219,10 @@ public class BWGVillageTemplatePools {
                     legacyPoolElement("salem/houses/salem_butcher_shop_1", 2),
                     legacyPoolElement("salem/houses/salem_armorsmith_1", 2),
                     legacyPoolElement("salem/houses/salem_animal_pen_1", 2),
-                    singlePoolElement("salem/houses/salem_animal_pen_2", 2, templatePoolFactoryContext, BWGStructureProcessorLists.SALEM_HOUSES),
-                    legacyPoolElement("salem/houses/salem_small_farm_1", 2, templatePoolFactoryContext, ProcessorLists.FARM_TAIGA),
-                    legacyPoolElement("salem/houses/salem_small_farm_2", 2, templatePoolFactoryContext, ProcessorLists.FARM_TAIGA),
-                    legacyPoolElement("salem/houses/salem_large_farm_1", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SALEM_LARGE_FARM),
+                    legacyPoolElement("salem/houses/salem_animal_pen_2", 2),
+                    singlePoolElement("salem/houses/salem_small_farm_1", 2, templatePoolFactoryContext, BWGStructureProcessorLists.SALEM_SMALL_FARM),
+                    singlePoolElement("salem/houses/salem_small_farm_2", 2, templatePoolFactoryContext, BWGStructureProcessorLists.SALEM_SMALL_FARM),
+                    singlePoolElement("salem/houses/salem_large_farm_1", 3, templatePoolFactoryContext, BWGStructureProcessorLists.SALEM_LARGE_FARM),
                     emptyPoolElement(10)
             ), StructureTemplatePool.Projection.RIGID));
 
