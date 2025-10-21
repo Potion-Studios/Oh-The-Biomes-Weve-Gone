@@ -5,6 +5,38 @@
       "rules": [
         {
           "input_predicate": {
+            "block": "minecraft:wheat",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.3
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:pumpkin_stem",
+            "Properties": {
+              "age": "0"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:wheat",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.2
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:potatoes",
+            "Properties": {
+              "age": "0"
+            }
+          }
+        },
+        {
+          "input_predicate": {
             "block": "minecraft:stone_slab",
             "predicate_type": "minecraft:random_block_match",
             "probability": 0.33
@@ -161,7 +193,7 @@
         },
         {
           "input_predicate": {
-            "block": "minecraft:carrots",
+            "block": "minecraft:pumpkin_stem",
             "predicate_type": "minecraft:random_block_match",
             "probability": 0.14285715
           },
@@ -169,7 +201,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:carrots",
+            "Name": "minecraft:pumpkin_stem",
             "Properties": {
               "age": "1"
             }
@@ -177,7 +209,7 @@
         },
         {
           "input_predicate": {
-            "block": "minecraft:carrots",
+            "block": "minecraft:pumpkin_stem",
             "predicate_type": "minecraft:random_block_match",
             "probability": 0.16666667
           },
@@ -185,7 +217,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:carrots",
+            "Name": "minecraft:pumpkin_stem",
             "Properties": {
               "age": "2"
             }
@@ -193,7 +225,7 @@
         },
         {
           "input_predicate": {
-            "block": "minecraft:carrots",
+            "block": "minecraft:pumpkin_stem",
             "predicate_type": "minecraft:random_block_match",
             "probability": 0.2
           },
@@ -201,7 +233,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:carrots",
+            "Name": "minecraft:pumpkin_stem",
             "Properties": {
               "age": "3"
             }
@@ -209,7 +241,7 @@
         },
         {
           "input_predicate": {
-            "block": "minecraft:carrots",
+            "block": "minecraft:pumpkin_stem",
             "predicate_type": "minecraft:random_block_match",
             "probability": 0.25
           },
@@ -217,7 +249,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:carrots",
+            "Name": "minecraft:pumpkin_stem",
             "Properties": {
               "age": "4"
             }
@@ -225,7 +257,7 @@
         },
         {
           "input_predicate": {
-            "block": "minecraft:carrots",
+            "block": "minecraft:pumpkin_stem",
             "predicate_type": "minecraft:random_block_match",
             "probability": 0.33333334
           },
@@ -233,7 +265,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:carrots",
+            "Name": "minecraft:pumpkin_stem",
             "Properties": {
               "age": "5"
             }
@@ -241,7 +273,7 @@
         },
         {
           "input_predicate": {
-            "block": "minecraft:carrots",
+            "block": "minecraft:pumpkin_stem",
             "predicate_type": "minecraft:random_block_match",
             "probability": 0.5
           },
@@ -249,7 +281,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:carrots",
+            "Name": "minecraft:pumpkin_stem",
             "Properties": {
               "age": "6"
             }
@@ -257,15 +289,15 @@
         },
         {
           "input_predicate": {
-            "block": "minecraft:beetroots",
+            "block": "minecraft:wheat",
             "predicate_type": "minecraft:random_block_match",
-            "probability": 0.33333334
+            "probability": 0.14285715
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:beetroots",
+            "Name": "minecraft:wheat",
             "Properties": {
               "age": "1"
             }
@@ -273,7 +305,71 @@
         },
         {
           "input_predicate": {
-            "block": "minecraft:beetroots",
+            "block": "minecraft:wheat",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.16666667
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:wheat",
+            "Properties": {
+              "age": "2"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:wheat",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.2
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:wheat",
+            "Properties": {
+              "age": "3"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:wheat",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:wheat",
+            "Properties": {
+              "age": "4"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:wheat",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.33333334
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:wheat",
+            "Properties": {
+              "age": "5"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:wheat",
             "predicate_type": "minecraft:random_block_match",
             "probability": 0.5
           },
@@ -281,9 +377,9 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:beetroots",
+            "Name": "minecraft:wheat",
             "Properties": {
-              "age": "2"
+              "age": "6"
             }
           }
         }
