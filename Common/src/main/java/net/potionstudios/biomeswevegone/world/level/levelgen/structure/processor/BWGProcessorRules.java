@@ -4,10 +4,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.SlabType;
-import net.minecraft.world.level.levelgen.structure.templatesystem.AlwaysTrueTest;
-import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
-import net.minecraft.world.level.levelgen.structure.templatesystem.ProcessorRule;
-import net.minecraft.world.level.levelgen.structure.templatesystem.RandomBlockMatchTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.*;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.WhitePuffballBlock;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
@@ -74,9 +71,9 @@ class BWGProcessorRules {
 	protected static final ProcessorRule[] PUMPKIN_RANDOM_AGE = createEvenChanceAgeRules(Blocks.PUMPKIN_STEM, StemBlock.AGE, StemBlock.MAX_AGE);
 
 	protected static ProcessorRule[] createEvenChanceAgeRules(Block block, IntegerProperty ageProperty, int maxAge) {
-		float chance = 1.0f / maxAge;
-		ProcessorRule[] rules = new ProcessorRule[maxAge];
-		for (int i = 1; i <= maxAge; i++) {
+		ProcessorRule[] rules = new ProcessorRule[maxAge - 1];
+		for (int i = 1; i <= maxAge - 1; i++) {
+			float chance = 1.0f / (maxAge - i + 1); // 1/(N - i + 1), with N = maxAge
 			rules[i - 1] = createAlwaysTrueRandomBlockMatchTest(
 					block,
 					chance,
@@ -142,9 +139,15 @@ class BWGProcessorRules {
 			createAlwaysTrueRandomBlockMatchTest(BWGBlocks.LUSH_DIRT_PATH.get(), 0.2F, Blocks.COARSE_DIRT)
 	};
 
+	protected static final ProcessorRule[] FARM_TAIGA = new ProcessorRule[]{
+			createAlwaysTrueRandomBlockMatchTest(Blocks.WHEAT, 0.3F, Blocks.PUMPKIN_STEM),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.WHEAT, 0.2F, Blocks.POTATOES)
+	};
+
 	protected static final ProcessorRule[] POTATO = createEvenChanceAgeRules(Blocks.POTATOES, PotatoBlock.AGE, PotatoBlock.MAX_AGE);
 	protected static final ProcessorRule[] CARROT = createEvenChanceAgeRules(Blocks.CARROTS, CarrotBlock.AGE, CarrotBlock.MAX_AGE);
 	protected static final ProcessorRule[] BEETROOT = createEvenChanceAgeRules(Blocks.BEETROOTS, BeetrootBlock.AGE, BeetrootBlock.MAX_AGE);
+	protected static final ProcessorRule[] WHEAT = createEvenChanceAgeRules(Blocks.WHEAT, CropBlock.AGE, CropBlock.MAX_AGE);
 
 	protected static final ProcessorRule[] STONE_RANDOM_ROCKY_ANDESITE = new ProcessorRule[]{
 			createAlwaysTrueRandomBlockMatchTest(Blocks.STONE, 0.33F, Blocks.ANDESITE),
@@ -259,11 +262,19 @@ class BWGProcessorRules {
 		return createProcessorRule(createRandomBlockMatchTest(start, chance), AlwaysTrueTest.INSTANCE, newBlock);
 	}
 
+	private static ProcessorRule createAlwaysTrueBlockMatchTest(Block start, BlockState newBlock) {
+		return createProcessorRule(createBlockMatchTest(start), AlwaysTrueTest.INSTANCE, newBlock);
+	}
+
+	private static BlockMatchTest createBlockMatchTest(Block start) {
+		return new BlockMatchTest(start);
+	}
+
 	private static RandomBlockMatchTest createRandomBlockMatchTest(Block block, float chance) {
 		return new RandomBlockMatchTest(block, chance);
 	}
 
-	private static ProcessorRule createProcessorRule(RandomBlockMatchTest test, AlwaysTrueTest alwaysTrueTest, BlockState blockState) {
+	private static ProcessorRule createProcessorRule(RuleTest test, AlwaysTrueTest alwaysTrueTest, BlockState blockState) {
 		return new ProcessorRule(test, alwaysTrueTest, blockState);
 	}
 }
