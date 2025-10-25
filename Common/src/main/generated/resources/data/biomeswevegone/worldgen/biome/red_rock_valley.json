@@ -77,11 +77,11 @@
     ],
     [
       "minecraft:glow_lichen",
+      "minecraft:flower_warm",
+      "minecraft:patch_grass_savanna",
       "minecraft:patch_bush",
       "minecraft:patch_dry_grass_desert",
       "minecraft:patch_dead_bush_2",
-      "minecraft:flower_warm",
-      "minecraft:patch_grass_savanna",
       "biomeswevegone:red_rock_valley_trees",
       "biomeswevegone:palo_verde_trees",
       "biomeswevegone:rugged_badlands_vegetation",

@@ -63,8 +63,8 @@ class BWGOverworldBiomes {
     protected static Biome alliumShrubland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
 
-        BiomeDefaultFeatures.addBushes(generationSettings);
-        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addBushes(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.ALLIUM_SHRUBLAND_FLOWERS);
         BWGOverworldDefaultFeatures.addCloverPatches(generationSettings);
@@ -84,8 +84,8 @@ class BWGOverworldBiomes {
     protected static Biome amaranthGrassland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
 
+	    BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
         BiomeDefaultFeatures.addBushes(generationSettings);
-        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
 
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.AMARANTH_GRASSLAND_FLOWERS);
@@ -104,11 +104,11 @@ class BWGOverworldBiomes {
 
     protected static Biome araucariaSavanna(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
-        BiomeDefaultFeatures.addBushes(generationSettings);
-        BiomeDefaultFeatures.addSavannaTrees(generationSettings);
+	    BiomeDefaultFeatures.addSavannaTrees(generationSettings);
+		BiomeDefaultFeatures.addWarmFlowers(generationSettings);
+	    BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addBushes(generationSettings);
         BiomeDefaultFeatures.addDefaultGrass(generationSettings);
-        BiomeDefaultFeatures.addWarmFlowers(generationSettings);
-        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings, true);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.SPARSE_ARAUCARIA_TREES);
@@ -156,8 +156,8 @@ class BWGOverworldBiomes {
     protected static Biome pumpkinValley(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
         BiomeDefaultFeatures.addSavannaGrass(generationSettings);
-        BiomeDefaultFeatures.addBushes(generationSettings);
-        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addBushes(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addLeafLitterPatch(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings, true);
@@ -185,10 +185,10 @@ class BWGOverworldBiomes {
     protected static Biome baobabSavanna(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
         BiomeDefaultFeatures.addSavannaGrass(generationSettings);
-        BiomeDefaultFeatures.addBushes(generationSettings);
-        BiomeDefaultFeatures.addSavannaTrees(generationSettings);
-        BiomeDefaultFeatures.addWarmFlowers(generationSettings);
-        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addSavannaTrees(generationSettings);
+	    BiomeDefaultFeatures.addWarmFlowers(generationSettings);
+	    BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addBushes(generationSettings);
 
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.BAOBAB_TREES);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
@@ -324,11 +324,11 @@ class BWGOverworldBiomes {
     protected static Biome crimsonTundra(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
 
-        BiomeDefaultFeatures.addFerns(generationSettings);
+	    BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addFerns(generationSettings);
         BiomeDefaultFeatures.addBushes(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BiomeDefaultFeatures.addGiantTaigaVegetation(generationSettings);
-        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings, true);
 
@@ -519,8 +519,8 @@ class BWGOverworldBiomes {
 
         BiomeDefaultFeatures.addSwampClayDisk(generationSettings);
         BiomeDefaultFeatures.addSavannaGrass(generationSettings);
-        BiomeDefaultFeatures.addBushes(generationSettings);
-        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addBushes(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addSwampExtraVegetation(generationSettings);
         addVegetal(generationSettings, AquaticPlacements.SEAGRASS_SWAMP);
@@ -598,10 +598,10 @@ class BWGOverworldBiomes {
 
     protected static Biome daciteShore(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
-        BiomeDefaultFeatures.addFerns(generationSettings);
 
+	    BiomeDefaultFeatures.addJungleGrass(generationSettings);
+	    BiomeDefaultFeatures.addFerns(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
-        BiomeDefaultFeatures.addJungleGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
 
         BWGOverworldDefaultFeatures.addRockyStoneBoulder(generationSettings);
@@ -730,9 +730,9 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addFerns(generationSettings);
         BiomeDefaultFeatures.addBushes(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
-        BiomeDefaultFeatures.addTaigaGrass(generationSettings);
-        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
-        BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings, true);
+	    BiomeDefaultFeatures.addTaigaGrass(generationSettings);
+	    //BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
+	    BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings, true);
         BiomeDefaultFeatures.addRareBerryBushes(generationSettings);
 
         BWGOverworldDefaultFeatures.addSparseSpruceTrees(generationSettings);
@@ -784,12 +784,12 @@ class BWGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
         BWGOverworldDefaultFeatures.addHugeMushrooms(generationSettings);
 
-        BiomeDefaultFeatures.addForestFlowers(generationSettings);
+	    BiomeDefaultFeatures.addLightBambooVegetation(generationSettings);
+	    BiomeDefaultFeatures.addSparseJungleTrees(generationSettings);
+	    BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addForestFlowers(generationSettings);
         BiomeDefaultFeatures.addBushes(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
-        BiomeDefaultFeatures.addLightBambooVegetation(generationSettings);
-        BiomeDefaultFeatures.addSparseJungleTrees(generationSettings);
-        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings, true);
 
@@ -848,10 +848,10 @@ class BWGOverworldBiomes {
     protected static Biome mapleTaiga(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
 
-        BiomeDefaultFeatures.addBushes(generationSettings);
-        BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
+	    BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addBushes(generationSettings);
+	    BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BiomeDefaultFeatures.addTaigaGrass(generationSettings);
-        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings, true);
 
         BWGOverworldDefaultFeatures.addSparseSpruceTrees(generationSettings);
@@ -882,8 +882,8 @@ class BWGOverworldBiomes {
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
         BiomeDefaultFeatures.addPlainGrass(generationSettings);
-        addVegetal(generationSettings, VegetationPlacements.PATCH_GRASS_NORMAL);
         addVegetal(generationSettings, VegetationPlacements.PATCH_SUNFLOWER);
+		BiomeDefaultFeatures.addShatteredSavannaGrass(generationSettings);
 
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings, true);
@@ -960,9 +960,9 @@ class BWGOverworldBiomes {
     protected static Biome orchard(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
 
-        BiomeDefaultFeatures.addBushes(generationSettings);
-        BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
-        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addBushes(generationSettings);
+	    BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings, true);
 
@@ -1057,12 +1057,12 @@ class BWGOverworldBiomes {
     protected static Biome overgrowthWoodlands(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
 
-        BiomeDefaultFeatures.addForestFlowers(generationSettings);
+	    BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addForestFlowers(generationSettings);
         BiomeDefaultFeatures.addFerns(generationSettings);
-        BiomeDefaultFeatures.addBushes(generationSettings);
-        BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
-        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
-        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
+	    BiomeDefaultFeatures.addBushes(generationSettings);
+	    BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
+	    BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addLeafLitterPatch(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings, true);
 
@@ -1098,10 +1098,10 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addFossilDecoration(generationSettings);
         addDefaultOverworldGeneration(generationSettings);
 
-        BiomeDefaultFeatures.addBushes(generationSettings);
+	    BiomeDefaultFeatures.addWarmFlowers(generationSettings);
+	    BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addBushes(generationSettings);
         BiomeDefaultFeatures.addDesertVegetation(generationSettings);
-        BiomeDefaultFeatures.addWarmFlowers(generationSettings);
-        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
 
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.RED_ROCK_VALLEY_TREES);
         BWGOverworldDefaultFeatures.addPaloVerdeTrees(generationSettings);
@@ -1128,10 +1128,10 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addFossilDecoration(generationSettings);
         addDefaultOverworldGeneration(generationSettings);
 
-        BiomeDefaultFeatures.addBushes(generationSettings);
+	    BiomeDefaultFeatures.addWarmFlowers(generationSettings);
+	    BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addBushes(generationSettings);
         BiomeDefaultFeatures.addDesertVegetation(generationSettings);
-        BiomeDefaultFeatures.addWarmFlowers(generationSettings);
-        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
 
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.RED_ROCK_VALLEY_TREES);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.RUGGED_BADLANDS_VEGETATION);
@@ -1185,8 +1185,8 @@ class BWGOverworldBiomes {
 
     protected static Biome roseFields(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
-        BiomeDefaultFeatures.addBushes(generationSettings);
-        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addBushes(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
 
         BWGOverworldDefaultFeatures.addRoseFieldSpruceTrees(generationSettings);
@@ -1216,8 +1216,8 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addSurfaceFreezing(generationSettings);
         BiomeDefaultFeatures.addFerns(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
-        BiomeDefaultFeatures.addTaigaGrass(generationSettings);
-        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
+	    BiomeDefaultFeatures.addTaigaGrass(generationSettings);
+	    //BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings, true);
 
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.WINTER_ROSE);
@@ -1234,11 +1234,10 @@ class BWGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
 
         BiomeDefaultFeatures.addSavannaGrass(generationSettings);
-        BiomeDefaultFeatures.addBushes(generationSettings);
+	    BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addBushes(generationSettings);
 
-        BiomeDefaultFeatures.addDesertVegetation(generationSettings);
-        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
-
+	    BiomeDefaultFeatures.addDesertVegetation(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
 
         BWGOverworldDefaultFeatures.addSparseOakTrees(generationSettings);
@@ -1326,10 +1325,10 @@ class BWGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
 
         BiomeDefaultFeatures.addSavannaGrass(generationSettings);
-        BiomeDefaultFeatures.addBushes(generationSettings);
-        BiomeDefaultFeatures.addSavannaTrees(generationSettings);
-        BiomeDefaultFeatures.addWarmFlowers(generationSettings);
-        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addSavannaTrees(generationSettings);
+	    BiomeDefaultFeatures.addWarmFlowers(generationSettings);
+	    BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addBushes(generationSettings);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.IRONWOOD_PLATEAU_PATCH_GRASS_WORLD_SURFACE);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings, true);
@@ -1363,8 +1362,8 @@ class BWGOverworldBiomes {
         addRawGeneration(generationSettings, BWGPlacedFeatures.BOREALIS_ICE_SHARPENED_SPIKE);
         BiomeDefaultFeatures.addFerns(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
-        BiomeDefaultFeatures.addTaigaGrass(generationSettings);
-        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
+	    BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
+	    BiomeDefaultFeatures.addTaigaGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings, true);
         BiomeDefaultFeatures.addRareBerryBushes(generationSettings);
 
@@ -1395,8 +1394,8 @@ class BWGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
 
         BiomeDefaultFeatures.addExtraEmeralds(generationSettings);
-        BiomeDefaultFeatures.addBushes(generationSettings);
-        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addBushes(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings, true);
 
@@ -1563,8 +1562,8 @@ class BWGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
         BWGOverworldDefaultFeatures.addHugeMushrooms(generationSettings);
 
-        BiomeDefaultFeatures.addBushes(generationSettings);
-        BiomeDefaultFeatures.addJungleGrass(generationSettings);
+	    BiomeDefaultFeatures.addJungleGrass(generationSettings);
+	    BiomeDefaultFeatures.addBushes(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addLeafLitterPatch(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings, true);
@@ -1595,13 +1594,13 @@ class BWGOverworldBiomes {
     protected static Biome zelkovaForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
 
-        BiomeDefaultFeatures.addFerns(generationSettings);
-        BiomeDefaultFeatures.addBushes(generationSettings);
+	    BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+	    BiomeDefaultFeatures.addFerns(generationSettings);
+	    BiomeDefaultFeatures.addBushes(generationSettings);
 
-        BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
-        BiomeDefaultFeatures.addTaigaGrass(generationSettings);
-        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
-        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
+	    BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
+	    BiomeDefaultFeatures.addTaigaGrass(generationSettings);
+	    //BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings, true);
 
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.ZELKOVA_TREES);

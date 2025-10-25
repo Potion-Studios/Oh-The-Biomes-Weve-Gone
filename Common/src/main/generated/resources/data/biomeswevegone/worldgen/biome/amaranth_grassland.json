@@ -71,8 +71,8 @@
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:patch_bush",
       "minecraft:patch_grass_savanna",
+      "minecraft:patch_bush",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "biomeswevegone:amaranth_grassland_flowers",
