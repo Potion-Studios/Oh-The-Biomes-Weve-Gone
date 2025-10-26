@@ -1,8 +1,7 @@
 # 2.5.0 - Breaking Changes
 - Please read -> The major change in this update is the renaming of the registry name of skyrise_vale to skyris_vale to fix a typo.
-    This change is "breaking" however if you are running Fabric or NeoForge the mod will automatically fix any existing skyrise_vale biomes to skyris_vale.  
-    On Forge due to limitations, all skyrise_vale will show up as plains if you look in the F3 menu, however the biome will still look correct, the only difference is the name shown in F3 and /locate will not find it.
-    All new chunks/new worlds will have the correct skyris_vale biome name on all platforms.
+  This change is "breaking", all skyrise_vale will show up as plains if you look in the F3 menu, however the biome will still look correct, the only difference is the name shown in F3 and /locate will not find it.
+  All new chunks/new worlds will have the correct skyris_vale biome name.
     The other breaking change is the removal of the villager upgrade command, this was planned to be removed in 2.5.0, this command is rarely used and not really necessary for 99.9% of players.
 - Fix Skyris Vale having incorrect Registered Name (skyrise_vale -> skyris_vale) 
 - Remove Villager Upgrade Command

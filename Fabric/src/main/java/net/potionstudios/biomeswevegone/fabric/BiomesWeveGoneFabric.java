@@ -5,14 +5,11 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
-import net.fabricmc.fabric.api.event.registry.DynamicRegistrySetupCallback;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.commands.BWGCommands;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
-import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 
 /**
  * This class is the entrypoint for the mod on the Fabric platform.
@@ -44,10 +41,6 @@ public class BiomesWeveGoneFabric implements ModInitializer {
         BiomesWeveGone.commonSetup();
         BiomesWeveGone.postInit();
         ServerLifecycleEvents.SERVER_STARTING.register(BiomesWeveGone::serverStart);
-        DynamicRegistrySetupCallback.EVENT.register(((minecraftServer) -> {
-            if (minecraftServer.asDynamicRegistryManager().registry(Registries.BIOME).isPresent())
-                minecraftServer.asDynamicRegistryManager().registry(Registries.BIOME).get().addAlias(BiomesWeveGone.id("skyrise_vale"), BWGBiomes.SKYRIS_VALE.location());
-        }));
         ServerEntityEvents.ENTITY_LOAD.register((entity, level) -> BiomesWeveGone.onEntityLoad(entity));
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> BWGCommands.register(dispatcher::register));
     }
