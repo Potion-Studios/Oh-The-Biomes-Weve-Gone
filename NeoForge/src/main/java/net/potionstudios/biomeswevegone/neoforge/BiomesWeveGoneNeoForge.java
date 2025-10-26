@@ -1,6 +1,5 @@
 package net.potionstudios.biomeswevegone.neoforge;
 
-import net.minecraft.core.registries.Registries;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -16,7 +15,6 @@ import net.potionstudios.biomeswevegone.commands.BWGCommands;
 import net.potionstudios.biomeswevegone.neoforge.loot.LootModifiersRegister;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
-import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGOverworldSurfaceRules;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGTerraBlenderRegion;
 import terrablender.api.SurfaceRuleManager;
@@ -30,7 +28,7 @@ public class BiomesWeveGoneNeoForge {
 		NeoForgePlatformHandler.register(eventBus);
 		eventBus.addListener(this::onInitialize);
 		eventBus.addListener(this::onPostInitialize);
-		EVENT_BUS.addListener((this::onServerAboutToStart));
+		EVENT_BUS.addListener((ServerAboutToStartEvent event) -> BiomesWeveGone.serverStart(event.getServer()));
 		eventBus.addListener((EntityAttributeCreationEvent event) -> BWGEntityType.registerEntityAttributes(event::put));
 		eventBus.addListener((RegisterSpawnPlacementsEvent event) -> BWGEntityType.registerSpawnPlacements((consumer) -> event.register(consumer.entityType(), consumer.spawnPlacementType(), consumer.heightmapType(), consumer.predicate(), RegisterSpawnPlacementsEvent.Operation.OR)));
 		EVENT_BUS.addListener((RegisterCommandsEvent event) -> BWGCommands.register(event.getDispatcher()::register));
@@ -61,10 +59,5 @@ public class BiomesWeveGoneNeoForge {
 		event.enqueueWork(BiomesWeveGone::postInit);
 		BWGVillagerTrades.makeTrades();
 		BWGVillagerTrades.makeWanderingTrades();
-	}
-
-	private void onServerAboutToStart(final ServerAboutToStartEvent event) {
-		BiomesWeveGone.serverStart(event.getServer());
-		event.getServer().registryAccess().registryOrThrow(Registries.BIOME).addAlias(BiomesWeveGone.id("skyrise_vale"), BWGBiomes.SKYRIS_VALE.location());
 	}
 }
