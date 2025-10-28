@@ -99,6 +99,10 @@ class BWGProcessorRules {
 		return createAlwaysTrueRandomBlockMatchTest(Blocks.TUFF, chance, newBlock);
 	}
 
+	protected static ProcessorRule tuffToBlockState(float chance, BlockState newBlock) {
+		return createAlwaysTrueRandomBlockMatchTest(Blocks.TUFF, chance, newBlock);
+	}
+
 	protected static ProcessorRule grassBlockToBlock(float chance, Block newBlock) {
 		return createAlwaysTrueRandomBlockMatchTest(Blocks.GRASS_BLOCK, chance, newBlock);
 	}
@@ -209,6 +213,7 @@ class BWGProcessorRules {
 	};
 
 	protected static final ProcessorRule[] SHORT_GRASS_TO_FLOWER_SWAMP = new ProcessorRule[]{
+			createAlwaysTrueRandomBlockMatchTest(Blocks.GRASS, 0.35f, Blocks.AIR),
 			createAlwaysTrueRandomBlockMatchTest(Blocks.GRASS, 0.15f, BWGBlocks.PEACH_LEATHER_FLOWER.getBlock()),
 			createAlwaysTrueRandomBlockMatchTest(Blocks.GRASS, 0.15f, BWGBlocks.CLOVER_PATCH.get()),
 			createAlwaysTrueRandomBlockMatchTest(Blocks.GRASS, 0.1f, BWGBlocks.VIOLET_LEATHER_FLOWER.getBlock()),

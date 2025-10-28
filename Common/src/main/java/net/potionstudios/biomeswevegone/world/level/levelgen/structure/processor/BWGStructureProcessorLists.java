@@ -2,10 +2,12 @@ package net.potionstudios.biomeswevegone.world.level.levelgen.structure.processo
 
 import com.google.common.collect.ImmutableList;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.levelgen.structure.templatesystem.*;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -231,6 +233,36 @@ public class BWGStructureProcessorLists {
                             BWGProcessorRules.SHORT_GRASS_TO_FLOWER_SWAMP)
             )
     ));
+
+	public static final ResourceKey<StructureProcessorList> SWAMP_MEETING_POINT = register("swamp_meeting_point", structureProcessorListHolderGetter -> new StructureProcessorList(
+			ImmutableList.of(
+					createRuleProcessor(
+							new ProcessorRule[]{BWGProcessorRules.tuffToBlock(0.15f, Blocks.MOSSY_COBBLESTONE),
+									BWGProcessorRules.tuffToBlock(0.45f, Blocks.POLISHED_TUFF),
+									BWGProcessorRules.tuffToBlock(0.4f, Blocks.TUFF_BRICKS),
+									BWGProcessorRules.tuffToBlockState(0.02f, Blocks.TUFF_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.EAST)),
+									BWGProcessorRules.tuffToBlockState(0.025f, Blocks.TUFF_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.SOUTH)),
+									BWGProcessorRules.tuffToBlockState(0.03f, Blocks.TUFF_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.NORTH)),
+									BWGProcessorRules.tuffToBlockState(0.03f, Blocks.TUFF_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.WEST)),
+									BWGProcessorRules.tuffToBlockState(0.02f, Blocks.MOSSY_COBBLESTONE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.EAST)),
+									BWGProcessorRules.tuffToBlockState(0.025f, Blocks.MOSSY_COBBLESTONE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.SOUTH)),
+									BWGProcessorRules.tuffToBlockState(0.03f, Blocks.MOSSY_COBBLESTONE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.NORTH)),
+									BWGProcessorRules.tuffToBlockState(0.03f, Blocks.MOSSY_COBBLESTONE_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.WEST)),
+									BWGProcessorRules.tuffToBlockState(0.02f, Blocks.TUFF_BRICK_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.EAST)),
+									BWGProcessorRules.tuffToBlockState(0.025f, Blocks.TUFF_BRICK_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.SOUTH)),
+									BWGProcessorRules.tuffToBlockState(0.03f, Blocks.TUFF_BRICK_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.NORTH)),
+									BWGProcessorRules.tuffToBlockState(0.03f, Blocks.TUFF_BRICK_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.WEST)),
+									BWGProcessorRules.tuffToBlockState(0.02f, Blocks.POLISHED_TUFF_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.EAST)),
+									BWGProcessorRules.tuffToBlockState(0.025f, Blocks.POLISHED_TUFF_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.SOUTH)),
+									BWGProcessorRules.tuffToBlockState(0.03f, Blocks.POLISHED_TUFF_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.NORTH)),
+									BWGProcessorRules.tuffToBlockState(0.03f, Blocks.POLISHED_TUFF_STAIRS.defaultBlockState().setValue(StairBlock.FACING, Direction.WEST)),
+									BWGProcessorRules.grassBlockToBlock(0.1f, Blocks.MOSS_BLOCK),
+									BWGProcessorRules.grassBlockToBlock(0.3f, Blocks.PODZOL),
+									BWGProcessorRules.grassBlockToBlock(0.15f, Blocks.MUD),
+									BWGProcessorRules.grassBlockToBlock(0.25f, BWGBlocks.PEAT.get())},
+							BWGProcessorRules.SHORT_GRASS_TO_FLOWER_SWAMP)
+			)
+	));
 
     public static final ResourceKey<StructureProcessorList> MOSSIFY_10_PERCENT_WHITE_PUFFBALL = register("mossify_10_percent_white_puffball", structureProcessorListHolderGetter -> new StructureProcessorList(
             ImmutableList.of(
