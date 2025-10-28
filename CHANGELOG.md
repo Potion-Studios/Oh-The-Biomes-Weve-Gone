@@ -8,8 +8,8 @@
 - Fix Pumpkin Warden Picks up Items tag not loading on Forge
 - Update Tree Configured Features to use Builders
 - Slight Performance Improvement during generation of most Trees
-- Add Iron Golems to Red Rock, Salem Village
-- Add More Processing for Red Rock Town Center 2 and 3
+- Add Iron Golems to Red Rock, Salem, Swamp Villages
+- Add More Processing for Red Rock Town Center 2 and 3 and all Swamp Town Centers
 
 # 2.4.8
 - Fix missing Chicken Pool and Missing Pool warnings in Pumpkin Patch Village
