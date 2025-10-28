@@ -366,9 +366,9 @@ public class BWGVillageTemplatePools {
 
     public static final ResourceKey<StructureTemplatePool> SWAMP_TOWN_CENTERS = register("swamp/town_centers", templatePoolFactoryContext ->
             createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(
-                    singlePoolElement("swamp/town_centers/swamp_meeting_point_1", templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
-                    singlePoolElement("swamp/town_centers/swamp_meeting_point_2", templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE),
-                    singlePoolElement("swamp/town_centers/swamp_meeting_point_3", templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_HOUSE)
+                    singlePoolElement("swamp/town_centers/swamp_meeting_point_1", templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_MEETING_POINT),
+                    singlePoolElement("swamp/town_centers/swamp_meeting_point_2", templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_MEETING_POINT),
+                    singlePoolElement("swamp/town_centers/swamp_meeting_point_3", templatePoolFactoryContext, BWGStructureProcessorLists.SWAMP_MEETING_POINT)
             ), StructureTemplatePool.Projection.RIGID));
 
     private static final ResourceKey<StructureTemplatePool> SWAMP_DECOR = register("swamp/decor", templatePoolFactoryContext ->
