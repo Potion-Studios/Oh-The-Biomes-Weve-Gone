@@ -1,4 +1,4 @@
-# 1.6.7
+# 1.7.0
 
 # 1.6.6
 - Fix Witch Hazel Blossom and Branch not being compostable and flammable
