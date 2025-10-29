@@ -1,4 +1,5 @@
 # 1.7.0
+- Fix Leaves causing suffocation when player is inside them
 
 # 1.6.6
 - Fix Witch Hazel Blossom and Branch not being compostable and flammable
