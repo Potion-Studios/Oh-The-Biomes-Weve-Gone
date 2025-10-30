@@ -753,7 +753,7 @@
       },
       "trigger": "minecraft:location"
     },
-    "biomeswevegone:skyrise_vale": {
+    "biomeswevegone:skyris_vale": {
       "conditions": {
         "player": [
           {
@@ -761,7 +761,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "biome": "biomeswevegone:skyrise_vale"
+                "biome": "biomeswevegone:skyris_vale"
               }
             }
           }
@@ -1025,7 +1025,7 @@
       "biomeswevegone:sierra_badlands"
     ],
     [
-      "biomeswevegone:skyrise_vale"
+      "biomeswevegone:skyris_vale"
     ],
     [
       "biomeswevegone:temperate_grove"

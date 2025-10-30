@@ -753,7 +753,7 @@
       },
       "trigger": "minecraft:location"
     },
-    "biomeswevegone:skyrise_vale": {
+    "biomeswevegone:skyris_vale": {
       "conditions": {
         "player": [
           {
@@ -761,7 +761,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "biome": "biomeswevegone:skyrise_vale"
+                "biome": "biomeswevegone:skyris_vale"
               }
             }
           }
@@ -931,7 +931,7 @@
       "biomeswevegone:sakura_grove",
       "biomeswevegone:shattered_glacier",
       "biomeswevegone:sierra_badlands",
-      "biomeswevegone:skyrise_vale",
+      "biomeswevegone:skyris_vale",
       "biomeswevegone:temperate_grove",
       "biomeswevegone:tropical_rainforest",
       "biomeswevegone:weeping_witch_forest",
