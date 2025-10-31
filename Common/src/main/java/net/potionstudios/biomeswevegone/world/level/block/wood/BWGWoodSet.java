@@ -113,8 +113,8 @@ public class BWGWoodSet {
         this.bookshelf = BWGWood.registerBlockItem(name + "_bookshelf", Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.BOOKSHELF).mapColor(mapColor));
         this.craftingTable = BWGWood.registerBlockItem(name + "_crafting_table", BWGCraftingTable::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CRAFTING_TABLE).mapColor(mapColor));
         if (leaves) {
-            if (glowLeaves) this.leaves = BWGWood.registerBlockItem(name + "_leaves", LeavesBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).lightLevel(level -> 8).mapColor(mapColor));
-            else this.leaves = BWGWood.registerBlockItem(name + "_leaves", LeavesBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor));
+            if (glowLeaves) this.leaves = BWGWood.registerBlockItem(name + "_leaves", LeavesBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).lightLevel(level -> 8));
+            else this.leaves = BWGWood.registerBlockItem(name + "_leaves", LeavesBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES));
         }
         if (saplingGrower != null) this.sapling = BWGWood.createSapling(name, saplingGrower, saplingPlantAbleOn);
         this.sign = BWGWood.register(name + "_sign", properties ->  new BWGStandingSignBlock(properties, woodType), BlockBehaviour.Properties.of().mapColor(mapColor).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava());
