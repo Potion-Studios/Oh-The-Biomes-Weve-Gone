@@ -1,4 +1,12 @@
-# 3.2.0
+# 3.2.0- Breaking Changes
+- Please read -> The major change in this update is the renaming of the registry name of skyrise_vale to skyris_vale to fix a typo. This change is "breaking", all skyrise_vale will show up as plains if you look in the F3 menu, however the biome will still look correct, the only difference is the name shown in F3 and /locate will not find it. All new chunks/new worlds will have the correct skyris_vale biome name. The other breaking change is the removal of the villager upgrade command, this was planned to be removed in 2.5.0, this command is rarely used and not really necessary for 99.9% of players.
+- Fix Skyris Vale having incorrect Registered Name (skyrise_vale -> skyris_vale)
+- Remove Villager Upgrade Command
+- Fix Pumpkin Warden Picks up Items tag not loading on Forge
+- Update Tree Configured Features to use Builders
+- Slight Performance Improvement during generation of most Trees
+- Add Iron Golems to Red Rock, Salem, Swamp Villages
+- Add More Processing for Red Rock Town Center 2 and 3 and all Swamp Town Centers
 
 # 3.1.5
 - Fix missing Chicken Pool and Missing Pool warnings in Pumpkin Patch Village
