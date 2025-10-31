@@ -200,8 +200,6 @@ class BWGOverworldBiomes {
     protected static Biome basaltBarrera(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
 
-        BiomeDefaultFeatures.addDefaultGrass(generationSettings);
-
         addRawGeneration(generationSettings, BWGPlacedFeatures.LARGE_BASALT_COLUMN);
         addRawGeneration(generationSettings, BWGPlacedFeatures.SMALL_BASALT_COLUMN);
         addRawGeneration(generationSettings, BWGPlacedFeatures.BASALT_DELTA);
@@ -581,11 +579,6 @@ class BWGOverworldBiomes {
 
     protected static Biome daciteShore(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
-        BiomeDefaultFeatures.addFerns(generationSettings);
-
-        BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
-        BiomeDefaultFeatures.addJungleGrass(generationSettings);
-        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
 
         BWGOverworldDefaultFeatures.addRockyStoneBoulder(generationSettings);
 
@@ -630,7 +623,6 @@ class BWGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         BiomeDefaultFeatures.addFossilDecoration(generationSettings);
         addDefaultOverworldGeneration(generationSettings);
-        BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BiomeDefaultFeatures.addDesertVegetation(generationSettings);
         addRawGeneration(generationSettings, BWGPlacedFeatures.WINDSWEPT_BOULDER);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.WINDSWEPT_DESERT_VEGETATION);
