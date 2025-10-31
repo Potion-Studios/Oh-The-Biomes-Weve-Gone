@@ -52,6 +52,7 @@ public class BWGBiomeSelectors {
             {Biomes.THE_VOID, Biomes.THE_VOID, Region.DEFERRED_PLACEHOLDER, BWGBiomes.CRAG_GARDENS, BWGBiomes.CRAG_GARDENS},
             {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID}
     });
+
     public static final Wrapped<List<List<ResourceKey<Biome>>>> PLATEAU_BIOMES_BWG = BiomeSelectorsUtil.create("plateau_biomes/plateau_biomes_biomes_weve_gone", "", new ResourceKey[][]{
             {BWGBiomes.SHATTERED_GLACIER, BWGBiomes.SHATTERED_GLACIER, BWGBiomes.FROSTED_CONIFEROUS_FOREST, BWGBiomes.FROSTED_TAIGA, BWGBiomes.CONIFEROUS_FOREST},
             {BWGBiomes.COCONINO_MEADOW, BWGBiomes.COCONINO_MEADOW, BWGBiomes.ASPEN_BOREAL, BWGBiomes.SKYRIS_VALE, BWGBiomes.SKYRIS_VALE},
