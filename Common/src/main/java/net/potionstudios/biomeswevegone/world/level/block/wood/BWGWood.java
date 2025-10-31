@@ -101,78 +101,78 @@ public class BWGWood {
     public static final PottedBlock YELLOW_SPRUCE_SAPLING = createNonSetSapling("yellow_spruce", BWGTreeGrowers.YELLOW_SPRUCE, BlockTags.DIRT);
     public static final PottedBlock YUCCA_SAPLING = createNonSetSapling("yucca", BWGTreeGrowers.YUCCA, BlockTags.SAND);
 
-    public static final Supplier<LeavesBlock> ARAUCARIA_LEAVES = registerLeaves("araucaria", MapColor.COLOR_GREEN, 3886099);
-    public static final Supplier<LeavesBlock> RIPE_BAOBAB_LEAVES = registerLeaves("ripe_baobab", BWGBlocks.BAOBAB_FRUIT_BLOCK, MapColor.COLOR_GREEN, 0.04F, 3886099);
-    public static final Supplier<LeavesBlock> FLOWERING_BAOBAB_LEAVES = registerLeaves("flowering_baobab", MapColor.COLOR_GREEN, BWGWood.RIPE_BAOBAB_LEAVES, 0.02F, 3886099);
-    public static final Supplier<LeavesBlock> BLUE_SPRUCE_LEAVES = registerLeaves("blue_spruce", MapColor.COLOR_LIGHT_BLUE, 4680619);
-    public static final Supplier<LeavesBlock> BLOOMING_WITCH_HAZEL_LEAVES = registerGlowingLeaves("blooming_witch_hazel", MapColor.COLOR_ORANGE, 11411764);
-    public static final Supplier<LeavesBlock> BROWN_BIRCH_LEAVES = registerLeaves("brown_birch", MapColor.COLOR_BROWN, 5456169);
-    public static final Supplier<LeavesBlock> BROWN_OAK_LEAVES = registerLeaves("brown_oak", MapColor.COLOR_BROWN, 5456169);
-    public static final Supplier<LeavesBlock> BROWN_ZELKOVA_LEAVES = registerLeaves("brown_zelkova", MapColor.COLOR_BROWN, 5456169);
-    public static final Supplier<LeavesBlock> RIPE_ORCHARD_LEAVES = registerLeaves("ripe_orchard", BWGBlocks.APPLE_FRUIT_BLOCK, MapColor.COLOR_GREEN, 0.04F, 3429673);
-    public static final Supplier<LeavesBlock> FLOWERING_ORCHARD_LEAVES = registerLeaves("flowering_orchard", MapColor.COLOR_GREEN, BWGWood.RIPE_ORCHARD_LEAVES, 0.02F, 3429673);
-    public static final Supplier<LeavesBlock> FLOWERING_PALO_VERDE_LEAVES = registerLeaves("flowering_palo_verde", () -> ParticleTypes.SPORE_BLOSSOM_AIR, MapColor.COLOR_YELLOW);
-    public static final Supplier<LeavesBlock> HOLLY_BERRY_LEAVES = registerLeaves("holly_berry", MapColor.TERRACOTTA_GREEN, 1919523);
-    public static final Supplier<LeavesBlock> INDIGO_JACARANDA_LEAVES = registerLeaves("indigo_jacaranda", MapColor.TERRACOTTA_BLUE, 4338544);
-    public static final Supplier<LeavesBlock> FLOWERING_JACARANDA_LEAVES = registerLeaves("flowering_jacaranda", MapColor.TERRACOTTA_PURPLE, 5321584);
-    public static final Supplier<LeavesBlock> FLOWERING_INDIGO_JACARANDA_LEAVES = registerLeaves("flowering_indigo_jacaranda", MapColor.TERRACOTTA_BLUE, 4338544);
-    public static final Supplier<LeavesBlock> YUCCA_LEAVES = registerLeaves("yucca", MapColor.COLOR_GREEN);
-    public static final Supplier<LeavesBlock> RIPE_YUCCA_LEAVES = registerLeaves("ripe_yucca", BWGBlocks.YUCCA_FRUIT_BLOCK, MapColor.COLOR_GREEN, 0.04F);
-    public static final Supplier<LeavesBlock> FLOWERING_YUCCA_LEAVES = registerLeaves("flowering_yucca", MapColor.COLOR_GREEN, BWGWood.RIPE_YUCCA_LEAVES, 0.02F);
-    public static final Supplier<LeavesBlock> ORANGE_BIRCH_LEAVES = registerLeaves("orange_birch", MapColor.COLOR_ORANGE, 10116896);
-    public static final Supplier<LeavesBlock> ORANGE_OAK_LEAVES = registerLeaves("orange_oak", MapColor.COLOR_ORANGE, 10116896);
-    public static final Supplier<LeavesBlock> ORANGE_SPRUCE_LEAVES = registerLeaves("orange_spruce", MapColor.COLOR_ORANGE, 10116896);
-    public static final Supplier<LeavesBlock> ORCHARD_LEAVES = registerLeaves("orchard", MapColor.COLOR_GREEN, 3429673);
-    public static final Supplier<LeavesBlock> RED_BIRCH_LEAVES = registerLeaves("red_birch", MapColor.COLOR_RED, 6363937);
-    public static final Supplier<LeavesBlock> RED_MAPLE_LEAVES = registerLeaves("red_maple", BWGParticles.RED_MAPLE_LEAVES, MapColor.COLOR_RED);
-    public static final Supplier<LeavesBlock> RED_OAK_LEAVES = registerLeaves("red_oak", MapColor.COLOR_RED, 6363937);
-    public static final Supplier<LeavesBlock> RED_SPRUCE_LEAVES = registerLeaves("red_spruce", MapColor.COLOR_RED, 6363937);
-    public static final Supplier<LeavesBlock> SILVER_MAPLE_LEAVES = registerLeaves("silver_maple", BWGParticles.SILVER_MAPLE_LEAVES, MapColor.COLOR_LIGHT_GRAY);
-    public static final Supplier<LeavesBlock> SPIRIT_LEAVES = registerNonSetBlockItem("spirit_leaves", properties -> new UntintedParticleLeavesBlock(0.02F, BWGParticles.SPIRIT_LEAVES.get(), properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES).mapColor(MapColor.COLOR_LIGHT_GRAY));
-    public static final Supplier<LeavesBlock> FLOWERING_SPIRIT_LEAVES = registerNonSetBlockItem("flowering_spirit_leaves", properties -> new UntintedParticleLeavesBlock(0.02F, BWGParticles.SPIRIT_LEAVES.get(), properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES).lightLevel(light -> 6).mapColor(MapColor.COLOR_LIGHT_GRAY));
-    public static final Supplier<LeavesBlock> SKYRIS_LEAVES_GREEN_APPLE = registerLeaves("green_apple_skyris", BWGBlocks.GREEN_APPLE_FRUIT_BLOCK, MapColor.COLOR_PINK, 0.04F, 10447203);
-    public static final Supplier<LeavesBlock> FLOWERING_SKYRIS_LEAVES = registerLeaves("flowering_skyris", MapColor.COLOR_PINK, BWGWood.SKYRIS_LEAVES_GREEN_APPLE, 0.02F, 10447203);
-    public static final Supplier<LeavesBlock> FLOWERING_IRONWOOD_LEAVES = registerLeaves("flowering_ironwood", BWGParticles.IRONWOOD_LEAVES, MapColor.COLOR_LIGHT_GREEN);
-    public static final Supplier<LeavesBlock> WHITE_SAKURA_LEAVES = registerSakuraLeaves("white_sakura", BWGParticles.WHITE_SAKURA_LEAVES, MapColor.COLOR_LIGHT_GRAY);
-    public static final Supplier<LeavesBlock> YELLOW_SAKURA_LEAVES = registerSakuraLeaves("yellow_sakura", BWGParticles.YELLOW_SAKURA_LEAVES, MapColor.COLOR_YELLOW);
-    public static final Supplier<LeavesBlock> YELLOW_BIRCH_LEAVES = registerLeaves("yellow_birch", MapColor.COLOR_YELLOW, 10387748);
-    public static final Supplier<LeavesBlock> YELLOW_SPRUCE_LEAVES = registerLeaves("yellow_spruce", MapColor.COLOR_YELLOW, 10387748);
-    public static final Supplier<LeavesBlock> FIRECRACKER_LEAVES = registerNonSetBlockItem("firecracker_leaves", BWGFireCrackerLeaves::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(MapColor.COLOR_GREEN));
+    public static final Supplier<LeavesBlock> ARAUCARIA_LEAVES = registerLeaves("araucaria", 3886099);
+    public static final Supplier<LeavesBlock> RIPE_BAOBAB_LEAVES = registerFruitLeaves("ripe_baobab", BWGBlocks.BAOBAB_FRUIT_BLOCK, 0.04F, 3886099);
+    public static final Supplier<LeavesBlock> FLOWERING_BAOBAB_LEAVES = registerLeaves("flowering_baobab", BWGWood.RIPE_BAOBAB_LEAVES, 0.02F, 3886099);
+    public static final Supplier<LeavesBlock> BLUE_SPRUCE_LEAVES = registerLeaves("blue_spruce", 4680619);
+    public static final Supplier<LeavesBlock> BLOOMING_WITCH_HAZEL_LEAVES = registerGlowingLeaves("blooming_witch_hazel", 11411764);
+    public static final Supplier<LeavesBlock> BROWN_BIRCH_LEAVES = registerLeaves("brown_birch", 5456169);
+    public static final Supplier<LeavesBlock> BROWN_OAK_LEAVES = registerLeaves("brown_oak", 5456169);
+    public static final Supplier<LeavesBlock> BROWN_ZELKOVA_LEAVES = registerLeaves("brown_zelkova", 5456169);
+    public static final Supplier<LeavesBlock> RIPE_ORCHARD_LEAVES = registerFruitLeaves("ripe_orchard", BWGBlocks.APPLE_FRUIT_BLOCK, 0.04F, 3429673);
+    public static final Supplier<LeavesBlock> FLOWERING_ORCHARD_LEAVES = registerLeaves("flowering_orchard", BWGWood.RIPE_ORCHARD_LEAVES, 0.02F, 3429673);
+    public static final Supplier<LeavesBlock> FLOWERING_PALO_VERDE_LEAVES = registerLeaves("flowering_palo_verde", () -> ParticleTypes.SPORE_BLOSSOM_AIR);
+    public static final Supplier<LeavesBlock> HOLLY_BERRY_LEAVES = registerLeaves("holly_berry", 1919523);
+    public static final Supplier<LeavesBlock> INDIGO_JACARANDA_LEAVES = registerLeaves("indigo_jacaranda", 4338544);
+    public static final Supplier<LeavesBlock> FLOWERING_JACARANDA_LEAVES = registerLeaves("flowering_jacaranda", 5321584);
+    public static final Supplier<LeavesBlock> FLOWERING_INDIGO_JACARANDA_LEAVES = registerLeaves("flowering_indigo_jacaranda", 4338544);
+    public static final Supplier<LeavesBlock> YUCCA_LEAVES = registerLeaves("yucca");
+    public static final Supplier<LeavesBlock> RIPE_YUCCA_LEAVES = registerTintedFruitLeaves("ripe_yucca", BWGBlocks.YUCCA_FRUIT_BLOCK, 0.04F);
+    public static final Supplier<LeavesBlock> FLOWERING_YUCCA_LEAVES = registerLeaves("flowering_yucca", BWGWood.RIPE_YUCCA_LEAVES, 0.02F);
+    public static final Supplier<LeavesBlock> ORANGE_BIRCH_LEAVES = registerLeaves("orange_birch", 10116896);
+    public static final Supplier<LeavesBlock> ORANGE_OAK_LEAVES = registerLeaves("orange_oak", 10116896);
+    public static final Supplier<LeavesBlock> ORANGE_SPRUCE_LEAVES = registerLeaves("orange_spruce", 10116896);
+    public static final Supplier<LeavesBlock> ORCHARD_LEAVES = registerLeaves("orchard", 3429673);
+    public static final Supplier<LeavesBlock> RED_BIRCH_LEAVES = registerLeaves("red_birch", 6363937);
+    public static final Supplier<LeavesBlock> RED_MAPLE_LEAVES = registerLeaves("red_maple", BWGParticles.RED_MAPLE_LEAVES);
+    public static final Supplier<LeavesBlock> RED_OAK_LEAVES = registerLeaves("red_oak", 6363937);
+    public static final Supplier<LeavesBlock> RED_SPRUCE_LEAVES = registerLeaves("red_spruce", 6363937);
+    public static final Supplier<LeavesBlock> SILVER_MAPLE_LEAVES = registerLeaves("silver_maple", BWGParticles.SILVER_MAPLE_LEAVES);
+    public static final Supplier<LeavesBlock> SPIRIT_LEAVES = registerNonSetBlockItem("spirit_leaves", properties -> new UntintedParticleLeavesBlock(0.02F, BWGParticles.SPIRIT_LEAVES.get(), properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES));
+    public static final Supplier<LeavesBlock> FLOWERING_SPIRIT_LEAVES = registerNonSetBlockItem("flowering_spirit_leaves", properties -> new UntintedParticleLeavesBlock(0.02F, BWGParticles.SPIRIT_LEAVES.get(), properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES).lightLevel(light -> 6));
+    public static final Supplier<LeavesBlock> SKYRIS_LEAVES_GREEN_APPLE = registerFruitLeaves("green_apple_skyris", BWGBlocks.GREEN_APPLE_FRUIT_BLOCK, 0.04F, 10447203);
+    public static final Supplier<LeavesBlock> FLOWERING_SKYRIS_LEAVES = registerLeaves("flowering_skyris", BWGWood.SKYRIS_LEAVES_GREEN_APPLE, 0.02F, 10447203);
+    public static final Supplier<LeavesBlock> FLOWERING_IRONWOOD_LEAVES = registerLeaves("flowering_ironwood", BWGParticles.IRONWOOD_LEAVES);
+    public static final Supplier<LeavesBlock> WHITE_SAKURA_LEAVES = registerSakuraLeaves("white_sakura", BWGParticles.WHITE_SAKURA_LEAVES);
+    public static final Supplier<LeavesBlock> YELLOW_SAKURA_LEAVES = registerSakuraLeaves("yellow_sakura", BWGParticles.YELLOW_SAKURA_LEAVES);
+    public static final Supplier<LeavesBlock> YELLOW_BIRCH_LEAVES = registerLeaves("yellow_birch", 10387748);
+    public static final Supplier<LeavesBlock> YELLOW_SPRUCE_LEAVES = registerLeaves("yellow_spruce", 10387748);
+    public static final Supplier<LeavesBlock> FIRECRACKER_LEAVES = registerNonSetBlockItem("firecracker_leaves", BWGFireCrackerLeaves::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES));
 
-    private static Supplier<LeavesBlock> registerGlowingLeaves(String key, MapColor mapColor, int tint) {
-	    return registerNonSetBlockItem(key + "_leaves", properties -> new UntintedParticleLeavesBlock(0.01F, ColorParticleOption.create(ParticleTypes.TINTED_LEAVES, tint), properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor).lightLevel(state -> 8));
+    private static Supplier<LeavesBlock> registerGlowingLeaves(String key, int tint) {
+	    return registerNonSetBlockItem(key + "_leaves", properties -> new UntintedParticleLeavesBlock(0.01F, ColorParticleOption.create(ParticleTypes.TINTED_LEAVES, tint), properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).lightLevel(state -> 8));
     }
 
-    private static Supplier<LeavesBlock> registerLeaves(String key, MapColor mapColor, int tint) {
-	    return registerNonSetBlockItem(key + "_leaves", properties -> new UntintedParticleLeavesBlock(0.01F, ColorParticleOption.create(ParticleTypes.TINTED_LEAVES, tint), properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor));
+    private static Supplier<LeavesBlock> registerLeaves(String key, int tint) {
+	    return registerNonSetBlockItem(key + "_leaves", properties -> new UntintedParticleLeavesBlock(0.01F, ColorParticleOption.create(ParticleTypes.TINTED_LEAVES, tint), properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES));
     }
 
-	private static Supplier<LeavesBlock> registerLeaves(String key, MapColor mapColor) {
-		return registerNonSetBlockItem(key + "_leaves", properties -> new TintedParticleLeavesBlock(0.01F, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor));
+	private static Supplier<LeavesBlock> registerLeaves(String key) {
+		return registerNonSetBlockItem(key + "_leaves", properties -> new TintedParticleLeavesBlock(0.01F, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES));
 	}
 
-    private static Supplier<LeavesBlock> registerLeaves(String key, Supplier<SimpleParticleType> particleType, MapColor mapColor) {
-        return registerNonSetBlockItem(key + "_leaves", properties -> new UntintedParticleLeavesBlock(0.1F, particleType.get(), properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor));
+    private static Supplier<LeavesBlock> registerLeaves(String key, Supplier<SimpleParticleType> particleType) {
+        return registerNonSetBlockItem(key + "_leaves", properties -> new UntintedParticleLeavesBlock(0.1F, particleType.get(), properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES));
     }
 
-    private static Supplier<LeavesBlock> registerSakuraLeaves(String key, Supplier<SimpleParticleType> particleType, MapColor mapColor) {
-        return registerNonSetBlockItem(key + "_leaves", properties -> new UntintedParticleLeavesBlock(0.1F, particleType.get(), properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES).mapColor(mapColor));
+    private static Supplier<LeavesBlock> registerSakuraLeaves(String key, Supplier<SimpleParticleType> particleType) {
+        return registerNonSetBlockItem(key + "_leaves", properties -> new UntintedParticleLeavesBlock(0.1F, particleType.get(), properties), BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES));
     }
 
-    private static Supplier<LeavesBlock> registerLeaves(String key, MapColor mapColor, Supplier<LeavesBlock> ripeLeaves, float chance, int tint) {
-	    return registerNonSetBlockItem(key + "_leaves", properties -> new BWGChangingLeavesBlock(properties, ColorParticleOption.create(ParticleTypes.TINTED_LEAVES, tint), ripeLeaves, chance), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor));
+    private static Supplier<LeavesBlock> registerLeaves(String key, Supplier<LeavesBlock> ripeLeaves, float chance, int tint) {
+	    return registerNonSetBlockItem(key + "_leaves", properties -> new BWGChangingLeavesBlock(properties, ColorParticleOption.create(ParticleTypes.TINTED_LEAVES, tint), ripeLeaves, chance), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES));
     }
 
-	private static Supplier<LeavesBlock> registerLeaves(String key, MapColor mapColor, Supplier<LeavesBlock> ripeLeaves, float chance) {
-		return registerNonSetBlockItem(key + "_leaves", properties -> new BWGTintedChangingLeavesBlock(properties, ripeLeaves, chance), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor));
+	private static Supplier<LeavesBlock> registerLeaves(String key, Supplier<LeavesBlock> ripeLeaves, float chance) {
+		return registerNonSetBlockItem(key + "_leaves", properties -> new BWGTintedChangingLeavesBlock(properties, ripeLeaves, chance), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES));
 	}
 
-    private static Supplier<LeavesBlock> registerLeaves(String key, Supplier<BWGFruitBlock> bwgFruitBlockSupplier, MapColor mapColor, float chance, int tint) {
-	    return registerNonSetBlockItem(key + "_leaves", properties -> new BWGFruitLeavesBlock(ColorParticleOption.create(ParticleTypes.TINTED_LEAVES, tint), properties, bwgFruitBlockSupplier, chance), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor));
+    private static Supplier<LeavesBlock> registerFruitLeaves(String key, Supplier<BWGFruitBlock> bwgFruitBlockSupplier, float chance, int tint) {
+	    return registerNonSetBlockItem(key + "_leaves", properties -> new BWGFruitLeavesBlock(ColorParticleOption.create(ParticleTypes.TINTED_LEAVES, tint), properties, bwgFruitBlockSupplier, chance), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES));
     }
 
-	private static Supplier<LeavesBlock> registerLeaves(String key, Supplier<BWGFruitBlock> bwgFruitBlockSupplier, MapColor mapColor, float chance) {
-		return registerNonSetBlockItem(key + "_leaves", properties -> new BWGTintedFruitLeavesBlock(properties, bwgFruitBlockSupplier, chance), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor));
+	private static Supplier<LeavesBlock> registerTintedFruitLeaves(String key, Supplier<BWGFruitBlock> bwgFruitBlockSupplier, float chance) {
+		return registerNonSetBlockItem(key + "_leaves", properties -> new BWGTintedFruitLeavesBlock(properties, bwgFruitBlockSupplier, chance), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES));
 	}
 
     protected static PottedBlock createNonSetSapling(String key, Supplier<TreeGrower> grower, TagKey<Block> ground) {

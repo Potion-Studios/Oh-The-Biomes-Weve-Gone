@@ -11,6 +11,7 @@
 - Add Iron Golems to Red Rock, Salem, Swamp Villages
 - Add More Processing for Red Rock Town Center 2 and 3 and all Swamp Town Centers
 - Remove some unneeded vegetation features from certain biomes
+- Fix Incompatibilities with Terralith and Wilder Wilds
 
 # 4.0.2
 - Fix missing Chicken Pool and Missing Pool warnings in Pumpkin Patch Village

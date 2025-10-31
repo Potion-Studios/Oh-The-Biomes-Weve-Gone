@@ -117,11 +117,11 @@ public class BWGWoodSet {
         this.craftingTable = BWGWood.registerBlockItem(name + "_crafting_table", BWGCraftingTable::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CRAFTING_TABLE).mapColor(mapColor));
         if (leaves)
 			if (leafTint == 0) {
-				if (glowLeaves) this.leaves = BWGWood.registerBlockItem(name + "_leaves", properties -> new TintedParticleLeavesBlock(0.01F, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).lightLevel(level -> 8).mapColor(mapColor));
-				else this.leaves = BWGWood.registerBlockItem(name + "_leaves", properties -> new TintedParticleLeavesBlock(0.01F, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor));
+				if (glowLeaves) this.leaves = BWGWood.registerBlockItem(name + "_leaves", properties -> new TintedParticleLeavesBlock(0.01F, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).lightLevel(level -> 8));
+				else this.leaves = BWGWood.registerBlockItem(name + "_leaves", properties -> new TintedParticleLeavesBlock(0.01F, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES));
 			} else {
-				if (glowLeaves) this.leaves = BWGWood.registerBlockItem(name + "_leaves", properties -> new UntintedParticleLeavesBlock(0.01F, ColorParticleOption.create(ParticleTypes.TINTED_LEAVES, leafTint),properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).lightLevel(level -> 8).mapColor(mapColor));
-				else this.leaves = BWGWood.registerBlockItem(name + "_leaves", properties -> new UntintedParticleLeavesBlock(0.01F, ColorParticleOption.create(ParticleTypes.TINTED_LEAVES, leafTint), properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(mapColor));
+				if (glowLeaves) this.leaves = BWGWood.registerBlockItem(name + "_leaves", properties -> new UntintedParticleLeavesBlock(0.01F, ColorParticleOption.create(ParticleTypes.TINTED_LEAVES, leafTint),properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).lightLevel(level -> 8));
+				else this.leaves = BWGWood.registerBlockItem(name + "_leaves", properties -> new UntintedParticleLeavesBlock(0.01F, ColorParticleOption.create(ParticleTypes.TINTED_LEAVES, leafTint), properties), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES));
 			}
         if (saplingGrower != null) this.sapling = BWGWood.createSapling(name, saplingGrower, saplingPlantAbleOn);
         this.sign = BWGWood.register(name + "_sign", properties ->  new BWGStandingSignBlock(properties, woodType), BlockBehaviour.Properties.of().mapColor(mapColor).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).ignitedByLava());
