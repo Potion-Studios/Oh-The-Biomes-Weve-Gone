@@ -136,7 +136,7 @@ public class BWGWood {
     public static final Supplier<LeavesBlock> YELLOW_SAKURA_LEAVES = registerSakuraLeaves("yellow_sakura", BWGParticles.YELLOW_SAKURA_LEAVES);
     public static final Supplier<LeavesBlock> YELLOW_BIRCH_LEAVES = registerFloweringLeaves("yellow_birch");
     public static final Supplier<LeavesBlock> YELLOW_SPRUCE_LEAVES = registerFloweringLeaves("yellow_spruce");
-    public static final Supplier<LeavesBlock> FIRECRACKER_LEAVES = registerNonSetBlockItem("firecracker_leaves", () -> new BWGFireCrackerLeaves(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES).mapColor(MapColor.COLOR_GREEN)));
+    public static final Supplier<LeavesBlock> FIRECRACKER_LEAVES = registerNonSetBlockItem("firecracker_leaves", () -> new BWGFireCrackerLeaves(leaves()));
 
     private static Supplier<LeavesBlock> registerGlowingLeaves(String key) {
         return registerNonSetBlockItem(key + "_leaves", () -> new LeavesBlock(leaves().lightLevel(state -> 8)));
