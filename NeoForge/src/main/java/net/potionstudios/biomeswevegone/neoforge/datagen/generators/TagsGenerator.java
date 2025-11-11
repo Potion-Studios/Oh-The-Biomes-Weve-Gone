@@ -254,7 +254,7 @@ public class TagsGenerator {
             SoundType type = object.defaultBlockState().getSoundType();
             if (type == SoundType.STONE || type == SoundType.DEEPSLATE || type == SoundType.MUD_BRICKS || type == SoundType.PACKED_MUD)
                 tag(BlockTags.MINEABLE_WITH_PICKAXE).add(object);
-            else if (type == SoundType.WOOD || type == SoundType.SWEET_BERRY_BUSH)
+            else if (type == SoundType.WOOD || type == SoundType.SWEET_BERRY_BUSH || type == SoundType.STEM)
                 tag(BlockTags.MINEABLE_WITH_AXE).add(object);
             else if (type == SoundType.GRAVEL || type == SoundType.SAND || type == SoundType.SNOW || type == SoundType.GRASS || type == SoundType.MUD)
                 if (object instanceof LeavesBlock) tag(BlockTags.MINEABLE_WITH_HOE).add(object);
