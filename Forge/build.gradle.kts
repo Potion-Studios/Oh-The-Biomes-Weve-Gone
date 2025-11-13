@@ -68,6 +68,9 @@ dependencies {
 
     modApi("com.github.glitchfiend:SereneSeasons-forge:$minecraftVersion-9.1.0.2")
     modLocalRuntime("com.github.glitchfiend:GlitchCore-forge:$minecraftVersion-0.0.1.1")
+
+    compileOnly("io.github.llamalad7:mixinextras-common:0.5.0")?.let { annotationProcessor(it) }
+    include("io.github.llamalad7:mixinextras-forge:0.5.0")?.let { implementation(it) }
 }
 
 tasks {
