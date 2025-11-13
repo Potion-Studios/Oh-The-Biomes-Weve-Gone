@@ -1,3 +1,5 @@
+# 4.1.1
+
 # 4.1.0 - Breaking Changes
 - Please read -> The major change in this update is the renaming of the registry name of skyrise_vale to skyris_vale to fix a typo.
   This change is "breaking", all skyrise_vale will show up as plains if you look in the F3 menu, however the biome will still look correct, the only difference is the name shown in F3 and /locate will not find it.
