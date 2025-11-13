@@ -1,13 +1,12 @@
 package net.potionstudios.biomeswevegone.client.renderer.entity.pumpkinwarden;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.state.EntityRenderState;
+import net.minecraft.client.renderer.state.CameraRenderState;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.constant.dataticket.DataTicket;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
@@ -25,13 +24,13 @@ public class PumpkinWardenRenderer<R extends EntityRenderState & GeoRenderState>
 
     public PumpkinWardenRenderer(EntityRendererProvider.Context context) {
         super(context, new PumpkinWardenModel<>());
-        addRenderLayer(new ItemInHandGeoLayer<>(this));
+        getRenderLayers().add(new ItemInHandGeoLayer<>(this));
     }
 
     @Override
-    public void preRender(R renderState, PoseStack poseStack, BakedGeoModel model, @Nullable MultiBufferSource bufferSource, @Nullable VertexConsumer buffer, boolean isReRender, int packedLight, int packedOverlay, int renderColor) {
+    public void preRender(R renderState, PoseStack poseStack, BakedGeoModel model, SubmitNodeCollector renderTasks, CameraRenderState cameraState, int packedLight, int packedOverlay, int renderColor) {
         poseStack.scale(0.5f, 0.5f, 0.5f);
-        super.preRender(renderState, poseStack, model, bufferSource, buffer, isReRender, packedLight, packedOverlay, renderColor);
+        super.preRender(renderState, poseStack, model, renderTasks, cameraState, packedLight, packedOverlay, renderColor);
     }
 
     @Override
@@ -40,7 +39,7 @@ public class PumpkinWardenRenderer<R extends EntityRenderState & GeoRenderState>
     }
 
     @Override
-    public void addRenderData(PumpkinWarden animatable, Void relatedObject, R renderState) {
+    public void addRenderData(PumpkinWarden animatable, Void relatedObject, R renderState, float partialTick) {
         renderState.addGeckolibData(HIDING, animatable.isHiding());
         renderState.addGeckolibData(VARIANT, animatable.getVariant().getSerializedName());
     }

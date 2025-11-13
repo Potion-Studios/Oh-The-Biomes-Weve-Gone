@@ -36,8 +36,8 @@ public class BiomesWeveGoneForge {
         FMLCommonSetupEvent.getBus(modBusGroup).addListener(this::onInitialize);
         FMLLoadCompleteEvent.getBus(modBusGroup).addListener(this::onPostInitialize);
         ServerAboutToStartEvent.BUS.addListener((ServerAboutToStartEvent event) -> BiomesWeveGone.serverStart(event.getServer()));
-        EntityAttributeCreationEvent.getBus(modBusGroup).addListener((EntityAttributeCreationEvent event) -> BWGEntityType.registerEntityAttributes(event::put));
-        SpawnPlacementRegisterEvent.getBus(modBusGroup).addListener((SpawnPlacementRegisterEvent event) -> BWGEntityType.registerSpawnPlacements((consumer) -> event.register(consumer.entityType(), consumer.spawnPlacementType(), consumer.heightmapType(), consumer.predicate(), SpawnPlacementRegisterEvent.Operation.OR)));
+        EntityAttributeCreationEvent.BUS.addListener((EntityAttributeCreationEvent event) -> BWGEntityType.registerEntityAttributes(event::put));
+        SpawnPlacementRegisterEvent.BUS.addListener((SpawnPlacementRegisterEvent event) -> BWGEntityType.registerSpawnPlacements((consumer) -> event.register(consumer.entityType(), consumer.spawnPlacementType(), consumer.heightmapType(), consumer.predicate(), SpawnPlacementRegisterEvent.Operation.OR)));
         RegisterCommandsEvent.BUS.addListener((RegisterCommandsEvent event) -> BWGCommands.register(event.getDispatcher()::register));
         EntityJoinLevelEvent.BUS.addListener((EntityJoinLevelEvent event) -> BiomesWeveGone.onEntityLoad(event.getEntity()));
         VanillaCompatForge.registerVanillaCompatEvents(modBusGroup);

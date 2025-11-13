@@ -10,10 +10,10 @@ import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.color.item.ItemTintSources;
 import net.minecraft.client.renderer.block.model.*;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.resources.model.BlockModelRotation;
 import net.minecraft.resources.ResourceLocation;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
@@ -37,7 +37,7 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer, ModelLo
     public void onInitializeClient() {
         BiomesWeveGoneClient.onInitialize();
         BiomesWeveGoneClient.registerBlockRenderTypes(BlockRenderLayerMap::putBlock);
-        BiomesWeveGoneClient.registerEntityRenderers(EntityRendererRegistry::register);
+        BiomesWeveGoneClient.registerEntityRenderers(EntityRenderers::register);
         BiomesWeveGoneClient.registerBlockEntityRenderers(BlockEntityRenderers::register);
         BiomesWeveGoneClient.registerParticles((type, spriteProviderFactory) -> ParticleFactoryRegistry.getInstance().register(type, spriteProviderFactory::apply));
         BiomesWeveGoneClient.registerLayerDefinitions((a, b) -> EntityModelLayerRegistry.registerModelLayer(a, b::get));

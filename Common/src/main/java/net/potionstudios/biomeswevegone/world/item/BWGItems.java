@@ -8,6 +8,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.food.FoodProperties;
@@ -45,9 +46,9 @@ public class BWGItems {
 
     public static final Supplier<Item> BWG_LOGO = register("bwg_logo", Item::new, new Item.Properties());
 
-    public static final Supplier<SpawnEggItem> MAN_O_WAR_SPAWN_EGG = registerSimpleItem("man_o_war_spawn_egg", properties -> new SpawnEggItem(BWGEntityType.MAN_O_WAR.get(), properties), new Item.Properties());
-    public static final Supplier<SpawnEggItem> PUMPKIN_WARDEN_SPAWN_EGG = registerSimpleItem("pumpkin_warden_spawn_egg", properties -> new SpawnEggItem(BWGEntityType.PUMPKIN_WARDEN.get(), properties), new Item.Properties());
-    public static final Supplier<SpawnEggItem> ODDION_SPAWN_EGG = registerSimpleItem("oddion_spawn_egg", properties -> new SpawnEggItem(BWGEntityType.ODDION.get(), properties), new Item.Properties());
+    public static final Supplier<SpawnEggItem> MAN_O_WAR_SPAWN_EGG = registerSpawnEgg("man_o_war_spawn_egg", BWGEntityType.MAN_O_WAR);
+    public static final Supplier<SpawnEggItem> PUMPKIN_WARDEN_SPAWN_EGG = registerSpawnEgg("pumpkin_warden_spawn_egg", BWGEntityType.PUMPKIN_WARDEN);
+    public static final Supplier<SpawnEggItem> ODDION_SPAWN_EGG = registerSpawnEgg("oddion_spawn_egg", BWGEntityType.ODDION);
 
     public static final Supplier<MobBucketItem> MAN_O_WAR_BUCKET = registerMobBucket("man_o_war_bucket", BWGEntityType.MAN_O_WAR::get, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH);
 
@@ -134,6 +135,13 @@ public class BWGItems {
     public static <I extends Item> Supplier<I> register(String id, Function<Item.Properties, I> item, Item.Properties properties) {
         return PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.ITEM, id, () -> item.apply(properties.setId(key(id))));
     }
+
+	private static <E extends Entity> Supplier<SpawnEggItem> registerSpawnEgg(String id, Supplier<EntityType<E>> entity) {
+		Supplier<SpawnEggItem> egg = PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.ITEM, id, () -> new SpawnEggItem(new Item.Properties().setId(key(id)).spawnEgg(entity.get())));
+		SIMPLE_ITEMS.add(egg);
+		ITEMS.add(egg);
+		return egg;
+	}
 
     private static ResourceKey<Item> key(String id) {
         return BiomesWeveGone.key(Registries.ITEM, id);

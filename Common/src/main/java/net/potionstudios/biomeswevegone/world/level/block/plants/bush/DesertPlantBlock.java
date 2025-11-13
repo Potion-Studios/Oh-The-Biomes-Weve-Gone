@@ -20,14 +20,14 @@ public class DesertPlantBlock extends BWGPlacementBushBlock {
 		super(properties, shape, validGround);
 	}
 
-	@Override
-	protected void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity, @NotNull InsideBlockEffectApplier effectApplier) {
-		if (entity instanceof LivingEntity && entity.getType() != EntityType.CAT && entity.getType() != EntityType.RABBIT) {
-			entity.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
-			if (level instanceof ServerLevel serverLevel) {
-				if (Math.abs(entity.getX() - entity.xOld) >= (double) 0.003F || Math.abs(entity.getZ() - entity.zOld) >= (double) 0.003F)
-					entity.hurtServer(serverLevel, entity.damageSources().cactus(), 1.0F);
-			}
-		}
-	}
+    @Override
+    protected void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity, @NotNull InsideBlockEffectApplier applier, boolean intersects) {
+        if (entity instanceof LivingEntity && entity.getType() != EntityType.CAT && entity.getType() != EntityType.RABBIT) {
+            entity.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
+            if (level instanceof ServerLevel serverLevel) {
+                if (Math.abs(entity.getX() - entity.xOld) >= (double) 0.003F || Math.abs(entity.getZ() - entity.zOld) >= (double) 0.003F)
+                    entity.hurtServer(serverLevel, entity.damageSources().cactus(), 1.0F);
+            }
+        }
+    }
 }

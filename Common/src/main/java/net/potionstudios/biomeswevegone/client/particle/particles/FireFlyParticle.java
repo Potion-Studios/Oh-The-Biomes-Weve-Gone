@@ -2,23 +2,20 @@ package net.potionstudios.biomeswevegone.client.particle.particles;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.util.RandomSource;
 import org.jetbrains.annotations.NotNull;
 
-public class FireFlyParticle extends TextureSheetParticle {
-	FireFlyParticle(ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-		super(level, x, y, z, xSpeed, ySpeed, zSpeed);
-		this.gravity = 0.0F;
-		this.lifetime = this.random.nextInt(250, 500);
-		this.setSize(0.01F, 0.01F);
-	}
+public class FireFlyParticle extends SingleQuadParticle {
+    FireFlyParticle(ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, TextureAtlasSprite sprite) {
+        super(level, x, y, z, xSpeed, ySpeed, zSpeed, sprite);
+        this.gravity = 0.0F;
+        this.lifetime = this.random.nextInt(250, 500);
+        this.setSize(0.01F, 0.01F);
+    }
 
-	@Override
-	public @NotNull ParticleRenderType getRenderType() {
-		return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
-	}
-
-	@Override
+    @Override
 	public void tick() {
 		this.xo = this.x;
 		this.yo = this.y;
@@ -36,14 +33,19 @@ public class FireFlyParticle extends TextureSheetParticle {
 		}
 	}
 
-	public record Provider(SpriteSet sprite) implements ParticleProvider<SimpleParticleType> {
-		@Override
-		public Particle createParticle(@NotNull SimpleParticleType var1, @NotNull ClientLevel world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-			FireFlyParticle fireFlyParticle = new FireFlyParticle(world, x, y, z, xSpeed, ySpeed, zSpeed);
-			fireFlyParticle.lifetime = world.random.nextInt(250, 500);
-			fireFlyParticle.setColor(1.0f, 1.0f, 1.0f);
-			fireFlyParticle.setSprite(this.sprite.get(world.random.nextInt(16), 16));
-			return fireFlyParticle;
-		}
-	}
+    @Override
+    protected @NotNull Layer getLayer() {
+        return Layer.OPAQUE;
+    }
+
+    public record Provider(SpriteSet sprite) implements ParticleProvider<SimpleParticleType> {
+        @Override
+        public @NotNull Particle createParticle(@NotNull SimpleParticleType particleType, @NotNull ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, @NotNull RandomSource random) {
+            FireFlyParticle fireFlyParticle = new FireFlyParticle(level, x, y, z, xSpeed, ySpeed, zSpeed, this.sprite.get(random));
+            fireFlyParticle.lifetime = random.nextInt(250, 500);
+            fireFlyParticle.setColor(1.0f, 1.0f, 1.0f);
+            fireFlyParticle.setSprite(this.sprite.get(random.nextInt(16), 16));
+            return fireFlyParticle;
+        }
+    }
 }

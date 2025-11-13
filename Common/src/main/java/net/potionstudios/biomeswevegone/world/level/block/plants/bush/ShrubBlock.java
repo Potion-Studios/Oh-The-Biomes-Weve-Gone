@@ -39,14 +39,14 @@ public class ShrubBlock extends BushBlock implements BonemealableBlock {
 		return super.mayPlaceOn(state, level, pos) || state.is(BlockTags.SAND);
 	}
 
-	@Override
-	protected void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, Entity entity, @NotNull InsideBlockEffectApplier effectApplier) {
-		EntityType<?> entityType = entity.getType();
-		if (entity instanceof LivingEntity && entityType != EntityType.FOX && entityType != EntityType.BEE)
-			entity.makeStuckInBlock(state, new Vec3(0.8D, 0.75D, 0.8D));
-	}
+    @Override
+    protected void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity, @NotNull InsideBlockEffectApplier applier, boolean intersects) {
+        EntityType<?> entityType = entity.getType();
+        if (entity instanceof LivingEntity && entityType != EntityType.FOX && entityType != EntityType.BEE)
+            entity.makeStuckInBlock(state, new Vec3(0.8D, 0.75D, 0.8D));
+    }
 
-	@Override
+    @Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(STAGE);
 	}

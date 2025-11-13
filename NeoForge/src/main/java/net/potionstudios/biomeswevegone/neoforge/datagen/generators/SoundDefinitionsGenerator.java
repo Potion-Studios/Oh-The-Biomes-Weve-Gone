@@ -22,11 +22,11 @@ public class SoundDefinitionsGenerator extends SoundDefinitionsProvider {
 
     @Override
     public void registerSounds() {
-        add(BWGSounds.ODDION_AMBIENT, definition().with(sound(BiomesWeveGone.id("entity/oddion/oddion_ambient"))).subtitle(subtitle("entity.oddion_ambient")));
-        add(BWGSounds.ODDION_HURT, definition().with(sound(BiomesWeveGone.id("entity/oddion/oddion_hurt"))).subtitle(subtitle("entity.oddion_hurt")));
-        add(BWGSounds.ODDION_DEATH, definition().with(sound(BiomesWeveGone.id("entity/oddion/oddion_death"))).subtitle(subtitle("entity.oddion_death")));
-        add(BWGSounds.ODDION_HAPPY, definition().with(sound(BiomesWeveGone.id("entity/oddion/oddion_happy"))).subtitle(subtitle("entity.oddion_happy")));
-        add(BWGSounds.SOUL_FRUIT_WAIL, definition().with(sound(BiomesWeveGone.id("block/soul_fruit_wail"))).subtitle(subtitle("block.soul_fruit_wail")));
+        add(BWGSounds.ODDION_AMBIENT.get(), definition().with(sound(BiomesWeveGone.id("entity/oddion/oddion_ambient"))).subtitle(subtitle("entity.oddion_ambient")));
+        add(BWGSounds.ODDION_HURT.get(), definition().with(sound(BiomesWeveGone.id("entity/oddion/oddion_hurt"))).subtitle(subtitle("entity.oddion_hurt")));
+        add(BWGSounds.ODDION_DEATH.get(), definition().with(sound(BiomesWeveGone.id("entity/oddion/oddion_death"))).subtitle(subtitle("entity.oddion_death")));
+        add(BWGSounds.ODDION_HAPPY.get(), definition().with(sound(BiomesWeveGone.id("entity/oddion/oddion_happy"))).subtitle(subtitle("entity.oddion_happy")));
+        add(BWGSounds.SOUL_FRUIT_WAIL.get(), definition().with(sound(BiomesWeveGone.id("block/soul_fruit_wail"))).subtitle(subtitle("block.soul_fruit_wail")));
         add(BWGSounds.MUSIC_DISC_PIXIE_CLUB.get().value(), definition().with(sound(BiomesWeveGone.id("music/disc/pixie_club")).stream(true)));
         add(BWGSounds.MUSIC_DISC_BETTER_DAYS.get().value(), definition().with(sound(BiomesWeveGone.id("music/disc/better_days")).stream(true)));
         add(BWGSounds.MUSIC_BIOME_PALE_BOG.get().value(), definition().with(sound(BiomesWeveGone.id("music/overworld/pale_bog"))));

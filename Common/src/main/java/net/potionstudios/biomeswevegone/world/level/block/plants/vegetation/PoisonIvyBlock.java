@@ -21,7 +21,7 @@ public class PoisonIvyBlock extends VineBlock {
     }
 
     @Override
-    protected void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity, @NotNull InsideBlockEffectApplier effectApplier) {
+    protected void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity, @NotNull InsideBlockEffectApplier applier, boolean intersects) {
         if (level instanceof ServerLevel serverLevel)
             if (level.getDifficulty() != Difficulty.PEACEFUL)
                 if (entity instanceof LivingEntity livingentity)

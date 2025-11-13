@@ -2,19 +2,21 @@ package net.potionstudios.biomeswevegone.client.particle.particles;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * Falling Leaf Particle for Oh The Biomes We've Gone.
- * @see TextureSheetParticle
+ * @see SimpleParticleType
  * @see SimpleParticleType
  * @author Joseph T. McQuigg
  */
-public class FallingLeafParticle extends TextureSheetParticle {
-    FallingLeafParticle(ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-        super(level, x, y, z, xSpeed, ySpeed, zSpeed);
+public class FallingLeafParticle extends SingleQuadParticle {
+    FallingLeafParticle(ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, TextureAtlasSprite sprite) {
+        super(level, x, y, z, xSpeed, ySpeed, zSpeed, sprite);
         this.quadSize *= this.random.nextFloat() * 0.6F + 0.6F;
         this.lifetime = (int) (16.0D / (Math.random() * 0.8D + 0.2D));
         this.hasPhysics = true;
@@ -22,11 +24,6 @@ public class FallingLeafParticle extends TextureSheetParticle {
         this.gravity = 1F;
         this.yd = -Math.abs(this.yd);
         this.setSize(0.01F, 0.01F);
-    }
-
-    @Override
-    public @NotNull ParticleRenderType getRenderType() {
-        return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
     }
 
     @Override
@@ -43,13 +40,18 @@ public class FallingLeafParticle extends TextureSheetParticle {
         }
     }
 
+    @Override
+    protected @NotNull Layer getLayer() {
+        return Layer.OPAQUE;
+    }
+
     public record Provider(SpriteSet sprite) implements ParticleProvider<SimpleParticleType> {
         @Override
-        public @NotNull Particle createParticle(@NotNull SimpleParticleType var1, @NotNull ClientLevel world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-            FallingLeafParticle leaf = new FallingLeafParticle(world, x, y, z, xSpeed, ySpeed, zSpeed);
-            leaf.lifetime = Mth.randomBetweenInclusive(world.random, 500, 1000);
+        public @NotNull Particle createParticle(@NotNull SimpleParticleType particleType, @NotNull ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, @NotNull RandomSource random) {
+            FallingLeafParticle leaf = new FallingLeafParticle(level, x, y, z, xSpeed, ySpeed, zSpeed, sprite.get(random));
+            leaf.lifetime = Mth.randomBetweenInclusive(random, 500, 1000);
             leaf.setColor(1.0f, 1.0f, 1.0f);
-            leaf.setSprite(this.sprite.get(world.random.nextInt(16), 16));
+            leaf.setSprite(this.sprite.get(random.nextInt(16), 16));
             return leaf;
         }
     }

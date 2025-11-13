@@ -31,14 +31,14 @@ public class BiomesWeveGoneClientForge {
             BiomesWeveGoneClient.onInitialize();
             BiomesWeveGoneClient.registerBlockRenderTypes(ItemBlockRenderTypes::setRenderLayer);
         });
-        EntityRenderersEvent.RegisterRenderers.getBus(eventBus).addListener((EntityRenderersEvent.RegisterRenderers event) -> {
+        EntityRenderersEvent.RegisterRenderers.BUS.addListener((EntityRenderersEvent.RegisterRenderers event) -> {
             BiomesWeveGoneClient.registerEntityRenderers(event::registerEntityRenderer);
             BiomesWeveGoneClient.registerBlockEntityRenderers(event::registerBlockEntityRenderer);
         });
-        RegisterParticleProvidersEvent.getBus(eventBus).addListener((RegisterParticleProvidersEvent event) -> BiomesWeveGoneClient.registerParticles((type, spriteProviderFactory) -> event.registerSpriteSet(type, spriteProviderFactory::apply)));
-        EntityRenderersEvent.RegisterLayerDefinitions.getBus(eventBus).addListener((EntityRenderersEvent.RegisterLayerDefinitions event) -> BiomesWeveGoneClient.registerLayerDefinitions(event::registerLayerDefinition));
-        RegisterColorHandlersEvent.Block.getBus(eventBus).addListener((RegisterColorHandlersEvent.Block event) -> BiomesWeveGoneClient.registerBlockColors(event::register));
+        RegisterParticleProvidersEvent.BUS.addListener((RegisterParticleProvidersEvent event) -> BiomesWeveGoneClient.registerParticles((type, spriteProviderFactory) -> event.registerSpriteSet(type, spriteProviderFactory::apply)));
+        EntityRenderersEvent.RegisterLayerDefinitions.BUS.addListener((EntityRenderersEvent.RegisterLayerDefinitions event) -> BiomesWeveGoneClient.registerLayerDefinitions(event::registerLayerDefinition));
+        RegisterColorHandlersEvent.Block.BUS.addListener((RegisterColorHandlersEvent.Block event) -> BiomesWeveGoneClient.registerBlockColors(event::register));
         BiomesWeveGoneClient.registerItemTintSources(ItemTintSources.ID_MAPPER::put);
-        ModelEvent.RegisterModelStateDefinitions.getBus(eventBus).addListener((ModelEvent.RegisterModelStateDefinitions event) -> event.register(BiomesWeveGone.id("wreath"), WreathBlockState.STATE));
+        ModelEvent.RegisterModelStateDefinitions.BUS.addListener((ModelEvent.RegisterModelStateDefinitions event) -> event.register(BiomesWeveGone.id("wreath"), WreathBlockState.STATE));
     }
 }

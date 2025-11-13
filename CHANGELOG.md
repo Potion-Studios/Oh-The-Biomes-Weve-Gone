@@ -1,3 +1,6 @@
+# 4.2.0 - 1.21.10
+- Update to 1.21.10, Support for 1.21.8 has now ended
+
 # 4.1.1
 - Fix BWG Mushroom Blocks missing Mineable with Axe Tag
 - Update French (fr_fr) Translations (Credits: Brandcraf06)

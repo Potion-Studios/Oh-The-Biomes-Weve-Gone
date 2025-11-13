@@ -236,7 +236,7 @@ public class Oddion extends PathfinderMob implements GeoEntity {
     }
 
     private void petOddion() {
-        if (!level().isClientSide) {
+        if (!level().isClientSide()) {
             setPetTime(20);
             level().playSound(null, getX(), getY(), getZ(), BWGSounds.ODDION_HAPPY.get(), SoundSource.PLAYERS, 1, 1);
         }

@@ -5,7 +5,6 @@ import it.unimi.dsi.fastutil.longs.Long2LongMap;
 import it.unimi.dsi.fastutil.longs.Long2LongOpenHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.network.protocol.game.DebugPackets;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.behavior.AcquirePoi;
 import net.minecraft.world.entity.ai.behavior.BehaviorControl;
@@ -64,7 +63,7 @@ public class SetClosestPumpkinBurrowAsWalkTarget {
                                                 Optional<Holder<PoiType>> optional2 = poiManager.getType(blockPos);
                                                 if (optional2.isPresent()) {
                                                     memoryAccessor.set(new WalkTarget(blockPos.relative(serverLevel.getBlockState(blockPos).getValue(PumpkinBurrowBlock.FACING)), speedModifier, 0));
-                                                    DebugPackets.sendPoiTicketCountPacket(serverLevel, blockPos);
+                                                    serverLevel.debugSynchronizers().updatePoi(blockPos);
                                                 }
                                             } else if (mutableInt.getValue() < 5) {
                                                 long2LongMap.long2LongEntrySet().removeIf(entry -> entry.getLongValue() < mutableLong.getValue());

@@ -22,10 +22,10 @@ public class ParticleDescriptionGenerator extends ParticleDescriptionProvider {
 
 	@Override
 	protected void addDescriptions() {
-		sprite(BWGParticles.FIREFLY.get(), BiomesWeveGone.id("firefly"));
-		sprite(BWGParticles.BOREALIS_GLINT.get(), BiomesWeveGone.id("borealis_glint"));
-		sprite(BWGParticles.IRONWOOD_LEAVES.get(), BiomesWeveGone.id("ironwood_leaves"));
-		sprite(BWGParticles.SPIRIT.get(), BiomesWeveGone.id("spirit"));
+		spriteSet(BWGParticles.FIREFLY.get(), BiomesWeveGone.id("firefly"));
+		spriteSet(BWGParticles.BOREALIS_GLINT.get(), BiomesWeveGone.id("borealis_glint"));
+		spriteSet(BWGParticles.IRONWOOD_LEAVES.get(), BiomesWeveGone.id("ironwood_leaves"));
+		spriteSet(BWGParticles.SPIRIT.get(), BiomesWeveGone.id("spirit"));
 		spriteSet(BWGParticles.RED_MAPLE_LEAVES.get(), BiomesWeveGone.id("red_maple"), 4, false);
 		spriteSet(BWGParticles.SILVER_MAPLE_LEAVES.get(), BiomesWeveGone.id("silver_maple"), 4, false);
 		spriteSet(BWGParticles.YELLOW_SAKURA_LEAVES.get(), BiomesWeveGone.id("yellow_sakura"), 8, false);

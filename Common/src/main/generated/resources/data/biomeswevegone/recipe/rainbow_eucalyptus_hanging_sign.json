@@ -4,7 +4,7 @@
   "group": "hanging_sign",
   "key": {
     "#": "biomeswevegone:stripped_rainbow_eucalyptus_log",
-    "X": "minecraft:chain"
+    "X": "minecraft:iron_chain"
   },
   "pattern": [
     "X X",

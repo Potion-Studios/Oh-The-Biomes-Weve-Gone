@@ -26,7 +26,7 @@ public class OddionRenderer<R extends EntityRenderState & GeoRenderState> extend
     }
 
     @Override
-    public void addRenderData(Oddion animatable, Void relatedObject, R renderState) {
+    public void addRenderData(Oddion animatable, Void relatedObject, R renderState, float partialTick) {
         renderState.addGeckolibData(VARIANT, animatable.getVariant().getSerializedName());
     }
 }

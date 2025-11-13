@@ -51,7 +51,7 @@ public class BWGBerryBush extends SweetBerryBushBlock {
     }
 
     @Override
-    protected void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity, @NotNull InsideBlockEffectApplier effectApplier) {
-        if (hurtEntityInside) super.entityInside(state, level, pos, entity, effectApplier);
+    protected void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity, @NotNull InsideBlockEffectApplier applier, boolean intersects) {
+        if (hurtEntityInside) super.entityInside(state, level, pos, entity, applier, intersects);
     }
 }

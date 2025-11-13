@@ -3,7 +3,6 @@ package net.potionstudios.biomeswevegone.world.entity.ai.behavior;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.GlobalPos;
 import net.minecraft.core.Holder;
-import net.minecraft.network.protocol.game.DebugPackets;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.behavior.BehaviorControl;
@@ -29,7 +28,7 @@ public class ValidateNearbyPoi {
 						} else if (burrowIsOccupied(serverLevel2, blockPos, livingEntity)) {
 							memoryAccessor.erase();
 							serverLevel.getPoiManager().release(blockPos);
-							DebugPackets.sendPoiTicketCountPacket(serverLevel, blockPos);
+                            serverLevel.debugSynchronizers().updatePoi(blockPos);
 						}
 
 						return true;

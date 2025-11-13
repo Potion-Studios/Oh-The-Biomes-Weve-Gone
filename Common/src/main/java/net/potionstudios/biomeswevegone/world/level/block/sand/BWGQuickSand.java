@@ -37,40 +37,40 @@ public class BWGQuickSand extends ColoredFallingBlock {
 		return Shapes.empty();
 	}
 
-	@Override
-	protected void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity, @NotNull InsideBlockEffectApplier effectApplier) {
-		if (entity instanceof LivingEntity) {
-			entity.makeStuckInBlock(state, new Vec3(0.9F, 1.5, 0.9F));
-			if (level.isClientSide()) {
-				RandomSource randomSource = level.getRandom();
-				boolean bl = entity.xOld != entity.getX() || entity.zOld != entity.getZ();
-				if (bl && randomSource.nextBoolean()) {
-					level.addParticle(
-							new BlockParticleOption(ParticleTypes.FALLING_DUST, state),
-							entity.getX() + Mth.randomBetween(randomSource, -1.0F, 1.0F),
-							entity.getEyeY() + Mth.randomBetween(randomSource,0,  1.0F),
-							entity.getZ() + Mth.randomBetween(randomSource, -1.0F, 1.0F),
-							Mth.randomBetween(randomSource, -1.0F, 1.0F) * 0.083333336F,
-							0.05F,
-							Mth.randomBetween(randomSource, -1.0F, 1.0F) * 0.083333336F
-					);
-				}
-			} else {
-				ServerLevel serverLevel = (ServerLevel) level;
-				BlockPos headPos = new BlockPos(entity.getBlockX(), (int) entity.getEyeY(), entity.getBlockZ());
-				if (serverLevel.getBlockState(headPos).getBlock() instanceof BWGQuickSand)
-					entity.hurtServer(serverLevel, new DamageSource(serverLevel.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(BWGDamageTypes.IN_QUICKSAND)), 0.5F);
-			}
-		}
+    @Override
+    protected void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity, @NotNull InsideBlockEffectApplier applier, boolean intersects) {
+        if (entity instanceof LivingEntity) {
+            entity.makeStuckInBlock(state, new Vec3(0.9F, 1.5, 0.9F));
+            if (level.isClientSide()) {
+                RandomSource randomSource = level.getRandom();
+                boolean bl = entity.xOld != entity.getX() || entity.zOld != entity.getZ();
+                if (bl && randomSource.nextBoolean()) {
+                    level.addParticle(
+                            new BlockParticleOption(ParticleTypes.FALLING_DUST, state),
+                            entity.getX() + Mth.randomBetween(randomSource, -1.0F, 1.0F),
+                            entity.getEyeY() + Mth.randomBetween(randomSource,0,  1.0F),
+                            entity.getZ() + Mth.randomBetween(randomSource, -1.0F, 1.0F),
+                            Mth.randomBetween(randomSource, -1.0F, 1.0F) * 0.083333336F,
+                            0.05F,
+                            Mth.randomBetween(randomSource, -1.0F, 1.0F) * 0.083333336F
+                    );
+                }
+            } else {
+                ServerLevel serverLevel = (ServerLevel) level;
+                BlockPos headPos = new BlockPos(entity.getBlockX(), (int) entity.getEyeY(), entity.getBlockZ());
+                if (serverLevel.getBlockState(headPos).getBlock() instanceof BWGQuickSand)
+                    entity.hurtServer(serverLevel, new DamageSource(serverLevel.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(BWGDamageTypes.IN_QUICKSAND)), 0.5F);
+            }
+        }
 
-		if (level instanceof ServerLevel serverLevel) {
-			if (entity.isOnFire() && (serverLevel.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING) || entity instanceof Player) && entity.mayInteract(serverLevel, pos)) {
-				level.destroyBlock(pos, false);
-			}
+        if (level instanceof ServerLevel serverLevel) {
+            if (entity.isOnFire() && (serverLevel.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING) || entity instanceof Player) && entity.mayInteract(serverLevel, pos)) {
+                level.destroyBlock(pos, false);
+            }
 
-			entity.setSharedFlagOnFire(false);
-		}
-	}
+            entity.setSharedFlagOnFire(false);
+        }
+    }
 
 	@Override
 	public void fallOn(@NotNull Level level, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull Entity entity, double fallDistance) {

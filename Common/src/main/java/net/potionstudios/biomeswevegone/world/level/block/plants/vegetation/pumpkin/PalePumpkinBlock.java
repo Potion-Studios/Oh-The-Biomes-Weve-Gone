@@ -7,7 +7,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -33,7 +32,7 @@ public class PalePumpkinBlock extends PumpkinBlock {
     protected @NotNull InteractionResult useItemOn(ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
         if (!stack.is(BWGItemTags.SHEARS)) {
             return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
-        } else if (level.isClientSide) {
+        } else if (level.isClientSide()) {
             return InteractionResult.SUCCESS;
         } else {
             Direction direction = hitResult.getDirection();
@@ -49,7 +48,7 @@ public class PalePumpkinBlock extends PumpkinBlock {
             );
             itemEntity.setDeltaMovement(0.05 * (double)direction2.getStepX() + level.random.nextDouble() * 0.02, 0.05, 0.05 * (double)direction2.getStepZ() + level.random.nextDouble() * 0.02);
             level.addFreshEntity(itemEntity);
-            stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
+            stack.hurtAndBreak(1, player, hand.asEquipmentSlot());
             level.gameEvent(player, GameEvent.SHEAR, pos);
             player.awardStat(Stats.ITEM_USED.get(Items.SHEARS));
             return InteractionResult.SUCCESS;

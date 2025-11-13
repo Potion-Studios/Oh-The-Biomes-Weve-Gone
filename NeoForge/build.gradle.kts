@@ -56,7 +56,7 @@ dependencies {
     modLocalRuntime("mcp.mobius.waila:wthit:neo-${project.properties["WTHIT"]}")
     modLocalRuntime("lol.bai:badpackets:neo-${project.properties["badPackets"]}")
 
-    modApi("com.github.glitchfiend:SereneSeasons-neoforge:$minecraftVersion-21.8.0.0")
+    modApi("com.github.glitchfiend:SereneSeasons-neoforge:$minecraftVersion-21.9.0.1")
 
     //modLocalRuntime("com.github.Jab125.architectury-data-generation-fix:architectury-data-generation-fix-neoforge:21.0.3")
 }
