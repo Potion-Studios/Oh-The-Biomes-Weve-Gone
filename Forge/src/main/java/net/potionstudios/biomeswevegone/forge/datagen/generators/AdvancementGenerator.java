@@ -3,6 +3,7 @@ package net.potionstudios.biomeswevegone.forge.datagen.generators;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.advancements.packs.VanillaAdventureAdvancements;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -11,12 +12,15 @@ import net.minecraft.world.item.Items;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.tags.BWGItemTags;
+import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGStructures;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 
 public class AdvancementGenerator implements ForgeAdvancementProvider.AdvancementGenerator {
@@ -194,6 +198,17 @@ public class AdvancementGenerator implements ForgeAdvancementProvider.Advancemen
                         translateAble("husbandry.hot_diggity_not_dog.description"),
                         null, FrameType.TASK, true, true, false)
                 .save(consumer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/husbandry/hot_diggity_not_dog"), existingFileHelper);
+
+        Advancement.Builder.advancement()
+                .parent(husbandryRoot)
+                .rewards(new AdvancementRewards.Builder().addLootTable(BiomesWeveGone.id("blocks/pale_pumpkin")))
+                .addCriterion("forgotten_nostalgia", PlayerInteractTrigger.TriggerInstance.itemUsedOnEntity(ItemPredicate.Builder.item().of(BWGBlocks.ROSE.getItem()), EntityPredicate.wrap(EntityPredicate.Builder.entity().of(BWGEntityType.PUMPKIN_WARDEN.get()).build())))
+                .display(
+                        BWGBlocks.ROSE.getBlock().asItem(),
+                        translateAble("husbandry.forgotten_nostalgia.title"),
+                        translateAble("husbandry.forgotten_nostalgia.description"),
+                        null, FrameType.CHALLENGE, true, true, false)
+                .save(consumer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/husbandry/forgotten_nostalgia"), existingFileHelper);
     }
 
 

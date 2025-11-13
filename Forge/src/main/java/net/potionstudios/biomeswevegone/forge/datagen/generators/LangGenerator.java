@@ -81,6 +81,8 @@ public class LangGenerator extends LanguageProvider {
         add(advancement("husbandry.johnny_appleseed.description"), "Find All 3 Apples");
         add(advancement("husbandry.hot_diggity_not_dog.title"), "Hot Diggity Not Dog");
         add(advancement("husbandry.hot_diggity_not_dog.description"), "Cook a Cattail on a campfire, you might wanna back away...");
+        add(advancement("husbandry.forgotten_nostalgia.title"), "Forgotten Nostalgia");
+        add(advancement("husbandry.forgotten_nostalgia.description"), "Reminds them of a childhood they never got..");
 
         add("entity.minecraft.villager.biomeswevegone.forager", "Forager");
         add("entity.minecraft.villager.forager", "Forager");
@@ -95,7 +97,6 @@ public class LangGenerator extends LanguageProvider {
 
         add("biomeswevegone.commands.reload.success", "Successfully reloaded all configs");
         add("biomeswevegone.commands.reload.spawn.success", "Successfully reloaded Mob Spawn config");
-        add("biomeswevegone.commands.upgrade_villagers.success", "Successfully Updated Villager Types");
 
         add("tooltip.waila.hatch_chance", "Hatch Chance: %s");
     }
