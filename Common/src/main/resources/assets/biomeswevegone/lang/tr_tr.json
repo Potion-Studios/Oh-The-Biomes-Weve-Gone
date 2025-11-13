@@ -955,7 +955,6 @@
   "biomeswevegone.commands.reload.misc.success": "Successfully reloaded misc config",
   "biomeswevegone.commands.reload.spawn.success": "Successfully reloaded Mob Spawn config",
   "biomeswevegone.commands.reload.success": "Successfully reloaded all configs",
-  "biomeswevegone.commands.upgrade_villagers.success": "Successfully Updated Villager Types",
   "block.biomeswevegone.araucaria_sapling": "Araucaria Sapling",
   "block.biomeswevegone.attached_pale_pumpkin_stem": "Attached Pale Pumpkin Stem",
   "block.biomeswevegone.blue_glow_bottle": "Blue Glow Bottle",

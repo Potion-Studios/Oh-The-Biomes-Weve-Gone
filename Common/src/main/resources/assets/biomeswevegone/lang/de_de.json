@@ -91,7 +91,6 @@
   "biomeswevegone.commands.reload.misc.success": "Misc-Config wurde erfolgreich neu geladen",
   "biomeswevegone.commands.reload.spawn.success": "Kreaturspawn-Config wurde erfolgreich neu geladen",
   "biomeswevegone.commands.reload.success": "Alle Configs wurden erfolgreich neu geladen",
-  "biomeswevegone.commands.upgrade_villagers.success": "Dorfbewohnertypen erfolgreich aktualisiert",
   "block.biomeswevegone.allium_flower_bush": "Zierlauchblütenstrauch",
   "block.biomeswevegone.allium_petal_block": "Zierlauchblütenblattblock",
   "block.biomeswevegone.aloe_vera": "Aloe Vera",
