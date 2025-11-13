@@ -1,5 +1,6 @@
 # 2.5.1
 - Fix BWG Mushroom Blocks missing Mineable with Axe Tag
+- Update French (fr_fr) Translations (Credits: Brandcraf06)
 
 # 2.5.0 - Breaking Changes
 - Please read -> The major change in this update is the renaming of the registry name of skyrise_vale to skyris_vale to fix a typo.
