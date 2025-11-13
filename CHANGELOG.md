@@ -1,4 +1,5 @@
 # 4.1.1
+- Fix BWG Mushroom Blocks missing Mineable with Axe Tag
 
 # 4.1.0 - Breaking Changes
 - Please read -> The major change in this update is the renaming of the registry name of skyrise_vale to skyris_vale to fix a typo.
