@@ -1167,6 +1167,5 @@
   "biomeswevegone.commands.reload.misc.success": "重载设置成功",
   "biomeswevegone.commands.reload.spawn.success": "重载生物生成设置成功",
   "biomeswevegone.commands.reload.success": "重载所有设置成功",
-  "biomeswevegone.commands.upgrade_villagers.success": "更新村民类型成功",
   "filled_map.bog_trial": "沼泽试炼地图"
 }
