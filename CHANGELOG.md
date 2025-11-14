@@ -1,5 +1,7 @@
 # 4.2.0 - 1.21.10
 - Update to 1.21.10, Support for 1.21.8 has now ended
+- This was developed and tested using Geckolib 5.3-alpha-3 it is possible future gecko updates may cause issues
+- Visual Glitches with BWG mobs are expected due to GeckoLib being in alpha please do not report these as bugs
 
 # 4.1.1
 - Fix BWG Mushroom Blocks missing Mineable with Axe Tag
