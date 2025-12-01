@@ -48,7 +48,7 @@ public record BWGWorldGenConfig(Map<ResourceKey<Biome>, Boolean> enabledBiomes, 
             enabledBiomes.put(biomeResourceKey, true);
         }
 
-        enabledBiomes.replace(BWGBiomes.ERODED_BOREALIS, false);
+        enabledBiomes.replace(BWGBiomes.ERODED_BOREALIS, true);
         return enabledBiomes;
     }
 
