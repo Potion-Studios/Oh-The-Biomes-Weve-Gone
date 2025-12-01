@@ -585,6 +585,10 @@ public class RecipeGenerator extends RecipeProvider {
 
         oneToOneConversionRecipe(recipeOutput, Items.STICK, BWGBlocks.WITCH_HAZEL_BRANCH.get(), "sticks");
 
+        chiseledBuilder(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_FROSTED_AMBER_BRICKS_SET.getBase(), Ingredient.of(BWGBlocks.FROSTED_AMBER_BRICKS_SET.getSlab()))
+                .unlockedBy("has_tag", has(BWGItemTags.FROSTED_AMBER_BRICKS))
+                .save(recipeOutput);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.BLACK_ICE.get(), 8)
                 .define('#', Ingredient.of(Items.ICE, Items.BLUE_ICE))
                 .define('X', Tags.Items.DYES_BLACK)
