@@ -321,6 +321,9 @@ public class BWGBlocks {
     public static final Supplier<Block> PACKED_PALE_MUD = registerBasicBlockWithItem("packed_pale_mud", BlockBehaviour.Properties.ofFullCopy(Blocks.PACKED_MUD));
     public static final BWGBlockSet PALE_MUD_BRICKS_SET = new BWGBlockSet("pale_mud_bricks", BlockBehaviour.Properties.ofFullCopy(Blocks.MUD_BRICKS));
 
+    public static final BWGBlockSet FROSTED_AMBER_BRICKS_SET = new BWGBlockSet("frosted_amber_bricks", "frosted_amber_brick", BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).mapColor(MapColor.ICE).sound(SoundType.GLASS));
+    public static final BWGBlockSet CHISELED_FROSTED_AMBER_BRICKS_SET = new BWGBlockSet("chiseled_frosted_amber_bricks", "chiseled_frosted_amber_brick", BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_STONE_BRICKS).mapColor(MapColor.ICE).sound(SoundType.GLASS));
+
     public static final Supplier<Block> WATER_SILK = registerBlock("water_silk", () -> new WaterlilyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD).noCollission().mapColor(MapColor.COLOR_GREEN)));
 
     public static final Supplier<HayBlock> CATTAIL_THATCH = registerBlockItem("cattail_thatch", () -> new HayBlock(BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.5f)));

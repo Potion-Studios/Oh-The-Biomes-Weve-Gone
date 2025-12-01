@@ -31,6 +31,7 @@ public final class BWGBlockTags {
     public static final TagKey<Block> RED_ROCK_BRICKS = create("red_rock_bricks");
     public static final TagKey<Block> DACITE_BRICKS = create("dacite_bricks");
     public static final TagKey<Block> WHITE_DACITE_BRICKS = create("white_dacite_bricks");
+    public static final TagKey<Block> FROSTED_AMBER_BRICKS = create("frosted_amber_bricks");
 
     public static final TagKey<Block> GLOWCANE = create("glowcane");
     public static final TagKey<Block> GLOW_BOTTLE = create("glow_bottle");
