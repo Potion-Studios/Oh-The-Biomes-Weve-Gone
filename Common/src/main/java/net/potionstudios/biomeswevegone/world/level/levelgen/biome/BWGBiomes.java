@@ -62,7 +62,7 @@ public class BWGBiomes {
     public static final ResourceKey<Biome> MAPLE_TAIGA = createBiome("maple_taiga", BWGOverworldBiomes::mapleTaiga, BWGBiomeTags.TAIGA, BWGBiomeTags.CONIFEROUS, BiomeTags.HAS_VILLAGE_TAIGA, BiomeTags.HAS_PILLAGER_OUTPOST);
     public static final ResourceKey<Biome> MOJAVE_DESERT = createBiome("mojave_desert", BWGOverworldBiomes::mojaveDesert, BWGBiomeTags.DESERT, BWGBiomeTags.SANDY, BiomeTags.HAS_DESERT_PYRAMID, BiomeTags.HAS_VILLAGE_DESERT);
     public static final ResourceKey<Biome> ORCHARD = createBiome("orchard", BWGOverworldBiomes::orchard, BWGBiomeTags.FOREST, BWGBiomeTags.FLORAL, BWGBiomeTags.DENSE, BiomeTags.HAS_VILLAGE_PLAINS, BiomeTags.HAS_PILLAGER_OUTPOST);
-    public static final ResourceKey<Biome> OVERGROWTH_WOODLANDS = createBiome("overgrowth_woodlands", BWGOverworldBiomes::overgrowthWoodlands, BWGBiomeTags.FOREST, BWGBiomeTags.DENSE, BiomeTags.HAS_VILLAGE_PLAINS, BiomeTags.HAS_PILLAGER_OUTPOST);
+    public static final ResourceKey<Biome> OVERGROWTH_WOODLANDS = createBiome("overgrowth_woodlands", BWGOverworldBiomes::overgrowthWoodlands, BWGBiomeTags.FOREST, BWGBiomeTags.DENSE);
 
     public static final ResourceKey<Biome> PALE_BOG = createBiome("pale_bog", BWGOverworldBiomes::paleBog, BWGBiomeTags.SWAMP, BWGBiomeTags.StructureHasTags.HAS_BOG_TRIAL);
     public static final ResourceKey<Biome> PRAIRIE = createBiome("prairie", BWGOverworldBiomes::prairie, BWGBiomeTags.PLAINS, BWGBiomeTags.DENSE, BWGBiomeTags.StructureHasTags.HAS_PRAIRIE_HOUSE);
