@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "biomeswevegone:block/frosted_fir/planks",
+    "side": "biomeswevegone:block/frosted_fir/planks",
+    "top": "biomeswevegone:block/frosted_fir/planks"
+  }
+}

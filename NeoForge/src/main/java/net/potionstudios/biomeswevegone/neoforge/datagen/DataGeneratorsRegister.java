@@ -54,7 +54,6 @@ class DataGeneratorsRegister {
         generator.addProvider(event.includeServer(), datapackBuiltinEntriesProvider);
         lookupProvider = datapackBuiltinEntriesProvider.getRegistryProvider();
 
-        ModelGenerators.init(generator, event.includeClient(), output, existingFileHelper);
         generator.addProvider(event.includeClient(), new LangGenerator(output, "en_us"));
         generator.addProvider(event.includeServer(), new RecipeGenerator(output, lookupProvider));
         generator.addProvider(event.includeServer(), new LootGenerator(output, lookupProvider));
@@ -65,6 +64,7 @@ class DataGeneratorsRegister {
         generator.addProvider(event.includeClient(), new ParticleDescriptionGenerator(output, existingFileHelper));
         generator.addProvider(event.includeClient(), new SoundDefinitionsGenerator(output, existingFileHelper));
         generator.addProvider(event.includeServer(), new DatamapGenerator(output, lookupProvider));
+        ModelGenerators.init(generator, event.includeClient(), output, existingFileHelper);
     }
 
     private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
