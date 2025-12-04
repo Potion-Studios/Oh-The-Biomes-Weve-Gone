@@ -66,6 +66,12 @@
     "biomeswevegone:foragers_table": {
       "burn_time": 300
     },
+    "biomeswevegone:frosted_fir_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:frosted_fir_crafting_table": {
+      "burn_time": 300
+    },
     "biomeswevegone:green_enchanted_bookshelf": {
       "burn_time": 300
     },
