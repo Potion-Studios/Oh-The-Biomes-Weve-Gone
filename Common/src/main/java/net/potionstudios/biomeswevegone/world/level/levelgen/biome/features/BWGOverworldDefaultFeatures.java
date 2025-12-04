@@ -68,6 +68,10 @@ public class BWGOverworldDefaultFeatures {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.FAIRY_SLIPPER);
     }
 
+    public static void addAbundantFrostedFairySlipper(BiomeGenerationSettings.Builder gen) {
+        addVegetal(gen, BWGOverworldVegationPlacedFeatures.FROSTED_FAIRY_SLIPPER_ABUNDANT);
+    }
+
     public static void addHugeMushrooms(BiomeGenerationSettings.Builder gen) {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.HUGE_MUSHROOMS);
     }

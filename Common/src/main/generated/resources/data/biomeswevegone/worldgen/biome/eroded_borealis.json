@@ -9,6 +9,8 @@
   "downfall": 0.3,
   "effects": {
     "fog_color": 12638463,
+    "foliage_color": 11510521,
+    "grass_color": 10075903,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
@@ -32,9 +34,7 @@
     "water_fog_color": 329011
   },
   "features": [
-    [
-      "biomeswevegone:borealis_ice_sharpened_spike"
-    ],
+    [],
     [
       "minecraft:lake_lava_underground"
     ],
@@ -95,12 +95,15 @@
       "minecraft:patch_sugar_cane",
       "minecraft:patch_pumpkin",
       "minecraft:patch_berry_rare",
-      "biomeswevegone:blue_spruce_trees",
+      "biomeswevegone:frosted_fir_trees",
       "biomeswevegone:holly_trees",
+      "biomeswevegone:borealis_ice_feature",
+      "biomeswevegone:frosted_grass",
       "biomeswevegone:blue_berry_bush",
       "biomeswevegone:blue_berry_bush_lush",
       "biomeswevegone:winter_succulent",
       "biomeswevegone:winter_cyclamen",
+      "biomeswevegone:frosted_fairy_slipper_abundant",
       "biomeswevegone:snowdrops",
       "biomeswevegone:winter_scilla",
       "biomeswevegone:mushrooms"

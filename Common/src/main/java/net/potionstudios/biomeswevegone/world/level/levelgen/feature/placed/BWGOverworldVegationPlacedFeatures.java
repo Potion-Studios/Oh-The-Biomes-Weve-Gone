@@ -49,6 +49,9 @@ public class BWGOverworldVegationPlacedFeatures {
     public static final ResourceKey<PlacedFeature> PRAIRIE_GRASS = PlacedFeaturesUtil.createPlacedFeature("prairie_grass", BWGOverworldVegetationConfiguredFeatures.PRAIRIE_GRASS, () -> List.of(CountPlacement.of(25), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
     public static final ResourceKey<PlacedFeature> PRAIRIE_GRASS_BONEMEAL = PlacedFeaturesUtil.createPlacedFeature("prairie_grass_bonemeal", BWGOverworldVegetationConfiguredFeatures.SINGLE_PRAIRIE_GRASS, () -> List.of(new PlacementModifier[]{PlacementUtils.isEmpty()}));
 
+    public static final ResourceKey<PlacedFeature> FROSTED_GRASS = PlacedFeaturesUtil.createPlacedFeature("frosted_grass", BWGOverworldVegetationConfiguredFeatures.FROSTED_GRASS, () -> List.of(CountPlacement.of(25), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
+
+
     public static final ResourceKey<PlacedFeature> WINDSWEPT_DESERT_VEGETATION = createWorldSurfaceSquared("windswept_desert_vegetation", BWGOverworldVegetationConfiguredFeatures.WINDSWEPT_DESERT_VEGETATION, 8);
     public static final ResourceKey<PlacedFeature> MOJAVE_DESERT_VEGETATION = createWorldSurfaceSquared("mojave_desert_vegetation", BWGOverworldVegetationConfiguredFeatures.MOJAVE_DESERT_VEGETATION, 2);
     public static final ResourceKey<PlacedFeature> ATACAMA_OUTBACK_VEGETATION = createWorldSurfaceSquared("atacama_outback_vegetation", BWGOverworldVegetationConfiguredFeatures.ATACAMA_OUTBACK_VEGETATION, 6);
@@ -62,6 +65,8 @@ public class BWGOverworldVegationPlacedFeatures {
     public static final ResourceKey<PlacedFeature> FOXGLOVES =  createWorldSurfaceSquared("foxgloves", BWGOverworldVegetationConfiguredFeatures.FOXGLOVE, 1);
     public static final ResourceKey<PlacedFeature> CROCUS = createWorldSurfaceSquared("crocus", BWGBlocks.CROCUS.getFeature(), 1);
     public static final ResourceKey<PlacedFeature> FAIRY_SLIPPER = createWorldSurfaceSquared("fairy_slipper", BWGBlocks.FAIRY_SLIPPER.getFeature(), 1);
+    public static final ResourceKey<PlacedFeature> FROSTED_FAIRY_SLIPPER_ABUNDANT = createWorldSurfaceSquared("frosted_fairy_slipper_abundant", BWGBlocks.FROSTED_FAIRY_SLIPPER.getFeature(), 8);
+
     public static final ResourceKey<PlacedFeature> PINK_ALLIUMS = createWorldSurfaceSquared("pink_alliums", BWGBlocks.PINK_ALLIUM.getFeature(), 2);
     public static final ResourceKey<PlacedFeature> WHITE_ALLIUMS = createWorldSurfaceSquared("white_alliums", BWGBlocks.WHITE_ALLIUM.getFeature(), 2);
     public static final ResourceKey<PlacedFeature> LOLLIPOP_FLOWERS = createWorldSurfaceSquared("lollipop_flowers", BWGBlocks.LOLLIPOP_FLOWER.getFeature(), 1);

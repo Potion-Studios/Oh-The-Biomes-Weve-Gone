@@ -165,6 +165,21 @@ public class BWGOverworldVegetationConfiguredFeatures {
                 );
             }
     );
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SHORT_FROSTED_GRASS_PATCH = ConfiguredFeaturesUtil.createPatchConfiguredFeatureWithBlock("short_frosted_grass_patch", BWGBlocks.SHORT_FROSTED_GRASS, 30);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_GRASS_PATCH = ConfiguredFeaturesUtil.createPatchConfiguredFeatureWithBlock("frosted_grass_patch", BWGBlocks.FROSTED_GRASS, 30);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_FROSTED_GRASS_PATCH = ConfiguredFeaturesUtil.createPatchConfiguredFeatureWithBlock("tall_frosted_grass_patch", BWGBlocks.TALL_FROSTED_GRASS, 20);
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_GRASS = ConfiguredFeaturesUtil.createConfiguredFeature("frosted_grass",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(SHORT_FROSTED_GRASS_PATCH)), 0.25F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(FROSTED_GRASS_PATCH)), 0.70F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TALL_FROSTED_GRASS_PATCH)));
+            }
+    );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SINGLE_PRAIRIE_GRASS = ConfiguredFeaturesUtil.createConfiguredFeature("single_prairie_grass", Feature.SIMPLE_BLOCK, () -> new SimpleBlockConfiguration(BlockStateProvider.simple(BWGBlocks.PRAIRIE_GRASS.get().defaultBlockState())));
     public static final ResourceKey<ConfiguredFeature<?, ?>> PRAIRIE_GRASS_PATCH = ConfiguredFeaturesUtil.createPatchConfiguredFeatureWithBlock("prairie_grass_patch", BWGBlocks.PRAIRIE_GRASS, 100);
