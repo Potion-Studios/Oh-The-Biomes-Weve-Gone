@@ -716,6 +716,7 @@ class BWGOverworldBiomes {
 
         BWGOverworldDefaultFeatures.addSparseSpruceTrees(generationSettings);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.BLUE_SPRUCE_TREES);
+        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.FROSTED_GRASS);
         BWGOverworldDefaultFeatures.addCrocus(generationSettings);
         BWGOverworldDefaultFeatures.addIris(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
@@ -1328,7 +1329,7 @@ class BWGOverworldBiomes {
     protected static Biome erodedBorealis(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
 
-        addRawGeneration(generationSettings, BWGPlacedFeatures.BOREALIS_ICE_SHARPENED_SPIKE);
+//        addRawGeneration(generationSettings, BWGPlacedFeatures.BOREALIS_ICE_SHARPENED_SPIKE);
         BiomeDefaultFeatures.addFerns(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BiomeDefaultFeatures.addTaigaGrass(generationSettings);
@@ -1336,12 +1337,15 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
         BiomeDefaultFeatures.addRareBerryBushes(generationSettings);
 
-        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.BLUE_SPRUCE_TREES);
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.FROSTED_FIR_TREES);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.HOLLY_TREES);
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.BOREALIS_ICE_FEATURE);
+        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.FROSTED_GRASS);
         BWGOverworldDefaultFeatures.addBlueBerryBush(generationSettings);
         BWGOverworldDefaultFeatures.addLushBlueBerryBush(generationSettings);
         BWGOverworldDefaultFeatures.addWinterSucculent(generationSettings);
         BWGOverworldDefaultFeatures.addWinterCyclamen(generationSettings);
+        BWGOverworldDefaultFeatures.addAbundantFrostedFairySlipper(generationSettings);
         BWGOverworldDefaultFeatures.addSnowdrops(generationSettings);
         BWGOverworldDefaultFeatures.addWinterScilla(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
@@ -1356,7 +1360,7 @@ class BWGOverworldBiomes {
         addSpawn(spawnSettings, EntityType.POLAR_BEAR, 1, 1, 2);
 
         float temperature = -0.5F;
-        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.3F).specialEffects((new BiomeSpecialEffects.Builder()).backgroundMusic(Musics.createGameMusic(BWGSounds.MUSIC_BIOME_ERODED_BOREALIS.get())).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientParticle(new AmbientParticleSettings(BWGParticles.BOREALIS_GLINT.get(), 0.00200F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.3F).specialEffects((new BiomeSpecialEffects.Builder()).backgroundMusic(Musics.createGameMusic(BWGSounds.MUSIC_BIOME_ERODED_BOREALIS.get())).waterColor(4159204).waterFogColor(329011).grassColorOverride(10075903).foliageColorOverride(11510521).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientParticle(new AmbientParticleSettings(BWGParticles.BOREALIS_GLINT.get(), 0.00200F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     protected static Biome skyrisVale(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
