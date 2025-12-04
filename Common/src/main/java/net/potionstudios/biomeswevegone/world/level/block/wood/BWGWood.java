@@ -50,6 +50,7 @@ public class BWGWood {
     public static final BWGWoodSet CYPRESS = new BWGWoodSet("cypress", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.CYPRESS);
     public static final BWGWoodSet EBONY = new BWGWoodSet("ebony", MapColor.COLOR_BLACK, BWGTreeGrowers.EBONY);
     public static final BWGWoodSet FIR = new BWGWoodSet("fir", MapColor.TERRACOTTA_WHITE,BWGTreeGrowers.FIR);
+    public static final BWGWoodSet FROSTED_FIR = new BWGWoodSet("frosted_fir", MapColor.COLOR_PURPLE, null);
     public static final BWGWoodSet FLORUS = new BWGWoodSet(new BlockSetType("florus"), MapColor.COLOR_GREEN, BWGWoodSet.LogStem.STEM, null, false, false, null);
     public static final BWGWoodSet GREEN_ENCHANTED = new BWGWoodSet("green_enchanted", MapColor.COLOR_LIGHT_GREEN, BWGTreeGrowers.GREEN_ENCHANTED, true);
     public static final Supplier<ImbuedBlock> IMBUED_GREEN_ENCHANTED_WOOD = registerBlockItem("imbued_green_enchanted_wood", () -> new ImbuedBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN)));

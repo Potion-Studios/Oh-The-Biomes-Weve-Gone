@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "biomeswevegone:block/frosted_fir/planks",
+    "east": "biomeswevegone:block/frosted_fir/crafting_table_side",
+    "north": "biomeswevegone:block/frosted_fir/crafting_table_front",
+    "particle": "biomeswevegone:block/frosted_fir/crafting_table_front",
+    "south": "biomeswevegone:block/frosted_fir/crafting_table_side",
+    "up": "biomeswevegone:block/frosted_fir/crafting_table_top",
+    "west": "biomeswevegone:block/frosted_fir/crafting_table_front"
+  }
+}
