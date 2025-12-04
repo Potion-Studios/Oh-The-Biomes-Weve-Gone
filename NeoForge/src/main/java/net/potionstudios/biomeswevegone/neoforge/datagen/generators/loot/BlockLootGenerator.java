@@ -124,6 +124,7 @@ class BlockLootGenerator extends BlockLootSubProvider {
 
         add(BWGBlocks.TALL_PRAIRIE_GRASS.get(), createDoublePlantWithSeedDrops(BWGBlocks.TALL_PRAIRIE_GRASS.get(), BWGBlocks.PRAIRIE_GRASS.get()));
         add(BWGBlocks.TALL_BEACH_GRASS.get(), createDoublePlantWithSeedDrops(BWGBlocks.TALL_BEACH_GRASS.get(), BWGBlocks.BEACH_GRASS.get()));
+        add(BWGBlocks.TALL_FROSTED_GRASS.get(), createDoublePlantWithSeedDrops(BWGBlocks.TALL_FROSTED_GRASS.get(), BWGBlocks.FROSTED_GRASS.get()));
 
         add(BWGWood.PALO_VERDE_LEAVES.get(), createLeavesDrops(BWGWood.PALO_VERDE_LEAVES.get(), BWGWood.PALO_VERDE_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
         add(BWGWood.FLOWERING_PALO_VERDE_LEAVES.get(), createLeavesDrops(BWGWood.FLOWERING_PALO_VERDE_LEAVES.get(), BWGWood.PALO_VERDE_SAPLING.getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
