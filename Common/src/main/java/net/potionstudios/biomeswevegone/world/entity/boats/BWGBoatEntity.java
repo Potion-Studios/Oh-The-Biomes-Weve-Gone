@@ -77,6 +77,7 @@ public class BWGBoatEntity extends Boat {
         CYPRESS(() -> BWGWood.CYPRESS, "cypress"),
         EBONY(() -> BWGWood.EBONY, "ebony"),
         FIR(() -> BWGWood.FIR, "fir"),
+        FROSTED_FIR(() -> BWGWood.FROSTED_FIR, "frosted_fir"),
         FLORUS(() -> BWGWood.FLORUS, "florus"),
         GREEN_ENCHANTED(() -> BWGWood.GREEN_ENCHANTED, "green_enchanted"),
         HOLLY(() -> BWGWood.HOLLY, "holly"),

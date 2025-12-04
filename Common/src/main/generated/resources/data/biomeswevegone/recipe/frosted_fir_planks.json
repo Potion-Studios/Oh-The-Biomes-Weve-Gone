@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "biomeswevegone:frosted_fir_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "biomeswevegone:frosted_fir_planks"
+  }
+}
