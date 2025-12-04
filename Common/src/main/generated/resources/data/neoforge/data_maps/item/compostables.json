@@ -237,13 +237,7 @@
     "biomeswevegone:foxglove": {
       "chance": 0.65
     },
-    "biomeswevegone:frosted_fairy_slipper": {
-      "chance": 0.65
-    },
     "biomeswevegone:frosted_fir_leaves": {
-      "chance": 0.3
-    },
-    "biomeswevegone:frosted_grass": {
       "chance": 0.3
     },
     "biomeswevegone:golden_spined_cactus": {
@@ -528,9 +522,6 @@
     "biomeswevegone:rosy_wreath": {
       "chance": 0.75
     },
-    "biomeswevegone:short_frosted_grass": {
-      "chance": 0.3
-    },
     "biomeswevegone:silver_maple_leaves": {
       "chance": 0.3
     },
@@ -568,9 +559,6 @@
       "chance": 0.65
     },
     "biomeswevegone:tall_beach_grass": {
-      "chance": 0.3
-    },
-    "biomeswevegone:tall_frosted_grass": {
       "chance": 0.3
     },
     "biomeswevegone:tall_pink_allium": {
