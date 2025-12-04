@@ -85,6 +85,9 @@ public class BWGOverworldTreePlacedFeatures {
     public static final ResourceKey<PlacedFeature> FIRECRACKER_SHRUBS = PlacedFeaturesUtil.createPlacedFeature("firecracker_shrubs", BWGOverworldTreeConfiguredFeatures.FIRECRACKER_SHRUBS, PlacedFeaturesUtil.clearingTreePlacement(PlacementUtils.countExtra(1, 0.25F, 2)));
     public static final ResourceKey<PlacedFeature> CRAG_BUSHES = PlacedFeaturesUtil.createPlacedFeature("crag_bushes", BWGOverworldTreeConfiguredFeatures.JUNGLE_BUSH1, () -> VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.25F, 2)));
 
+    public static final ResourceKey<PlacedFeature> BOREALIS_ICE_FEATURE = PlacedFeaturesUtil.createPlacedFeature("borealis_ice_feature", BWGOverworldTreeConfiguredFeatures.BOREALIS_ICE_FEATURE, () -> VegetationPlacements.treePlacement(PlacementUtils.countExtra(2, 0.25F, 1)));
+    public static final ResourceKey<PlacedFeature> FROSTED_FIR_TREES = PlacedFeaturesUtil.createPlacedFeature("frosted_fir_trees", BWGOverworldTreeConfiguredFeatures.FROSTED_FIR_TREES, PlacedFeaturesUtil.clearingTreePlacement(PlacementUtils.countExtra(3, 0.25F, 1)));
+
     protected static void init() {
         BiomesWeveGone.LOGGER.info("Creating and Registering Overworld Tree Placed Features");
     }

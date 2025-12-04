@@ -177,7 +177,8 @@ public class BWGBlocks {
     public static final FlowerBlockFeature CALIFORNIA_POPPY = registerFlower("california_poppy");
     public static final FlowerBlockFeature CROCUS = registerFlower("crocus", Block.box(0.0, 0.0, 0.0, 16.0, 12.0, 16.0));
     public static final Supplier<TallFlowerBlock> DELPHINIUM = registerTallFlower("delphinium");
-    public static final FlowerBlockFeature FAIRY_SLIPPER = registerFlower("fairy_slipper", BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).noOcclusion().lightLevel((level) -> 8), Block.box(1.0, 0.0, 1.0, 15.0, 14.0, 15.0));
+    public static final FlowerBlockFeature FAIRY_SLIPPER = registerFlower("fairy_slipper", BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).noOcclusion().lightLevel((level) -> 9), Block.box(1.0, 0.0, 1.0, 15.0, 14.0, 15.0));
+    public static final FlowerBlockFeature FROSTED_FAIRY_SLIPPER = registerFlower("frosted_fairy_slipper", BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).noOcclusion().lightLevel((level) -> 9), Block.box(1.0, 0.0, 1.0, 15.0, 14.0, 15.0));
     public static final Supplier<TallFlowerBlock> FOXGLOVE = registerTallFlower("foxglove");
     public static final FlowerBlockFeature GUZMANIA = registerFlower("guzmania", Block.box(4.0, 0.0, 4.0, 12.0, 15.0, 12.0));
     public static final FlowerBlockFeature INCAN_LILY = registerFlower("incan_lily", Block.box(4.0, 0.0, 4.0, 12.0, 13.0, 12.0));
@@ -223,6 +224,10 @@ public class BWGBlocks {
     public static final Supplier<BoneMealGrassBlock> PRAIRIE_GRASS = registerBlockItem("prairie_grass", () -> new BoneMealGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS), TALL_PRAIRIE_GRASS, BlockTags.DIRT));
     public static final Supplier<DoublePlantBlock> TALL_BEACH_GRASS = registerBlockItem("tall_beach_grass", () -> new BWGDoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS).mapColor(MapColor.COLOR_GREEN), BlockTags.SAND));
     public static final Supplier<BoneMealGrassBlock> BEACH_GRASS = registerBlockItem("beach_grass", () -> new BoneMealGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS), TALL_BEACH_GRASS, BlockTags.SAND));
+
+    public static final Supplier<DoublePlantBlock> TALL_FROSTED_GRASS = registerBlockItem("tall_frosted_grass", () -> new BWGDoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS).mapColor(MapColor.WOOL), BWGBlockTags.SNOWY_PLANT_PLACEABLE));
+    public static final Supplier<BoneMealGrassBlock> FROSTED_GRASS = registerBlockItem("frosted_grass", () -> new BoneMealGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS).mapColor(MapColor.WOOL), TALL_FROSTED_GRASS, BWGBlockTags.SNOWY_PLANT_PLACEABLE));
+    public static final Supplier<BoneMealGrassBlock> SHORT_FROSTED_GRASS = registerBlockItem("short_frosted_grass", () -> new BoneMealGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS).mapColor(MapColor.WOOL), TALL_FROSTED_GRASS, BWGBlockTags.SNOWY_PLANT_PLACEABLE));
 
     /** Flat Blocks */
     public static final Supplier<FlatVegetationBlock> LEAF_PILE = registerBlockItem("leaf_pile", FlatVegetationBlock::new);
