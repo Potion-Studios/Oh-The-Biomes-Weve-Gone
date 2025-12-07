@@ -1099,6 +1099,5 @@
   "block.biomeswevegone.chiseled_white_dacite_bricks": "錾制白色英安岩砖",
   "tooltip.waila.hatch_chance": "孵化率: %s",
   "biomeswevegone.commands.reload.spawn.success": "重载生物生成设置成功",
-  "biomeswevegone.commands.reload.success": "重载所有设置成功",
-  "biomeswevegone.commands.upgrade_villagers.success": "更新村民类型成功"
+  "biomeswevegone.commands.reload.success": "重载所有设置成功"
 }

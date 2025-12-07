@@ -1,5 +1,6 @@
 # 1.7.2
 - Fix BWG Chest Boats changing to Aspen type on server reload
+- Fix Mixins Failing to load on Forge
 
 # 1.7.1
 - Fix BWG Mushroom Blocks missing Mineable with Axe Tag

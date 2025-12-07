@@ -949,7 +949,6 @@
   "biome.biomeswevegone.red_rock_valley": "Red Rock Valley",
   "biomeswevegone.commands.reload.spawn.success": "Successfully reloaded Mob Spawn config",
   "biomeswevegone.commands.reload.success": "Successfully reloaded all configs",
-  "biomeswevegone.commands.upgrade_villagers.success": "Successfully Updated Villager Types",
   "block.biomeswevegone.araucaria_sapling": "Araucaria Sapling",
   "block.biomeswevegone.blue_spruce_sapling": "Blue Spruce Sapling",
   "block.biomeswevegone.brown_birch_sapling": "Brown Birch Sapling",
