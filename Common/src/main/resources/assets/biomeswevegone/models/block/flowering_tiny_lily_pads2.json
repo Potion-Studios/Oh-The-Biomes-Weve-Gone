@@ -3,7 +3,7 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "biomeswevegone:block/tiny_lily_pads",
-		"1": "biomeswevegone:block/tiny_lily_pads_flower_overlay",
+		"1": "biomeswevegone:block/tiny_lily_pads_flower_overlay2",
 		"particle": "biomeswevegone:block/tiny_lily_pads"
 	},
 	"elements": [
