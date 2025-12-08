@@ -447,6 +447,9 @@
     "biomeswevegone:pink_anemone": {
       "chance": 0.65
     },
+    "biomeswevegone:pink_asphodel": {
+      "chance": 0.65
+    },
     "biomeswevegone:pink_daffodil": {
       "chance": 0.65
     },
@@ -576,10 +579,19 @@
     "biomeswevegone:tall_pink_allium": {
       "chance": 0.65
     },
+    "biomeswevegone:tall_pink_asphodel": {
+      "chance": 0.65
+    },
     "biomeswevegone:tall_prairie_grass": {
       "chance": 0.3
     },
     "biomeswevegone:tall_white_allium": {
+      "chance": 0.65
+    },
+    "biomeswevegone:tall_white_asphodel": {
+      "chance": 0.65
+    },
+    "biomeswevegone:tall_yellow_asphodel": {
       "chance": 0.65
     },
     "biomeswevegone:tiny_lily_pads": {
@@ -604,6 +616,9 @@
       "chance": 0.65
     },
     "biomeswevegone:white_anemone": {
+      "chance": 0.65
+    },
+    "biomeswevegone:white_asphodel": {
       "chance": 0.65
     },
     "biomeswevegone:white_mangrove_leaves": {
@@ -674,6 +689,9 @@
     },
     "biomeswevegone:wreath": {
       "chance": 0.75
+    },
+    "biomeswevegone:yellow_asphodel": {
+      "chance": 0.65
     },
     "biomeswevegone:yellow_birch_leaves": {
       "chance": 0.3
