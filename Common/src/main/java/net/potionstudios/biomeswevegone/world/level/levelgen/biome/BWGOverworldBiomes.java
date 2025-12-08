@@ -151,6 +151,26 @@ class BWGOverworldBiomes {
         return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.6F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(11909994).foliageColorOverride(14194987).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
+    protected static Biome asphodelMeadow(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
+        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
+
+        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
+        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.ASPHODEL_MEADOW_FLOWERS);
+        BWGOverworldDefaultFeatures.addCloverPatches(generationSettings);
+        BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
+
+        MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.farmAnimals(spawnSettings);
+        BiomeDefaultFeatures.commonSpawns(spawnSettings);
+//        addSpawn(spawnSettings, EntityType.WOLF, 8, 4, 4);
+//        addSpawn(spawnSettings, EntityType.RABBIT, 4, 2, 3);
+//        addSpawn(spawnSettings, EntityType.FOX, 8, 2, 4);
+
+        float temperature = 0.8F;
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(6723924).foliageColorOverride(4350507).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+    }
+
     protected static Biome pumpkinValley(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
         BiomeDefaultFeatures.addSavannaGrass(generationSettings);
@@ -176,6 +196,42 @@ class BWGOverworldBiomes {
 
         float temperature = 0.35F;
         return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(11513689).foliageColorOverride(11957015).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+    }
+
+    protected static Biome pineBarrens(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
+        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
+
+        BiomeDefaultFeatures.addMossyStoneBlock(generationSettings);
+        BiomeDefaultFeatures.addFerns(generationSettings);
+
+        BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
+        BiomeDefaultFeatures.addGiantTaigaVegetation(generationSettings);
+        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
+        BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
+        BiomeDefaultFeatures.addRareBerryBushes(generationSettings);
+
+//        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.BLACK_FOREST_TREES);
+        BWGOverworldDefaultFeatures.addBlueBerryBush(generationSettings);
+        BWGOverworldDefaultFeatures.addLushBlueBerryBush(generationSettings);
+        BWGOverworldDefaultFeatures.addAnemones(generationSettings);
+        BWGOverworldDefaultFeatures.addSages(generationSettings);
+        BWGOverworldDefaultFeatures.addBlueRoseBush(generationSettings);
+//        BWGOverworldDefaultFeatures.addWinterSucculent(generationSettings);
+//        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.BLACK_ROSE);
+        BWGOverworldDefaultFeatures.addMossyStoneBoulder(generationSettings);
+        BWGOverworldDefaultFeatures.addRockyStoneBoulder(generationSettings);
+        BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
+
+        MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.farmAnimals(spawnSettings);
+        addSpawn(spawnSettings, EntityType.WOLF, 8, 4, 4);
+        addSpawn(spawnSettings, EntityType.RABBIT, 4, 2, 3);
+        addSpawn(spawnSettings, EntityType.FOX, 8, 2, 4);
+        addSpawn(spawnSettings, EntityType.BAT, 10, 8, 8);
+        BiomeDefaultFeatures.monsters(spawnSettings, 100, 25, 100, false);
+
+        float temperature = 0.45F;
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.65F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10845253).foliageColorOverride(8082479).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     protected static Biome baobabSavanna(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -759,6 +815,35 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.monsters(spawnSettings, 95, 5, 100, false);
         float temperature = 0.75F;
         return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(11190111).foliageColorOverride(11190111).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+    }
+
+    protected static Biome tuscanyPlains(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
+        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
+
+        BiomeDefaultFeatures.addPlainGrass(generationSettings);
+//        addVegetal(generationSettings, VegetationPlacements.PATCH_SUNFLOWER);
+        // BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
+        BiomeDefaultFeatures.addDefaultGrass(generationSettings);
+        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
+        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
+        BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
+
+//        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.TEMPERATE_GROVE_TREES);
+        BWGOverworldDefaultFeatures.addCloverPatches(generationSettings);
+//        BWGOverworldDefaultFeatures.addAnemones(generationSettings);
+//        BWGOverworldDefaultFeatures.addSages(generationSettings);
+        BWGOverworldDefaultFeatures.addWhitePuffball(generationSettings);
+//        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.BISTORT);
+//        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.ANGELICA);
+//        BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
+        BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
+
+        MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.farmAnimals(spawnSettings);
+        addSpawn(spawnSettings, EntityType.BAT, 10, 8, 8);
+        BiomeDefaultFeatures.monsters(spawnSettings, 95, 5, 100, false);
+        float temperature = 0.75F;
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(8829036).foliageColorOverride(7244605).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     protected static Biome jacarandaJungle(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
