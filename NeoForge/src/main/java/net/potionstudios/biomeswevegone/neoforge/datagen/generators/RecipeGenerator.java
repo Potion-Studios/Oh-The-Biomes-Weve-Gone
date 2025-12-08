@@ -510,6 +510,7 @@ public class RecipeGenerator extends RecipeProvider {
         oneToTwoConversionRecipe(recipeOutput, Items.PINK_DYE, BWGItemTags.MAKES_2_PINK_DYE);
         oneToTwoConversionRecipe(recipeOutput, Items.PURPLE_DYE, BWGItemTags.MAKES_2_PURPLE_DYE);
         oneToTwoConversionRecipe(recipeOutput, Items.WHITE_DYE, BWGItemTags.MAKES_2_WHITE_DYE);
+        oneToTwoConversionRecipe(recipeOutput, Items.YELLOW_DYE, BWGItemTags.MAKES_2_YELLOW_DYE);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.WREATH.get())
                 .define('#', ItemTags.LEAVES)

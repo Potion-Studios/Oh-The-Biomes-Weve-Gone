@@ -76,6 +76,8 @@ public class VanillaCompatForge {
                 event.setFinalState(BWGBlocks.SANDY_FARMLAND.get().defaultBlockState());
             else if (state.is(BWGBlocks.PEAT.get()))
                 event.setFinalState(Blocks.FARMLAND.defaultBlockState());
+            else if (state.is(BWGBlocks.BOG_PODZOL.get()))
+                event.setFinalState(Blocks.FARMLAND.defaultBlockState());
         }
     }
 

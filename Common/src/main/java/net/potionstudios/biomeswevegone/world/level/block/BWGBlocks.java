@@ -59,6 +59,7 @@ public class BWGBlocks {
 
     public static final Supplier<Block> FORAGERS_TABLE = registerBlockItem("foragers_table", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.FLETCHING_TABLE)));
 
+    public static final Supplier<SnowyDirtBlock> BOG_PODZOL = registerBlockItem("bog_podzol", () -> new SnowyDirtBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT).mapColor(MapColor.TERRACOTTA_RED)));
     public static final Supplier<Block> PEAT = registerBasicBlockWithItem("peat", BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT));
     public static final Supplier<Block> SANDY_DIRT = registerBasicBlockWithItem("sandy_dirt", BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT));
     public static final Supplier<DirtPathBlock> SANDY_DIRT_PATH = registerBlockItem("sandy_dirt_path", () -> new BWGDirtPathBlock(SANDY_DIRT));
@@ -121,6 +122,14 @@ public class BWGBlocks {
     public static final Supplier<TallFlowerBlock> TALL_WHITE_ALLIUM = registerTallFlower("tall_white_allium", BWGTreeGrowers.GIANT_WHITE_ALLIUM);
     public static final FlowerBlockFeature WHITE_ALLIUM_FLOWER_BUSH = registerFlower("white_allium_flower_bush", Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0), TALL_WHITE_ALLIUM);
     public static final Supplier<Block> WHITE_ALLIUM_PETAL_BLOCK = registerBasicBlockWithItem("white_allium_petal_block", BlockBehaviour.Properties.ofFullCopy(Blocks.HAY_BLOCK).mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.AZALEA));
+
+    /**Asphodels */
+    public static final Supplier<TallFlowerBlock> TALL_WHITE_ASPHODEL = registerTallFlower("tall_white_asphodel");
+    public static final Supplier<TallFlowerBlock> TALL_PINK_ASPHODEL = registerTallFlower("tall_pink_asphodel");
+    public static final Supplier<TallFlowerBlock> TALL_YELLOW_ASPHODEL = registerTallFlower("tall_yellow_asphodel");
+    public static final FlowerBlockFeature WHITE_ASPHODEL = registerFlower("white_asphodel", Block.box(5.0, 0.0, 5.0, 11.0, 12.0, 11.0), TALL_WHITE_ASPHODEL);
+    public static final FlowerBlockFeature PINK_ASPHODEL = registerFlower("pink_asphodel", Block.box(5.0, 0.0, 5.0, 11.0, 12.0, 11.0), TALL_PINK_ASPHODEL);
+    public static final FlowerBlockFeature YELLOW_ASPHODEL = registerFlower("yellow_asphodel", Block.box(5.0, 0.0, 5.0, 11.0, 12.0, 11.0), TALL_YELLOW_ASPHODEL);
 
     /** Glowing Pitcher Plants */
     public static final Supplier<TallFlowerBlock> CYAN_PITCHER_PLANT = registerTallGlowingFlower("cyan_pitcher_plant");

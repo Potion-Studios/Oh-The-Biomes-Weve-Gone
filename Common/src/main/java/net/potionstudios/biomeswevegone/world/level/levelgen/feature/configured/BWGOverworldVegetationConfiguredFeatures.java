@@ -115,6 +115,23 @@ public class BWGOverworldVegetationConfiguredFeatures {
             }
     );
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_WHITE_ASPHODEL = createPatchConfiguredFeature("tall_white_asphodel", BWGBlocks.TALL_WHITE_ASPHODEL, 10);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_PINK_ASPHODEL = createPatchConfiguredFeature("tall_pink_asphodel", BWGBlocks.TALL_PINK_ASPHODEL, 10);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_YELLOW_ASPHODEL = createPatchConfiguredFeature("tall_yellow_asphodel", BWGBlocks.TALL_YELLOW_ASPHODEL, 10);
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ASPHODEL_MEADOW_FLOWERS = ConfiguredFeaturesUtil.createConfiguredFeature("asphodel_meadow_flowers",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TALL_WHITE_ASPHODEL)), 0.2F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TALL_PINK_ASPHODEL)), 0.2F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BWGBlocks.WHITE_ASPHODEL.getFeature())), 0.3F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BWGBlocks.PINK_ASPHODEL.getFeature())));
+            }
+    );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> AMARANTH_GRASSLAND_FLOWERS = ConfiguredFeaturesUtil.createConfiguredFeature("amaranth_grassland_flowers",
             Feature.RANDOM_SELECTOR,
             (configuredFeatureBootstrapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE), BWGBlocks.AMARANTH.getFeature(), BWGBlocks.MAGENTA_AMARANTH.getFeature(), BWGBlocks.ORANGE_AMARANTH.getFeature(), BWGBlocks.PURPLE_AMARANTH.getFeature(), BWGBlocks.CYAN_AMARANTH.getFeature())

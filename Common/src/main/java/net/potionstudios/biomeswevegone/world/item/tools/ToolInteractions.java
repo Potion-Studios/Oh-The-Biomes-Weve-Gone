@@ -32,6 +32,7 @@ public class ToolInteractions {
         consumer.accept(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.LUSH_DIRT_PATH.get().defaultBlockState());
         consumer.accept(BWGBlocks.LUSH_DIRT.get(), BWGBlocks.LUSH_DIRT_PATH.get().defaultBlockState());
         consumer.accept(BWGBlocks.SANDY_DIRT.get(), BWGBlocks.SANDY_DIRT_PATH.get().defaultBlockState());
+        consumer.accept(BWGBlocks.BOG_PODZOL.get(), Blocks.DIRT_PATH.defaultBlockState());
     }
 
     public static void registerTillables(BiConsumer<Block, Pair<Predicate<UseOnContext>, Consumer<UseOnContext>>> consumer) {
@@ -39,5 +40,6 @@ public class ToolInteractions {
         consumer.accept(BWGBlocks.LUSH_DIRT.get(), Pair.of(HoeItem::onlyIfAirAbove, HoeItem.changeIntoState(BWGBlocks.LUSH_FARMLAND.get().defaultBlockState())));
         consumer.accept(BWGBlocks.SANDY_DIRT.get(), Pair.of(HoeItem::onlyIfAirAbove, HoeItem.changeIntoState(BWGBlocks.SANDY_FARMLAND.get().defaultBlockState())));
         consumer.accept(BWGBlocks.PEAT.get(), Pair.of(HoeItem::onlyIfAirAbove, HoeItem.changeIntoState(Blocks.FARMLAND.defaultBlockState())));
+        consumer.accept(BWGBlocks.BOG_PODZOL.get(), Pair.of(HoeItem::onlyIfAirAbove, HoeItem.changeIntoState(Blocks.FARMLAND.defaultBlockState())));
     }
 }

@@ -65,6 +65,22 @@
       },
       "trigger": "minecraft:location"
     },
+    "biomeswevegone:asphodel_meadow": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "biomeswevegone:asphodel_meadow"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
     "biomeswevegone:atacama_outback": {
       "conditions": {
         "player": [
@@ -593,6 +609,22 @@
       },
       "trigger": "minecraft:location"
     },
+    "biomeswevegone:pine_barrens": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "biomeswevegone:pine_barrens"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
     "biomeswevegone:prairie": {
       "conditions": {
         "player": [
@@ -817,6 +849,22 @@
       },
       "trigger": "minecraft:location"
     },
+    "biomeswevegone:tuscany_plains": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "biomeswevegone:tuscany_plains"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
     "biomeswevegone:weeping_witch_forest": {
       "conditions": {
         "player": [
@@ -903,6 +951,7 @@
       "biomeswevegone:amaranth_grassland",
       "biomeswevegone:araucaria_savanna",
       "biomeswevegone:aspen_boreal",
+      "biomeswevegone:asphodel_meadow",
       "biomeswevegone:atacama_outback",
       "biomeswevegone:baobab_savanna",
       "biomeswevegone:basalt_barrera",
@@ -936,6 +985,7 @@
       "biomeswevegone:orchard",
       "biomeswevegone:overgrowth_woodlands",
       "biomeswevegone:pale_bog",
+      "biomeswevegone:pine_barrens",
       "biomeswevegone:prairie",
       "biomeswevegone:pumpkin_valley",
       "biomeswevegone:rainbow_beach",
@@ -950,6 +1000,7 @@
       "biomeswevegone:skyris_vale",
       "biomeswevegone:temperate_grove",
       "biomeswevegone:tropical_rainforest",
+      "biomeswevegone:tuscany_plains",
       "biomeswevegone:weeping_witch_forest",
       "biomeswevegone:white_mangrove_marshes",
       "biomeswevegone:windswept_desert",
