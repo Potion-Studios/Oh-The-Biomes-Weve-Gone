@@ -139,7 +139,7 @@ public class TagsGenerator {
             tag(BWGBlockTags.DAFFODILS).add(BWGBlocks.DAFFODIL.getBlock(), BWGBlocks.PINK_DAFFODIL.getBlock(), BWGBlocks.YELLOW_DAFFODIL.getBlock());
             tag(BlockTags.SMALL_FLOWERS).addTag(BWGBlockTags.SHORT_ALLIUMS).addTag(BWGBlockTags.ROSES).addTag(BWGBlockTags.TULIPS).addTag(BWGBlockTags.AMARANTH).addTag(BWGBlockTags.SAGES).addTag(BWGBlockTags.DAFFODILS)
                     .add(BWGBlocks.PINK_ANEMONE.getBlock(), BWGBlocks.WHITE_ANEMONE.getBlock(), BWGBlocks.ALPINE_BELLFLOWER.getBlock(), BWGBlocks.LAZARUS_BELLFLOWER.getBlock(), BWGBlocks.PEACH_LEATHER_FLOWER.getBlock(),
-                            BWGBlocks.VIOLET_LEATHER_FLOWER.getBlock(), BWGBlocks.ANGELICA.getBlock(), BWGBlocks.BEGONIA.getBlock(), BWGBlocks.BISTORT.getBlock(), BWGBlocks.CALIFORNIA_POPPY.getBlock(), BWGBlocks.CROCUS.getBlock(),
+                            BWGBlocks.VIOLET_LEATHER_FLOWER.getBlock(),BWGBlocks.WHITE_ASPHODEL.getBlock(),BWGBlocks.YELLOW_ASPHODEL.getBlock(),BWGBlocks.PINK_ASPHODEL.getBlock(), BWGBlocks.ANGELICA.getBlock(), BWGBlocks.BEGONIA.getBlock(), BWGBlocks.BISTORT.getBlock(), BWGBlocks.CALIFORNIA_POPPY.getBlock(), BWGBlocks.CROCUS.getBlock(),
                             BWGBlocks.FAIRY_SLIPPER.getBlock(), BWGBlocks.FROSTED_FAIRY_SLIPPER.getBlock(), BWGBlocks.GUZMANIA.getBlock(), BWGBlocks.INCAN_LILY.getBlock(), BWGBlocks.IRIS.getBlock(), BWGBlocks.KOVAN_FLOWER.getBlock(), BWGBlocks.LOLLIPOP_FLOWER.getBlock(),
                             BWGBlocks.ORANGE_DAISY.getBlock(), BWGBlocks.PROTEA_FLOWER.getBlock(), BWGBlocks.PROTEA_FLOWER.getBlock(), BWGBlocks.SILVER_VASE_FLOWER.getBlock(), BWGBlocks.RICHEA.getBlock(), BWGBlocks.SNOWDROPS.getBlock(),
                             BWGBlocks.WINTER_CYCLAMEN.getBlock(), BWGBlocks.WINTER_SCILLA.getBlock());
@@ -157,21 +157,21 @@ public class TagsGenerator {
             tag(BlockTags.SNOW_LAYER_CANNOT_SURVIVE_ON).addTag(BWGBlockTags.BLACK_ICE).addTag(BWGBlockTags.BOREALIS_ICE);
             tag(BlockTags.ICE).addTag(BWGBlockTags.BLACK_ICE).addTag(BWGBlockTags.BOREALIS_ICE);
             tag(BlockTags.WOOL_CARPETS).add(BWGBlocks.CATTAIL_THATCH_CARPET.get());
-            tag(BlockTags.MUSHROOM_GROW_BLOCK).add(BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.WHITE_PODZOL_DACITE.get());
+            tag(BlockTags.MUSHROOM_GROW_BLOCK).add(BWGBlocks.PODZOL_DACITE.get(),BWGBlocks.BOG_PODZOL.get(), BWGBlocks.WHITE_PODZOL_DACITE.get());
             tag(BWGBlockTags.SNOWY_PLANT_PLACEABLE).add(Blocks.SNOW_BLOCK, Blocks.POWDER_SNOW).addTag(BlockTags.DIRT);
             tag(BWGBlockTags.BWG_MUSHROOM_PLACEABLE).addTag(BlockTags.MUSHROOM_GROW_BLOCK).addTag(BlockTags.BASE_STONE_OVERWORLD).addTag(BlockTags.DIRT);
             tag(BWGBlockTags.HYDRANGEA_BUSH_PLACEABLE).addTag(BlockTags.DIRT);
-            tag(BlockTags.DIRT).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.PALE_MUD.get(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.PEAT.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.WHITE_PODZOL_DACITE.get());
+            tag(BlockTags.DIRT).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.PALE_MUD.get(), BWGBlocks.LUSH_DIRT.get(),BWGBlocks.BOG_PODZOL.get(), BWGBlocks.PEAT.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.WHITE_PODZOL_DACITE.get());
             tag(BlockTags.CLIMBABLE).add(BWGBlocks.SKYRIS_VINE.get()).add(BWGBlocks.POISON_IVY.get());
             tag(BlockTags.OVERWORLD_CARVER_REPLACEABLES)
-                    .add(BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.WHITE_PODZOL_DACITE.get(), BWGBlocks.MOSSY_STONE_SET.getBase(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.PEAT.get(),
+                    .add(BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.WHITE_PODZOL_DACITE.get(), BWGBlocks.MOSSY_STONE_SET.getBase(), BWGBlocks.LUSH_DIRT.get(),BWGBlocks.BOG_PODZOL.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.PEAT.get(),
                             BWGBlocks.RED_ROCK_SET.getBase(), BWGBlocks.DACITE_SET.getBase(), BWGBlocks.WHITE_DACITE_SET.getBase(), BWGBlocks.ROCKY_STONE_SET.getBase(), BWGBlocks.PACKED_BLACK_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get(),
                             BWGBlocks.WINDSWEPT_SAND_SET.getSandstone(), BWGBlocks.BLACK_SAND_SET.getSandstone(), BWGBlocks.WHITE_SAND_SET.getSandstone(), BWGBlocks.BLUE_SAND_SET.getSandstone(), BWGBlocks.PURPLE_SAND_SET.getSandstone(), BWGBlocks.PINK_SAND_SET.getSandstone());
             tag(BlockTags.CROPS).add(BWGBlocks.ODDION_CROP.get(), BWGBlocks.PALE_PUMPKIN_STEM.get());
             tag(BlockTags.LOGS).add(BWGWood.SPIRIT_ROOTS.get());
             tag(BlockTags.LOGS_THAT_BURN).add(BWGWood.SPIRIT_ROOTS.get());
             tag(BlockTags.BEE_GROWABLES).add(BWGBlocks.BLUEBERRY_BUSH.get());
-            tag(BlockTags.SNIFFER_DIGGABLE_BLOCK).add(BWGBlocks.LUSH_DIRT_PATH.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.SANDY_DIRT_PATH.get(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.PEAT.get());
+            tag(BlockTags.SNIFFER_DIGGABLE_BLOCK).add(BWGBlocks.LUSH_DIRT_PATH.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.SANDY_DIRT_PATH.get(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.PEAT.get(), BWGBlocks.BOG_PODZOL.get());
             tag(BlockTags.SNIFFER_EGG_HATCH_BOOST).add(BWGBlocks.LUSH_GRASS_BLOCK.get());
             tag(BlockTags.MAINTAINS_FARMLAND).add(BWGBlocks.ODDION_CROP.get(), BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get(), BWGBlocks.PALE_PUMPKIN_STEM.get());
             tag(BlockTags.MINEABLE_WITH_HOE).add(BWGBlocks.ALLIUM_PETAL_BLOCK.get(), BWGBlocks.PINK_ALLIUM_PETAL_BLOCK.get(), BWGBlocks.WHITE_ALLIUM_PETAL_BLOCK.get(), BWGBlocks.ROSE_PETAL_BLOCK.get());
@@ -198,13 +198,13 @@ public class TagsGenerator {
             tag(BWGBlockTags.STORAGE_BLOCKS_ROSE).add(BWGBlocks.ROSE_PETAL_BLOCK.get());
             tag(Tags.Blocks.STORAGE_BLOCKS).addTag(BWGBlockTags.STORAGE_BLOCKS_ALLIUM).addTag(BWGBlockTags.STORAGE_BLOCKS_PINK_ALLIUM).addTag(BWGBlockTags.STORAGE_BLOCKS_WHITE_ALLIUM).addTag(BWGBlockTags.STORAGE_BLOCKS_ROSE);
             // Entity Integration Tags
-            tag(BlockTags.ANIMALS_SPAWNABLE_ON).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.WHITE_PODZOL_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.PEAT.get());
+            tag(BlockTags.ANIMALS_SPAWNABLE_ON).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.WHITE_PODZOL_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.BOG_PODZOL.get(), BWGBlocks.PEAT.get());
             tag(BlockTags.FROGS_SPAWNABLE_ON).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.PALE_MUD.get(), BWGWood.SPIRIT_ROOTS.get());
             tag(BlockTags.PARROTS_SPAWNABLE_ON).add(BWGBlocks.LUSH_GRASS_BLOCK.get());
             tag(BlockTags.POLAR_BEARS_SPAWNABLE_ON_ALTERNATE).add(BWGBlocks.BLACK_ICE.get(), BWGBlocks.BOREALIS_ICE.get());
             tag(BlockTags.RABBITS_SPAWNABLE_ON).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.RED_ROCK_SET.getBase());
-            tag(BlockTags.FOXES_SPAWNABLE_ON).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.WHITE_PODZOL_DACITE.get());
-            tag(BlockTags.WOLVES_SPAWNABLE_ON).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.WHITE_PODZOL_DACITE.get());
+            tag(BlockTags.FOXES_SPAWNABLE_ON).add(BWGBlocks.LUSH_GRASS_BLOCK.get(),BWGBlocks.BOG_PODZOL.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.WHITE_PODZOL_DACITE.get());
+            tag(BlockTags.WOLVES_SPAWNABLE_ON).add(BWGBlocks.LUSH_GRASS_BLOCK.get(),BWGBlocks.BOG_PODZOL.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.WHITE_PODZOL_DACITE.get());
 
             tag(BlockTags.FROG_PREFER_JUMP_TO).add(BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), BWGBlocks.TINY_LILY_PADS.get());
             tag(BlockTags.SNAPS_GOAT_HORN).add(BWGBlocks.PACKED_BLACK_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get());
@@ -385,17 +385,18 @@ public class TagsGenerator {
             tag(BWGItemTags.MAKES_LIME_DYE).add(BWGBlocks.GREEN_TULIP.getItem());
             tag(BWGItemTags.MAKES_MAGENTA_DYE).add(BWGBlocks.MAGENTA_AMARANTH.getItem(), BWGBlocks.MAGENTA_TULIP.getItem(), BWGBlocks.LAZARUS_BELLFLOWER.getItem(), BWGBlocks.PROTEA_FLOWER.getItem(), BWGBlocks.FAIRY_SLIPPER.getItem(), BWGBlocks.INCAN_LILY.getItem());
             tag(BWGItemTags.MAKES_ORANGE_DYE).add(BWGBlocks.ORANGE_AMARANTH.getItem(), BWGBlocks.ORANGE_DAISY.getItem(), BWGBlocks.CALIFORNIA_POPPY.getItem(), BWGBlocks.GUZMANIA.getItem());
-            tag(BWGItemTags.MAKES_PINK_DYE).add(BWGBlocks.OSIRIA_ROSE.getItem(), BWGBlocks.SILVER_VASE_FLOWER.getItem(), BWGBlocks.DAFFODIL.getItem(), BWGBlocks.PEACH_LEATHER_FLOWER.getItem(), BWGBlocks.PINK_ALLIUM.getItem(), BWGBlocks.PINK_ALLIUM_FLOWER_BUSH.getItem(), BWGBlocks.PINK_DAFFODIL.getItem(), BWGBlocks.PINK_ANEMONE.getItem(), BWGBlocks.RICHEA.getItem());
+            tag(BWGItemTags.MAKES_PINK_DYE).add(BWGBlocks.OSIRIA_ROSE.getItem(), BWGBlocks.PINK_ASPHODEL.getItem(), BWGBlocks.SILVER_VASE_FLOWER.getItem(), BWGBlocks.DAFFODIL.getItem(), BWGBlocks.PEACH_LEATHER_FLOWER.getItem(), BWGBlocks.PINK_ALLIUM.getItem(), BWGBlocks.PINK_ALLIUM_FLOWER_BUSH.getItem(), BWGBlocks.PINK_DAFFODIL.getItem(), BWGBlocks.PINK_ANEMONE.getItem(), BWGBlocks.RICHEA.getItem());
             tag(BWGItemTags.MAKES_PURPLE_DYE).add(BWGBlocks.ALLIUM_FLOWER_BUSH.getItem(), BWGBlocks.ALPINE_BELLFLOWER.getItem(), BWGBlocks.IRIS.getItem(), BWGBlocks.PURPLE_SAGE.getItem(), BWGBlocks.PURPLE_TULIP.getItem(), BWGBlocks.PURPLE_AMARANTH.getItem(), BWGBlocks.CROCUS.getItem());
             tag(BWGItemTags.MAKES_RED_DYE).add(BWGBlocks.AMARANTH.getItem(), BWGBlocks.BEGONIA.getItem(), BWGBlocks.KOVAN_FLOWER.getItem(), BWGBlocks.ROSE.getItem(), BWGItems.RED_GLOWCANE_POWDER.get());
-            tag(BWGItemTags.MAKES_WHITE_DYE).add(BWGBlocks.WHITE_ALLIUM.getItem(),BWGBlocks.FROSTED_FAIRY_SLIPPER.getItem(), BWGBlocks.WHITE_ALLIUM_FLOWER_BUSH.getItem(), BWGBlocks.WHITE_ANEMONE.getItem(), BWGBlocks.WHITE_SAGE.getItem(), BWGBlocks.WINTER_ROSE.getItem(), BWGBlocks.SNOWDROPS.getItem(), BWGBlocks.ANGELICA.getItem(), BWGBlocks.BISTORT.getItem());
-            tag(BWGItemTags.MAKES_YELLOW_DYE).add(BWGBlocks.YELLOW_DAFFODIL.getItem(), BWGBlocks.YELLOW_TULIP.getItem(), BWGBlocks.LOLLIPOP_FLOWER.getItem(), BWGBlocks.FIRECRACKER_FLOWER_BUSH.getItem(), BWGItems.YELLOW_GLOWCANE_POWDER.get());
+            tag(BWGItemTags.MAKES_WHITE_DYE).add(BWGBlocks.WHITE_ALLIUM.getItem(), BWGBlocks.WHITE_ASPHODEL.getItem(),BWGBlocks.FROSTED_FAIRY_SLIPPER.getItem(), BWGBlocks.WHITE_ALLIUM_FLOWER_BUSH.getItem(), BWGBlocks.WHITE_ANEMONE.getItem(), BWGBlocks.WHITE_SAGE.getItem(), BWGBlocks.WINTER_ROSE.getItem(), BWGBlocks.SNOWDROPS.getItem(), BWGBlocks.ANGELICA.getItem(), BWGBlocks.BISTORT.getItem());
+            tag(BWGItemTags.MAKES_YELLOW_DYE).add(BWGBlocks.YELLOW_DAFFODIL.getItem(), BWGBlocks.YELLOW_ASPHODEL.getItem(), BWGBlocks.YELLOW_TULIP.getItem(), BWGBlocks.LOLLIPOP_FLOWER.getItem(), BWGBlocks.FIRECRACKER_FLOWER_BUSH.getItem(), BWGItems.YELLOW_GLOWCANE_POWDER.get());
 
             tag(BWGItemTags.MAKES_2_BLUE_DYE).add(BWGBlocks.DELPHINIUM.get().asItem(), BWGBlocks.BLUE_ROSE_BUSH.get().asItem());
             tag(BWGItemTags.MAKES_2_CYAN_DYE).add(BWGBlocks.FOXGLOVE.get().asItem());
-            tag(BWGItemTags.MAKES_2_PINK_DYE).add(BWGBlocks.TALL_PINK_ALLIUM.get().asItem(), BWGBlocks.JAPANESE_ORCHID.get().asItem());
+            tag(BWGItemTags.MAKES_2_PINK_DYE).add(BWGBlocks.TALL_PINK_ALLIUM.get().asItem(), BWGBlocks.TALL_PINK_ASPHODEL.get().asItem(),BWGBlocks.JAPANESE_ORCHID.get().asItem());
             tag(BWGItemTags.MAKES_2_PURPLE_DYE).add(BWGBlocks.TALL_ALLIUM.get().asItem());
-            tag(BWGItemTags.MAKES_2_WHITE_DYE).add(BWGBlocks.TALL_WHITE_ALLIUM.get().asItem());
+            tag(BWGItemTags.MAKES_2_WHITE_DYE).add(BWGBlocks.TALL_WHITE_ALLIUM.get().asItem(), BWGBlocks.TALL_WHITE_ASPHODEL.get().asItem());
+            tag(BWGItemTags.MAKES_2_YELLOW_DYE).add(BWGBlocks.TALL_YELLOW_ASPHODEL.get().asItem());
 
             //Pumpkin Warden
             tag(BWGItemTags.PUMPKIN_WARDEN_PICKS_UP).add(Items.PUMPKIN_PIE).addOptionalTag(Tags.Items.EGGS).addOptionalTag(Tags.Items.PUMPKINS).addOptionalTag(ResourceLocation.fromNamespaceAndPath("forge", "eggs"));

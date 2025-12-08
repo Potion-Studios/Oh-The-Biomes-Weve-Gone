@@ -147,7 +147,6 @@ public class ModelGenerators {
 
             models().withExistingParent(name(BWGBlocks.TINY_LILY_PADS.get()), "block/lily_pad").texture("particle", blockBWGTexture(BWGBlocks.TINY_LILY_PADS.get())).texture("texture", blockBWGTexture(BWGBlocks.TINY_LILY_PADS.get())).renderType("cutout");
 
-
             BWGBlocks.BLOCKS.forEach(entry -> {
                 Block block = entry.get();
                 if (block instanceof StemBlock){
@@ -353,7 +352,6 @@ public class ModelGenerators {
             models().cubeBottomTop(name(BWGBlocks.OVERGROWN_STONE.get()) + "_snowy",  blockBWGTexture(BWGBlocks.OVERGROWN_STONE.get(), "snow_side"), blockTexture(Blocks.STONE), blockBWGTexture(BWGBlocks.OVERGROWN_STONE.get(), "top")).texture("particle", blockTexture(Blocks.STONE)).renderType("cutout_mipped");
             snowyRotatableBlock(BWGBlocks.OVERGROWN_STONE.get());
             simpleBlockItemExistingModel(BWGBlocks.OVERGROWN_STONE.get());
-
 
             models().cubeBottomTop(name(BWGBlocks.LUSH_GRASS_BLOCK.get()) + "_snowy",  blockBWGTexture(BWGBlocks.LUSH_GRASS_BLOCK.get(), "snow_side"), blockBWGTexture(BWGBlocks.LUSH_DIRT.get()), blockBWGTexture(BWGBlocks.LUSH_GRASS_BLOCK.get(), "top")).texture("particle", blockBWGTexture(BWGBlocks.LUSH_DIRT.get())).renderType("cutout_mipped");
             snowyRotatableBlock(BWGBlocks.LUSH_GRASS_BLOCK.get());

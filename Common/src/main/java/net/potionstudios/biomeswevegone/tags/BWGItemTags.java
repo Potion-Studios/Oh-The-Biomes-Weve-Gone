@@ -70,6 +70,7 @@ public final class BWGItemTags {
     public static final TagKey<Item> MAKES_2_PINK_DYE = create("dye/makes_2_pink");
     public static final TagKey<Item> MAKES_2_PURPLE_DYE = create("dye/makes_2_purple");
     public static final TagKey<Item> MAKES_2_WHITE_DYE = create("dye/makes_2_white");
+    public static final TagKey<Item> MAKES_2_YELLOW_DYE = create("dye/makes_2_yellow");
 
     private static TagKey<Item> create(String name) {
         return TagKey.create(Registries.ITEM, BiomesWeveGone.id(name));
