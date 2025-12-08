@@ -29,6 +29,8 @@ public class BWGBiomes {
     public static final ResourceKey<Biome> AMARANTH_GRASSLAND = createBiome("amaranth_grassland", BWGOverworldBiomes::amaranthGrassland, BWGBiomeTags.PLAINS, BWGBiomeTags.FLORAL, BWGBiomeTags.SPARSE);
     public static final ResourceKey<Biome> ARAUCARIA_SAVANNA = createBiome("araucaria_savanna", BWGOverworldBiomes::araucariaSavanna, BWGBiomeTags.SAVANNA, BWGBiomeTags.SPARSE, BiomeTags.HAS_TRAIL_RUINS);
     public static final ResourceKey<Biome> ASPEN_BOREAL = createBiome("aspen_boreal", BWGOverworldBiomes::aspenBoreal, BWGBiomeTags.FOREST, BWGBiomeTags.CONIFEROUS, BiomeTags.HAS_VILLAGE_TAIGA, BiomeTags.HAS_PILLAGER_OUTPOST, BWGBiomeTags.StructureHasTags.HAS_ASPEN_MANOR);
+    public static final ResourceKey<Biome> ASPHODEL_MEADOW = createBiome("asphodel_meadow", BWGOverworldBiomes::asphodelMeadow, BWGBiomeTags.PLAINS, BWGBiomeTags.FLORAL);
+
     public static final ResourceKey<Biome> ATACAMA_OUTBACK = createBiome("atacama_outback", BWGOverworldBiomes::atacamaOutback, BWGBiomeTags.DESERT, BWGBiomeTags.SANDY, BWGBiomeTags.SPARSE);
     public static final ResourceKey<Biome> BAOBAB_SAVANNA = createBiome("baobab_savanna", BWGOverworldBiomes::baobabSavanna, BWGBiomeTags.SAVANNA, BWGBiomeTags.SPARSE);
     public static final ResourceKey<Biome> BASALT_BARRERA = createBiome("basalt_barrera", BWGOverworldBiomes::basaltBarrera, BWGBiomeTags.BEACH, BWGBiomeTags.WASTELAND);
@@ -67,6 +69,8 @@ public class BWGBiomes {
     public static final ResourceKey<Biome> PALE_BOG = createBiome("pale_bog", BWGOverworldBiomes::paleBog, BWGBiomeTags.SWAMP, BWGBiomeTags.StructureHasTags.HAS_BOG_TRIAL);
     public static final ResourceKey<Biome> PRAIRIE = createBiome("prairie", BWGOverworldBiomes::prairie, BWGBiomeTags.PLAINS, BWGBiomeTags.DENSE, BWGBiomeTags.StructureHasTags.HAS_PRAIRIE_HOUSE);
     public static final ResourceKey<Biome> PUMPKIN_VALLEY = createBiome("pumpkin_valley", BWGOverworldBiomes::pumpkinValley, BWGBiomeTags.PLAINS, BWGBiomeTags.DENSE, BWGBiomeTags.StructureHasTags.HAS_VILLAGE_PUMPKIN_PATCH);
+    public static final ResourceKey<Biome> PINE_BARRENS = createBiome("pine_barrens", BWGOverworldBiomes::pineBarrens, BWGBiomeTags.TAIGA, BWGBiomeTags.DENSE, BiomeTags.HAS_TRAIL_RUINS);
+
     public static final ResourceKey<Biome> RAINBOW_BEACH = createBiome("rainbow_beach", BWGOverworldBiomes::rainbowBeach, BWGBiomeTags.BEACH, BWGBiomeTags.SANDY, BiomeTags.HAS_BURIED_TREASURE);
     public static final ResourceKey<Biome> RED_ROCK_VALLEY = createBiome("red_rock_valley", BWGOverworldBiomes::redRockValley, BWGBiomeTags.BADLANDS, BWGBiomeTags.RED_ROCK_ARCH, BWGBiomeTags.StructureHasTags.HAS_VILLAGE_RED_ROCK, BWGBiomeTags.DRY);
     public static final ResourceKey<Biome> RED_ROCK_PEAKS = createBiome("red_rock_peaks", BWGOverworldBiomes::redRockPeaks, BWGBiomeTags.BADLANDS, BWGBiomeTags.PEAK, BWGBiomeTags.RED_ROCK_ARCH, BWGBiomeTags.DRY);
@@ -80,6 +84,8 @@ public class BWGBiomes {
     public static final ResourceKey<Biome> SKYRIS_VALE = createBiome("skyris_vale", BWGOverworldBiomes::skyrisVale, BWGBiomeTags.FOREST, BWGBiomeTags.MAGICAL, BWGBiomeTags.DENSE, BWGBiomeTags.StructureHasTags.HAS_VILLAGE_SKYRIS);
     public static final ResourceKey<Biome> TROPICAL_RAINFOREST = createBiome("tropical_rainforest", BWGOverworldBiomes::tropicalRainforest, BWGBiomeTags.JUNGLE, BiomeTags.HAS_BURIED_TREASURE);
     public static final ResourceKey<Biome> TEMPERATE_GROVE = createBiome("temperate_grove", BWGOverworldBiomes::temperateGrove, BWGBiomeTags.PLAINS, BWGBiomeTags.SPARSE, BiomeTags.HAS_VILLAGE_PLAINS, BiomeTags.HAS_PILLAGER_OUTPOST);
+    public static final ResourceKey<Biome> TUSCANY_PLAINS = createBiome("tuscany_plains", BWGOverworldBiomes::tuscanyPlains, BWGBiomeTags.PLAINS, BWGBiomeTags.SPARSE, BiomeTags.HAS_VILLAGE_PLAINS, BiomeTags.HAS_PILLAGER_OUTPOST);
+
     public static final ResourceKey<Biome> WEEPING_WITCH_FOREST = createBiome("weeping_witch_forest", BWGOverworldBiomes::weepingWitchForest, BWGBiomeTags.FOREST, BWGBiomeTags.MAGICAL, BWGBiomeTags.DENSE, BiomeTags.HAS_WOODLAND_MANSION, BWGBiomeTags.StructureHasTags.HAS_VILLAGE_SALEM);
     public static final ResourceKey<Biome> WHITE_MANGROVE_MARSHES = createBiome("white_mangrove_marshes", BWGOverworldBiomes::whiteMangroveMarshes, BWGBiomeTags.SWAMP);
     public static final ResourceKey<Biome> WINDSWEPT_DESERT = createBiome("windswept_desert", BWGOverworldBiomes::windsweptDesert, BWGBiomeTags.DESERT, BWGBiomeTags.SANDY, BWGBiomeTags.WINDSWEPT);
