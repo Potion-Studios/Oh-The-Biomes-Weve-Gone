@@ -161,8 +161,8 @@ public class TagsGenerator {
             tag(BWGBlockTags.SNOWY_PLANT_PLACEABLE).add(Blocks.SNOW_BLOCK, Blocks.POWDER_SNOW).addTag(BlockTags.DIRT);
             tag(BWGBlockTags.BWG_MUSHROOM_PLACEABLE).addTag(BlockTags.MUSHROOM_GROW_BLOCK).addTag(BlockTags.BASE_STONE_OVERWORLD).addTag(BlockTags.DIRT);
             tag(BWGBlockTags.HYDRANGEA_BUSH_PLACEABLE).addTag(BlockTags.DIRT);
-            tag(BlockTags.DIRT).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.PALE_MUD.get(), BWGBlocks.LUSH_DIRT.get(),BWGBlocks.BOG_PODZOL.get(), BWGBlocks.PEAT.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.WHITE_PODZOL_DACITE.get());
-            tag(BlockTags.CLIMBABLE).add(BWGBlocks.SKYRIS_VINE.get()).add(BWGBlocks.POISON_IVY.get());
+            tag(BlockTags.DIRT).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.OLIVE_MOSS_BLOCK.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.PALE_MUD.get(), BWGBlocks.LUSH_DIRT.get(),BWGBlocks.BOG_PODZOL.get(), BWGBlocks.PEAT.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.WHITE_PODZOL_DACITE.get());
+            tag(BlockTags.CLIMBABLE).add(BWGBlocks.SKYRIS_VINE.get()).add(BWGBlocks.POISON_IVY.get()).add(BWGBlocks.OLIVE_MOSS_SPROUTS.get());
             tag(BlockTags.OVERWORLD_CARVER_REPLACEABLES)
                     .add(BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.WHITE_PODZOL_DACITE.get(), BWGBlocks.MOSSY_STONE_SET.getBase(), BWGBlocks.LUSH_DIRT.get(),BWGBlocks.BOG_PODZOL.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.PEAT.get(),
                             BWGBlocks.RED_ROCK_SET.getBase(), BWGBlocks.DACITE_SET.getBase(), BWGBlocks.WHITE_DACITE_SET.getBase(), BWGBlocks.ROCKY_STONE_SET.getBase(), BWGBlocks.PACKED_BLACK_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get(),

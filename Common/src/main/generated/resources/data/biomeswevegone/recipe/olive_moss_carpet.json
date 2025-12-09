@@ -3,15 +3,14 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "biomeswevegone:cattail_sprout"
+      "item": "biomeswevegone:olive_moss_block"
     }
   },
   "pattern": [
-    "##",
     "##"
   ],
   "result": {
-    "count": 4,
-    "id": "biomeswevegone:cattail_thatch"
+    "count": 3,
+    "id": "biomeswevegone:olive_moss_carpet"
   }
 }

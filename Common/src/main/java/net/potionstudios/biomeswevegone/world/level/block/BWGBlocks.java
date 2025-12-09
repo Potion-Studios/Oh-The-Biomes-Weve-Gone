@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
@@ -59,7 +60,7 @@ public class BWGBlocks {
 
     public static final Supplier<Block> FORAGERS_TABLE = registerBlockItem("foragers_table", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.FLETCHING_TABLE)));
 
-    public static final Supplier<SnowyDirtBlock> BOG_PODZOL = registerBlockItem("bog_podzol", () -> new SnowyDirtBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT).mapColor(MapColor.TERRACOTTA_RED)));
+    public static final Supplier<SnowyDirtBlock> BOG_PODZOL = registerBlockItem("bog_podzol", () -> new SnowyDirtBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PODZOL).mapColor(MapColor.TERRACOTTA_RED)));
     public static final Supplier<Block> PEAT = registerBasicBlockWithItem("peat", BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT));
     public static final Supplier<Block> SANDY_DIRT = registerBasicBlockWithItem("sandy_dirt", BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT));
     public static final Supplier<DirtPathBlock> SANDY_DIRT_PATH = registerBlockItem("sandy_dirt_path", () -> new BWGDirtPathBlock(SANDY_DIRT));
@@ -252,6 +253,10 @@ public class BWGBlocks {
     public static final Supplier<WitchHazelBlossomBlock> WITCH_HAZEL_BLOSSOM = registerBlockItem("witch_hazel_blossom", WitchHazelBlossomBlock::new);
 
     public static final Supplier<TreeBranchBlock> SHELF_FUNGI = registerBlockItem("shelf_fungi", TreeBranchBlock::new);
+
+    public static final Supplier<TreeBranchBlock> OLIVE_MOSS_SPROUTS = registerBlockItem("olive_moss_sprouts", TreeBranchBlock::new);
+    public static final Supplier<CarpetBlock> OLIVE_MOSS_CARPET = registerBlockItem("olive_moss_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).strength(0.1F).sound(SoundType.MOSS_CARPET).pushReaction(PushReaction.DESTROY)));
+    public static final Supplier<MossBlock> OLIVE_MOSS_BLOCK = registerBlockItem("olive_moss_block", () -> new MossBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).strength(0.1F).sound(SoundType.MOSS).pushReaction(PushReaction.DESTROY)));
 
     /** Desert Plants */
     public static final PottedBlock MINI_CACTUS = createPottedVariant("mini_cactus", () -> new DesertPlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CACTUS).noOcclusion().noCollission(), Block.box(5.0D, 0.0D, 5.0D, 11.0D, 7.0D, 11.0D), BlockTags.SAND));

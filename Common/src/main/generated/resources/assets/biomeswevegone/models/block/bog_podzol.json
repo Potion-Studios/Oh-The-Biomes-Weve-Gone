@@ -3,6 +3,7 @@
   "render_type": "minecraft:cutout_mipped",
   "textures": {
     "bottom": "minecraft:block/dirt",
+    "overlay": "biomeswevegone:block/bog_podzol_side",
     "particle": "minecraft:block/dirt",
     "side": "biomeswevegone:block/bog_podzol_side",
     "top": "biomeswevegone:block/bog_podzol_top"
