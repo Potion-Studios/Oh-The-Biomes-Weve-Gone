@@ -1,11 +1,10 @@
 {
-  "parent": "minecraft:block/grass_block",
+  "parent": "minecraft:block/cube_bottom_top",
   "render_type": "minecraft:cutout_mipped",
   "textures": {
     "bottom": "minecraft:block/dirt",
-    "overlay": "biomeswevegone:block/bog_podzol_side",
     "particle": "minecraft:block/dirt",
-    "side": "biomeswevegone:block/bog_podzol_side",
+    "side": "biomeswevegone:block/bog_podzol_snow_side",
     "top": "biomeswevegone:block/bog_podzol_top"
   }
 }

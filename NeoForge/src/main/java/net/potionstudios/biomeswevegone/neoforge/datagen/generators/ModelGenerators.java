@@ -93,6 +93,7 @@ public class ModelGenerators {
             simpleItem(BWGBlocks.CYAN_PITCHER_PLANT.get().asItem(), "cyan_pitcher_plant");
             simpleItem(BWGBlocks.MAGENTA_PITCHER_PLANT.get().asItem(), "magenta_pitcher_plant");
             simpleItemBlockTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get());
+            simpleItemBlockTexture(BWGBlocks.OLIVE_MOSS_SPROUTS.get());
 
             getBuilder(name(BWGItems.PUMPKIN_BURROW.get()))
                     .parent(new ModelFile.UncheckedModelFile("biomeswevegone:block/pumpkin_burrow"))
@@ -144,6 +145,7 @@ public class ModelGenerators {
             models().withExistingParent(name(BWGBlocks.OVERGROWN_DACITE.get()), mcLoc("block/grass_block")).texture("particle", blockBWGTexture(BWGBlocks.DACITE_SET.getBase())).texture("top", blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "top")).texture("side", blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "side")).texture("bottom", blockBWGTexture(BWGBlocks.DACITE_SET.getBase())).texture("overlay", blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "side_overlay")).renderType("cutout_mipped");
             models().withExistingParent(name(BWGBlocks.WHITE_OVERGROWN_DACITE.get()), mcLoc("block/grass_block")).texture("particle", blockBWGTexture(BWGBlocks.WHITE_DACITE_SET.getBase())).texture("top", blockBWGTexture(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), "top")).texture("side", blockBWGTexture(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), "side")).texture("bottom", blockBWGTexture(BWGBlocks.WHITE_DACITE_SET.getBase())).texture("overlay", blockBWGTexture(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), "side_overlay")).renderType("cutout_mipped");
             models().withExistingParent(name(BWGBlocks.OVERGROWN_STONE.get()), mcLoc("block/grass_block")).texture("particle", blockTexture(Blocks.STONE)).texture("top", blockBWGTexture(BWGBlocks.OVERGROWN_STONE.get(), "top")).texture("side", blockBWGTexture(BWGBlocks.OVERGROWN_STONE.get(), "side")).texture("bottom", blockTexture(Blocks.STONE)).texture("overlay", blockBWGTexture(BWGBlocks.OVERGROWN_STONE.get(), "side_overlay")).renderType("cutout_mipped");
+            models().withExistingParent(name(BWGBlocks.BOG_PODZOL.get()), mcLoc("block/grass_block")).texture("particle", blockTexture(Blocks.DIRT)).texture("top", blockBWGTexture(BWGBlocks.BOG_PODZOL.get(), "top")).texture("side", blockBWGTexture(BWGBlocks.BOG_PODZOL.get(), "side")).texture("bottom", blockTexture(Blocks.DIRT)).texture("overlay", blockBWGTexture(BWGBlocks.BOG_PODZOL.get(), "side")).renderType("cutout_mipped");
 
             models().withExistingParent(name(BWGBlocks.TINY_LILY_PADS.get()), "block/lily_pad").texture("particle", blockBWGTexture(BWGBlocks.TINY_LILY_PADS.get())).texture("texture", blockBWGTexture(BWGBlocks.TINY_LILY_PADS.get())).renderType("cutout");
 
@@ -335,6 +337,10 @@ public class ModelGenerators {
             simpleBlockWithItem(BWGBlocks.WHITE_PODZOL_DACITE.get(),
                     models().cubeBottomTop(name(BWGBlocks.WHITE_PODZOL_DACITE.get()), blockBWGTexture(BWGBlocks.WHITE_PODZOL_DACITE.get()), blockBWGTexture(BWGBlocks.WHITE_DACITE_SET.getBase()), mcLoc("block/podzol_top")));
 
+            models().cubeBottomTop(name(BWGBlocks.BOG_PODZOL.get()) + "_snowy",  blockBWGTexture(BWGBlocks.BOG_PODZOL.get(), "snow_side"), blockTexture(Blocks.DIRT), blockBWGTexture(BWGBlocks.BOG_PODZOL.get(), "top")).texture("particle", blockTexture(Blocks.DIRT)).renderType("cutout_mipped");
+            snowyRotatableBlock(BWGBlocks.BOG_PODZOL.get());
+            simpleBlockItemExistingModel(BWGBlocks.BOG_PODZOL.get());
+
 
             registerSlab(BWGBlocks.CATTAIL_THATCH_SLAB.get(), BWGBlocks.CATTAIL_THATCH.get());
             registerStairs(BWGBlocks.CATTAIL_THATCH_STAIRS.get(), BWGBlocks.CATTAIL_THATCH.get());
@@ -441,6 +447,19 @@ public class ModelGenerators {
                 default ->
                         ConfiguredModel.builder().modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get()))).build();
             }, TreeBranchBlock.WATERLOGGED);
+
+            models().withExistingParent(name(BWGBlocks.OLIVE_MOSS_SPROUTS.get()), mcLoc("block/coral_wall_fan")).texture("fan", blockBWGTexture(BWGBlocks.OLIVE_MOSS_SPROUTS.get())).renderType("cutout_mipped");
+            getVariantBuilder(BWGBlocks.OLIVE_MOSS_SPROUTS.get()).forAllStatesExcept(state -> switch (state.getValue(TreeBranchBlock.FACING)) {
+                case EAST ->
+                        ConfiguredModel.builder().rotationY(90).modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.OLIVE_MOSS_SPROUTS.get()))).build();
+                case WEST ->
+                        ConfiguredModel.builder().rotationY(270).modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.OLIVE_MOSS_SPROUTS.get()))).build();
+                case SOUTH ->
+                        ConfiguredModel.builder().rotationY(180).modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.OLIVE_MOSS_SPROUTS.get()))).build();
+                default ->
+                        ConfiguredModel.builder().modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.OLIVE_MOSS_SPROUTS.get()))).build();
+            }, TreeBranchBlock.WATERLOGGED);
+            
             simpleBlockWithItem(BWGBlocks.WITCH_HAZEL_BLOSSOM.get(), models().getExistingFile(blockBWGTexture(BWGBlocks.WITCH_HAZEL_BLOSSOM.get())));
             simpleBlockWithItem(BWGWood.SPIRIT_ROOTS.get(), models().withExistingParent(name(BWGWood.SPIRIT_ROOTS.get()), "block/mangrove_roots").texture("side", BiomesWeveGone.id("block/spirit/roots_top")).texture("top", BiomesWeveGone.id("block/spirit/roots_side")).renderType("cutout_mipped"));
 

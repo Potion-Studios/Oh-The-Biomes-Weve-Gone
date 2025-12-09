@@ -331,11 +331,16 @@ public class RecipeGenerator extends RecipeProvider {
                 .unlockedBy(getHasName(BWGItems.BLUEBERRIES.get()), has(BWGItems.BLUEBERRIES.get()))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BWGBlocks.CATTAIL_THATCH.get(), 4)
-                .define('#', BWGItems.CATTAIL_SPROUT.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BWGBlocks.OLIVE_MOSS_CARPET.get(), 3)
+                .define('#', BWGBlocks.OLIVE_MOSS_BLOCK.get())
                 .pattern("##")
-                .pattern("##")
-                .unlockedBy(getHasName(BWGItems.CATTAIL_SPROUT.get()), has(BWGItems.CATTAIL_SPROUT.get()))
+                .unlockedBy(getHasName(BWGBlocks.OLIVE_MOSS_BLOCK.get()), has(BWGBlocks.OLIVE_MOSS_BLOCK.get()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BWGBlocks.OLIVE_MOSS_SPROUTS.get(), 3)
+                .define('#', BWGBlocks.OLIVE_MOSS_BLOCK.get())
+                .pattern("#")
+                .unlockedBy(getHasName(BWGBlocks.OLIVE_MOSS_BLOCK.get()), has(BWGBlocks.OLIVE_MOSS_BLOCK.get()))
                 .save(recipeOutput);
 
         slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CATTAIL_THATCH_SLAB.get(), BWGBlocks.CATTAIL_THATCH.get());
