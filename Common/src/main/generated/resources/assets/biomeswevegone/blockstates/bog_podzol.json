@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "snowy=false": [
+      {
+        "model": "biomeswevegone:block/bog_podzol"
+      },
+      {
+        "model": "biomeswevegone:block/bog_podzol",
+        "y": 90
+      },
+      {
+        "model": "biomeswevegone:block/bog_podzol",
+        "y": 180
+      },
+      {
+        "model": "biomeswevegone:block/bog_podzol",
+        "y": 270
+      }
+    ],
+    "snowy=true": {
+      "model": "biomeswevegone:block/bog_podzol_snowy"
+    }
+  }
+}
