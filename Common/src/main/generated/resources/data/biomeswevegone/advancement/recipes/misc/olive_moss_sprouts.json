@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cattail_sprout": {
+    "has_olive_moss_block": {
       "conditions": {
         "items": [
           {
-            "items": "biomeswevegone:cattail_sprout"
+            "items": "biomeswevegone:olive_moss_block"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomeswevegone:cattail_thatch"
+        "recipe": "biomeswevegone:olive_moss_sprouts"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_cattail_sprout"
+      "has_olive_moss_block"
     ]
   ],
   "rewards": {
     "recipes": [
-      "biomeswevegone:cattail_thatch"
+      "biomeswevegone:olive_moss_sprouts"
     ]
   }
 }
