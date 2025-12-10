@@ -145,7 +145,6 @@ public class ModelGenerators {
             models().withExistingParent(name(BWGBlocks.OVERGROWN_DACITE.get()), mcLoc("block/grass_block")).texture("particle", blockBWGTexture(BWGBlocks.DACITE_SET.getBase())).texture("top", blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "top")).texture("side", blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "side")).texture("bottom", blockBWGTexture(BWGBlocks.DACITE_SET.getBase())).texture("overlay", blockBWGTexture(BWGBlocks.OVERGROWN_DACITE.get(), "side_overlay")).renderType("cutout_mipped");
             models().withExistingParent(name(BWGBlocks.WHITE_OVERGROWN_DACITE.get()), mcLoc("block/grass_block")).texture("particle", blockBWGTexture(BWGBlocks.WHITE_DACITE_SET.getBase())).texture("top", blockBWGTexture(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), "top")).texture("side", blockBWGTexture(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), "side")).texture("bottom", blockBWGTexture(BWGBlocks.WHITE_DACITE_SET.getBase())).texture("overlay", blockBWGTexture(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), "side_overlay")).renderType("cutout_mipped");
             models().withExistingParent(name(BWGBlocks.OVERGROWN_STONE.get()), mcLoc("block/grass_block")).texture("particle", blockTexture(Blocks.STONE)).texture("top", blockBWGTexture(BWGBlocks.OVERGROWN_STONE.get(), "top")).texture("side", blockBWGTexture(BWGBlocks.OVERGROWN_STONE.get(), "side")).texture("bottom", blockTexture(Blocks.STONE)).texture("overlay", blockBWGTexture(BWGBlocks.OVERGROWN_STONE.get(), "side_overlay")).renderType("cutout_mipped");
-            models().withExistingParent(name(BWGBlocks.BOG_PODZOL.get()), mcLoc("block/grass_block")).texture("particle", blockTexture(Blocks.DIRT)).texture("top", blockBWGTexture(BWGBlocks.BOG_PODZOL.get(), "top")).texture("side", blockBWGTexture(BWGBlocks.BOG_PODZOL.get(), "side")).texture("bottom", blockTexture(Blocks.DIRT)).texture("overlay", blockBWGTexture(BWGBlocks.BOG_PODZOL.get(), "side")).renderType("cutout_mipped");
 
             models().withExistingParent(name(BWGBlocks.TINY_LILY_PADS.get()), "block/lily_pad").texture("particle", blockBWGTexture(BWGBlocks.TINY_LILY_PADS.get())).texture("texture", blockBWGTexture(BWGBlocks.TINY_LILY_PADS.get())).renderType("cutout");
 
@@ -337,10 +336,8 @@ public class ModelGenerators {
             simpleBlockWithItem(BWGBlocks.WHITE_PODZOL_DACITE.get(),
                     models().cubeBottomTop(name(BWGBlocks.WHITE_PODZOL_DACITE.get()), blockBWGTexture(BWGBlocks.WHITE_PODZOL_DACITE.get()), blockBWGTexture(BWGBlocks.WHITE_DACITE_SET.getBase()), mcLoc("block/podzol_top")));
 
-            models().cubeBottomTop(name(BWGBlocks.BOG_PODZOL.get()) + "_snowy",  blockBWGTexture(BWGBlocks.BOG_PODZOL.get(), "snow_side"), blockTexture(Blocks.DIRT), blockBWGTexture(BWGBlocks.BOG_PODZOL.get(), "top")).texture("particle", blockTexture(Blocks.DIRT)).renderType("cutout_mipped");
-            snowyRotatableBlock(BWGBlocks.BOG_PODZOL.get());
-            simpleBlockItemExistingModel(BWGBlocks.BOG_PODZOL.get());
-
+            simpleBlockWithItem(BWGBlocks.BOG_PODZOL.get(),
+                    models().cubeBottomTop(name(BWGBlocks.BOG_PODZOL.get()), blockBWGTexture(BWGBlocks.BOG_PODZOL.get(), "side"), blockTexture(Blocks.DIRT), blockBWGTexture(BWGBlocks.BOG_PODZOL.get(), "top")));
 
             registerSlab(BWGBlocks.CATTAIL_THATCH_SLAB.get(), BWGBlocks.CATTAIL_THATCH.get());
             registerStairs(BWGBlocks.CATTAIL_THATCH_STAIRS.get(), BWGBlocks.CATTAIL_THATCH.get());
