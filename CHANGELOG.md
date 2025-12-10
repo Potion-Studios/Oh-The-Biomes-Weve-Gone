@@ -1,3 +1,5 @@
+# 2.6.0
+
 # 2.5.5
 - Add Polish (pl_pl) Translations (Credits: kierohere)
 - Allow Trial Chambers Structures to spawn in/under BWG Biomes
