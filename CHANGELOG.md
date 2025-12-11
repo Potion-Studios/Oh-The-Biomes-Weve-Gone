@@ -1,3 +1,5 @@
+# 2.5.3
+
 # 2.5.2
 - Add Compatibility with BucketLib and UnderGarden Dynamic Bucket
 - Fix BWG Chest Boats changing to Aspen type on server reload
