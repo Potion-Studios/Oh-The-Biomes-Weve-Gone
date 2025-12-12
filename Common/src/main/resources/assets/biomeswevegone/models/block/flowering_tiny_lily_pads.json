@@ -1,6 +1,5 @@
 {
-	"format_version": "1.9.0",
-	"credit": "Made with Blockbench",
+	"render_type": "minecraft:cutout",
 	"textures": {
 		"0": "biomeswevegone:block/tiny_lily_pads",
 		"1": "biomeswevegone:block/tiny_lily_pads_flower_overlay",

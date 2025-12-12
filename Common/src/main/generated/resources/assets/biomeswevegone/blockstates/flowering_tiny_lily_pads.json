@@ -15,6 +15,36 @@
       {
         "model": "biomeswevegone:block/flowering_tiny_lily_pads",
         "y": 270
+      },
+      {
+        "model": "biomeswevegone:block/flowering_tiny_lily_pads"
+      },
+      {
+        "model": "biomeswevegone:block/flowering_tiny_lily_pads",
+        "y": 90
+      },
+      {
+        "model": "biomeswevegone:block/flowering_tiny_lily_pads",
+        "y": 180
+      },
+      {
+        "model": "biomeswevegone:block/flowering_tiny_lily_pads",
+        "y": 270
+      },
+      {
+        "model": "biomeswevegone:block/flowering_tiny_lily_pads2"
+      },
+      {
+        "model": "biomeswevegone:block/flowering_tiny_lily_pads2",
+        "y": 90
+      },
+      {
+        "model": "biomeswevegone:block/flowering_tiny_lily_pads2",
+        "y": 180
+      },
+      {
+        "model": "biomeswevegone:block/flowering_tiny_lily_pads2",
+        "y": 270
       }
     ]
   }
