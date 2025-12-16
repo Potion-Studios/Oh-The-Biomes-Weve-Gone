@@ -1,3 +1,5 @@
+# 3.2.2
+
 # 3.2.1
 - Fix BWG Mushroom Blocks missing Mineable with Axe Tag
 - Update French (fr_fr) Translations (Credits: Brandcraf06)
