@@ -1,4 +1,5 @@
 # 4.2.1
+- Fix Baby Villagers not being able to be turned into Pumpkin Wardens (Fabric)
 
 # 4.2.0 - 1.21.10
 - Update to 1.21.10, Support for 1.21.8 has now ended
