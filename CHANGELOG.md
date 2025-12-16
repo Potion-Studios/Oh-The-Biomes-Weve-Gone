@@ -1,3 +1,5 @@
+# 4.2.1
+
 # 4.2.0 - 1.21.10
 - Update to 1.21.10, Support for 1.21.8 has now ended
 - This was developed and tested using Geckolib 5.3-alpha-3 it is possible future gecko updates may cause issues
