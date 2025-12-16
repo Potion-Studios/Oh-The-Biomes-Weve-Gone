@@ -1,5 +1,6 @@
 # 2.5.3
 - Fix Baby Villagers not being able to be turned into Pumpkin Wardens (Fabric)
+- Adjust some Language Keys for Skyris Vale Biome
 
 # 2.5.2
 - Add Compatibility with BucketLib and UnderGarden Dynamic Bucket
