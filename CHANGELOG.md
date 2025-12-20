@@ -1,4 +1,5 @@
 # 1.7.3
+- Fix Baby Villagers not being able to be turned into Pumpkin Wardens (Fabric)
 
 # 1.7.2
 - Fix BWG Chest Boats changing to Aspen type on server reload

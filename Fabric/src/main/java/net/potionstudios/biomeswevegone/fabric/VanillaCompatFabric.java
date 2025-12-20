@@ -42,7 +42,7 @@ public class VanillaCompatFabric {
             if (BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value())
                 registerWanderingTrades();
         }
-        UseEntityCallback.EVENT.register(((player, level, interactionHand, entity, entityHitResult) -> PumpkinWarden.villagerToPumpkinWarden(player, player.getItemInHand(interactionHand), level) ? InteractionResult.SUCCESS : InteractionResult.PASS));
+        UseEntityCallback.EVENT.register(((player, level, interactionHand, entity, entityHitResult) -> PumpkinWarden.villagerToPumpkinWarden(entity, player.getItemInHand(interactionHand), level) ? InteractionResult.SUCCESS : InteractionResult.PASS));
         BWGVillagerTypes.setVillagerBiomes(VillagerType.BY_BIOME::put);
     }
 
