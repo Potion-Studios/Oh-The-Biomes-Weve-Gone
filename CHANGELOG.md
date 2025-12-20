@@ -1,5 +1,6 @@
 # 1.7.3
 - Fix Baby Villagers not being able to be turned into Pumpkin Wardens (Fabric)
+- Adjust some Language Keys for Skyris Vale Biome
 
 # 1.7.2
 - Fix BWG Chest Boats changing to Aspen type on server reload
