@@ -1,5 +1,6 @@
 # 3.2.2
 - Fix Baby Villagers not being able to be turned into Pumpkin Wardens (Fabric)
+- Adjust some Language Keys for Skyris Vale Biome
 
 # 3.2.1
 - Fix BWG Mushroom Blocks missing Mineable with Axe Tag
