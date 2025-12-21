@@ -2,6 +2,7 @@
 - Fix Baby Villagers not being able to be turned into Pumpkin Wardens (Fabric)
 - Adjust some Language Keys for Skyris Vale Biome
 - Compatibility with Autumnity – When present, our Medium Pumpkin Feature is replaced with their Pumpkin Feature (Forge)
+- Add PathBlockType to BlueBerry Bush.  (Forge Only)
 
 # 1.7.2
 - Fix BWG Chest Boats changing to Aspen type on server reload
