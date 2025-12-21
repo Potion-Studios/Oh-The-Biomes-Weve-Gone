@@ -2,6 +2,7 @@
 - Fix Baby Villagers not being able to be turned into Pumpkin Wardens (Fabric)
 - Adjust some Language Keys for Skyris Vale Biome
 - Compatibility with Autumnity – When present, our Medium Pumpkin Feature is replaced with their Pumpkin Feature (NeoForge)
+- Add PathBlockType to BlueBerry Bush.  (Forge/NeoForge Only)
 
 # 2.5.2
 - Add Compatibility with BucketLib and UnderGarden Dynamic Bucket
