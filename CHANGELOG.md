@@ -1,4 +1,6 @@
 # 4.2.2
+- Add PathBlockType to Desert Plants.  (Forge/NeoForge Only)
+- Make Barrel Cactus give Cactus Damage when collided with
 
 # 4.2.1
 - Fix Baby Villagers not being able to be turned into Pumpkin Wardens (Fabric)
