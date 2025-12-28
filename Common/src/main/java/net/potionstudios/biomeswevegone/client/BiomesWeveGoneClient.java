@@ -4,7 +4,7 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.item.ItemTintSource;
-import net.minecraft.client.model.BoatModel;
+import net.minecraft.client.model.object.boat.BoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.particle.FallingLeavesParticle;
@@ -19,7 +19,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.ARGB;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -160,12 +160,10 @@ public class BiomesWeveGoneClient {
 
     @Nullable
     private static ChunkSectionLayer renderTypeBlock(Block block) {
-        if (block instanceof BWGFruitBlock || block instanceof DoorBlock || block instanceof TrapDoorBlock || block instanceof VegetationBlock || block instanceof GlowCaneBlock || block instanceof LanternBlock)
-            return ChunkSectionLayer.CUTOUT;
-        else if (block instanceof LeavesBlock || block instanceof VineBlock || block instanceof MangroveRootsBlock
+        if (block instanceof BWGFruitBlock || block instanceof DoorBlock || block instanceof TrapDoorBlock || block instanceof VegetationBlock || block instanceof GlowCaneBlock || block instanceof LanternBlock || block instanceof LeavesBlock || block instanceof VineBlock || block instanceof MangroveRootsBlock
                 || block instanceof FlowerPotBlock || block instanceof BWGCactusBlock || block instanceof CattailSproutBlock
                 || block instanceof BWGSpreadableBlock || block instanceof SporeBlossomBlock || block instanceof BaseCoralPlantTypeBlock)
-            return ChunkSectionLayer.CUTOUT_MIPPED;
+            return ChunkSectionLayer.CUTOUT;
         else if (block instanceof StainedGlassPaneBlock || block instanceof HalfTransparentBlock)
             return ChunkSectionLayer.TRANSLUCENT;
         return null;
@@ -243,7 +241,7 @@ public class BiomesWeveGoneClient {
         return 0xff000000 | (r << 16) | (g << 8) | (b << 0);
     }
 
-    public static void registerItemTintSources(BiConsumer<ResourceLocation, MapCodec<? extends ItemTintSource>> consumer) {
+    public static void registerItemTintSources(BiConsumer<Identifier, MapCodec<? extends ItemTintSource>> consumer) {
         consumer.accept(BiomesWeveGone.id("borealis_ice"), BorealisIceColorSource.MAP_CODEC);
         consumer.accept(BiomesWeveGone.id("foliage"), FoliageColorSource.MAP_CODEC);
     }

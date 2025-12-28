@@ -132,11 +132,11 @@ public class GourPlateauPiece extends StructurePiece {
     private void buildPlateauTerrain(WorldGenLevel worldGenLevel, double minRadius, int range, BlockPos.MutableBlockPos mutable, int blockX, int blockZ, double noise, SimplexNoise simplexNoise, int plateauThickness, int plateauSurfacePull, int[] topYs, int[] bottomYs, int idx, RandomSource randomSource, BlockStateProvider stateProvider) {
         double factor = Mth.clamp((double) (range - 1 - plateauThickness - plateauSurfacePull) / range, 0, 1);
 
-        double radiusFactor = Mth.clampedLerp(-0.5, 1, factor);
+        double radiusFactor = Mth.clampedLerp(factor,-0.5, 1);
         mutable.set(blockX, origin.getY() + plateauThickness + range + plateauSurfacePull - 1, blockZ);
 
         double delta = noise * 0.5; // 0-1 range
-        double amplifiedDelta = Mth.clampedLerp(0.2, 1, BlendingFunction.EaseOutQuint.INSTANCE.apply(delta));
+        double amplifiedDelta = Mth.clampedLerp(BlendingFunction.EaseOutQuint.INSTANCE.apply(delta), 0.2, 1);
         int localRadius = (int) (BlendingFunction.EaseInCirc.INSTANCE.apply(radiusFactor, minRadius, radius) * amplifiedDelta);
 
         BlockPos offsetOrigin = origin.offset(0, plateauThickness + range + plateauSurfacePull, 0);
@@ -161,11 +161,11 @@ public class GourPlateauPiece extends StructurePiece {
         for (int y = 0; y < plateauSurfacePull; y++) { // Pull up the plateau
             double factor = Mth.clamp((double) (range - 2 - y) / range, 0, 1);
 
-            double radiusFactor = Mth.clampedLerp(-0.5, 1, factor);
+            double radiusFactor = Mth.clampedLerp(factor, -0.5, 1);
             mutable.set(blockX, origin.getY() + y + range + plateauThickness, blockZ);
 
             double delta = noise * 0.5; // 0-1 range
-            double amplifiedDelta = Mth.clampedLerp(0.2, 1, BlendingFunction.EaseOutQuint.INSTANCE.apply(delta));
+            double amplifiedDelta = Mth.clampedLerp(BlendingFunction.EaseOutQuint.INSTANCE.apply(delta),0.2, 1);
             int localRadius = (int) (BlendingFunction.EaseInCirc.INSTANCE.apply(radiusFactor, minRadius, radius) * amplifiedDelta);
 
 
@@ -180,9 +180,9 @@ public class GourPlateauPiece extends StructurePiece {
 
     private void thickenPlateau(WorldGenLevel worldGenLevel, double minRadius, BlockPos.MutableBlockPos mutable, int blockX, int range, int blockZ, double noise, int plateauThickness, int[] topYs, int[] bottomYs, int idx, RandomSource randomSource, BlockStateProvider stateProvider) {
         double factor = Mth.clamp((double) (range - 1) / range, 0, 1);
-        double radiusFactor = Mth.clampedLerp(-0.5, 1, factor);
+        double radiusFactor = Mth.clampedLerp(factor, -0.5, 1);
         double delta = noise * 0.5; // 0-1 range
-        double amplifiedDelta = Mth.clampedLerp(0.2, 1, BlendingFunction.EaseOutQuint.INSTANCE.apply(delta));
+        double amplifiedDelta = Mth.clampedLerp(BlendingFunction.EaseOutQuint.INSTANCE.apply(delta), 0.2, 1);
         int localRadius = (int) (BlendingFunction.EaseInCirc.INSTANCE.apply(radiusFactor, minRadius, radius) * amplifiedDelta);
 
         for (int y = 0; y < plateauThickness; y++) {
@@ -201,11 +201,11 @@ public class GourPlateauPiece extends StructurePiece {
 
         for (int y = 0; y < range; y++) {
             double factor = Mth.clamp((double) y / range, 0, 1);
-            double radiusFactor = Mth.clampedLerp(-0.5, 1, factor);
+            double radiusFactor = Mth.clampedLerp(factor, -0.5, 1);
             mutable.set(blockX, minY + y, blockZ);
 
             double delta = noise * 0.5; // 0-1 range
-            double amplifiedDelta = Mth.clampedLerp(0.2, 1, BlendingFunction.EaseOutQuint.INSTANCE.apply(delta));
+            double amplifiedDelta = Mth.clampedLerp(BlendingFunction.EaseOutQuint.INSTANCE.apply(delta),0.2, 1);
             int localRadius = (int) (BlendingFunction.EaseInCirc.INSTANCE.apply(radiusFactor, minRadius, radius) * amplifiedDelta);
 
 

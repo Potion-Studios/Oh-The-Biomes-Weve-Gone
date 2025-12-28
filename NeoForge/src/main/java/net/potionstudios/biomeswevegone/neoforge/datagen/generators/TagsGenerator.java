@@ -6,7 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.*;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Items;
@@ -399,7 +399,7 @@ public class TagsGenerator {
             tag(BWGItemTags.MAKES_2_WHITE_DYE).add(BWGBlocks.TALL_WHITE_ALLIUM.get().asItem());
 
             //Pumpkin Warden
-            tag(BWGItemTags.PUMPKIN_WARDEN_PICKS_UP).add(Items.PUMPKIN_PIE).addOptionalTag(Tags.Items.EGGS).addOptionalTag(Tags.Items.PUMPKINS).addOptionalTag(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "eggs")));
+            tag(BWGItemTags.PUMPKIN_WARDEN_PICKS_UP).add(Items.PUMPKIN_PIE).addOptionalTag(Tags.Items.EGGS).addOptionalTag(Tags.Items.PUMPKINS).addOptionalTag(TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("forge", "eggs")));
 
             //Serene Seasons
             tag(ModTags.Items.YEAR_ROUND_CROPS).add(BWGBlocks.GREEN_MUSHROOM.get().asItem(), BWGBlocks.WEEPING_MILKCAP.get().asItem(), BWGBlocks.WOOD_BLEWIT.get().asItem(), BWGWood.ASPEN.sapling().getBlock().asItem(), BWGWood.RED_MAPLE_SAPLING.getBlock().asItem()).addTag(BWGItemTags.OAK_SAPLINGS);

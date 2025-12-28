@@ -7,7 +7,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
-import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.entity.npc.villager.VillagerProfession;
 import net.minecraft.world.item.Item;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
@@ -26,7 +26,7 @@ public class BWGVillagerProfessions {
 
     private static ResourceKey<VillagerProfession> register(String id, ResourceKey<PoiType> poiType, @Nullable SoundEvent soundEvent, Supplier<ImmutableSet<Item>> requestedItems){
         ResourceKey<VillagerProfession> name = BiomesWeveGone.key(Registries.VILLAGER_PROFESSION, id);
-        PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.VILLAGER_PROFESSION, id, () -> new VillagerProfession(Component.translatable("entity." + name.location().getNamespace() + ".villager." + name.location().getPath()), poiTypeHolder -> poiTypeHolder.is(poiType), (poiTypeHolder) -> poiTypeHolder.is(poiType), requestedItems.get(), ImmutableSet.of(), soundEvent));
+        PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.VILLAGER_PROFESSION, id, () -> new VillagerProfession(Component.translatable("entity." + name.identifier().getNamespace() + ".villager." + name.identifier().getPath()), poiTypeHolder -> poiTypeHolder.is(poiType), (poiTypeHolder) -> poiTypeHolder.is(poiType), requestedItems.get(), ImmutableSet.of(), soundEvent));
         return name;
     }
 

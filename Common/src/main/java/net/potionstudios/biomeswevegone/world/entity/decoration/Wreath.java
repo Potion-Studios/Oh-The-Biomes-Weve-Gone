@@ -19,7 +19,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.HangingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.storage.ValueInput;
@@ -88,7 +88,7 @@ public class Wreath extends HangingEntity {
 
 	@Override
 	public void dropItem(@NotNull ServerLevel level, @Nullable Entity entity) {
-		if (level.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
+		if (level.getGameRules().get(GameRules.ENTITY_DROPS)) {
 			playSound(SoundEvents.AZALEA_LEAVES_BREAK);
 			if (!(entity instanceof Player player && player.hasInfiniteMaterials())) {
 				this.spawnAtLocation(level, getVariant().getItem());

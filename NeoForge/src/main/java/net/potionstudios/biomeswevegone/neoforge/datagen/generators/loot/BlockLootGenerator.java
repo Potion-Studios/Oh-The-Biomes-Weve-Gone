@@ -1,7 +1,8 @@
 package net.potionstudios.biomeswevegone.neoforge.datagen.generators.loot;
 
-import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+
+import net.minecraft.advancements.criterion.ItemPredicate;
+import net.minecraft.advancements.criterion.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;

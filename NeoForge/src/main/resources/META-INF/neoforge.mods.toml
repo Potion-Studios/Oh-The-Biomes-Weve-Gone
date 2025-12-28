@@ -17,42 +17,42 @@ displayURL="https://potionstudios.net/"
 [[dependencies.biomeswevegone]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21.6.12-beta,)"
+versionRange = "[21.11.1-beta,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.biomeswevegone]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21.6,)"
+versionRange = "[1.21.11,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.biomeswevegone]]
 modId = "terrablender"
 type = "required"
-versionRange = "[6.0.0.0,)"
+versionRange = "[21.11.0.0,)"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.biomeswevegone]]
 modId = "corgilib"
 type = "required"
-versionRange = "[7.0.0.0,)"
+versionRange = "[9.0.0.0,)"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.biomeswevegone]]
 modId = "ohthetreesyoullgrow"
 type = "required"
-versionRange = "[7.0.0,)"
+versionRange = "[9.0.0,)"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.biomeswevegone]]
 modId = "geckolib"
 type = "required"
-versionRange = "[5.2.0,)"
+versionRange = "[5.4,)"
 ordering = "AFTER"
 side = "BOTH"
 

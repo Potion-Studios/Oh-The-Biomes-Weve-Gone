@@ -65,7 +65,7 @@ public class PillarFeature extends Feature<PillarFeature.Config> {
                         mutableBlockPos.set(origin.getX() + xOffset, worldY, origin.getZ() + zOffset);
 
                         double pillarNoise = (noise.noise(mutableBlockPos.getX() * frequency, mutableBlockPos.getY() * frequency, mutableBlockPos.getZ() * frequency) + 1) * 0.5; // 0-1 range
-                        double localRadius = Mth.clampedLerp(radius1 * minRadiusScale, radius1, pillarNoise);
+                        double localRadius = Mth.clampedLerp(pillarNoise,radius1 * minRadiusScale, radius1);
 
                         if (tester.distanceTester.withinDistance(origin.atY(worldY), mutableBlockPos, localRadius)) {
                             cache.add(mutableBlockPos.asLong());

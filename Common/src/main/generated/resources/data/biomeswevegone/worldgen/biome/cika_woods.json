@@ -1,4 +1,17 @@
 {
+  "attributes": {
+    "minecraft:audio/ambient_sounds": {
+      "mood": {
+        "block_search_extent": 8,
+        "offset": 2.0,
+        "sound": "minecraft:ambient.cave",
+        "tick_delay": 6000
+      }
+    },
+    "minecraft:visual/fog_color": "#c0d8ff",
+    "minecraft:visual/sky_color": "#7ca3ff",
+    "minecraft:visual/water_fog_color": "#050533"
+  },
   "carvers": [
     "minecraft:cave",
     "minecraft:cave_extra_underground",
@@ -6,19 +19,9 @@
   ],
   "downfall": 0.5,
   "effects": {
-    "fog_color": 12638463,
-    "foliage_color": 13414235,
-    "grass_color": 13414235,
-    "mood_sound": {
-      "block_search_extent": 8,
-      "offset": 2.0,
-      "sound": "minecraft:ambient.cave",
-      "tick_delay": 6000
-    },
-    "music_volume": 1.0,
-    "sky_color": 8168447,
-    "water_color": 4159204,
-    "water_fog_color": 329011
+    "foliage_color": "#ccaf5b",
+    "grass_color": "#ccaf5b",
+    "water_color": "#3f76e4"
   },
   "features": [
     [],

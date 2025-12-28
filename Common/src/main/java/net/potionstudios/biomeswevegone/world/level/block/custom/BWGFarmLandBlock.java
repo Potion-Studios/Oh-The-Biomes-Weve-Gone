@@ -10,7 +10,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -60,7 +60,7 @@ public class BWGFarmLandBlock extends FarmBlock {
         if (level instanceof ServerLevel serverLevel
                 && level.getRandom().nextFloat() < fallDistance - 0.5F
                 && entity instanceof LivingEntity
-                && (entity instanceof Player || serverLevel.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING))
+                && (entity instanceof Player || serverLevel.getGameRules().get(GameRules.MOB_GRIEFING))
                 && entity.getBbWidth() * entity.getBbWidth() * entity.getBbHeight() > 0.512F) {
             turnToDirtBlock(entity, state, level, pos);
         }

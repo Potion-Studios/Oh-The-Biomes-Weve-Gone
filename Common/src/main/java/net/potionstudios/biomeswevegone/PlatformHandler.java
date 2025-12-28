@@ -7,6 +7,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.server.permissions.Permissions;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -57,7 +58,7 @@ public interface PlatformHandler {
 	 * @return True if the player has the permission, false otherwise
 	 */
 	default boolean hasPermission(@NotNull CommandSourceStack sourceStack, @NotNull String permission) {
-		return sourceStack.hasPermission(4);
+		return sourceStack.permissions().hasPermission(Permissions.COMMANDS_OWNER);
 	}
 
 	/**

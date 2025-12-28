@@ -1,3 +1,6 @@
+# 4.3.0
+- Update to 1.21.11, Support for 1.21.10 has now ended
+
 # 4.2.2
 - Add PathBlockType to Desert Plants.  (Forge/NeoForge Only)
 - Make Barrel Cactus give Cactus Damage when collided with

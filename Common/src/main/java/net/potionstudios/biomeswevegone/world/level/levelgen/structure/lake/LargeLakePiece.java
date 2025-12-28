@@ -104,7 +104,7 @@ public class LargeLakePiece extends StructurePiece {
                 double radiusFrequency = 0.05;
                 double noise = noiseSampler.noise(blockX * radiusFrequency, 0, blockZ * radiusFrequency) + 1; // 0-2 range, no negatives
 
-                double localRadius = (int) Mth.clampedLerp(radius * 0.5, radius, noise * 0.5F);
+                double localRadius = (int) Mth.clampedLerp(noise * 0.5F, radius * 0.5, radius);
 
                 int blendWidth = 43;
 
@@ -180,11 +180,11 @@ public class LargeLakePiece extends StructurePiece {
         double depthNoise = ((noiseSampler.noise((mutableBlockPos.getX() + 100000) * frequency, 0, ((mutableBlockPos.getZ() + 100000) * frequency))) + 1) * 0.5;
 
 
-        double depthOffset = Mth.clampedLerp(0, 10, depthNoise);
+        double depthOffset = Mth.clampedLerp(depthNoise, 0, 10);
         int minGenY = origin.getY() - lakeDepth;
 
         int waterGenY = origin.getY() - fluidLevel;
-        int depth = (int) Mth.clampedLerp(origin.getY(), minGenY - depthOffset, -delta);
+        int depth = (int) Mth.clampedLerp(-delta, origin.getY(), minGenY - depthOffset);
 
 
         for (int y = origin.getY(); y >= depth - 1; y--) {
@@ -223,7 +223,7 @@ public class LargeLakePiece extends StructurePiece {
     private void blendTerrain(double localRadius, int blendWidth, BlockPos.MutableBlockPos mutableBlockPos, int worldSurfaceY, int blockX, int blockZ, ChunkAccess chunk, BlockState[] topBlocks, UnsafeBoundingBox unsafeBoundingBox) {
         double offset = localRadius - blendWidth;
         double delta = (mutableBlockPos.setY(origin.getY()).distSqr(origin) - Mth.square(offset)) / Mth.square(localRadius - offset);
-        int height = (int) Mth.clampedLerp(origin.getY(), worldSurfaceY, delta);
+        int height = (int) Mth.clampedLerp(delta, origin.getY(), worldSurfaceY);
 
         if (origin.getY() >= worldSurfaceY) {
             for (int y = worldSurfaceY; y <= height; y++) {

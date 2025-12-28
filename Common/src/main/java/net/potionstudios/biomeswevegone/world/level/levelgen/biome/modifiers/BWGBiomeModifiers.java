@@ -2,7 +2,7 @@ package net.potionstudios.biomeswevegone.world.level.levelgen.biome.modifiers;
 
 import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -19,7 +19,7 @@ import java.util.Map;
  * @author Joseph T. McQuigg
  */
 public class BWGBiomeModifiers {
-	public static final Map<ResourceLocation, BWGBiomeModifier> BIOME_MODIFIERS_FACTORIES = new Reference2ObjectOpenHashMap<>();
+	public static final Map<Identifier, BWGBiomeModifier> BIOME_MODIFIERS_FACTORIES = new Reference2ObjectOpenHashMap<>();
 
 	@SafeVarargs
 	private static void registerModifierVegetalDecoration(String id, ResourceKey<PlacedFeature> feature, Map<ResourceKey<PlacedFeature>, Boolean> map, ResourceKey<Biome>... biomes) {

@@ -3,7 +3,7 @@ package net.potionstudios.biomeswevegone;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
@@ -14,6 +14,7 @@ import net.potionstudios.biomeswevegone.config.configs.BWGMobSpawnConfig;
 import net.potionstudios.biomeswevegone.sounds.BWGSounds;
 import net.potionstudios.biomeswevegone.compat.vanilla.dispenser.BWGDispenseItemBehavior;
 import net.potionstudios.biomeswevegone.tags.BWGEntityTypeTags;
+import net.potionstudios.biomeswevegone.world.attribute.BWGEnvironmentAttributes;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
 import net.potionstudios.biomeswevegone.world.entity.ai.sensing.BWGSensorType;
@@ -21,7 +22,7 @@ import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerProfessions;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTypes;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
-import net.potionstudios.biomeswevegone.world.entity.schedule.BWGSchedule;
+import net.potionstudios.biomeswevegone.world.timeline.BWGTimelines;
 import net.potionstudios.biomeswevegone.world.item.BWGCreativeTabs;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -78,7 +79,8 @@ public class BiomesWeveGone {
         BWGVillagerProfessions.professions();
         BWGCustomStructureProcessors.processors();
         BWGVillagerTypes.villagerTypes();
-        BWGSchedule.schedules();
+        BWGEnvironmentAttributes.environmentAttributes();
+        BWGTimelines.timelines();
         BWGMemoryModuleType.memoryModuleTypes();
         BWGSensorType.sensorTypes();
         BWGMapDecorationTypes.mapDecorationTypes();
@@ -122,8 +124,8 @@ public class BiomesWeveGone {
      * @param name the name of the resource
      * @return the new resource location with the Biomes We've Gone location
      */
-    public static ResourceLocation id(String name) {
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, name);
+    public static Identifier id(String name) {
+        return Identifier.fromNamespaceAndPath(MOD_ID, name);
     }
 
     /**

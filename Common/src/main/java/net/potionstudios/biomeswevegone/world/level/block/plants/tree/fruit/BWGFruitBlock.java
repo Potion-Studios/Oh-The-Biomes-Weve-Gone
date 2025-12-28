@@ -6,7 +6,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -38,8 +38,8 @@ public class BWGFruitBlock extends Block implements BonemealableBlock {
 
     public static final MapCodec<BWGFruitBlock> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
             propertiesCodec(),
-            ResourceLocation.CODEC.fieldOf("fruit").forGetter(item -> BuiltInRegistries.ITEM.getKey(item.fruit.get().get())),
-            ResourceLocation.CODEC.fieldOf("leaves").forGetter(block -> BuiltInRegistries.BLOCK.getKey(block.leaves.get()))
+            Identifier.CODEC.fieldOf("fruit").forGetter(item -> BuiltInRegistries.ITEM.getKey(item.fruit.get().get())),
+            Identifier.CODEC.fieldOf("leaves").forGetter(block -> BuiltInRegistries.BLOCK.getKey(block.leaves.get()))
     ).apply(instance, BWGFruitBlock::new));
 
     public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
@@ -62,7 +62,7 @@ public class BWGFruitBlock extends Block implements BonemealableBlock {
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
 
-    private BWGFruitBlock(Properties properties, ResourceLocation fruitLocation, ResourceLocation leavesLocation) {
+    private BWGFruitBlock(Properties properties, Identifier fruitLocation, Identifier leavesLocation) {
         this(properties, Suppliers.memoize(() -> () -> BuiltInRegistries.ITEM.getValue(fruitLocation)), Suppliers.memoize(() -> (LeavesBlock) BuiltInRegistries.BLOCK.getValue(leavesLocation)));
     }
 

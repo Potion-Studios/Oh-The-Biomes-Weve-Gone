@@ -1,7 +1,7 @@
 package net.potionstudios.biomeswevegone.compat.wthit;
 
 import mcp.mobius.waila.api.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.StemBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.BWGBerryBush;
@@ -24,6 +24,6 @@ public class BWGWTHITPlugin implements IWailaClientPlugin, IWailaCommonPlugin {
 
 	@Override
 	public void register(ICommonRegistrar registrar) {
-		registrar.featureConfig(ResourceLocation.withDefaultNamespace("crop_progress"), true);
+		registrar.featureConfig(Identifier.withDefaultNamespace("crop_progress"), true);
 	}
 }

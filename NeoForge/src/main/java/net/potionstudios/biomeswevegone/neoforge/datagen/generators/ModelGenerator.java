@@ -13,7 +13,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -69,7 +69,7 @@ public class ModelGenerator extends ModelProvider {
 
         BWGWoodSet.woodsets().forEach(woodSet -> {
             String folder = "block/" + woodSet.name() + "/";
-            ResourceLocation Planks = BiomesWeveGone.id(folder + "planks");
+            Identifier Planks = BiomesWeveGone.id(folder + "planks");
             blockModels.createTrivialBlock(woodSet.planks(), TexturedModel.CUBE.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, Planks)));
             blockItemModel(blockModels, woodSet.planks());
 
@@ -98,7 +98,7 @@ public class ModelGenerator extends ModelProvider {
                                                                             BlockModelGenerators.plainVariant(ModelTemplates.DOOR_TOP_RIGHT_OPEN.create(woodSet.door(), door, blockModels.modelOutput))));
 
             TextureMapping trapdoor = new TextureMapping().put(TextureSlot.TEXTURE, BiomesWeveGone.id(folder + "trapdoor"));
-            ResourceLocation trapdoorBottom = ModelTemplates.ORIENTABLE_TRAPDOOR_BOTTOM.create(woodSet.trapdoor(), trapdoor, blockModels.modelOutput);
+            Identifier trapdoorBottom = ModelTemplates.ORIENTABLE_TRAPDOOR_BOTTOM.create(woodSet.trapdoor(), trapdoor, blockModels.modelOutput);
             blockModels.blockStateOutput.accept(BlockModelGenerators.createOrientableTrapdoor(woodSet.trapdoor(),
                     BlockModelGenerators.plainVariant(ModelTemplates.ORIENTABLE_TRAPDOOR_TOP.create(woodSet.trapdoor(), trapdoor, blockModels.modelOutput)),
                     BlockModelGenerators.plainVariant(trapdoorBottom),
@@ -111,8 +111,8 @@ public class ModelGenerator extends ModelProvider {
                             BlockModelGenerators.plainVariant(ModelTemplates.PRESSURE_PLATE_DOWN.create(woodSet.pressurePlate(), planks, blockModels.modelOutput))));
             blockItemModel(blockModels, woodSet.pressurePlate());
 
-            ResourceLocation Log = BiomesWeveGone.id(folder + woodSet.logStemEnum().getName());
-            ResourceLocation LogTop = BiomesWeveGone.id(folder + woodSet.logStemEnum().getName() + "_top");
+            Identifier Log = BiomesWeveGone.id(folder + woodSet.logStemEnum().getName());
+            Identifier LogTop = BiomesWeveGone.id(folder + woodSet.logStemEnum().getName() + "_top");
 
             blockModels.blockStateOutput.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(woodSet.logstem(),
                     BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN.create(woodSet.logstem(), new TextureMapping().put(TextureSlot.END, LogTop).put(TextureSlot.SIDE, Log), blockModels.modelOutput)),
@@ -124,8 +124,8 @@ public class ModelGenerator extends ModelProvider {
                     BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(woodSet.wood(), new TextureMapping().put(TextureSlot.END, Log).put(TextureSlot.SIDE, Log), blockModels.modelOutput))));
             blockItemModel(blockModels, woodSet.wood());
 
-            ResourceLocation StrippedLog = BiomesWeveGone.id(folder + "stripped_" + woodSet.logStemEnum().getName());
-            ResourceLocation StrippedLogTop = BiomesWeveGone.id(folder + "stripped_" + woodSet.logStemEnum().getName() + "_top");
+            Identifier StrippedLog = BiomesWeveGone.id(folder + "stripped_" + woodSet.logStemEnum().getName());
+            Identifier StrippedLogTop = BiomesWeveGone.id(folder + "stripped_" + woodSet.logStemEnum().getName() + "_top");
             blockModels.blockStateOutput.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(woodSet.strippedLogStem(),
                     BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN.create(woodSet.strippedLogStem(), new TextureMapping().put(TextureSlot.END, StrippedLogTop).put(TextureSlot.SIDE, StrippedLog), blockModels.modelOutput)),
                             BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(woodSet.strippedLogStem(), new TextureMapping().put(TextureSlot.END, StrippedLogTop).put(TextureSlot.SIDE, StrippedLog), blockModels.modelOutput))));
@@ -207,8 +207,8 @@ public class ModelGenerator extends ModelProvider {
             }
         });
 
-        ResourceLocation Log = BiomesWeveGone.id("block/palo_verde/log");
-        ResourceLocation LogTop = BiomesWeveGone.id("block/palo_verde/log_top");
+        Identifier Log = BiomesWeveGone.id("block/palo_verde/log");
+        Identifier LogTop = BiomesWeveGone.id("block/palo_verde/log_top");
 
         blockModels.blockStateOutput.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(BWGWood.PALO_VERDE_LOG.get(),
                 BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN.create(BWGWood.PALO_VERDE_LOG.get(), new TextureMapping().put(TextureSlot.END, LogTop).put(TextureSlot.SIDE, Log), blockModels.modelOutput)),
@@ -220,8 +220,8 @@ public class ModelGenerator extends ModelProvider {
                         BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(BWGWood.PALO_VERDE_WOOD.get(), new TextureMapping().put(TextureSlot.END, Log).put(TextureSlot.SIDE, Log), blockModels.modelOutput))));
         blockItemModel(blockModels, BWGWood.PALO_VERDE_WOOD.get());
 
-        ResourceLocation StrippedLog = BiomesWeveGone.id("block/palo_verde/stripped_log");
-        ResourceLocation StrippedLogTop = BiomesWeveGone.id("block/palo_verde/stripped_log_top");
+        Identifier StrippedLog = BiomesWeveGone.id("block/palo_verde/stripped_log");
+        Identifier StrippedLogTop = BiomesWeveGone.id("block/palo_verde/stripped_log_top");
         blockModels.blockStateOutput.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(BWGWood.STRIPPED_PALO_VERDE_LOG.get(),
                 BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN.create(BWGWood.STRIPPED_PALO_VERDE_LOG.get(), new TextureMapping().put(TextureSlot.END, StrippedLogTop).put(TextureSlot.SIDE, StrippedLog), blockModels.modelOutput)),
                         BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(BWGWood.STRIPPED_PALO_VERDE_LOG.get(), new TextureMapping().put(TextureSlot.END, StrippedLogTop).put(TextureSlot.SIDE, StrippedLog), blockModels.modelOutput))));
@@ -304,7 +304,7 @@ public class ModelGenerator extends ModelProvider {
                 );
             } else if (b instanceof DoublePlantBlock) {
                 blockModels.createDoublePlant(b, BlockModelGenerators.PlantType.NOT_TINTED);
-                if (!(b.builtInRegistryHolder().key().location().toLanguageKey().contains("pitcher_plant")))
+                if (!(b.builtInRegistryHolder().key().identifier().toLanguageKey().contains("pitcher_plant")))
                     blockModels.registerSimpleFlatItemModel(b, "_top");
                 else basicItem(itemModels, b.asItem());
             } else if (b instanceof WhitePuffballBlock) {
@@ -377,8 +377,8 @@ public class ModelGenerator extends ModelProvider {
         blockItemModel(blockModels, BWGBlocks.PALE_JACK_O_LANTERN.get());
 
         // Define texture mappings
-        ResourceLocation unoccupiedModel = TexturedModel.createDefault(TextureMapping::defaultTexture, ModelTemplates.create(TextureSlot.FRONT)).updateTexture(textureMapping1 ->  textureMapping1.put(TextureSlot.FRONT, textureMapping1.getBlockTexture(BWGBlocks.PUMPKIN_BURROW.get()))).updateTemplate(modelTemplate -> modelTemplate.extend().parent(mcLocation("block/carved_pumpkin")).build()).create(BWGBlocks.PUMPKIN_BURROW.get(), blockModels.modelOutput);
-        ResourceLocation occupiedModel = TexturedModel.createDefault(TextureMapping::defaultTexture, ModelTemplates.create(TextureSlot.FRONT)).updateTexture(textureMapping1 ->  textureMapping1.put(TextureSlot.FRONT, textureMapping1.getBlockTexture(BWGBlocks.PUMPKIN_BURROW.get(), "_occupied"))).updateTemplate(modelTemplate -> modelTemplate.extend().parent(mcLocation("block/carved_pumpkin")).build()).createWithSuffix(BWGBlocks.PUMPKIN_BURROW.get(), "_occupied", blockModels.modelOutput);
+        Identifier unoccupiedModel = TexturedModel.createDefault(TextureMapping::defaultTexture, ModelTemplates.create(TextureSlot.FRONT)).updateTexture(textureMapping1 ->  textureMapping1.put(TextureSlot.FRONT, textureMapping1.getBlockTexture(BWGBlocks.PUMPKIN_BURROW.get()))).updateTemplate(modelTemplate -> modelTemplate.extend().parent(mcLocation("block/carved_pumpkin")).build()).create(BWGBlocks.PUMPKIN_BURROW.get(), blockModels.modelOutput);
+        Identifier occupiedModel = TexturedModel.createDefault(TextureMapping::defaultTexture, ModelTemplates.create(TextureSlot.FRONT)).updateTexture(textureMapping1 ->  textureMapping1.put(TextureSlot.FRONT, textureMapping1.getBlockTexture(BWGBlocks.PUMPKIN_BURROW.get(), "_occupied"))).updateTemplate(modelTemplate -> modelTemplate.extend().parent(mcLocation("block/carved_pumpkin")).build()).createWithSuffix(BWGBlocks.PUMPKIN_BURROW.get(), "_occupied", blockModels.modelOutput);
 
         blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(BWGBlocks.PUMPKIN_BURROW.get())
                 .with(PropertyDispatch.initial(PumpkinBurrowBlock.OCCUPIED).select(false, BlockModelGenerators.plainVariant(unoccupiedModel)).select(true, BlockModelGenerators.plainVariant(occupiedModel))).with(BlockModelGenerators.ROTATION_HORIZONTAL_FACING));
@@ -389,7 +389,7 @@ public class ModelGenerator extends ModelProvider {
         blockItemModel(blockModels, BWGWood.SPIRIT_ROOTS.get());
 
         BWGSandSet.getSandSets().forEach(bwgSandSet -> {
-            ResourceLocation sandStoneTop = TextureMapping.getBlockTexture(bwgSandSet.getSandstone(), "_top");
+            Identifier sandStoneTop = TextureMapping.getBlockTexture(bwgSandSet.getSandstone(), "_top");
 
             blockModels.createTrivialBlock(bwgSandSet.getSandstone(), TexturedModel.CUBE_TOP_BOTTOM.updateTexture(textureMapping1 -> {
                 textureMapping1.put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(bwgSandSet.getSandstone(), "_bottom"));
@@ -456,7 +456,7 @@ public class ModelGenerator extends ModelProvider {
                         .select(LiquidType.HONEY, BlockModelGenerators.plainVariant(ModelLocationUtils.getModelLocation(BWGBlocks.CARVED_BARREL_CACTUS.get(), "_honey")))));
         blockItemModel(blockModels, BWGBlocks.CARVED_BARREL_CACTUS.get());
 
-        ResourceLocation witchHazelBranch = ModelTemplates.CORAL_WALL_FAN.extend().renderType(mcLocation("cutout_mipped")).build().create(BWGBlocks.WITCH_HAZEL_BRANCH.get(), new TextureMapping().put(TextureSlot.FAN, TextureMapping.getBlockTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get())), blockModels.modelOutput);
+        Identifier witchHazelBranch = ModelTemplates.CORAL_WALL_FAN.extend().renderType(mcLocation("cutout_mipped")).build().create(BWGBlocks.WITCH_HAZEL_BRANCH.get(), new TextureMapping().put(TextureSlot.FAN, TextureMapping.getBlockTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get())), blockModels.modelOutput);
         blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(BWGBlocks.WITCH_HAZEL_BRANCH.get(), BlockModelGenerators.plainVariant(witchHazelBranch)).with(BlockModelGenerators.ROTATION_HORIZONTAL_FACING));
 
         itemModels.itemModelOutput.accept(BWGBlocks.WITCH_HAZEL_BRANCH.get().asItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGBlocks.WITCH_HAZEL_BRANCH.get().asItem(), TextureMapping.layer0(TextureMapping.getBlockTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get())), itemModels.modelOutput)));
@@ -531,22 +531,22 @@ public class ModelGenerator extends ModelProvider {
     private void createFarmland(BlockModelGenerators blockModelGenerators, BWGFarmLandBlock block) {
         TextureMapping texturemapping = new TextureMapping().put(TextureSlot.DIRT, TextureMapping.getBlockTexture(block.getDirt())).put(TextureSlot.TOP, TextureMapping.getBlockTexture(block));
         TextureMapping texturemapping1 = new TextureMapping().put(TextureSlot.DIRT, TextureMapping.getBlockTexture(block.getDirt())).put(TextureSlot.TOP, TextureMapping.getBlockTexture(block, "_moist"));
-        ResourceLocation resourcelocation = ModelTemplates.FARMLAND.create(block, texturemapping, blockModelGenerators.modelOutput);
-        ResourceLocation resourcelocation1 = ModelTemplates.FARMLAND.create(TextureMapping.getBlockTexture(block, "_moist"), texturemapping1, blockModelGenerators.modelOutput);
-        blockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(BlockModelGenerators.createEmptyOrFullDispatch(BlockStateProperties.MOISTURE, 7, BlockModelGenerators.plainVariant(resourcelocation1), BlockModelGenerators.plainVariant(resourcelocation))));
+        Identifier Identifier = ModelTemplates.FARMLAND.create(block, texturemapping, blockModelGenerators.modelOutput);
+        Identifier Identifier1 = ModelTemplates.FARMLAND.create(TextureMapping.getBlockTexture(block, "_moist"), texturemapping1, blockModelGenerators.modelOutput);
+        blockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(BlockModelGenerators.createEmptyOrFullDispatch(BlockStateProperties.MOISTURE, 7, BlockModelGenerators.plainVariant(Identifier1), BlockModelGenerators.plainVariant(Identifier))));
     }
 
     private static void createSlab(BlockModelGenerators blockModels, ItemModelGenerators itemModels, Block slab, Block baseBlock, TextureMapping baseTexture) {
-        ResourceLocation slabBottom = ModelTemplates.SLAB_BOTTOM.create(slab, baseTexture, blockModels.modelOutput);
-        ResourceLocation slabTop = ModelTemplates.SLAB_TOP.create(slab, baseTexture, blockModels.modelOutput);
+        Identifier slabBottom = ModelTemplates.SLAB_BOTTOM.create(slab, baseTexture, blockModels.modelOutput);
+        Identifier slabTop = ModelTemplates.SLAB_TOP.create(slab, baseTexture, blockModels.modelOutput);
         blockModels.blockStateOutput.accept(BlockModelGenerators.createSlab(slab, BlockModelGenerators.plainVariant(slabBottom), BlockModelGenerators.plainVariant(slabTop), BlockModelGenerators.plainVariant(ModelLocationUtils.getModelLocation(baseBlock))));
         itemModels.itemModelOutput.accept(slab.asItem(), ItemModelUtils.plainModel(slabBottom));
     }
 
     private static void createStairs(BlockModelGenerators blockModels, ItemModelGenerators itemModels, Block stairs, TextureMapping baseTexture) {
-        ResourceLocation stairsStraight = ModelTemplates.STAIRS_STRAIGHT.create(stairs, baseTexture, blockModels.modelOutput);
-        ResourceLocation stairsInner = ModelTemplates.STAIRS_INNER.create(stairs, baseTexture, blockModels.modelOutput);
-        ResourceLocation stairsOuter = ModelTemplates.STAIRS_OUTER.create(stairs, baseTexture, blockModels.modelOutput);
+        Identifier stairsStraight = ModelTemplates.STAIRS_STRAIGHT.create(stairs, baseTexture, blockModels.modelOutput);
+        Identifier stairsInner = ModelTemplates.STAIRS_INNER.create(stairs, baseTexture, blockModels.modelOutput);
+        Identifier stairsOuter = ModelTemplates.STAIRS_OUTER.create(stairs, baseTexture, blockModels.modelOutput);
         blockModels.blockStateOutput.accept(BlockModelGenerators.createStairs(stairs, BlockModelGenerators.plainVariant(stairsInner), BlockModelGenerators.plainVariant(stairsStraight), BlockModelGenerators.plainVariant(stairsOuter)));
         itemModels.itemModelOutput.accept(stairs.asItem(), ItemModelUtils.plainModel(stairsStraight));
     }
@@ -558,16 +558,16 @@ public class ModelGenerator extends ModelProvider {
 
     private static void createWall(BlockModelGenerators blockModels, ItemModelGenerators itemModels, Block wall, Block baseBlock) {
         TextureMapping base = new TextureMapping().put(TextureSlot.ALL, TextureMapping.getBlockTexture(baseBlock));
-        ResourceLocation wallPost = ModelTemplates.WALL_POST.create(wall, base, blockModels.modelOutput);
-        ResourceLocation wallSide = ModelTemplates.WALL_LOW_SIDE.create(wall, base, blockModels.modelOutput);
-        ResourceLocation wallSideTall = ModelTemplates.WALL_TALL_SIDE.create(wall, base, blockModels.modelOutput);
-        ResourceLocation wallInventory = ModelTemplates.WALL_INVENTORY.create(wall, base, blockModels.modelOutput);
+        Identifier wallPost = ModelTemplates.WALL_POST.create(wall, base, blockModels.modelOutput);
+        Identifier wallSide = ModelTemplates.WALL_LOW_SIDE.create(wall, base, blockModels.modelOutput);
+        Identifier wallSideTall = ModelTemplates.WALL_TALL_SIDE.create(wall, base, blockModels.modelOutput);
+        Identifier wallInventory = ModelTemplates.WALL_INVENTORY.create(wall, base, blockModels.modelOutput);
         blockModels.blockStateOutput.accept(BlockModelGenerators.createWall(wall, BlockModelGenerators.plainVariant(wallPost), BlockModelGenerators.plainVariant(wallSide), BlockModelGenerators.plainVariant(wallSideTall)));
         itemModels.itemModelOutput.accept(wall.asItem(), ItemModelUtils.plainModel(wallInventory));
     }
 
     private void createGrassBlockModel(BlockModelGenerators blockModels, Block grassBlock, Block dirtBlock) {
-        ResourceLocation model = new ModelTemplate(Optional.of(mcLocation("block/grass_block")), Optional.empty()).extend().renderType(mcLocation("cutout_mipped")).build()
+        Identifier model = new ModelTemplate(Optional.of(mcLocation("block/grass_block")), Optional.empty()).extend().renderType(mcLocation("cutout_mipped")).build()
                 .create(grassBlock, new TextureMapping()
                         .putForced(TextureSlot.PARTICLE, TextureMapping.getBlockTexture(dirtBlock))
                         .putForced(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(dirtBlock))
@@ -594,22 +594,22 @@ public class ModelGenerator extends ModelProvider {
 
     private void createFlowerBed(BlockModelGenerators blockModel, Block flowerBedBlock) {
         blockModel.registerSimpleFlatItemModel(flowerBedBlock.asItem());
-        MultiVariant resourcelocation = BlockModelGenerators.plainVariant(TexturedModel.FLOWERBED_1.updateTexture(textureMapping -> textureMapping.put(TextureSlot.STEM, TextureMapping.getBlockTexture(Blocks.PINK_PETALS, "_stem"))).create(flowerBedBlock, blockModel.modelOutput));
-        MultiVariant resourcelocation1 = BlockModelGenerators.plainVariant(TexturedModel.FLOWERBED_2.updateTexture(textureMapping -> textureMapping.put(TextureSlot.STEM, TextureMapping.getBlockTexture(Blocks.PINK_PETALS, "_stem"))).create(flowerBedBlock, blockModel.modelOutput));
-        MultiVariant resourcelocation2 = BlockModelGenerators.plainVariant(TexturedModel.FLOWERBED_3.updateTexture(textureMapping -> textureMapping.put(TextureSlot.STEM, TextureMapping.getBlockTexture(Blocks.PINK_PETALS, "_stem"))).create(flowerBedBlock, blockModel.modelOutput));
-        MultiVariant resourcelocation3 = BlockModelGenerators.plainVariant(TexturedModel.FLOWERBED_4.updateTexture(textureMapping -> textureMapping.put(TextureSlot.STEM, TextureMapping.getBlockTexture(Blocks.PINK_PETALS, "_stem"))).create(flowerBedBlock, blockModel.modelOutput));
+        MultiVariant Identifier = BlockModelGenerators.plainVariant(TexturedModel.FLOWERBED_1.updateTexture(textureMapping -> textureMapping.put(TextureSlot.STEM, TextureMapping.getBlockTexture(Blocks.PINK_PETALS, "_stem"))).create(flowerBedBlock, blockModel.modelOutput));
+        MultiVariant Identifier1 = BlockModelGenerators.plainVariant(TexturedModel.FLOWERBED_2.updateTexture(textureMapping -> textureMapping.put(TextureSlot.STEM, TextureMapping.getBlockTexture(Blocks.PINK_PETALS, "_stem"))).create(flowerBedBlock, blockModel.modelOutput));
+        MultiVariant Identifier2 = BlockModelGenerators.plainVariant(TexturedModel.FLOWERBED_3.updateTexture(textureMapping -> textureMapping.put(TextureSlot.STEM, TextureMapping.getBlockTexture(Blocks.PINK_PETALS, "_stem"))).create(flowerBedBlock, blockModel.modelOutput));
+        MultiVariant Identifier3 = BlockModelGenerators.plainVariant(TexturedModel.FLOWERBED_4.updateTexture(textureMapping -> textureMapping.put(TextureSlot.STEM, TextureMapping.getBlockTexture(Blocks.PINK_PETALS, "_stem"))).create(flowerBedBlock, blockModel.modelOutput));
 
-        blockModel.createSegmentedBlock(flowerBedBlock, resourcelocation, BlockModelGenerators.FLOWER_BED_MODEL_1_SEGMENT_CONDITION,
-                resourcelocation1, BlockModelGenerators.FLOWER_BED_MODEL_2_SEGMENT_CONDITION,
-                resourcelocation2, BlockModelGenerators.FLOWER_BED_MODEL_3_SEGMENT_CONDITION,
-                resourcelocation3, BlockModelGenerators.FLOWER_BED_MODEL_4_SEGMENT_CONDITION);
+        blockModel.createSegmentedBlock(flowerBedBlock, Identifier, BlockModelGenerators.FLOWER_BED_MODEL_1_SEGMENT_CONDITION,
+                Identifier1, BlockModelGenerators.FLOWER_BED_MODEL_2_SEGMENT_CONDITION,
+                Identifier2, BlockModelGenerators.FLOWER_BED_MODEL_3_SEGMENT_CONDITION,
+                Identifier3, BlockModelGenerators.FLOWER_BED_MODEL_4_SEGMENT_CONDITION);
     }
 
     private void multiVariantRotatiableBlock(BlockModelGenerators blockModelGenerators, Block block, int variantCount) {
         Variant[] variants = new Variant[variantCount * 4];
         for (int i = 1; i <= variantCount; i++) {
             String suffix = (i == 1) ? "" : String.valueOf(i);
-            ResourceLocation modelLocation = ModelLocationUtils.getModelLocation(block, suffix);
+            Identifier modelLocation = ModelLocationUtils.getModelLocation(block, suffix);
             variants[(i - 1) * 4] = BlockModelGenerators.createRotatedVariants(BlockModelGenerators.plainModel(modelLocation)).variants().unwrap().getFirst().value();
             variants[((i - 1) * 4) + 1] = BlockModelGenerators.createRotatedVariants(BlockModelGenerators.plainModel(modelLocation)).variants().unwrap().get(1).value();
             variants[((i - 1)* 4) + 2] = BlockModelGenerators.createRotatedVariants(BlockModelGenerators.plainModel(modelLocation)).variants().unwrap().get(2).value();

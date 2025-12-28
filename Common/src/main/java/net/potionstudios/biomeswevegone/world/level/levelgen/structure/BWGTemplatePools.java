@@ -9,7 +9,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.Pools;
 import net.minecraft.data.worldgen.ProcessorLists;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
@@ -25,10 +25,10 @@ public class BWGTemplatePools {
 	public static final Map<ResourceKey<StructureTemplatePool>, TemplatePoolFactory> TEMPLATE_POOL_FACTORIES = new Reference2ObjectOpenHashMap<>();
 
 	public static final ResourceKey<StructureTemplatePool> PRAIRIE_HOUSE = register("prairie_house", templatePoolFactoryContext ->
-			createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(Pair.of(StructurePoolElement.single(BWGStructures.PRAIRIE_HOUSE.location().toString(), getProcessor(templatePoolFactoryContext, BWGStructureProcessorLists.PRAIRIE_HOUSE)), 1)), StructureTemplatePool.Projection.RIGID));
+			createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(Pair.of(StructurePoolElement.single(BWGStructures.PRAIRIE_HOUSE.identifier().toString(), getProcessor(templatePoolFactoryContext, BWGStructureProcessorLists.PRAIRIE_HOUSE)), 1)), StructureTemplatePool.Projection.RIGID));
 
 	public static final ResourceKey<StructureTemplatePool> ABANDONED_PRAIRIE_HOUSE = register("abandoned_prairie_house", templatePoolFactoryContext ->
-			createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(Pair.of(StructurePoolElement.single(BWGStructures.ABANDONED_PRAIRIE_HOUSE.location().toString(), getProcessor(templatePoolFactoryContext, BWGStructureProcessorLists.ABANDONED_PRAIRIE_HOUSE)), 1)), StructureTemplatePool.Projection.RIGID));
+			createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(Pair.of(StructurePoolElement.single(BWGStructures.ABANDONED_PRAIRIE_HOUSE.identifier().toString(), getProcessor(templatePoolFactoryContext, BWGStructureProcessorLists.ABANDONED_PRAIRIE_HOUSE)), 1)), StructureTemplatePool.Projection.RIGID));
 
 	public static final ResourceKey<StructureTemplatePool> RUGGED_FOSSIL = register("rugged_fossil", templatePoolFactoryContext ->
 			createTemplatePool(getEmptyPool(templatePoolFactoryContext),
@@ -42,16 +42,16 @@ public class BWGTemplatePools {
 					, StructureTemplatePool.Projection.TERRAIN_MATCHING));
 
 	public static final ResourceKey<StructureTemplatePool> ASPEN_MANOR_1 = register("aspen_manor_1", templatePoolFactoryContext ->
-			createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(Pair.of(StructurePoolElement.single(BWGStructures.ASPEN_MANOR_1.location().toString(), getProcessor(templatePoolFactoryContext, BWGStructureProcessorLists.ASPEN_MANOR)), 1)), StructureTemplatePool.Projection.RIGID));
+			createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(Pair.of(StructurePoolElement.single(BWGStructures.ASPEN_MANOR_1.identifier().toString(), getProcessor(templatePoolFactoryContext, BWGStructureProcessorLists.ASPEN_MANOR)), 1)), StructureTemplatePool.Projection.RIGID));
 
 	public static final ResourceKey<StructureTemplatePool> ASPEN_MANOR_2 = register("aspen_manor_2", templatePoolFactoryContext ->
-			createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(Pair.of(StructurePoolElement.single(BWGStructures.ASPEN_MANOR_2.location().toString(), getProcessor(templatePoolFactoryContext, BWGStructureProcessorLists.ASPEN_MANOR)), 1)), StructureTemplatePool.Projection.RIGID));
+			createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(Pair.of(StructurePoolElement.single(BWGStructures.ASPEN_MANOR_2.identifier().toString(), getProcessor(templatePoolFactoryContext, BWGStructureProcessorLists.ASPEN_MANOR)), 1)), StructureTemplatePool.Projection.RIGID));
 
 	public static final ResourceKey<StructureTemplatePool> BOG_TRIAL = register("bog_trial", templatePoolFactoryContext ->
-			createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(Pair.of(StructurePoolElement.single(BWGStructures.BOG_TRIAL.location().toString(), getProcessor(templatePoolFactoryContext, BWGStructureProcessorLists.BOG_TRIAL)), 1)), StructureTemplatePool.Projection.RIGID));
+			createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(Pair.of(StructurePoolElement.single(BWGStructures.BOG_TRIAL.identifier().toString(), getProcessor(templatePoolFactoryContext, BWGStructureProcessorLists.BOG_TRIAL)), 1)), StructureTemplatePool.Projection.RIGID));
 
 	private static final ResourceKey<StructureTemplatePool> BABY_VILLAGER = register("baby_villager", templatePoolFactoryContext ->
-			createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(Pair.of(StructurePoolElement.single(ResourceLocation.withDefaultNamespace("village/plains/villagers/baby").toString()), 1)), StructureTemplatePool.Projection.RIGID));
+			createTemplatePool(getEmptyPool(templatePoolFactoryContext), ImmutableList.of(Pair.of(StructurePoolElement.single(Identifier.withDefaultNamespace("village/plains/villagers/baby").toString()), 1)), StructureTemplatePool.Projection.RIGID));
 
 	private static StructureTemplatePool createTemplatePool(Holder<StructureTemplatePool> fallback, List<Pair<Function<StructureTemplatePool.Projection, ? extends StructurePoolElement>, Integer>> rawTemplateFactories, StructureTemplatePool.Projection projection) {
 		return new StructureTemplatePool(fallback, rawTemplateFactories, projection);

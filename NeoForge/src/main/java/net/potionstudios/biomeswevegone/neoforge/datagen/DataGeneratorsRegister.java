@@ -18,6 +18,7 @@ import net.potionstudios.biomeswevegone.neoforge.datagen.generators.*;
 import net.potionstudios.biomeswevegone.neoforge.datagen.generators.loot.GlobalLootModifiersGenerator;
 import net.potionstudios.biomeswevegone.neoforge.datagen.generators.loot.LootGenerator;
 import net.potionstudios.biomeswevegone.world.damagesource.BWGDamageTypes;
+import net.potionstudios.biomeswevegone.world.timeline.BWGTimelines;
 import net.potionstudios.biomeswevegone.world.item.jukebox.BWGJukeBoxSongs;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.modifiers.BWGBiomeModifiers;
@@ -73,6 +74,7 @@ class DataGeneratorsRegister {
             .add(Registries.PROCESSOR_LIST, pContext -> BWGStructureProcessorLists.STRUCTURE_PROCESSOR_LIST_FACTORIES.forEach((structureProcessorListResourceKey, processorListFactory) -> pContext.register(structureProcessorListResourceKey, processorListFactory.generate(pContext.lookup(Registries.PROCESSOR_LIST)))))
             .add(Registries.DAMAGE_TYPE, pContext -> BWGDamageTypes.DAMAGE_TYPE_FACTORIES.forEach(((damageTypeResourceKey, damageTypeFactory) -> pContext.register(damageTypeResourceKey, damageTypeFactory.generate(pContext)))))
             .add(Registries.JUKEBOX_SONG, pContext -> BWGJukeBoxSongs.JUKEBOX_SONG_FACTORIES.forEach((songResourceKey, songFactory) -> pContext.register(songResourceKey, songFactory.generate(pContext))))
+            .add(Registries.TIMELINE, pContext -> BWGTimelines.TIMELINE_FACTORIES.forEach((timelineResourceKey, timelineFactory) -> pContext.register(timelineResourceKey, timelineFactory.generate(pContext))))
             .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, pContext -> BWGBiomeModifiers.BIOME_MODIFIERS_FACTORIES.forEach((id, modifier) -> pContext.register(ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, id), new BiomeModifiers.AddFeaturesBiomeModifier(
                     HolderSet.direct(Arrays.stream(modifier.biomes()).map(biome -> pContext.lookup(Registries.BIOME).getOrThrow(biome)).collect(Collectors.toList())),
                     HolderSet.direct(pContext.lookup(Registries.PLACED_FEATURE).getOrThrow(modifier.feature())),

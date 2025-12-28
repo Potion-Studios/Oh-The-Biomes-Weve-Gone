@@ -1,24 +1,22 @@
 package net.potionstudios.biomeswevegone.client.renderer.entity.pumpkinwarden;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.state.EntityRenderState;
-import net.minecraft.client.renderer.state.CameraRenderState;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
-import org.jetbrains.annotations.NotNull;
-import software.bernie.geckolib.cache.object.BakedGeoModel;
+import org.jspecify.annotations.NonNull;
 import software.bernie.geckolib.constant.dataticket.DataTicket;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import software.bernie.geckolib.renderer.base.GeoRenderState;
-import software.bernie.geckolib.renderer.layer.ItemInHandGeoLayer;
+import software.bernie.geckolib.renderer.base.RenderPassInfo;
+import software.bernie.geckolib.renderer.layer.builtin.ItemInHandGeoLayer;
 
 /**
  * Pumpkin Warden Entity Renderer
  * @see GeoEntityRenderer
- * @author YaBoiChips
+ * @author YaBoiChips, Joseph T. McQuigg
  */
-public class PumpkinWardenRenderer<R extends EntityRenderState & GeoRenderState> extends GeoEntityRenderer<PumpkinWarden, R> {
+public class PumpkinWardenRenderer<R extends EntityRenderState & GeoRenderState> extends GeoEntityRenderer<PumpkinWarden, @NonNull R> {
     protected static final DataTicket<Boolean> HIDING = DataTicket.create("hiding", Boolean.class);
     protected static final DataTicket<String> VARIANT = DataTicket.create("variant", String.class);
 
@@ -28,13 +26,13 @@ public class PumpkinWardenRenderer<R extends EntityRenderState & GeoRenderState>
     }
 
     @Override
-    public void preRender(R renderState, PoseStack poseStack, BakedGeoModel model, SubmitNodeCollector renderTasks, CameraRenderState cameraState, int packedLight, int packedOverlay, int renderColor) {
-        poseStack.scale(0.5f, 0.5f, 0.5f);
-        super.preRender(renderState, poseStack, model, renderTasks, cameraState, packedLight, packedOverlay, renderColor);
+    public void preRenderPass(RenderPassInfo<@NonNull R> renderPassInfo, @NonNull SubmitNodeCollector renderTasks) {
+        renderPassInfo.poseStack().scale(0.5f, 0.5f, 0.5f);
+        super.preRenderPass(renderPassInfo, renderTasks);
     }
 
     @Override
-    protected float getShadowRadius(@NotNull R renderState) {
+    protected float getShadowRadius(@NonNull R renderState) {
         return renderState.getGeckolibData(HIDING) ? 0.0f : 0.6f;
     }
 

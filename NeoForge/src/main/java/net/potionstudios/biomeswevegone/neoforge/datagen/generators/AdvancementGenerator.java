@@ -2,7 +2,7 @@ package net.potionstudios.biomeswevegone.neoforge.datagen.generators;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.advancements.*;
-import net.minecraft.advancements.critereon.*;
+import net.minecraft.advancements.criterion.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;

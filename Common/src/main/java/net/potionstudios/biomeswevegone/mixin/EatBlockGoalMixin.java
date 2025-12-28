@@ -5,7 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.EatBlockGoal;
-import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -43,7 +43,7 @@ public abstract class EatBlockGoalMixin {
         if (level instanceof ServerLevel serverLevel) {
             BlockPos below = blockPos.below();
             if (serverLevel.getBlockState(below).is(BWGBlocks.LUSH_GRASS_BLOCK.get()))
-                if (serverLevel.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING)) {
+                if (serverLevel.getGameRules().get(GameRules.MOB_GRIEFING)) {
                     serverLevel.levelEvent(2001, below, Block.getId(BWGBlocks.LUSH_GRASS_BLOCK.get().defaultBlockState()));
                     serverLevel.setBlock(below, BWGBlocks.LUSH_DIRT.get().defaultBlockState(), 2);
                     mob.ate();

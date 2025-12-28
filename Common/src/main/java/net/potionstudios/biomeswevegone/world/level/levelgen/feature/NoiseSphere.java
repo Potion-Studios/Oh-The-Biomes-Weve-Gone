@@ -42,7 +42,7 @@ public class NoiseSphere extends Feature<NoiseSphereConfig> { // TODO: Add Confi
                     if (origin.closerThan(mutableBlockPos, radius)) {
                         double noiseDelta = (noise.noise(mutableBlockPos.getX() * freq, mutableBlockPos.getY() * freq, mutableBlockPos.getZ() * freq) + 1) * 0.5;
 
-                        double localRadius = Mth.clampedLerp(radius * 0.5, radius, noiseDelta);
+                        double localRadius = Mth.clampedLerp(noiseDelta, radius * 0.5, radius);
 
                         if (origin.closerThan(mutableBlockPos, localRadius)) {
                             cache.add(mutableBlockPos.asLong());

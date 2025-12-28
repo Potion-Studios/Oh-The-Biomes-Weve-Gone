@@ -43,7 +43,7 @@ import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.ai.village.poi.PoiTypes;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.npc.Villager;
+import net.minecraft.world.entity.npc.villager.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.schedule.Activity;
 import net.minecraft.world.item.ItemStack;
@@ -56,12 +56,12 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
+import net.potionstudios.biomeswevegone.world.attribute.BWGEnvironmentAttributes;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.ai.behavior.PumpkinWardenGoalPackages;
 import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
 import net.potionstudios.biomeswevegone.world.entity.ai.sensing.BWGSensorType;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
-import net.potionstudios.biomeswevegone.world.entity.schedule.BWGSchedule;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.entities.PumpkinBurrowBlockEntity;
 import org.jetbrains.annotations.NotNull;
@@ -69,9 +69,10 @@ import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animatable.manager.AnimatableManager;
-import software.bernie.geckolib.animatable.processing.AnimationController;
-import software.bernie.geckolib.animatable.processing.AnimationTest;
 import software.bernie.geckolib.animation.*;
+import software.bernie.geckolib.animation.object.LoopType;
+import software.bernie.geckolib.animation.object.PlayState;
+import software.bernie.geckolib.animation.state.AnimationTest;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.Map;
@@ -163,7 +164,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
     }
 
     private void registerBrainGoals(Brain<PumpkinWarden> brain) {
-        brain.setSchedule(BWGSchedule.PUMPKIN_WARDEN.get());
+        brain.setSchedule(BWGEnvironmentAttributes.PUMPKIN_WARDEN_ACTIVITY.get());
         brain.addActivity(Activity.CORE, PumpkinWardenGoalPackages.getCorePackage());
         brain.addActivity(Activity.PLAY, PumpkinWardenGoalPackages.getPlayPackage());
         brain.addActivity(Activity.IDLE, PumpkinWardenGoalPackages.getIdlePackage());
@@ -180,7 +181,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         brain.setDefaultActivity(Activity.PLAY);
         if (isHiding()) brain.setActiveActivityIfPossible(Activity.HIDE);
         else brain.setActiveActivityIfPossible(Activity.PLAY);
-        brain.updateActivityFromSchedule(level().getDayTime(), level().getGameTime());
+        brain.updateActivityFromSchedule(level().environmentAttributes(), level().getGameTime(), position());
     }
 
     @Override
@@ -248,9 +249,9 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         return animatableInstanceCache;
     }
 
-    private static final RawAnimation HIDE_START = RawAnimation.begin().then("animation.pumpkinwarden.hidestart", Animation.LoopType.PLAY_ONCE);
+    private static final RawAnimation HIDE_START = RawAnimation.begin().then("animation.pumpkinwarden.hidestart", LoopType.PLAY_ONCE);
     private static final RawAnimation HIDE = RawAnimation.begin().thenLoop("animation.pumpkinwarden.hide");
-    private static final RawAnimation HIDE_END = RawAnimation.begin().then("animation.pumpkinwarden.hideend", Animation.LoopType.PLAY_ONCE);
+    private static final RawAnimation HIDE_END = RawAnimation.begin().then("animation.pumpkinwarden.hideend", LoopType.PLAY_ONCE);
     private static final RawAnimation HOLDING_WALKING = RawAnimation.begin().thenPlay("animation.pumpkinwarden.holding_walking");
     private static final RawAnimation HOLDING_IDLE = RawAnimation.begin().thenPlay("animation.pumpkinwarden.holding_idle");
     private static final RawAnimation WALKING = RawAnimation.begin().thenPlay("animation.pumpkinwarden.walking");
@@ -259,7 +260,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
 
 
     private PlayState predicate(@NotNull AnimationTest<PumpkinWarden> event) {
-        event.controller().transitionLength(0);
+        //event.controller().transitionLength(0);
         if (isHiding())
             if (event.controller().hasAnimationFinished())
                 return event.setAndContinue(HIDE);

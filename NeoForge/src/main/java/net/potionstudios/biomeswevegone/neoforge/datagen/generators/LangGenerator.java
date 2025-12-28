@@ -35,16 +35,16 @@ public class LangGenerator extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        add("itemGroup." + BWGCreativeTabs.CREATIVE_TAB.location().toLanguageKey(), "Biomes We've Gone");
-        add("itemGroup." + BWGCreativeTabs.WOOD_TAB.location().toLanguageKey(), "Biomes We've Gone Wood");
+        add("itemGroup." + BWGCreativeTabs.CREATIVE_TAB.identifier().toLanguageKey(), "Biomes We've Gone");
+        add("itemGroup." + BWGCreativeTabs.WOOD_TAB.identifier().toLanguageKey(), "Biomes We've Gone Wood");
         BWGBlocks.BLOCKS.forEach(block -> addBlock(block, getBlockName(block)));
         BWGItems.ITEMS.forEach(item -> addItem(item, getItemName(item)));
         addItem(BWGItems.MUSIC_DISC_PIXIE_CLUB, "Music Disc");
         addItem(BWGItems.MUSIC_DISC_BETTER_DAYS, "Music Disc");
         add("item." + BiomesWeveGone.MOD_ID + ".music_disc_pixie_club.desc", "AOCAWOL - Pixie Club");
         add("item." + BiomesWeveGone.MOD_ID + ".music_disc_better_days.desc", "AOCAWOL - Better Days");
-        add("jukebox_song." + BWGJukeBoxSongs.PIXIE_CLUB.location().toLanguageKey(), "AOCAWOL - Pixie Club");
-        add("jukebox_song." + BWGJukeBoxSongs.BETTER_DAYS.location().toLanguageKey(), "AOCAWOL - Better Days");
+        add("jukebox_song." + BWGJukeBoxSongs.PIXIE_CLUB.identifier().toLanguageKey(), "AOCAWOL - Pixie Club");
+        add("jukebox_song." + BWGJukeBoxSongs.BETTER_DAYS.identifier().toLanguageKey(), "AOCAWOL - Better Days");
         BWGWood.WOOD_BLOCK_ITEMS.forEach(wood -> {
             if (!(wood.get() instanceof BoatItem))
                 if (wood.get() instanceof BlockItem blockItem)
@@ -60,7 +60,7 @@ public class LangGenerator extends LanguageProvider {
             addEntityType(bwgWoodSet.boat(), getId(bwgWoodSet.name()) + " Boat");
             addEntityType(bwgWoodSet.chestBoat(), getId(bwgWoodSet.name()) + " Boat with Chest");
         });
-        BWGBiomes.BIOME_FACTORIES.forEach((key, factory) -> add("biome." + BiomesWeveGone.MOD_ID + "." + key.location().getPath(), getBiomeName(key)));
+        BWGBiomes.BIOME_FACTORIES.forEach((key, factory) -> add("biome." + BiomesWeveGone.MOD_ID + "." + key.identifier().getPath(), getBiomeName(key)));
 
         add(advancement("title.root"), "Oh The Biomes We've Gone");
         add(advancement("description.root"), "Launch a world with the Oh The Biomes We've Gone");
@@ -138,7 +138,7 @@ public class LangGenerator extends LanguageProvider {
     }
 
     private String getBiomeName(ResourceKey<Biome> biome) {
-        return getId(biome.location().getPath());
+        return getId(biome.identifier().getPath());
     }
 
     @NotNull

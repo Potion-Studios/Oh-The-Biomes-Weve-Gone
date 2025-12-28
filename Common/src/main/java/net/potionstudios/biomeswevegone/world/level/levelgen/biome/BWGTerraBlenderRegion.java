@@ -3,9 +3,9 @@ package net.potionstudios.biomeswevegone.world.level.levelgen.biome;
 import com.mojang.datafixers.util.Pair;
 import corgitaco.corgilib.serialization.codec.Wrapped;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
-import net.minecraft.Util;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.Util;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.Climate;
@@ -153,7 +153,7 @@ public class BWGTerraBlenderRegion extends Region {
             Climate.ParameterPoint parameterPoint = parameterPointResourceKeyPair.getFirst();
             ResourceKey<Biome> biomeKey = parameterPointResourceKeyPair.getSecond();
             if (!registry.containsKey(biomeKey)) {
-                throw new IllegalArgumentException(String.format("\"%s\" is not a valid biome in the world registry!", biomeKey.location()));
+                throw new IllegalArgumentException(String.format("\"%s\" is not a valid biome in the world registry!", biomeKey.identifier()));
             }
             if (BWGWorldGenConfig.INSTANCE.get().enabledBiomes().getOrDefault(biomeKey, true)) {
                 totalPairs.increment();
@@ -168,7 +168,7 @@ public class BWGTerraBlenderRegion extends Region {
 
                 if (this.swapper.containsKey(biomeKey)) {
                     if (alreadyMappedOutsideSwapper) {
-                        throw new UnsupportedOperationException(String.format("Attempting to assign a biome resource key in both the swapper and biome selectors. We're crashing your game to let you know that \"%s\" was put in the biome selectors but will always be swapped by \"%s\" due to the swapper. In region \"%s\".", biomeKey.location(), this.swapper.get(biomeKey).location(), this.getName().toString()));
+                        throw new UnsupportedOperationException(String.format("Attempting to assign a biome resource key in both the swapper and biome selectors. We're crashing your game to let you know that \"%s\" was put in the biome selectors but will always be swapped by \"%s\" due to the swapper. In region \"%s\".", biomeKey.identifier(), this.swapper.get(biomeKey).identifier(), this.getName().toString()));
                     }
                     ResourceKey<Biome> replacement = this.swapper.get(biomeKey);
                     ResourceKey<Biome> biomeResourceKey = BWGWorldGenConfig.INSTANCE.get().enabledBiomes().getOrDefault(replacement, true) ? replacement : Region.DEFERRED_PLACEHOLDER;

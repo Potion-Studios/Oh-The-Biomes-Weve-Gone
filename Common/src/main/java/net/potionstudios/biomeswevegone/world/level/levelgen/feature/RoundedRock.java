@@ -51,7 +51,7 @@ public class RoundedRock extends Feature<RoundedRockConfig> {
                     if (mutableBlockPos.closerThan(origin.atY(mutableBlockPos.getY()), radius)) {
                         double normalizedNoise = (improvedNoise.noise(mutableBlockPos.getX() * frequency, mutableBlockPos.getY() * frequency, mutableBlockPos.getZ() * frequency) + 1) * 0.5F;
 
-                        double localRadius = Mth.clampedLerp(radius * 0.5, radius, normalizedNoise);
+                        double localRadius = Mth.clampedLerp(normalizedNoise, radius * 0.5, radius);
 
                         if (mutableBlockPos.closerThan(origin.atY(mutableBlockPos.getY()), localRadius)) {
                             cached.add(mutableBlockPos.asLong());

@@ -91,7 +91,7 @@ public class BasaltBarreraExtension {
 
 
                     double topY = hexHeightOceanFloorHeight + addedHeight;
-                    double blendedY = Mth.clampedLerp(landHeight, topY, biomeBlend);
+                    double blendedY = Mth.clampedLerp(biomeBlend, landHeight, topY);
 
 
                     for (int worldY = landHeight - 5; worldY <= blendedY; worldY++) {

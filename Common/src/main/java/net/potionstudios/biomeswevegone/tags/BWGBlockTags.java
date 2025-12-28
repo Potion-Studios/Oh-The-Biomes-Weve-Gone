@@ -1,7 +1,7 @@
 package net.potionstudios.biomeswevegone.tags;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
@@ -51,6 +51,6 @@ public final class BWGBlockTags {
     }
 
     private static TagKey<Block> createCommon(String name) {
-        return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", name));
+        return TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("c", name));
     }
 }

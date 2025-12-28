@@ -5,7 +5,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.IntArrayTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,7 +43,7 @@ public class BWGUtil {
         StringBuilder builder = new StringBuilder();
 
         for (ResourceKey<T>[] value : valueToPrint) {
-            builder.append(Arrays.toString(Arrays.stream(value).map(ResourceKey::location).toArray(ResourceLocation[]::new))).append("\n");
+            builder.append(Arrays.toString(Arrays.stream(value).map(ResourceKey::identifier).toArray(Identifier[]::new))).append("\n");
         }
         return builder.toString();
     }

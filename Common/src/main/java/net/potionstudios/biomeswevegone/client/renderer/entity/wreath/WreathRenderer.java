@@ -2,11 +2,11 @@ package net.potionstudios.biomeswevegone.client.renderer.entity.wreath;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.state.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlas;
@@ -48,7 +48,7 @@ public class WreathRenderer extends EntityRenderer<Wreath, WreathRenderState> {
             poseStack.translate(-0.5, -0.5, -0.5);
             nodeCollector.submitBlockModel(
                     poseStack,
-                    RenderType.entitySolidZOffsetForward(TextureAtlas.LOCATION_BLOCKS),
+                    RenderTypes.entityCutoutNoCullZOffset(TextureAtlas.LOCATION_BLOCKS),
                     ModelAccess.MODEL_ACCESS.getModel(renderState.type.getSerializedName() + "_wreath", blockRenderer),
                     1.0F,
                     1.0F,

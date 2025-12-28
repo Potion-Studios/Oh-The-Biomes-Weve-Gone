@@ -6,7 +6,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
@@ -36,7 +36,7 @@ public class PlaceInVillage {
      * @param projection     The projection to use.
      * @param weight         The weight of the building.
      */
-    private static void addBuildingToPool(@NotNull MinecraftServer server, ResourceLocation poolRL, ResourceKey<StructureProcessorList> processorList, ResourceLocation nbtPieceRL, StructureTemplatePool.Projection projection, int weight) {
+    private static void addBuildingToPool(@NotNull MinecraftServer server, Identifier poolRL, ResourceKey<StructureProcessorList> processorList, Identifier nbtPieceRL, StructureTemplatePool.Projection projection, int weight) {
         RegistryAccess.Frozen serverRegistry = server.registryAccess();
         Registry<StructureTemplatePool> templatePoolRegistry = serverRegistry.lookupOrThrow(Registries.TEMPLATE_POOL);
         Registry<StructureProcessorList> processorListRegistry = serverRegistry.lookupOrThrow(Registries.PROCESSOR_LIST);
@@ -63,7 +63,7 @@ public class PlaceInVillage {
         addBuildingToPool(server, getMcRL("taiga/houses"), BWGStructureProcessorLists.MOSSIFY_10_PERCENT_WHITE_PUFFBALL, BiomesWeveGone.id("minecraft/village/taiga/houses/taiga_forager_1"), StructureTemplatePool.Projection.RIGID, 2);
     }
 
-    private static ResourceLocation getMcRL(String poolName) {
-        return ResourceLocation.withDefaultNamespace("village/" + poolName);
+    private static Identifier getMcRL(String poolName) {
+        return Identifier.withDefaultNamespace("village/" + poolName);
     }
 }

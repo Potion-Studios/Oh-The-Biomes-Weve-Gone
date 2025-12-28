@@ -11,13 +11,13 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.WitherSkull;
-import net.minecraft.world.entity.vehicle.MinecartTNT;
+import net.minecraft.world.entity.projectile.hurtingprojectile.WitherSkull;
+import net.minecraft.world.entity.vehicle.minecart.MinecartTNT;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.BlockItemStateProperties;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -94,7 +94,7 @@ public class PumpkinBurrowBlock extends BaseEntityBlock {
     @Override
     public @NotNull BlockState playerWillDestroy(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Player player) {
         if (level instanceof ServerLevel serverLevel && player.isCreative()
-                && serverLevel.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS)
+                && serverLevel.getGameRules().get(GameRules.BLOCK_DROPS)
                 && level.getBlockEntity(pos) instanceof PumpkinBurrowBlockEntity pumpkinBurrow) {
             if (pumpkinBurrow.getBlockState().getValue(OCCUPIED)) {
                 ItemStack itemStack = new ItemStack(this);

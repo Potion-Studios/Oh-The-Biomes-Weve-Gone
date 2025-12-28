@@ -7,7 +7,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
@@ -49,9 +49,9 @@ import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animatable.manager.AnimatableManager;
-import software.bernie.geckolib.animatable.processing.AnimationController;
-import software.bernie.geckolib.animatable.processing.AnimationTest;
 import software.bernie.geckolib.animation.*;
+import software.bernie.geckolib.animation.object.PlayState;
+import software.bernie.geckolib.animation.state.AnimationTest;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 /**
@@ -134,7 +134,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
         return BWGMobSpawnConfig.INSTANCE.man_o_war && pos.getY() <= (world.getSeaLevel() - 2) && world.getFluidState(pos.below()).is(FluidTags.WATER);
     }
 
-    private static final TagKey<Biome> DRY_BIOMES = TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "is_dry"));
+    private static final TagKey<Biome> DRY_BIOMES = TagKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath("c", "is_dry"));
 
     @Override
     public int getMaxAirSupply() {
@@ -253,7 +253,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
         if (!this.isInWater() && this.onGround() && this.verticalCollision) {
             this.setDeltaMovement(this.getDeltaMovement().add((this.random.nextFloat() * 2.0F - 1.0F) * 0.05F, 0.4000000059604645D, (this.random.nextFloat() * 2.0F - 1.0F) * 0.05F));
             this.setOnGround(false);
-            this.hasImpulse = true;
+            this.needsSync = true;
             this.playSound(SoundEvents.SALMON_FLOP, this.getSoundVolume(), this.getVoicePitch());
         }
 
@@ -357,7 +357,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
     private PlayState predicate(AnimationTest<ManOWar> event) {
         AnimationController<ManOWar> controller = event.controller();
-        controller.transitionLength(0);
+        //controller.transitionLength(0);
         controller.setAnimation(this.isInWater() ? SWIM_ANIMATION : BEACHED_ANIMATION);
         return PlayState.CONTINUE;
     }

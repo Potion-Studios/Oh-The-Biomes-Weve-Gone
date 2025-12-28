@@ -3,7 +3,7 @@ package net.potionstudios.biomeswevegone.neoforge;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.entity.npc.villager.VillagerTrades;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.level.block.Blocks;
@@ -80,7 +80,7 @@ public class VanillaCompatNeoForge {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             BWGVillagerTrades.TRADES.get(event.getType())
                     .forEach((level, offers) -> {
-                        List<VillagerTrades.ItemListing> tradeList = trades.get(level.intValue());
+                        List<VillagerTrades.ItemListing> tradeList = trades.get(level);
                         tradeList.addAll(offers);
                     });
         }

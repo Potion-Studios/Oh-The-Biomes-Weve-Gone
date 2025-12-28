@@ -15,7 +15,7 @@ import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.ColoredFallingBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -64,7 +64,7 @@ public class BWGQuickSand extends ColoredFallingBlock {
         }
 
         if (level instanceof ServerLevel serverLevel) {
-            if (entity.isOnFire() && (serverLevel.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING) || entity instanceof Player) && entity.mayInteract(serverLevel, pos)) {
+            if (entity.isOnFire() && (serverLevel.getGameRules().get(GameRules.MOB_GRIEFING) || entity instanceof Player) && entity.mayInteract(serverLevel, pos)) {
                 level.destroyBlock(pos, false);
             }
 

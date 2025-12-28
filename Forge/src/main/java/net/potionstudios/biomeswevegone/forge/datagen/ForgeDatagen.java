@@ -59,7 +59,7 @@ class ForgeDatagen {
         @Override
         protected void start(HolderLookup.@NotNull Provider arg) {
             add("bwg_items_from_sniffer_dig", new AddItemModifier(new LootItemCondition[]{
-                    new LootTableIdCondition.Builder(BuiltInLootTables.SNIFFER_DIGGING.location()).build()}, BWGItems.FLUORESCENT_CATTAIL_SPROUT.get(),
+                    new LootTableIdCondition.Builder(BuiltInLootTables.SNIFFER_DIGGING.identifier()).build()}, BWGItems.FLUORESCENT_CATTAIL_SPROUT.get(),
                     BWGItems.BLUE_GLOWCANE_SHOOT.get(), BWGItems.GREEN_GLOWCANE_SHOOT.get(), BWGItems.RED_GLOWCANE_SHOOT.get(), BWGItems.YELLOW_GLOWCANE_SHOOT.get(),
                     BWGItems.PALE_PUMPKIN_SEEDS.get()));
         }

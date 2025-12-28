@@ -111,12 +111,12 @@ public final class ForgePlatformHandler implements PlatformHandler {
 
 	@Override
 	public <T> Supplier<T> register(Registry<? super T> registry, String name, Supplier<T> value) {
-		return CACHED.computeIfAbsent(registry.key(), key -> DeferredRegister.create(registry.key().location(), BiomesWeveGone.MOD_ID)).register(name, value);
+		return CACHED.computeIfAbsent(registry.key(), key -> DeferredRegister.create(registry.key(), BiomesWeveGone.MOD_ID)).register(name, value);
 	}
 
 	@Override
 	public <T> Supplier<Holder.Reference<T>> registerForHolder(Registry<T> registry, String name, Supplier<T> value) {
-		RegistryObject<T> registryObject = CACHED.computeIfAbsent(registry.key(), key -> DeferredRegister.create(registry.key().location(), BiomesWeveGone.MOD_ID)).register(name, value);
+		RegistryObject<T> registryObject = CACHED.computeIfAbsent(registry.key(), key -> DeferredRegister.create(registry.key(), BiomesWeveGone.MOD_ID)).register(name, value);
 		return () -> (Holder.Reference<T>) registryObject.getHolder().get();
 	}
 

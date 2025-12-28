@@ -5,7 +5,7 @@ import mcp.mobius.waila.api.IBlockComponentProvider;
 import mcp.mobius.waila.api.IPluginConfig;
 import mcp.mobius.waila.api.ITooltip;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.OddionCrop;
 
 enum BWGOddionCropProvider implements IBlockComponentProvider {
@@ -18,7 +18,7 @@ enum BWGOddionCropProvider implements IBlockComponentProvider {
 
     @Override
     public void appendBody(ITooltip tooltip, IBlockAccessor accessor, IPluginConfig config) {
-        if (config.getBoolean(ResourceLocation.withDefaultNamespace("plant.crop_progress")))
+        if (config.getBoolean(Identifier.withDefaultNamespace("plant.crop_progress")))
             if (accessor.getBlockState().getValue(OddionCrop.HATCHING))
                 addHatchingTooltip(tooltip, accessor.getBlockState().getValue(OddionCrop.TIMER));
     }

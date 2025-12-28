@@ -3,7 +3,7 @@ package net.potionstudios.biomeswevegone.neoforge.datagen.generators;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
@@ -45,7 +45,7 @@ public class DatamapGenerator extends DataMapProvider {
         biomeVillagerTypeBuilder.conditions(new ModLoadedCondition(BiomesWeveGone.MOD_ID));
     }
 
-    private ResourceLocation id(Item item) {
+    private Identifier id(Item item) {
         return BuiltInRegistries.ITEM.getKey(item);
     }
 }

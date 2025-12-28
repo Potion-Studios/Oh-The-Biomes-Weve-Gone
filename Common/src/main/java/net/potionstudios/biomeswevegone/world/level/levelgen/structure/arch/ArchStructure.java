@@ -138,7 +138,7 @@ public class ArchStructure extends Structure {
                     if (stepOrigin.distSqr(mutableBlockPos) < Mth.square(thickness)) {
                         double noiseSample = (noise.noise(mutableBlockPos.getX() * frequency, mutableBlockPos.getY() * frequency, mutableBlockPos.getZ() * frequency) + 1) * 0.5;
 
-                        double localRadius = Mth.clampedLerp(thickness * 0.5, thickness, noiseSample);
+                        double localRadius = Mth.clampedLerp(noiseSample, thickness * 0.5, thickness);
 
                         if (stepOrigin.distSqr(mutableBlockPos) < Mth.square(localRadius)) {
                             action.accept(mutableBlockPos);
