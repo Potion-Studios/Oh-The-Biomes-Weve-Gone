@@ -1,3 +1,7 @@
+# 3.2.3
+- Add PathBlockType to Desert Plants.  (Forge/NeoForge Only)
+- Make Barrel Cactus give Cactus Damage when collided with
+
 # 3.2.2
 - Fix Baby Villagers not being able to be turned into Pumpkin Wardens (Fabric)
 - Adjust some Language Keys for Skyris Vale Biome

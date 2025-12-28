@@ -18,7 +18,6 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
-import net.potionstudios.biomeswevegone.component.BWGDataComponents;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import net.potionstudios.biomeswevegone.world.item.custom.CampfireExplodingBlockItem;
@@ -26,7 +25,6 @@ import net.potionstudios.biomeswevegone.world.item.custom.PowderItem;
 import net.potionstudios.biomeswevegone.world.item.custom.WreathItem;
 import net.potionstudios.biomeswevegone.world.item.jukebox.BWGJukeBoxSongs;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
-import net.potionstudios.biomeswevegone.world.level.block.entities.PumpkinBurrowBlockEntity;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cattail.ColorProperty;
 
 import java.util.ArrayList;
