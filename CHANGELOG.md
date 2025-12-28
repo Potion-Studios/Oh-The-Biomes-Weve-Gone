@@ -1,3 +1,5 @@
+# 4.2.2
+
 # 4.2.1
 - Fix Baby Villagers not being able to be turned into Pumpkin Wardens (Fabric)
 - Adjust some Language Keys for Skyris Vale Biome
