@@ -83,7 +83,6 @@
     }
   },
   "display": {
-    "background": "biomeswevegone:textures/block/lush_dirt.png",
     "description": {
       "translate": "advancements.biomeswevegone.adventure.true_traveler.description"
     },

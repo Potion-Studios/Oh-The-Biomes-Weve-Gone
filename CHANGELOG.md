@@ -21,6 +21,7 @@
 # 4.1.1
 - Fix BWG Mushroom Blocks missing Mineable with Axe Tag
 - Update French (fr_fr) Translations (Credits: Brandcraf06)
+- Fix Missing Texture in Advancement Menu
 
 # 4.1.0 - Breaking Changes
 - Please read -> The major change in this update is the renaming of the registry name of skyrise_vale to skyris_vale to fix a typo.

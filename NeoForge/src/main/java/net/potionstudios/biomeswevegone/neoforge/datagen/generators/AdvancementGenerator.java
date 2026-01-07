@@ -43,7 +43,7 @@ public class AdvancementGenerator extends AdvancementProvider {
                             BWGItems.BWG_LOGO.get(),
                             translateAble("title.root"),
                             translateAble("description.root"),
-                            BiomesWeveGone.id("textures/block/lush_dirt.png"),
+                            BiomesWeveGone.id("block/lush_dirt"),
                             AdvancementType.TASK,
                             false,
                             false,
@@ -58,7 +58,7 @@ public class AdvancementGenerator extends AdvancementProvider {
                             BWGItems.BWG_LOGO.get(),
                             translateAble("adventure.root.title"),
                             translateAble("adventure.root.description"),
-                            BiomesWeveGone.id("textures/block/lush_dirt.png"),
+                            null,
                             AdvancementType.TASK, false, false, false
                     ).save(writer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/adventure/root"));
 
@@ -69,7 +69,7 @@ public class AdvancementGenerator extends AdvancementProvider {
                             BWGItems.BWG_LOGO.get(),
                             translateAble("adventure.oh_the_biomes_weve_gone.title"),
                             translateAble("adventure.oh_the_biomes_weve_gone.description"),
-                            BiomesWeveGone.id("textures/block/lush_dirt.png"),
+                            null,
                             AdvancementType.CHALLENGE, true, true, false
                     ).rewards(AdvancementRewards.Builder.experience(1000))
                     .save(writer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/adventure/oh_the_biomes_weve_gone"));
@@ -83,7 +83,7 @@ public class AdvancementGenerator extends AdvancementProvider {
                             BWGBlocks.QUICKSAND.get().asItem().getDefaultInstance(),
                             translateAble("adventure.inside_quicksand.title"),
                             translateAble("adventure.inside_quicksand.description"),
-                            BiomesWeveGone.id("textures/block/lush_dirt.png"),
+                            null,
                             AdvancementType.TASK,
                             true, true, false
                     )
@@ -98,7 +98,7 @@ public class AdvancementGenerator extends AdvancementProvider {
                             BWGBlocks.PRAIRIE_GRASS.get().asItem().getDefaultInstance(),
                             translateAble("adventure.little_house_on_the_prairie.title"),
                             translateAble("adventure.little_house_on_the_prairie.description"),
-                            BiomesWeveGone.id("textures/block/lush_dirt.png"),
+                            null,
                             AdvancementType.TASK, true, true, false
                     )
                     .save(writer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/adventure/little_house_on_the_prairie"));
@@ -116,7 +116,7 @@ public class AdvancementGenerator extends AdvancementProvider {
                             BWGItems.MUSIC_DISC_BETTER_DAYS.get(),
                             translateAble("adventure.true_traveler.title"),
                             translateAble("adventure.true_traveler.description"),
-                            BiomesWeveGone.id("textures/block/lush_dirt.png"),
+                            null,
                             AdvancementType.TASK, true, true, false
                     )
                     .save(writer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/adventure/true_traveler"));
@@ -128,7 +128,7 @@ public class AdvancementGenerator extends AdvancementProvider {
                             BWGItems.MUSIC_DISC_PIXIE_CLUB.get(),
                             translateAble("adventure.forgotten_fae.title"),
                             translateAble("adventure.forgotten_fae.description"),
-                            BiomesWeveGone.id("textures/block/lush_dirt.png"),
+                            null,
                             AdvancementType.TASK, true, true, false
                     )
                     .save(writer, BiomesWeveGone.id(BiomesWeveGone.MOD_ID + "/adventure/forgotten_fae"));

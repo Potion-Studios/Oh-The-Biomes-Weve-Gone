@@ -6,7 +6,7 @@
   },
   "display": {
     "announce_to_chat": false,
-    "background": "biomeswevegone:textures/block/lush_dirt.png",
+    "background": "biomeswevegone:block/lush_dirt",
     "description": {
       "translate": "advancements.biomeswevegone.description.root"
     },
