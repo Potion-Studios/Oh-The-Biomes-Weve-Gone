@@ -1,4 +1,5 @@
 # 2.5.5
+- Add Polish (pl_pl) Translations (Credits: kierohere)
 
 # 2.5.4
 - Add PathBlockType to Desert Plants.  (Forge/NeoForge Only)
