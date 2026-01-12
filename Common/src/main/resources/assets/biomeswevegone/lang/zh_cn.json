@@ -35,7 +35,7 @@
   "advancements.biomeswevegone.title.root": "我们走过的生物群系",
   "biome.biomeswevegone.allium_shrubland": "绒球葱灌丛",
   "biome.biomeswevegone.amaranth_grassland": "苋菜花原野",
-  "biome.biomeswevegone.araucaria_savanna": "热带南洋杉疏林草原",
+  "biome.biomeswevegone.araucaria_savanna": "南洋杉热带草原",
   "biome.biomeswevegone.aspen_boreal": "北境白杨森林",
   "biome.biomeswevegone.atacama_outback": "阿塔卡玛旱地",
   "biome.biomeswevegone.baobab_savanna": "猴面包树热带草原",
@@ -1169,3 +1169,4 @@
   "subtitles.entity.oddion_hurt": "奇异洋葱：受伤",
   "tooltip.waila.hatch_chance": "孵化率: %s"
 }
+
