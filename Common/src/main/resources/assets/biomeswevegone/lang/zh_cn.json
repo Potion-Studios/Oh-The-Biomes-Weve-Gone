@@ -50,8 +50,8 @@
   "biome.biomeswevegone.crimson_tundra": "绯红苔原",
   "biome.biomeswevegone.cypress_swamplands": "柏木沼泽",
   "biome.biomeswevegone.cypress_wetlands": "柏木湿地",
-  "biome.biomeswevegone.dacite_ridges": "安英岩山岭",
-  "biome.biomeswevegone.dacite_shore": "安英岩海岸",
+  "biome.biomeswevegone.dacite_ridges": "英安岩山岭",
+  "biome.biomeswevegone.dacite_shore": "英安岩海岸",
   "biome.biomeswevegone.dead_sea": "死海",
   "biome.biomeswevegone.ebony_woods": "乌木森林",
   "biome.biomeswevegone.enchanted_tangle": "魔法缠怨森林",
@@ -72,7 +72,7 @@
   "biome.biomeswevegone.pale_bog": "苍白沼泽",
   "biome.biomeswevegone.prairie": "原野",
   "biome.biomeswevegone.pumpkin_valley": "南瓜山谷",
-  "biome.biomeswevegone.rainbow_beach": "彩虹海岸",
+  "biome.biomeswevegone.rainbow_beach": "彩虹沙滩",
   "biome.biomeswevegone.red_rock_peaks": "红岩山峰",
   "biome.biomeswevegone.red_rock_valley": "红岩山谷",
   "biome.biomeswevegone.redwood_thicket": "红杉林地",
@@ -1169,5 +1169,6 @@
   "subtitles.entity.oddion_hurt": "奇异洋葱：受伤",
   "tooltip.waila.hatch_chance": "孵化率: %s"
 }
+
 
 
