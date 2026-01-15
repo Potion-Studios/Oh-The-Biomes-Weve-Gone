@@ -10,6 +10,8 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
@@ -21,10 +23,12 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class BarrelCactusBlock extends BWGCactusBlock implements BonemealableBlock {
 	public BarrelCactusBlock() {
@@ -75,5 +79,20 @@ public class BarrelCactusBlock extends BWGCactusBlock implements BonemealableBlo
 	public void performBonemeal(@NotNull ServerLevel level, @NotNull RandomSource random, @NotNull BlockPos pos, BlockState state) {
 		if (!state.is(BWGBlocks.FLOWERING_BARREL_CACTUS.get()))
 			level.setBlockAndUpdate(pos, BWGBlocks.FLOWERING_BARREL_CACTUS.get().defaultBlockState());
+	}
+
+	@Override
+	protected void entityInside(@NotNull BlockState state, Level level, @NotNull BlockPos pos, Entity entity) {
+		entity.hurt(level.damageSources().cactus(), 1.0F);
+	}
+
+	/**
+	 * Overrides the path type for mobs walking through the bush.getBlockPathType
+	 * @see net.neoforged.neoforge.common.extensions.IBlockExtension#getBlockPathType
+	 * @see net.minecraftforge.common.extensions.IForgeBlock#getBlockPathType
+	 */
+	@Nullable
+	PathType getBlockPathType(BlockState state, BlockGetter level, BlockPos pos, @Nullable Mob mob) {
+		return PathType.DAMAGE_OTHER;
 	}
 }

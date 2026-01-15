@@ -30,7 +30,6 @@ subprojects {
 
     val loom = project.extensions.getByName<LoomGradleExtensionAPI>("loom")
     loom.silentMojangMappingsLicense()
-    loom.mixin.useLegacyMixinAp.set(false)
 
     repositories {
         mavenCentral()
@@ -60,7 +59,7 @@ subprojects {
             parchment("org.parchmentmc.data:parchment-$minecraftVersion:${project.properties["parchment"]}@zip")
         })
 
-        compileOnly("org.jetbrains:annotations:26.0.2")
+        compileOnly("org.jetbrains:annotations:26.0.2-1")
         compileOnly("com.google.auto.service:auto-service:1.1.1")
         annotationProcessor("com.google.auto.service:auto-service:1.1.1")
     }
@@ -114,7 +113,7 @@ subprojects {
             setReleaseType(ReleaseType.RELEASE)
             setGameVersions(minecraftVersion)
             setCurseEnvironment(CurseEnvironment.BOTH)
-            setJavaVersions(JavaVersion.VERSION_21, JavaVersion.VERSION_22)
+            setJavaVersions(JavaVersion.VERSION_21, JavaVersion.VERSION_22, JavaVersion.VERSION_25)
             modrinthDepends.optional.set(mutableListOf("wthit"))
         }
 }

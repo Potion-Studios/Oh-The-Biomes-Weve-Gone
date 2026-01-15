@@ -1,3 +1,15 @@
+# 2.6.0
+
+# 2.5.4
+- Add PathBlockType to Desert Plants.  (Forge/NeoForge Only)
+- Make Barrel Cactus give Cactus Damage when collided with
+
+# 2.5.3
+- Fix Baby Villagers not being able to be turned into Pumpkin Wardens (Fabric)
+- Adjust some Language Keys for Skyris Vale Biome
+- Compatibility with Autumnity – When present, our Medium Pumpkin Feature is replaced with their Pumpkin Feature (NeoForge)
+- Add PathBlockType to BlueBerry Bush.  (Forge/NeoForge Only)
+
 # 2.5.2
 - Add Compatibility with BucketLib and UnderGarden Dynamic Bucket
 - Fix BWG Chest Boats changing to Aspen type on server reload
@@ -6,7 +18,7 @@
 - Fix BWG Mushroom Blocks missing Mineable with Axe Tag
 - Update French (fr_fr) Translations (Credits: Brandcraf06)
 
-# 2.5.0 - Breaking Changes
+# 2.5.0 – Breaking Changes
 - Please read -> The major change in this update is the renaming of the registry name of skyrise_vale to skyris_vale to fix a typo.
   This change is "breaking", all skyrise_vale will show up as plains if you look in the F3 menu, however the biome will still look correct, the only difference is the name shown in F3 and /locate will not find it.
   All new chunks/new worlds will have the correct skyris_vale biome name.
