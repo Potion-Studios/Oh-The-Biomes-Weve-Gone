@@ -56,7 +56,7 @@ dependencies {
     modLocalRuntime("mcp.mobius.waila:wthit:neo-${project.properties["WTHIT"]}")
     modLocalRuntime("lol.bai:badpackets:neo-${project.properties["badPackets"]}")
 
-    modApi("com.github.glitchfiend:SereneSeasons-neoforge:$minecraftVersion-21.11.0.0")
+    modApi("com.github.glitchfiend:SereneSeasons-neoforge:$minecraftVersion-21.11.0.1")
 }
 
 tasks {
