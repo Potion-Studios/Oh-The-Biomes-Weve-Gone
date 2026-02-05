@@ -40,6 +40,7 @@ import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animatable.manager.AnimatableManager;
@@ -296,7 +297,7 @@ public class Oddion extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
+    public @NonNull AnimatableInstanceCache getAnimatableInstanceCache() {
         return animatableInstanceCache;
     }
 

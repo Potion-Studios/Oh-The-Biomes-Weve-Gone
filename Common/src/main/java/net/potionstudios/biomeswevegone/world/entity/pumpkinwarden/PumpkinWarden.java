@@ -66,6 +66,7 @@ import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.entities.PumpkinBurrowBlockEntity;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animatable.manager.AnimatableManager;
@@ -245,7 +246,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
+    public @NonNull AnimatableInstanceCache getAnimatableInstanceCache() {
         return animatableInstanceCache;
     }
 

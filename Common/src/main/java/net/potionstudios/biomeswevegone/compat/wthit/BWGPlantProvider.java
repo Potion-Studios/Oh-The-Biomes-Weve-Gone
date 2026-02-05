@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.BWGBerryBush;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Allows seeing bwg plant information in Waila.
@@ -35,17 +36,17 @@ enum BWGPlantProvider implements IBlockComponentProvider {
 	}
 
 	private static void addCropGrowableTooltip(ITooltip tooltip, IBlockAccessor accessor) {
-		int lightLevel = accessor.getWorld().getRawBrightness(accessor.getPosition(), 0);
+		int lightLevel = accessor.getLevel().getRawBrightness(accessor.getPosition(), 0);
 		addGrowableTooltip(tooltip, Identifier.withDefaultNamespace("plant.crop_growable"), "tooltip.waila.crop_growable", lightLevel >= 9);
 	}
 
 	private static void addTreeGrowableTooltip(ITooltip tooltip, IBlockAccessor accessor) {
-		int lightLevel = accessor.getWorld().getRawBrightness(accessor.getPosition(), 0);
+		int lightLevel = accessor.getLevel().getRawBrightness(accessor.getPosition(), 0);
 		addGrowableTooltip(tooltip, Identifier.withDefaultNamespace("plant.tree_growable"), "tooltip.waila.tree_growable", lightLevel >= 9);
 	}
 
 	@Override
-	public void appendBody(ITooltip tooltip, IBlockAccessor accessor, IPluginConfig config) {
+	public void appendBody(@NonNull ITooltip tooltip, IBlockAccessor accessor, @NonNull IPluginConfig config) {
 		Block block = accessor.getBlock();
 		if (!IModInfo.get(block).getId().equals(BiomesWeveGone.MOD_ID)) return;
 

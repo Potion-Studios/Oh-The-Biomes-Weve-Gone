@@ -34,7 +34,7 @@ public class SetClosestPumpkinBurrowAsWalkTarget {
                         .apply(
                                 instance,
                                 (memoryAccessor, memoryAccessor2) -> (serverLevel, pathfinderMob, l) -> {
-                                    if (serverLevel.getGameTime() - mutableLong.getValue() < 20L) {
+                                    if (serverLevel.getGameTime() - mutableLong.get().longValue() < 20L) {
                                         return false;
                                     } else {
                                         PoiManager poiManager = serverLevel.getPoiManager();
@@ -49,7 +49,7 @@ public class SetClosestPumpkinBurrowAsWalkTarget {
                                                 } else if (mutableInt.incrementAndGet() >= 5) {
                                                     return false;
                                                 } else {
-                                                    long2LongMap.put(lx, mutableLong.getValue() + 40L);
+                                                    long2LongMap.put(lx, mutableLong.get().longValue() + 40L);
                                                     return true;
                                                 }
                                             };
@@ -65,8 +65,8 @@ public class SetClosestPumpkinBurrowAsWalkTarget {
                                                     memoryAccessor.set(new WalkTarget(blockPos.relative(serverLevel.getBlockState(blockPos).getValue(PumpkinBurrowBlock.FACING)), speedModifier, 0));
                                                     serverLevel.debugSynchronizers().updatePoi(blockPos);
                                                 }
-                                            } else if (mutableInt.getValue() < 5) {
-                                                long2LongMap.long2LongEntrySet().removeIf(entry -> entry.getLongValue() < mutableLong.getValue());
+                                            } else if (mutableInt.get().longValue() < 5) {
+                                                long2LongMap.long2LongEntrySet().removeIf(entry -> entry.getLongValue() < mutableLong.get().longValue());
                                             }
 
                                             return true;
