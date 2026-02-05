@@ -50,7 +50,9 @@ public class LangGenerator extends LanguageProvider {
                 if (wood.get() instanceof BlockItem blockItem)
                     add(blockItem.getBlock(), getBlockName(blockItem::getBlock));
                 else addItem(wood, getItemName(wood));
-            else addItem(wood, getItemName(wood).replace("Chest ", "") + " with Chest");
+            else if (getItemName(wood).contains("Chest"))
+                addItem(wood, getItemName(wood).replace("Chest ", "") + " with Chest");
+            else addItem(wood, getItemName(wood));
         });
         BWGWood.WOOD.stream().filter(wood -> wood.get() instanceof FlowerPotBlock).forEach(wood -> addBlock(wood, getBlockName(wood)));
         addEntityType(BWGEntityType.MAN_O_WAR, "Man O' War");

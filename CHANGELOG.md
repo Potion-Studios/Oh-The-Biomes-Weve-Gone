@@ -1,5 +1,6 @@
 # 4.3.1
 - Fix Flat Plant Blocks having wood sounds, not Grass Sounds
+- Fix Normal Boats having Chest Boat in Lang
 
 # 4.3.0
 - Update to 1.21.11, Support for 1.21.10 has now ended
