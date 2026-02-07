@@ -1,4 +1,5 @@
 # 3.2.4
+- Update Simplified Chinese (zh_cn) Translations (Credits: hessian-mat)
 
 # 3.2.3
 - Add PathBlockType to Desert Plants.  (Forge/NeoForge Only)
