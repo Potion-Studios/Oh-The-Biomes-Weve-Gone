@@ -1,4 +1,6 @@
 # 3.2.4
+- Fix Flat Plant Blocks having wood sounds, not Grass Sounds
+- Add Polish Translations (pl_pl) (Credits: kierohere)
 - Update Simplified Chinese (zh_cn) Translations (Credits: hessian-mat)
 
 # 3.2.3
