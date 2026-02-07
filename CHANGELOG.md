@@ -1,3 +1,5 @@
+# 3.2.4
+
 # 3.2.3
 - Add PathBlockType to Desert Plants.  (Forge/NeoForge Only)
 - Make Barrel Cactus give Cactus Damage when collided with
