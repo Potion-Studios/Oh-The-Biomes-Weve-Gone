@@ -35,12 +35,12 @@ enum BWGPlantProvider implements IBlockComponentProvider {
 	}
 
 	private static void addCropGrowableTooltip(ITooltip tooltip, IBlockAccessor accessor) {
-		int lightLevel = accessor.getWorld().getRawBrightness(accessor.getPosition(), 0);
+		int lightLevel = accessor.getLevel().getRawBrightness(accessor.getPosition(), 0);
 		addGrowableTooltip(tooltip, ResourceLocation.withDefaultNamespace("plant.crop_growable"), "tooltip.waila.crop_growable", lightLevel >= 9);
 	}
 
 	private static void addTreeGrowableTooltip(ITooltip tooltip, IBlockAccessor accessor) {
-		int lightLevel = accessor.getWorld().getRawBrightness(accessor.getPosition(), 0);
+		int lightLevel = accessor.getLevel().getRawBrightness(accessor.getPosition(), 0);
 		addGrowableTooltip(tooltip, ResourceLocation.withDefaultNamespace("plant.tree_growable"), "tooltip.waila.tree_growable", lightLevel >= 9);
 	}
 
