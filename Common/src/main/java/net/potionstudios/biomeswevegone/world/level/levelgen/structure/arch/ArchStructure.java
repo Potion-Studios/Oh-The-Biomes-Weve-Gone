@@ -10,12 +10,11 @@ import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
-import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
-import net.minecraft.world.level.levelgen.synth.ImprovedNoise;
 import net.minecraft.world.phys.Vec3;
+import net.potionstudios.biomeswevegone.util.FastNoiseLite;
 import net.potionstudios.biomeswevegone.util.UnsafeBoundingBox;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGStructureTypes;
 import org.jetbrains.annotations.NotNull;
@@ -121,9 +120,14 @@ public class ArchStructure extends Structure {
     public static void generate(long seed, double thickness, double frequency, BlockPos stepOrigin, BoundingBox effectedArea, Consumer<BlockPos> action) {
         BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
 
-        ImprovedNoise noise = new ImprovedNoise(new XoroshiroRandomSource(seed));
+        FastNoiseLite noise = new FastNoiseLite((int) seed);
+        noise.SetNoiseType(FastNoiseLite.NoiseType.Perlin);
+        noise.SetFrequency((float) frequency);
+        noise.SetFractalGain(0.5F);
+        noise.SetFractalOctaves(4);
+        noise.SetFractalLacunarity(2.0F);
 
-        if (!effectedArea.equals(INFINITE) && !effectedArea.inflatedBy((int)thickness + 1).isInside(stepOrigin)) {
+        if (!effectedArea.equals(INFINITE) && !effectedArea.inflatedBy((int) thickness + 1).isInside(stepOrigin)) {
             return;
         }
 
@@ -136,9 +140,9 @@ public class ArchStructure extends Structure {
                     }
 
                     if (stepOrigin.distSqr(mutableBlockPos) < Mth.square(thickness)) {
-                        double noiseSample = (noise.noise(mutableBlockPos.getX() * frequency, mutableBlockPos.getY() * frequency, mutableBlockPos.getZ() * frequency) + 1) * 0.5;
+                        double noiseSample = (noise.GetNoise((float) (mutableBlockPos.getX()), (float) (mutableBlockPos.getY()), (float) (mutableBlockPos.getZ())) + 1) * 0.5;
 
-                        double localRadius = Mth.clampedLerp(thickness * 0.5, thickness, noiseSample);
+                        double localRadius = Mth.clampedLerp(thickness * 0.2, thickness, noiseSample);
 
                         if (stepOrigin.distSqr(mutableBlockPos) < Mth.square(localRadius)) {
                             action.accept(mutableBlockPos);
