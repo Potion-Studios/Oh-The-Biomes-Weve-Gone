@@ -31,7 +31,6 @@ public class BWGOverworldSurfaceRules {
     private static final SurfaceRules.RuleSource STONE = makeifTrueRule(SurfaceRules.ON_FLOOR, makeStateRule(Blocks.STONE));
     private static final SurfaceRules.RuleSource GRAVEL = SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, makeStateRule(Blocks.GRAVEL)), makeifTrueRule(SurfaceRules.UNDER_FLOOR, makeStateRule(Blocks.GRAVEL)));
 
-
     private static final SurfaceRules.RuleSource PURPLE_SAND = makeBeachSandRule(BWGBlocks.PURPLE_SAND_SET);
     private static final SurfaceRules.RuleSource BLUE_SAND = makeBeachSandRule(BWGBlocks.BLUE_SAND_SET);
     private static final SurfaceRules.RuleSource PINK_SAND = makeBeachSandRule(BWGBlocks.PINK_SAND_SET);
@@ -333,11 +332,12 @@ public class BWGOverworldSurfaceRules {
             PODZOL_DIRT_SURFACE
     ));
 
-    private static final SurfaceRules.RuleSource RAINBOW_BEACH = biomeAbovePreliminarySurface(BWGBiomes.RAINBOW_BEACH,
+    private static final SurfaceRules.RuleSource RAINBOW_BEACH = makeifTrueRule(BWGBiomes.RAINBOW_BEACH,
         SurfaceRules.sequence(
                 new BetweenRepeatingNoiseRange(Noises.CALCITE, 0.02f, -2f, 2f, PURPLE_SAND, WHITE_SAND, BLACK_SAND, PINK_SAND),
                 BLUE_SAND
-        ));
+        )
+    );
 
     private static final SurfaceRules.RuleSource RED_ROCK_PEAKS = biomeAbovePreliminarySurface(BWGBiomes.RED_ROCK_PEAKS, SurfaceRules.sequence(
             makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
@@ -482,8 +482,7 @@ public class BWGOverworldSurfaceRules {
         return SurfaceRules.sequence(
                 makeifTrueRule(SurfaceRules.ON_FLOOR, sandSet.getSand()),
                 makeifTrueRule(SurfaceRules.UNDER_FLOOR, sandSet.getSand()),
-                makeifTrueRule(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), sandSet.getSandstone()),
-                makeifTrueRule(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), sandSet.getSandstone())
+                makeifTrueRule(SurfaceRules.DEEP_UNDER_FLOOR, sandSet.getSandstone())
         );
     }
 
