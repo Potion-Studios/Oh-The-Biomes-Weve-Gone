@@ -39,7 +39,7 @@
     "terrablender": ">=21.11.0.0",
     "corgilib": ">=9.0.0.0",
     "ohthetreesyoullgrow": ">=9.0.0",
-    "geckolib": ">=5.4"
+    "geckolib": ">=5.4.4"
   },
   "suggests": {
     "WTHIT": ">=18.0.1"

@@ -52,7 +52,7 @@ side = "BOTH"
 [[dependencies.biomeswevegone]]
 modId = "geckolib"
 type = "required"
-versionRange = "[5.4,)"
+versionRange = "[5.4.4,)"
 ordering = "AFTER"
 side = "BOTH"
 

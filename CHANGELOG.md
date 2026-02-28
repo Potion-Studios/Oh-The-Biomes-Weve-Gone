@@ -1,4 +1,6 @@
 # 4.3.2
+- Fix ManOWar Crash when using Geckolib 5.4.4
+- Require Geckolib 5.4.4 or higher
 
 # 4.3.1
 - Fix Flat Plant Blocks having wood sounds, not Grass Sounds
