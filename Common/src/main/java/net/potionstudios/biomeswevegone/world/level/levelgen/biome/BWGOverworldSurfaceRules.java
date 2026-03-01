@@ -59,6 +59,7 @@ public class BWGOverworldSurfaceRules {
     private static final SurfaceRules.RuleSource CRIMSON_ROCKY_STONE_SURFACE = makeifTrueRule(SurfaceRules.noiseCondition(Noises.POWDER_SNOW, 0.45, 0.5), makeifTrueRule(WATER_CHECK, SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, makeStateRule(BWGBlocks.ROCKY_STONE_SET.getBase())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, makeStateRule(BWGBlocks.ROCKY_STONE_SET.getBase())))));
     private static final SurfaceRules.RuleSource POWDER_SNOW_SURFACE = makeifTrueRule(SurfaceRules.noiseCondition(Noises.POWDER_SNOW, 0.45, 0.5), makeifTrueRule(WATER_CHECK, SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, makeStateRule(Blocks.POWDER_SNOW)), makeifTrueRule(SurfaceRules.UNDER_FLOOR, makeStateRule(Blocks.POWDER_SNOW)))));
     private static final SurfaceRules.RuleSource RED_QUICKSAND_SURFACE = makeifTrueRule(SurfaceRules.noiseCondition(Noises.POWDER_SNOW, 0.45, 0.5), makeifTrueRule(WATER_CHECK, SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, makeStateRule(BWGBlocks.RED_QUICKSAND.get())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, makeStateRule(BWGBlocks.RED_QUICKSAND.get())))));
+    //private static final SurfaceRules.RuleSource RED_SANDSTONE_SURFACE = SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.RED_SANDSTONE), makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.RED_SANDSTONE));
     private static final SurfaceRules.RuleSource RAW_COPPER_SURFACE = makeifTrueRule(SurfaceRules.noiseCondition(Noises.POWDER_SNOW, 0.45, 0.5), makeifTrueRule(WATER_CHECK, SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, makeStateRule(Blocks.RAW_COPPER_BLOCK)), makeifTrueRule(SurfaceRules.UNDER_FLOOR, makeStateRule(Blocks.RAW_COPPER_BLOCK)))));
     private static final SurfaceRules.RuleSource ROOTED_DIRT_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.ROOTED_DIRT)), makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.ROOTED_DIRT));
     private static final SurfaceRules.RuleSource GRASS_DIRT_DIRT_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.GRASS_BLOCK)), makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT));
@@ -270,10 +271,10 @@ public class BWGOverworldSurfaceRules {
             WeightedList.<SurfaceRules.RuleSource>builder()
                     .add(LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE, 5)
                     .add(PEAT_SURFACE, 3)
-                    .add(COARSE_DIRT_DIRT_SURFACE, 1)
-                    .add(MUD_SURFACE, 1)
+                    .add(COARSE_DIRT_DIRT_SURFACE)
+                    .add(MUD_SURFACE)
                     .add(PODZOL_DIRT_SURFACE, 2)
-                    .add(PACKED_MUD_SURFACE, 1)
+                    .add(PACKED_MUD_SURFACE)
                     .build()
     ));
 
@@ -283,11 +284,11 @@ public class BWGOverworldSurfaceRules {
                     STONE
             ));
 
-    private static final SurfaceRules.RuleSource MOJAVE_DESERT = biomeAbovePreliminarySurface(BWGBiomes.MOJAVE_DESERT, BWGRuleSources.weightedRuleSource(
-            WeightedList.<SurfaceRules.RuleSource>builder()
+    private static final SurfaceRules.RuleSource MOJAVE_DESERT = makeifTrueRule(BWGBiomes.MOJAVE_DESERT, BWGRuleSources.weightedRuleSource(
+		    WeightedList.<SurfaceRules.RuleSource>builder()
                     .add(SAND_SURFACE, 3)
-                    .add(SANDY_DIRT_SURFACE, 1)
-                    .add(CRACKED_SAND_SURFACE, 1)
+                    .add(SANDY_DIRT_SURFACE)
+                    .add(CRACKED_SAND_SURFACE)
                     .build()
     ));
 
