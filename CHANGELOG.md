@@ -2,7 +2,6 @@
 - Fix ManOWar Crash when using Geckolib 5.4.4
 - Require Geckolib 5.4.4 or higher
 - Add BWG Flowers to Bee Attractive Tag
-- Make Arch Structures Less Blobby
 - Fix Incorrect English Language key for Granny Smith Advancement
 
 # 4.3.1
