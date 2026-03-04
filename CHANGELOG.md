@@ -1,4 +1,5 @@
 # 1.7.5
+- Fix Incorrect English Language key for Granny Smith Advancement
 
 # 1.7.4
 - Add PathBlockType to Desert Plants.  (Forge Only)
