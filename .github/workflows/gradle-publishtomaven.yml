@@ -3,11 +3,11 @@ name: Gradle Publish to Maven
 on:
   push:
     branches:
-      - 1.20.1
-      - 1.21.1
-      - 1.21.4
-      - 1.21.10
       - 1.21.11
+      - 1.21.10
+      - 1.21.4
+      - 1.21.1
+      - 1.20.1
 
 jobs:
   gradle:

@@ -1,3 +1,5 @@
+# 4.3.3
+
 # 4.3.2
 - Fix ManOWar Crash when using Geckolib 5.4.4
 - Require Geckolib 5.4.4 or higher
@@ -11,7 +13,7 @@
 - Update Simplified Chinese (zh_cn) Translations (Credits: hessian-mat)
 - Remove MixinExtras from Forge Jar (Now included by Forge)
 
-# 4.3.0
+# 4.3.0 - 1.21.11
 - Update to 1.21.11, Support for 1.21.10 has now ended
 
 # 4.2.2
