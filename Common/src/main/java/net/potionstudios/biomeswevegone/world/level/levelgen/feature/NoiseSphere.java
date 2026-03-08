@@ -5,6 +5,7 @@ import com.mojang.serialization.Codec;
 import it.unimi.dsi.fastutil.longs.LongOpenHashSet;
 import it.unimi.dsi.fastutil.longs.LongSet;
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
@@ -46,6 +47,11 @@ public class NoiseSphere extends Feature<NoiseSphereConfig> { // TODO: Add Confi
 
                         if (origin.closerThan(mutableBlockPos, localRadius)) {
                             cache.add(mutableBlockPos.asLong());
+                        }
+
+                        // TODO: Probably should be moved to the config file at some point, but for now this is easier to implement. Should resolve issue #348
+                        if (!BlockPredicate.anyOf(BlockPredicate.matchesTag(BlockTags.BASE_STONE_OVERWORLD), BlockPredicate.matchesTag(BlockTags.AIR), BlockPredicate.replaceable(), BlockPredicate.matchesTag(BlockTags.SAND), BlockPredicate.matchesTag(BlockTags.DIRT)).test(level, mutableBlockPos)) {
+                            return false;
                         }
                     }
                 }
