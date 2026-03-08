@@ -6,6 +6,8 @@ import net.potionstudios.biomeswevegone.config.configs.BWGWorldGenConfig;
 import org.jspecify.annotations.NonNull;
 
 public record VanillaFeatureConfigCondition() implements ICondition {
+	public static final VanillaFeatureConfigCondition INSTANCE = new VanillaFeatureConfigCondition();
+
 	public static final MapCodec<VanillaFeatureConfigCondition> CODEC = MapCodec.unit(new VanillaFeatureConfigCondition());
 
 	@Override

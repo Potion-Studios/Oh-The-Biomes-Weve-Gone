@@ -33,8 +33,8 @@ public record BWGWorldGenConfig(Map<ResourceKey<Biome>, Boolean> enabledBiomes, 
             instance.group(
                     CommentedCodec.of(Codec.unboundedMap(ResourceKey.codec(Registries.BIOME), Codec.BOOL), "enabled_biomes", "Which biomes are enabled, if disabled the biome will default to its vanilla counterpart for the given region").orElse(getDefaultBiomes()).forGetter(BWGWorldGenConfig::enabledBiomes),
                     CommentedCodec.of(Codec.INT, "region_weight", "How much each BWG region weighs. This weight applies to all 3 BWG Regions").orElse(8).forGetter(BWGWorldGenConfig::regionWeight),
-                    CommentedCodec.of(Codec.BOOL, "vanilla_additions", "Whether to add bwg flowers and features to Vanilla Biomes (Config Option for Fabric Only)").orElse(true).forGetter(config -> true),
-                    CommentedCodec.of(Codec.unboundedMap(ResourceKey.codec(Registries.PLACED_FEATURE), Codec.BOOL), "enabled_vanilla_additions", "BWG Features that we add to Vanilla Biomes").orElse(getVanillaPlacedFeatureAdditions()).forGetter(BWGWorldGenConfig::vanillaFeatures)
+                    CommentedCodec.of(Codec.BOOL, "vanilla_additions", "Whether to add BWG flowers and features to Vanilla Biomes (Config Option for Fabric and NeoForge. No Option available for Forge, These will be enabled, and you will need to make a Datapack to disable them.)").orElse(true).forGetter(config -> true),
+                    CommentedCodec.of(Codec.unboundedMap(ResourceKey.codec(Registries.PLACED_FEATURE), Codec.BOOL), "enabled_vanilla_additions", "BWG Features that we add to Vanilla Biomes (Fine Grained Feature Selection only available for Fabric, and Only work if above config option is true)").orElse(getVanillaPlacedFeatureAdditions()).forGetter(BWGWorldGenConfig::vanillaFeatures)
             ).apply(instance, BWGWorldGenConfig::new)
     );
 
