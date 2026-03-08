@@ -15,7 +15,6 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
  * @author Joseph T. McQuigg
  */
 public class LootModifiersRegister {
-
     private static final DeferredRegister<MapCodec<? extends IGlobalLootModifier>> LOOT_MODIFIER_SERIALIZERS =
             DeferredRegister.create(NeoForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, BiomesWeveGone.MOD_ID);
 
