@@ -12,6 +12,7 @@ import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.event.server.ServerAboutToStartEvent;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.commands.BWGCommands;
+import net.potionstudios.biomeswevegone.neoforge.conditions.BWGConditions;
 import net.potionstudios.biomeswevegone.neoforge.loot.LootModifiersRegister;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
@@ -35,6 +36,7 @@ public class BiomesWeveGoneNeoForge {
 		EVENT_BUS.addListener((EntityJoinLevelEvent event) -> BiomesWeveGone.onEntityLoad(event.getEntity()));
 		VanillaCompatNeoForge.registerVanillaCompatEvents(EVENT_BUS);
 		LootModifiersRegister.register(eventBus);
+		BWGConditions.conditions(eventBus);
 	}
 
 	/**
