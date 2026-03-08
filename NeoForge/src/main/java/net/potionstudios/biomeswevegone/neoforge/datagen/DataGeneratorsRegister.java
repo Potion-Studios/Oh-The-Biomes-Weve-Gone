@@ -17,6 +17,7 @@ import net.neoforged.neoforge.common.world.BiomeModifiers;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.neoforge.conditions.VanillaFeatureConfigCondition;
 import net.potionstudios.biomeswevegone.neoforge.datagen.generators.*;
 import net.potionstudios.biomeswevegone.neoforge.datagen.generators.loot.GlobalLootModifiersGenerator;
 import net.potionstudios.biomeswevegone.neoforge.datagen.generators.loot.LootGenerator;
@@ -51,7 +52,16 @@ class DataGeneratorsRegister {
         PackOutput output = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
         DatapackBuiltinEntriesProvider datapackBuiltinEntriesProvider = new DatapackBuiltinEntriesProvider(output, lookupProvider, BUILDER, Set.of(BiomesWeveGone.MOD_ID));
-        generator.addProvider(event.includeServer(), datapackBuiltinEntriesProvider);
+
+        generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(
+                output,
+                lookupProvider,
+                BUILDER,
+                conditions ->
+                        BWGBiomeModifiers.BIOME_MODIFIERS_FACTORIES.forEach((id, modifier) -> conditions.accept(ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, id), VanillaFeatureConfigCondition.INSTANCE)),
+                Set.of(BiomesWeveGone.MOD_ID)
+        ));
+
         lookupProvider = datapackBuiltinEntriesProvider.getRegistryProvider();
 
         ModelGenerators.init(generator, event.includeClient(), output, existingFileHelper);
