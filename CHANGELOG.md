@@ -2,6 +2,7 @@
 - Add Polish (pl_pl) Translations (Credits: kierohere)
 - Allow Trial Chambers Structures to spawn in/under BWG Biomes
 - Fix Incorrect English Language key for Granny Smith Advancement
+- Add the ability to disable Features added to Vanilla Biomes on NeoForge
 
 # 2.5.4
 - Add PathBlockType to Desert Plants.  (Forge/NeoForge Only)
