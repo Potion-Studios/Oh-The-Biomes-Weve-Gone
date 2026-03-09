@@ -1,18 +1,23 @@
 package net.potionstudios.biomeswevegone.neoforge.conditions;
 
 import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.neoforged.neoforge.common.conditions.ICondition;
 import net.potionstudios.biomeswevegone.config.configs.BWGWorldGenConfig;
 import org.jspecify.annotations.NonNull;
 
-public record VanillaFeatureConfigCondition() implements ICondition {
-	public static final VanillaFeatureConfigCondition INSTANCE = new VanillaFeatureConfigCondition();
-
-	public static final MapCodec<VanillaFeatureConfigCondition> CODEC = MapCodec.unit(new VanillaFeatureConfigCondition());
+public record VanillaFeatureConfigCondition(ResourceKey<PlacedFeature> feature) implements ICondition {
+	public static final MapCodec<VanillaFeatureConfigCondition> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+			ResourceKey.codec(Registries.PLACED_FEATURE).fieldOf("feature").forGetter(VanillaFeatureConfigCondition::feature)
+	).apply(instance, VanillaFeatureConfigCondition::new));
 
 	@Override
 	public boolean test(@NonNull IContext iContext) {
-		return BWGWorldGenConfig.INSTANCE.get().vanillaAdditions();
+		BWGWorldGenConfig config = BWGWorldGenConfig.INSTANCE.get();
+		return config.vanillaAdditions() && config.vanillaFeatures().getOrDefault(feature, true);
 	}
 
 	@Override
