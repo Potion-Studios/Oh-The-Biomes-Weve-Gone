@@ -1,6 +1,8 @@
 # 4.3.3
 - Add the ability to disable Features added to Vanilla Biomes on NeoForge
 - Allow Trial Chambers Structures to spawn in/under BWG Biomes
+- Fix Surface Rules issues with the Mojave Desert, Rainbow Beach, and Windswept Desert
+- Fix Boulders being placed into trees
 
 # 4.3.2
 - Fix ManOWar Crash when using Geckolib 5.4.4
@@ -118,7 +120,7 @@
 - New Better Days Music Disc
 - Blocks
   - New White Dacite Sets
-  - Normal Dacite Cracked, Chiseled, Cracked and Mossy Variants
+  - Normal Dacite Cracked, Chiseled, Cracked, and Mossy Variants
   - New Polished and Tiled Red Rock Sets
   - New Pumpkin Burrow Block
   - New Wreath Blocks
@@ -150,7 +152,7 @@
     - All Cattail Thatch Blocks are now compostable
     - All Cooked Fruits have a 75% chance to be compostable
     - All Pies have a 100% chance to be compostable
-    - All Fruits(Including Spores, Caps and Bulbs) have a 65% chance to be compostable
+    - All Fruits(Including Spores, Caps, and Bulbs) have a 65% chance to be compostable
     - All Mushroom blocks have a 85% chance to be compostable
     - BlueBerries have a 30% chance to be compostable (Matches Vanilla Sweet Berries)
     - Spirit Roots have a 30% chance to be compostable
@@ -180,7 +182,7 @@
 - Update to 1.21.4
 
 # 2.3.10 (Forge/NeoForge Only)
-- Fix Lush Grass Block, Overgrown Stone and Dacite Missing Cutout Render type
+- Fix Lush Grass Block, Overgrown Stone, and Dacite Missing Cutout Render type
 
 # 2.3.9
 - Improve Many Block and Item Model files
@@ -261,7 +263,7 @@
 
 # 2.3.0 -> Major Internal Changes and Refactors
 - Add Spanish (Chile) Translations (es_cl) (Credits: Ganbare-Lucifer)
-- Generalize Particle, Block and Item Color Registrations
+- Generalize Particle, Block, and Item Color Registrations
 - Finish and Tweak German Translations (de_de) (Credits: ieguana)
 - Fix StemBlock/AttachedStemBlock/PitcherCropBlock not being placeable on BWG Farmland (Fabric Only)
 - Refactor Entity Renderers into client package and renderer/entity subpackage
@@ -340,7 +342,7 @@ New Features:
 - Add Pale Bog Biome
 - Add Bog Trial Structure
 
-Fixes, Improvements and Other Changes:
+Fixes, Improvements, and Other Changes:
 - Optimize Crag Garden and Basalt Barrera Generation
 - Move from using ID in Fruitblock for Leaves to using Supplier of the Leaves Block
 - Increase Pumpkin Generation in Pumpkin Valley Biome
@@ -408,7 +410,7 @@ Fixes, Improvements and Other Changes:
 - Update Skyris Village Animal Pen to non-legacy, add Animals
 
 # 2.0.1-Beta
-- Fix Missing Recipes for Doors, Trapdoors, Slabs, Stairs, Buttons, Pressure Plates, Signs and Fences
+- Fix Missing Recipes for Doors, Trapdoors, Slabs, Stairs, Buttons, Pressure Plates, Signs, and Fences
 - Fix Oddion Foods Saturation Values
 
 # 2.0.0-Beta
@@ -444,11 +446,11 @@ Fixes, Improvements and Other Changes:
 
 # 1.1.2-Beta
 - Set getBucketItemStack in ManOWar.java to correct Item
-- Update Skyris Mason, Weaponsmith, Fletcher House and Armorer to non-legacy
+- Update Skyris Mason, Weaponsmith, Fletcher House, and Armorer to non-legacy
 - Use Processor on Skyris Mason, Skyris Fletcher House
 - Remove Duplicate Skyris Butcher Shop Entry from Template Pool
 - Update Chinese Language File (ZH_CN)
-- Add Block and Item Tags for Alliums, Roses, Tulips, Amaranth, Sages and Daffodils
+- Add Block and Item Tags for Alliums, Roses, Tulips, Amaranth, Sages, and Daffodils
 - Remove Winter Succulent and HorseWeed from small flowers tag
 - Add Flowering Leaves and Flowering Bushes to Minecraft FlowerTag
 
