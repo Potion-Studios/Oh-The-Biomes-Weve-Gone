@@ -1,5 +1,6 @@
 # 4.3.3
 - Add the ability to disable Features added to Vanilla Biomes on NeoForge
+- Allow Trial Chambers Structures to spawn in/under BWG Biomes
 
 # 4.3.2
 - Fix ManOWar Crash when using Geckolib 5.4.4

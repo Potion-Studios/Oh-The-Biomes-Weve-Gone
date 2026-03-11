@@ -494,6 +494,7 @@ public class TagsGenerator {
             tag(BiomeTags.HAS_OCEAN_RUIN_WARM).addTag(BWGBiomeTags.OCEAN);
             tag(BiomeTags.HAS_VILLAGE_SAVANNA).addTag(BWGBiomeTags.SAVANNA);
             tag(BiomeTags.HAS_PILLAGER_OUTPOST).addTag(BWGBiomeTags.SAVANNA);
+            tag(BiomeTags.HAS_TRIAL_CHAMBERS).addTag(BWGBiomeTags.OVERWORLD);
 
             // Serene Seasons Support
             tag(ModTags.Biomes.TROPICAL_BIOMES)
