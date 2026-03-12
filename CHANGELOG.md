@@ -3,6 +3,8 @@
 - Allow Trial Chambers Structures to spawn in/under BWG Biomes
 - Fix Incorrect English Language key for Granny Smith Advancement
 - Add the ability to disable Features added to Vanilla Biomes on NeoForge
+- Fix Boulders being placed into trees
+- Fix Surface Rules issues with the Mojave Desert, Rainbow Beach, and Windswept Desert
 
 # 3.2.4
 - Fix Flat Plant Blocks having wood sounds, not Grass Sounds
