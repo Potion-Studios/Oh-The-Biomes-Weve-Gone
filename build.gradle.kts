@@ -5,7 +5,7 @@ import net.fabricmc.loom.api.LoomGradleExtensionAPI
 plugins {
     id("architectury-plugin") version "3.4-SNAPSHOT"
     id("dev.architectury.loom") version "1.13-SNAPSHOT" apply false
-    id("com.gradleup.shadow") version "9.3.1" apply false
+    id("com.gradleup.shadow") version "9.4.0" apply false
     id("com.hypherionmc.modutils.modpublisher") version "2.+"
     java
     idea
@@ -59,7 +59,7 @@ subprojects {
             parchment("org.parchmentmc.data:parchment-$minecraftVersion:${project.properties["parchment"]}@zip")
         })
 
-        compileOnly("org.jetbrains:annotations:26.0.2-1")
+        compileOnly("org.jetbrains:annotations:26.1.0")
         compileOnly("com.google.auto.service:auto-service:1.1.1")
         annotationProcessor("com.google.auto.service:auto-service:1.1.1")
     }
