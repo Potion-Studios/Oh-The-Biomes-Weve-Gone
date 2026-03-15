@@ -3,6 +3,7 @@
 - Fix Boulders being placed into trees
 - Fix Surface Rules issues with the Mojave Desert, Rainbow Beach, and Windswept Desert
 - Fix Missing Swamp Village Loot tables
+- Add Polish (pl_pl) Translations (Credits: kierohere)
 
 # 1.7.4
 - Add PathBlockType to Desert Plants.  (Forge Only)
