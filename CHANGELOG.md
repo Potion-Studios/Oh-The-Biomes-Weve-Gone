@@ -1,4 +1,5 @@
 # 3.2.5
+- Fix Missing Swamp Village Loot tables
 
 # 3.2.4
 - Fix Flat Plant Blocks having wood sounds, not Grass Sounds

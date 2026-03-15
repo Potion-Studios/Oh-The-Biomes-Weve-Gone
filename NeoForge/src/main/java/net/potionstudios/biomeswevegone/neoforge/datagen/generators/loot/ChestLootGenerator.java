@@ -80,12 +80,12 @@ public class ChestLootGenerator implements LootTableSubProvider {
                 lootItem(Items.LEAD).setWeight(2),
                 lootItem(Items.LEATHER),
                 lootItemWithCount(BWGBlocks.SKYRIS_VINE.get(), 1, 7),
-                lootItemWithCount(BWGBlocks.FAIRY_SLIPPER.getBlock(), 1, 4).setWeight(10),
+                lootItemWithCount(BWGBlocks.FAIRY_SLIPPER.getItem(), 1, 4).setWeight(10),
                 lootItemWithCount(Items.WRITABLE_BOOK, 1, 5).setWeight(10),
                 lootItem(Items.BOOK),
                 lootItem(BWGItems.GREEN_APPLE.get()),
                 lootItemWithCount(Items.EMERALD, 1, 4).setWeight(2),
-                lootItemWithCount(BWGWood.SKYRIS.sapling().getBlock(), 1, 2).setWeight(5));
+                lootItemWithCount(BWGWood.SKYRIS.sapling().getItem(), 1, 2).setWeight(5));
 
         createTable(output, "village/skyris/library", 3.0f, 8.0f,
                 lootItemWithCount(Items.INK_SAC, 1, 3),
@@ -100,11 +100,37 @@ public class ChestLootGenerator implements LootTableSubProvider {
                 lootItem(Items.BOOK).apply(EnchantWithLevelsFunction.enchantWithLevels(lookupProvider, ConstantValue.exactly(30))),
                 lootItem(Items.MAP).apply(ExplorationMapFunction.makeExplorationMap().setZoom((byte)1).setMapDecoration(MapDecorationTypes.RED_X).setSkipKnownStructures(false)));
 
+        createTable(output,"village/swamp/house", 3.0f, 8.0f,
+                lootItemWithCount(BWGItems.CATTAIL_SPROUT.get(), 1, 4).setWeight(9),
+                lootItemWithCount(Items.STRING, 1, 7).setWeight(8),
+                lootItemWithCount(BWGBlocks.GREEN_MUSHROOM.get(), 1, 2).setWeight(7),
+                lootItemWithCount(BWGItems.WHITE_PUFFBALL_CAP.get(), 2, 8).setWeight(7),
+                lootItemWithCount(Items.AMETHYST_SHARD, 2, 4).setWeight(2),
+                lootItemWithCount(Items.EMERALD, 1, 4).setWeight(1),
+                lootItemWithCount(Items.COD, 1, 9).setWeight(8),
+                lootItemWithCount(Items.SALMON, 1, 9).setWeight(8));
+
+        createTable(output, "village/swamp/forager", 3.0f, 8.0f,
+                lootItemWithCount(BWGBlocks.POISON_IVY.get(), 3, 6).setWeight(2),
+                lootItem(BWGBlocks.GREEN_MUSHROOM.get()).setWeight(8),
+                lootItem(Items.PODZOL).setWeight(7),
+                lootItemWithCount(BWGItems.WHITE_PUFFBALL_SPORES.get(), 3, 7).setWeight(10),
+                lootItemWithCount(Items.STICK, 10, 15).setWeight(10),
+                lootItemWithCount(BWGItems.BLUE_GLOWCANE_SHOOT.get(), 1, 3).setWeight(1),
+                lootItemWithCount(BWGItems.YELLOW_GLOWCANE_SHOOT.get(), 1, 3).setWeight(1),
+                lootItemWithCount(BWGItems.RED_GLOWCANE_SHOOT.get(), 1, 3).setWeight(1),
+                lootItemWithCount(BWGItems.GREEN_GLOWCANE_SHOOT.get(), 1, 3).setWeight(1),
+                lootItemWithCount(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get(), 1, 3).setWeight(2),
+                lootItem(BWGBlocks.WOOD_BLEWIT.get()),
+                lootItem(BWGBlocks.WEEPING_MILKCAP.get()),
+                lootItemWithCount(Items.BROWN_MUSHROOM, 1, 4).setWeight(4),
+                lootItemWithCount(Items.RED_MUSHROOM, 1, 2).setWeight(5));
+
         createTable(output, "village/salem/house", 3.0f, 8.0f,
                 lootItemWithCount(BWGItems.WHITE_PUFFBALL_STEW.get(), 1, 3).setWeight(6),
                 lootItem(Items.EMERALD).setWeight(2),
                 lootItem(Items.BREAD),
-                lootItemWithCount(BWGWood.WITCH_HAZEL.sapling().getBlock().asItem(), 2, 5).setWeight(8),
+                lootItemWithCount(BWGWood.WITCH_HAZEL.sapling().getItem(), 2, 5).setWeight(8),
                 lootItemWithCount(BWGBlocks.WITCH_HAZEL_BLOSSOM.get(), 1, 3).setWeight(6),
                 lootItemWithCount(BWGBlocks.GREEN_MUSHROOM.get(), 1, 5).setWeight(4),
                 lootItem(Items.BOOK),
@@ -151,7 +177,7 @@ public class ChestLootGenerator implements LootTableSubProvider {
                 lootItemWithCount(BWGBlocks.CATTAIL_THATCH.get(), 1, 3),
                 lootItem(Items.STONE_PICKAXE).setWeight(2),
                 lootItem(Items.GOLDEN_PICKAXE),
-                lootItemWithCount(BWGBlocks.FIRECRACKER_FLOWER_BUSH.getBlock(), 1, 7).setWeight(10),
+                lootItemWithCount(BWGBlocks.FIRECRACKER_FLOWER_BUSH.getItem(), 1, 7).setWeight(10),
                 lootItemWithCount(BWGBlocks.ALOE_VERA.get(), 1, 4).setWeight(10),
                 lootItemWithCount(Items.COPPER_INGOT, 1, 5).setWeight(10),
                 lootItem(BWGBlocks.RED_ROCK_SET.getBase()),
