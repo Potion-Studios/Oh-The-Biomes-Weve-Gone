@@ -1,5 +1,8 @@
 # 1.7.5
 - Fix Incorrect English Language key for Granny Smith Advancement
+- Fix Boulders being placed into trees
+- Fix Surface Rules issues with the Mojave Desert, Rainbow Beach, and Windswept Desert
+- Fix Missing Swamp Village Loot tables
 
 # 1.7.4
 - Add PathBlockType to Desert Plants.  (Forge Only)
@@ -86,7 +89,7 @@
 - New Better Days Music Disc
 - Blocks
   - New White Dacite Sets
-  - Normal Dacite Cracked, Chiseled, Cracked and Mossy Variants
+  - Normal Dacite Cracked, Chiseled, Cracked, and Mossy Variants
   - New Polished and Tiled Red Rock Sets
   - New Pumpkin Burrow Block
   - New Wreath Blocks
@@ -110,7 +113,7 @@
     - All Cattail Thatch Blocks are now compostable
     - All Cooked Fruits have a 75% chance to be compostable
     - All Pies have a 100% chance to be compostable
-    - All Fruits(Including Spores, Caps and Bulbs) have a 65% chance to be compostable
+    - All Fruits(Including Spores, Caps, and Bulbs) have a 65% chance to be compostable
     - All Mushroom blocks have a 85% chance to be compostable
     - BlueBerries have a 30% chance to be compostable (Matches Vanilla Sweet Berries)
     - Sakura Petal Blocks have a 30% chance to be compostable
@@ -195,7 +198,7 @@
 
 # 1.5.0 -> Major Internal Changes and Refactors
 - Add Spanish (Chile) Translations (es_cl) (Credits: Ganbare-Lucifer) (#172)
-- Generalize Particle, Block and Item Color Registrations
+- Generalize Particle, Block, and Item Color Registrations
 - Fix StemBlock/AttachedStemBlock/PitcherCropBlock not being placeable on BWG Farmland (Fabric Only)
 - Finish and Tweak German Translations (de_de) (Credits: ieguana)
 - Refactor Entity Renderers into client package and renderer/entity subpackage
@@ -326,11 +329,11 @@
 
 # 1.1.2-Beta
 - Set getBucketItemStack in ManOWar.java to correct Item
-- Update Skyris Mason, Weaponsmith, Fletcher House and Armorer to non-legacy
+- Update Skyris Mason, Weaponsmith, Fletcher House, and Armorer to non-legacy
 - Use Processor on Skyris Mason, Skyris Fletcher House
 - Remove Duplicate Skyris Butcher Shop Entry from Template Pool
 - Update Chinese Language File (ZH_CN)
-- Add Block and Item Tags for Alliums, Roses, Tulips, Amaranth, Sages and Daffodils
+- Add Block and Item Tags for Alliums, Roses, Tulips, Amaranth, Sages, and Daffodils
 - Remove Winter Succulent and HorseWeed from small flowers tag
 - Add Flowering Leaves and Flowering Bushes to Minecraft FlowerTag
 

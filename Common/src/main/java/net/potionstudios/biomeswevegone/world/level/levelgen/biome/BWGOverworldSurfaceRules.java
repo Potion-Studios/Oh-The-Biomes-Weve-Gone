@@ -260,7 +260,7 @@ public class BWGOverworldSurfaceRules {
                     .build()
     ));
 
-    private static final SurfaceRules.RuleSource MOJAVE_DESERT = biomeAbovePreliminarySurface(BWGBiomes.MOJAVE_DESERT, BWGRuleSources.weightedRuleSource(
+    private static final SurfaceRules.RuleSource MOJAVE_DESERT = makeifTrueRule(BWGBiomes.MOJAVE_DESERT, BWGRuleSources.weightedRuleSource(
             SimpleWeightedRandomList.<SurfaceRules.RuleSource>builder()
                     .add(SAND_SURFACE, 3)
                     .add(SANDY_DIRT_SURFACE, 1)
@@ -270,11 +270,12 @@ public class BWGOverworldSurfaceRules {
 
     private static final SurfaceRules.RuleSource PUMPKIN_VALLEY = biomeAbovePreliminarySurface(BWGBiomes.PUMPKIN_VALLEY, LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE);
 
-    private static final SurfaceRules.RuleSource RAINBOW_BEACH = biomeAbovePreliminarySurface(BWGBiomes.RAINBOW_BEACH,
-        SurfaceRules.sequence(
-                new BetweenRepeatingNoiseRange(Noises.CALCITE, 0.02f, -2f, 2f, PURPLE_SAND, WHITE_SAND, BLACK_SAND, PINK_SAND),
-                BLUE_SAND
-        ));
+    private static final SurfaceRules.RuleSource RAINBOW_BEACH = makeifTrueRule(BWGBiomes.RAINBOW_BEACH,
+            SurfaceRules.sequence(
+                    new BetweenRepeatingNoiseRange(Noises.CALCITE, 0.02f, -2f, 2f, PURPLE_SAND, WHITE_SAND, BLACK_SAND, PINK_SAND),
+                    BLUE_SAND
+            )
+    );
 
     private static final SurfaceRules.RuleSource DEAD_SEA = biomeAbovePreliminarySurface(BWGBiomes.DEAD_SEA,
             SurfaceRules.sequence(
@@ -447,8 +448,7 @@ public class BWGOverworldSurfaceRules {
         return SurfaceRules.sequence(
                 makeifTrueRule(SurfaceRules.ON_FLOOR, sandSet.getSand()),
                 makeifTrueRule(SurfaceRules.UNDER_FLOOR, sandSet.getSand()),
-                makeifTrueRule(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), sandSet.getSandstone()),
-                makeifTrueRule(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), sandSet.getSandstone())
+                makeifTrueRule(SurfaceRules.DEEP_UNDER_FLOOR, sandSet.getSandstone())
         );
     }
 
