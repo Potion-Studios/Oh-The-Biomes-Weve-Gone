@@ -44,12 +44,11 @@ class DataGeneratorsRegister {
 
     @SubscribeEvent
     protected static void gatherData(final GatherDataEvent.Client event) {
+        BWGBiomeModifiers.init();
         DataGenerator generator = event.getGenerator();
         PackOutput output = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
-        DatapackBuiltinEntriesProvider datapackBuiltinEntriesProvider = new DatapackBuiltinEntriesProvider(output, lookupProvider, BUILDER, Set.of(BiomesWeveGone.MOD_ID));
-
-        generator.addProvider(true, new DatapackBuiltinEntriesProvider(
+        DatapackBuiltinEntriesProvider datapackBuiltinEntriesProvider = generator.addProvider(true, new DatapackBuiltinEntriesProvider(
                 output,
                 lookupProvider,
                 BUILDER,

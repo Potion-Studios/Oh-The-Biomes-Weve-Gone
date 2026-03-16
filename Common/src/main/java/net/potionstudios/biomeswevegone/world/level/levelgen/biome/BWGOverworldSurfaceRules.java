@@ -31,12 +31,11 @@ public class BWGOverworldSurfaceRules {
     private static final SurfaceRules.RuleSource STONE = makeifTrueRule(SurfaceRules.ON_FLOOR, makeStateRule(Blocks.STONE));
     private static final SurfaceRules.RuleSource GRAVEL = SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, makeStateRule(Blocks.GRAVEL)), makeifTrueRule(SurfaceRules.UNDER_FLOOR, makeStateRule(Blocks.GRAVEL)));
 
-
-    private static final SurfaceRules.RuleSource PURPLE_SAND = makeSandRule(BWGBlocks.PURPLE_SAND_SET);
-    private static final SurfaceRules.RuleSource BLUE_SAND = makeSandRule(BWGBlocks.BLUE_SAND_SET);
-    private static final SurfaceRules.RuleSource PINK_SAND = makeSandRule(BWGBlocks.PINK_SAND_SET);
-    private static final SurfaceRules.RuleSource BLACK_SAND = makeSandRule(BWGBlocks.BLACK_SAND_SET);
-    private static final SurfaceRules.RuleSource WHITE_SAND = makeSandRule(BWGBlocks.WHITE_SAND_SET);
+    private static final SurfaceRules.RuleSource PURPLE_SAND = makeBeachSandRule(BWGBlocks.PURPLE_SAND_SET);
+    private static final SurfaceRules.RuleSource BLUE_SAND = makeBeachSandRule(BWGBlocks.BLUE_SAND_SET);
+    private static final SurfaceRules.RuleSource PINK_SAND = makeBeachSandRule(BWGBlocks.PINK_SAND_SET);
+    private static final SurfaceRules.RuleSource BLACK_SAND = makeBeachSandRule(BWGBlocks.BLACK_SAND_SET);
+    private static final SurfaceRules.RuleSource WHITE_SAND = makeBeachSandRule(BWGBlocks.WHITE_SAND_SET);
 
 
     private static final SurfaceRules.RuleSource WHITE_OVERGROWN_DACITE_DACITE_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.WHITE_OVERGROWN_DACITE.get())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.WHITE_DACITE_SET.getBase()));
@@ -284,11 +283,11 @@ public class BWGOverworldSurfaceRules {
                     STONE
             ));
 
-    private static final SurfaceRules.RuleSource MOJAVE_DESERT = biomeAbovePreliminarySurface(BWGBiomes.MOJAVE_DESERT, BWGRuleSources.weightedRuleSource(
+    private static final SurfaceRules.RuleSource MOJAVE_DESERT = makeifTrueRule(BWGBiomes.MOJAVE_DESERT, BWGRuleSources.weightedRuleSource(
             SimpleWeightedRandomList.<SurfaceRules.RuleSource>builder()
                     .add(SAND_SURFACE, 3)
-                    .add(SANDY_DIRT_SURFACE, 1)
-                    .add(CRACKED_SAND_SURFACE, 1)
+                    .add(SANDY_DIRT_SURFACE)
+                    .add(CRACKED_SAND_SURFACE)
                     .build()
     ));
 
@@ -333,11 +332,12 @@ public class BWGOverworldSurfaceRules {
             PODZOL_DIRT_SURFACE
     ));
 
-    private static final SurfaceRules.RuleSource RAINBOW_BEACH = biomeAbovePreliminarySurface(BWGBiomes.RAINBOW_BEACH,
-        SurfaceRules.sequence(
-                new BetweenRepeatingNoiseRange(Noises.CALCITE, 0.02f, -2f, 2f, PURPLE_SAND, WHITE_SAND, BLACK_SAND, PINK_SAND),
-                BLUE_SAND
-        ));
+    private static final SurfaceRules.RuleSource RAINBOW_BEACH = makeifTrueRule(BWGBiomes.RAINBOW_BEACH,
+            SurfaceRules.sequence(
+                    new BetweenRepeatingNoiseRange(Noises.CALCITE, 0.02f, -2f, 2f, PURPLE_SAND, WHITE_SAND, BLACK_SAND, PINK_SAND),
+                    BLUE_SAND
+            )
+    );
 
     private static final SurfaceRules.RuleSource RED_ROCK_PEAKS = biomeAbovePreliminarySurface(BWGBiomes.RED_ROCK_PEAKS, SurfaceRules.sequence(
             makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
@@ -382,11 +382,6 @@ public class BWGOverworldSurfaceRules {
                     makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.PODZOL))
     ));
 
-/*
-    private static final SurfaceRules.RuleSource SHATTERED_GLACIER = makeifTrueRule(BWGBiomes.SHATTERED_GLACIER, makeifTrueRule(SurfaceRules.abovePreliminarySurface(), SurfaceRules.sequence(
-
-    ))); */
-
     private static final SurfaceRules.RuleSource SIERRA_BADLANDS = biomeAbovePreliminarySurface(BWGBiomes.SIERRA_BADLANDS, SurfaceRules.sequence(
             NOISE_COARSE_DIRT,
             makeifTrueRule(SurfaceRules.not(SurfaceRuleData.surfaceNoiseAbove(-0.95D)), GRASS_DIRT_DIRT_SURFACE), SurfaceRules.bandlands()
@@ -415,9 +410,14 @@ public class BWGOverworldSurfaceRules {
     ));
 
     private static final SurfaceRules.RuleSource BLACK_ICE_BANDS = biomeAbovePreliminarySurface(BWGBiomes.SHATTERED_GLACIER, new BandsRuleSource(SimpleWeightedRandomList.<BlockState>builder().add(BWGBlocks.PACKED_BLACK_ICE.get().defaultBlockState(), 3).add(BWGBlocks.BLACK_ICE.get().defaultBlockState(), 1).build(), UniformInt.of(1, 5), UniformInt.of(20, 40), 1, 10));
-//    public static final SurfaceRules.RuleSource BOREALIS_ICE_BANDS = biomeAbovePreliminarySurface(BWGBiomes.ERODED_BOREALIS, new BandsRuleSource(SimpleWeightedRandomList.<BlockState>builder().add(BWGBlocks.PACKED_BOREALIS_ICE.get().defaultBlockState(), 3).add(BWGBlocks.BOREALIS_ICE.get().defaultBlockState(), 1).build(), UniformInt.of(1, 5), UniformInt.of(20, 40), 1, 10));
 
-    private static final SurfaceRules.RuleSource WINDSWEPT_DESERT = biomeAbovePreliminarySurface(BWGBiomes.WINDSWEPT_DESERT, makeSandRule(BWGBlocks.WINDSWEPT_SAND_SET));
+    private static final SurfaceRules.RuleSource WINDSWEPT_DESERT = makeifTrueRule(BWGBiomes.WINDSWEPT_DESERT, SurfaceRules.sequence(
+            SurfaceRules.sequence(
+                    makeifTrueRule(SurfaceRules.ON_FLOOR, makeStateRule(BWGBlocks.WINDSWEPT_SAND_SET.getSand())),
+                    makeifTrueRule(SurfaceRules.UNDER_FLOOR, makeStateRule(BWGBlocks.WINDSWEPT_SAND_SET.getSand())),
+                    makeifTrueRule(SurfaceRules.VERY_DEEP_UNDER_FLOOR, makeStateRule(BWGBlocks.WINDSWEPT_SAND_SET.getSandstone()))
+            )
+    ));
 
     /**
      * Makes the surface rules for the overworld biomes in Oh The Biomes We've Gone.
@@ -463,7 +463,6 @@ public class BWGOverworldSurfaceRules {
                 REDWOOD_THICKET,
                 RUGGED_BADLANDS,
                 SAKURA_GROVE,
-                //SHATTERED_GLACIER,
                 SIERRA_BADLANDS,
                 SKYRIS_VALE,
                 WEEPING_WITCH_FOREST,
@@ -472,12 +471,11 @@ public class BWGOverworldSurfaceRules {
     }
 
     // Helper methods
-    private static SurfaceRules.RuleSource makeSandRule(@NotNull BWGSandSet sandSet) {
+    private static SurfaceRules.RuleSource makeBeachSandRule(@NotNull BWGSandSet sandSet) {
         return SurfaceRules.sequence(
                 makeifTrueRule(SurfaceRules.ON_FLOOR, sandSet.getSand()),
                 makeifTrueRule(SurfaceRules.UNDER_FLOOR, sandSet.getSand()),
-                makeifTrueRule(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), sandSet.getSandstone()),
-                makeifTrueRule(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), sandSet.getSandstone())
+                makeifTrueRule(SurfaceRules.DEEP_UNDER_FLOOR, sandSet.getSandstone())
         );
     }
 
