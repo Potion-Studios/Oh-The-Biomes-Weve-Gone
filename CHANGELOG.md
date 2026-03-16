@@ -1,5 +1,6 @@
 # 3.2.5
 - Fix Missing Swamp Village Loot tables
+- Allow Trial Chambers Structures to spawn in/under BWG Biomes
 
 # 3.2.4
 - Fix Flat Plant Blocks having wood sounds, not Grass Sounds
