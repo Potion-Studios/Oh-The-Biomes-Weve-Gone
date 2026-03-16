@@ -1,4 +1,4 @@
-# 3.2.5
+# 3.2.5 → Support for Minecraft 1.21.4 has now ended
 - Fix Missing Swamp Village Loot tables
 - Allow Trial Chambers Structures to spawn in/under BWG Biomes
 - Fix Incorrect English Language key for Granny Smith Advancement
