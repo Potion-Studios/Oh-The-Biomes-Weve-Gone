@@ -1,6 +1,7 @@
 # 3.2.5
 - Fix Missing Swamp Village Loot tables
 - Allow Trial Chambers Structures to spawn in/under BWG Biomes
+- Fix Incorrect English Language key for Granny Smith Advancement
 
 # 3.2.4
 - Fix Flat Plant Blocks having wood sounds, not Grass Sounds
