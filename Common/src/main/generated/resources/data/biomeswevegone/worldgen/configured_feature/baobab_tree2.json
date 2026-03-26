@@ -9,6 +9,9 @@
     "can_leaves_place_filter": {
       "type": "minecraft:replaceable"
     },
+    "can_logs_place_filter": {
+      "type": "minecraft:replaceable"
+    },
     "canopy_location": "biomeswevegone:features/trees/baobab/baobab_canopy2",
     "decorators": [
       {

@@ -1,4 +1,5 @@
 # 2.5.6
+- Add Green Apple to Horse Food Item Tag
 
 # 2.5.5
 - Add Polish (pl_pl) Translations (Credits: kierohere)

@@ -9,6 +9,9 @@
     "can_leaves_place_filter": {
       "type": "minecraft:replaceable"
     },
+    "can_logs_place_filter": {
+      "type": "minecraft:replaceable"
+    },
     "canopy_location": "biomeswevegone:features/trees/ironwood/ironwood_canopy3",
     "height": {
       "type": "minecraft:biased_to_bottom",
