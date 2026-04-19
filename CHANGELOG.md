@@ -1,4 +1,5 @@
 # 4.3.4
+- Add Green Apple to Horse Food Item Tag
 
 # 4.3.3
 - Add the ability to disable Features added to Vanilla Biomes on NeoForge

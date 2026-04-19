@@ -378,6 +378,7 @@ public class TagsGenerator {
 	        tag(ItemTags.FOX_FOOD).add(BWGItems.BLUEBERRIES.get());
 	        tag(ItemTags.CAMEL_FOOD).add(BWGBlocks.MINI_CACTUS.getItem(), BWGBlocks.BARREL_CACTUS.get().asItem(), BWGBlocks.CARVED_BARREL_CACTUS.get().asItem(),
 			        BWGBlocks.FLOWERING_BARREL_CACTUS.get().asItem(), BWGBlocks.PRICKLY_PEAR_CACTUS.getItem(), BWGBlocks.GOLDEN_SPINED_CACTUS.getItem());
+            tag(ItemTags.HORSE_FOOD).add(BWGItems.GREEN_APPLE.get());
             tag(Tags.Items.CROPS_PUMPKIN).add(BWGBlocks.PALE_PUMPKIN.get().asItem());
             tag(ItemTags.EQUIPPABLE_ENCHANTABLE).add(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem());
             tag(ItemTags.VANISHING_ENCHANTABLE).add(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem());
@@ -482,7 +483,7 @@ public class TagsGenerator {
 
             tag(BWGBiomeTags.SHARPENED_ROCKS).add(BWGBiomes.RUGGED_BADLANDS);
             tag(BWGBiomeTags.IRONWOOD_GOUR_PLATEAU).add(BWGBiomes.IRONWOOD_GOUR);
-            tag(BWGBiomeTags.LARGE_COLD_LAKE).add(BWGBiomes.MAPLE_TAIGA, BWGBiomes.CRIMSON_TUNDRA, BWGBiomes.OVERGROWTH_WOODLANDS);
+            tag(BWGBiomeTags.LARGE_COLD_LAKE).add(BWGBiomes.MAPLE_TAIGA).add(BWGBiomes.CRIMSON_TUNDRA).add(BWGBiomes.OVERGROWTH_WOODLANDS);
 
             /*
              * Structure Location Biome Tags
