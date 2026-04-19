@@ -1,3 +1,5 @@
+# 1.7.6
+
 # 1.7.5
 - Fix Incorrect English Language key for Granny Smith Advancement
 - Fix Boulders being placed into trees
