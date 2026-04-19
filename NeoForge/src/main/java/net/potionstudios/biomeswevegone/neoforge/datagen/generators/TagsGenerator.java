@@ -472,10 +472,6 @@ public class TagsGenerator {
             tag(BWGBiomeTags.DENSE).addTag(BWGBiomeTags.FOREST).addTag(BWGBiomeTags.JUNGLE).addTag(BWGBiomeTags.SWAMP);
             tag(BWGBiomeTags.DRY).addTag(BWGBiomeTags.DESERT);
 
-            tag(BWGBiomeTags.SHARPENED_ROCKS).add(BWGBiomes.RUGGED_BADLANDS);
-            tag(BWGBiomeTags.IRONWOOD_GOUR_PLATEAU).add(BWGBiomes.IRONWOOD_GOUR);
-            tag(BWGBiomeTags.LARGE_COLD_LAKE).add(BWGBiomes.MAPLE_TAIGA, BWGBiomes.CRIMSON_TUNDRA, BWGBiomes.OVERGROWTH_WOODLANDS);
-
             /*
              * Structure Location Biome Tags
              */
