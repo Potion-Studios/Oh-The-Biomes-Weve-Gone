@@ -1,3 +1,5 @@
+# 4.3.4
+
 # 4.3.3
 - Add the ability to disable Features added to Vanilla Biomes on NeoForge
 - Allow Trial Chambers Structures to spawn in/under BWG Biomes
@@ -287,7 +289,7 @@
 - Make Cattail Sprouts Compostable
 - Fix Animals not spawning in BWG Biomes due to missing block tags
 - Add Goats to Howling Peaks
-- Add Armadillos to Araucaria, Baobab Savannas, Ironwood Gour and Red Rock Valley
+- Add Armadillos to Araucaria, Baobab Savannas, Ironwood Gour, and Red Rock Valley
 - Add Russian Translations (ru_ru) (Credits: j-tap)
 
 # 2.2.4
