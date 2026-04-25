@@ -1,0 +1,166 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "biomeswevegone"
+    }
+  ],
+  "values": {
+    "biomeswevegone:aspen_log": {
+      "stripped_block": "biomeswevegone:stripped_aspen_log"
+    },
+    "biomeswevegone:aspen_wood": {
+      "stripped_block": "biomeswevegone:stripped_aspen_wood"
+    },
+    "biomeswevegone:baobab_log": {
+      "stripped_block": "biomeswevegone:stripped_baobab_log"
+    },
+    "biomeswevegone:baobab_wood": {
+      "stripped_block": "biomeswevegone:stripped_baobab_wood"
+    },
+    "biomeswevegone:blue_enchanted_log": {
+      "stripped_block": "biomeswevegone:stripped_blue_enchanted_log"
+    },
+    "biomeswevegone:blue_enchanted_wood": {
+      "stripped_block": "biomeswevegone:stripped_blue_enchanted_wood"
+    },
+    "biomeswevegone:cika_log": {
+      "stripped_block": "biomeswevegone:stripped_cika_log"
+    },
+    "biomeswevegone:cika_wood": {
+      "stripped_block": "biomeswevegone:stripped_cika_wood"
+    },
+    "biomeswevegone:cypress_log": {
+      "stripped_block": "biomeswevegone:stripped_cypress_log"
+    },
+    "biomeswevegone:cypress_wood": {
+      "stripped_block": "biomeswevegone:stripped_cypress_wood"
+    },
+    "biomeswevegone:ebony_log": {
+      "stripped_block": "biomeswevegone:stripped_ebony_log"
+    },
+    "biomeswevegone:ebony_wood": {
+      "stripped_block": "biomeswevegone:stripped_ebony_wood"
+    },
+    "biomeswevegone:fir_log": {
+      "stripped_block": "biomeswevegone:stripped_fir_log"
+    },
+    "biomeswevegone:fir_wood": {
+      "stripped_block": "biomeswevegone:stripped_fir_wood"
+    },
+    "biomeswevegone:florus_stem": {
+      "stripped_block": "biomeswevegone:stripped_florus_stem"
+    },
+    "biomeswevegone:florus_wood": {
+      "stripped_block": "biomeswevegone:stripped_florus_wood"
+    },
+    "biomeswevegone:green_enchanted_log": {
+      "stripped_block": "biomeswevegone:stripped_green_enchanted_log"
+    },
+    "biomeswevegone:green_enchanted_wood": {
+      "stripped_block": "biomeswevegone:stripped_green_enchanted_wood"
+    },
+    "biomeswevegone:holly_log": {
+      "stripped_block": "biomeswevegone:stripped_holly_log"
+    },
+    "biomeswevegone:holly_wood": {
+      "stripped_block": "biomeswevegone:stripped_holly_wood"
+    },
+    "biomeswevegone:ironwood_log": {
+      "stripped_block": "biomeswevegone:stripped_ironwood_log"
+    },
+    "biomeswevegone:ironwood_wood": {
+      "stripped_block": "biomeswevegone:stripped_ironwood_wood"
+    },
+    "biomeswevegone:jacaranda_log": {
+      "stripped_block": "biomeswevegone:stripped_jacaranda_log"
+    },
+    "biomeswevegone:jacaranda_wood": {
+      "stripped_block": "biomeswevegone:stripped_jacaranda_wood"
+    },
+    "biomeswevegone:mahogany_log": {
+      "stripped_block": "biomeswevegone:stripped_mahogany_log"
+    },
+    "biomeswevegone:mahogany_wood": {
+      "stripped_block": "biomeswevegone:stripped_mahogany_wood"
+    },
+    "biomeswevegone:maple_log": {
+      "stripped_block": "biomeswevegone:stripped_maple_log"
+    },
+    "biomeswevegone:maple_wood": {
+      "stripped_block": "biomeswevegone:stripped_maple_wood"
+    },
+    "biomeswevegone:palm_log": {
+      "stripped_block": "biomeswevegone:stripped_palm_log"
+    },
+    "biomeswevegone:palm_wood": {
+      "stripped_block": "biomeswevegone:stripped_palm_wood"
+    },
+    "biomeswevegone:palo_verde_log": {
+      "stripped_block": "biomeswevegone:stripped_palo_verde_log"
+    },
+    "biomeswevegone:palo_verde_wood": {
+      "stripped_block": "biomeswevegone:stripped_palo_verde_wood"
+    },
+    "biomeswevegone:pine_log": {
+      "stripped_block": "biomeswevegone:stripped_pine_log"
+    },
+    "biomeswevegone:pine_wood": {
+      "stripped_block": "biomeswevegone:stripped_pine_wood"
+    },
+    "biomeswevegone:rainbow_eucalyptus_log": {
+      "stripped_block": "biomeswevegone:stripped_rainbow_eucalyptus_log"
+    },
+    "biomeswevegone:rainbow_eucalyptus_wood": {
+      "stripped_block": "biomeswevegone:stripped_rainbow_eucalyptus_wood"
+    },
+    "biomeswevegone:redwood_log": {
+      "stripped_block": "biomeswevegone:stripped_redwood_log"
+    },
+    "biomeswevegone:redwood_wood": {
+      "stripped_block": "biomeswevegone:stripped_redwood_wood"
+    },
+    "biomeswevegone:sakura_log": {
+      "stripped_block": "biomeswevegone:stripped_sakura_log"
+    },
+    "biomeswevegone:sakura_wood": {
+      "stripped_block": "biomeswevegone:stripped_sakura_wood"
+    },
+    "biomeswevegone:skyris_log": {
+      "stripped_block": "biomeswevegone:stripped_skyris_log"
+    },
+    "biomeswevegone:skyris_wood": {
+      "stripped_block": "biomeswevegone:stripped_skyris_wood"
+    },
+    "biomeswevegone:spirit_log": {
+      "stripped_block": "biomeswevegone:stripped_spirit_log"
+    },
+    "biomeswevegone:spirit_wood": {
+      "stripped_block": "biomeswevegone:stripped_spirit_wood"
+    },
+    "biomeswevegone:white_mangrove_log": {
+      "stripped_block": "biomeswevegone:stripped_white_mangrove_log"
+    },
+    "biomeswevegone:white_mangrove_wood": {
+      "stripped_block": "biomeswevegone:stripped_white_mangrove_wood"
+    },
+    "biomeswevegone:willow_log": {
+      "stripped_block": "biomeswevegone:stripped_willow_log"
+    },
+    "biomeswevegone:willow_wood": {
+      "stripped_block": "biomeswevegone:stripped_willow_wood"
+    },
+    "biomeswevegone:witch_hazel_log": {
+      "stripped_block": "biomeswevegone:stripped_witch_hazel_log"
+    },
+    "biomeswevegone:witch_hazel_wood": {
+      "stripped_block": "biomeswevegone:stripped_witch_hazel_wood"
+    },
+    "biomeswevegone:zelkova_log": {
+      "stripped_block": "biomeswevegone:stripped_zelkova_log"
+    },
+    "biomeswevegone:zelkova_wood": {
+      "stripped_block": "biomeswevegone:stripped_zelkova_wood"
+    }
+  }
+}
