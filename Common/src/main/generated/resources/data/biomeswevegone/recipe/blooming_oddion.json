@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "minecraft:egg"
+      "tag": "c:eggs"
     },
     "X": {
       "item": "minecraft:wheat"

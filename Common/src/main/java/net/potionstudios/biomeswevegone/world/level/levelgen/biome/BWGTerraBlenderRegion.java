@@ -194,7 +194,7 @@ public class BWGTerraBlenderRegion extends Region {
     }
 
 
-    public static void registerTerrablenderRegions() {
+    public static void registerTerraBlenderRegions() {
         Regions.register(REGION_1);
         Regions.register(REGION_2);
         Regions.register(REGION_3);

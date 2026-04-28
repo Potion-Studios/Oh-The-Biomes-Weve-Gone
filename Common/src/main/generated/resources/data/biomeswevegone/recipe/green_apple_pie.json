@@ -9,7 +9,7 @@
       "item": "minecraft:sugar"
     },
     {
-      "item": "minecraft:egg"
+      "tag": "c:eggs"
     }
   ],
   "result": {
