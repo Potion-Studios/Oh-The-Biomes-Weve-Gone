@@ -71,7 +71,7 @@ class DataGeneratorsRegister {
         generator.addProvider(true, new AdvancementGenerator(output, lookupProvider));
         generator.addProvider(true, new ParticleDescriptionGenerator(output));
         generator.addProvider(true, new SoundDefinitionsGenerator(output));
-        generator.addProvider(true, new DatamapGenerator(output, lookupProvider));
+        generator.addProvider(true, new DataMapGenerator(output, lookupProvider));
     }
 
     private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
