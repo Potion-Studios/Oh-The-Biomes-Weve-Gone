@@ -16,9 +16,7 @@ import net.potionstudios.biomeswevegone.neoforge.conditions.BWGConditions;
 import net.potionstudios.biomeswevegone.neoforge.loot.LootModifiersRegister;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
-import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGOverworldSurfaceRules;
-import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGTerraBlenderRegion;
-import terrablender.api.SurfaceRuleManager;
+import net.potionstudios.biomeswevegone.world.level.levelgen.biome.TerraBlenderRegister;
 
 @Mod(BiomesWeveGone.MOD_ID)
 public class BiomesWeveGoneNeoForge {
@@ -46,9 +44,8 @@ public class BiomesWeveGoneNeoForge {
 		event.enqueueWork(() -> {
 			BiomesWeveGone.commonSetup();
 			VanillaCompatNeoForge.init();
-			BWGTerraBlenderRegion.registerTerrablenderRegions();
+			TerraBlenderRegister.register();
 			NeoForgePlatformHandler.registerPottedPlants();
-			SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BiomesWeveGone.MOD_ID, BWGOverworldSurfaceRules.makeRules());
 		});
 	}
 

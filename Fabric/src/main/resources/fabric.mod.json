@@ -26,7 +26,7 @@
       "net.potionstudios.biomeswevegone.fabric.client.BiomesWeveGoneClientFabric"
     ],
     "terrablender": [
-      "net.potionstudios.biomeswevegone.fabric.BWGTerrablenderEntry"
+	  "net.potionstudios.biomeswevegone.fabric.BWGTerraBlenderEntry"
     ]
   },
   "mixins": [

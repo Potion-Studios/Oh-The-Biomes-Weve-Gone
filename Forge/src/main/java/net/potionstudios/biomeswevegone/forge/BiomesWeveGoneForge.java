@@ -19,9 +19,7 @@ import net.potionstudios.biomeswevegone.forge.loot.LootModifiersRegister;
 import net.potionstudios.biomeswevegone.forge.client.BiomesWeveGoneClientForge;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
-import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGOverworldSurfaceRules;
-import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGTerraBlenderRegion;
-import terrablender.api.SurfaceRuleManager;
+import net.potionstudios.biomeswevegone.world.level.levelgen.biome.TerraBlenderRegister;
 
 /**
  * Main class for the mod on the Forge platform.
@@ -56,9 +54,8 @@ public class BiomesWeveGoneForge {
         event.enqueueWork(() -> {
             BiomesWeveGone.commonSetup();
             VanillaCompatForge.init();
-            BWGTerraBlenderRegion.registerTerrablenderRegions();
+            TerraBlenderRegister.register();
             ForgePlatformHandler.registerPottedPlants();
-            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BiomesWeveGone.MOD_ID, BWGOverworldSurfaceRules.makeRules());
         });
     }
 
