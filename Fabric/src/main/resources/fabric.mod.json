@@ -29,7 +29,7 @@
       "net.potionstudios.biomeswevegone.fabric.datagen.FabricDatagen"
     ],
     "terrablender": [
-      "net.potionstudios.biomeswevegone.fabric.BWGTerrablenderEntry"
+	  "net.potionstudios.biomeswevegone.fabric.BWGTerraBlenderEntry"
     ]
   },
   "mixins": [
