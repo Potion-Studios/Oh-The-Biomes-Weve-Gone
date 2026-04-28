@@ -149,7 +149,7 @@ public class RecipeGenerator extends RecipeProvider {
                 .save(output);
 
         ShapedRecipeBuilder.shaped(itemRegistry, RecipeCategory.FOOD, BWGItems.BLOOMING_ODDION.get())
-                .define('#', Items.EGG)
+                .define('#', Tags.Items.EGGS)
                 .define('X', Items.WHEAT)
                 .define('Y', BWGItems.COOKED_ODDION_BULB.get())
                 .pattern("X#X")
@@ -326,14 +326,14 @@ public class RecipeGenerator extends RecipeProvider {
         ShapelessRecipeBuilder.shapeless(itemRegistry, RecipeCategory.FOOD, BWGItems.GREEN_APPLE_PIE.get())
                 .requires(BWGItems.GREEN_APPLE.get())
                 .requires(Items.SUGAR)
-                .requires(Items.EGG)
+                .requires(Tags.Items.EGGS)
                 .unlockedBy(getHasName(BWGItems.GREEN_APPLE.get()), has(BWGItems.GREEN_APPLE.get()))
                 .save(output);
 
         ShapelessRecipeBuilder.shapeless(itemRegistry, RecipeCategory.FOOD, BWGItems.BLUEBERRY_PIE.get())
                 .requires(BWGItems.BLUEBERRIES.get())
                 .requires(Items.SUGAR)
-                .requires(Items.EGG)
+                .requires(Tags.Items.EGGS)
                 .unlockedBy(getHasName(BWGItems.BLUEBERRIES.get()), has(BWGItems.BLUEBERRIES.get()))
                 .save(output);
 
@@ -449,7 +449,7 @@ public class RecipeGenerator extends RecipeProvider {
         ShapelessRecipeBuilder.shapeless(itemRegistry, RecipeCategory.FOOD, Items.PUMPKIN_PIE)
                 .requires(BWGBlocks.PALE_PUMPKIN.get())
                 .requires(Items.SUGAR)
-                .requires(Items.EGG)
+                .requires(Tags.Items.EGGS)
                 .unlockedBy(getHasName(BWGBlocks.CARVED_PALE_PUMPKIN.get()), has(BWGBlocks.CARVED_PALE_PUMPKIN.get()))
                 .unlockedBy(getHasName(BWGBlocks.PALE_PUMPKIN.get()), has(BWGBlocks.PALE_PUMPKIN.get()))
                 .save(output, BiomesWeveGone.key(Registries.RECIPE, "pumpkin_pie"));

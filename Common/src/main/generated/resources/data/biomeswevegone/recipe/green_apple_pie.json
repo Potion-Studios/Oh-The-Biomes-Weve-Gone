@@ -4,7 +4,7 @@
   "ingredients": [
     "biomeswevegone:green_apple",
     "minecraft:sugar",
-    "minecraft:egg"
+    "#c:eggs"
   ],
   "result": {
     "count": 1,

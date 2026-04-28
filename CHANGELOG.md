@@ -1,5 +1,6 @@
 # 4.3.4
 - Add Green Apple to Horse Food Item Tag
+- Update Recipes that use Eggs to use #c:eggs Tag
 
 # 4.3.3
 - Add the ability to disable Features added to Vanilla Biomes on NeoForge

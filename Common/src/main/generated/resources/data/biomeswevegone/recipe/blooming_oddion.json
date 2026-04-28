@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": "minecraft:egg",
+    "#": "#c:eggs",
     "X": "minecraft:wheat",
     "Y": "biomeswevegone:cooked_oddion_bulb"
   },
