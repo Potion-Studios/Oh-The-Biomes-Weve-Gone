@@ -1,7 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.biome;
 
 import com.mojang.datafixers.util.Pair;
-import corgitaco.corgilib.serialization.codec.Wrapped;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.Util;
 import net.minecraft.core.Registry;
@@ -11,7 +10,6 @@ import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.Climate;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.config.configs.BWGWorldGenConfig;
-import net.potionstudios.biomeswevegone.util.BWGUtil;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.selector.BWGBiomeSelectors;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.selector.TerraBlenderBiomeSelectors;
 import org.apache.commons.lang3.mutable.MutableInt;
@@ -21,7 +19,6 @@ import terrablender.api.Regions;
 import terrablender.api.TerrablenderOverworldBiomeBuilder;
 
 import java.util.IdentityHashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
@@ -33,7 +30,7 @@ import static net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGReg
 public class BWGTerraBlenderRegion extends Region {
 
     public static final BWGTerraBlenderRegion REGION_1 = new BWGTerraBlenderRegion(
-            BWGWorldGenConfig.INSTANCE.get().regionWeight(),
+            BWGWorldGenConfig.INSTANCE.region_weight,
             BWGBiomeSelectors.OCEANS_BWG,
             BWGBiomeSelectors.MIDDLE_BIOMES_BWG,
             BWGBiomeSelectors.MIDDLE_BIOMES_VARIANT_BWG,
@@ -52,7 +49,7 @@ public class BWGTerraBlenderRegion extends Region {
             Map.of());
 
     public static final BWGTerraBlenderRegion REGION_2 = new BWGTerraBlenderRegion(
-            BWGWorldGenConfig.INSTANCE.get().regionWeight(),
+            BWGWorldGenConfig.INSTANCE.region_weight,
             BWGBiomeSelectors.OCEANS_2_BWG,
             BWGBiomeSelectors.MIDDLE_BIOMES_2_BWG,
             TerraBlenderBiomeSelectors.MIDDLE_BIOMES_VARIANT_TERRABLENDER,
@@ -71,7 +68,7 @@ public class BWGTerraBlenderRegion extends Region {
             Map.of());
 
     public static final BWGTerraBlenderRegion REGION_3 = new BWGTerraBlenderRegion(
-            BWGWorldGenConfig.INSTANCE.get().regionWeight(),
+            BWGWorldGenConfig.INSTANCE.region_weight,
             TerraBlenderBiomeSelectors.OCEANS_TERRABLENDER,
             BWGBiomeSelectors.MIDDLE_BIOMES_3_BWG,
             TerraBlenderBiomeSelectors.MIDDLE_BIOMES_VARIANT_TERRABLENDER,
@@ -96,15 +93,6 @@ public class BWGTerraBlenderRegion extends Region {
     private final Map<ResourceKey<Biome>, ResourceKey<Biome>> globalSwapper;
     private final TerrablenderOverworldBiomeBuilder terrablenderOverworldBiomeBuilder;
 
-    public BWGTerraBlenderRegion(int overworldWeight,
-                                 Wrapped<List<List<ResourceKey<Biome>>>> oceans, Wrapped<List<List<ResourceKey<Biome>>>> middleBiomes,
-                                 Wrapped<List<List<ResourceKey<Biome>>>> middleBiomesVariant, Wrapped<List<List<ResourceKey<Biome>>>> plateauBiomes,
-                                 Wrapped<List<List<ResourceKey<Biome>>>> plateauBiomesVariant, Wrapped<List<List<ResourceKey<Biome>>>> shatteredBiomes,
-                                 Wrapped<List<List<ResourceKey<Biome>>>> beachBiomes, Wrapped<List<List<ResourceKey<Biome>>>> peakBiomes,
-                                 Wrapped<List<List<ResourceKey<Biome>>>> peakBiomesVariant, Wrapped<List<List<ResourceKey<Biome>>>> slopeBiomes, Wrapped<List<List<ResourceKey<Biome>>>> slopeBiomesVariant,
-                                 Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper, Map<ResourceKey<Biome>, ResourceKey<Biome>> globalSwapper) {
-        this(overworldWeight, BWGUtil._2DResourceKeyArrayTo2DList(oceans.value()), BWGUtil._2DResourceKeyArrayTo2DList(middleBiomes.value()), BWGUtil._2DResourceKeyArrayTo2DList(middleBiomesVariant.value()), BWGUtil._2DResourceKeyArrayTo2DList(plateauBiomes.value()), BWGUtil._2DResourceKeyArrayTo2DList(plateauBiomesVariant.value()), BWGUtil._2DResourceKeyArrayTo2DList(shatteredBiomes.value()), BWGUtil._2DResourceKeyArrayTo2DList(beachBiomes.value()), BWGUtil._2DResourceKeyArrayTo2DList(peakBiomes.value()), BWGUtil._2DResourceKeyArrayTo2DList(peakBiomesVariant.value()), BWGUtil._2DResourceKeyArrayTo2DList(slopeBiomes.value()), BWGUtil._2DResourceKeyArrayTo2DList(slopeBiomesVariant.value()), swapper, globalSwapper);
-    }
 
     public BWGTerraBlenderRegion(int overworldWeight,
                                  ResourceKey<Biome>[][] oceans, ResourceKey<Biome>[][] middleBiomes,
@@ -155,7 +143,7 @@ public class BWGTerraBlenderRegion extends Region {
             if (!registry.containsKey(biomeKey)) {
                 throw new IllegalArgumentException(String.format("\"%s\" is not a valid biome in the world registry!", biomeKey.location()));
             }
-            if (BWGWorldGenConfig.INSTANCE.get().enabledBiomes().getOrDefault(biomeKey, true)) {
+            if (BWGWorldGenConfig.INSTANCE.enabledBiomes.getOrDefault(biomeKey.location().toString(), true)) {
                 totalPairs.increment();
                 boolean mapped = false;
                 boolean alreadyMappedOutsideSwapper = false;
@@ -171,7 +159,7 @@ public class BWGTerraBlenderRegion extends Region {
                         throw new UnsupportedOperationException(String.format("Attempting to assign a biome resource key in both the swapper and biome selectors. We're crashing your game to let you know that \"%s\" was put in the biome selectors but will always be swapped by \"%s\" due to the swapper. In region \"%s\".", biomeKey.location(), this.swapper.get(biomeKey).location(), this.getName().toString()));
                     }
                     ResourceKey<Biome> replacement = this.swapper.get(biomeKey);
-                    ResourceKey<Biome> biomeResourceKey = BWGWorldGenConfig.INSTANCE.get().enabledBiomes().getOrDefault(replacement, true) ? replacement : Region.DEFERRED_PLACEHOLDER;
+                    ResourceKey<Biome> biomeResourceKey = BWGWorldGenConfig.INSTANCE.enabledBiomes.getOrDefault(replacement.location().toString(), true) ? replacement : Region.DEFERRED_PLACEHOLDER;
                     mapper.accept(new Pair<>(parameterPoint, this.globalSwapper.getOrDefault(biomeResourceKey, biomeResourceKey)));
                     bygMapperAccepted.increment();
                     mapped = true;

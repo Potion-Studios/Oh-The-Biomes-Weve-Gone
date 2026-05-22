@@ -12,7 +12,7 @@ public record VanillaFeatureConfigCondition() implements ICondition {
 
 	@Override
 	public boolean test(@NotNull IContext iContext) {
-		return BWGWorldGenConfig.INSTANCE.get().vanillaAdditions();
+		return BWGWorldGenConfig.INSTANCE.vanilla_additions;
 	}
 
 	@Override

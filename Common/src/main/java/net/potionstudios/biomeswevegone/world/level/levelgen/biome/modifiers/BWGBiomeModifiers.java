@@ -22,8 +22,8 @@ public class BWGBiomeModifiers {
 	public static final Map<ResourceLocation, BWGBiomeModifier> BIOME_MODIFIERS_FACTORIES = new Reference2ObjectOpenHashMap<>();
 
 	@SafeVarargs
-	private static void registerModifierVegetalDecoration(String id, ResourceKey<PlacedFeature> feature, Map<ResourceKey<PlacedFeature>, Boolean> map, ResourceKey<Biome>... biomes) {
-		BIOME_MODIFIERS_FACTORIES.put(BiomesWeveGone.id(id), new BWGBiomeModifier(feature, GenerationStep.Decoration.VEGETAL_DECORATION, map.get(feature), biomes));
+	private static void registerModifierVegetalDecoration(String id, ResourceKey<PlacedFeature> feature, Map<String, Boolean> map, ResourceKey<Biome>... biomes) {
+		BIOME_MODIFIERS_FACTORIES.put(BiomesWeveGone.id(id), new BWGBiomeModifier(feature, GenerationStep.Decoration.VEGETAL_DECORATION, map.getOrDefault(feature.location().toString(), true), biomes));
 	}
 
 	/**
@@ -39,7 +39,7 @@ public class BWGBiomeModifiers {
 
 	public static void init() {
 		BiomesWeveGone.LOGGER.info("Creating and Registering BWG Biome Modifiers for Vanilla Biomes");
-		Map<ResourceKey<PlacedFeature>, Boolean> map = BWGWorldGenConfig.INSTANCE.get().vanillaFeatures();
+		Map<String, Boolean> map = BWGWorldGenConfig.INSTANCE.enabled_vanilla_additions;
 		registerModifierVegetalDecoration("vanilla/flower_default", BWGVanillaPlacedFeatures.FLOWER_DEFAULT, map, Biomes.OLD_GROWTH_PINE_TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA, Biomes.WINDSWEPT_HILLS, Biomes.WINDSWEPT_GRAVELLY_HILLS, Biomes.WINDSWEPT_FOREST, Biomes.DESERT, Biomes.SNOWY_PLAINS, Biomes.ICE_SPIKES,
 				Biomes.WINDSWEPT_SAVANNA, Biomes.FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST, Biomes.BIRCH_FOREST, Biomes.TAIGA, Biomes.SNOWY_TAIGA, Biomes.DARK_FOREST);
 		registerModifierVegetalDecoration("vanilla/flower_warm", BWGVanillaPlacedFeatures.FLOWER_WARM, map, Biomes.SPARSE_JUNGLE, Biomes.JUNGLE, Biomes.BAMBOO_JUNGLE, Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU);

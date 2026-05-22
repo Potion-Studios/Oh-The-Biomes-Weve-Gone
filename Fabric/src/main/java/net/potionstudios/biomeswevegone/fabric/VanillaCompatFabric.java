@@ -49,7 +49,7 @@ public class VanillaCompatFabric {
     }
 
     private static void registerBiomeModifiers() {
-        if (BWGWorldGenConfig.INSTANCE.get().vanillaAdditions()) {
+        if (BWGWorldGenConfig.INSTANCE.vanilla_additions) {
             BWGBiomeModifiers.init();
             BWGBiomeModifiers.BIOME_MODIFIERS_FACTORIES.values().stream().filter(BWGBiomeModifiers.BWGBiomeModifier::enabled).forEach((modifier) ->
                     BiomeModifications.addFeature(BiomeSelectors.includeByKey(modifier.biomes()), modifier.step(), modifier.feature()));
