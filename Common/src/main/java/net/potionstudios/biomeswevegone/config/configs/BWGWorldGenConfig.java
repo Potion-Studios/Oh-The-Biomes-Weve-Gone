@@ -16,7 +16,9 @@ public class BWGWorldGenConfig {
     public static BWGWorldGenConfig INSTANCE = ConfigLoader.loadConfig(BWGWorldGenConfig.class, "world_generation");
 
     public Map<String, Boolean> enabledBiomes = getDefaultBiomes();
-    public int region_weight = 8;
+    public int region_1_weight = 8;
+    public int region_2_weight = 8;
+    public int region_3_weight = 8;
     public boolean vanilla_additions = true;
     public Map<String, Boolean> enabled_vanilla_additions = getVanillaPlacedFeatureAdditions();
 

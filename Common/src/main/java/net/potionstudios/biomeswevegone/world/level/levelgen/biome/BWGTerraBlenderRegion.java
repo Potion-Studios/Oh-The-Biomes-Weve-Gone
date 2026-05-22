@@ -24,13 +24,10 @@ import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-import static net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGRegionUtils.dumpArrays;
-import static net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGRegionUtils.filter;
-
 public class BWGTerraBlenderRegion extends Region {
 
     public static final BWGTerraBlenderRegion REGION_1 = new BWGTerraBlenderRegion(
-            BWGWorldGenConfig.INSTANCE.region_weight,
+            BWGWorldGenConfig.INSTANCE.region_1_weight,
             BWGBiomeSelectors.OCEANS_BWG,
             BWGBiomeSelectors.MIDDLE_BIOMES_BWG,
             BWGBiomeSelectors.MIDDLE_BIOMES_VARIANT_BWG,
@@ -49,7 +46,7 @@ public class BWGTerraBlenderRegion extends Region {
             Map.of());
 
     public static final BWGTerraBlenderRegion REGION_2 = new BWGTerraBlenderRegion(
-            BWGWorldGenConfig.INSTANCE.region_weight,
+            BWGWorldGenConfig.INSTANCE.region_2_weight,
             BWGBiomeSelectors.OCEANS_2_BWG,
             BWGBiomeSelectors.MIDDLE_BIOMES_2_BWG,
             TerraBlenderBiomeSelectors.MIDDLE_BIOMES_VARIANT_TERRABLENDER,
@@ -68,7 +65,7 @@ public class BWGTerraBlenderRegion extends Region {
             Map.of());
 
     public static final BWGTerraBlenderRegion REGION_3 = new BWGTerraBlenderRegion(
-            BWGWorldGenConfig.INSTANCE.region_weight,
+            BWGWorldGenConfig.INSTANCE.region_3_weight,
             TerraBlenderBiomeSelectors.OCEANS_TERRABLENDER,
             BWGBiomeSelectors.MIDDLE_BIOMES_3_BWG,
             TerraBlenderBiomeSelectors.MIDDLE_BIOMES_VARIANT_TERRABLENDER,
@@ -105,17 +102,17 @@ public class BWGTerraBlenderRegion extends Region {
         this.swapper = swapper;
         this.globalSwapper = globalSwapper;
         Predicate<ResourceKey<Biome>> noVoidBiomes = biomeResourceKey -> biomeResourceKey != Biomes.THE_VOID;
-        oceans = filter("oceans", this.getName(), count, oceans, noVoidBiomes, true);
-        middleBiomes = filter("middle_biomes", this.getName(), count, middleBiomes, noVoidBiomes, true);
-        middleBiomesVariant = filter("middle_biomes_variant", this.getName(), count, middleBiomesVariant, noVoidBiomes, false);
-        plateauBiomes = filter("plateau_biomes", this.getName(), count, plateauBiomes, noVoidBiomes, true);
-        plateauBiomesVariant = filter("plateau_biomes_variant", this.getName(), count, plateauBiomesVariant, noVoidBiomes, false);
-        shatteredBiomes = filter("shattered_biomes", this.getName(), count, shatteredBiomes, noVoidBiomes, false);
-        beachBiomes = filter("beach_biomes", this.getName(), count, beachBiomes, noVoidBiomes, true);
-        peakBiomes = filter("peak_biomes", this.getName(), count, peakBiomes, noVoidBiomes, true);
-        peakBiomesVariant = filter("peak_biomes_variant", this.getName(), count, peakBiomesVariant, noVoidBiomes, false);
-        slopeBiomes = filter("slope_biomes", this.getName(), count, slopeBiomes, noVoidBiomes, true);
-        slopeBiomesVariant = filter("slope_biomes_variant", this.getName(), count, slopeBiomesVariant, noVoidBiomes, false);
+        oceans = BWGRegionUtils.filter("oceans", this.getName(), count, oceans, noVoidBiomes, true);
+        middleBiomes = BWGRegionUtils.filter("middle_biomes", this.getName(), count, middleBiomes, noVoidBiomes, true);
+        middleBiomesVariant = BWGRegionUtils.filter("middle_biomes_variant", this.getName(), count, middleBiomesVariant, noVoidBiomes, false);
+        plateauBiomes = BWGRegionUtils.filter("plateau_biomes", this.getName(), count, plateauBiomes, noVoidBiomes, true);
+        plateauBiomesVariant = BWGRegionUtils.filter("plateau_biomes_variant", this.getName(), count, plateauBiomesVariant, noVoidBiomes, false);
+        shatteredBiomes = BWGRegionUtils.filter("shattered_biomes", this.getName(), count, shatteredBiomes, noVoidBiomes, false);
+        beachBiomes = BWGRegionUtils.filter("beach_biomes", this.getName(), count, beachBiomes, noVoidBiomes, true);
+        peakBiomes = BWGRegionUtils.filter("peak_biomes", this.getName(), count, peakBiomes, noVoidBiomes, true);
+        peakBiomesVariant = BWGRegionUtils.filter("peak_biomes_variant", this.getName(), count, peakBiomesVariant, noVoidBiomes, false);
+        slopeBiomes = BWGRegionUtils.filter("slope_biomes", this.getName(), count, slopeBiomes, noVoidBiomes, true);
+        slopeBiomesVariant = BWGRegionUtils.filter("slope_biomes_variant", this.getName(), count, slopeBiomesVariant, noVoidBiomes, false);
 
         this.terrablenderOverworldBiomeBuilder = new TerrablenderOverworldBiomeBuilder(
                 oceans, middleBiomes, middleBiomesVariant,
@@ -123,7 +120,7 @@ public class BWGTerraBlenderRegion extends Region {
                 beachBiomes, peakBiomes, peakBiomesVariant, slopeBiomes, slopeBiomesVariant
         );
 
-        dumpArrays((biomeResourceKey -> {
+        BWGRegionUtils.dumpArrays((biomeResourceKey -> {
             if (biomeResourceKey != null) {
                 bwgKeys.add(biomeResourceKey);
                 if (swapper.containsValue(biomeResourceKey)) {
