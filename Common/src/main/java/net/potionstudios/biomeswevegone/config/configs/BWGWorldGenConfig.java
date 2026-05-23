@@ -1,48 +1,49 @@
 package net.potionstudios.biomeswevegone.config.configs;
 
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
+import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.config.ConfigLoader;
+import net.potionstudios.biomeswevegone.config.ConfigUtils;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
-import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGOverworldTreePlacedFeatures;
-import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGVanillaPlacedFeatures;
+import net.potionstudios.biomeswevegone.world.level.levelgen.biome.modifiers.BWGBiomeModifiers;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class BWGWorldGenConfig {
 
     public static BWGWorldGenConfig INSTANCE = ConfigLoader.loadConfig(BWGWorldGenConfig.class, "world_generation");
 
-    public Map<String, Boolean> enabledBiomes = getDefaultBiomes();
+    public Map<ResourceLocation, Boolean> enabledBiomes = getDefaultBiomes();
     public int region_1_weight = 8;
     public int region_2_weight = 8;
     public int region_3_weight = 8;
-    public boolean vanilla_additions = true;
-    public Map<String, Boolean> enabled_vanilla_additions = getVanillaPlacedFeatureAdditions();
+    public ConfigUtils.CommentValue<Boolean> vanilla_additions = ConfigUtils.CommentValue.of("Setting this to False will disable all vanilla additions, making the enabled_vanilla_additions section ignored", true);
+    public Map<ResourceLocation, ConfigUtils.CommentValue<Boolean>> enabled_vanilla_additions = getVanillaPlacedFeatureAdditions();
 
-    public BWGWorldGenConfig() {
-    }
+    private static @NotNull Map<ResourceLocation, Boolean> getDefaultBiomes() {
+        Map<ResourceLocation, Boolean> enabledBiomes = new HashMap<>();
+        for (ResourceKey<Biome> biomeResourceKey : BWGBiomes.BIOME_FACTORIES.keySet())
+            enabledBiomes.put(biomeResourceKey.location(), true);
 
-    private static @NotNull Map<String, Boolean> getDefaultBiomes() {
-        Map<String, Boolean> enabledBiomes = new HashMap<>();
-        for (ResourceKey<Biome> biomeResourceKey : BWGBiomes.BIOME_FACTORIES.keySet()) {
-            enabledBiomes.put(biomeResourceKey.location().toString(), true);
-        }
-
-        enabledBiomes.replace(BWGBiomes.ERODED_BOREALIS.location().toString(), false);
+        enabledBiomes.replace(BWGBiomes.ERODED_BOREALIS.location(), false);
         return enabledBiomes;
     }
 
-    private static @NotNull Map<String, Boolean> getVanillaPlacedFeatureAdditions() {
-        Map<String, Boolean> enabledFeatures = new HashMap<>();
-        enabledFeatures.put(BWGVanillaPlacedFeatures.FLOWER_DEFAULT.location().toString(), true);
-        enabledFeatures.put(BWGVanillaPlacedFeatures.FLOWER_PLAINS.location().toString(), true);
-        enabledFeatures.put(BWGVanillaPlacedFeatures.FOREST_FLOWERS.location().toString(), true);
-        enabledFeatures.put(BWGVanillaPlacedFeatures.FLOWER_WARM.location().toString(), true);
-        enabledFeatures.put(BWGOverworldTreePlacedFeatures.PALM_TREES.location().toString(), true);
-
+    private static @NotNull Map<ResourceLocation, ConfigUtils.CommentValue<Boolean>> getVanillaPlacedFeatureAdditions() {
+        BWGBiomeModifiers.init();
+        Map<ResourceLocation, ConfigUtils.CommentValue<Boolean>> enabledFeatures = new HashMap<>();
+        BWGBiomeModifiers.BIOME_MODIFIERS_FACTORIES.values().forEach(bwgBiomeModifier -> {
+            BiomesWeveGone.LOGGER.info(bwgBiomeModifier.lang());
+            enabledFeatures.put(bwgBiomeModifier.feature().location(), ConfigUtils.CommentValue.of(bwgBiomeModifier.lang() + Arrays.stream(bwgBiomeModifier.biomes())
+                    .map(entry -> entry.location().toString())
+                    .collect(Collectors.joining(", ", "", ".")), true));
+        });
         return enabledFeatures;
     }
 
