@@ -38,7 +38,7 @@ public class BWGBiomeModifiers {
         public BWGBiomeModifier {}
 
 		public boolean isEnabled() {
-			ConfigUtils.CommentValue<Boolean> configValue = BWGWorldGenConfig.INSTANCE.individual_vanilla_additions.get(feature);
+			ConfigUtils.CommentValue<Boolean> configValue = BWGWorldGenConfig.INSTANCE.individual_vanilla_additions.get(feature.location());
 			return configValue == null || configValue.value();
 		}
 	}

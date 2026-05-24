@@ -1,4 +1,4 @@
-# 2.6.0 - Config Changes
+# 2.6.0 – Config Changes
 - Move worldgeneration config to json from json5 to match all other configs
 - Correctly update missing keys in json configs
 - Automatically migrate legacy config files to the new format (Will be removed in 2.7.0)

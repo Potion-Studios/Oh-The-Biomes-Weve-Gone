@@ -174,7 +174,7 @@ public class BWGTerraBlenderRegion extends Region {
         int mapperAcceptValue = bygMapperAccepted.intValue();
         boolean sanityCheck = totalPairsValue != mapperAcceptValue;
         if (sanityCheck) {
-            throw new UnsupportedOperationException(String.format("Not all biome parameter points were accepted for BWG Terrablender biome region: %s. %s/%s were accepted.", this.getName().toString(), totalPairsValue, mapperAcceptValue));
+            throw new UnsupportedOperationException(String.format("Not all biome parameter points were accepted for BWG TerraBlender biome region: %s. %s/%s were accepted.", this.getName().toString(), totalPairsValue, mapperAcceptValue));
         }
     }
 
