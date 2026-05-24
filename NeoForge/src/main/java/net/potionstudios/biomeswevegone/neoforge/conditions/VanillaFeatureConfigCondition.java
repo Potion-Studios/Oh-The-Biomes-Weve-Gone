@@ -18,7 +18,7 @@ public record VanillaFeatureConfigCondition(ResourceKey<PlacedFeature> feature) 
 	@Override
 	public boolean test(@NotNull IContext iContext) {
 		BWGWorldGenConfig config = BWGWorldGenConfig.INSTANCE;
-		return config.vanilla_additions.value() && config.individual_vanilla_additions.getOrDefault(feature, ConfigUtils.CommentValue.of("", true)).value();
+		return config.vanilla_additions.value() && config.individual_vanilla_additions.getOrDefault(feature.location(), ConfigUtils.CommentValue.of("", true)).value();
 	}
 
 	@Override
