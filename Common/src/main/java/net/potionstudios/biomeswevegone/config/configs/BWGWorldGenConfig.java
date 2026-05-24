@@ -3,6 +3,7 @@ package net.potionstudios.biomeswevegone.config.configs;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.config.ConfigLoader;
 import net.potionstudios.biomeswevegone.config.ConfigUtils;
@@ -24,7 +25,7 @@ public class BWGWorldGenConfig {
     public int region_2_weight = 8;
     public int region_3_weight = 8;
     public ConfigUtils.CommentValue<Boolean> vanilla_additions = ConfigUtils.CommentValue.of("Setting this to False will disable all vanilla additions, making the enabled_vanilla_additions section ignored", true);
-    public Map<ResourceLocation, ConfigUtils.CommentValue<Boolean>> individual_vanilla_additions = getVanillaPlacedFeatureAdditions();
+    public Map<ResourceKey<PlacedFeature>, ConfigUtils.CommentValue<Boolean>> individual_vanilla_additions = getVanillaPlacedFeatureAdditions();
 
     private static @NotNull Map<ResourceLocation, Boolean> getDefaultBiomes() {
         Map<ResourceLocation, Boolean> enabledBiomes = new HashMap<>();
@@ -35,12 +36,12 @@ public class BWGWorldGenConfig {
         return enabledBiomes;
     }
 
-    private static @NotNull Map<ResourceLocation, ConfigUtils.CommentValue<Boolean>> getVanillaPlacedFeatureAdditions() {
+    private static @NotNull Map<ResourceKey<PlacedFeature>, ConfigUtils.CommentValue<Boolean>> getVanillaPlacedFeatureAdditions() {
         BWGBiomeModifiers.init();
-        Map<ResourceLocation, ConfigUtils.CommentValue<Boolean>> enabledFeatures = new HashMap<>();
+        Map<ResourceKey<PlacedFeature>, ConfigUtils.CommentValue<Boolean>> enabledFeatures = new HashMap<>();
         BWGBiomeModifiers.BIOME_MODIFIERS_FACTORIES.values().forEach(bwgBiomeModifier -> {
             BiomesWeveGone.LOGGER.info(bwgBiomeModifier.lang());
-            enabledFeatures.put(bwgBiomeModifier.feature().location(), ConfigUtils.CommentValue.of(bwgBiomeModifier.lang() + Arrays.stream(bwgBiomeModifier.biomes())
+            enabledFeatures.put(bwgBiomeModifier.feature(), ConfigUtils.CommentValue.of(bwgBiomeModifier.lang() + Arrays.stream(bwgBiomeModifier.biomes())
                     .map(entry -> entry.location().toString())
                     .collect(Collectors.joining(", ", "", ".")), true));
         });
