@@ -24,7 +24,7 @@ public class BWGWorldGenConfig {
     public int region_1_weight = 8;
     public int region_2_weight = 8;
     public int region_3_weight = 8;
-    public ConfigUtils.CommentValue<Boolean> vanilla_additions = ConfigUtils.CommentValue.of("Setting this to False will disable all vanilla additions, making the enabled_vanilla_additions section ignored", true);
+    public ConfigUtils.CommentValue<Boolean> vanilla_additions = ConfigUtils.CommentValue.of("Setting this to False will disable all vanilla additions, making the enabled_vanilla_additions section ignored.  (Only Available on Fabric and NeoForge)", true);
     public Map<ResourceLocation, ConfigUtils.CommentValue<Boolean>> individual_vanilla_additions = getVanillaPlacedFeatureAdditions();
 
     private static @NotNull Map<ResourceLocation, Boolean> getDefaultBiomes() {
