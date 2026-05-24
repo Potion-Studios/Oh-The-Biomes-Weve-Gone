@@ -6,6 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.neoforged.neoforge.common.conditions.ICondition;
+import net.potionstudios.biomeswevegone.config.ConfigUtils;
 import net.potionstudios.biomeswevegone.config.configs.BWGWorldGenConfig;
 import org.jspecify.annotations.NonNull;
 
@@ -16,8 +17,8 @@ public record VanillaFeatureConfigCondition(ResourceKey<PlacedFeature> feature) 
 
 	@Override
 	public boolean test(@NonNull IContext iContext) {
-		BWGWorldGenConfig config = BWGWorldGenConfig.INSTANCE.get();
-		return config.vanillaAdditions() && config.vanillaFeatures().getOrDefault(feature, true);
+		BWGWorldGenConfig config = BWGWorldGenConfig.INSTANCE;
+		return config.vanilla_additions.value() && config.individual_vanilla_additions.getOrDefault(feature.identifier(), ConfigUtils.CommentValue.of("", true)).value();
 	}
 
 	@Override
