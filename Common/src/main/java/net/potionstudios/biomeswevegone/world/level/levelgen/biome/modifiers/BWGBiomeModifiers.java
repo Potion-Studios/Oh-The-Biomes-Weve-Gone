@@ -8,6 +8,7 @@ import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.config.ConfigUtils;
 import net.potionstudios.biomeswevegone.config.configs.BWGWorldGenConfig;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGOverworldTreePlacedFeatures;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.BWGVanillaPlacedFeatures;
@@ -22,8 +23,8 @@ public class BWGBiomeModifiers {
 	public static final Map<ResourceLocation, BWGBiomeModifier> BIOME_MODIFIERS_FACTORIES = new Reference2ObjectOpenHashMap<>();
 
 	@SafeVarargs
-	private static void registerModifierVegetalDecoration(String id, ResourceKey<PlacedFeature> feature, Map<ResourceKey<PlacedFeature>, Boolean> map, ResourceKey<Biome>... biomes) {
-		BIOME_MODIFIERS_FACTORIES.put(BiomesWeveGone.id(id), new BWGBiomeModifier(feature, GenerationStep.Decoration.VEGETAL_DECORATION, map.get(feature), biomes));
+	private static void registerModifierVegetalDecoration(String id, ResourceKey<PlacedFeature> feature, String lang, ResourceKey<Biome>... biomes) {
+		BIOME_MODIFIERS_FACTORIES.put(BiomesWeveGone.id(id), new BWGBiomeModifier(feature, GenerationStep.Decoration.VEGETAL_DECORATION, lang, biomes));
 	}
 
 	/**
@@ -32,20 +33,24 @@ public class BWGBiomeModifiers {
 	 * @param step The generation step to add the feature to
 	 * @param biomes The biomes to add the feature to
 	 */
-	public record BWGBiomeModifier(ResourceKey<PlacedFeature> feature, GenerationStep.Decoration step, Boolean enabled, ResourceKey<Biome>... biomes) {
+	public record BWGBiomeModifier(ResourceKey<PlacedFeature> feature, GenerationStep.Decoration step, String lang, ResourceKey<Biome>... biomes) {
 		@SafeVarargs
         public BWGBiomeModifier {}
+
+		public boolean isEnabled() {
+			ConfigUtils.CommentValue<Boolean> configValue = BWGWorldGenConfig.INSTANCE.individual_vanilla_additions.get(feature.location());
+			return configValue == null || configValue.value();
+		}
 	}
 
 	public static void init() {
 		BiomesWeveGone.LOGGER.info("Creating and Registering BWG Biome Modifiers for Vanilla Biomes");
-		Map<ResourceKey<PlacedFeature>, Boolean> map = BWGWorldGenConfig.INSTANCE.get().vanillaFeatures();
-		registerModifierVegetalDecoration("vanilla/flower_default", BWGVanillaPlacedFeatures.FLOWER_DEFAULT, map, Biomes.OLD_GROWTH_PINE_TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA, Biomes.WINDSWEPT_HILLS, Biomes.WINDSWEPT_GRAVELLY_HILLS, Biomes.WINDSWEPT_FOREST, Biomes.DESERT, Biomes.SNOWY_PLAINS, Biomes.ICE_SPIKES,
+        registerModifierVegetalDecoration("vanilla/flower_default", BWGVanillaPlacedFeatures.FLOWER_DEFAULT, "Will add Flower Patch, Clover Patch, White Anemone, Pink Anemone, Orange Daisy, Horseweed and rose to ", Biomes.OLD_GROWTH_PINE_TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA, Biomes.WINDSWEPT_HILLS, Biomes.WINDSWEPT_GRAVELLY_HILLS, Biomes.WINDSWEPT_FOREST, Biomes.DESERT, Biomes.SNOWY_PLAINS, Biomes.ICE_SPIKES,
 				Biomes.WINDSWEPT_SAVANNA, Biomes.FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST, Biomes.BIRCH_FOREST, Biomes.TAIGA, Biomes.SNOWY_TAIGA, Biomes.DARK_FOREST);
-		registerModifierVegetalDecoration("vanilla/flower_warm", BWGVanillaPlacedFeatures.FLOWER_WARM, map, Biomes.SPARSE_JUNGLE, Biomes.JUNGLE, Biomes.BAMBOO_JUNGLE, Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU);
-		registerModifierVegetalDecoration("vanilla/flower_plains", BWGVanillaPlacedFeatures.FLOWER_PLAINS, map, Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS);
-		registerModifierVegetalDecoration("vanilla/forest_flowers", BWGVanillaPlacedFeatures.FOREST_FLOWERS, map, Biomes.FOREST, Biomes.DARK_FOREST);
-		registerModifierVegetalDecoration("vanilla/beach/palm_trees", BWGOverworldTreePlacedFeatures.PALM_TREES, map,Biomes.BEACH);
+		registerModifierVegetalDecoration("vanilla/flower_warm", BWGVanillaPlacedFeatures.FLOWER_WARM, "Will add Flower Patch, Clover Patch, White Anemone, Pink Anemone, Orange Daisy, Horseweed and rose to ", Biomes.SPARSE_JUNGLE, Biomes.JUNGLE, Biomes.BAMBOO_JUNGLE, Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU);
+		registerModifierVegetalDecoration("vanilla/flower_plains", BWGVanillaPlacedFeatures.FLOWER_PLAINS, "Will add Green/Cyan/Magenta/Purple/Yellow Tulips, Rose, Orange Daisy, Flower and Clover Patches to ", Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS);
+		registerModifierVegetalDecoration("vanilla/forest_flowers", BWGVanillaPlacedFeatures.FOREST_FLOWERS, "Will add Flower Patch, Clover Patch, Blue Rose Bush and Blue Berry Bushes to ", Biomes.FOREST, Biomes.DARK_FOREST);
+		registerModifierVegetalDecoration("vanilla/beach/palm_trees", BWGOverworldTreePlacedFeatures.PALM_TREES, "Will add Palm Trees to ", Biomes.BEACH);
 	}
 }
 

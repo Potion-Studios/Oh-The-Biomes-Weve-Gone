@@ -58,7 +58,7 @@ class DataGeneratorsRegister {
                 lookupProvider,
                 BUILDER,
                 conditions ->
-                        BWGBiomeModifiers.BIOME_MODIFIERS_FACTORIES.forEach((id, modifier) -> conditions.accept(ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, id), VanillaFeatureConfigCondition.INSTANCE)),
+                        BWGBiomeModifiers.BIOME_MODIFIERS_FACTORIES.forEach((id, modifier) -> conditions.accept(ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, id), new VanillaFeatureConfigCondition(modifier.feature()))),
                 Set.of(BiomesWeveGone.MOD_ID)
         ));
 
