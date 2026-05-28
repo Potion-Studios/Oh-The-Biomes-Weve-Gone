@@ -77,7 +77,7 @@ public class LangGenerator extends LanguageProvider {
         add(advancement("husbandry.root.title"), "Husbandry");
         add(advancement("husbandry.root.description"), "The root of all things BWG husbandry");
         add(advancement("husbandry.granny_smith.title"), "Granny Smith?");
-        add(advancement("husbandry.granny_smith.description"), "Obtain a Green Apple from the Skyris Highlands");
+        add(advancement("husbandry.granny_smith.description"), "Obtain a Green Apple from the Skyris Vale");
         add(advancement("husbandry.forager.title"), "Forager");
         add(advancement("husbandry.forager.description"), "Obtain White Puffball Caps");
         add(advancement("husbandry.berrily_alive.title"), "Berrily Alive");

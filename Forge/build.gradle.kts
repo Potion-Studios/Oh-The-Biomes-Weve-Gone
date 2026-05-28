@@ -62,9 +62,6 @@ dependencies {
     modCompileOnly("mcp.mobius.waila:wthit-api:forge-${project.properties["WTHIT"]}")
     modLocalRuntime("mcp.mobius.waila:wthit:forge-${project.properties["WTHIT"]}")
     modLocalRuntime("lol.bai:badpackets:forge-${project.properties["badPackets"]}")
-
-    compileOnly("io.github.llamalad7:mixinextras-common:0.5.0")?.let { annotationProcessor(it) }
-    include("io.github.llamalad7:mixinextras-forge:0.5.0")?.let { implementation(it) }
 }
 
 tasks {
