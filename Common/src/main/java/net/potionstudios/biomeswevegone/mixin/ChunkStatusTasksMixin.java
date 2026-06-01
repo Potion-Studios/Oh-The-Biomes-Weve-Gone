@@ -19,6 +19,7 @@ import net.minecraft.world.level.chunk.status.WorldGenContext;
 import net.minecraft.world.level.levelgen.Noises;
 import net.potionstudios.biomeswevegone.world.level.levelgen.customterrain.BasaltBarreraExtension;
 import net.potionstudios.biomeswevegone.world.level.levelgen.customterrain.CragGardenExtension;
+import net.potionstudios.biomeswevegone.world.level.levelgen.customterrain.PalisadeGroveExtension;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -37,6 +38,7 @@ public abstract class ChunkStatusTasksMixin {
         Long2ObjectOpenHashMap<Long2ObjectOpenHashMap<Holder<Biome>>> biomeCache = new Long2ObjectOpenHashMap<>();
 
         Function<BlockPos, Holder<Biome>> biomeGetter = pos -> biomeCache.computeIfAbsent(ChunkPos.asLong(pos), key -> new Long2ObjectOpenHashMap<>()).computeIfAbsent(ChunkPos.asLong(pos.getX(), pos.getZ()), key1 -> biomeManager.getBiome(pos));
+        PalisadeGroveExtension.runPalisadeGroveExtension(biomeGetter, chunk, serverLevel.getSeed(), worldGenRegion.registryAccess().registryOrThrow(Registries.NOISE).getOrThrow(Noises.SURFACE), worldGenRegion.registryAccess().registryOrThrow(Registries.NOISE).getOrThrow(Noises.SURFACE_SECONDARY));
         CragGardenExtension.runCragGardenExtension(biomeGetter, chunk, serverLevel.getSeed(), worldGenRegion.registryAccess().registryOrThrow(Registries.NOISE).getOrThrow(Noises.SURFACE), worldGenRegion.registryAccess().registryOrThrow(Registries.NOISE).getOrThrow(Noises.SURFACE_SECONDARY));
         BasaltBarreraExtension.runBasaltBarreraExtension(biomeGetter, chunk, worldGenRegion, worldGenContext.generator());
     }

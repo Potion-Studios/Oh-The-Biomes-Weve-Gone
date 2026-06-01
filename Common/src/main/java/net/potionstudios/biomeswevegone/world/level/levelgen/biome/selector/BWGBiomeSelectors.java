@@ -102,7 +102,7 @@ public class BWGBiomeSelectors {
     public static final Wrapped<List<List<ResourceKey<Biome>>>> MIDDLE_BIOMES_2_BWG = BiomeSelectorsUtil.create("middle_biomes/middle_biomes_2_biomes_weve_gone", "", new ResourceKey[][]{
             {BWGBiomes.CRIMSON_TUNDRA, BWGBiomes.CRIMSON_TUNDRA, BWGBiomes.CRIMSON_TUNDRA, BWGBiomes.FROSTED_TAIGA, BWGBiomes.FROSTED_TAIGA},
             {BWGBiomes.CONIFEROUS_FOREST, BWGBiomes.CONIFEROUS_FOREST, BWGBiomes.CONIFEROUS_FOREST, BWGBiomes.BLACK_FOREST, BWGBiomes.BLACK_FOREST},
-            {BWGBiomes.PRAIRIE, BWGBiomes.PRAIRIE, BWGBiomes.PRAIRIE, BWGBiomes.TEMPERATE_GROVE, BWGBiomes.TEMPERATE_GROVE},
+            {BWGBiomes.PALISADE_GROVE, BWGBiomes.PALISADE_GROVE, BWGBiomes.PALISADE_GROVE, BWGBiomes.TEMPERATE_GROVE, BWGBiomes.TEMPERATE_GROVE},
             {BWGBiomes.BAOBAB_SAVANNA, BWGBiomes.BAOBAB_SAVANNA, BWGBiomes.BAOBAB_SAVANNA, BWGBiomes.TROPICAL_RAINFOREST, BWGBiomes.TROPICAL_RAINFOREST},
             {BWGBiomes.ATACAMA_OUTBACK, BWGBiomes.ATACAMA_OUTBACK, BWGBiomes.ATACAMA_OUTBACK, BWGBiomes.RED_ROCK_VALLEY, BWGBiomes.RED_ROCK_VALLEY}
     });
