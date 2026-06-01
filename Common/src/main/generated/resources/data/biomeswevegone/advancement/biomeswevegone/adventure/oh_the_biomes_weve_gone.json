@@ -609,6 +609,22 @@
       },
       "trigger": "minecraft:location"
     },
+    "biomeswevegone:palisade_grove": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "biomeswevegone:palisade_grove"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
     "biomeswevegone:pine_barrens": {
       "conditions": {
         "player": [
@@ -1058,6 +1074,9 @@
     ],
     [
       "biomeswevegone:pale_bog"
+    ],
+    [
+      "biomeswevegone:palisade_grove"
     ],
     [
       "biomeswevegone:pine_barrens"

@@ -314,6 +314,11 @@ public class BWGOverworldSurfaceRules {
             )
     );
 
+    private static final SurfaceRules.RuleSource PALISADE_GROVE = biomeAbovePreliminarySurface(BWGBiomes.PALISADE_GROVE, SurfaceRules.sequence(
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), PEAT_SURFACE),
+            PODZOL_DIRT_SURFACE
+    ));
+
     private static final SurfaceRules.RuleSource PUMPKIN_VALLEY = biomeAbovePreliminarySurface(BWGBiomes.PUMPKIN_VALLEY, SurfaceRules.sequence(
             makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
                     SurfaceRules.sequence(
@@ -464,6 +469,7 @@ public class BWGOverworldSurfaceRules {
                 OVERGROWTH_WOODLANDS,
                 PALE_BOG,
                 PUMPKIN_VALLEY,
+                PALISADE_GROVE,
                 RAINBOW_BEACH,
                 RED_ROCK_VALLEY,
                 RED_ROCK_PEAKS,

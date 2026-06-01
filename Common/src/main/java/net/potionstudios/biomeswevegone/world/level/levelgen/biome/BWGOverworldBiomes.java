@@ -1105,6 +1105,40 @@ class BWGOverworldBiomes {
         return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.2F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10003745).foliageColorOverride(10003745).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
+    protected static Biome palisadeGrove(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
+        BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
+        addRawGeneration(generationSettings, BWGPlacedFeatures.PALISADE_LAKE);
+//        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.CRAG_BAMBOO);
+//        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.CRAG_BUSHES);
+        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.CRAG_LAKE_VEGETATION);
+        BiomeDefaultFeatures.addPlainGrass(generationSettings);
+        addVegetal(generationSettings, VegetationPlacements.PATCH_SUNFLOWER);
+        // BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
+        BiomeDefaultFeatures.addDefaultGrass(generationSettings);
+        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
+        BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
+
+        BWGOverworldDefaultFeatures.addCloverPatches(generationSettings);
+        BWGOverworldDefaultFeatures.addAnemones(generationSettings);
+        BWGOverworldDefaultFeatures.addSages(generationSettings);
+        BWGOverworldDefaultFeatures.addWhitePuffball(generationSettings);
+        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.BISTORT);
+        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.ANGELICA);
+//        BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
+        BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
+//        BWGOverworldDefaultFeatures.addBWGTropicFlowers(generationSettings);
+//        BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
+//        addVegetal(generationSettings, AquaticPlacements.SEAGRASS_NORMAL);
+
+        MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.plainsSpawns(spawnSettings);
+        addSpawn(spawnSettings, EntityType.BAT, 10, 8, 8);
+        BiomeDefaultFeatures.monsters(spawnSettings, 95, 5, 100, false);
+
+        float temperature = 0.75F;
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).backgroundMusic(Musics.createGameMusic(BWGSounds.MUSIC_BIOME_CRAG_GARDENS.get())).waterColor(9230578).waterFogColor(2835532).grassColorOverride(11190111).foliageColorOverride(11190111).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+    }
+
     protected static Biome rainbowBeach(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
 

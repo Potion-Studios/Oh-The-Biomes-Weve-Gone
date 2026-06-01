@@ -19,6 +19,8 @@ public class BWGFeatures {
     public static final Supplier<VineProcessorFeature> VINE_PROCESSOR = create("vine_processor", () -> new VineProcessorFeature(NoneFeatureConfiguration.CODEC));
     public static final Supplier<LushBlocksProcessorFeature> LUSH_BLOCKS_PROCESSOR = create("lush_blocks_processor", () -> new LushBlocksProcessorFeature(NoneFeatureConfiguration.CODEC));
     public static final Supplier<CragLakeFeature> CRAG_LAKE = create("crag_lake", () -> new CragLakeFeature(NoneFeatureConfiguration.CODEC));
+    public static final Supplier<PalisadeLakeFeature> PALISADE_LAKE = create("palisade_lake", () -> new PalisadeLakeFeature(NoneFeatureConfiguration.CODEC));
+
     public static final Supplier<NoiseSphere> NOISE_SPHERE = create("noise_sphere", () -> new NoiseSphere(NoiseSphereConfig.CODEC));
     public static final Supplier<LargePumpkinFeature> LARGE_PUMPKIN = create("large_pumpkin", () -> new LargePumpkinFeature(NoneFeatureConfiguration.CODEC));
     public static final Supplier<MediumPumpkinFeature> MEDIUM_PUMPKIN = create("medium_pumpkin", () -> new MediumPumpkinFeature(NoneFeatureConfiguration.CODEC));
