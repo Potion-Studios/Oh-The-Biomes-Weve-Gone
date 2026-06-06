@@ -54,6 +54,12 @@
     "biomeswevegone:florus_wood": {
       "stripped_block": "biomeswevegone:stripped_florus_wood"
     },
+    "biomeswevegone:frosted_fir_log": {
+      "stripped_block": "biomeswevegone:stripped_frosted_fir_log"
+    },
+    "biomeswevegone:frosted_fir_wood": {
+      "stripped_block": "biomeswevegone:stripped_frosted_fir_wood"
+    },
     "biomeswevegone:green_enchanted_log": {
       "stripped_block": "biomeswevegone:stripped_green_enchanted_log"
     },

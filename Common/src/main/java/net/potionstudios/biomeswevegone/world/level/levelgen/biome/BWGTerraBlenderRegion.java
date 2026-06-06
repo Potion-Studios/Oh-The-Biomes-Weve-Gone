@@ -41,7 +41,7 @@ public class BWGTerraBlenderRegion extends Region {
             TerraBlenderBiomeSelectors.SLOPE_BIOMES_VARIANT_TERRABLENDER,
             Util.make(new IdentityHashMap<>(), map -> {
                 map.put(Biomes.MANGROVE_SWAMP, BWGBiomes.CYPRESS_SWAMPLANDS);
-                map.put(Biomes.SWAMP, BWGBiomes.BAYOU);
+                map.put(Biomes.SWAMP, BWGBiomes.CYPRESS_WETLANDS);
             }),
             Map.of());
 
@@ -49,18 +49,18 @@ public class BWGTerraBlenderRegion extends Region {
             BWGWorldGenConfig.INSTANCE.region_2_weight,
             BWGBiomeSelectors.OCEANS_2_BWG,
             BWGBiomeSelectors.MIDDLE_BIOMES_2_BWG,
-            TerraBlenderBiomeSelectors.MIDDLE_BIOMES_VARIANT_TERRABLENDER,
+            BWGBiomeSelectors.MIDDLE_BIOMES_VARIANT_2_BWG,
             BWGBiomeSelectors.PLATEAU_BIOMES_2_BWG,
-            TerraBlenderBiomeSelectors.PLATEAU_BIOMES_VARIANT_TERRABLENDER,
-            TerraBlenderBiomeSelectors.SHATTERED_BIOMES_TERRABLENDER,
-            TerraBlenderBiomeSelectors.BEACH_BIOMES_TERRABLENDER,
-            TerraBlenderBiomeSelectors.PEAK_BIOMES_TERRABLENDER,
-            TerraBlenderBiomeSelectors.PEAK_BIOMES_VARIANT_TERRABLENDER,
-            TerraBlenderBiomeSelectors.SLOPE_BIOMES_TERRABLENDER,
+            BWGBiomeSelectors.PLATEAU_BIOMES_VARIANT_2_BWG,
+            BWGBiomeSelectors.SHATTERED_BIOMES_2_BWG,
+            BWGBiomeSelectors.BEACH_BIOMES_2_BWG,
+            BWGBiomeSelectors.PEAK_BIOMES_2_BWG,
+            BWGBiomeSelectors.PEAK_BIOMES_VARIANT_2_BWG,
+            BWGBiomeSelectors.SLOPE_BIOMES_2_BWG,
             TerraBlenderBiomeSelectors.SLOPE_BIOMES_VARIANT_TERRABLENDER,
             Util.make(new IdentityHashMap<>(), map -> {
                 map.put(Biomes.MANGROVE_SWAMP, BWGBiomes.WHITE_MANGROVE_MARSHES);
-                map.put(Biomes.SWAMP, BWGBiomes.CYPRESS_WETLANDS);
+                map.put(Biomes.SWAMP, BWGBiomes.BAYOU);
             }),
             Map.of());
 
@@ -68,18 +68,18 @@ public class BWGTerraBlenderRegion extends Region {
             BWGWorldGenConfig.INSTANCE.region_3_weight,
             TerraBlenderBiomeSelectors.OCEANS_TERRABLENDER,
             BWGBiomeSelectors.MIDDLE_BIOMES_3_BWG,
-            TerraBlenderBiomeSelectors.MIDDLE_BIOMES_VARIANT_TERRABLENDER,
+            BWGBiomeSelectors.MIDDLE_BIOMES_VARIANT_3_BWG,
             BWGBiomeSelectors.PLATEAU_BIOMES_3_BWG,
-            TerraBlenderBiomeSelectors.PLATEAU_BIOMES_VARIANT_TERRABLENDER,
-            TerraBlenderBiomeSelectors.SHATTERED_BIOMES_TERRABLENDER,
-            TerraBlenderBiomeSelectors.BEACH_BIOMES_TERRABLENDER,
-            TerraBlenderBiomeSelectors.PEAK_BIOMES_TERRABLENDER,
-            TerraBlenderBiomeSelectors.PEAK_BIOMES_VARIANT_TERRABLENDER,
-            TerraBlenderBiomeSelectors.SLOPE_BIOMES_TERRABLENDER,
+            BWGBiomeSelectors.PLATEAU_BIOMES_VARIANT_3_BWG,
+            BWGBiomeSelectors.SHATTERED_BIOMES_3_BWG,
+            BWGBiomeSelectors.BEACH_BIOMES_3_BWG,
+            BWGBiomeSelectors.PEAK_BIOMES_3_BWG,
+            BWGBiomeSelectors.PEAK_BIOMES_VARIANT_3_BWG,
+            BWGBiomeSelectors.SLOPE_BIOMES_3_BWG,
             TerraBlenderBiomeSelectors.SLOPE_BIOMES_VARIANT_TERRABLENDER,
             Util.make(new IdentityHashMap<>(), map -> {
                 map.put(Biomes.MANGROVE_SWAMP, BWGBiomes.PALE_BOG);
-                map.put(Biomes.SWAMP, BWGBiomes.CYPRESS_SWAMPLANDS);
+                map.put(Biomes.SWAMP, BWGBiomes.PALE_BOG);
             }),
             Map.of());
 
