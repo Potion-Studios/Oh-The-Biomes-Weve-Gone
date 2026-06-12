@@ -39,9 +39,11 @@ loom {
 
     runs.create("datagen") {
         data()
-        programArgs("--all", "--mod", "biomeswevegone")
-        programArgs("--output", file("src/main/generated/resources").absolutePath)
-        programArgs("--existing", file("src/main/resources").absolutePath)
+        programArguments.addAll(
+            "--all", "--mod", "biomeswevegone",
+            "--output", file("src/main/generated/resources").absolutePath,
+            "--existing", file("src/main/resources").absolutePath
+        )
     }
 }
 
