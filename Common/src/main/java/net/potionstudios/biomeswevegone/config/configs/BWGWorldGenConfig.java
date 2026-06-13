@@ -2,8 +2,6 @@ package net.potionstudios.biomeswevegone.config.configs;
 
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.config.ConfigLoader;
 import net.potionstudios.biomeswevegone.config.ConfigUtils;
@@ -11,9 +9,7 @@ import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.modifiers.BWGBiomeModifiers;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class BWGWorldGenConfig {
@@ -28,9 +24,10 @@ public class BWGWorldGenConfig {
     public Map<ResourceLocation, ConfigUtils.CommentValue<Boolean>> individual_vanilla_additions = getVanillaPlacedFeatureAdditions();
 
     private static @NotNull Map<ResourceLocation, Boolean> getDefaultBiomes() {
-        Map<ResourceLocation, Boolean> enabledBiomes = new HashMap<>();
-        for (ResourceKey<Biome> biomeResourceKey : BWGBiomes.BIOME_FACTORIES.keySet())
-            enabledBiomes.put(biomeResourceKey.location(), true);
+        Map<ResourceLocation, Boolean> enabledBiomes = BWGBiomes.BIOME_FACTORIES.keySet().stream()
+                .map(ResourceKey::location)
+                .sorted(Comparator.comparing(ResourceLocation::toString))
+                .collect(Collectors.toMap(loc -> loc, loc -> true, (a, b) -> a, LinkedHashMap::new));
 
         enabledBiomes.replace(BWGBiomes.ERODED_BOREALIS.location(), false);
         return enabledBiomes;
