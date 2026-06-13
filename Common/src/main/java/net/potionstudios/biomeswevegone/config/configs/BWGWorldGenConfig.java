@@ -10,9 +10,7 @@ import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.modifiers.BWGBiomeModifiers;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class BWGWorldGenConfig {
@@ -27,9 +25,10 @@ public class BWGWorldGenConfig {
     public Map<Identifier, ConfigUtils.CommentValue<Boolean>> individual_vanilla_additions = getVanillaPlacedFeatureAdditions();
 
     private static @NotNull Map<Identifier, Boolean> getDefaultBiomes() {
-        Map<Identifier, Boolean> enabledBiomes = new HashMap<>();
-        for (ResourceKey<Biome> biomeResourceKey : BWGBiomes.BIOME_FACTORIES.keySet())
-            enabledBiomes.put(biomeResourceKey.identifier(), true);
+        Map<Identifier, Boolean> enabledBiomes = BWGBiomes.BIOME_FACTORIES.keySet().stream()
+                .map(ResourceKey::identifier)
+                .sorted(Comparator.comparing(Identifier::toString))
+                .collect(Collectors.toMap(loc -> loc, loc -> true, (a, b) -> a, LinkedHashMap::new));
 
         enabledBiomes.replace(BWGBiomes.ERODED_BOREALIS.identifier(), false);
         return enabledBiomes;
