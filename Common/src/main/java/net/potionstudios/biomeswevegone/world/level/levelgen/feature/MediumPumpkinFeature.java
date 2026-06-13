@@ -1,7 +1,7 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.feature;
 
 import com.mojang.serialization.Codec;
-import corgitaco.corgilib.world.level.RandomTickScheduler;
+import dev.corgitaco.ohthetreesyoullgrow.world.level.chunk.RandomTickScheduler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
