@@ -72,8 +72,4 @@ public class RoundedRock extends Feature<RoundedRockConfig> {
 
         return true;
     }
-
-    public static double easeInCirc(double x) {
-        return 1.0 - Math.sqrt(1.0 - Math.pow(x, 1.1));
-    }
 }
