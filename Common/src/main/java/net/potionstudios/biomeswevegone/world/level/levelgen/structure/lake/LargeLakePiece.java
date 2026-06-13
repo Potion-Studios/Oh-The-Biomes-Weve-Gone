@@ -1,6 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.structure.lake;
 
-import corgitaco.corgilib.world.level.RandomTickScheduler;
+import dev.corgitaco.ohthetreesyoullgrow.world.level.chunk.RandomTickScheduler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
