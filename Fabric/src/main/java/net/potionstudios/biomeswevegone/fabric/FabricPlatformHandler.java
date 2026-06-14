@@ -35,10 +35,6 @@ import java.util.function.Supplier;
 
 @AutoService(PlatformHandler.class)
 public final class FabricPlatformHandler implements PlatformHandler {
-	@Override
-	public Platform getPlatform() {
-		return Platform.FABRIC;
-	}
 
 	@Override
 	public Path configPath() {

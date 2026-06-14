@@ -363,7 +363,7 @@ public class BWGBlocks {
 
     public static <B extends Block> Supplier<B> registerCubeAllBlockItem(String key, Supplier<B> blockSupplier) {
         Supplier<B> block = registerBlockItem(key, blockSupplier);
-        cubeAllBlocks.add(block);
+        if (PlatformHandler.PLATFORM_HANDLER.isDatagen()) cubeAllBlocks.add(block);
         return block;
     }
 
