@@ -128,17 +128,19 @@ public final class ForgePlatformHandler implements PlatformHandler {
 				.build());
 	}
 
-	private static final Map<ResourceKey<?>, DeferredRegister> CACHED = new Reference2ObjectOpenHashMap<>();
+	private static final Map<ResourceKey<?>, DeferredRegister<?>> CACHED = new Reference2ObjectOpenHashMap<>();
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public <T> Supplier<T> register(Registry<? super T> registry, String name, Supplier<T> value) {
-		return CACHED.computeIfAbsent(registry.key(), key -> DeferredRegister.create(registry.key().location(), BiomesWeveGone.MOD_ID)).register(name, value);
+		return ((DeferredRegister<T>) CACHED.computeIfAbsent(registry.key(), key -> DeferredRegister.create(key.location(), BiomesWeveGone.MOD_ID))).register(name, value);
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public <T> Supplier<Holder.Reference<T>> registerForHolder(Registry<T> registry, String name, Supplier<T> value) {
-		RegistryObject<T> registryObject = CACHED.computeIfAbsent(registry.key(), key -> DeferredRegister.create(registry.key().location(), BiomesWeveGone.MOD_ID)).register(name, value);
-		return () -> (Holder.Reference<T>) registryObject.getHolder().get();
+		RegistryObject<T> registryObject = ((DeferredRegister<T>) CACHED.computeIfAbsent(registry.key(), key -> DeferredRegister.create(key.location(), BiomesWeveGone.MOD_ID))).register(name, value);
+		return () -> (Holder.Reference<T>) registryObject.getHolder().orElse(null);
 	}
 
 	public static void registerPottedPlants() {
