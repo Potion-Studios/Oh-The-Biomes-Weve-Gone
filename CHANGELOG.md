@@ -2,7 +2,7 @@
 - Move worldgeneration config to json from json5 to match all other configs
 - Correctly update missing keys in json configs
 - Automatically migrate legacy config files to the new format (Will be removed in 2.7.0)
-- Add more comments to make things clearer to users in config files
+- Add more comments to better clarify things to users in config files
 - Allow Fine Grained Vanilla Biome Features to be disabled on NeoForge
 - Add Green Apple to Horse Food Item Tag
 - Update Recipes that use Eggs to use #c:eggs Tag
