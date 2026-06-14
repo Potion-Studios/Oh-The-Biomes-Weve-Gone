@@ -29,6 +29,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLPaths;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+import net.neoforged.neoforge.data.loading.DatagenModLoader;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
@@ -47,11 +48,6 @@ import java.util.function.Supplier;
 
 @AutoService(PlatformHandler.class)
 public final class NeoForgePlatformHandler implements PlatformHandler{
-
-	@Override
-	public Platform getPlatform() {
-		return Platform.NEOFORGE;
-	}
 
 	@Override
 	public Path configPath() {
@@ -109,17 +105,24 @@ public final class NeoForgePlatformHandler implements PlatformHandler{
 				.build());
 	}
 
-	private static final Map<ResourceKey<?>, DeferredRegister> CACHED = new Reference2ObjectOpenHashMap<>();
+	private static final Map<ResourceKey<?>, DeferredRegister<?>> CACHED = new Reference2ObjectOpenHashMap<>();
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public <T> Supplier<T> register(Registry<? super T> registry, String name, Supplier<T> value) {
-		return CACHED.computeIfAbsent(registry.key(), key -> DeferredRegister.create(registry.key().location(), BiomesWeveGone.MOD_ID)).register(name, value);
+		return ((DeferredRegister<T>) CACHED.computeIfAbsent(registry.key(), key -> DeferredRegister.create(key.location(), BiomesWeveGone.MOD_ID))).register(name, value);
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public <T> Supplier<Holder.Reference<T>> registerForHolder(Registry<T> registry, String name, Supplier<T> value) {
-		DeferredHolder<?, ?> registryObject = CACHED.computeIfAbsent(registry.key(), key -> DeferredRegister.create(registry.key().location(), BiomesWeveGone.MOD_ID)).register(name, value);
+		DeferredHolder<?, ?> registryObject = ((DeferredRegister<T>) CACHED.computeIfAbsent(registry.key(), key -> DeferredRegister.create(key.location(), BiomesWeveGone.MOD_ID))).register(name, value);
 		return () -> (Holder.Reference<T>) registryObject.getDelegate();
+	}
+
+	@Override
+	public boolean isDatagen() {
+		return DatagenModLoader.isRunningDataGen();
 	}
 
 	public static void registerPottedPlants() {
