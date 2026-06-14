@@ -1,10 +1,9 @@
 package net.potionstudios.biomeswevegone.config;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import net.minecraft.resources.ResourceLocation;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
 import org.jetbrains.annotations.NotNull;
@@ -22,7 +21,20 @@ import java.util.Map;
  */
 public class ConfigLoader {
 	/** The Gson instance for the Config Loader. */
-	private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+	private static final Gson GSON = new GsonBuilder()
+			.setPrettyPrinting().
+			registerTypeHierarchyAdapter(ResourceLocation.class, new TypeAdapter<ResourceLocation>() {
+				@Override
+				public void write(JsonWriter out, ResourceLocation value) throws java.io.IOException {
+					out.value(value == null ? null : value.toString());
+				}
+
+				@Override
+				public ResourceLocation read(JsonReader in) throws java.io.IOException {
+					return ResourceLocation.parse(in.nextString());
+				}
+			})
+			.create();
 
 	/**
 	 * Loads or Creates a config file
