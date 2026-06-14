@@ -38,13 +38,6 @@ public interface PlatformHandler {
 	PlatformHandler PLATFORM_HANDLER = load(PlatformHandler.class);
 
 	/**
-	 * Gets the name of the current platform
-	 *
-	 * @return The name of the current platform.
-	 */
-	Platform getPlatform();
-
-	/**
 	 * Gets the path to the config directory
 	 * @return The path to the config directory
 	 */
@@ -200,8 +193,11 @@ public interface PlatformHandler {
 	 */
 	<T> Supplier<Holder.Reference<T>> registerForHolder(Registry<T> registry, String name, Supplier<T> value);
 
-	enum Platform {
-		FORGE,
-		FABRIC
+	/**
+	 * Checks if the current environment is a data generation environment
+	 * @return True if the current environment is a data generation environment, false otherwise
+	 */
+	default boolean isDatagen() {
+		return false;
 	}
 }
