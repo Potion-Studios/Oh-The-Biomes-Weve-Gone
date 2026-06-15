@@ -7,12 +7,15 @@ import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.*;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.animal.horse.Horse;
+import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.npc.VillagerType;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
+import net.potionstudios.biomeswevegone.world.entity.animal.horse.BWGHorse;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTypes;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
@@ -42,7 +45,13 @@ public class VanillaCompatFabric {
             if (BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value())
                 registerWanderingTrades();
         }
-        UseEntityCallback.EVENT.register(((player, level, interactionHand, entity, entityHitResult) -> PumpkinWarden.villagerToPumpkinWarden(entity, player.getItemInHand(interactionHand), level) ? InteractionResult.SUCCESS : InteractionResult.PASS));
+        UseEntityCallback.EVENT.register(((player, level, interactionHand, entity, entityHitResult) -> {
+            if (entity instanceof Villager villager)
+                return PumpkinWarden.villagerToPumpkinWarden(villager, player.getItemInHand(interactionHand), level) ? InteractionResult.SUCCESS : InteractionResult.PASS;
+            else if (entity instanceof Horse horse)
+                return BWGHorse.mobInteract(horse, player, interactionHand);
+            else return InteractionResult.PASS;
+        }));
         BWGVillagerTypes.setVillagerBiomes(VillagerType.BY_BIOME::put);
     }
 

@@ -554,8 +554,8 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
         }
     }
 
-    public static boolean villagerToPumpkinWarden(Entity entity, ItemStack stack, Level level) {
-        if (entity instanceof Villager villager && villager.isBaby() && villager.hasEffect(MobEffects.WEAKNESS))
+    public static boolean villagerToPumpkinWarden(Villager villager, ItemStack stack, Level level) {
+        if (villager.isBaby() && villager.hasEffect(MobEffects.WEAKNESS))
             if (stack.is(Items.CARVED_PUMPKIN))
                 if (level instanceof ServerLevel serverLevel) {
                     PumpkinWarden warden = BWGEntityType.PUMPKIN_WARDEN.get().create(serverLevel);

@@ -92,7 +92,7 @@ public class ConfigLoader {
 	 * to the new config structure, and merges them on top of the defaults.
 	 * * TODO: Remove later
 	 */
-	@Deprecated(forRemoval = true, since = "2.6.0")
+	@Deprecated(forRemoval = true, since = "1.8.0")
 	private static void migrateLegacyConfig(Path legacyPath, Path newConfigPath, JsonObject defaultJson) throws Exception {
 		String json5Content = Files.readString(legacyPath);
 

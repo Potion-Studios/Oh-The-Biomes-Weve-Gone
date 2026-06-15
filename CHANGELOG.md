@@ -3,6 +3,7 @@
 - Correctly update missing keys in JSON configs
 - Automatically migrate legacy config files to the new format (Will be removed in 1.9.0)
 - Add more comments to better clarify things to users in config files
+- Allow Horses to Eat Green Apples
 
 # 1.7.5
 - Fix Incorrect English Language key for Granny Smith Advancement

@@ -2,6 +2,9 @@ package net.potionstudios.biomeswevegone.forge;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.animal.horse.Horse;
+import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.npc.VillagerType;
 import net.minecraft.world.item.AxeItem;
@@ -19,6 +22,7 @@ import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.potionstudios.biomeswevegone.util.BoneMealHandler;
 import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
+import net.potionstudios.biomeswevegone.world.entity.animal.horse.BWGHorse;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTypes;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
@@ -54,7 +58,7 @@ public class VanillaCompatForge {
                 bus.addListener(VanillaCompatForge::onWanderingTrade);
         }
         bus.addListener(VanillaCompatForge::onBoneMealUse);
-        bus.addListener(VanillaCompatForge::onVillagerInteract);
+        bus.addListener(VanillaCompatForge::onEntityInteract);
     }
 
     /**
@@ -118,10 +122,18 @@ public class VanillaCompatForge {
     }
 
     /**
-     * Handle villager interaction.
+     * Handle Entity interaction.
      * @see PlayerInteractEvent.EntityInteractSpecific
      */
-    private static void onVillagerInteract(final PlayerInteractEvent.EntityInteractSpecific event) {
-        event.setResult(PumpkinWarden.villagerToPumpkinWarden(event.getTarget(), event.getItemStack(), event.getLevel()) ? Event.Result.DENY : Event.Result.DEFAULT);
+    private static void onEntityInteract(final PlayerInteractEvent.EntityInteractSpecific event) {
+        if (event.getTarget() instanceof Villager villager)
+            event.setResult(PumpkinWarden.villagerToPumpkinWarden(villager, event.getItemStack(), event.getLevel()) ? Event.Result.DENY : Event.Result.DEFAULT);
+        else if (event.getTarget() instanceof Horse horse) {
+            InteractionResult result = BWGHorse.mobInteract(horse, event.getEntity(), event.getHand());
+            if (result == InteractionResult.SUCCESS) {
+                event.setCanceled(true);
+                event.setCancellationResult(result);
+            }
+        }
     }
 }
