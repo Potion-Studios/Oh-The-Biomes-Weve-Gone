@@ -5,7 +5,7 @@ import terrablender.api.SurfaceRuleManager;
 
 public class TerraBlenderRegister {
 	public static void register() {
-		BWGTerraBlenderRegion.registerTerrablenderRegions();
+		BWGTerraBlenderRegion.registerTerraBlenderRegions();
 		SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BiomesWeveGone.MOD_ID, BWGOverworldSurfaceRules.makeRules());
 	}
 }
