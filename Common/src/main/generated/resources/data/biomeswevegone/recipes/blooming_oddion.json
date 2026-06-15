@@ -2,9 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:egg"
-    },
+    "#": [
+      {
+        "item": "minecraft:egg"
+      },
+      {
+        "tag": "forge:eggs"
+      }
+    ],
     "X": {
       "item": "minecraft:wheat"
     },

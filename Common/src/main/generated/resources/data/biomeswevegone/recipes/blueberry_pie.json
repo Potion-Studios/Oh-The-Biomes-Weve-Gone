@@ -8,9 +8,14 @@
     {
       "item": "minecraft:sugar"
     },
-    {
-      "item": "minecraft:egg"
-    }
+    [
+      {
+        "item": "minecraft:egg"
+      },
+      {
+        "tag": "forge:eggs"
+      }
+    ]
   ],
   "result": {
     "item": "biomeswevegone:blueberry_pie"

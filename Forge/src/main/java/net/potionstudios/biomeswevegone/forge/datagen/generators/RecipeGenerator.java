@@ -9,6 +9,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraftforge.common.Tags;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
@@ -19,6 +20,7 @@ import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
 import java.util.function.Consumer;
 
 /**
@@ -141,7 +143,10 @@ public class RecipeGenerator extends RecipeProvider {
                 .save(writer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, BWGItems.BLOOMING_ODDION.get())
-                        .define('#', Items.EGG)
+                        .define('#', Ingredient.merge(Arrays.asList(
+                                Ingredient.of(Items.EGG),
+                                Ingredient.of(Tags.Items.EGGS)
+                        )))
                         .define('X', Items.WHEAT)
                         .define('Y', BWGItems.COOKED_ODDION_BULB.get())
                         .pattern("X#X")
@@ -316,14 +321,20 @@ public class RecipeGenerator extends RecipeProvider {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BWGItems.GREEN_APPLE_PIE.get())
                 .requires(BWGItems.GREEN_APPLE.get())
                 .requires(Items.SUGAR)
-                .requires(Items.EGG)
+                .requires(Ingredient.merge(Arrays.asList(
+                        Ingredient.of(Items.EGG),
+                        Ingredient.of(Tags.Items.EGGS)
+                )))
                 .unlockedBy(getHasName(BWGItems.GREEN_APPLE.get()), has(BWGItems.GREEN_APPLE.get()))
                 .save(writer);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BWGItems.BLUEBERRY_PIE.get())
                 .requires(BWGItems.BLUEBERRIES.get())
                 .requires(Items.SUGAR)
-                .requires(Items.EGG)
+                .requires(Ingredient.merge(Arrays.asList(
+                        Ingredient.of(Items.EGG),
+                        Ingredient.of(Tags.Items.EGGS)
+                )))
                 .unlockedBy(getHasName(BWGItems.BLUEBERRIES.get()), has(BWGItems.BLUEBERRIES.get()))
                 .save(writer);
 
