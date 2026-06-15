@@ -1099,5 +1099,7 @@
   "subtitles.entity.oddion_death": "Oddion chết",
   "subtitles.entity.oddion_happy": "Oddion vui vẻ",
   "subtitles.entity.oddion_hurt": "Oddion đau",
-  "tooltip.waila.hatch_chance": "Tỷ lệ nở: %s"
+  "tooltip.waila.hatch_chance": "Tỷ lệ nở: %s",
+  "advancements.biomeswevegone.husbandry.forgotten_nostalgia.description": "Mọi thứ thật quen thuộc, như thể họ đã từng là một đứa trẻ trong giấc mơ của chính mình...",
+  "advancements.biomeswevegone.husbandry.forgotten_nostalgia.title": "Cho tôi xin một vé đi tuổi thơ"
 }

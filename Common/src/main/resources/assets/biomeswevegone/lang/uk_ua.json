@@ -1099,5 +1099,7 @@
   "subtitles.entity.oddion_death": "Цидуля гине",
   "subtitles.entity.oddion_happy": "Цидуля щасливо муркоче",
   "subtitles.entity.oddion_hurt": "Цидулю поранено",
-  "tooltip.waila.hatch_chance": "Шанс вилучення: %s"
+  "tooltip.waila.hatch_chance": "Шанс вилучення: %s",
+  "advancements.biomeswevegone.husbandry.forgotten_nostalgia.description": "Нагадує їм дитинство, яке вони ніколи не мали...",
+  "advancements.biomeswevegone.husbandry.forgotten_nostalgia.title": "Забуті спогади"
 }

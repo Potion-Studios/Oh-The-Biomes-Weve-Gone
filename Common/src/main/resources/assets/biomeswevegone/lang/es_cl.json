@@ -1099,5 +1099,7 @@
   "subtitles.entity.oddion_death": "Oddion muere",
   "subtitles.entity.oddion_happy": "Oddion ronronea feliz",
   "subtitles.entity.oddion_hurt": "Oddion herido",
-  "tooltip.waila.hatch_chance": "Probabilidad de eclosión: %s"
+  "tooltip.waila.hatch_chance": "Probabilidad de eclosión: %s",
+  "advancements.biomeswevegone.husbandry.forgotten_nostalgia.description": "Les recuerda una infancia que nunca tuvieron...",
+  "advancements.biomeswevegone.husbandry.forgotten_nostalgia.title": "Nostalgia olvidada"
 }

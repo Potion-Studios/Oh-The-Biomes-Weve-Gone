@@ -5,6 +5,8 @@
 - Add more comments to better clarify things to users in config files
 - Allow Horses to Eat Green Apples
 - Update Recipes that use Eggs to allow the use of #forge:eggs Tag
+- Amplified Audio for Pixel Club
+- Update Language Files
 
 # 1.7.5
 - Fix Incorrect English Language key for Granny Smith Advancement

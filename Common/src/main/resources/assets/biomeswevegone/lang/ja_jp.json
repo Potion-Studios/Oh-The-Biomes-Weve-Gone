@@ -1099,5 +1099,7 @@
   "item.biomeswevegone.rosy_wreath": "バラのリース",
   "item.biomeswevegone.winter_rosy_wreath": "ウィンターローズのリース",
   "item.biomeswevegone.wreath": "リース",
-  "tooltip.waila.hatch_chance": "孵化確率：%s"
+  "tooltip.waila.hatch_chance": "孵化確率：%s",
+  "advancements.biomeswevegone.husbandry.forgotten_nostalgia.description": "もう二度と戻れない子ども時代を思い出させる…",
+  "advancements.biomeswevegone.husbandry.forgotten_nostalgia.title": "忘れられた郷愁"
 }

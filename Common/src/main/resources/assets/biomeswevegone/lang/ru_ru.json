@@ -1099,5 +1099,7 @@
   "item.biomeswevegone.petal_wreath": "Лепестковый венок",
   "item.biomeswevegone.rosy_wreath": "Розовый венок",
   "item.biomeswevegone.winter_rosy_wreath": "Зимний розовый венок",
-  "item.biomeswevegone.wreath": "Венок"
+  "item.biomeswevegone.wreath": "Венок",
+  "advancements.biomeswevegone.husbandry.forgotten_nostalgia.description": "Напоминает им о детстве, которого у них не было..",
+  "advancements.biomeswevegone.husbandry.forgotten_nostalgia.title": "Забытая ностальгия"
 }

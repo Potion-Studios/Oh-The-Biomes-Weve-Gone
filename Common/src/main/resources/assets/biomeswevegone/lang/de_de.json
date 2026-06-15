@@ -1099,5 +1099,7 @@
   "subtitles.entity.oddion_death": "Oddion stirbt",
   "subtitles.entity.oddion_happy": "Oddion schnurrt glücklich",
   "subtitles.entity.oddion_hurt": "Oddion nimmt Schaden",
-  "tooltip.waila.hatch_chance": "Schlupfchance: %s"
+  "tooltip.waila.hatch_chance": "Schlupfchance: %s",
+  "advancements.biomeswevegone.husbandry.forgotten_nostalgia.description": "Erinnert sie an eine Kindheit, die sie nie hatten...",
+  "advancements.biomeswevegone.husbandry.forgotten_nostalgia.title": "Vergessene Nostalgie"
 }
