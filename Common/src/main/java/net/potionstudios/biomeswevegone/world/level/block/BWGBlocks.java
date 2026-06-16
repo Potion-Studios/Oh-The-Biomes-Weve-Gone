@@ -377,7 +377,7 @@ public class BWGBlocks {
 
     public static <B extends Block> Supplier<B> registerCubeAllBlockItem(String key, Function<BlockBehaviour.Properties, B> block, BlockBehaviour.Properties properties) {
         Supplier<B> holder = registerBlockItem(key, block, properties);
-        cubeAllBlocks.add(holder);
+        if (PlatformHandler.PLATFORM_HANDLER.isDatagen()) cubeAllBlocks.add(holder);
         return holder;
     }
 

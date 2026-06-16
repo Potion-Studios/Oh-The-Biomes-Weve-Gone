@@ -109,14 +109,14 @@ public class BWGItems {
     private static Supplier<MobBucketItem> registerMobBucket(String id, Supplier<EntityType<? extends Mob>> entity, Supplier<Fluid> fluid, Supplier<SoundEvent> sound) {
         Supplier<MobBucketItem> supplier = PlatformHandler.PLATFORM_HANDLER.createMobBucket(entity, fluid, sound);
         supplier = PlatformHandler.PLATFORM_HANDLER.register(BuiltInRegistries.ITEM, id, supplier);
-        SIMPLE_ITEMS.add(supplier);
+        if (PlatformHandler.PLATFORM_HANDLER.isDatagen()) SIMPLE_ITEMS.add(supplier);
         ITEMS.add(supplier);
         return supplier;
     }
 
     public static <I extends Item> Supplier<I> registerSimpleItem(String id, Function<Item.Properties, I> item, Item.Properties properties) {
         Supplier<I> supplier = registerItem(id, item, properties);
-        SIMPLE_ITEMS.add(supplier);
+        if (PlatformHandler.PLATFORM_HANDLER.isDatagen()) SIMPLE_ITEMS.add(supplier);
         return supplier;
     }
 
