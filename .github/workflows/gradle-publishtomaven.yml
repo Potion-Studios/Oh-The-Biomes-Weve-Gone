@@ -7,11 +7,14 @@ on:
       - 1.21.1
       - 1.21.4
       - 1.21.8
+      - 1.21.1
+
+permissions:
+  contents: write
 
 jobs:
   gradle:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v6
       - name: Set up JDK 21
@@ -32,3 +35,27 @@ jobs:
 
       - name: Build and Publish to Maven
         run: ./gradlew publish publishAllPublicationsToJTDev-Maven-RepositoryRepository
+
+  check-version:
+    needs: gradle
+    runs-on: ubuntu-latest
+    outputs:
+      is_release: ${{ steps.gate.outputs.is_release }}
+    steps:
+      - uses: actions/checkout@v6
+      - id: gate
+        run: |
+          VERSION=$(grep 'mod_version' gradle.properties | cut -d'=' -f2 | xargs)
+          if [[ "$VERSION" != *"-SNAPSHOT"* ]]; then
+            echo "is_release=true" >> $GITHUB_OUTPUT
+            echo "Proceeding with release for version: $VERSION"
+          else
+            echo "is_release=false" >> $GITHUB_OUTPUT
+            echo "Snapshot detected ($VERSION). Skipping release."
+          fi
+
+  trigger-release:
+    needs: check-version
+    if: needs.check-version.outputs.is_release == 'true'
+    uses: ./.github/workflows/publishRelease.yml
+    secrets: inherit
