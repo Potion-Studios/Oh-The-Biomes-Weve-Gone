@@ -3,7 +3,7 @@ package net.potionstudios.biomeswevegone.config;
 import com.google.gson.*;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
 import org.jetbrains.annotations.NotNull;
@@ -23,15 +23,15 @@ public class ConfigLoader {
 	/** The Gson instance for the Config Loader. */
 	private static final Gson GSON = new GsonBuilder()
 			.setPrettyPrinting().
-			registerTypeHierarchyAdapter(ResourceLocation.class, new TypeAdapter<ResourceLocation>() {
+			registerTypeHierarchyAdapter(Identifier.class, new TypeAdapter<Identifier>() {
 				@Override
-				public void write(JsonWriter out, ResourceLocation value) throws java.io.IOException {
+				public void write(JsonWriter out, Identifier value) throws java.io.IOException {
 					out.value(value == null ? null : value.toString());
 				}
 
 				@Override
-				public ResourceLocation read(JsonReader in) throws java.io.IOException {
-					return ResourceLocation.parse(in.nextString());
+				public Identifier read(JsonReader in) throws java.io.IOException {
+					return Identifier.parse(in.nextString());
 				}
 			})
 			.create();
@@ -92,7 +92,7 @@ public class ConfigLoader {
 	 * to the new config structure, and merges them on top of the defaults.
 	 * * TODO: Remove later
 	 */
-	@Deprecated(forRemoval = true, since = "2.6.0")
+	@Deprecated(forRemoval = true, since = "4.4.0")
 	private static void migrateLegacyConfig(Path legacyPath, Path newConfigPath, JsonObject defaultJson) throws Exception {
 		String json5Content = Files.readString(legacyPath);
 

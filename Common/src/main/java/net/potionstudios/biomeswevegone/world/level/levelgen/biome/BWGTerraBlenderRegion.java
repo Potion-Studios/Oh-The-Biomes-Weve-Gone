@@ -140,7 +140,7 @@ public class BWGTerraBlenderRegion extends Region {
             if (!registry.containsKey(biomeKey)) {
                 throw new IllegalArgumentException(String.format("\"%s\" is not a valid biome in the world registry!", biomeKey.identifier()));
             }
-            if (BWGWorldGenConfig.INSTANCE.biomes.getOrDefault(biomeKey.location(), true)) {
+            if (BWGWorldGenConfig.INSTANCE.biomes.getOrDefault(biomeKey.identifier(), true)) {
                 totalPairs.increment();
                 boolean mapped = false;
                 boolean alreadyMappedOutsideSwapper = false;
@@ -156,7 +156,7 @@ public class BWGTerraBlenderRegion extends Region {
                         throw new UnsupportedOperationException(String.format("Attempting to assign a biome resource key in both the swapper and biome selectors. We're crashing your game to let you know that \"%s\" was put in the biome selectors but will always be swapped by \"%s\" due to the swapper. In region \"%s\".", biomeKey.identifier(), this.swapper.get(biomeKey).identifier(), this.getName().toString()));
                     }
                     ResourceKey<Biome> replacement = this.swapper.get(biomeKey);
-                    ResourceKey<Biome> biomeResourceKey = BWGWorldGenConfig.INSTANCE.biomes.getOrDefault(replacement.location(), true) ? replacement : Region.DEFERRED_PLACEHOLDER;
+                    ResourceKey<Biome> biomeResourceKey = BWGWorldGenConfig.INSTANCE.biomes.getOrDefault(replacement.identifier(), true) ? replacement : Region.DEFERRED_PLACEHOLDER;
                     mapper.accept(new Pair<>(parameterPoint, this.globalSwapper.getOrDefault(biomeResourceKey, biomeResourceKey)));
                     bygMapperAccepted.increment();
                     mapped = true;
