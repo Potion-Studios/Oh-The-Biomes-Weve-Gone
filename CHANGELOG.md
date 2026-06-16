@@ -1,6 +1,12 @@
-# 4.4.0
+# 4.4.0 – Config Changes
+- Move worldgeneration config to JSON from json5 to match all other configs
+- Correctly update missing keys in JSON configs
+- Automatically migrate legacy config files to the new format (Will be removed in 1.9.0)
+- Add more comments to better clarify things to users in config files
 - Add Green Apple to Horse Food Item Tag
 - Update Recipes that use Eggs to use #c:eggs Tag
+- Amplified Audio for Pixel Club
+- Update Language Files
 
 # 4.3.3
 - Add the ability to disable Features added to Vanilla Biomes on NeoForge
