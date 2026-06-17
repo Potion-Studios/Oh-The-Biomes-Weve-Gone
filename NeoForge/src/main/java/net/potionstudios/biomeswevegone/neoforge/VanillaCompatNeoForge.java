@@ -1,9 +1,7 @@
 package net.potionstudios.biomeswevegone.neoforge;
 
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.npc.villager.VillagerTrades;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.level.block.Blocks;
@@ -15,11 +13,8 @@ import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.player.BonemealEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
-import net.neoforged.neoforge.event.village.VillagerTradesEvent;
-import net.neoforged.neoforge.event.village.WandererTradesEvent;
 import net.potionstudios.biomeswevegone.util.BoneMealHandler;
 import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
-import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import net.potionstudios.biomeswevegone.world.item.brewing.BWGBrewingRecipes;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
@@ -27,7 +22,6 @@ import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
 
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Used for Vanilla compatibility on the Forge platform.
@@ -45,11 +39,6 @@ public class VanillaCompatNeoForge {
 
     public static void registerVanillaCompatEvents(final IEventBus bus) {
         bus.addListener(VanillaCompatNeoForge::registerTillables);
-        if (!BWGTradesConfig.INSTANCE.trades.disableTrades.value()) {
-            bus.addListener(VanillaCompatNeoForge::onVillagerTrade);
-            if (BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value())
-                bus.addListener(VanillaCompatNeoForge::onWanderingTrade);
-        }
         bus.addListener(VanillaCompatNeoForge::onBoneMealUse);
         bus.addListener(VanillaCompatNeoForge::registerBrewingRecipes);
         bus.addListener(VanillaCompatNeoForge::onVillagerInteract);
@@ -69,31 +58,6 @@ public class VanillaCompatNeoForge {
             else if (state.is(BWGBlocks.PEAT.get()))
                 event.setFinalState(Blocks.FARMLAND.defaultBlockState());
         }
-    }
-
-    /**
-     * Register villager trades.
-     * @see VillagerTradesEvent
-     */
-    private static void onVillagerTrade(final VillagerTradesEvent event) {
-        if (BWGVillagerTrades.TRADES.containsKey(event.getType())) {
-            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
-            BWGVillagerTrades.TRADES.get(event.getType())
-                    .forEach((level, offers) -> {
-                        List<VillagerTrades.ItemListing> tradeList = trades.get(level);
-                        tradeList.addAll(offers);
-                    });
-        }
-    }
-
-    /**
-     * Register wandering trader trades.
-     * @see WandererTradesEvent
-     */
-    private static void onWanderingTrade(final WandererTradesEvent event) {
-        BWGVillagerTrades.WANDERING_TRADER_TRADES.forEach((level, offers) -> {
-            for (VillagerTrades.ItemListing itemListing : offers) event.getGenericTrades().add(itemListing);
-        });
     }
 
     /**

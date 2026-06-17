@@ -41,7 +41,7 @@ public class BiomesWeveGoneClientNeoForge {
         eventBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> BiomesWeveGoneClient.registerBlockEntityRenderers(event::registerBlockEntityRenderer));
         eventBus.addListener((RegisterParticleProvidersEvent event) -> BiomesWeveGoneClient.registerParticles((type, spriteProviderFactory) -> event.registerSpriteSet(type, spriteProviderFactory::apply)));
         eventBus.addListener((EntityRenderersEvent.RegisterLayerDefinitions event) -> BiomesWeveGoneClient.registerLayerDefinitions(event::registerLayerDefinition));
-        eventBus.addListener((RegisterColorHandlersEvent.Block event) -> BiomesWeveGoneClient.registerBlockColors(event::register));
+        eventBus.addListener((RegisterColorHandlersEvent.BlockTintSources event) -> BiomesWeveGoneClient.registerBlockColors(event::register));
         eventBus.addListener((RegisterColorHandlersEvent.ItemTintSources event) -> BiomesWeveGoneClient.registerItemTintSources(event::register));
         eventBus.addListener((ModelEvent.RegisterStandalone event) -> BiomesWeveGoneClient.registerAdditionalModels((name) -> {
             StandaloneModelKey<BlockStateModel> key = new StandaloneModelKey<>(() -> BiomesWeveGone.MOD_ID + ":" + name);

@@ -16,7 +16,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.FarmBlock;
+import net.minecraft.world.level.block.FarmlandBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -59,7 +59,7 @@ public class OddionCrop extends BWGBerryBush {
 
     private void maxAgeHarvest(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player) {
         popResource(level, pos, new ItemStack(BWGItems.ODDION_BULB.get(), 2));
-        level.playSound(player, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
+        level.playSound(player, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.getRandom().nextFloat() * 0.4F);
         BlockState blockState = state.setValue(AGE, 1).setValue(TIMER, 0).setValue(HATCHING, false);
         level.setBlock(pos, blockState, 2);
         level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, blockState));
@@ -101,7 +101,7 @@ public class OddionCrop extends BWGBerryBush {
 
     @Override
     protected boolean mayPlaceOn(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
-        return state.getBlock() instanceof FarmBlock;
+        return state.getBlock() instanceof FarmlandBlock;
     }
 
     private void spawnOddion(@NotNull ServerLevel level, @NotNull BlockPos pos) {

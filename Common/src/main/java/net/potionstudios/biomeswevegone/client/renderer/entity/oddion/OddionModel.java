@@ -4,8 +4,8 @@ import net.minecraft.resources.Identifier;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.entity.oddion.Oddion;
 import org.jspecify.annotations.NonNull;
-import software.bernie.geckolib.model.GeoModel;
-import software.bernie.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.model.GeoModel;
+import com.geckolib.renderer.base.GeoRenderState;
 
 /**
  * Oddion Model

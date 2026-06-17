@@ -3,6 +3,7 @@ package net.potionstudios.biomeswevegone.client;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.block.BlockColors;
+import net.minecraft.client.color.block.BlockTintSource;
 import net.minecraft.client.color.item.ItemTintSource;
 import net.minecraft.client.model.object.boat.BoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -55,6 +56,7 @@ import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -80,8 +82,8 @@ public class BiomesWeveGoneClient {
      * @param woodType the wood type to register
      */
     private static void registerWoodTypes(WoodType woodType) {
-        Sheets.SIGN_MATERIALS.put(woodType, Sheets.createSignMaterial(woodType));
-        Sheets.HANGING_SIGN_MATERIALS.put(woodType, Sheets.createHangingSignMaterial(woodType));
+        Sheets.SIGN_SPRITES.put(woodType, Sheets.SIGN_MAPPER.apply(BiomesWeveGone.id(woodType.name())));
+        Sheets.HANGING_SIGN_SPRITES.put(woodType, Sheets.HANGING_SIGN_MAPPER.apply(BiomesWeveGone.id(woodType.name())));
     }
 
     /**
@@ -106,7 +108,7 @@ public class BiomesWeveGoneClient {
      * @see BWGBlockEntityType
      */
     public static void registerBlockEntityRenderers(BiConsumer<BlockEntityType<? extends BlockEntity>, BlockEntityRendererProvider> consumer) {
-        consumer.accept(BWGBlockEntityType.SIGNS.get(), SignRenderer::new);
+        consumer.accept(BWGBlockEntityType.SIGNS.get(), StandingSignRenderer::new);
         consumer.accept(BWGBlockEntityType.HANGING_SIGNS.get(), HangingSignRenderer::new);
     }
 
@@ -173,7 +175,7 @@ public class BiomesWeveGoneClient {
      * Registers the block colors.
      * @see BlockColors
      */
-    public static void registerBlockColors(BiConsumer<BlockColor, Block[]> consumer) {
+    public static void registerBlockColors(BiConsumer<List<BlockTintSource>, Block[]> consumer) {
         consumer.accept((state, view, pos, tintIndex) -> view != null && pos != null ? BiomeColors.getAverageGrassColor(view, pos) : GrassColor.getDefaultColor(), new Block[] {BWGBlocks.FLOWER_PATCH.get(), BWGBlocks.TINY_LILY_PADS.get(), BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.WHITE_SAKURA_PETALS.get(), BWGBlocks.YELLOW_SAKURA_PETALS.get()});
         consumer.accept((state, view, pos, tintIndex) -> view != null && pos != null ? BiomeColors.getAverageFoliageColor(view, pos) : FoliageColor.get(0.5D, 1.0D), new Block[] {
                 BWGBlocks.CLOVER_PATCH.get(), BWGBlocks.LEAF_PILE.get(), BWGBlocks.POISON_IVY.get(), BWGWood.MAHOGANY.leaves(),
