@@ -1,11 +1,9 @@
 package net.potionstudios.biomeswevegone.world.entity.pumpkinwarden;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.Dynamic;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.GlobalPos;
 import net.minecraft.core.Holder;
@@ -31,13 +29,13 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.ActivityData;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
-import net.minecraft.world.entity.ai.sensing.Sensor;
 import net.minecraft.world.entity.ai.sensing.SensorType;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
@@ -59,7 +57,6 @@ import net.potionstudios.biomeswevegone.tags.BWGItemTags;
 import net.potionstudios.biomeswevegone.world.attribute.BWGEnvironmentAttributes;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.ai.behavior.PumpkinWardenGoalPackages;
-import net.potionstudios.biomeswevegone.world.entity.ai.memory.BWGMemoryModuleType;
 import net.potionstudios.biomeswevegone.world.entity.ai.sensing.BWGSensorType;
 import net.potionstudios.biomeswevegone.world.entity.ai.village.poi.BWGPoiTypes;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -76,6 +73,8 @@ import com.geckolib.animation.object.PlayState;
 import com.geckolib.animation.state.AnimationTest;
 import com.geckolib.util.GeckoLibUtil;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.BiPredicate;
@@ -88,54 +87,48 @@ import java.util.function.IntFunction;
  * @author JT122406
  */
 public class PumpkinWarden extends PathfinderMob implements GeoEntity {
-
     private final AnimatableInstanceCache animatableInstanceCache = GeckoLibUtil.createInstanceCache(this);
     private BlockPos jukebox;
     private boolean party;
     private static final EntityDataAccessor<Boolean> HIDING = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Integer> DATA_VARIANT = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.INT);
 
-    private static final ImmutableList<MemoryModuleType<?>> MEMORY_TYPES = ImmutableList.of(
-            MemoryModuleType.HOME,
-            MemoryModuleType.MEETING_POINT,
-            MemoryModuleType.NEAREST_LIVING_ENTITIES,
-            MemoryModuleType.NEAREST_VISIBLE_LIVING_ENTITIES,
-            BWGMemoryModuleType.VISIBLE_PUMPKIN_WARDENS.get(),
-            MemoryModuleType.VISIBLE_VILLAGER_BABIES,
-            MemoryModuleType.NEAREST_VISIBLE_WANTED_ITEM,
-            MemoryModuleType.ITEM_PICKUP_COOLDOWN_TICKS,
-            MemoryModuleType.WALK_TARGET,
-            MemoryModuleType.LOOK_TARGET,
-            MemoryModuleType.INTERACTION_TARGET,
-            MemoryModuleType.PATH,
-            MemoryModuleType.DOORS_TO_CLOSE,
-            MemoryModuleType.HURT_BY,
-            MemoryModuleType.HURT_BY_ENTITY,
-            MemoryModuleType.NEAREST_HOSTILE,
-            MemoryModuleType.HEARD_BELL_TIME,
-            MemoryModuleType.CANT_REACH_WALK_TARGET_SINCE,
-            BWGMemoryModuleType.HOPPER_BARREL_LOCATION.get()
+	public static final Map<MemoryModuleType<GlobalPos>, BiPredicate<PumpkinWarden, Holder<PoiType>>> POI_MEMORIES = ImmutableMap.of(
+            MemoryModuleType.HOME, (_, holder) -> holder.is(BWGPoiTypes.PUMPKIN_BURROW),
+            MemoryModuleType.MEETING_POINT, (_, holder) -> holder.is(PoiTypes.MEETING)
     );
 
-    private static final ImmutableList<SensorType<? extends Sensor<? super PumpkinWarden>>> SENSOR_TYPES = ImmutableList.of(
-            SensorType.NEAREST_LIVING_ENTITIES,
-            SensorType.NEAREST_PLAYERS,
-            SensorType.NEAREST_ITEMS,
-            SensorType.VILLAGER_HOSTILES,
-            BWGSensorType.NEAREST_PUMPKIN_WARDENS.get(),
-            SensorType.VILLAGER_BABIES,
-            SensorType.HURT_BY
-    );
+    private static final Brain.Provider<PumpkinWarden> BRAIN_PROVIDER = Brain.provider(
+            List.of(
+                    SensorType.NEAREST_LIVING_ENTITIES,
+                    SensorType.NEAREST_PLAYERS,
+                    SensorType.NEAREST_ITEMS,
+                    SensorType.VILLAGER_HOSTILES,
+                    BWGSensorType.NEAREST_PUMPKIN_WARDENS.get(),
+                    SensorType.VILLAGER_BABIES,
+                    SensorType.HURT_BY
+            ), (body) -> {
+                List<ActivityData<PumpkinWarden>> activities = new ArrayList<>();
 
-    public static final Map<MemoryModuleType<GlobalPos>, BiPredicate<PumpkinWarden, Holder<PoiType>>> POI_MEMORIES = ImmutableMap.of(
-            MemoryModuleType.HOME, (pumpkinWarden, holder) -> holder.is(BWGPoiTypes.PUMPKIN_BURROW),
-            MemoryModuleType.MEETING_POINT, (pumpkinWarden, holder) -> holder.is(PoiTypes.MEETING)
+                activities.add(ActivityData.create(Activity.CORE, PumpkinWardenGoalPackages.getCorePackage()));
+                activities.add(ActivityData.create(Activity.PLAY, PumpkinWardenGoalPackages.getPlayPackage()));
+                activities.add(ActivityData.create(Activity.IDLE, PumpkinWardenGoalPackages.getIdlePackage()));
+                activities.add(ActivityData.create(Activity.WORK, PumpkinWardenGoalPackages.getWorkPackage()));
+                activities.add(ActivityData.create(Activity.REST, PumpkinWardenGoalPackages.getRestPackage()));
+                activities.add(ActivityData.create(Activity.PANIC, PumpkinWardenGoalPackages.getPanicPackage()));
+                activities.add(ActivityData.create(Activity.HIDE, PumpkinWardenGoalPackages.getHidePackage()));
+                activities.add(ActivityData.create(Activity.MEET,
+                        PumpkinWardenGoalPackages.getMeetPackage(),
+                        ImmutableSet.of(Pair.of(MemoryModuleType.MEETING_POINT, MemoryStatus.VALUE_PRESENT))));
+
+                return activities;
+            }
     );
 
     public PumpkinWarden(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
-        setPathfindingMalus(PathType.DANGER_FIRE, 16.0F);
-        setPathfindingMalus(PathType.DAMAGE_FIRE, -1.0F);
+        setPathfindingMalus(PathType.FIRE_IN_NEIGHBOR, 16.0F);
+        setPathfindingMalus(PathType.FIRE_IN_NEIGHBOR, -1.0F);
         getNavigation().setCanOpenDoors(true);
         getNavigation().setCanFloat(true);
     }
@@ -146,38 +139,21 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    protected Brain.@NotNull Provider<?> brainProvider() {
-        return Brain.provider(MEMORY_TYPES, SENSOR_TYPES);
-    }
-
-    @Override
-    protected @NotNull Brain<?> makeBrain(@NotNull Dynamic<?> dynamic) {
-        Brain<PumpkinWarden> brain = (Brain<PumpkinWarden>) super.makeBrain(dynamic);
+    protected @NonNull Brain<PumpkinWarden> makeBrain(Brain.@NonNull Packed packedBrain) {
+        Brain<PumpkinWarden> brain = BRAIN_PROVIDER.makeBrain(this, packedBrain);
         registerBrainGoals(brain);
         return brain;
     }
 
-    private void refreshBrain(ServerLevel serverLevel) {
+    private void refreshBrain(final ServerLevel serverLevel) {
         Brain<PumpkinWarden> brain = this.getBrain();
         brain.stopAll(serverLevel, this);
-        this.brain = brain.copyWithoutBehaviors();
+        this.brain = BRAIN_PROVIDER.makeBrain(this, brain.pack());
         this.registerBrainGoals(this.getBrain());
     }
 
-    private void registerBrainGoals(Brain<PumpkinWarden> brain) {
+    private void registerBrainGoals(final Brain<PumpkinWarden> brain) {
         brain.setSchedule(BWGEnvironmentAttributes.PUMPKIN_WARDEN_ACTIVITY.get());
-        brain.addActivity(Activity.CORE, PumpkinWardenGoalPackages.getCorePackage());
-        brain.addActivity(Activity.PLAY, PumpkinWardenGoalPackages.getPlayPackage());
-        brain.addActivity(Activity.IDLE, PumpkinWardenGoalPackages.getIdlePackage());
-        brain.addActivity(Activity.WORK, PumpkinWardenGoalPackages.getWorkPackage());
-        brain.addActivity(Activity.REST, PumpkinWardenGoalPackages.getRestPackage());
-        brain.addActivity(Activity.PANIC, PumpkinWardenGoalPackages.getPanicPackage());
-        brain.addActivity(Activity.HIDE, PumpkinWardenGoalPackages.getHidePackage());
-        brain.addActivityWithConditions(
-                Activity.MEET,
-                PumpkinWardenGoalPackages.getMeetPackage(),
-                ImmutableSet.of(Pair.of(MemoryModuleType.MEETING_POINT, MemoryStatus.VALUE_PRESENT))
-        );
         brain.setCoreActivities(ImmutableSet.of(Activity.CORE));
         brain.setDefaultActivity(Activity.PLAY);
         if (isHiding()) brain.setActiveActivityIfPossible(Activity.HIDE);

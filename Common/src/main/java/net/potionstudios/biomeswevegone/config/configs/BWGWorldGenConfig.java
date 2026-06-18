@@ -2,7 +2,6 @@ package net.potionstudios.biomeswevegone.config.configs;
 
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.level.biome.Biome;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.config.ConfigLoader;
 import net.potionstudios.biomeswevegone.config.ConfigUtils;

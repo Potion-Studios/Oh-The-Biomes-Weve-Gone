@@ -22,7 +22,7 @@ public class PumpkinWardenRenderer<R extends EntityRenderState & GeoRenderState>
 
     public PumpkinWardenRenderer(EntityRendererProvider.Context context) {
         super(context, new PumpkinWardenModel<>());
-        getRenderLayers().add(new ItemInHandGeoLayer<>(this));
+        getRenderLayers().add(new ItemInHandGeoLayer<>(context, this));
     }
 
     @Override

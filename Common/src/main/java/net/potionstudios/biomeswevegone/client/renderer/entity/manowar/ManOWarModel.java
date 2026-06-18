@@ -25,7 +25,7 @@ class ManOWarModel<T extends ManOWar> extends GeoModel<T> {
     }
 
     @Override
-    public @NonNull Identifier getAnimationResource(T manOWar) {
+    public @NonNull Identifier getAnimationResource(@NonNull T manOWar) {
         return BiomesWeveGone.id("man_o_war");
     }
 }

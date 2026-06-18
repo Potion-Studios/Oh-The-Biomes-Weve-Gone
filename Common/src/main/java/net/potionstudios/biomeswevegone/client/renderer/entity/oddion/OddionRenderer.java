@@ -21,7 +21,7 @@ public class OddionRenderer<R extends EntityRenderState & GeoRenderState> extend
     }
 
     @Override
-    protected float getShadowRadius(R renderState) {
+    protected float getShadowRadius(@NonNull R renderState) {
         return 0.4f;
     }
 

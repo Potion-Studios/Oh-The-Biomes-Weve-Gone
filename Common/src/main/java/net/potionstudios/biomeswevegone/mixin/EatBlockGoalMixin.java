@@ -39,9 +39,9 @@ public abstract class EatBlockGoalMixin {
     }
 
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/core/BlockPos;below()Lnet/minecraft/core/BlockPos;"))
-    private void tick(CallbackInfo ci, @Local BlockPos blockPos) {
+    private void tick(CallbackInfo ci, @Local(name = "pos") BlockPos pos) {
         if (level instanceof ServerLevel serverLevel) {
-            BlockPos below = blockPos.below();
+            BlockPos below = pos.below();
             if (serverLevel.getBlockState(below).is(BWGBlocks.LUSH_GRASS_BLOCK.get()))
                 if (serverLevel.getGameRules().get(GameRules.MOB_GRIEFING)) {
                     serverLevel.levelEvent(2001, below, Block.getId(BWGBlocks.LUSH_GRASS_BLOCK.get().defaultBlockState()));

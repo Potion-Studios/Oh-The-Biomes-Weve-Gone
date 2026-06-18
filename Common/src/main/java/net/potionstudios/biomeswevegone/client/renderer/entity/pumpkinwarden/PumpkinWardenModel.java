@@ -25,7 +25,7 @@ class PumpkinWardenModel<T extends PumpkinWarden> extends GeoModel<T> {
     }
 
     @Override
-    public @NonNull Identifier getAnimationResource(T pumpkinWarden) {
+    public @NonNull Identifier getAnimationResource(@NonNull T pumpkinWarden) {
         return BiomesWeveGone.id("pumpkinwarden");
     }
 }

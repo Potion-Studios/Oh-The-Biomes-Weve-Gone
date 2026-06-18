@@ -31,13 +31,13 @@ public class AddItemModifier extends LootModifier {
 
     private final List<Item> items;
 
-    public AddItemModifier(LootItemCondition[] conditionsIn, List<Item> items) {
-        super(conditionsIn, 1);
+    public AddItemModifier(LootItemCondition[] conditionsIn, Integer integer, List<Item> items) {
+        super(conditionsIn, integer);
         this.items = items;
     }
 
-    public AddItemModifier(LootItemCondition[] conditionsIn, Item... items) {
-        this(conditionsIn, Arrays.asList(items));
+    public AddItemModifier(LootItemCondition[] conditionsIn, Integer integer, Item... items) {
+        this(conditionsIn, integer, Arrays.asList(items));
     }
 
     @Override

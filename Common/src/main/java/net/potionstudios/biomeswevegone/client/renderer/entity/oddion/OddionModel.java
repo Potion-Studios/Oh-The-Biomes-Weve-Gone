@@ -25,7 +25,7 @@ class OddionModel extends GeoModel<Oddion> {
     }
 
     @Override
-    public @NonNull Identifier getAnimationResource(Oddion animatable) {
+    public @NonNull Identifier getAnimationResource(@NonNull Oddion animatable) {
         return BiomesWeveGone.id("oddion");
     }
 }

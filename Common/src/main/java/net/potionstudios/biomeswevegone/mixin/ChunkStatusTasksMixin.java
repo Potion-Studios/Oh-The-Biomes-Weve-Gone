@@ -31,13 +31,13 @@ import java.util.function.Function;
 public abstract class ChunkStatusTasksMixin {
 
     @Inject(method = "generateSurface", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/chunk/ChunkGenerator;buildSurface(Lnet/minecraft/server/level/WorldGenRegion;Lnet/minecraft/world/level/StructureManager;Lnet/minecraft/world/level/levelgen/RandomState;Lnet/minecraft/world/level/chunk/ChunkAccess;)V"))
-    private static void injectExtensions(WorldGenContext worldGenContext, ChunkStep step, StaticCache2D<GenerationChunkHolder> cache, ChunkAccess chunk, CallbackInfoReturnable<CompletableFuture<ChunkAccess>> cir, @Local ServerLevel serverLevel, @Local WorldGenRegion worldGenRegion) {
-        BiomeManager biomeManager = worldGenRegion.getBiomeManager().withDifferentSource((x, y, z) -> worldGenContext.generator().getBiomeSource().getNoiseBiome(x, y, z, worldGenContext.level().getChunkSource().randomState().sampler()));
+    private static void injectExtensions(WorldGenContext context, ChunkStep step, StaticCache2D<GenerationChunkHolder> chunks, ChunkAccess chunk, CallbackInfoReturnable<CompletableFuture<ChunkAccess>> cir, @Local(name = "level") ServerLevel level, @Local(name = "region") WorldGenRegion region) {
+        BiomeManager biomeManager = region.getBiomeManager().withDifferentSource((x, y, z) -> context.generator().getBiomeSource().getNoiseBiome(x, y, z, context.level().getChunkSource().randomState().sampler()));
 
         Long2ObjectOpenHashMap<Long2ObjectOpenHashMap<Holder<Biome>>> biomeCache = new Long2ObjectOpenHashMap<>();
 
-        Function<BlockPos, Holder<Biome>> biomeGetter = pos -> biomeCache.computeIfAbsent(ChunkPos.asLong(pos), key -> new Long2ObjectOpenHashMap<>()).computeIfAbsent(ChunkPos.asLong(pos.getX(), pos.getZ()), key1 -> biomeManager.getBiome(pos));
-        CragGardenExtension.runCragGardenExtension(biomeGetter, chunk, serverLevel.getSeed(), worldGenRegion.registryAccess().lookupOrThrow(Registries.NOISE).getValue(Noises.SURFACE), worldGenRegion.registryAccess().lookupOrThrow(Registries.NOISE).getValue(Noises.SURFACE_SECONDARY));
-        BasaltBarreraExtension.runBasaltBarreraExtension(biomeGetter, chunk, worldGenRegion, worldGenContext.generator());
+        Function<BlockPos, Holder<Biome>> biomeGetter = pos -> biomeCache.computeIfAbsent(ChunkPos.pack(pos), _ -> new Long2ObjectOpenHashMap<>()).computeIfAbsent(ChunkPos.pack(pos.getX(), pos.getZ()), _ -> biomeManager.getBiome(pos));
+        CragGardenExtension.runCragGardenExtension(biomeGetter, chunk, level.getSeed(), region.registryAccess().lookupOrThrow(Registries.NOISE).getValue(Noises.SURFACE), region.registryAccess().lookupOrThrow(Registries.NOISE).getValue(Noises.SURFACE_SECONDARY));
+        BasaltBarreraExtension.runBasaltBarreraExtension(biomeGetter, chunk, region, context.generator());
     }
 }

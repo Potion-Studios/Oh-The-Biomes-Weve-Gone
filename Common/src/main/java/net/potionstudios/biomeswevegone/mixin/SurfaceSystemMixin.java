@@ -38,7 +38,7 @@ public abstract class SurfaceSystemMixin implements BandsContext {
     private final Map<BandsRuleSource, BlockState[]> bandsLookup = new Reference2ObjectOpenHashMap<>();
 
     @Shadow
-    protected abstract void erodedBadlandsExtension(BlockColumn blockColumn, int x, int z, int height, LevelHeightAccessor level);
+    protected abstract void erodedBadlandsExtension(BlockColumn column, int blockX, int blockZ, int height, LevelHeightAccessor protoChunk);
 
     @Shadow
     @Final
@@ -47,15 +47,15 @@ public abstract class SurfaceSystemMixin implements BandsContext {
     @Shadow @Final private NormalNoise surfaceSecondaryNoise;
 
     @Inject(method = "buildSurface", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/chunk/ChunkAccess;getHeight(Lnet/minecraft/world/level/levelgen/Heightmap$Types;II)I", ordinal = 1))
-    private void injectShatteredGlacierExtension(RandomState randomState, BiomeManager biomeManager, Registry<Biome> biomes, boolean useLegacyRandomSource, WorldGenerationContext context, ChunkAccess chunk, NoiseChunk noiseChunk, SurfaceRules.RuleSource ruleSource, CallbackInfo ci, @Local BlockColumn blockColumn, @Local(ordinal = 4) int m, @Local(ordinal = 5) int n, @Local(ordinal = 6) int o, @Local Holder<Biome> holder) {
-        if (holder.is(BWGBiomes.SHATTERED_GLACIER) || holder.is(BWGBiomes.ERODED_BOREALIS)) {
-            this.erodedBadlandsExtension(blockColumn, m, n, o, chunk);
+    private void injectShatteredGlacierExtension(RandomState randomState, BiomeManager biomeManager, Registry<Biome> biomes, boolean useLegacyRandom, WorldGenerationContext generationContext, ChunkAccess protoChunk, NoiseChunk noiseChunk, SurfaceRules.RuleSource ruleSource, CallbackInfo ci, @Local(name = "column") BlockColumn column, @Local(name = "blockX") int blockX, @Local(name = "blockZ") int blockZ, @Local(name = "startingHeight") int startingHeight, @Local(name = "surfaceBiome") Holder<Biome> surfaceBiome) {
+        if (surfaceBiome.is(BWGBiomes.SHATTERED_GLACIER) || surfaceBiome.is(BWGBiomes.ERODED_BOREALIS)) {
+            this.erodedBadlandsExtension(column, blockX, blockZ, startingHeight, protoChunk);
         }
     }
 
     @Override
     public BlockState getBandsState(BandsRuleSource bandsRuleSource, WeightedList<BlockState> bandStates, IntProvider bandSizeProvider, IntProvider bandsCountProvider, int x, int y, int z, float frequency, int noiseScale) {
-        BlockState[] blockStates = bandsLookup.computeIfAbsent(bandsRuleSource, key -> {
+        BlockState[] blockStates = bandsLookup.computeIfAbsent(bandsRuleSource, _ -> {
             List<BlockState> states = new ArrayList<>();
             RandomSource random = this.noiseRandom.at(BlockPos.ZERO);
             int bandsCount = bandsCountProvider.sample(random);
