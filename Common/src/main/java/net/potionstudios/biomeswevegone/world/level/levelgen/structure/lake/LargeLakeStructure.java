@@ -68,7 +68,7 @@ public class LargeLakeStructure extends Structure {
     private void createLakePieces(GenerationContext context, StructurePiecesBuilder piecesBuilder, int arenaFloorRadius, BlockPos arenaOrigin, int lakeDepth, LevelHeightAccessor levelHeightAccessor) {
         for (int chunkX = -(SectionPos.blockToSectionCoord(arenaFloorRadius) + 1); chunkX <= SectionPos.blockToSectionCoord(arenaFloorRadius) + 1; chunkX++) {
             for (int chunkZ = -(SectionPos.blockToSectionCoord(arenaFloorRadius) + 1); chunkZ <= SectionPos.blockToSectionCoord(arenaFloorRadius) + 1; chunkZ++) {
-                BlockPos chunkWorldPos = new BlockPos(SectionPos.sectionToBlockCoord(context.chunkPos().x + chunkX), arenaOrigin.getY(), SectionPos.sectionToBlockCoord(context.chunkPos().z + chunkZ));
+                BlockPos chunkWorldPos = new BlockPos(SectionPos.sectionToBlockCoord(context.chunkPos().x() + chunkX), arenaOrigin.getY(), SectionPos.sectionToBlockCoord(context.chunkPos().z() + chunkZ));
                 BoundingBox boundingBox = new BoundingBox(
                         chunkWorldPos.getX(), levelHeightAccessor.getMinY(), chunkWorldPos.getZ(),
                         chunkWorldPos.getX() + 15, levelHeightAccessor.getMaxY(), chunkWorldPos.getZ() + 15

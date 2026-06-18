@@ -56,7 +56,7 @@ public final class BoneMealHandler {
             if (blockState2.isAir()) {
                 Holder<PlacedFeature> holder;
                 if (random.nextInt(8) == 0) {
-                    List<ConfiguredFeature<?, ?>> list = level.getBiome(blockPos2).value().getGenerationSettings().getFlowerFeatures();
+                    List<ConfiguredFeature<?, ?>> list = level.getBiome(blockPos2).value().getGenerationSettings().getBoneMealFeatures();
                     if (list.isEmpty()) continue;
 
                     holder = randomizeFlower ? getRandElement(list, random) : ((RandomPatchConfiguration) list.getFirst().config()).feature();

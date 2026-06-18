@@ -70,7 +70,7 @@ public class ArchPiece extends StructurePiece {
 
     @Override
     public void postProcess(WorldGenLevel level, @NotNull StructureManager structureManager, @NotNull ChunkGenerator generator, @NotNull RandomSource random, @NotNull BoundingBox box, ChunkPos chunkPos, @NotNull BlockPos pos) {
-        ChunkAccess chunk = level.getChunk(chunkPos.x, chunkPos.z); // Minimize getChunk calls
+        ChunkAccess chunk = level.getChunk(chunkPos.x(), chunkPos.z()); // Minimize getChunk calls
 
         LongSet cache = new LongOpenHashSet();
         Consumer<BlockPos> blockPosConsumer = blockPos -> {
@@ -87,7 +87,7 @@ public class ArchPiece extends StructurePiece {
             cache.forEach(packedPos -> {
                 mutableBlockPos.set(packedPos);
                 if (blockPlacement.getFirst().test(level, mutableBlockPos)) {
-                    chunk.setBlockState(mutableBlockPos, blockPlacement.getSecond().getState(random, mutableBlockPos), 0);
+                    chunk.setBlockState(mutableBlockPos, blockPlacement.getSecond().getState(level, random, mutableBlockPos), 0);
                 }
             });
         }

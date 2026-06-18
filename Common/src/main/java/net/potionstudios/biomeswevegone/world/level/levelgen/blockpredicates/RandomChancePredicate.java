@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.valueproviders.FloatProvider;
+import net.minecraft.util.valueproviders.FloatProviders;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -14,7 +15,7 @@ public record RandomChancePredicate(FloatProvider chance) implements BlockPredic
 
 	public static final MapCodec<RandomChancePredicate> CODEC = RecordCodecBuilder.mapCodec(instance ->
 			instance.group(
-					FloatProvider.CODEC.fieldOf("chance").forGetter(randomChancePredicate -> randomChancePredicate.chance)
+					FloatProviders.CODEC.fieldOf("chance").forGetter(randomChancePredicate -> randomChancePredicate.chance)
 			).apply(instance, RandomChancePredicate::new)
 	);
 

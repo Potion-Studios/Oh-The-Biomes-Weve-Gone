@@ -6,7 +6,9 @@ import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.FloatProvider;
+import net.minecraft.util.valueproviders.FloatProviders;
 import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.util.valueproviders.IntProviders;
 import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.phys.Vec3;
@@ -24,8 +26,8 @@ public record ArchConfig(
 
     public static final Codec<ArchConfig> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
-                    IntProvider.POSITIVE_CODEC.fieldOf("length").forGetter(ArchConfig::length),
-                    IntProvider.POSITIVE_CODEC.fieldOf("height").forGetter(ArchConfig::height),
+                    IntProviders.POSITIVE_CODEC.fieldOf("length").forGetter(ArchConfig::length),
+                    IntProviders.POSITIVE_CODEC.fieldOf("height").forGetter(ArchConfig::height),
                     CheckedBlockPlacement.CODEC.fieldOf("block_placement").forGetter(ArchConfig::checkedBlockPlacement),
                     ArchGeneratorConfig.CODEC.fieldOf("arch_generator").forGetter(ArchConfig::archGeneratorConfig)
             ).apply(instance, ArchConfig::new)
@@ -64,8 +66,8 @@ public record ArchConfig(
     ) {
         public static final Codec<GenerationConfig> CODEC = RecordCodecBuilder.create(instance ->
                 instance.group(
-                        IntProvider.POSITIVE_CODEC.fieldOf("thickness").forGetter(GenerationConfig::thickness),
-                        FloatProvider.CODEC.fieldOf("noise_frequency").forGetter(GenerationConfig::noiseFreq)
+                        IntProviders.POSITIVE_CODEC.fieldOf("thickness").forGetter(GenerationConfig::thickness),
+                        FloatProviders.CODEC.fieldOf("noise_frequency").forGetter(GenerationConfig::noiseFreq)
                 ).apply(instance, GenerationConfig::new)
         );
 

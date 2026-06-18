@@ -51,7 +51,7 @@ public class BetweenRepeatingNoiseRange implements SurfaceRules.RuleSource {
         int index = 0;
         for (FloatProvider range : ranges) {
             SurfaceRules.RuleSource ruleSource = source[index % source.length];
-            sources.add(SurfaceRules.ifTrue(SurfaceRules.noiseCondition(parametersResourceKey, range.getMinValue(), range.getMaxValue()), ruleSource));
+            sources.add(SurfaceRules.ifTrue(SurfaceRules.noiseCondition(parametersResourceKey, range.min(), range.max()), ruleSource));
             index++;
         }
         return SurfaceRules.sequence(sources.toArray(SurfaceRules.RuleSource[]::new));

@@ -150,7 +150,7 @@ public class GourPlateauPiece extends StructurePiece {
 
             for (int noiseY = 0; noiseY <= apply; noiseY++) {
                 mutable.move(Direction.UP);
-                worldGenLevel.setBlock(mutable, stateProvider.getState(randomSource, mutable), 2);
+                worldGenLevel.setBlock(mutable, stateProvider.getState(worldGenLevel, randomSource, mutable), 2);
                 topYs[idx] = Math.max(mutable.getY(), topYs[idx]);
                 bottomYs[idx] = Math.max(mutable.getY(), bottomYs[idx]);
             }
@@ -170,7 +170,7 @@ public class GourPlateauPiece extends StructurePiece {
 
 
             if (origin.offset(0, y + range + plateauThickness, 0).closerThan(mutable, localRadius)) {
-                worldGenLevel.setBlock(mutable, stateProvider.getState(randomSource, mutable), 2);
+                worldGenLevel.setBlock(mutable, stateProvider.getState(worldGenLevel, randomSource, mutable), 2);
                 topYs[idx] = Math.max(mutable.getY(), topYs[idx]);
                 bottomYs[idx] = Math.max(mutable.getY(), bottomYs[idx]);
                 mutable.setY(origin.getY());
@@ -189,7 +189,7 @@ public class GourPlateauPiece extends StructurePiece {
             mutable.set(blockX, origin.getY() + y + range, blockZ);
 
             if (origin.offset(0, y + range, 0).closerThan(mutable, localRadius)) {
-                worldGenLevel.setBlock(mutable, stateProvider.getState(randomSource, mutable), 2);
+                worldGenLevel.setBlock(mutable, stateProvider.getState(worldGenLevel, randomSource, mutable), 2);
                 topYs[idx] = Math.max(mutable.getY(), topYs[idx]);
                 bottomYs[idx] = Math.max(mutable.getY(), bottomYs[idx]);
                 mutable.setY(origin.getY());
@@ -210,7 +210,7 @@ public class GourPlateauPiece extends StructurePiece {
 
 
             if (origin.atY(minY).offset(0, y, 0).closerThan(mutable, localRadius)) {
-                worldGenLevel.setBlock(mutable, stateProvider.getState(randomSource, mutable), 2);
+                worldGenLevel.setBlock(mutable, stateProvider.getState(worldGenLevel, randomSource, mutable), 2);
 
                 topYs[idx] = Math.max(mutable.getY(), topYs[idx]);
                 bottomYs[idx] = Math.max(mutable.getY(), bottomYs[idx]);

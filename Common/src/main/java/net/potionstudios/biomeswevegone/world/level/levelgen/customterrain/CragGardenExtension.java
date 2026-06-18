@@ -26,7 +26,7 @@ public class CragGardenExtension {
     public static void runCragGardenExtension(Function<BlockPos, Holder<Biome>> biomeGetter, ChunkAccess chunk, long worldSeed, NormalNoise.NoiseParameters noiseParameters, NormalNoise.NoiseParameters cliffSpacingParams) {
         ChunkPos pos = chunk.getPos();
         RandomSource randomSource = new XoroshiroRandomSource(worldSeed);
-        RandomSource chunkRandom = new XoroshiroRandomSource(pos.toLong() + worldSeed);
+        RandomSource chunkRandom = new XoroshiroRandomSource(pos.pack() + worldSeed);
 
         NormalNoise normalNoise = NormalNoise.create(randomSource, noiseParameters);
         NormalNoise cliffJumpNoise = NormalNoise.create(randomSource, cliffSpacingParams);

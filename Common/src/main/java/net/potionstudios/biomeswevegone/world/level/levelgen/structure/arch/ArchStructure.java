@@ -68,7 +68,7 @@ public class ArchStructure extends Structure {
 
             Long2ObjectOpenHashMap<UnsafeBoundingBox> generatingChunks = new Long2ObjectOpenHashMap<>();
 
-            Consumer<BlockPos> stepAction = position -> generatingChunks.computeIfAbsent(ChunkPos.asLong(position), key -> new UnsafeBoundingBox()).encapsulate(position);
+            Consumer<BlockPos> stepAction = position -> generatingChunks.computeIfAbsent(ChunkPos.pack(position), key -> new UnsafeBoundingBox()).encapsulate(position);
             this.config.archGeneratorConfig().generate(context.seed() + structureCenter.asLong(), yOffset, firstVec3, originVec3, secondVec3, INFINITE, stepAction);
 
 
