@@ -164,12 +164,12 @@ public class TagsGenerator {
 
             tag(BWGBlockTags.BLACK_ICE).add(BWGBlocks.BLACK_ICE.get(), BWGBlocks.PACKED_BLACK_ICE.get());
             tag(BWGBlockTags.BOREALIS_ICE).add(BWGBlocks.BOREALIS_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get());
-            tag(BlockTags.SNOW_LAYER_CANNOT_SURVIVE_ON).addTag(BWGBlockTags.BLACK_ICE).addTag(BWGBlockTags.BOREALIS_ICE);
+            tag(BlockTags.CANNOT_SUPPORT_SNOW_LAYER).addTag(BWGBlockTags.BLACK_ICE).addTag(BWGBlockTags.BOREALIS_ICE);
             tag(BlockTags.ICE).addTag(BWGBlockTags.BLACK_ICE).addTag(BWGBlockTags.BOREALIS_ICE);
             tag(BlockTags.WOOL_CARPETS).add(BWGBlocks.CATTAIL_THATCH_CARPET.get());
-            tag(BlockTags.MUSHROOM_GROW_BLOCK).add(BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.WHITE_PODZOL_DACITE.get());
+            tag(BlockTags.OVERRIDES_MUSHROOM_LIGHT_REQUIREMENT).add(BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.WHITE_PODZOL_DACITE.get());
             tag(BWGBlockTags.SNOWY_PLANT_PLACEABLE).add(Blocks.SNOW_BLOCK, Blocks.POWDER_SNOW).addTag(BlockTags.DIRT);
-            tag(BWGBlockTags.BWG_MUSHROOM_PLACEABLE).addTag(BlockTags.MUSHROOM_GROW_BLOCK).addTag(BlockTags.BASE_STONE_OVERWORLD).addTag(BlockTags.DIRT);
+            tag(BWGBlockTags.BWG_MUSHROOM_PLACEABLE).addTag(BlockTags.OVERRIDES_MUSHROOM_LIGHT_REQUIREMENT).addTag(BlockTags.BASE_STONE_OVERWORLD).addTag(BlockTags.DIRT);
             tag(BWGBlockTags.HYDRANGEA_BUSH_PLACEABLE).addTag(BlockTags.DIRT);
             tag(BlockTags.DIRT).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.SANDY_DIRT.get(), BWGBlocks.PALE_MUD.get(), BWGBlocks.LUSH_DIRT.get(), BWGBlocks.PEAT.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.WHITE_PODZOL_DACITE.get());
             tag(BlockTags.CLIMBABLE).add(BWGBlocks.SKYRIS_VINE.get()).add(BWGBlocks.POISON_IVY.get());

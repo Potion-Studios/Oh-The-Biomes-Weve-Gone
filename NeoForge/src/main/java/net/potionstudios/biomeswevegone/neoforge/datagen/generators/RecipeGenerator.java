@@ -10,6 +10,7 @@ import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
@@ -111,12 +112,12 @@ public class RecipeGenerator extends RecipeProvider {
             stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, set.getChiseledSandstone(), set.getSandstone());
             stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, set.getSmoothSandstoneSlab(), set.getSandstone(), 2);
             stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, set.getSmoothSandstoneStairs(), set.getSandstone());
-            SimpleCookingRecipeBuilder.smelting(Ingredient.of(set.getSandstone()), RecipeCategory.BUILDING_BLOCKS, set.getSmoothSandstone().asItem(), 0.1F, 200)
+            SimpleCookingRecipeBuilder.smelting(Ingredient.of(set.getSandstone()), RecipeCategory.BUILDING_BLOCKS, CookingBookCategory.BLOCKS, set.getSmoothSandstone().asItem(), 0.1F, 200)
                     .unlockedBy(getHasName(set.getSandstone()), has(set.getSandstone()))
                     .save(output);
         });
 
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGItems.YUCCA_FRUIT.get()), RecipeCategory.FOOD, BWGItems.COOKED_YUCCA_FRUIT.get(), 0.35F, 200)
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGItems.YUCCA_FRUIT.get()), RecipeCategory.FOOD, CookingBookCategory.FOOD, BWGItems.COOKED_YUCCA_FRUIT.get(), 0.35F, 200)
                 .unlockedBy(getHasName(BWGItems.YUCCA_FRUIT.get()), has(BWGItems.YUCCA_FRUIT.get()))
                 .save(output, BiomesWeveGone.key(Registries.RECIPE, "cooked_yucca_fruit_from_smelting"));
 
@@ -128,7 +129,7 @@ public class RecipeGenerator extends RecipeProvider {
                 .unlockedBy(getHasName(BWGItems.YUCCA_FRUIT.get()), has(BWGItems.YUCCA_FRUIT.get()))
                 .save(output, BiomesWeveGone.key(Registries.RECIPE, "cooked_yucca_fruit_from_smoker"));
 
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGItems.ODDION_BULB.get()), RecipeCategory.FOOD, BWGItems.COOKED_ODDION_BULB.get(), 0.35F, 200)
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGItems.ODDION_BULB.get()), RecipeCategory.FOOD, CookingBookCategory.FOOD, BWGItems.COOKED_ODDION_BULB.get(), 0.35F, 200)
                 .unlockedBy(getHasName(BWGItems.ODDION_BULB.get()), has(BWGItems.ODDION_BULB.get()))
                 .save(output, BiomesWeveGone.key(Registries.RECIPE, "cooked_oddion_bulb_from_smelting"));
 
@@ -163,7 +164,7 @@ public class RecipeGenerator extends RecipeProvider {
                 .unlockedBy(getHasName(BWGBlocks.ALOE_VERA.get()), has(BWGBlocks.ALOE_VERA.get()))
                 .save(output);
 
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGItems.WHITE_PUFFBALL_CAP.get()), RecipeCategory.FOOD, BWGItems.COOKED_WHITE_PUFFBALL_CAP.get(), 0.35F, 200)
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGItems.WHITE_PUFFBALL_CAP.get()), RecipeCategory.FOOD, CookingBookCategory.FOOD, BWGItems.COOKED_WHITE_PUFFBALL_CAP.get(), 0.35F, 200)
                 .unlockedBy(getHasName(BWGItems.WHITE_PUFFBALL_CAP.get()), has(BWGItems.WHITE_PUFFBALL_CAP.get()))
                 .save(output);
 
@@ -200,10 +201,10 @@ public class RecipeGenerator extends RecipeProvider {
         chiseledBuilder(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_RED_ROCK_BRICKS_SET.getBase(), Ingredient.of(BWGBlocks.RED_ROCK_BRICKS_SET.getSlab()))
                 .unlockedBy("has_tag", has(BWGItemTags.RED_ROCK_BRICKS))
                 .save(output);
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGBlocks.RED_ROCK_BRICKS_SET.getBase()), RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CRACKED_RED_ROCK_BRICKS_SET.getBase(), 0.35F, 200)
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGBlocks.RED_ROCK_BRICKS_SET.getBase()), RecipeCategory.BUILDING_BLOCKS, CookingBookCategory.BLOCKS, BWGBlocks.CRACKED_RED_ROCK_BRICKS_SET.getBase(), 0.35F, 200)
                 .unlockedBy("has_tag", has(BWGItemTags.RED_ROCK_BRICKS))
                 .save(output, BiomesWeveGone.key(Registries.RECIPE, "cracked_red_rock_bricks_from_smelting"));
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGBlocks.RED_ROCK_SET.getBase()), RecipeCategory.BUILDING_BLOCKS, BWGBlocks.POLISHED_RED_ROCK_SET.getBase(), 0.35F, 200)
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGBlocks.RED_ROCK_SET.getBase()), RecipeCategory.BUILDING_BLOCKS, CookingBookCategory.BLOCKS, BWGBlocks.POLISHED_RED_ROCK_SET.getBase(), 0.35F, 200)
                 .unlockedBy(getHasName(BWGBlocks.RED_ROCK_SET.getBase()), has(BWGBlocks.RED_ROCK_SET.getBase()))
                 .save(output, BiomesWeveGone.key(Registries.RECIPE, "polished_red_rock_from_smelting"));
         ShapedRecipeBuilder.shaped(itemRegistry, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.RED_ROCK_TILES_SET.getBase())
@@ -260,7 +261,7 @@ public class RecipeGenerator extends RecipeProvider {
                 .save(output);
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_DACITE_BRICKS_SET.getBase(), BWGBlocks.DACITE_SET.getSlab());
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_DACITE_BRICKS_SET.getBase(), BWGBlocks.DACITE_BRICKS_SET.getBase());
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGBlocks.DACITE_BRICKS_SET.getBase()), RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CRACKED_DACITE_BRICKS_SET.getBase(), 0.1F, 200)
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGBlocks.DACITE_BRICKS_SET.getBase()), RecipeCategory.BUILDING_BLOCKS, CookingBookCategory.BLOCKS, BWGBlocks.CRACKED_DACITE_BRICKS_SET.getBase(), 0.1F, 200)
                 .unlockedBy(getHasName(BWGBlocks.DACITE_BRICKS_SET.getBase()), has(BWGBlocks.DACITE_BRICKS_SET.getBase()))
                 .save(output);
 
@@ -291,7 +292,7 @@ public class RecipeGenerator extends RecipeProvider {
                 .save(output);
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_WHITE_DACITE_BRICKS_SET.getBase(), BWGBlocks.WHITE_DACITE_SET.getSlab());
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_WHITE_DACITE_BRICKS_SET.getBase(), BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase());
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase()), RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CRACKED_WHITE_DACITE_BRICKS_SET.getBase(), 0.1F, 200)
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase()), RecipeCategory.BUILDING_BLOCKS, CookingBookCategory.BLOCKS, BWGBlocks.CRACKED_WHITE_DACITE_BRICKS_SET.getBase(), 0.1F, 200)
                 .unlockedBy(getHasName(BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase()), has(BWGBlocks.WHITE_DACITE_BRICKS_SET.getBase()))
                 .save(output);
 
@@ -590,7 +591,7 @@ public class RecipeGenerator extends RecipeProvider {
     }
 
     private void sandToGlass(BWGSandSet set, Item glass) {
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(set.getSand()), RecipeCategory.BUILDING_BLOCKS, glass, 0.1F, 200)
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(set.getSand()), RecipeCategory.BUILDING_BLOCKS, CookingBookCategory.BLOCKS, glass, 0.1F, 200)
                 .unlockedBy(getHasName(set.getSand()), has(set.getSand()))
                 .save(output, BiomesWeveGone.key(Registries.RECIPE, getHasName(glass).replace("has_", "") + "_from_" + getHasName(set.getSand()).replace("has_", "")));
     }
