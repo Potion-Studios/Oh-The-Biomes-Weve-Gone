@@ -44,7 +44,7 @@ public class WhitePuffballBlock extends BWGBerryBush {
 	@Override
 	public boolean canSurvive(@NotNull BlockState state, LevelReader level, BlockPos pos) {
 		BlockState blockState = level.getBlockState(pos.below());
-		return blockState.is(BlockTags.MUSHROOM_GROW_BLOCK) || (level.getRawBrightness(pos, 0) < 13 && this.mayPlaceOn(blockState, level, pos.below()));
+		return blockState.is(BlockTags.OVERRIDES_MUSHROOM_LIGHT_REQUIREMENT) || (level.getRawBrightness(pos, 0) < 13 && this.mayPlaceOn(blockState, level, pos.below()));
 	}
 
 
@@ -62,10 +62,10 @@ public class WhitePuffballBlock extends BWGBerryBush {
 	protected @NotNull InteractionResult useWithoutItem(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull BlockHitResult hitResult) {
 		int age = state.getValue(AGE);
 		if (age > 1) {
-			int numberOfItems = 1 + level.random.nextInt(2);
+			int numberOfItems = 1 + level.getRandom().nextInt(2);
 			popResource(level, pos, new ItemStack(item.get().get(), numberOfItems + ((age == MAX_AGE) ? 1 : 0)));
 			popResource(level, pos, BWGItems.WHITE_PUFFBALL_CAP.get().getDefaultInstance());
-			level.playSound(player, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
+			level.playSound(player, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.getRandom().nextFloat() * 0.4F);
             BlockState blockState = state.setValue(AGE, 0);
             level.setBlock(pos, blockState, 2);
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, blockState));

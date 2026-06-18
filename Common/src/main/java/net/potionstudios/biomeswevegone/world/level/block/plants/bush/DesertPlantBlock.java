@@ -38,6 +38,6 @@ public class DesertPlantBlock extends BWGPlacementBushBlock {
      */
     @Nullable
     PathType getBlockPathType(BlockState state, BlockGetter level, BlockPos pos, @Nullable Mob mob) {
-        return PathType.DAMAGE_OTHER;
+        return PathType.DAMAGING_IN_NEIGHBOR;
     }
 }

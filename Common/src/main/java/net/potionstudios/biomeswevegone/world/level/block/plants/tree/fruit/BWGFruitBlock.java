@@ -100,7 +100,7 @@ public class BWGFruitBlock extends Block implements BonemealableBlock {
     protected @NotNull InteractionResult useWithoutItem(BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull BlockHitResult hitResult) {
         if (state.getValue(AGE) == MAX_AGE) {
             popResource(level, pos, this.fruit.get().get().getDefaultInstance());
-            level.playSound(player, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
+            level.playSound(player, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.getRandom().nextFloat() * 0.4F);
             level.setBlock(pos, state.setValue(AGE, 0), 2);
             return InteractionResult.SUCCESS;
         }

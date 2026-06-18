@@ -36,8 +36,8 @@ public class HydrangeaHedgeBlock extends BWGPlacementBushBlock implements Boneme
     protected @NotNull InteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
         if (stack.is(BWGItemTags.SHEARS)) {
             level.setBlockAndUpdate(pos, BWGBlocks.HYDRANGEA_BUSH.getBlockState());
-            level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
-            level.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + level.random.nextDouble(), pos.getY() + 1.0D, pos.getZ() + level.random.nextDouble(), 0.0D, 0.0D, 0.0D);
+            level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.getRandom().nextFloat() * 0.4F);
+            level.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + level.getRandom().nextDouble(), pos.getY() + 1.0D, pos.getZ() + level.getRandom().nextDouble(), 0.0D, 0.0D, 0.0D);
             level.gameEvent(player, GameEvent.SHEAR, pos);
             player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
             return InteractionResult.SUCCESS;

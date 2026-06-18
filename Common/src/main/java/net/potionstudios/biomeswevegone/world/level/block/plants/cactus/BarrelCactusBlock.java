@@ -91,6 +91,6 @@ public class BarrelCactusBlock extends BWGCactusBlock implements BonemealableBlo
 	 */
 	@Nullable
 	PathType getBlockPathType(BlockState state, BlockGetter level, BlockPos pos, @Nullable Mob mob) {
-		return PathType.DAMAGE_OTHER;
+		return PathType.DAMAGING_IN_NEIGHBOR;
 	}
 }

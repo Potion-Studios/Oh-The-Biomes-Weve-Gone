@@ -9,6 +9,7 @@ import net.minecraft.client.data.models.blockstates.*;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.block.model.Variant;
 import net.minecraft.client.renderer.item.ItemModel;
+import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -163,11 +164,12 @@ public class ModelGenerator extends ModelProvider {
             if (woodSet.sapling() != null) {
                 blockModels.createTrivialBlock(woodSet.sapling().getBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.CROSS, BiomesWeveGone.id(folder + "sapling"))).updateTemplate(template -> template.extend().renderType(mcLocation("cutout")).build()));
                 itemModels.itemModelOutput.accept(woodSet.sapling().getItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.sapling().getItem(), TextureMapping.layer0(BiomesWeveGone.id(folder + "sapling")), itemModels.modelOutput)));
+                blockModels.createPlantWithDefaultItem();
                 blockModels.createTrivialBlock(woodSet.sapling().getPottedBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.FLOWER_POT_CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.PLANT, BiomesWeveGone.id(folder + "sapling"))));
             }
 
-            itemModels.itemModelOutput.accept(woodSet.signItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.signItem(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/sign")), itemModels.modelOutput)));
-            itemModels.itemModelOutput.accept(woodSet.hangingSignItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.hangingSignItem(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/hanging_sign")), itemModels.modelOutput)));
+            itemModels.itemModelOutput.accept(woodSet.signItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.signItem(), TextureMapping.layer0(new Material(BiomesWeveGone.id("item/" + woodSet.name() + "/sign"))), itemModels.modelOutput)));
+            itemModels.itemModelOutput.accept(woodSet.hangingSignItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.hangingSignItem(), TextureMapping.layer0(new Material(BiomesWeveGone.id("item/" + woodSet.name() + "/hanging_sign"))), itemModels.modelOutput)));
             itemModels.itemModelOutput.accept(woodSet.door().asItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.door(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/door")), itemModels.modelOutput)));
             itemModels.itemModelOutput.accept(woodSet.boatItem().get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.boatItem().get(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/boat")), itemModels.modelOutput)));
             itemModels.itemModelOutput.accept(woodSet.chestBoatItem().get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.chestBoatItem().get(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/chest_boat")), itemModels.modelOutput)));
@@ -331,7 +333,7 @@ public class ModelGenerator extends ModelProvider {
                 if (flowerPotBlock == BWGBlocks.WHITE_PUFFBALL.getPottedBlock())
                     blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(flowerPotBlock, BlockModelGenerators.plainVariant(ModelLocationUtils.getModelLocation(b))));
                 else blockModels.createTrivialBlock(flowerPotBlock, TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.FLOWER_POT_CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.PLANT, ModelLocationUtils.getModelLocation(flowerPotBlock.getPotted()))));
-            } else if (b instanceof WaterlilyBlock || b instanceof CattailSproutBlock) {
+            } else if (b instanceof LilyPadBlock || b instanceof CattailSproutBlock) {
                 blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(b, BlockModelGenerators.createRotatedVariants(BlockModelGenerators.plainModel(ModelLocationUtils.getModelLocation(b)))));
             } else if (b instanceof DirtPathBlock) {
                 blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(b, BlockModelGenerators.createRotatedVariants(BlockModelGenerators.plainModel(TexturedModel.createDefault(TextureMapping::cubeBottomTop, ModelTemplates.CUBE_BOTTOM_TOP)

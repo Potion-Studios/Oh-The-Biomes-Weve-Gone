@@ -43,9 +43,9 @@ public class BWGBerryBush extends SweetBerryBushBlock {
     protected @NotNull InteractionResult useWithoutItem(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull BlockHitResult hitResult) {
         int age = state.getValue(AGE);
         if (age > 1) {
-            int numberOfItems = 1 + level.random.nextInt(2);
+            int numberOfItems = 1 + level.getRandom().nextInt(2);
             popResource(level, pos, new ItemStack(item.get().get(), numberOfItems + ((age == MAX_AGE) ? 1 : 0)));
-            level.playSound(player, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
+            level.playSound(player, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.getRandom().nextFloat() * 0.4F);
             BlockState blockState = state.setValue(AGE, 1);
             level.setBlock(pos, blockState, 2);
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, blockState));
@@ -66,6 +66,6 @@ public class BWGBerryBush extends SweetBerryBushBlock {
      */
     @Nullable
     PathType getBlockPathType(BlockState state, BlockGetter level, BlockPos pos, @Nullable Mob mob) {
-        return hurtEntityInside ? PathType.DAMAGE_OTHER : null;
+        return hurtEntityInside ? PathType.DAMAGING_IN_NEIGHBOR : null;
     }
 }
