@@ -2,7 +2,6 @@ package net.potionstudios.biomeswevegone.neoforge;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FireBlock;
@@ -14,14 +13,11 @@ import net.neoforged.neoforge.event.entity.player.BonemealEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.potionstudios.biomeswevegone.util.BoneMealHandler;
-import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import net.potionstudios.biomeswevegone.world.item.brewing.BWGBrewingRecipes;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
-
-import java.util.HashMap;
 
 /**
  * Used for Vanilla compatibility on the Forge platform.
@@ -29,10 +25,6 @@ import java.util.HashMap;
  */
 public class VanillaCompatNeoForge {
     public static void init() {
-        ToolInteractions.registerStrippableBlocks((block, stripped) -> {
-            AxeItem.STRIPPABLES = new HashMap<>(AxeItem.STRIPPABLES);
-            AxeItem.STRIPPABLES.put(block, stripped);
-        });
         BlockFeatures.registerFlammable(((FireBlock) Blocks.FIRE)::setFlammable);
         ToolInteractions.registerFlattenables(ShovelItem.FLATTENABLES::put);
     }

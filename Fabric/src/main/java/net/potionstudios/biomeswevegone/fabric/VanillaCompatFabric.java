@@ -29,13 +29,13 @@ public class VanillaCompatFabric {
     public static void init() {
         ToolInteractions.registerStrippableBlocks(StrippableBlockRegistry::register);
         BlockFeatures.registerFlammable(FlammableBlockRegistry.getDefaultInstance()::add);
-        BlockFeatures.registerFurnaceFuels((item, burnTime) -> FuelRegistryEvents.BUILD.register(((builder, context) -> builder.add(item, burnTime))));
-        BlockFeatures.registerCompostables(CompostingChanceRegistry.INSTANCE::add);
+        BlockFeatures.registerFurnaceFuels((item, burnTime) -> FuelValueEvents.BUILD.register(((builder, context) -> builder.add(item, burnTime))));
+        BlockFeatures.registerCompostables(CompostableRegistry.INSTANCE::add);
         ToolInteractions.registerFlattenables(FlattenableBlockRegistry::register);
         ToolInteractions.registerTillables((block, pair) -> TillableBlockRegistry.register(block, pair.getFirst(), pair.getSecond()));
         registerBiomeModifiers();
         registerLootModifiers();
-        FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> BWGBrewingRecipes.buildBrewingRecipes(builder::addMix));
+        FabricPotionBrewingBuilder.BUILD.register(builder -> BWGBrewingRecipes.buildBrewingRecipes(builder::addMix));
         BWGVillagerTypes.setVillagerBiomes(VillagerType.BY_BIOME::put);
         UseEntityCallback.EVENT.register(((player, level, interactionHand, entity, entityHitResult) -> PumpkinWarden.villagerToPumpkinWarden(entity, player.getItemInHand(interactionHand), level) ? InteractionResult.SUCCESS : InteractionResult.PASS));
     }
@@ -57,12 +57,12 @@ public class VanillaCompatFabric {
             if (key.equals(BuiltInLootTables.SNIFFER_DIGGING))
                 tableBuilder.withPool(LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1))
-                        .with(LootItem.lootTableItem(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get()).build())
-                        .with(LootItem.lootTableItem(BWGItems.BLUE_GLOWCANE_SHOOT.get()).build())
-                        .with(LootItem.lootTableItem(BWGItems.GREEN_GLOWCANE_SHOOT.get()).build())
-                        .with(LootItem.lootTableItem(BWGItems.RED_GLOWCANE_SHOOT.get()).build())
-                        .with(LootItem.lootTableItem(BWGItems.YELLOW_GLOWCANE_SHOOT.get()).build())
-                        .with(LootItem.lootTableItem(BWGItems.PALE_PUMPKIN_SEEDS.get()).build()));
+                        .add(LootItem.lootTableItem(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get()).build())
+                        .add(LootItem.lootTableItem(BWGItems.BLUE_GLOWCANE_SHOOT.get()).build())
+                        .add(LootItem.lootTableItem(BWGItems.GREEN_GLOWCANE_SHOOT.get()).build())
+                        .add(LootItem.lootTableItem(BWGItems.RED_GLOWCANE_SHOOT.get()).build())
+                        .add(LootItem.lootTableItem(BWGItems.YELLOW_GLOWCANE_SHOOT.get()).build())
+                        .add(LootItem.lootTableItem(BWGItems.PALE_PUMPKIN_SEEDS.get()).build()));
         });
     }
 }

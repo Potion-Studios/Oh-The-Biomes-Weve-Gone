@@ -2,9 +2,9 @@ package net.potionstudios.biomeswevegone.fabric;
 
 import com.google.auto.service.AutoService;
 import me.lucko.fabric.api.permissions.v0.Permissions;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
-import net.fabricmc.fabric.api.object.builder.v1.world.poi.PointOfInterestHelper;
+import net.fabricmc.fabric.api.object.builder.v1.world.poi.PoiHelper;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.commands.CommandSourceStack;
@@ -45,7 +45,7 @@ public final class FabricPlatformHandler implements PlatformHandler {
 
     @Override
 	public Supplier<PoiType> registerPOIType(String id, Supplier<? extends Block> block, int maxTickets, int validRange) {
-		PoiType poi = PointOfInterestHelper.register(BiomesWeveGone.id(id), maxTickets, validRange, block.get());
+		PoiType poi = PoiHelper.register(BiomesWeveGone.id(id), maxTickets, validRange, block.get());
 		return () -> poi;
 	}
 
@@ -63,7 +63,7 @@ public final class FabricPlatformHandler implements PlatformHandler {
 	@SafeVarargs
 	@Override
 	public final Supplier<CreativeModeTab> createCreativeTab(String name, Supplier<ItemStack> icon, ArrayList<Supplier<? extends Item>>... items) {
-		CreativeModeTab tab = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, BiomesWeveGone.id(name), FabricItemGroup.builder()
+		CreativeModeTab tab = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, BiomesWeveGone.id(name), FabricCreativeModeTab.builder()
 				.title(Component.translatable("itemGroup." + BiomesWeveGone.MOD_ID + "." + name))
 				.icon(icon)
 				.displayItems((entry, context) -> {

@@ -32,7 +32,7 @@ public class AddItemModifier extends LootModifier {
     private final List<Item> items;
 
     public AddItemModifier(LootItemCondition[] conditionsIn, List<Item> items) {
-        super(conditionsIn);
+        super(conditionsIn, 1);
         this.items = items;
     }
 

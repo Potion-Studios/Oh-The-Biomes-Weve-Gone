@@ -1,7 +1,7 @@
 package net.potionstudios.biomeswevegone.client.model;
 
-import net.minecraft.client.renderer.block.BlockRenderDispatcher;
-import net.minecraft.client.renderer.block.model.BlockStateModel;
+import net.minecraft.client.renderer.block.BlockModelResolver;
+import net.minecraft.client.renderer.block.dispatch.BlockStateModel;
 
 import java.util.ServiceLoader;
 
@@ -14,5 +14,5 @@ public interface ModelAccess {
                 .orElseThrow(() -> new NullPointerException("Failed to load service ModelAccess"));
     }
 
-    BlockStateModel getModel(String name, BlockRenderDispatcher blockRenderDispatcher);
+    BlockStateModel getModel(String name, BlockModelResolver blockRenderDispatcher);
 }
