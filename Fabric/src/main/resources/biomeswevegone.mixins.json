@@ -6,12 +6,7 @@
   "client": [
   ],
   "mixins": [
-    "AttachedStemBlockMixin",
-    "CropBlockMixin",
-    "GrassBlockBoneMealMixin",
-    "PitcherCropBlockMixin",
-    "StemBlockMixin",
-    "VegetationBlockMixin"
+    "GrassBlockBoneMealMixin"
   ],
   "injectors": {
     "defaultRequire": 1
