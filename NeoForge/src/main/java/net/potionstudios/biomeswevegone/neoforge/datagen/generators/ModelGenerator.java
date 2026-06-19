@@ -7,7 +7,7 @@ import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.*;
 import net.minecraft.client.data.models.model.*;
-import net.minecraft.client.renderer.block.model.Variant;
+import net.minecraft.client.renderer.block.dispatch.Variant;
 import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.Direction;
@@ -45,7 +45,6 @@ import net.potionstudios.biomeswevegone.world.level.block.sand.BWGSandSet;
 import net.potionstudios.biomeswevegone.world.level.block.set.BWGBlockSet;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -57,7 +56,7 @@ public class ModelGenerator extends ModelProvider {
     }
 
     @Override
-    protected void registerModels(@NotNull BlockModelGenerators blockModels, @NotNull ItemModelGenerators itemModels) {
+    protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
         BWGBlocks.cubeAllBlocks.forEach(block -> {
             blockModels.createTrivialCube(block.get());
             blockItemModel(blockModels, block.get());
@@ -70,7 +69,7 @@ public class ModelGenerator extends ModelProvider {
 
         BWGWoodSet.woodsets().forEach(woodSet -> {
             String folder = "block/" + woodSet.name() + "/";
-            Identifier Planks = BiomesWeveGone.id(folder + "planks");
+            Material Planks = material(BiomesWeveGone.id(folder + "planks"));
             blockModels.createTrivialBlock(woodSet.planks(), TexturedModel.CUBE.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, Planks)));
             blockItemModel(blockModels, woodSet.planks());
 
@@ -87,7 +86,7 @@ public class ModelGenerator extends ModelProvider {
             blockModels.blockStateOutput.accept(BlockModelGenerators.createFenceGate(woodSet.fenceGate(), BlockModelGenerators.plainVariant(ModelTemplates.FENCE_GATE_OPEN.create(woodSet.fenceGate(), planks, blockModels.modelOutput)), BlockModelGenerators.plainVariant(ModelTemplates.FENCE_GATE_CLOSED.create(woodSet.fenceGate(), planks, blockModels.modelOutput)), BlockModelGenerators.plainVariant(ModelTemplates.FENCE_GATE_WALL_OPEN.create(woodSet.fenceGate(), planks, blockModels.modelOutput)), BlockModelGenerators.plainVariant(ModelTemplates.FENCE_GATE_WALL_CLOSED.create(woodSet.fenceGate(), planks, blockModels.modelOutput)), true));
             blockItemModel(blockModels, woodSet.fenceGate());
 
-            TextureMapping door = new TextureMapping().put(TextureSlot.TOP, BiomesWeveGone.id(folder + "door_top")).put(TextureSlot.BOTTOM, BiomesWeveGone.id(folder + "door_bottom"));
+            TextureMapping door = new TextureMapping().put(TextureSlot.TOP, material(BiomesWeveGone.id(folder + "door_top"))).put(TextureSlot.BOTTOM, material(BiomesWeveGone.id(folder + "door_bottom")));
             blockModels.blockStateOutput.accept(BlockModelGenerators.createDoor(woodSet.door(),
                     BlockModelGenerators.plainVariant(ModelTemplates.DOOR_BOTTOM_LEFT.create(woodSet.door(), door, blockModels.modelOutput)),
                             BlockModelGenerators.plainVariant(ModelTemplates.DOOR_BOTTOM_LEFT_OPEN.create(woodSet.door(), door, blockModels.modelOutput)),
@@ -98,7 +97,7 @@ public class ModelGenerator extends ModelProvider {
                                                                     BlockModelGenerators.plainVariant(ModelTemplates.DOOR_TOP_RIGHT.create(woodSet.door(), door, blockModels.modelOutput)),
                                                                             BlockModelGenerators.plainVariant(ModelTemplates.DOOR_TOP_RIGHT_OPEN.create(woodSet.door(), door, blockModels.modelOutput))));
 
-            TextureMapping trapdoor = new TextureMapping().put(TextureSlot.TEXTURE, BiomesWeveGone.id(folder + "trapdoor"));
+            TextureMapping trapdoor = new TextureMapping().put(TextureSlot.TEXTURE, material(BiomesWeveGone.id(folder + "trapdoor")));
             Identifier trapdoorBottom = ModelTemplates.ORIENTABLE_TRAPDOOR_BOTTOM.create(woodSet.trapdoor(), trapdoor, blockModels.modelOutput);
             blockModels.blockStateOutput.accept(BlockModelGenerators.createOrientableTrapdoor(woodSet.trapdoor(),
                     BlockModelGenerators.plainVariant(ModelTemplates.ORIENTABLE_TRAPDOOR_TOP.create(woodSet.trapdoor(), trapdoor, blockModels.modelOutput)),
@@ -116,78 +115,77 @@ public class ModelGenerator extends ModelProvider {
             Identifier LogTop = BiomesWeveGone.id(folder + woodSet.logStemEnum().getName() + "_top");
 
             blockModels.blockStateOutput.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(woodSet.logstem(),
-                    BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN.create(woodSet.logstem(), new TextureMapping().put(TextureSlot.END, LogTop).put(TextureSlot.SIDE, Log), blockModels.modelOutput)),
-                            BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(woodSet.logstem(), new TextureMapping().put(TextureSlot.END, LogTop).put(TextureSlot.SIDE, Log), blockModels.modelOutput))));
+                    BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN.create(woodSet.logstem(), new TextureMapping().put(TextureSlot.END, material(LogTop)).put(TextureSlot.SIDE, material(Log)), blockModels.modelOutput)),
+                            BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(woodSet.logstem(), new TextureMapping().put(TextureSlot.END, material(LogTop)).put(TextureSlot.SIDE, material(Log)), blockModels.modelOutput))));
             blockItemModel(blockModels, woodSet.logstem());
 
             blockModels.blockStateOutput.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(woodSet.wood(),
-                    BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN.create(woodSet.wood(), new TextureMapping().put(TextureSlot.END, Log).put(TextureSlot.SIDE, Log), blockModels.modelOutput)),
-                    BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(woodSet.wood(), new TextureMapping().put(TextureSlot.END, Log).put(TextureSlot.SIDE, Log), blockModels.modelOutput))));
+                    BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN.create(woodSet.wood(), new TextureMapping().put(TextureSlot.END, material(Log)).put(TextureSlot.SIDE, material(Log)), blockModels.modelOutput)),
+                    BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(woodSet.wood(), new TextureMapping().put(TextureSlot.END, material(Log)).put(TextureSlot.SIDE, material(Log)), blockModels.modelOutput))));
             blockItemModel(blockModels, woodSet.wood());
 
             Identifier StrippedLog = BiomesWeveGone.id(folder + "stripped_" + woodSet.logStemEnum().getName());
             Identifier StrippedLogTop = BiomesWeveGone.id(folder + "stripped_" + woodSet.logStemEnum().getName() + "_top");
             blockModels.blockStateOutput.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(woodSet.strippedLogStem(),
-                    BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN.create(woodSet.strippedLogStem(), new TextureMapping().put(TextureSlot.END, StrippedLogTop).put(TextureSlot.SIDE, StrippedLog), blockModels.modelOutput)),
-                            BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(woodSet.strippedLogStem(), new TextureMapping().put(TextureSlot.END, StrippedLogTop).put(TextureSlot.SIDE, StrippedLog), blockModels.modelOutput))));
+                    BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN.create(woodSet.strippedLogStem(), new TextureMapping().put(TextureSlot.END, material(StrippedLogTop)).put(TextureSlot.SIDE, material(StrippedLog)), blockModels.modelOutput)),
+                            BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(woodSet.strippedLogStem(), new TextureMapping().put(TextureSlot.END, material(StrippedLogTop)).put(TextureSlot.SIDE, material(StrippedLog)), blockModels.modelOutput))));
             blockItemModel(blockModels, woodSet.strippedLogStem());
 
             blockModels.blockStateOutput.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(woodSet.strippedWood(),
-                    BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN.create(woodSet.strippedWood(), new TextureMapping().put(TextureSlot.END, StrippedLog).put(TextureSlot.SIDE, StrippedLog), blockModels.modelOutput)),
-                            BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(woodSet.strippedWood(), new TextureMapping().put(TextureSlot.END, StrippedLog).put(TextureSlot.SIDE, StrippedLog), blockModels.modelOutput))));
+                    BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN.create(woodSet.strippedWood(), new TextureMapping().put(TextureSlot.END, material(StrippedLog)).put(TextureSlot.SIDE, material(StrippedLog)), blockModels.modelOutput)),
+                            BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(woodSet.strippedWood(), new TextureMapping().put(TextureSlot.END, material(StrippedLog)).put(TextureSlot.SIDE, material(StrippedLog)), blockModels.modelOutput))));
             blockItemModel(blockModels, woodSet.strippedWood());
 
             blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(woodSet.sign(), BlockModelGenerators.plainVariant(ModelTemplates.PARTICLE_ONLY.create(woodSet.sign(), planks, blockModels.modelOutput))));
             blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(woodSet.wallSign(), BlockModelGenerators.plainVariant(ModelLocationUtils.getModelLocation(woodSet.sign()))));
-            blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(woodSet.hangingSign(), BlockModelGenerators.plainVariant(ModelTemplates.PARTICLE_ONLY.create(woodSet.hangingSign(), TextureMapping.particle(StrippedLog), blockModels.modelOutput))));
+            blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(woodSet.hangingSign(), BlockModelGenerators.plainVariant(ModelTemplates.PARTICLE_ONLY.create(woodSet.hangingSign(), TextureMapping.particle(material(StrippedLog)), blockModels.modelOutput))));
             blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(woodSet.wallHangingSign(), BlockModelGenerators.plainVariant(ModelLocationUtils.getModelLocation(woodSet.hangingSign()))));
 
-            blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(woodSet.bookshelf(), BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN.create(woodSet.bookshelf(), new TextureMapping().put(TextureSlot.END, Planks).put(TextureSlot.SIDE, BiomesWeveGone.id("block/" + woodSet.name() + "/bookshelf")), blockModels.modelOutput))));
+            blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(woodSet.bookshelf(), BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN.create(woodSet.bookshelf(), new TextureMapping().put(TextureSlot.END, Planks).put(TextureSlot.SIDE, material(BiomesWeveGone.id("block/" + woodSet.name() + "/bookshelf"))), blockModels.modelOutput))));
             blockItemModel(blockModels, woodSet.bookshelf());
 
             blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(woodSet.craftingTable(), BlockModelGenerators.plainVariant(ModelTemplates.CUBE.create(woodSet.craftingTable(), new TextureMapping()
                     .put(TextureSlot.DOWN, Planks)
-                    .put(TextureSlot.UP, BiomesWeveGone.id(folder + "crafting_table_top"))
-                    .put(TextureSlot.EAST, BiomesWeveGone.id(folder + "crafting_table_side"))
-                    .put(TextureSlot.WEST, BiomesWeveGone.id(folder + "crafting_table_front"))
-                    .put(TextureSlot.NORTH, BiomesWeveGone.id(folder + "crafting_table_front"))
-                    .put(TextureSlot.SOUTH, BiomesWeveGone.id(folder + "crafting_table_side"))
-                    .put(TextureSlot.PARTICLE, BiomesWeveGone.id(folder + "crafting_table_front")), blockModels.modelOutput))));
+                    .put(TextureSlot.UP, material(BiomesWeveGone.id(folder + "crafting_table_top")))
+                    .put(TextureSlot.EAST, material(BiomesWeveGone.id(folder + "crafting_table_side")))
+                    .put(TextureSlot.WEST, material(BiomesWeveGone.id(folder + "crafting_table_front")))
+                    .put(TextureSlot.NORTH, material(BiomesWeveGone.id(folder + "crafting_table_front")))
+                    .put(TextureSlot.SOUTH, material(BiomesWeveGone.id(folder + "crafting_table_side")))
+                    .put(TextureSlot.PARTICLE, material(BiomesWeveGone.id(folder + "crafting_table_front"))), blockModels.modelOutput))));
             blockItemModel(blockModels, woodSet.craftingTable());
 
             if (woodSet.leaves() != null) {
-                blockModels.createTrivialBlock(woodSet.leaves(), TexturedModel.LEAVES.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, BiomesWeveGone.id(folder + "leaves"))).updateTemplate(template -> template.extend().renderType(mcLocation("cutout_mipped")).build()));
+                blockModels.createTrivialBlock(woodSet.leaves(), TexturedModel.LEAVES.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, material(BiomesWeveGone.id(folder + "leaves")))));
                 if (woodSet.leaves() instanceof TintedParticleLeavesBlock)
                     itemModels.itemModelOutput.accept(woodSet.leaves().asItem(), ItemModelUtils.tintedModel(ModelLocationUtils.getModelLocation(woodSet.leaves()), new FoliageColorSource()));
                 else blockItemModel(blockModels, woodSet.leaves());
             }
             if (woodSet.sapling() != null) {
-                blockModels.createTrivialBlock(woodSet.sapling().getBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.CROSS, BiomesWeveGone.id(folder + "sapling"))).updateTemplate(template -> template.extend().renderType(mcLocation("cutout")).build()));
-                itemModels.itemModelOutput.accept(woodSet.sapling().getItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.sapling().getItem(), TextureMapping.layer0(BiomesWeveGone.id(folder + "sapling")), itemModels.modelOutput)));
-                blockModels.createPlantWithDefaultItem();
-                blockModels.createTrivialBlock(woodSet.sapling().getPottedBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.FLOWER_POT_CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.PLANT, BiomesWeveGone.id(folder + "sapling"))));
+                blockModels.createTrivialBlock(woodSet.sapling().getBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.CROSS, material(BiomesWeveGone.id(folder + "sapling")))));
+                itemModels.itemModelOutput.accept(woodSet.sapling().getItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.sapling().getItem(), TextureMapping.layer0(material(BiomesWeveGone.id(folder + "sapling"))), itemModels.modelOutput)));
+                blockModels.createTrivialBlock(woodSet.sapling().getPottedBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.FLOWER_POT_CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.PLANT, material(BiomesWeveGone.id(folder + "sapling")))));
             }
 
-            itemModels.itemModelOutput.accept(woodSet.signItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.signItem(), TextureMapping.layer0(new Material(BiomesWeveGone.id("item/" + woodSet.name() + "/sign"))), itemModels.modelOutput)));
-            itemModels.itemModelOutput.accept(woodSet.hangingSignItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.hangingSignItem(), TextureMapping.layer0(new Material(BiomesWeveGone.id("item/" + woodSet.name() + "/hanging_sign"))), itemModels.modelOutput)));
-            itemModels.itemModelOutput.accept(woodSet.door().asItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.door(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/door")), itemModels.modelOutput)));
-            itemModels.itemModelOutput.accept(woodSet.boatItem().get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.boatItem().get(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/boat")), itemModels.modelOutput)));
-            itemModels.itemModelOutput.accept(woodSet.chestBoatItem().get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.chestBoatItem().get(), TextureMapping.layer0(BiomesWeveGone.id("item/" + woodSet.name() + "/chest_boat")), itemModels.modelOutput)));
+            itemModels.itemModelOutput.accept(woodSet.signItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.signItem(), TextureMapping.layer0(material(BiomesWeveGone.id("item/" + woodSet.name() + "/sign"))), itemModels.modelOutput)));
+            itemModels.itemModelOutput.accept(woodSet.hangingSignItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.hangingSignItem(), TextureMapping.layer0(material(BiomesWeveGone.id("item/" + woodSet.name() + "/hanging_sign"))), itemModels.modelOutput)));
+            itemModels.itemModelOutput.accept(woodSet.door().asItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.door(), TextureMapping.layer0(material(BiomesWeveGone.id("item/" + woodSet.name() + "/door"))), itemModels.modelOutput)));
+            itemModels.itemModelOutput.accept(woodSet.boatItem().get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.boatItem().get(), TextureMapping.layer0(material(BiomesWeveGone.id("item/" + woodSet.name() + "/boat"))), itemModels.modelOutput)));
+            itemModels.itemModelOutput.accept(woodSet.chestBoatItem().get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(woodSet.chestBoatItem().get(), TextureMapping.layer0(material(BiomesWeveGone.id("item/" + woodSet.name() + "/chest_boat"))), itemModels.modelOutput)));
         });
 
-        blockModels.createTrivialBlock(BWGWood.WHITE_SAKURA_SAPLING.getBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.CROSS, BiomesWeveGone.id("block/sakura/white_sapling"))).updateTemplate(template -> template.extend().renderType(mcLocation("cutout")).build()));
-        itemModels.itemModelOutput.accept(BWGWood.WHITE_SAKURA_SAPLING.getItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGWood.WHITE_SAKURA_SAPLING.getItem(), TextureMapping.layer0(BiomesWeveGone.id("block/sakura/white_sapling")), itemModels.modelOutput)));
-        blockModels.createTrivialBlock(BWGWood.WHITE_SAKURA_SAPLING.getPottedBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.FLOWER_POT_CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.PLANT, BiomesWeveGone.id("block/sakura/white_sapling"))));
+        blockModels.createTrivialBlock(BWGWood.WHITE_SAKURA_SAPLING.getBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.CROSS, material(BiomesWeveGone.id("block/sakura/white_sapling")))));
+        itemModels.itemModelOutput.accept(BWGWood.WHITE_SAKURA_SAPLING.getItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGWood.WHITE_SAKURA_SAPLING.getItem(), TextureMapping.layer0(material(BiomesWeveGone.id("block/sakura/white_sapling"))), itemModels.modelOutput)));
+        blockModels.createTrivialBlock(BWGWood.WHITE_SAKURA_SAPLING.getPottedBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.FLOWER_POT_CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.PLANT, material(BiomesWeveGone.id("block/sakura/white_sapling")))));
 
 
-        blockModels.createTrivialBlock(BWGWood.YELLOW_SAKURA_SAPLING.getBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.CROSS, BiomesWeveGone.id("block/sakura/yellow_sapling"))).updateTemplate(template -> template.extend().renderType(mcLocation("cutout")).build()));
-        itemModels.itemModelOutput.accept(BWGWood.YELLOW_SAKURA_SAPLING.getItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGWood.YELLOW_SAKURA_SAPLING.getItem(), TextureMapping.layer0(BiomesWeveGone.id("block/sakura/yellow_sapling")), itemModels.modelOutput)));
-        blockModels.createTrivialBlock(BWGWood.YELLOW_SAKURA_SAPLING.getPottedBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.FLOWER_POT_CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.PLANT, BiomesWeveGone.id("block/sakura/yellow_sapling"))));
+        blockModels.createTrivialBlock(BWGWood.YELLOW_SAKURA_SAPLING.getBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.CROSS, material(BiomesWeveGone.id("block/sakura/yellow_sapling")))));
+        itemModels.itemModelOutput.accept(BWGWood.YELLOW_SAKURA_SAPLING.getItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGWood.YELLOW_SAKURA_SAPLING.getItem(), TextureMapping.layer0(material(BiomesWeveGone.id("block/sakura/yellow_sapling"))), itemModels.modelOutput)));
+        blockModels.createTrivialBlock(BWGWood.YELLOW_SAKURA_SAPLING.getPottedBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.FLOWER_POT_CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.PLANT, material(BiomesWeveGone.id("block/sakura/yellow_sapling")))));
 
 
-        blockModels.createTrivialBlock(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get(), TexturedModel.CUBE.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, BiomesWeveGone.id("block/blue_enchanted/imbued_wood"))));
+        blockModels.createTrivialBlock(BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get(), TexturedModel.CUBE.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, material(BiomesWeveGone.id("block/blue_enchanted/imbued_wood")))));
         blockItemModel(blockModels, BWGWood.IMBUED_BLUE_ENCHANTED_WOOD.get());
-        blockModels.createTrivialBlock(BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get(), TexturedModel.CUBE.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, BiomesWeveGone.id("block/green_enchanted/imbued_wood"))));
+        blockModels.createTrivialBlock(BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get(), TexturedModel.CUBE.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, material(BiomesWeveGone.id("block/green_enchanted/imbued_wood")))));
         blockItemModel(blockModels, BWGWood.IMBUED_GREEN_ENCHANTED_WOOD.get());
 
         BWGWood.NONSET_WOOD.forEach(block -> {
@@ -198,19 +196,19 @@ public class ModelGenerator extends ModelProvider {
                     itemModels.itemModelOutput.accept(leavesBlock.asItem(), ItemModelUtils.tintedModel(ModelLocationUtils.getModelLocation(leavesBlock), new FoliageColorSource()));
                 }
                 else {
-                    blockModels.createTrivialBlock(leavesBlock, TexturedModel.LEAVES.updateTemplate(template -> template.extend().renderType(mcLocation("cutout_mipped")).build()));
+                    blockModels.createTrivialBlock(leavesBlock, TexturedModel.LEAVES);
                     blockItemModel(blockModels, leavesBlock);
                 }
             } else if (b instanceof SaplingBlock sapling) {
-                blockModels.createTrivialBlock(sapling, TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.CROSS).updateTemplate(template -> template.extend().renderType(mcLocation("cutout")).build()));
+                blockModels.createTrivialBlock(sapling, TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.CROSS));
                 blockModels.registerSimpleFlatItemModel(sapling);
             } else if (b instanceof FlowerPotBlock flowerPotBlock) {
-                blockModels.createTrivialBlock(flowerPotBlock, TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.FLOWER_POT_CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.PLANT, ModelLocationUtils.getModelLocation(flowerPotBlock.getPotted()))));
+                blockModels.createTrivialBlock(flowerPotBlock, TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.FLOWER_POT_CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.PLANT, material(ModelLocationUtils.getModelLocation(flowerPotBlock.getPotted())))));
             }
         });
 
-        Identifier Log = BiomesWeveGone.id("block/palo_verde/log");
-        Identifier LogTop = BiomesWeveGone.id("block/palo_verde/log_top");
+        Material Log = material(BiomesWeveGone.id("block/palo_verde/log"));
+        Material LogTop = material(BiomesWeveGone.id("block/palo_verde/log_top"));
 
         blockModels.blockStateOutput.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(BWGWood.PALO_VERDE_LOG.get(),
                 BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN.create(BWGWood.PALO_VERDE_LOG.get(), new TextureMapping().put(TextureSlot.END, LogTop).put(TextureSlot.SIDE, Log), blockModels.modelOutput)),
@@ -222,8 +220,8 @@ public class ModelGenerator extends ModelProvider {
                         BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(BWGWood.PALO_VERDE_WOOD.get(), new TextureMapping().put(TextureSlot.END, Log).put(TextureSlot.SIDE, Log), blockModels.modelOutput))));
         blockItemModel(blockModels, BWGWood.PALO_VERDE_WOOD.get());
 
-        Identifier StrippedLog = BiomesWeveGone.id("block/palo_verde/stripped_log");
-        Identifier StrippedLogTop = BiomesWeveGone.id("block/palo_verde/stripped_log_top");
+        Material StrippedLog = material(BiomesWeveGone.id("block/palo_verde/stripped_log"));
+        Material StrippedLogTop = material(BiomesWeveGone.id("block/palo_verde/stripped_log_top"));
         blockModels.blockStateOutput.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(BWGWood.STRIPPED_PALO_VERDE_LOG.get(),
                 BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN.create(BWGWood.STRIPPED_PALO_VERDE_LOG.get(), new TextureMapping().put(TextureSlot.END, StrippedLogTop).put(TextureSlot.SIDE, StrippedLog), blockModels.modelOutput)),
                         BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(BWGWood.STRIPPED_PALO_VERDE_LOG.get(), new TextureMapping().put(TextureSlot.END, StrippedLogTop).put(TextureSlot.SIDE, StrippedLog), blockModels.modelOutput))));
@@ -234,12 +232,12 @@ public class ModelGenerator extends ModelProvider {
                         BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(BWGWood.STRIPPED_PALO_VERDE_WOOD.get(), new TextureMapping().put(TextureSlot.END, StrippedLog).put(TextureSlot.SIDE, StrippedLog), blockModels.modelOutput))));
         blockItemModel(blockModels, BWGWood.STRIPPED_PALO_VERDE_WOOD.get());
 
-        blockModels.createTrivialBlock(BWGWood.PALO_VERDE_SAPLING.getBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.CROSS, BiomesWeveGone.id( "block/palo_verde/sapling"))).updateTemplate(template -> template.extend().renderType(mcLocation("cutout")).build()));
-        itemModels.itemModelOutput.accept(BWGWood.PALO_VERDE_SAPLING.getBlock().asItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGWood.PALO_VERDE_SAPLING.getBlock().asItem(), TextureMapping.layer0(BiomesWeveGone.id("block/palo_verde/sapling")), itemModels.modelOutput)));
-        blockModels.createTrivialBlock(BWGWood.PALO_VERDE_SAPLING.getPottedBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.FLOWER_POT_CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.PLANT, BiomesWeveGone.id("block/palo_verde/sapling"))));
+        blockModels.createTrivialBlock(BWGWood.PALO_VERDE_SAPLING.getBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.CROSS, material(BiomesWeveGone.id( "block/palo_verde/sapling")))));
+        itemModels.itemModelOutput.accept(BWGWood.PALO_VERDE_SAPLING.getBlock().asItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGWood.PALO_VERDE_SAPLING.getBlock().asItem(), TextureMapping.layer0(material(BiomesWeveGone.id("block/palo_verde/sapling"))), itemModels.modelOutput)));
+        blockModels.createTrivialBlock(BWGWood.PALO_VERDE_SAPLING.getPottedBlock(), TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.FLOWER_POT_CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.PLANT, material(BiomesWeveGone.id("block/palo_verde/sapling")))));
 
 
-        blockModels.createTrivialBlock(BWGWood.PALO_VERDE_LEAVES.get(), TexturedModel.LEAVES.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, BiomesWeveGone.id("block/palo_verde/leaves"))).updateTemplate(template -> template.extend().renderType(mcLocation("cutout_mipped")).build()));
+        blockModels.createTrivialBlock(BWGWood.PALO_VERDE_LEAVES.get(), TexturedModel.LEAVES.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, material(BiomesWeveGone.id("block/palo_verde/leaves")))));
         blockItemModel(blockModels, BWGWood.PALO_VERDE_LEAVES.get());
 
         blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(BWGBlocks.FORAGERS_TABLE.get(), BlockModelGenerators.plainVariant(ModelTemplates.CUBE.create(BWGBlocks.FORAGERS_TABLE.get(), new TextureMapping()
@@ -332,14 +330,14 @@ public class ModelGenerator extends ModelProvider {
             } else if (b instanceof FlowerPotBlock flowerPotBlock) {
                 if (flowerPotBlock == BWGBlocks.WHITE_PUFFBALL.getPottedBlock())
                     blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(flowerPotBlock, BlockModelGenerators.plainVariant(ModelLocationUtils.getModelLocation(b))));
-                else blockModels.createTrivialBlock(flowerPotBlock, TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.FLOWER_POT_CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.PLANT, ModelLocationUtils.getModelLocation(flowerPotBlock.getPotted()))));
+                else blockModels.createTrivialBlock(flowerPotBlock, TexturedModel.createDefault(TextureMapping::cross, ModelTemplates.FLOWER_POT_CROSS).updateTexture(textureMapping -> textureMapping.put(TextureSlot.PLANT, material(ModelLocationUtils.getModelLocation(flowerPotBlock.getPotted())))));
             } else if (b instanceof LilyPadBlock || b instanceof CattailSproutBlock) {
                 blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(b, BlockModelGenerators.createRotatedVariants(BlockModelGenerators.plainModel(ModelLocationUtils.getModelLocation(b)))));
             } else if (b instanceof DirtPathBlock) {
                 blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(b, BlockModelGenerators.createRotatedVariants(BlockModelGenerators.plainModel(TexturedModel.createDefault(TextureMapping::cubeBottomTop, ModelTemplates.CUBE_BOTTOM_TOP)
                         .updateTexture(textureMapping -> textureMapping
-                                .putForced(TextureSlot.PARTICLE, BiomesWeveGone.id("block/" + BuiltInRegistries.BLOCK.getKey(b).getPath().replace("_path", "")))
-                                .put(TextureSlot.BOTTOM, BiomesWeveGone.id("block/" + BuiltInRegistries.BLOCK.getKey(b).getPath().replace("_path", "")))
+                                .putForced(TextureSlot.PARTICLE, material(BiomesWeveGone.id("block/" + BuiltInRegistries.BLOCK.getKey(b).getPath().replace("_path", ""))))
+                                .put(TextureSlot.BOTTOM, material(BiomesWeveGone.id("block/" + BuiltInRegistries.BLOCK.getKey(b).getPath().replace("_path", ""))))
                                 .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(b, "_side"))
                                 .put(TextureSlot.TOP, TextureMapping.getBlockTexture(Blocks.DIRT_PATH, "_top")))
                                 .updateTemplate(modelTemplate -> modelTemplate.extend().parent(mcLocation("block/dirt_path")).build()).create(b, blockModels.modelOutput)))));
@@ -360,10 +358,10 @@ public class ModelGenerator extends ModelProvider {
             }
         });
 
-        blockModels.createTrivialBlock(BWGBlocks.BOREALIS_ICE.get(), TexturedModel.LEAVES.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, TextureMapping.getBlockTexture(BWGBlocks.BOREALIS_ICE.get()))).updateTemplate(modelTemplate -> modelTemplate.extend().renderType(mcLocation("translucent")).build()));
+        blockModels.createTrivialBlock(BWGBlocks.BOREALIS_ICE.get(), TexturedModel.LEAVES.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, TextureMapping.getBlockTexture(BWGBlocks.BOREALIS_ICE.get()))));
         itemModels.itemModelOutput.accept(BWGBlocks.BOREALIS_ICE.get().asItem(), ItemModelUtils.tintedModel(ModelLocationUtils.getModelLocation(BWGBlocks.BOREALIS_ICE.get()), new BorealisIceColorSource(-1)));
 
-        blockModels.createTrivialBlock(BWGBlocks.PACKED_BOREALIS_ICE.get(), TexturedModel.LEAVES.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, TextureMapping.getBlockTexture(BWGBlocks.PACKED_BOREALIS_ICE.get()))).updateTemplate(modelTemplate -> modelTemplate.extend().renderType(mcLocation("translucent")).build()));
+        blockModels.createTrivialBlock(BWGBlocks.PACKED_BOREALIS_ICE.get(), TexturedModel.LEAVES.updateTexture(textureMapping -> textureMapping.put(TextureSlot.ALL, TextureMapping.getBlockTexture(BWGBlocks.PACKED_BOREALIS_ICE.get()))));
         itemModels.itemModelOutput.accept(BWGBlocks.PACKED_BOREALIS_ICE.get().asItem(), ItemModelUtils.tintedModel(ModelLocationUtils.getModelLocation(BWGBlocks.PACKED_BOREALIS_ICE.get()), new BorealisIceColorSource(-1)));
 
         createSlabAndStairs(blockModels, itemModels, BWGBlocks.CATTAIL_THATCH_SLAB.get(), BWGBlocks.CATTAIL_THATCH_STAIRS.get(), BWGBlocks.CATTAIL_THATCH.get(), new TextureMapping().put(TextureSlot.ALL, TextureMapping.getBlockTexture(BWGBlocks.CATTAIL_THATCH.get())));
@@ -391,7 +389,7 @@ public class ModelGenerator extends ModelProvider {
         blockItemModel(blockModels, BWGWood.SPIRIT_ROOTS.get());
 
         BWGSandSet.getSandSets().forEach(bwgSandSet -> {
-            Identifier sandStoneTop = TextureMapping.getBlockTexture(bwgSandSet.getSandstone(), "_top");
+            Material sandStoneTop = TextureMapping.getBlockTexture(bwgSandSet.getSandstone(), "_top");
 
             blockModels.createTrivialBlock(bwgSandSet.getSandstone(), TexturedModel.CUBE_TOP_BOTTOM.updateTexture(textureMapping1 -> {
                 textureMapping1.put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(bwgSandSet.getSandstone(), "_bottom"));
@@ -458,7 +456,7 @@ public class ModelGenerator extends ModelProvider {
                         .select(LiquidType.HONEY, BlockModelGenerators.plainVariant(ModelLocationUtils.getModelLocation(BWGBlocks.CARVED_BARREL_CACTUS.get(), "_honey")))));
         blockItemModel(blockModels, BWGBlocks.CARVED_BARREL_CACTUS.get());
 
-        Identifier witchHazelBranch = ModelTemplates.CORAL_WALL_FAN.extend().renderType(mcLocation("cutout_mipped")).build().create(BWGBlocks.WITCH_HAZEL_BRANCH.get(), new TextureMapping().put(TextureSlot.FAN, TextureMapping.getBlockTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get())), blockModels.modelOutput);
+        Identifier witchHazelBranch = ModelTemplates.CORAL_WALL_FAN.create(BWGBlocks.WITCH_HAZEL_BRANCH.get(), new TextureMapping().put(TextureSlot.FAN, TextureMapping.getBlockTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get())), blockModels.modelOutput);
         blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(BWGBlocks.WITCH_HAZEL_BRANCH.get(), BlockModelGenerators.plainVariant(witchHazelBranch)).with(BlockModelGenerators.ROTATION_HORIZONTAL_FACING));
 
         itemModels.itemModelOutput.accept(BWGBlocks.WITCH_HAZEL_BRANCH.get().asItem(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGBlocks.WITCH_HAZEL_BRANCH.get().asItem(), TextureMapping.layer0(TextureMapping.getBlockTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get())), itemModels.modelOutput)));
@@ -493,8 +491,8 @@ public class ModelGenerator extends ModelProvider {
 
         //TODO: SpawnEggs These now Require there own custom .png file
 
-        itemModels.itemModelOutput.accept(BWGItems.CATTAIL_SPROUT.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.CATTAIL_SPROUT.get(), TextureMapping.layer0(BiomesWeveGone.id("item/cattails")), itemModels.modelOutput)));
-        itemModels.itemModelOutput.accept(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get(), TextureMapping.layer0(BiomesWeveGone.id("item/fluorescent_cattails")), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.CATTAIL_SPROUT.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.CATTAIL_SPROUT.get(), TextureMapping.layer0(material(BiomesWeveGone.id("item/cattails"))), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get(), TextureMapping.layer0(material(BiomesWeveGone.id("item/fluorescent_cattails"))), itemModels.modelOutput)));
 
         itemModels.itemModelOutput.accept(BWGItems.TINY_LILY_PADS.get(), ItemModelUtils.tintedModel(ModelTemplates.FLAT_ITEM.create(ModelLocationUtils.getModelLocation(BWGItems.TINY_LILY_PADS.get()), TextureMapping.layer0(BWGBlocks.TINY_LILY_PADS.get()), itemModels.modelOutput), new GrassColorSource()));
         itemModels.itemModelOutput.accept(BWGItems.FLOWERING_TINY_LILY_PADS.get(), ItemModelUtils.tintedModel(ModelTemplates.TWO_LAYERED_ITEM.create(ModelLocationUtils.getModelLocation(BWGItems.FLOWERING_TINY_LILY_PADS.get()), TextureMapping.layered(TextureMapping.getBlockTexture(BWGBlocks.TINY_LILY_PADS.get()), TextureMapping.getBlockTexture(BWGBlocks.TINY_LILY_PADS.get(), "_flower_overlay")), blockModels.modelOutput), new GrassColorSource()));
@@ -513,13 +511,13 @@ public class ModelGenerator extends ModelProvider {
                 unoccupiedItem
         ));
 
-        itemModels.itemModelOutput.accept(BWGItems.WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/default_wreath")), itemModels.modelOutput)));
-        itemModels.itemModelOutput.accept(BWGItems.HOLLY_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.HOLLY_WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/holly_wreath")), itemModels.modelOutput)));
-        itemModels.itemModelOutput.accept(BWGItems.MUSHROOM_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.MUSHROOM_WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/mushroom_wreath")), itemModels.modelOutput)));
-        itemModels.itemModelOutput.accept(BWGItems.ODDION_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.ODDION_WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/oddion_wreath")), itemModels.modelOutput)));
-        itemModels.itemModelOutput.accept(BWGItems.PETAL_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.PETAL_WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/petal_wreath")), itemModels.modelOutput)));
-        itemModels.itemModelOutput.accept(BWGItems.ROSY_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.ROSY_WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/rosy_wreath")), itemModels.modelOutput)));
-        itemModels.itemModelOutput.accept(BWGItems.WINTER_ROSY_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.WINTER_ROSY_WREATH.get(), TextureMapping.layer0(BiomesWeveGone.id("block/winter_rosy_wreath")), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.WREATH.get(), TextureMapping.layer0(material(BiomesWeveGone.id("block/default_wreath"))), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.HOLLY_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.HOLLY_WREATH.get(), TextureMapping.layer0(material(BiomesWeveGone.id("block/holly_wreath"))), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.MUSHROOM_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.MUSHROOM_WREATH.get(), TextureMapping.layer0(material(BiomesWeveGone.id("block/mushroom_wreath"))), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.ODDION_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.ODDION_WREATH.get(), TextureMapping.layer0(material(BiomesWeveGone.id("block/oddion_wreath"))), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.PETAL_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.PETAL_WREATH.get(), TextureMapping.layer0(material(BiomesWeveGone.id("block/petal_wreath"))), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.ROSY_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.ROSY_WREATH.get(), TextureMapping.layer0(material(BiomesWeveGone.id("block/rosy_wreath"))), itemModels.modelOutput)));
+        itemModels.itemModelOutput.accept(BWGItems.WINTER_ROSY_WREATH.get(), ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(BWGItems.WINTER_ROSY_WREATH.get(), TextureMapping.layer0(material(BiomesWeveGone.id("block/winter_rosy_wreath"))), itemModels.modelOutput)));
     }
 
     private void blockItemModel(BlockModelGenerators blockModels, Block block) {
@@ -534,7 +532,7 @@ public class ModelGenerator extends ModelProvider {
         TextureMapping texturemapping = new TextureMapping().put(TextureSlot.DIRT, TextureMapping.getBlockTexture(block.getDirt())).put(TextureSlot.TOP, TextureMapping.getBlockTexture(block));
         TextureMapping texturemapping1 = new TextureMapping().put(TextureSlot.DIRT, TextureMapping.getBlockTexture(block.getDirt())).put(TextureSlot.TOP, TextureMapping.getBlockTexture(block, "_moist"));
         Identifier Identifier = ModelTemplates.FARMLAND.create(block, texturemapping, blockModelGenerators.modelOutput);
-        Identifier Identifier1 = ModelTemplates.FARMLAND.create(TextureMapping.getBlockTexture(block, "_moist"), texturemapping1, blockModelGenerators.modelOutput);
+        Identifier Identifier1 = ModelTemplates.FARMLAND.create(TextureMapping.getBlockTexture(block, "_moist").sprite(), texturemapping1, blockModelGenerators.modelOutput);
         blockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(BlockModelGenerators.createEmptyOrFullDispatch(BlockStateProperties.MOISTURE, 7, BlockModelGenerators.plainVariant(Identifier1), BlockModelGenerators.plainVariant(Identifier))));
     }
 
@@ -569,7 +567,7 @@ public class ModelGenerator extends ModelProvider {
     }
 
     private void createGrassBlockModel(BlockModelGenerators blockModels, Block grassBlock, Block dirtBlock) {
-        Identifier model = new ModelTemplate(Optional.of(mcLocation("block/grass_block")), Optional.empty()).extend().renderType(mcLocation("cutout_mipped")).build()
+        Identifier model = new ModelTemplate(Optional.of(mcLocation("block/grass_block")), Optional.empty())
                 .create(grassBlock, new TextureMapping()
                         .putForced(TextureSlot.PARTICLE, TextureMapping.getBlockTexture(dirtBlock))
                         .putForced(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(dirtBlock))
@@ -621,13 +619,17 @@ public class ModelGenerator extends ModelProvider {
         blockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, blockModelGenerators.variants(variants)));
     }
 
+    private static Material material(Identifier identifier) {
+        return new Material(identifier);
+    }
+
     @Override
-    protected @NotNull Stream<? extends Holder<Block>> getKnownBlocks() {
+    protected Stream<? extends Holder<Block>> getKnownBlocks() {
         return Stream.empty();
     }
 
     @Override
-    protected @NotNull Stream<? extends Holder<Item>> getKnownItems() {
+    protected Stream<? extends Holder<Item>> getKnownItems() {
         return Stream.empty();
     }
 }
