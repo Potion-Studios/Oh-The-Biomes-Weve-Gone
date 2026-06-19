@@ -1,7 +1,7 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.structure;
 
 import com.mojang.datafixers.util.Pair;
-import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
+import net.potionstudios.biomeswevegone.math.BlendingFunction;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;

@@ -30,7 +30,7 @@
   - CurseForge: https://www.curseforge.com/minecraft/mc-mods/geckolib
   - Modrinth: https://modrinth.com/mod/geckolib
 
-- CorgiLib
+- CorgiLib (Not required for versions above 26.1)
   - Github: https://github.com/CorgiTaco/CorgiLib
   - CurseForge: https://www.curseforge.com/minecraft/mc-mods/corgilib
   - Modrinth: https://modrinth.com/mod/corgilib

@@ -1,7 +1,7 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.feature;
 
 import com.mojang.serialization.Codec;
-import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
+import net.potionstudios.biomeswevegone.math.BlendingFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.util.valueproviders.UniformInt;

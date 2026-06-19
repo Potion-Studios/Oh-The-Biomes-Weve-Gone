@@ -2,7 +2,7 @@ package net.potionstudios.biomeswevegone.world.level.levelgen.feature.configured
 
 import com.google.common.collect.ImmutableList;
 import dev.corgitaco.ohthetreesyoullgrow.world.level.levelgen.feature.TYGFeatures;
-import dev.corgitaco.ohthetreesyoullgrow.world.level.levelgen.feature.configurations.TreeFromStructureNBTConfig;
+import dev.corgitaco.ohthetreesyoullgrow.world.level.levelgen.feature.configurations.TreeFromStructureNBTConfigV2;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderGetter;
@@ -349,60 +349,60 @@ public class BWGOverworldVegetationConfiguredFeatures {
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_GREEN_MUSHROOM1 = ConfiguredFeaturesUtil.createConfiguredFeature("huge_green_mushroom1",
-            TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig.Builder()
+            TYGFeatures.TREE_FROM_NBT_V2,
+            () -> new TreeFromStructureNBTConfigV2.Builder()
                     .baseLocation(BiomesWeveGone.id("features/mushrooms/green_mushroom/green_mushroom_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/mushrooms/green_mushroom/green_mushroom_canopy1"))
                     .height(BiasedToBottomInt.of(6, 8))
                     .logProvider(BlockStateProvider.simple(BWGBlocks.WHITE_MUSHROOM_STEM.get()))
                     .leavesProvider(BlockStateProvider.simple(BWGBlocks.GREEN_MUSHROOM_BLOCK.get()))
                     .logTarget(Set.of(BWGBlocks.WHITE_MUSHROOM_STEM.get()))
-                    .leavesTarget(Set.of(BWGBlocks.GREEN_MUSHROOM_BLOCK.get()))
+                    .leavesTarget(List.of(BWGBlocks.GREEN_MUSHROOM_BLOCK.get()))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
                     .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_GREEN_MUSHROOM2 = ConfiguredFeaturesUtil.createConfiguredFeature("huge_green_mushroom1",
-            TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig.Builder()
+            TYGFeatures.TREE_FROM_NBT_V2,
+            () -> new TreeFromStructureNBTConfigV2.Builder()
                     .baseLocation(BiomesWeveGone.id("features/mushrooms/green_mushroom/green_mushroom_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/mushrooms/green_mushroom/green_mushroom_canopy2"))
                     .height(BiasedToBottomInt.of(6, 8))
                     .logProvider(BlockStateProvider.simple(BWGBlocks.WHITE_MUSHROOM_STEM.get()))
                     .leavesProvider(BlockStateProvider.simple(BWGBlocks.GREEN_MUSHROOM_BLOCK.get()))
                     .logTarget(Set.of(BWGBlocks.WHITE_MUSHROOM_STEM.get()))
-                    .leavesTarget(Set.of(BWGBlocks.GREEN_MUSHROOM_BLOCK.get()))
+                    .leavesTarget(List.of(BWGBlocks.GREEN_MUSHROOM_BLOCK.get()))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
                     .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_WEEPING_MILKCAP1 = ConfiguredFeaturesUtil.createConfiguredFeature("huge_weeping_milkcap1",
-            TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig.Builder()
+            TYGFeatures.TREE_FROM_NBT_V2,
+            () -> new TreeFromStructureNBTConfigV2.Builder()
                     .baseLocation(BiomesWeveGone.id("features/mushrooms/weeping_milkcap/weeping_milkcap_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/mushrooms/weeping_milkcap/weeping_milkcap_canopy1"))
                     .height(BiasedToBottomInt.of(6, 8))
                     .logProvider(BlockStateProvider.simple(BWGBlocks.BROWN_MUSHROOM_STEM.get()))
                     .leavesProvider(BlockStateProvider.simple(BWGBlocks.WEEPING_MILKCAP_MUSHROOM_BLOCK.get()))
                     .logTarget(Set.of(BWGBlocks.BROWN_MUSHROOM_STEM.get()))
-                    .leavesTarget(Set.of(BWGBlocks.WEEPING_MILKCAP_MUSHROOM_BLOCK.get()))
+                    .leavesTarget(List.of(BWGBlocks.WEEPING_MILKCAP_MUSHROOM_BLOCK.get()))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
                     .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_WOOD_BLEWIT1 = ConfiguredFeaturesUtil.createConfiguredFeature("huge_wood_blewit1",
-            TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig.Builder()
+            TYGFeatures.TREE_FROM_NBT_V2,
+            () -> new TreeFromStructureNBTConfigV2.Builder()
                     .baseLocation(BiomesWeveGone.id("features/mushrooms/wood_blewit/wood_blewit_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/mushrooms/wood_blewit/wood_blewit_canopy1"))
                     .height(BiasedToBottomInt.of(6, 8))
                     .logProvider(BlockStateProvider.simple(BWGBlocks.BROWN_MUSHROOM_STEM.get()))
                     .leavesProvider(BlockStateProvider.simple(BWGBlocks.WOOD_BLEWIT_MUSHROOM_BLOCK.get()))
                     .logTarget(Set.of(BWGBlocks.BROWN_MUSHROOM_STEM.get()))
-                    .leavesTarget(Set.of(BWGBlocks.WOOD_BLEWIT_MUSHROOM_BLOCK.get()))
+                    .leavesTarget(List.of(BWGBlocks.WOOD_BLEWIT_MUSHROOM_BLOCK.get()))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
                     .build()

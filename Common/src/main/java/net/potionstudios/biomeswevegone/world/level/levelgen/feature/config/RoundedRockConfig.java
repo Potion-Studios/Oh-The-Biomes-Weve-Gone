@@ -2,7 +2,7 @@ package net.potionstudios.biomeswevegone.world.level.levelgen.feature.config;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
+import net.potionstudios.biomeswevegone.math.BlendingFunction;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.FloatProvider;
 import net.minecraft.util.valueproviders.IntProvider;

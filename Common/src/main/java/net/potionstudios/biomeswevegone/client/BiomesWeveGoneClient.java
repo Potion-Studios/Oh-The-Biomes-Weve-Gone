@@ -1,7 +1,6 @@
 package net.potionstudios.biomeswevegone.client;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.block.BlockTintSource;
 import net.minecraft.client.color.item.ItemTintSource;

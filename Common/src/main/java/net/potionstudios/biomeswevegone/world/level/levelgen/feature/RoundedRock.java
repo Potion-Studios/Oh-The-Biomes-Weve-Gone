@@ -2,7 +2,7 @@ package net.potionstudios.biomeswevegone.world.level.levelgen.feature;
 
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
-import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
+import net.potionstudios.biomeswevegone.math.BlendingFunction;
 import it.unimi.dsi.fastutil.longs.LongOpenHashSet;
 import it.unimi.dsi.fastutil.longs.LongSet;
 import net.minecraft.core.BlockPos;

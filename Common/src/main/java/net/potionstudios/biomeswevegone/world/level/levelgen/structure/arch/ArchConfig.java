@@ -2,7 +2,6 @@ package net.potionstudios.biomeswevegone.world.level.levelgen.structure.arch;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.FloatProvider;
@@ -12,6 +11,7 @@ import net.minecraft.util.valueproviders.IntProviders;
 import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.phys.Vec3;
+import net.potionstudios.biomeswevegone.math.BlendingFunction;
 import net.potionstudios.biomeswevegone.world.level.levelgen.CheckedBlockPlacement;
 
 import java.util.function.Consumer;

@@ -2,7 +2,6 @@ package net.potionstudios.biomeswevegone.world.level.levelgen.structure.arch;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
@@ -16,6 +15,7 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.synth.ImprovedNoise;
 import net.minecraft.world.phys.Vec3;
+import net.potionstudios.biomeswevegone.math.BlendingFunction;
 import net.potionstudios.biomeswevegone.util.UnsafeBoundingBox;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGStructureTypes;
 import org.jetbrains.annotations.NotNull;

@@ -1,6 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.customterrain;
 
-import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
+import net.potionstudios.biomeswevegone.math.BlendingFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.server.level.WorldGenRegion;

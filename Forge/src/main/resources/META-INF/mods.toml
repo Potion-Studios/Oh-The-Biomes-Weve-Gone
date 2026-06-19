@@ -29,16 +29,9 @@ ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.biomeswevegone]]
-modId = "corgilib"
-mandatory = true
-versionRange = "[9.0.0.0,)"
-ordering = "AFTER"
-side = "BOTH"
-
-[[dependencies.biomeswevegone]]
 modId = "ohthetreesyoullgrow"
 mandatory = true
-versionRange = "[9.0.0,)"
+versionRange = "[10.1.1,)"
 ordering = "AFTER"
 side = "BOTH"
 

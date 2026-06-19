@@ -1,6 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.structure.plateau;
 
-import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
+import net.potionstudios.biomeswevegone.math.BlendingFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;

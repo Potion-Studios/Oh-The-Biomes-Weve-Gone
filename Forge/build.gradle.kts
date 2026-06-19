@@ -53,12 +53,11 @@ dependencies {
     "common"(project(":Common", "namedElements")) { isTransitive = false }
     "shadowBundle"(project(":Common", "transformProductionForge"))
 
-    modLocalRuntime("me.djtheredstoner:DevAuth-forge-latest:${providers.gradleProperty("devauth_version").get()}")
+    ;ocalRuntime("me.djtheredstoner:DevAuth-forge-latest:${providers.gradleProperty("devauth_version").get()}")
 
-    modApi("com.github.glitchfiend:TerraBlender-forge:$minecraftVersion-${providers.gradleProperty("terrablender_version").get()}")
-    modApi("dev.corgitaco:Corgilib-Forge:$minecraftVersion-${providers.gradleProperty("corgilib_version").get()}")
-    modApi("dev.corgitaco:Oh-The-Trees-Youll-Grow-forge:$minecraftVersion-${providers.gradleProperty("ohthetreesyoullgrow_version").get()}")
-    modApi("software.bernie.geckolib:geckolib-forge-$minecraftVersion:${providers.gradleProperty("geckolib_version").get()}")
+    api("com.github.glitchfiend:TerraBlender-forge:$minecraftVersion-${providers.gradleProperty("terrablender_version").get()}")
+    api("dev.corgitaco:Oh-The-Trees-Youll-Grow-forge:$minecraftVersion-${providers.gradleProperty("ohthetreesyoullgrow_version").get()}")
+    api("software.bernie.geckolib:geckolib-forge-$minecraftVersion:${providers.gradleProperty("geckolib_version").get()}")
     compileOnly("net.luckperms:api:5.4")
 
     modCompileOnly("mcp.mobius.waila:wthit-api:forge-${providers.gradleProperty("WTHIT").get()}")
@@ -93,7 +92,7 @@ tasks {
 
 publisher {
     setLoaders(ModLoader.FORGE)
-    val depends = mutableListOf("terrablender", "geckolib", "corgilib", "oh-the-trees-youll-grow")
+    val depends = mutableListOf("terrablender", "geckolib", "oh-the-trees-youll-grow")
     curseDepends.required.set(depends)
     modrinthDepends.required.set(depends)
     curseDepends.optional.set(mutableListOf("wthit-forge"))

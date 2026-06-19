@@ -1,7 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.feature;
 
 import com.mojang.serialization.Codec;
-import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.WorldGenLevel;
@@ -13,6 +12,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.synth.ImprovedNoise;
+import net.potionstudios.biomeswevegone.math.BlendingFunction;
 import net.potionstudios.biomeswevegone.util.MathUtil;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import org.jetbrains.annotations.NotNull;
@@ -54,8 +54,6 @@ public class CragFeature extends Feature<NoneFeatureConfiguration> {
                 BlockState state = Blocks.STONE.defaultBlockState();
 
 
-
-
                 for (int y = level.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, mutableBlockPos.getX(), mutableBlockPos.getZ()) - 10; y < height; y++) {
                     mutableBlockPos.setY(y);
                     level.setBlock(mutableBlockPos, state, 2);
@@ -79,7 +77,7 @@ public class CragFeature extends Feature<NoneFeatureConfiguration> {
 
         for (int x = -radius; x <= radius; x++) {
             for (int z = -radius; z <= radius; z++) {
-                if (x == 0 && z == 0 ) {
+                if (x == 0 && z == 0) {
                     continue;
                 }
 
@@ -101,7 +99,7 @@ public class CragFeature extends Feature<NoneFeatureConfiguration> {
         Vector2d hexCenter = new Vector2d(mutableBlockPos.getX() - vector4d.x, mutableBlockPos.getZ() - vector4d.y);
 
         double heightDelta = (noise.noise(hexCenter.x * noiseFreq, 0, hexCenter.y * noiseFreq) + 1) * 0.5F;
-        return BlendingFunction.EaseInOutCirc.INSTANCE.apply(heightDelta, 150, 250);
+        return BlendingFunction.EASE_IN_OUT_CIRC.apply(heightDelta, 150, 250);
     }
 
 

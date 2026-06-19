@@ -1,7 +1,7 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.feature.configured;
 
 import com.mojang.datafixers.util.Pair;
-import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
+import net.potionstudios.biomeswevegone.math.BlendingFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.WeightedList;
@@ -84,7 +84,7 @@ public class BWGOverworldConfiguredFeatures {
                                     )
                             )
                     ),
-                    WeightedList.of(BlendingFunction.EaseOutCubic.INSTANCE) // TODO: We need to configure the exponent by adding a config option in CorgiLib
+                    WeightedList.of(BlendingFunction.EASE_OUT_CUBIC) // TODO: We need to configure the exponent by adding a config option in CorgiLib
             )
     );
 
@@ -105,7 +105,7 @@ public class BWGOverworldConfiguredFeatures {
                                     )
                             )
                     ),
-                    WeightedList.<BlendingFunction>builder().add(new BlendingFunction.EaseInCirc(0.8), 4).build()
+                    WeightedList.<BlendingFunction>builder().add(BlendingFunction.EASE_IN_CIRC, 4).build() // TODO: VERIFY THIS LOOKS GOOD STILL!!!
             )
     );
 

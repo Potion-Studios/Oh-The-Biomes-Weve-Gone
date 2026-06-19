@@ -37,8 +37,7 @@
     "fabric": "*",
     "minecraft": ">=1.21.11",
     "terrablender": ">=21.11.0.0",
-    "corgilib": ">=9.0.0.0",
-    "ohthetreesyoullgrow": ">=9.0.0",
+    "ohthetreesyoullgrow": ">=10.1.1",
     "geckolib": ">=5.4.4"
   },
   "suggests": {
