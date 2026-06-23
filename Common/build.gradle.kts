@@ -3,19 +3,19 @@ architectury {
     platformSetupLoomIde()
 }
 
-val minecraftVersion = project.properties["minecraft_version"] as String
+val minecraftVersion = providers.gradleProperty("minecraft_version").get()
 
 loom.accessWidenerPath.set(file("src/main/resources/biomeswevegone.accesswidener"))
 
 sourceSets.main.get().resources.srcDir("src/main/generated/resources")
 
 dependencies {
-    modImplementation("net.fabricmc:fabric-loader:${project.properties["fabric_loader_version"]}")
+    modImplementation("net.fabricmc:fabric-loader:${providers.gradleProperty("fabric_loader_version").get()}")
 
-    modImplementation("com.github.glitchfiend:TerraBlender-common:$minecraftVersion-${project.properties["terrablender_version"]}")
-    modImplementation("dev.corgitaco:Corgilib-Fabric:$minecraftVersion-${project.properties["corgilib_version"]}")
-    modImplementation("dev.corgitaco:Oh-The-Trees-Youll-Grow-common:$minecraftVersion-${project.properties["ohthetreesyoullgrow_version"]}")
-    modImplementation("software.bernie.geckolib:geckolib-common-$minecraftVersion:${project.properties["geckolib_version"]}")
+    modImplementation("com.github.glitchfiend:TerraBlender-common:$minecraftVersion-${providers.gradleProperty("terrablender_version").get()}")
+    modImplementation("dev.corgitaco:Corgilib-Fabric:$minecraftVersion-${providers.gradleProperty("corgilib_version").get()}")
+    modImplementation("dev.corgitaco:Oh-The-Trees-Youll-Grow-common:$minecraftVersion-${providers.gradleProperty("ohthetreesyoullgrow_version").get()}")
+    modImplementation("software.bernie.geckolib:geckolib-common-$minecraftVersion:${providers.gradleProperty("geckolib_version").get()}")
 
-    modCompileOnly("mcp.mobius.waila:wthit-api:fabric-${project.properties["WTHIT"]}")
+    modCompileOnly("mcp.mobius.waila:wthit-api:fabric-${providers.gradleProperty("WTHIT").get()}")
 }
