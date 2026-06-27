@@ -1,7 +1,6 @@
 package net.potionstudios.biomeswevegone.neoforge.client;
 
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.block.model.BlockStateModel;
+import net.minecraft.client.renderer.block.dispatch.BlockStateModel;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -35,7 +34,6 @@ public class BiomesWeveGoneClientNeoForge {
     public BiomesWeveGoneClientNeoForge(final IEventBus eventBus) {
         eventBus.addListener((FMLClientSetupEvent event) -> {
             BiomesWeveGoneClient.onInitialize();
-            BiomesWeveGoneClient.registerBlockRenderTypes(ItemBlockRenderTypes::setRenderLayer);
         });
         eventBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> BiomesWeveGoneClient.registerEntityRenderers(event::registerEntityRenderer));
         eventBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> BiomesWeveGoneClient.registerBlockEntityRenderers(event::registerBlockEntityRenderer));

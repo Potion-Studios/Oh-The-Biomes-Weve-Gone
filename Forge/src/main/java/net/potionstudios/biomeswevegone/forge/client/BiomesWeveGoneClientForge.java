@@ -1,7 +1,6 @@
 package net.potionstudios.biomeswevegone.forge.client;
 
 import net.minecraft.client.color.item.ItemTintSources;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -29,7 +28,6 @@ public class BiomesWeveGoneClientForge {
     public static void init(final BusGroup eventBus) {
         FMLClientSetupEvent.getBus(eventBus).addListener((FMLClientSetupEvent event) -> {
             BiomesWeveGoneClient.onInitialize();
-            BiomesWeveGoneClient.registerBlockRenderTypes(ItemBlockRenderTypes::setRenderLayer);
         });
         EntityRenderersEvent.RegisterRenderers.BUS.addListener((EntityRenderersEvent.RegisterRenderers event) -> {
             BiomesWeveGoneClient.registerEntityRenderers(event::registerEntityRenderer);

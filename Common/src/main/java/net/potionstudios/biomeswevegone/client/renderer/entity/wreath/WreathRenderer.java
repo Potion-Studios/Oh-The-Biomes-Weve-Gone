@@ -3,28 +3,34 @@ package net.potionstudios.biomeswevegone.client.renderer.entity.wreath;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.renderer.SubmitNodeCollector;
-import net.minecraft.client.renderer.block.BlockRenderDispatcher;
+import net.minecraft.client.renderer.block.BlockModelResolver;
+import net.minecraft.client.renderer.block.dispatch.BlockStateModel;
+import net.minecraft.client.renderer.block.dispatch.BlockStateModelPart;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.client.model.ModelAccess;
 import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class WreathRenderer extends EntityRenderer<Wreath, WreathRenderState> {
-	private final BlockRenderDispatcher blockRenderer;
+	private final BlockModelResolver blockRenderer;
 
 	public WreathRenderer(EntityRendererProvider.Context context) {
 		super(context);
-		this.blockRenderer = context.getBlockRenderDispatcher();
+		this.blockRenderer = context.getBlockModelResolver();
 	}
 
-    @Override
+	@Override
     public void submit(@NotNull WreathRenderState renderState, @NotNull PoseStack poseStack, @NotNull SubmitNodeCollector nodeCollector, @NotNull CameraRenderState cameraRenderState) {
         super.submit(renderState, poseStack, nodeCollector, cameraRenderState);
         poseStack.pushPose();
@@ -46,16 +52,22 @@ public class WreathRenderer extends EntityRenderer<Wreath, WreathRenderState> {
         if (!renderState.isInvisible) {
             poseStack.pushPose();
             poseStack.translate(-0.5, -0.5, -0.5);
+
+	        BlockStateModel model = ModelAccess.MODEL_ACCESS.getModel(
+					renderState.type.getSerializedName() + "_wreath", blockRenderer
+	        );
+
+	        List<BlockStateModelPart> parts = new ArrayList<>();
+			model.collectParts(RandomSource.create(), parts);
+
             nodeCollector.submitBlockModel(
                     poseStack,
-                    RenderTypes.entityCutoutNoCullZOffset(TextureAtlas.LOCATION_BLOCKS),
-                    ModelAccess.MODEL_ACCESS.getModel(renderState.type.getSerializedName() + "_wreath", blockRenderer),
-                    1.0F,
-                    1.0F,
-                    1.0F,
-                    renderState.lightCoords,
-                    OverlayTexture.NO_OVERLAY,
-                    renderState.outlineColor);
+                    RenderTypes.entityCutoutZOffset(TextureAtlas.LOCATION_BLOCKS),
+		            parts,
+		            new int[0],
+		            renderState.lightCoords,
+		            OverlayTexture.NO_OVERLAY,
+		            renderState.outlineColor);
             poseStack.popPose();
         }
         poseStack.popPose();

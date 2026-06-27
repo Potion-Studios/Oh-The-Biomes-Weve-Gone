@@ -13,7 +13,6 @@ import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.*;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -44,15 +43,9 @@ import net.potionstudios.biomeswevegone.client.renderer.entity.oddion.OddionRend
 import net.potionstudios.biomeswevegone.client.renderer.entity.pumpkinwarden.PumpkinWardenRenderer;
 import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
-import net.potionstudios.biomeswevegone.world.level.block.custom.BWGSpreadableBlock;
 import net.potionstudios.biomeswevegone.world.level.block.entities.BWGBlockEntityType;
-import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.BWGCactusBlock;
-import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.BWGFruitBlock;
-import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.GlowCaneBlock;
-import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cattail.CattailSproutBlock;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
@@ -144,30 +137,6 @@ public class BiomesWeveGoneClient {
         consumer.accept(BWGParticles.IRONWOOD_LEAVES.get(), FallingLeafParticle.Provider::new);
         consumer.accept(BWGParticles.SPIRIT.get(), FallingLeafParticle.Provider::new);
         consumer.accept(BWGParticles.SPIRIT_LEAVES.get(), FallingLeavesParticle.PaleOakProvider::new);
-    }
-
-    public static void registerBlockRenderTypes(BiConsumer<Block, ChunkSectionLayer> consumer) {
-        BWGWood.WOOD.forEach(entry -> {
-            ChunkSectionLayer type = renderTypeBlock(entry.get());
-            if (type != null) consumer.accept(entry.get(), type);
-        });
-        BWGBlocks.BLOCKS.forEach(entry -> {
-            ChunkSectionLayer type = renderTypeBlock(entry.get());
-            if (type != null) consumer.accept(entry.get(), type);
-        });
-        consumer.accept(BWGWood.MAPLE.door(), ChunkSectionLayer.TRANSLUCENT);
-        consumer.accept(BWGWood.MAPLE.trapdoor(), ChunkSectionLayer.TRANSLUCENT);
-    }
-
-    @Nullable
-    private static ChunkSectionLayer renderTypeBlock(Block block) {
-        if (block instanceof BWGFruitBlock || block instanceof DoorBlock || block instanceof TrapDoorBlock || block instanceof VegetationBlock || block instanceof GlowCaneBlock || block instanceof LanternBlock || block instanceof LeavesBlock || block instanceof VineBlock || block instanceof MangroveRootsBlock
-                || block instanceof FlowerPotBlock || block instanceof BWGCactusBlock || block instanceof CattailSproutBlock
-                || block instanceof BWGSpreadableBlock || block instanceof SporeBlossomBlock || block instanceof BaseCoralPlantTypeBlock)
-            return ChunkSectionLayer.CUTOUT;
-        else if (block instanceof StainedGlassPaneBlock || block instanceof HalfTransparentBlock)
-            return ChunkSectionLayer.TRANSLUCENT;
-        return null;
     }
 
     /**
