@@ -30,11 +30,6 @@
   - CurseForge: https://www.curseforge.com/minecraft/mc-mods/geckolib
   - Modrinth: https://modrinth.com/mod/geckolib
 
-- CorgiLib (Not required for versions above 26.1)
-  - Github: https://github.com/CorgiTaco/CorgiLib
-  - CurseForge: https://www.curseforge.com/minecraft/mc-mods/corgilib
-  - Modrinth: https://modrinth.com/mod/corgilib
-
 - Oh The Tree's You'll Grow
   - Github: https://github.com/CorgiTaco/Oh-The-Trees-Youll-Grow
   - CurseForge: https://www.curseforge.com/minecraft/mc-mods/oh-the-trees-youll-grow

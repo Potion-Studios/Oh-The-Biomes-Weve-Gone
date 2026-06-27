@@ -50,9 +50,9 @@ dependencies {
     api("com.geckolib:geckolib-forge-$minecraftVersion:${providers.gradleProperty("geckolib_version").get()}")
     compileOnly("net.luckperms:api:5.4")
 
-    compileOnly("mcp.mobius.waila:wthit-api:forge-${project.properties["WTHIT"]}")
-    localRuntime("mcp.mobius.waila:wthit:forge-${project.properties["WTHIT"]}")
-    localRuntime("lol.bai:badpackets:forge-${project.properties["badPackets"]}")
+    compileOnly("mcp.mobius.waila:wthit-api:forge-${providers.gradleProperty("WTHIT").get()}")
+    localRuntime("mcp.mobius.waila:wthit:forge-${providers.gradleProperty("WTHIT").get()}")
+    localRuntime("lol.bai:badpackets:forge-${providers.gradleProperty("badPackets").get()}")
 }
 
 tasks {
