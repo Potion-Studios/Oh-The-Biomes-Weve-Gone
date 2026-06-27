@@ -4,6 +4,7 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.valueproviders.ClampedInt;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.configured.BWGVanillaConfiguredFeatures;
@@ -39,7 +40,9 @@ public class BWGVanillaPlacedFeatures {
                     RarityFilter.onAverageOnceEvery(32),
                     InSquarePlacement.spread(),
                     PlacementUtils.HEIGHTMAP,
-                    BiomeFilter.biome()
+                    BiomeFilter.biome(), CountPlacement.of(64),
+                    RandomOffsetPlacement.ofTriangle(6, 2),
+                    BlockPredicateFilter.forPredicate(BlockPredicate.ONLY_IN_AIR_PREDICATE)
             )
     );
 
