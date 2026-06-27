@@ -12,34 +12,30 @@ architectury {
 val minecraftVersion = providers.gradleProperty("minecraft_version").get()
 
 configurations {
-    create("common")
-    "common" {
-        isCanBeResolved = true
-        isCanBeConsumed = false
-    }
-    create("shadowBundle")
-    compileClasspath.get().extendsFrom(configurations["common"])
-    runtimeClasspath.get().extendsFrom(configurations["common"])
-    getByName("developmentFabric").extendsFrom(configurations["common"])
-    "shadowBundle" {
-        isCanBeResolved = true
-        isCanBeConsumed = false
-    }
+    val common = register("common")
+    register("shadowCommon")
+    compileClasspath.get().extendsFrom(common.get())
+    runtimeClasspath.get().extendsFrom(common.get())
+    named("developmentFabric") { extendsFrom(common.get()) }
 }
 
-loom.accessWidenerPath.set(project(":Common").loom.accessWidenerPath)
+
+loom {
+    accessWidenerPath.set(project(":Common").loom.accessWidenerPath)
+    injectAccessWidener(tasks.shadowJar)
+}
 
 dependencies {
     implementation("net.fabricmc:fabric-loader:${providers.gradleProperty("fabric_loader_version").get()}")
     api("net.fabricmc.fabric-api:fabric-api:${providers.gradleProperty("fabric_api_version").get()}+$minecraftVersion")
 
     "common"(project(":Common")) { isTransitive = false }
-    "shadowBundle"(project(":Common", "transformProductionFabric"))
+    "shadowCommon"(project(":Common", "transformProductionFabric"))
 
     localRuntime("me.djtheredstoner:DevAuth-fabric:${providers.gradleProperty("devauth_version").get()}")
 
     api("com.github.glitchfiend:TerraBlender-fabric:$minecraftVersion-${providers.gradleProperty("terrablender_version").get()}")
-    api("dev.corgitaco.ohthetreesyoullgrow:ohthetreesyoullgrow-common-26.1:${providers.gradleProperty("ohthetreesyoullgrow_version").get()}")
+    api("dev.corgitaco.ohthetreesyoullgrow:ohthetreesyoullgrow-fabric-$minecraftVersion:${providers.gradleProperty("ohthetreesyoullgrow_version").get()}")
     api("com.geckolib:geckolib-fabric-$minecraftVersion:${providers.gradleProperty("geckolib_version").get()}")
     api("me.lucko:fabric-permissions-api:0.3.1")
 
@@ -57,11 +53,15 @@ tasks {
         }
     }
 
+    jar.get().archiveClassifier.set("raw")
+
     shadowJar {
+        dependsOn(jar)
+        from(zipTree(jar.get().archiveFile))
         exclude("net/potionstudios/biomeswevegone/fabric/datagen/**",
             "architectury.common.json", ".cache/**", "data/biomeswevegone/neoforge/**",
             "data/neoforge/**")
-        configurations = listOf(project.configurations.getByName("shadowBundle"))
+        configurations = listOf(project.configurations.getByName("shadowCommon"))
         archiveClassifier.set(null)
     }
 }

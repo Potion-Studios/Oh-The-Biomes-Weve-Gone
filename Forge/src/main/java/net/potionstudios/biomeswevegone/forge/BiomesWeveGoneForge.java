@@ -16,7 +16,6 @@ import net.potionstudios.biomeswevegone.commands.BWGCommands;
 import net.potionstudios.biomeswevegone.forge.loot.LootModifiersRegister;
 import net.potionstudios.biomeswevegone.forge.client.BiomesWeveGoneClientForge;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
-import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.TerraBlenderRegister;
 
 /**
@@ -62,7 +61,5 @@ public class BiomesWeveGoneForge {
      */
     private void onPostInitialize(final FMLLoadCompleteEvent event) {
         event.enqueueWork(BiomesWeveGone::postInit);
-        BWGVillagerTrades.makeTrades();
-        BWGVillagerTrades.makeWanderingTrades();
     }
 }

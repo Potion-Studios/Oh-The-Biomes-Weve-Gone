@@ -53,7 +53,7 @@ public final class ForgePlatformHandler implements PlatformHandler {
 		return FMLPaths.CONFIGDIR.get().resolve(BiomesWeveGone.MOD_ID);
 	}
 
-	private static final boolean luckPerms = ModList.get().isLoaded("luckperms");
+	private static final boolean luckPerms = ModList.isLoaded("luckperms");
 
 	@Override
 	public boolean hasPermission(@NotNull CommandSourceStack sourceStack, @NotNull String permission) {
