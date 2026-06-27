@@ -115,7 +115,7 @@ public class BiomesWeveGone {
      * @param entity the entity that is loaded
      */
     public static void onEntityLoad(Entity entity) {
-        if (entity instanceof Mob mob && entity.getType().is(BWGEntityTypeTags.ATTACKS_PUMPKIN_WARDEN))
+        if (entity instanceof Mob mob && entity.is(BWGEntityTypeTags.ATTACKS_PUMPKIN_WARDEN))
             mob.goalSelector.addGoal(3, new NearestAttackableTargetGoal<>(mob, PumpkinWarden.class, false));
     }
 

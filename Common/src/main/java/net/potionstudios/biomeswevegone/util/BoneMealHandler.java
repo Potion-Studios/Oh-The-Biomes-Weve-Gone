@@ -7,12 +7,12 @@ import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.Util;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.potionstudios.biomeswevegone.tags.BWGBiomeTags;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -39,39 +39,37 @@ public final class BoneMealHandler {
                 .lookupOrThrow(Registries.PLACED_FEATURE)
                 .get(placedFeatureResourceKey);
 
-        label49:
+        label48:
         for(int i = 0; i < 128; ++i) {
-            BlockPos blockPos2 = blockPos;
+            BlockPos testPos = blockPos;
             RandomSource random = level.getRandom();
             for (int j = 0; j < i / 16; ++j) {
-                blockPos2 = blockPos2.offset(random.nextInt(3) - 1, (random.nextInt(3) - 1) * random.nextInt(3) / 2, random.nextInt(3) - 1);
-                if (!level.getBlockState(blockPos2.below()).is(grassBlock) || level.getBlockState(blockPos2).isCollisionShapeFullBlock(level, blockPos2))
-                    continue label49;
+                testPos = testPos.offset(random.nextInt(3) - 1, (random.nextInt(3) - 1) * random.nextInt(3) / 2, random.nextInt(3) - 1);
+                if (!level.getBlockState(testPos.below()).is(grassBlock) || level.getBlockState(testPos).isCollisionShapeFullBlock(level, testPos))
+                    continue label48;
             }
 
-            BlockState blockState2 = level.getBlockState(blockPos2);
+            BlockState blockState2 = level.getBlockState(testPos);
             if (blockState2.is(blockState.getBlock()) && random.nextInt(10) == 0)
-                ((BonemealableBlock) blockState.getBlock()).performBonemeal(level, random, blockPos2, blockState2);
+                ((BonemealableBlock) blockState.getBlock()).performBonemeal(level, random, testPos, blockState2);
 
-            if (blockState2.isAir()) {
-                Holder<PlacedFeature> holder;
+            if (blockState2.isAir() && !level.isOutsideBuildHeight(testPos)) {
                 if (random.nextInt(8) == 0) {
-                    List<ConfiguredFeature<?, ?>> list = level.getBiome(blockPos2).value().getGenerationSettings().getBoneMealFeatures();
+                    List<ConfiguredFeature<?, ?>> list = level.getBiome(testPos).value().getGenerationSettings().getBoneMealFeatures();
                     if (list.isEmpty()) continue;
 
-                    holder = randomizeFlower ? getRandElement(list, random) : ((RandomPatchConfiguration) list.getFirst().config()).feature();
-                } else {
-                    if (optional.isEmpty()) continue;
-                    holder = optional.get();
+                    ConfiguredFeature<?, ?> holder = randomizeFlower ? getRandElement(list, random) : list.getFirst();
+                    holder.place(level, level.getChunkSource().getGenerator(), random, testPos);
+                } else if (optional.isPresent()){
+	                optional.get().value().place(level, level.getChunkSource().getGenerator(), random, testPos);
                 }
 
-                holder.value().place(level, level.getChunkSource().getGenerator(), random, blockPos2);
             }
         }
         return true;
     }
 
-    private static Holder<PlacedFeature> getRandElement(List<ConfiguredFeature<?, ?>> list, RandomSource random) {
-        return ((RandomPatchConfiguration) list.get(random.nextInt(list.size())).config()).feature();
+    private static ConfiguredFeature<?, ?> getRandElement(List<ConfiguredFeature<?, ?>> list, RandomSource random) {
+        return Util.getRandom(list, random);
     }
 }
