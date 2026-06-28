@@ -37,7 +37,7 @@ public abstract class ChunkStatusTasksMixin {
         Long2ObjectOpenHashMap<Long2ObjectOpenHashMap<Holder<Biome>>> biomeCache = new Long2ObjectOpenHashMap<>();
 
         Function<BlockPos, Holder<Biome>> biomeGetter = pos -> biomeCache.computeIfAbsent(ChunkPos.pack(pos), _ -> new Long2ObjectOpenHashMap<>()).computeIfAbsent(ChunkPos.pack(pos.getX(), pos.getZ()), _ -> biomeManager.getBiome(pos));
-        CragGardenExtension.runCragGardenExtension(biomeGetter, chunk, level.getSeed(), region.registryAccess().lookupOrThrow(Registries.NOISE).getValue(Noises.SURFACE), region.registryAccess().lookupOrThrow(Registries.NOISE).getValue(Noises.SURFACE_SECONDARY));
+        CragGardenExtension.runCragGardenExtension(context, biomeGetter, chunk, region.registryAccess().lookupOrThrow(Registries.NOISE).getValue(Noises.SURFACE), region.registryAccess().lookupOrThrow(Registries.NOISE).getValue(Noises.SURFACE_SECONDARY));
         BasaltBarreraExtension.runBasaltBarreraExtension(biomeGetter, chunk, region, context.generator());
     }
 }

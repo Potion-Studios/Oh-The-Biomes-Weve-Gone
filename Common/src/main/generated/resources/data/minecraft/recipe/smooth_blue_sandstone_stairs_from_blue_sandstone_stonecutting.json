@@ -2,7 +2,6 @@
   "type": "minecraft:stonecutting",
   "ingredient": "biomeswevegone:blue_sandstone",
   "result": {
-    "count": 1,
     "id": "biomeswevegone:smooth_blue_sandstone_stairs"
   }
 }

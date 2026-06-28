@@ -13,5 +13,6 @@
     "biomeswevegone:red_glowcane_shoot",
     "biomeswevegone:yellow_glowcane_shoot",
     "biomeswevegone:pale_pumpkin_seeds"
-  ]
+  ],
+  "priority": 1
 }

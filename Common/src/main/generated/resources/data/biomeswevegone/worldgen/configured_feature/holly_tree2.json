@@ -1,5 +1,5 @@
 {
-  "type": "ohthetreesyoullgrow:tree_from_nbt_v1",
+  "type": "ohthetreesyoullgrow:tree_from_nbt_v2",
   "config": {
     "base_location": "biomeswevegone:features/trees/generic_trunk",
     "can_grow_on_filter": {
@@ -9,39 +9,44 @@
     "can_leaves_place_filter": {
       "type": "minecraft:replaceable"
     },
+    "can_logs_place_filter": {
+      "type": "minecraft:replaceable"
+    },
     "canopy_location": "biomeswevegone:features/trees/holly/holly_canopy2",
     "height": {
       "type": "minecraft:biased_to_bottom",
       "max_inclusive": 14,
       "min_inclusive": 8
     },
-    "leaves_provider": {
-      "type": "minecraft:weighted_state_provider",
-      "entries": [
-        {
-          "data": {
-            "Name": "biomeswevegone:holly_leaves",
-            "Properties": {
-              "distance": "7",
-              "persistent": "false",
-              "waterlogged": "false"
-            }
+    "leaves_provider": [
+      {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "data": {
+              "Name": "biomeswevegone:holly_leaves",
+              "Properties": {
+                "distance": "7",
+                "persistent": "false",
+                "waterlogged": "false"
+              }
+            },
+            "weight": 7
           },
-          "weight": 7
-        },
-        {
-          "data": {
-            "Name": "biomeswevegone:holly_berry_leaves",
-            "Properties": {
-              "distance": "7",
-              "persistent": "false",
-              "waterlogged": "false"
-            }
-          },
-          "weight": 1
-        }
-      ]
-    },
+          {
+            "data": {
+              "Name": "biomeswevegone:holly_berry_leaves",
+              "Properties": {
+                "distance": "7",
+                "persistent": "false",
+                "waterlogged": "false"
+              }
+            },
+            "weight": 1
+          }
+        ]
+      }
+    ],
     "leaves_target": [
       "minecraft:oak_leaves"
     ],
@@ -58,6 +63,6 @@
       "minecraft:oak_log"
     ],
     "max_log_depth": 6,
-    "place_from_nbt": []
+    "replace_from_nbt": {}
   }
 }

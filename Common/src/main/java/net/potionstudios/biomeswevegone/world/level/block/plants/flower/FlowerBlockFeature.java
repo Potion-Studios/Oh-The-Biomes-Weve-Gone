@@ -14,7 +14,7 @@ public class FlowerBlockFeature extends PottedBlock {
 
 	public FlowerBlockFeature(String id, @NotNull Supplier<? extends Block> block) {
 		super(id, block);
-		this.feature = ConfiguredFeaturesUtil.createFlowerConfiguredFeature(id, block);
+		this.feature = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock(id, block);
 	}
 
 	public ResourceKey<ConfiguredFeature<?, ?>> getFeature() {

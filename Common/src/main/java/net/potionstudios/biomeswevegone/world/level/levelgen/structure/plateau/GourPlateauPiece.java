@@ -136,8 +136,8 @@ public class GourPlateauPiece extends StructurePiece {
         mutable.set(blockX, origin.getY() + plateauThickness + range + plateauSurfacePull - 1, blockZ);
 
         double delta = noise * 0.5; // 0-1 range
-        double amplifiedDelta = Mth.clampedLerp(BlendingFunction.EaseOutQuint.INSTANCE.apply(delta), 0.2, 1);
-        int localRadius = (int) (BlendingFunction.EaseInCirc.INSTANCE.apply(radiusFactor, minRadius, radius) * amplifiedDelta);
+        double amplifiedDelta = Mth.clampedLerp(BlendingFunction.EASE_OUT_QUINT.apply(delta), 0.2, 1);
+        int localRadius = (int) (BlendingFunction.EASE_IN_CIRC.apply(radiusFactor, minRadius, radius) * amplifiedDelta);
 
         BlockPos offsetOrigin = origin.offset(0, plateauThickness + range + plateauSurfacePull, 0);
         if (offsetOrigin.closerThan(mutable, localRadius)) {
@@ -145,7 +145,7 @@ public class GourPlateauPiece extends StructurePiece {
             double maxNoiseY = (simplexNoiseValue) * 2;
 
             double noiseFactor = Mth.clamp(mutable.distSqr(offsetOrigin) / Mth.square(localRadius), 0, 1);
-            double apply = BlendingFunction.EaseOutCubic.INSTANCE.apply(1 - noiseFactor, 0, maxNoiseY);
+            double apply = BlendingFunction.EASE_OUT_CUBIC.apply(1 - noiseFactor, 0, maxNoiseY);
 
 
             for (int noiseY = 0; noiseY <= apply; noiseY++) {
@@ -165,8 +165,8 @@ public class GourPlateauPiece extends StructurePiece {
             mutable.set(blockX, origin.getY() + y + range + plateauThickness, blockZ);
 
             double delta = noise * 0.5; // 0-1 range
-            double amplifiedDelta = Mth.clampedLerp(BlendingFunction.EaseOutQuint.INSTANCE.apply(delta),0.2, 1);
-            int localRadius = (int) (BlendingFunction.EaseInCirc.INSTANCE.apply(radiusFactor, minRadius, radius) * amplifiedDelta);
+            double amplifiedDelta = Mth.clampedLerp(BlendingFunction.EASE_OUT_QUINT.apply(delta),0.2, 1);
+            int localRadius = (int) (BlendingFunction.EASE_IN_CIRC.apply(radiusFactor, minRadius, radius) * amplifiedDelta);
 
 
             if (origin.offset(0, y + range + plateauThickness, 0).closerThan(mutable, localRadius)) {
@@ -182,8 +182,8 @@ public class GourPlateauPiece extends StructurePiece {
         double factor = Mth.clamp((double) (range - 1) / range, 0, 1);
         double radiusFactor = Mth.clampedLerp(factor, -0.5, 1);
         double delta = noise * 0.5; // 0-1 range
-        double amplifiedDelta = Mth.clampedLerp(BlendingFunction.EaseOutQuint.INSTANCE.apply(delta), 0.2, 1);
-        int localRadius = (int) (BlendingFunction.EaseInCirc.INSTANCE.apply(radiusFactor, minRadius, radius) * amplifiedDelta);
+        double amplifiedDelta = Mth.clampedLerp(BlendingFunction.EASE_OUT_QUINT.apply(delta), 0.2, 1);
+        int localRadius = (int) (BlendingFunction.EASE_IN_CIRC.apply(radiusFactor, minRadius, radius) * amplifiedDelta);
 
         for (int y = 0; y < plateauThickness; y++) {
             mutable.set(blockX, origin.getY() + y + range, blockZ);
@@ -205,8 +205,8 @@ public class GourPlateauPiece extends StructurePiece {
             mutable.set(blockX, minY + y, blockZ);
 
             double delta = noise * 0.5; // 0-1 range
-            double amplifiedDelta = Mth.clampedLerp(BlendingFunction.EaseOutQuint.INSTANCE.apply(delta),0.2, 1);
-            int localRadius = (int) (BlendingFunction.EaseInCirc.INSTANCE.apply(radiusFactor, minRadius, radius) * amplifiedDelta);
+            double amplifiedDelta = Mth.clampedLerp(BlendingFunction.EASE_OUT_QUINT.apply(delta),0.2, 1);
+            int localRadius = (int) (BlendingFunction.EASE_IN_CIRC.apply(radiusFactor, minRadius, radius) * amplifiedDelta);
 
 
             if (origin.atY(minY).offset(0, y, 0).closerThan(mutable, localRadius)) {

@@ -62,7 +62,7 @@
       {
         "chance": 0.15,
         "feature": {
-          "feature": "minecraft:patch_cactus",
+          "feature": "minecraft:cactus",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",

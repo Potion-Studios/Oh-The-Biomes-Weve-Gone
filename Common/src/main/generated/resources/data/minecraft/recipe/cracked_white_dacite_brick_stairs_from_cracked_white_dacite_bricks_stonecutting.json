@@ -2,7 +2,6 @@
   "type": "minecraft:stonecutting",
   "ingredient": "biomeswevegone:cracked_white_dacite_bricks",
   "result": {
-    "count": 1,
     "id": "biomeswevegone:cracked_white_dacite_brick_stairs"
   }
 }

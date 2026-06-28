@@ -6,7 +6,9 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.FloatProvider;
+import net.minecraft.util.valueproviders.FloatProviders;
 import net.minecraft.util.valueproviders.UniformFloat;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
@@ -20,7 +22,7 @@ import java.util.List;
 public class BetweenNoiseThresholdProvider extends NoiseBasedStateProvider {
     public static final MapCodec<BetweenNoiseThresholdProvider> CODEC = RecordCodecBuilder.mapCodec((builder) -> noiseCodec(builder).and(
             builder.group(
-                    FloatProvider.CODEC.listOf().fieldOf("thresholds").forGetter((stateProvider) -> stateProvider.thresholds),
+                    FloatProviders.CODEC.listOf().fieldOf("thresholds").forGetter((stateProvider) -> stateProvider.thresholds),
                     BlockStateProvider.CODEC.fieldOf("within_noise_state_provider").forGetter((stateProvider) -> stateProvider.withinNoiseStateProvider),
                     BlockStateProvider.CODEC.fieldOf("outside_noise_state_provider").forGetter((stateProvider) -> stateProvider.outsideNoiseStateProvider),
                     Codec.BOOL.fieldOf("use_3d_noise").forGetter(stateprovider -> stateprovider.use3D)
@@ -40,18 +42,6 @@ public class BetweenNoiseThresholdProvider extends NoiseBasedStateProvider {
         this.use3D = use3D;
     }
 
-    @Override
-    public @NotNull BlockState getState(@NotNull RandomSource random, @NotNull BlockPos pos) {
-        double noiseValue = this.use3D ? getNoiseValue2D(pos, 4) : this.getNoiseValue(pos, this.scale);
-
-        for (FloatProvider threshold : this.thresholds) {
-            if (noiseValue >= threshold.getMinValue() && noiseValue <= threshold.getMaxValue()) {
-                return this.withinNoiseStateProvider.getState(random, pos);
-            }
-        }
-        return this.outsideNoiseStateProvider.getState(random, pos);
-    }
-
     protected double getNoiseValue2D(BlockPos pos, double v) {
         return this.noise.getValue((double) pos.getX() * v, 0, (double) pos.getZ() * v);
     }
@@ -59,6 +49,18 @@ public class BetweenNoiseThresholdProvider extends NoiseBasedStateProvider {
     @Override
     protected @NotNull BlockStateProviderType<?> type() {
         return BWGStateProviders.BETWEEN_NOISE_THRESHOLD_PROVIDER.get();
+    }
+
+    @Override
+    public BlockState getState(WorldGenLevel level, RandomSource random, BlockPos pos) {
+        double noiseValue = this.use3D ? getNoiseValue2D(pos, 4) : this.getNoiseValue(pos, this.scale);
+
+        for (FloatProvider threshold : this.thresholds) {
+            if (noiseValue >= threshold.min() && noiseValue <= threshold.max()) {
+                return this.withinNoiseStateProvider.getState(level, random, pos);
+            }
+        }
+        return this.outsideNoiseStateProvider.getState(level, random, pos);
     }
 
     public static List<FloatProvider> createThresholds(float size, float min, float max) {

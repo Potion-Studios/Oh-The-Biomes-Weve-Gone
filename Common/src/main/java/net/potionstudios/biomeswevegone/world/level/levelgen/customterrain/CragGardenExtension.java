@@ -3,6 +3,7 @@ package net.potionstudios.biomeswevegone.world.level.levelgen.customterrain;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.WeightedList;
@@ -11,6 +12,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.chunk.status.WorldGenContext;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
@@ -23,10 +25,11 @@ import java.util.function.Function;
 
 public class CragGardenExtension {
 
-    public static void runCragGardenExtension(Function<BlockPos, Holder<Biome>> biomeGetter, ChunkAccess chunk, long worldSeed, NormalNoise.NoiseParameters noiseParameters, NormalNoise.NoiseParameters cliffSpacingParams) {
+    public static void runCragGardenExtension(WorldGenContext context, Function<BlockPos, Holder<Biome>> biomeGetter, ChunkAccess chunk, NormalNoise.NoiseParameters noiseParameters, NormalNoise.NoiseParameters cliffSpacingParams) {
         ChunkPos pos = chunk.getPos();
-        RandomSource randomSource = new XoroshiroRandomSource(worldSeed);
-        RandomSource chunkRandom = new XoroshiroRandomSource(pos.pack() + worldSeed);
+        ServerLevel level = context.level();
+        RandomSource randomSource = new XoroshiroRandomSource(level.getSeed());
+        RandomSource chunkRandom = new XoroshiroRandomSource(pos.pack() + level.getSeed());
 
         NormalNoise normalNoise = NormalNoise.create(randomSource, noiseParameters);
         NormalNoise cliffJumpNoise = NormalNoise.create(randomSource, cliffSpacingParams);
@@ -62,10 +65,10 @@ public class CragGardenExtension {
 
                 for (int y = -5; y <= currentSurfaceHeight; y++) {
                     mutable.set(worldX, y + landHeight, worldZ);
-                    BlockState state = stonesProvider.getState(chunkRandom, mutable);
+                    BlockState state = stonesProvider.getState(level, chunkRandom, mutable);
 
                     if (y == currentSurfaceHeight && chunk.getBlockState(mutable.move(Direction.UP)).getFluidState().isEmpty()) {
-                        state = topBlocksProvider.getState(chunkRandom, mutable);
+                        state = topBlocksProvider.getState(level, chunkRandom, mutable);
                         mutable.move(Direction.DOWN);
                     }
 

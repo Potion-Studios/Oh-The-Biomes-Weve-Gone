@@ -108,7 +108,7 @@ public class CragLakeFeature extends Feature<NoneFeatureConfiguration> {
 
 
                                 double normalizedLakeDepth = (lakeDepthSampler.noise(mutable.getX() * 0.3, 0, mutable.getZ() * 0.3) + 1) * 0.5F;
-                                double lakeDepth = BlendingFunction.EaseInOutCirc.INSTANCE.apply(clampedDelta, 1, normalizedLakeDepth * 5);
+                                double lakeDepth = BlendingFunction.EASE_IN_OUT_CIRC.apply(clampedDelta, 1, normalizedLakeDepth * 5);
                                 mutable.set(worldX, heightmap, worldZ);
                                 chunk.setBlockState(mutable, Blocks.WATER.defaultBlockState());
                                 level.scheduleTick(mutable.immutable(), Fluids.WATER, 0);

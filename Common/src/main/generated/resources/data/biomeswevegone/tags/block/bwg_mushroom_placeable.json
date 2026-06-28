@@ -2,6 +2,6 @@
   "values": [
     "#minecraft:base_stone_overworld",
     "#minecraft:dirt",
-    "#minecraft:mushroom_grow_block"
+    "#minecraft:overrides_mushroom_light_requirement"
   ]
 }

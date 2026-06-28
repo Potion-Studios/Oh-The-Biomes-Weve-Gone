@@ -157,7 +157,7 @@ public class SharpenedRockStructure extends Structure {
         double noise = NOISE.noise(mutableBlockPos.getX() * 0.1, 0, mutableBlockPos.getZ() * 0.1);
 
         double factor = (origin.distSqr(mutableBlockPos) / Mth.square(radius));
-        double amplifier = BlendingFunction.EaseInCirc.INSTANCE.apply(1 - factor, 15, 100);
+        double amplifier = BlendingFunction.EASE_IN_CIRC.apply(1 - factor, 15, 100);
         double noiseAmp = noise * (amplifier * 2);
         return amplifier + noiseAmp;
     }

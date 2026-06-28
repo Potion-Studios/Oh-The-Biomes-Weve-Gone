@@ -42,7 +42,7 @@ public class SharpenedRockFeature extends Feature<NoneFeatureConfiguration> {
                 double noise = NOISE.noise(mutableBlockPos.getX() * 0.1, 0, mutableBlockPos.getZ() * 0.1);
 
                 double factor = origin.distSqr(mutableBlockPos) / Mth.square(radius);
-                double amplifier = BlendingFunction.EaseInCirc.INSTANCE.apply(1 - factor, 0, 75);
+                double amplifier = BlendingFunction.EASE_IN_CIRC.apply(1 - factor, 0, 75);
 
                 BlockPos.MutableBlockPos mutable1 = new BlockPos.MutableBlockPos();
                 int minY = level.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, mutableBlockPos.getX(), mutableBlockPos.getZ()) - 1;

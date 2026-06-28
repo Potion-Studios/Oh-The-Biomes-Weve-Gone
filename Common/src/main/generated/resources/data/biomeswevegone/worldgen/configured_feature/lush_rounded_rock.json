@@ -3,9 +3,7 @@
   "config": {
     "blending_function": [
       {
-        "data": {
-          "type": "corgilib:ease_out_cubic"
-        },
+        "data": "EASE_OUT_CUBIC",
         "weight": 1
       }
     ],
@@ -18,10 +16,16 @@
           }
         },
         "check": {
-          "type": "minecraft:matching_blocks",
-          "blocks": [
-            "minecraft:air",
-            "minecraft:water"
+          "type": "minecraft:any_of",
+          "predicates": [
+            {
+              "type": "minecraft:matching_block_tag",
+              "tag": "minecraft:air"
+            },
+            {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:water"
+            }
           ]
         }
       },

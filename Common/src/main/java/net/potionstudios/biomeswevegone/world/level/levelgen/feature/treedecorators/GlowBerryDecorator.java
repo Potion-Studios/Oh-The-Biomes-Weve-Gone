@@ -7,7 +7,9 @@ import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.FloatProvider;
+import net.minecraft.util.valueproviders.FloatProviders;
 import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.util.valueproviders.IntProviders;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -19,9 +21,9 @@ public class GlowBerryDecorator extends TreeDecorator {
 
     public static final MapCodec<GlowBerryDecorator> CODEC = RecordCodecBuilder.mapCodec(instance ->
             instance.group(
-                    FloatProvider.CODEC.fieldOf("probability").forGetter(glowBerryDecorator -> glowBerryDecorator.probability),
-                    IntProvider.CODEC.fieldOf("length").forGetter(glowBerryDecorator -> glowBerryDecorator.length),
-                    FloatProvider.CODEC.fieldOf("berries_probability").forGetter(glowBerryDecorator -> glowBerryDecorator.berriesProbability)
+                    FloatProviders.CODEC.fieldOf("probability").forGetter(glowBerryDecorator -> glowBerryDecorator.probability),
+                    IntProviders.CODEC.fieldOf("length").forGetter(glowBerryDecorator -> glowBerryDecorator.length),
+                    FloatProviders.CODEC.fieldOf("berries_probability").forGetter(glowBerryDecorator -> glowBerryDecorator.berriesProbability)
             ).apply(instance, GlowBerryDecorator::new)
     );
 

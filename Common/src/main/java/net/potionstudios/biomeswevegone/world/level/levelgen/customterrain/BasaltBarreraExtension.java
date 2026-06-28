@@ -56,7 +56,7 @@ public class BasaltBarreraExtension {
 
                 double hexDelta = (hexRadiusNoise.noise((mutable.getX()) * hexRadiusNoiseFreq, 0, (mutable.getZ()) * hexRadiusNoiseFreq) + 1) * 0.5F;
 
-                int hexRadius = (int) BlendingFunction.EaseInOutCirc.INSTANCE.apply(hexDelta, 4, 10);
+                int hexRadius = (int) BlendingFunction.EASE_IN_OUT_CIRC.apply(hexDelta, 4, 10);
 
                 Vector4d vector4d = MathUtil.calcHexInfo(new Vector2d(mutable.getX(), mutable.getZ()), hexRadius);
                 Vector2d hexCenter = new Vector2d(mutable.getX() - vector4d.x, mutable.getZ() - vector4d.y);
@@ -87,7 +87,7 @@ public class BasaltBarreraExtension {
                     double heightDelta = (hexHeightNoise.noise(hexCenter.x * noiseFreq, 0, hexCenter.y * noiseFreq) + 1) * 0.5F;
 
 
-                    double addedHeight = BlendingFunction.EaseInOutCirc.INSTANCE.apply(heightDelta, 1, 4);
+                    double addedHeight = BlendingFunction.EASE_IN_OUT_CIRC.apply(heightDelta, 1, 4);
 
 
                     double topY = hexHeightOceanFloorHeight + addedHeight;

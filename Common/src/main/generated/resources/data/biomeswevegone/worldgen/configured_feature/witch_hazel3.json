@@ -1,5 +1,5 @@
 {
-  "type": "ohthetreesyoullgrow:tree_from_nbt_v1",
+  "type": "ohthetreesyoullgrow:tree_from_nbt_v2",
   "config": {
     "base_location": "biomeswevegone:features/trees/witch-hazel/witch-hazel_trunk_3",
     "can_grow_on_filter": {
@@ -7,6 +7,9 @@
       "tag": "minecraft:dirt"
     },
     "can_leaves_place_filter": {
+      "type": "minecraft:replaceable"
+    },
+    "can_logs_place_filter": {
       "type": "minecraft:replaceable"
     },
     "canopy_location": "biomeswevegone:features/trees/witch-hazel/witch-hazel_canopy_3",
@@ -56,33 +59,35 @@
       "max_inclusive": 15,
       "min_inclusive": 5
     },
-    "leaves_provider": {
-      "type": "minecraft:weighted_state_provider",
-      "entries": [
-        {
-          "data": {
-            "Name": "biomeswevegone:blooming_witch_hazel_leaves",
-            "Properties": {
-              "distance": "7",
-              "persistent": "false",
-              "waterlogged": "false"
-            }
+    "leaves_provider": [
+      {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "data": {
+              "Name": "biomeswevegone:blooming_witch_hazel_leaves",
+              "Properties": {
+                "distance": "7",
+                "persistent": "false",
+                "waterlogged": "false"
+              }
+            },
+            "weight": 1
           },
-          "weight": 1
-        },
-        {
-          "data": {
-            "Name": "biomeswevegone:witch_hazel_leaves",
-            "Properties": {
-              "distance": "7",
-              "persistent": "false",
-              "waterlogged": "false"
-            }
-          },
-          "weight": 4
-        }
-      ]
-    },
+          {
+            "data": {
+              "Name": "biomeswevegone:witch_hazel_leaves",
+              "Properties": {
+                "distance": "7",
+                "persistent": "false",
+                "waterlogged": "false"
+              }
+            },
+            "weight": 4
+          }
+        ]
+      }
+    ],
     "leaves_target": [
       "minecraft:oak_leaves"
     ],
@@ -98,6 +103,6 @@
     "log_target": [
       "minecraft:oak_log"
     ],
-    "place_from_nbt": []
+    "replace_from_nbt": {}
   }
 }

@@ -65,7 +65,7 @@ public class RoundedRock extends Feature<RoundedRockConfig> {
             cached.forEach(pos -> {
                 mutableBlockPos.set(pos);
                 if (blockPlacement.getFirst().test(context.level(), mutableBlockPos)) {
-                    context.level().setBlock(mutableBlockPos, blockPlacement.getSecond().getState(random, mutableBlockPos), 2);
+                    context.level().setBlock(mutableBlockPos, blockPlacement.getSecond().getState(context.level(), random, mutableBlockPos), 2);
                 }
             });
         }

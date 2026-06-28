@@ -888,7 +888,6 @@
       "translate": "advancements.biomeswevegone.adventure.root.description"
     },
     "icon": {
-      "count": 1,
       "id": "biomeswevegone:bwg_logo"
     },
     "show_toast": false,

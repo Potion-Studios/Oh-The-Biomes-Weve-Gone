@@ -101,11 +101,11 @@ public class BWGStructures {
                             new ArchConfig.ArchGeneratorConfig(8, 8,
                                     WeightedList.of(new ArchConfig.GenerationConfig(UniformInt.of(10, 30), UniformFloat.of(0.05F, 0.1F))),
                                     WeightedList.<BlendingFunction>builder()
-                                            .add(BlendingFunction.EaseOutCubic.INSTANCE, 1)
-                                            .add(BlendingFunction.EaseInCirc.INSTANCE, 1)
-                                            .add(BlendingFunction.EaseOutQuint.INSTANCE, 1)
-                                            .add(BlendingFunction.EaseOutElastic.INSTANCE, 1)
-                                            .add(BlendingFunction.EaseOutBounce.INSTANCE, 1)
+                                            .add(BlendingFunction.EASE_OUT_CUBIC, 1)
+                                            .add(BlendingFunction.EASE_IN_CIRC, 1)
+                                            .add(BlendingFunction.EASE_OUT_QUINT, 1)
+                                            .add(BlendingFunction.EASE_OUT_ELASTIC, 1)
+                                            .add(BlendingFunction.EASE_OUT_BOUNCE, 1)
                                             .build()
                             ))
             )
@@ -129,10 +129,10 @@ public class BWGStructures {
                             new ArchConfig.ArchGeneratorConfig(8, 8,
                                     WeightedList.of(new ArchConfig.GenerationConfig(UniformInt.of(10, 30), UniformFloat.of(0.09F, 0.2F))),
                                     WeightedList.<BlendingFunction>builder()
-                                            .add(BlendingFunction.EaseOutCubic.INSTANCE, 1)
-                                            .add(BlendingFunction.EaseInCirc.INSTANCE, 1)
-                                            .add(BlendingFunction.EaseOutQuint.INSTANCE, 1)
-                                            .add(BlendingFunction.EaseOutBounce.INSTANCE, 1)
+                                            .add(BlendingFunction.EASE_OUT_CUBIC, 1)
+                                            .add(BlendingFunction.EASE_IN_CIRC, 1)
+                                            .add(BlendingFunction.EASE_OUT_QUINT, 1)
+                                            .add(BlendingFunction.EASE_OUT_BOUNCE, 1)
                                             .build()
                             ))
             )
@@ -156,10 +156,10 @@ public class BWGStructures {
                             new ArchConfig.ArchGeneratorConfig(4, 4,
                                     WeightedList.of(new ArchConfig.GenerationConfig(UniformInt.of(20, 25), UniformFloat.of(0.05F, 0.1F))),
                                     WeightedList.<BlendingFunction>builder()
-                                            .add(BlendingFunction.EaseOutCubic.INSTANCE, 1)
-                                            .add(BlendingFunction.EaseInCirc.INSTANCE, 1)
-                                            .add(BlendingFunction.EaseOutQuint.INSTANCE, 1)
-                                            .add(BlendingFunction.EaseOutBounce.INSTANCE, 1)
+                                            .add(BlendingFunction.EASE_OUT_CUBIC, 1)
+                                            .add(BlendingFunction.EASE_IN_CIRC, 1)
+                                            .add(BlendingFunction.EASE_OUT_QUINT, 1)
+                                            .add(BlendingFunction.EASE_OUT_BOUNCE, 1)
                                             .build()
                             ))
             )

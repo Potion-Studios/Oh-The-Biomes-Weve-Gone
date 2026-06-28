@@ -10,9 +10,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.WeightedList;
-import net.minecraft.util.valueproviders.FloatProvider;
-import net.minecraft.util.valueproviders.IntProvider;
-import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.util.valueproviders.*;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.VineBlock;
@@ -80,7 +78,7 @@ public class PillarFeature extends Feature<PillarFeature.Config> {
                 mutableBlockPos.set(pos);
 
                 if (blockPlacement.getFirst().test(level, mutableBlockPos)) {
-                  level.setBlock(mutableBlockPos, blockPlacement.getSecond().getState(random, mutableBlockPos), 2);
+                  level.setBlock(mutableBlockPos, blockPlacement.getSecond().getState(level, random, mutableBlockPos), 2);
                 }
             });
         }
@@ -154,10 +152,10 @@ public class PillarFeature extends Feature<PillarFeature.Config> {
         public static final Codec<Config> CODEC = RecordCodecBuilder.create(instance ->
                 instance.group(
                         CheckedBlockPlacement.CODEC.fieldOf("block_placement").forGetter(Config::checkedBlockPlacement),
-                        IntProvider.CODEC.fieldOf("height").forGetter(Config::height),
-                        IntProvider.CODEC.fieldOf("radius").forGetter(Config::radius),
-                        FloatProvider.CODEC.fieldOf("noise_frequency").forGetter(Config::noisefreq),
-                        FloatProvider.CODEC.fieldOf("min_radius_scale").forGetter(Config::minRadiusScale),
+                        IntProviders.CODEC.fieldOf("height").forGetter(Config::height),
+                        IntProviders.CODEC.fieldOf("radius").forGetter(Config::radius),
+                        FloatProviders.CODEC.fieldOf("noise_frequency").forGetter(Config::noisefreq),
+                        FloatProviders.CODEC.fieldOf("min_radius_scale").forGetter(Config::minRadiusScale),
                         WeightedList.codec(DistanceTestType.CODEC).fieldOf("distance_test_type").forGetter(Config::distanceTestType)
                 ).apply(instance, Config::new)
         );

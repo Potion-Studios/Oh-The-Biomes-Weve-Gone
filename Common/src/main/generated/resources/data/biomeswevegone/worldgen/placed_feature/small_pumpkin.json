@@ -1,5 +1,5 @@
 {
-  "feature": "minecraft:patch_pumpkin",
+  "feature": "minecraft:pumpkin",
   "placement": [
     {
       "type": "minecraft:count",
