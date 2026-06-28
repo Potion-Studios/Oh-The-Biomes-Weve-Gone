@@ -178,6 +178,8 @@ public class TagsGenerator {
                             BWGBlocks.RED_ROCK_SET.getBase(), BWGBlocks.DACITE_SET.getBase(), BWGBlocks.WHITE_DACITE_SET.getBase(), BWGBlocks.ROCKY_STONE_SET.getBase(), BWGBlocks.PACKED_BLACK_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get(),
                             BWGBlocks.WINDSWEPT_SAND_SET.getSandstone(), BWGBlocks.BLACK_SAND_SET.getSandstone(), BWGBlocks.WHITE_SAND_SET.getSandstone(), BWGBlocks.BLUE_SAND_SET.getSandstone(), BWGBlocks.PURPLE_SAND_SET.getSandstone(), BWGBlocks.PINK_SAND_SET.getSandstone());
             tag(BlockTags.CROPS).add(BWGBlocks.ODDION_CROP.get(), BWGBlocks.PALE_PUMPKIN_STEM.get());
+            tag(BlockTags.SUPPORTS_VEGETATION).add(BWGBlocks.LUSH_FARMLAND.get(), BWGBlocks.SANDY_FARMLAND.get());
+            tag(BlockTags.SUPPORTS_CROPS).add(BWGBlocks.LUSH_FARMLAND.get(), BWGBlocks.SANDY_FARMLAND.get());
             tag(BlockTags.LOGS).add(BWGWood.SPIRIT_ROOTS.get());
             tag(BlockTags.LOGS_THAT_BURN).add(BWGWood.SPIRIT_ROOTS.get());
             tag(BlockTags.BEE_GROWABLES).add(BWGBlocks.BLUEBERRY_BUSH.get());

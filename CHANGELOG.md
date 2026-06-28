@@ -1,3 +1,5 @@
+# 5.0.0
+
 # 4.4.0 – Config Changes
 - Move worldgeneration config to JSON from json5 to match all other configs
 - Correctly update missing keys in JSON configs

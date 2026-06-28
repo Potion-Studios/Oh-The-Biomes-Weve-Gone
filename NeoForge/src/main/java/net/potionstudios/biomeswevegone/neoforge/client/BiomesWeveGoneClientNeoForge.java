@@ -32,11 +32,11 @@ public class BiomesWeveGoneClientNeoForge {
      * @param eventBus The event bus to register the client side of the mod to.
      */
     public BiomesWeveGoneClientNeoForge(final IEventBus eventBus) {
-        eventBus.addListener((FMLClientSetupEvent event) -> {
-            BiomesWeveGoneClient.onInitialize();
+        eventBus.addListener((FMLClientSetupEvent event) -> BiomesWeveGoneClient.onInitialize());
+        eventBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> {
+            BiomesWeveGoneClient.registerEntityRenderers(event::registerEntityRenderer);
+            BiomesWeveGoneClient.registerBlockEntityRenderers(event::registerBlockEntityRenderer);
         });
-        eventBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> BiomesWeveGoneClient.registerEntityRenderers(event::registerEntityRenderer));
-        eventBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> BiomesWeveGoneClient.registerBlockEntityRenderers(event::registerBlockEntityRenderer));
         eventBus.addListener((RegisterParticleProvidersEvent event) -> BiomesWeveGoneClient.registerParticles((type, spriteProviderFactory) -> event.registerSpriteSet(type, spriteProviderFactory::apply)));
         eventBus.addListener((EntityRenderersEvent.RegisterLayerDefinitions event) -> BiomesWeveGoneClient.registerLayerDefinitions(event::registerLayerDefinition));
         eventBus.addListener((RegisterColorHandlersEvent.BlockTintSources event) -> BiomesWeveGoneClient.registerBlockColors(event::register));

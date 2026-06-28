@@ -26,7 +26,7 @@ loom {
 }
 
 dependencies {
-    implementation("net.fabricmc:fabric-loader:${providers.gradleProperty("fabric_loader_version").get()}")
+    api("net.fabricmc:fabric-loader:${providers.gradleProperty("fabric_loader_version").get()}")
     api("net.fabricmc.fabric-api:fabric-api:${providers.gradleProperty("fabric_api_version").get()}+$minecraftVersion")
 
     "common"(project(":Common")) { isTransitive = false }
@@ -37,7 +37,7 @@ dependencies {
     api("com.github.glitchfiend:TerraBlender-fabric:$minecraftVersion-${providers.gradleProperty("terrablender_version").get()}")
     api("dev.corgitaco.ohthetreesyoullgrow:ohthetreesyoullgrow-fabric-$minecraftVersion:${providers.gradleProperty("ohthetreesyoullgrow_version").get()}")
     api("com.geckolib:geckolib-fabric-$minecraftVersion:${providers.gradleProperty("geckolib_version").get()}")
-    api("me.lucko:fabric-permissions-api:0.3.1")
+    api("me.lucko:fabric-permissions-api:0.7.0")
 
     compileOnly("mcp.mobius.waila:wthit-api:fabric-${providers.gradleProperty("WTHIT").get()}")
     localRuntime("mcp.mobius.waila:wthit:fabric-${providers.gradleProperty("WTHIT").get()}")

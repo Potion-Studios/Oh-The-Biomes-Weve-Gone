@@ -26,9 +26,7 @@ public class BiomesWeveGoneClientForge {
      * @param eventBus The event bus to register the client side of the mod to.
      */
     public static void init(final BusGroup eventBus) {
-        FMLClientSetupEvent.getBus(eventBus).addListener((FMLClientSetupEvent event) -> {
-            BiomesWeveGoneClient.onInitialize();
-        });
+        FMLClientSetupEvent.getBus(eventBus).addListener((FMLClientSetupEvent event) -> BiomesWeveGoneClient.onInitialize());
         EntityRenderersEvent.RegisterRenderers.BUS.addListener((EntityRenderersEvent.RegisterRenderers event) -> {
             BiomesWeveGoneClient.registerEntityRenderers(event::registerEntityRenderer);
             BiomesWeveGoneClient.registerBlockEntityRenderers(event::registerBlockEntityRenderer);
