@@ -66,7 +66,7 @@ class BWGProcessorRules {
 
 	protected static final ProcessorRule MOSSIFY_10_PERCENT = createAlwaysTrueRandomBlockMatchTest(Blocks.COBBLESTONE, 0.1F, Blocks.MOSSY_COBBLESTONE);
 
-	protected static final ProcessorRule[] WHITE_PUFFBALL_RANDOM_AGE = createEvenChanceAgeRules(BWGBlocks.WHITE_PUFFBALL.getBlock(), WhitePuffballBlock.AGE, WhitePuffballBlock.MAX_AGE);
+	protected static final ProcessorRule[] WHITE_PUFFBALL_RANDOM_AGE = createEvenChanceAgeRules(BWGBlocks.WHITE_PUFFBALL.get(), WhitePuffballBlock.AGE, WhitePuffballBlock.MAX_AGE);
 
 	protected static final ProcessorRule[] PUMPKIN_RANDOM_AGE = createEvenChanceAgeRules(Blocks.PUMPKIN_STEM, StemBlock.AGE, StemBlock.MAX_AGE);
 
@@ -208,15 +208,15 @@ class BWGProcessorRules {
 	protected static final ProcessorRule[] SHORT_GRASS_TO_FLOWER_PUMPKIN_PATCH = new ProcessorRule[]{
 			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.15f, BWGBlocks.LEAF_PILE.get()),
 			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.15f, BWGBlocks.CLOVER_PATCH.get()),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.1f, BWGBlocks.WHITE_ANEMONE.getBlock()),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.1f, BWGBlocks.CROCUS.getBlock())
+			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.1f, BWGBlocks.WHITE_ANEMONE.get()),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.1f, BWGBlocks.CROCUS.get())
 	};
 
 	protected static final ProcessorRule[] SHORT_GRASS_TO_FLOWER_SWAMP = new ProcessorRule[]{
 			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.35f, Blocks.AIR),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.15f, BWGBlocks.PEACH_LEATHER_FLOWER.getBlock()),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.15f, BWGBlocks.PEACH_LEATHER_FLOWER.get()),
 			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.15f, BWGBlocks.CLOVER_PATCH.get()),
-			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.1f, BWGBlocks.VIOLET_LEATHER_FLOWER.getBlock()),
+			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.1f, BWGBlocks.VIOLET_LEATHER_FLOWER.get()),
 			createAlwaysTrueRandomBlockMatchTest(Blocks.SHORT_GRASS, 0.1f, Blocks.MOSS_CARPET)
 	};
 

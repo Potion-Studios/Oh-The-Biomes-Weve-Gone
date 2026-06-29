@@ -177,7 +177,7 @@ public class BWGWood {
 
     protected static PottedBlock createNonSetSapling(String key, Supplier<TreeGrower> grower, TagKey<Block> ground) {
         PottedBlock sapling = createSapling(key, grower, ground);
-        NONSET_WOOD.add(sapling.getBlockSupplier());
+        NONSET_WOOD.add(sapling);
         NONSET_WOOD.add(sapling.getPottedBlockSupplier());
         return sapling;
     }

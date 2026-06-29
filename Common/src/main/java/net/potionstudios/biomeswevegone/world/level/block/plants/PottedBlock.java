@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
-public class PottedBlock {
+public class PottedBlock implements Supplier<Block> {
     private final Supplier<? extends Block> block;
     private final Supplier<? extends Block> pottedBlock;
 
@@ -24,16 +24,8 @@ public class PottedBlock {
         this(block, BWGBlocks.registerBlock("potted_" + id, properties -> PlatformHandler.PLATFORM_HANDLER.createPottedBlock(block, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
     }
 
-    public Supplier<? extends Block> getBlockSupplier() {
-        return block;
-    }
-
     public Supplier<? extends Block> getPottedBlockSupplier() {
         return pottedBlock;
-    }
-
-    public Block getBlock() {
-        return block.get();
     }
 
     public Item getItem() {
@@ -46,5 +38,10 @@ public class PottedBlock {
 
     public BlockState getBlockState() {
         return block.get().defaultBlockState();
+    }
+
+    @Override
+    public Block get() {
+        return block.get();
     }
 }
