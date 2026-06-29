@@ -34,7 +34,7 @@ public class BWGFireCrackerLeaves extends LeavesBlock {
             double e = (double) pos.getY() + 1.0D;
             double f = (double) pos.getZ() + random.nextDouble();
             level.setBlockAndUpdate(pos, BWGBlocks.FIRECRACKER_FLOWER_BUSH.getBlockState());
-            level.neighborChanged(pos, BWGBlocks.FIRECRACKER_FLOWER_BUSH.getBlock(), pos);
+            level.neighborChanged(pos, BWGBlocks.FIRECRACKER_FLOWER_BUSH.get(), pos);
             level.addParticle(ParticleTypes.HAPPY_VILLAGER, d, e, f, 0.0D, 0.0D, 0.0D);
             level.gameEvent(player, GameEvent.SHEAR, pos);
             player.awardStat(Stats.ITEM_USED.get(stack.getItem()));

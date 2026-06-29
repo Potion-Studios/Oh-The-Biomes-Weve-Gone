@@ -19,7 +19,7 @@ import java.util.function.Supplier;
 public class BWGVillagerProfessions {
 
     public static final Supplier<VillagerProfession> FORAGER = register("forager", () -> create("forager", BWGPoiTypes.FORAGER, null, ImmutableSet.of(
-            BWGItems.WHITE_PUFFBALL_SPORES.get(), BWGBlocks.WHITE_PUFFBALL.getBlock().asItem()
+            BWGItems.WHITE_PUFFBALL_SPORES.get(), BWGBlocks.WHITE_PUFFBALL.getItem()
     )));
 
     private static VillagerProfession create(String name, ResourceKey<PoiType> poiType, @Nullable SoundEvent soundEvent, ImmutableSet<Item> requestedItems) {

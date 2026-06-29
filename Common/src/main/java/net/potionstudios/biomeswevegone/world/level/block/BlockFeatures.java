@@ -91,7 +91,7 @@ public class BlockFeatures {
                 consumer.accept(block, 15, 100);
         });
         consumer.accept(BWGBlocks.HYDRANGEA_HEDGE.get(), 60, 100);
-        consumer.accept(BWGBlocks.HYDRANGEA_BUSH.getBlock(), 60, 100);
+        consumer.accept(BWGBlocks.HYDRANGEA_BUSH.get(), 60, 100);
         consumer.accept(BWGBlocks.CATTAIL_THATCH.get(), 60, 20);
         consumer.accept(BWGBlocks.CATTAIL_THATCH_SLAB.get(), 60, 20);
         consumer.accept(BWGBlocks.CATTAIL_THATCH_STAIRS.get(), 60, 20);

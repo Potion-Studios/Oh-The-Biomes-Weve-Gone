@@ -212,7 +212,7 @@ public class ModelGenerators {
                     paneBlockWithRenderType((IronBarsBlock) block, blockBWGTexture(name(block).replace("_pane", "")), blockBWGTexture(block, "top"), "translucent");
                     simpleItemBlockTexture(block, name(block).replace("_pane", ""));
                 } else if (block instanceof FlowerPotBlock) {
-                    if (((FlowerPotBlock) block).getPotted() == BWGBlocks.WHITE_PUFFBALL.getBlock())
+                    if (((FlowerPotBlock) block).getPotted() == BWGBlocks.WHITE_PUFFBALL.get())
                         simpleBlock(block, models().getExistingFile(blockBWGTexture(BWGBlocks.WHITE_PUFFBALL.getPottedBlock())));
                     else simpleBlock(block, models().withExistingParent(name(block), mcLoc("block/flower_pot_cross")).texture("plant", blockBWGTexture(((FlowerPotBlock) block).getPotted())).renderType("cutout"));
                 } else if (block instanceof HugeMushroomBlock) {
@@ -614,7 +614,7 @@ public class ModelGenerators {
         }
 
         private void registerSapling(PottedBlock sapling, ResourceLocation texture) {
-            registerSaplingBlock(sapling.getBlock(), texture);
+            registerSaplingBlock(sapling.get(), texture);
             registerPottedSapling(sapling.getPottedBlock(), texture);
         }
 

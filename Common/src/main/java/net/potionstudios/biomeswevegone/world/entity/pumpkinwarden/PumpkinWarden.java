@@ -222,7 +222,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity, VariantHo
     protected @NotNull InteractionResult mobInteract(@NotNull Player player, @NotNull InteractionHand hand) {
         if (isHiding()) return InteractionResult.FAIL;
         ItemStack itemInHand = player.getItemInHand(hand);
-        if (itemInHand.is(BWGBlocks.ROSE.getBlock().asItem())){
+        if (itemInHand.is(BWGBlocks.ROSE.getItem())){
             if (player.level().isClientSide()) {
                 level().addParticle(ParticleTypes.HEART, this.getX(), this.getY() + 1, this.getZ(), 1, 1, 1);
                 level().playSound(player, player.blockPosition(), SoundEvents.VILLAGER_AMBIENT, SoundSource.NEUTRAL, 1, getVoicePitch());
