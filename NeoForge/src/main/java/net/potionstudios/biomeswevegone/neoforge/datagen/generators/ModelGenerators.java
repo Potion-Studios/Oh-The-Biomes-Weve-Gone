@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.neoforged.neoforge.client.model.generators.*;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
+import net.potionstudios.biomeswevegone.client.BiomesWeveGoneClient;
 import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.item.custom.WreathItem;
@@ -463,7 +464,9 @@ public class ModelGenerators {
                 default ->
                         ConfiguredModel.builder().modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.OLIVE_MOSS_SPROUTS.get()))).build();
             }, TreeBranchBlock.WATERLOGGED);
-            
+
+            simpleBlockItem(BWGBlocks.OLIVE_MOSS_CARPET.get(), models().carpet(name(BWGBlocks.OLIVE_MOSS_CARPET.get()), blockTexture(BWGBlocks.OLIVE_MOSS_CARPET.get())).renderType("cutout"));
+
             simpleBlockWithItem(BWGBlocks.WITCH_HAZEL_BLOSSOM.get(), models().getExistingFile(blockBWGTexture(BWGBlocks.WITCH_HAZEL_BLOSSOM.get())));
             simpleBlockWithItem(BWGWood.SPIRIT_ROOTS.get(), models().withExistingParent(name(BWGWood.SPIRIT_ROOTS.get()), "block/mangrove_roots").texture("side", BiomesWeveGone.id("block/spirit/roots_top")).texture("top", BiomesWeveGone.id("block/spirit/roots_side")).renderType("cutout_mipped"));
 

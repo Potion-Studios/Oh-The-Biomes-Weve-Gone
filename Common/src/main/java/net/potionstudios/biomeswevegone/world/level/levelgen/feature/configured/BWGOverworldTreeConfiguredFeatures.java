@@ -5148,6 +5148,30 @@ public static final ResourceKey<ConfiguredFeature<?, ?>> BOREALIS_ICE_FEATURE = 
             }
     );
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_BIRCH_TREES = ConfiguredFeaturesUtil.createConfiguredFeature("brown_birch_trees",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BROWN_BIRCH_TREE1)), 0.33F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BROWN_BIRCH_TREE2)), 0.33F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BROWN_BIRCH_TREE3)), 0.33F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BROWN_BIRCH_TREE4)));
+            }
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> RED_BIRCH_TREES = ConfiguredFeaturesUtil.createConfiguredFeature("red_birch_trees",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(RED_BIRCH_TREE1)), 0.33F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(RED_BIRCH_TREE2)), 0.33F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(RED_BIRCH_TREE3)), 0.33F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(RED_BIRCH_TREE4)));
+            }
+    );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_ZELKOVA_TREES = ConfiguredFeaturesUtil.createConfiguredFeature("brown_zelkova_trees",
             Feature.RANDOM_SELECTOR,
             (configuredFeatureBootstrapContext) -> {

@@ -142,6 +142,10 @@ public class BiomesWeveGoneClient {
         consumer.accept(BWGParticles.IRONWOOD_LEAVES.get(), FallingLeafParticle.Provider::new);
         consumer.accept(BWGParticles.SPIRIT.get(), FallingLeafParticle.Provider::new);
         consumer.accept(BWGParticles.SPIRIT_LEAVES.get(), FallingLeafParticle.Provider::new);
+        consumer.accept(BWGParticles.YELLOW_BIRCH_LEAVES.get(), FallingLeafParticle.Provider::new);
+        consumer.accept(BWGParticles.ORANGE_BIRCH_LEAVES.get(), FallingLeafParticle.Provider::new);
+        consumer.accept(BWGParticles.RED_BIRCH_LEAVES.get(), FallingLeafParticle.Provider::new);
+        consumer.accept(BWGParticles.BROWN_BIRCH_LEAVES.get(), FallingLeafParticle.Provider::new);
     }
 
     public static void registerItemProperties(TriConsumer<Item, ResourceLocation, ClampedItemPropertyFunction> consumer) {

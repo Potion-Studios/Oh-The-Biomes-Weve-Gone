@@ -395,12 +395,16 @@ public class BWGTreeGrowers {
                     .build(),
             SimpleWeightedRandomList.single(BWGOverworldTreeConfiguredFeatures.SILVER_MAPLE_TREE3));
 
-    public static final Supplier<TreeGrower> YELLOW_BIRCH = () -> new BWGTreeGrower("yellow_birch",
+    public static final Supplier<TreeGrower> YELLOW_BIRCH = () -> new BWGMegaTreeGrower("yellow_birch",
             new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
                     .add(BWGOverworldTreeConfiguredFeatures.YELLOW_BIRCH_TREE1)
                     .add(BWGOverworldTreeConfiguredFeatures.YELLOW_BIRCH_TREE2)
                     .add(BWGOverworldTreeConfiguredFeatures.YELLOW_BIRCH_TREE3)
                     .add(BWGOverworldTreeConfiguredFeatures.YELLOW_BIRCH_TREE4)
+                    .build(),
+            new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
+                    .add(BWGOverworldTreeConfiguredFeatures.WOODLANDS_TREE_LARGE1)
+                    .add(BWGOverworldTreeConfiguredFeatures.WOODLANDS_TREE_LARGE2)
                     .build());
 
     public static final Supplier<TreeGrower> YELLOW_SPRUCE = () -> new BWGMegaTreeGrower("yellow_spruce",

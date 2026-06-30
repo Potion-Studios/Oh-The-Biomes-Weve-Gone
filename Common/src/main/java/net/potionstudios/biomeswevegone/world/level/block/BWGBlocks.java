@@ -260,7 +260,7 @@ public class BWGBlocks {
 
     public static final Supplier<TreeBranchBlock> OLIVE_MOSS_SPROUTS = registerBlockItem("olive_moss_sprouts", TreeBranchBlock::new);
     public static final Supplier<CarpetBlock> OLIVE_MOSS_CARPET = registerBlockItem("olive_moss_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).strength(0.1F).sound(SoundType.MOSS_CARPET).pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<MossBlock> OLIVE_MOSS_BLOCK = registerBlockItem("olive_moss_block", () -> new MossBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).strength(0.1F).sound(SoundType.MOSS).pushReaction(PushReaction.DESTROY)));
+    public static final Supplier<MossBlock> OLIVE_MOSS_BLOCK = registerCubeAllBlockItem("olive_moss_block", () -> new MossBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).strength(0.1F).sound(SoundType.MOSS).pushReaction(PushReaction.DESTROY)));
 
     /** Desert Plants */
     public static final PottedBlock MINI_CACTUS = createPottedVariant("mini_cactus", () -> new DesertPlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CACTUS).noOcclusion().noCollission(), Block.box(5.0D, 0.0D, 5.0D, 11.0D, 7.0D, 11.0D), BlockTags.SAND));
