@@ -108,7 +108,7 @@ public class BWGWood {
     public static final Supplier<LeavesBlock> FLOWERING_BAOBAB_LEAVES = registerFloweringLeaves("flowering_baobab", BWGWood.RIPE_BAOBAB_LEAVES, 0.02F);
     public static final Supplier<LeavesBlock> BLUE_SPRUCE_LEAVES = registerLeaves("blue_spruce");
     public static final Supplier<LeavesBlock> BLOOMING_WITCH_HAZEL_LEAVES = registerGlowingLeaves("blooming_witch_hazel");
-    public static final Supplier<LeavesBlock> BROWN_BIRCH_LEAVES = registerLeaves("brown_birch");
+    public static final Supplier<LeavesBlock> BROWN_BIRCH_LEAVES = registerLeaves("brown_birch", BWGParticles.BROWN_BIRCH_LEAVES);
     public static final Supplier<LeavesBlock> BROWN_OAK_LEAVES = registerLeaves("brown_oak");
     public static final Supplier<LeavesBlock> BROWN_ZELKOVA_LEAVES = registerLeaves("brown_zelkova");
     public static final Supplier<LeavesBlock> RIPE_ORCHARD_LEAVES = registerLeaves("ripe_orchard", BWGBlocks.APPLE_FRUIT_BLOCK, 0.04F);
@@ -121,11 +121,11 @@ public class BWGWood {
     public static final Supplier<LeavesBlock> YUCCA_LEAVES = registerLeaves("yucca");
     public static final Supplier<LeavesBlock> RIPE_YUCCA_LEAVES = registerLeaves("ripe_yucca", BWGBlocks.YUCCA_FRUIT_BLOCK, 0.04F);
     public static final Supplier<LeavesBlock> FLOWERING_YUCCA_LEAVES = registerFloweringLeaves("flowering_yucca", BWGWood.RIPE_YUCCA_LEAVES, 0.02F);
-    public static final Supplier<LeavesBlock> ORANGE_BIRCH_LEAVES = registerLeaves("orange_birch");
+    public static final Supplier<LeavesBlock> ORANGE_BIRCH_LEAVES = registerLeaves("orange_birch", BWGParticles.ORANGE_BIRCH_LEAVES);
     public static final Supplier<LeavesBlock> ORANGE_OAK_LEAVES = registerLeaves("orange_oak");
     public static final Supplier<LeavesBlock> ORANGE_SPRUCE_LEAVES = registerLeaves("orange_spruce");
     public static final Supplier<LeavesBlock> ORCHARD_LEAVES = registerLeaves("orchard");
-    public static final Supplier<LeavesBlock> RED_BIRCH_LEAVES = registerLeaves("red_birch");
+    public static final Supplier<LeavesBlock> RED_BIRCH_LEAVES = registerLeaves("red_birch", BWGParticles.RED_BIRCH_LEAVES);
     public static final Supplier<LeavesBlock> RED_MAPLE_LEAVES = registerLeaves("red_maple", BWGParticles.RED_MAPLE_LEAVES);
     public static final Supplier<LeavesBlock> RED_OAK_LEAVES = registerLeaves("red_oak");
     public static final Supplier<LeavesBlock> RED_SPRUCE_LEAVES = registerLeaves("red_spruce");
@@ -137,7 +137,7 @@ public class BWGWood {
     public static final Supplier<LeavesBlock> FLOWERING_IRONWOOD_LEAVES = registerLeaves("flowering_ironwood", BWGParticles.IRONWOOD_LEAVES);
     public static final Supplier<LeavesBlock> WHITE_SAKURA_LEAVES = registerSakuraLeaves("white_sakura", BWGParticles.WHITE_SAKURA_LEAVES);
     public static final Supplier<LeavesBlock> YELLOW_SAKURA_LEAVES = registerSakuraLeaves("yellow_sakura", BWGParticles.YELLOW_SAKURA_LEAVES);
-    public static final Supplier<LeavesBlock> YELLOW_BIRCH_LEAVES = registerLeaves("yellow_birch");
+    public static final Supplier<LeavesBlock> YELLOW_BIRCH_LEAVES = registerLeaves("yellow_birch", BWGParticles.YELLOW_BIRCH_LEAVES);
     public static final Supplier<LeavesBlock> YELLOW_SPRUCE_LEAVES = registerLeaves("yellow_spruce");
     public static final Supplier<LeavesBlock> FIRECRACKER_LEAVES = registerNonSetBlockItem("firecracker_leaves", () -> new BWGFireCrackerLeaves(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(MapColor.COLOR_GREEN)));
 
