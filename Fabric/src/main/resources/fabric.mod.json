@@ -34,7 +34,7 @@
     "biomeswevegone-common.mixins.json"
   ],
   "depends": {
-    "fabric": "*",
+    "fabric-api": "*",
     "minecraft": ">=1.21.11",
     "terrablender": ">=21.11.0.0",
     "ohthetreesyoullgrow": ">=10.1.1",

@@ -4,7 +4,7 @@ import com.hypherionmc.modpublisher.properties.ReleaseType
 plugins {
     id("architectury-plugin") version "3.5-SNAPSHOT"
     id("dev.architectury.loom-no-remap") version "1.17-SNAPSHOT" apply false
-    id("com.gradleup.shadow") version "9.4.2" apply false
+    id("com.gradleup.shadow") version "9.4.3" apply false
     id("com.hypherionmc.modutils.modpublisher") version "2.+"
     java
     `maven-publish`

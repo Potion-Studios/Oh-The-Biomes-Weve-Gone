@@ -5,7 +5,7 @@ architectury {
 
 val minecraftVersion = providers.gradleProperty("minecraft_version").get()
 
-loom.accessWidenerPath.set(file("src/main/resources/biomeswevegone.accesswidener"))
+loom.accessWidenerPath.set(file("src/main/resources/biomeswevegone.accessWidener"))
 
 sourceSets.main.get().resources.srcDir("src/main/generated/resources")
 
