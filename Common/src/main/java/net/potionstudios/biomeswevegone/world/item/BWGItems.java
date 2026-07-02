@@ -84,7 +84,7 @@ public class BWGItems {
     public static final Supplier<Item> ALLIUM_ODDION_SOUP = registerSimpleItem("allium_oddion_soup", Item::new, new Item.Properties().stacksTo(1).usingConvertsTo(Items.BOWL).food((new FoodProperties.Builder()).nutrition(8).saturationModifier(1f).build()));
     public static final Supplier<Item> BLOOMING_ODDION = registerSimpleItem("blooming_oddion", Item::new, new Item.Properties().food(new FoodProperties.Builder().nutrition(9).saturationModifier(1.2f).build()));
 
-    public static final Supplier<Item> WHITE_PUFFBALL_SPORES = registerSimpleItem("white_puffball_spores", properties -> new BlockItem(BWGBlocks.WHITE_PUFFBALL.getBlock(), properties), new Item.Properties().useItemDescriptionPrefix());
+    public static final Supplier<Item> WHITE_PUFFBALL_SPORES = registerSimpleItem("white_puffball_spores", properties -> new BlockItem(BWGBlocks.WHITE_PUFFBALL.get(), properties), new Item.Properties().useItemDescriptionPrefix());
     public static final Supplier<Item> WHITE_PUFFBALL_CAP = registerSimpleItem("white_puffball_cap", Item::new, new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationModifier(0.2f).build()));
     public static final Supplier<Item> COOKED_WHITE_PUFFBALL_CAP = registerSimpleItem("cooked_white_puffball_cap", Item::new, new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationModifier(0.6f).build()));
     public static final Supplier<Item> WHITE_PUFFBALL_STEW = registerSimpleItem("white_puffball_stew", Item::new, new Item.Properties().stacksTo(1).usingConvertsTo(Items.BOWL).food((new FoodProperties.Builder()).nutrition(9).saturationModifier(1F).build()));

@@ -21,7 +21,7 @@ import java.util.function.Supplier;
 public class BWGVillagerProfessions {
 
     public static final ResourceKey<VillagerProfession> FORAGER = register("forager", BWGPoiTypes.FORAGER, null, () -> ImmutableSet.of(
-            BWGItems.WHITE_PUFFBALL_SPORES.get(), BWGBlocks.WHITE_PUFFBALL.getBlock().asItem()
+            BWGItems.WHITE_PUFFBALL_SPORES.get(), BWGBlocks.WHITE_PUFFBALL.getItem()
     ));
 
     private static ResourceKey<VillagerProfession> register(String id, ResourceKey<PoiType> poiType, @Nullable SoundEvent soundEvent, Supplier<ImmutableSet<Item>> requestedItems){
