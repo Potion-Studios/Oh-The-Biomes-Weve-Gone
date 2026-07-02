@@ -43,11 +43,11 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> ROSE_BUSH = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("rose_bush", () -> Blocks.ROSE_BUSH);
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ROSE_BUSH = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("blue_rose_bush", BWGBlocks.BLUE_ROSE_BUSH);
-    public static final ResourceKey<ConfiguredFeature<?, ?>> WINTER_ROSE = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("winter_rose", BWGBlocks.WINTER_ROSE.getBlockSupplier());
-    public static final ResourceKey<ConfiguredFeature<?, ?>> WINTER_SCILLA = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("winter_scilla", BWGBlocks.WINTER_SCILLA.getBlockSupplier());
-    public static final ResourceKey<ConfiguredFeature<?, ?>> WINTER_CYCLAMEN = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("winter_cyclamen", BWGBlocks.WINTER_CYCLAMEN.getBlockSupplier());
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SNOWDROPS = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("snowdrops", BWGBlocks.SNOWDROPS.getBlockSupplier());
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PROTEA_FLOWER = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("protea_flower", BWGBlocks.PROTEA_FLOWER.getBlockSupplier());
+    public static final ResourceKey<ConfiguredFeature<?, ?>> WINTER_ROSE = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("winter_rose", BWGBlocks.WINTER_ROSE);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> WINTER_SCILLA = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("winter_scilla", BWGBlocks.WINTER_SCILLA);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> WINTER_CYCLAMEN = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("winter_cyclamen", BWGBlocks.WINTER_CYCLAMEN);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SNOWDROPS = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("snowdrops", BWGBlocks.SNOWDROPS);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PROTEA_FLOWER = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("protea_flower", BWGBlocks.PROTEA_FLOWER);
 
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSE_FIELD_FLOWERS = ConfiguredFeaturesUtil.createConfiguredFeature("rose_field_flowers",
@@ -117,9 +117,9 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_BLUEBERRY = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithState("blue_berry_bush", () -> BWGBlocks.BLUEBERRY_BUSH.get().defaultBlockState().setValue(BWGBerryBush.AGE, 3));
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> JACARANDA_BUSH = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("jacaranda_bush", BWGBlocks.JACARANDA_BUSH.getBlockSupplier());
+    public static final ResourceKey<ConfiguredFeature<?, ?>> JACARANDA_BUSH = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("jacaranda_bush", BWGBlocks.JACARANDA_BUSH);
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_JACARANDA_BUSH = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("flowering_jacaranda_bush", BWGBlocks.FLOWERING_JACARANDA_BUSH);
-    public static final ResourceKey<ConfiguredFeature<?, ?>> INDIGO_JACARANDA_BUSH = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("indigo_jacaranda_bush", BWGBlocks.INDIGO_JACARANDA_BUSH.getBlockSupplier());
+    public static final ResourceKey<ConfiguredFeature<?, ?>> INDIGO_JACARANDA_BUSH = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("indigo_jacaranda_bush", BWGBlocks.INDIGO_JACARANDA_BUSH);
     public static final ResourceKey<ConfiguredFeature<? ,?>> FLOWERING_INDIGO_JACARANDA_BUSH = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("flowering_indigo_jacaranda_bush", BWGBlocks.FLOWERING_INDIGO_JACARANDA_BUSH);
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> JACARANDA_BUSHES = ConfiguredFeaturesUtil.createConfiguredFeature("jacaranda_bushes",
@@ -128,9 +128,9 @@ public class BWGOverworldVegetationConfiguredFeatures {
                     configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE), JACARANDA_BUSH, FLOWERING_JACARANDA_BUSH, INDIGO_JACARANDA_BUSH, FLOWERING_INDIGO_JACARANDA_BUSH)
     );
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> HYDRANGEA_BUSH = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("hydrangea_bush", BWGBlocks.HYDRANGEA_BUSH.getBlockSupplier());
+    public static final ResourceKey<ConfiguredFeature<?, ?>> HYDRANGEA_BUSH = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("hydrangea_bush", BWGBlocks.HYDRANGEA_BUSH);
     public static final ResourceKey<ConfiguredFeature<?, ?>> HYDRANGEA_HEDGE = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("hydrangea_hedge", BWGBlocks.HYDRANGEA_HEDGE);
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SHRUB = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("shrub", BWGBlocks.SHRUB.getBlockSupplier());
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SHRUB = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("shrub", BWGBlocks.SHRUB);
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HYDRANGEAS = ConfiguredFeaturesUtil.createConfiguredFeature("hydrangeas",
             Feature.RANDOM_SELECTOR,
@@ -181,15 +181,15 @@ public class BWGOverworldVegetationConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CYAN_PITCHER_PLANT = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("cyan_pitcher_plant", BWGBlocks.CYAN_PITCHER_PLANT);
     public static final ResourceKey<ConfiguredFeature<?, ?>> MAGENTA_PITCHER_PLANT = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("magenta_pitcher_plant", BWGBlocks.MAGENTA_PITCHER_PLANT);
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> MINI_CACTI = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("mini_cacti", BWGBlocks.MINI_CACTUS.getBlockSupplier());
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PRICKLY_PEAR_CACTI = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("prickly_pear_cacti", BWGBlocks.PRICKLY_PEAR_CACTUS.getBlockSupplier());
-    public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_SPINED_CACTI = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("golden_spined_cacti", BWGBlocks.GOLDEN_SPINED_CACTUS.getBlockSupplier());
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MINI_CACTI = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("mini_cacti", BWGBlocks.MINI_CACTUS);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PRICKLY_PEAR_CACTI = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("prickly_pear_cacti", BWGBlocks.PRICKLY_PEAR_CACTUS);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_SPINED_CACTI = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("golden_spined_cacti", BWGBlocks.GOLDEN_SPINED_CACTUS);
     public static final ResourceKey<ConfiguredFeature<?, ?>> BARREL_CACTI = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("barrel_cacti", BWGBlocks.BARREL_CACTUS);
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_BARREL_CACTI = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("flowering_barrel_cacti", BWGBlocks.FLOWERING_BARREL_CACTUS);
     public static final ResourceKey<ConfiguredFeature<?, ?>> ALOE_VERA = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("aloe_vera", BWGBlocks.ALOE_VERA);
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_PUFFBALL = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("white_puffball", BWGBlocks.WHITE_PUFFBALL.getBlockSupplier());
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FIRECRACKER_BUSH = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("firecracker_bush", BWGBlocks.FIRECRACKER_FLOWER_BUSH.getBlockSupplier());
+    public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_PUFFBALL = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("white_puffball", BWGBlocks.WHITE_PUFFBALL);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FIRECRACKER_BUSH = ConfiguredFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock("firecracker_bush", BWGBlocks.FIRECRACKER_FLOWER_BUSH);
 
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WINDSWEPT_DESERT_VEGETATION = ConfiguredFeaturesUtil.createConfiguredFeature("windswept_desert_vegetation",

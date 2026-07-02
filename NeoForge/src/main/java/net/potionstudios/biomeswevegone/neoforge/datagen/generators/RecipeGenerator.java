@@ -352,9 +352,9 @@ public class RecipeGenerator extends RecipeProvider {
         carpet(BWGBlocks.CATTAIL_THATCH_CARPET.get(), BWGBlocks.CATTAIL_THATCH.get());
 
         nineBlockStorageRecipes(RecipeCategory.DECORATIONS, Items.ALLIUM, RecipeCategory.DECORATIONS, BWGBlocks.ALLIUM_PETAL_BLOCK.get());
-        nineBlockStorageRecipes(RecipeCategory.DECORATIONS, BWGBlocks.PINK_ALLIUM.getBlock(), RecipeCategory.DECORATIONS, BWGBlocks.PINK_ALLIUM_PETAL_BLOCK.get());
-        nineBlockStorageRecipes(RecipeCategory.DECORATIONS, BWGBlocks.WHITE_ALLIUM.getBlock(), RecipeCategory.DECORATIONS, BWGBlocks.WHITE_ALLIUM_PETAL_BLOCK.get());
-        nineBlockStorageRecipes(RecipeCategory.DECORATIONS, BWGBlocks.ROSE.getBlock(), RecipeCategory.DECORATIONS, BWGBlocks.ROSE_PETAL_BLOCK.get());
+        nineBlockStorageRecipes(RecipeCategory.DECORATIONS, BWGBlocks.PINK_ALLIUM.get(), RecipeCategory.DECORATIONS, BWGBlocks.PINK_ALLIUM_PETAL_BLOCK.get());
+        nineBlockStorageRecipes(RecipeCategory.DECORATIONS, BWGBlocks.WHITE_ALLIUM.get(), RecipeCategory.DECORATIONS, BWGBlocks.WHITE_ALLIUM_PETAL_BLOCK.get());
+        nineBlockStorageRecipes(RecipeCategory.DECORATIONS, BWGBlocks.ROSE.get(), RecipeCategory.DECORATIONS, BWGBlocks.ROSE_PETAL_BLOCK.get());
 
         ShapelessRecipeBuilder.shapeless(itemRegistry, RecipeCategory.DECORATIONS, Items.PURPLE_WOOL)
                 .requires(BWGBlocks.ALLIUM_PETAL_BLOCK.get(), 9)
