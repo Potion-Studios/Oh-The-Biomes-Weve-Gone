@@ -148,7 +148,7 @@ class BlockLootGenerator extends BlockLootSubProvider {
         add(BWGWood.RIPE_ORCHARD_LEAVES.get(), createFruitLeavesDrops(BWGWood.RIPE_ORCHARD_LEAVES.get(), BWGWood.ORCHARD_SAPLING.get(), Items.APPLE, NORMAL_LEAVES_SAPLING_CHANCES));
 	    add(BWGWood.FLOWERING_PALISADE_LEAVES.get(), createLeavesDrops(BWGWood.FLOWERING_PALISADE_LEAVES.get(), BWGWood.PALISADE.sapling().get(), NORMAL_LEAVES_SAPLING_CHANCES));
 	    add(BWGWood.RIPE_PALISADE_LEAVES.get(), createFruitLeavesDrops(BWGWood.RIPE_PALISADE_LEAVES.get(), BWGWood.PALISADE.sapling().get(), BWGItems.VETAL.get(), NORMAL_LEAVES_SAPLING_CHANCES));
-	    add(BWGWood.PALISADE_LEAVES.get(), createLeavesDrops(BWGWood.PALISADE_LEAVES.get(), BWGWood.PALISADE.sapling().getBlock(), NORMAL_LEAVES_SAPLING_CHANCES));
+	    add(BWGWood.PALISADE_LEAVES.get(), createLeavesDrops(BWGWood.PALISADE_LEAVES.get(), BWGWood.PALISADE.sapling().get(), NORMAL_LEAVES_SAPLING_CHANCES));
 		add(BWGWood.RED_BIRCH_LEAVES.get(), createLeavesDrops(BWGWood.RED_BIRCH_LEAVES.get(), BWGWood.RED_BIRCH_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         add(BWGWood.RED_MAPLE_LEAVES.get(), createLeavesDrops(BWGWood.RED_MAPLE_LEAVES.get(), BWGWood.RED_MAPLE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         add(BWGWood.RED_OAK_LEAVES.get(), createLeavesDrops(BWGWood.RED_OAK_LEAVES.get(), BWGWood.RED_OAK_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
