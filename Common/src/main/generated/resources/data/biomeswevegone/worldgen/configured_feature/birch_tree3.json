@@ -67,7 +67,7 @@
       }
     },
     "log_target": [
-      "minecraft:oak_log"
+      "minecraft:birch_log"
     ],
     "place_from_nbt": []
   }

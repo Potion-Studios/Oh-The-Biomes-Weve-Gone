@@ -216,6 +216,9 @@
     "biomeswevegone:flowering_orchard_leaves": {
       "chance": 0.3
     },
+    "biomeswevegone:flowering_palisade_leaves": {
+      "chance": 0.3
+    },
     "biomeswevegone:flowering_palo_verde_leaves": {
       "chance": 0.3
     },
@@ -414,6 +417,12 @@
     "biomeswevegone:pale_pumpkin_seeds": {
       "chance": 0.3
     },
+    "biomeswevegone:palisade_leaves": {
+      "chance": 0.3
+    },
+    "biomeswevegone:palisade_sapling": {
+      "chance": 0.3
+    },
     "biomeswevegone:palm_leaves": {
       "chance": 0.3
     },
@@ -520,6 +529,9 @@
       "chance": 0.3
     },
     "biomeswevegone:ripe_orchard_leaves": {
+      "chance": 0.3
+    },
+    "biomeswevegone:ripe_palisade_leaves": {
       "chance": 0.3
     },
     "biomeswevegone:ripe_yucca_leaves": {

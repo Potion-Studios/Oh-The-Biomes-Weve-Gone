@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_palisade_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomeswevegone:palisade_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "biomeswevegone:palisade_bookshelf"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_palisade_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "biomeswevegone:palisade_bookshelf"
+    ]
+  }
+}

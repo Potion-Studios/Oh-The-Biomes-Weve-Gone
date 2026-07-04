@@ -108,6 +108,12 @@
     "biomeswevegone:maple_crafting_table": {
       "burn_time": 300
     },
+    "biomeswevegone:palisade_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:palisade_crafting_table": {
+      "burn_time": 300
+    },
     "biomeswevegone:palm_bookshelf": {
       "burn_time": 300
     },

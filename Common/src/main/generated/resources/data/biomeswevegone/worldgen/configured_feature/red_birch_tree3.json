@@ -13,6 +13,31 @@
       "type": "minecraft:replaceable"
     },
     "canopy_location": "biomeswevegone:features/trees/birch/birch_tree_canopy3",
+    "decorators": [
+      {
+        "type": "ohthetreesyoullgrow:attached_to_logs",
+        "block_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "biomeswevegone:shelf_fungi",
+            "Properties": {
+              "facing": "north",
+              "waterlogged": "false"
+            }
+          }
+        },
+        "directions": [
+          "west",
+          "north",
+          "south",
+          "east"
+        ],
+        "exclusion_radius_xz": 0,
+        "exclusion_radius_y": 1,
+        "probability": 0.3,
+        "required_empty_blocks": 2
+      }
+    ],
     "height": {
       "type": "minecraft:biased_to_bottom",
       "max_inclusive": 15,
