@@ -83,6 +83,7 @@ public class BWGBoatEntity extends Boat {
         HOLLY(() -> BWGWood.HOLLY, "holly"),
         IRONWOOD(() -> BWGWood.IRONWOOD, "ironwood"),
         JACARANDA(() -> BWGWood.JACARANDA, "jacaranda"),
+        PALISADE(() -> BWGWood.PALISADE, "palisade"),
         MAHOGANY(() -> BWGWood.MAHOGANY, "mahogany"),
         MAPLE(() -> BWGWood.MAPLE, "maple"),
         PALM(() -> BWGWood.PALM, "palm"),

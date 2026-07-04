@@ -72,6 +72,8 @@ public class BWGItems {
     public static final Supplier<Item> COOKED_YUCCA_FRUIT = registerSimpleItem("cooked_yucca_fruit", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).saturationModifier(0.4f).build())));
     public static final Supplier<Item> GREEN_APPLE = registerSimpleItem("green_apple", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.35f).build())));
     public static final Supplier<Item> GREEN_APPLE_PIE = registerSimpleItem("green_apple_pie", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(0.4f).effect(new MobEffectInstance(MobEffects.DIG_SPEED, 200, 0), 1.0F).build())));
+    public static final Supplier<Item> VETAL = registerSimpleItem("vetal", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(0.35f).build())));
+
 
     public static final Supplier<Item> BLUEBERRIES = registerSimpleItem("blueberries", () -> new ItemNameBlockItem(BWGBlocks.BLUEBERRY_BUSH.get() , new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.1f).build())));
     public static final Supplier<Item> BLUEBERRY_PIE = registerSimpleItem("blueberry_pie", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(0.3f).effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0), 1.0F).build())));

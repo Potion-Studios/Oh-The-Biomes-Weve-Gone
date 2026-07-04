@@ -333,7 +333,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .height(BiasedToBottomInt.of(3, 10))
                     .logProvider(BlockStateProvider.simple(Blocks.BIRCH_LOG))
                     .leavesProvider(BlockStateProvider.simple(Blocks.BIRCH_LEAVES))
-                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .logTarget(Set.of(Blocks.BIRCH_LOG))
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
@@ -369,6 +369,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(SHELF_FUNGI.get()))
                     .build()
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_BIRCH_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_birch_tree2",
@@ -397,6 +398,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(SHELF_FUNGI.get()))
                     .build()
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_BIRCH_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_birch_tree4",
@@ -426,6 +428,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(SHELF_FUNGI.get()))
                     .build()
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_ORANGE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("orange_birch_tree2",
@@ -468,6 +471,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(SHELF_FUNGI.get()))
                     .build()
     );
 
@@ -497,6 +501,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(SHELF_FUNGI.get()))
                     .build()
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_BIRCH_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("red_birch_tree3",
@@ -511,6 +516,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(SHELF_FUNGI.get()))
                     .build()
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_BIRCH_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("red_birch_tree4",
@@ -540,6 +546,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(SHELF_FUNGI.get()))
                     .build()
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_BIRCH_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_birch_tree2",
@@ -568,6 +575,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(SHELF_FUNGI.get()))
                     .build()
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_BIRCH_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_birch_tree4",

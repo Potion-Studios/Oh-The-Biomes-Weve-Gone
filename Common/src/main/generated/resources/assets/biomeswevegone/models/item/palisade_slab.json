@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "biomeswevegone:block/palisade/planks",
+    "side": "biomeswevegone:block/palisade/planks",
+    "top": "biomeswevegone:block/palisade/planks"
+  }
+}

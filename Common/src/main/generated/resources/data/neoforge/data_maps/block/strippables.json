@@ -96,6 +96,12 @@
     "biomeswevegone:maple_wood": {
       "stripped_block": "biomeswevegone:stripped_maple_wood"
     },
+    "biomeswevegone:palisade_log": {
+      "stripped_block": "biomeswevegone:stripped_palisade_log"
+    },
+    "biomeswevegone:palisade_wood": {
+      "stripped_block": "biomeswevegone:stripped_palisade_wood"
+    },
     "biomeswevegone:palm_log": {
       "stripped_block": "biomeswevegone:stripped_palm_log"
     },
