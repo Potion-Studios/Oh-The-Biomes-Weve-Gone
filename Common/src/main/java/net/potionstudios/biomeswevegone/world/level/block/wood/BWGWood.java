@@ -116,6 +116,9 @@ public class BWGWood {
     public static final Supplier<LeavesBlock> RIPE_ORCHARD_LEAVES = registerLeaves("ripe_orchard", BWGBlocks.APPLE_FRUIT_BLOCK, 0.04F);
     public static final Supplier<LeavesBlock> FLOWERING_ORCHARD_LEAVES = registerFloweringLeaves("flowering_orchard", BWGWood.RIPE_ORCHARD_LEAVES, 0.02F);
     public static final Supplier<LeavesBlock> FLOWERING_PALO_VERDE_LEAVES = registerLeaves("flowering_palo_verde", () -> ParticleTypes.SPORE_BLOSSOM_AIR);
+    public static final Supplier<LeavesBlock> PALISADE_LEAVES = registerNonSetBlockItem("palisade_leaves", () -> new BWGLeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES).mapColor(MapColor.COLOR_LIGHT_GRAY), BWGParticles.PALISADE_LEAVES));
+    public static final Supplier<LeavesBlock> RIPE_PALISADE_LEAVES = registerLeaves("ripe_palisade", BWGBlocks.VETAL_FRUIT_BLOCK, 0.04F);
+    public static final Supplier<LeavesBlock> FLOWERING_PALISADE_LEAVES = registerFloweringLeaves("flowering_palisade", BWGWood.RIPE_PALISADE_LEAVES, 0.02F);
     public static final Supplier<LeavesBlock> HOLLY_BERRY_LEAVES = registerLeaves("holly_berry");
     public static final Supplier<LeavesBlock> INDIGO_JACARANDA_LEAVES = registerLeaves("indigo_jacaranda");
     public static final Supplier<LeavesBlock> FLOWERING_JACARANDA_LEAVES = registerLeaves("flowering_jacaranda");
@@ -142,9 +145,6 @@ public class BWGWood {
     public static final Supplier<LeavesBlock> YELLOW_BIRCH_LEAVES = registerLeaves("yellow_birch", BWGParticles.YELLOW_BIRCH_LEAVES);
     public static final Supplier<LeavesBlock> YELLOW_SPRUCE_LEAVES = registerLeaves("yellow_spruce");
     public static final Supplier<LeavesBlock> FIRECRACKER_LEAVES = registerNonSetBlockItem("firecracker_leaves", () -> new BWGFireCrackerLeaves(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(MapColor.COLOR_GREEN)));
-    public static final Supplier<LeavesBlock> RIPE_PALISADE_LEAVES = registerLeaves("ripe_palisade", BWGBlocks.VETAL_FRUIT_BLOCK, 0.04F);
-    public static final Supplier<LeavesBlock> FLOWERING_PALISADE_LEAVES = registerFloweringLeaves("flowering_palisade", BWGWood.RIPE_PALISADE_LEAVES, 0.02F);
-    public static final Supplier<LeavesBlock> PALISADE_LEAVES = registerNonSetBlockItem("palisade_leaves", () -> new BWGLeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES).mapColor(MapColor.COLOR_LIGHT_GRAY), BWGParticles.PALISADE_LEAVES));
 
     private static Supplier<LeavesBlock> registerGlowingLeaves(String key) {
         return registerNonSetBlockItem(key + "_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).lightLevel(state -> 8)));
