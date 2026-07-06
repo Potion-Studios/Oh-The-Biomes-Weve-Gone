@@ -6,6 +6,8 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -42,39 +44,41 @@ import org.jetbrains.annotations.NotNull;
 import java.util.function.Supplier;
 
 public class BWGFruitBlock extends Block implements BonemealableBlock {
-
     public static final MapCodec<BWGFruitBlock> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
             propertiesCodec(),
-            ResourceLocation.CODEC.fieldOf("fruit").forGetter(item -> BuiltInRegistries.ITEM.getKey(item.fruit.get().get())),
+            ResourceKey.codec(Registries.ITEM).fieldOf("fruit").forGetter(block -> block.fruit),
             ResourceLocation.CODEC.fieldOf("leaves").forGetter(block -> BuiltInRegistries.BLOCK.getKey(block.leaves.get()))
     ).apply(instance, BWGFruitBlock::new));
 
     public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
     public static final int MAX_AGE = 3;
 
-    private final Supplier<Supplier<Item>> fruit;
+    private final ResourceKey<Item> fruit;
     private final Supplier<LeavesBlock> leaves;
 
-    public BWGFruitBlock(Properties properties, Supplier<Supplier<Item>> fruit, String leaves) {
+    public BWGFruitBlock(Properties properties, ResourceKey<Item> fruit, String leaves) {
         super(properties);
         this.fruit = fruit;
         this.leaves = Suppliers.memoize(() -> (LeavesBlock) BuiltInRegistries.BLOCK.get(BiomesWeveGone.id(leaves)));
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
 
-    public BWGFruitBlock(Properties properties, Supplier<Supplier<Item>> fruit, Supplier<LeavesBlock> leaves) {
+    public BWGFruitBlock(Properties properties, ResourceKey<Item> fruit, Supplier<LeavesBlock> leaves) {
         super(properties);
         this.fruit = fruit;
         this.leaves = leaves;
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
 
-    private BWGFruitBlock(Properties properties, ResourceLocation fruitLocation, ResourceLocation leavesLocation) {
-        this(properties, Suppliers.memoize(() -> () -> BuiltInRegistries.ITEM.get(fruitLocation)), Suppliers.memoize(() -> (LeavesBlock) BuiltInRegistries.BLOCK.get(leavesLocation)));
+    public BWGFruitBlock(ResourceKey<Item> fruit, String leaves) {
+        this(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY), fruit, leaves);
     }
 
-    public BWGFruitBlock(Supplier<Supplier<Item>> fruit, String leaves) {
-        this(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY), fruit, leaves);
+    public BWGFruitBlock(Properties properties, ResourceKey<Item> itemResourceKey, ResourceLocation resourceLocation) {
+        super(properties);
+        this.fruit = itemResourceKey;
+        this.leaves = Suppliers.memoize(() -> (LeavesBlock) BuiltInRegistries.BLOCK.get(resourceLocation));
+        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
 
     @Override
@@ -95,12 +99,12 @@ public class BWGFruitBlock extends Block implements BonemealableBlock {
 
     @Override
     public @NotNull ItemStack getCloneItemStack(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state) {
-        return this.fruit.get().get().getDefaultInstance();
+        return level.registryAccess().registryOrThrow(Registries.ITEM).getOrThrow(fruit).getDefaultInstance();
     }
 
     @Override
     protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
-        if (player.isCreative() && state.getValue(AGE) != MAX_AGE && stack.is(getFruit())) {
+        if (player.isCreative() && state.getValue(AGE) != MAX_AGE && stack.is(getFruit(level))) {
             level.setBlock(pos, state.setValue(AGE, state.getValue(AGE) + 1), 2);
             return ItemInteractionResult.SUCCESS;
         }
@@ -110,7 +114,7 @@ public class BWGFruitBlock extends Block implements BonemealableBlock {
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull BlockHitResult hitResult) {
         if (state.getValue(AGE) == MAX_AGE) {
-            popResource(level, pos, this.fruit.get().get().getDefaultInstance());
+            popResource(level, pos, level.registryAccess().registryOrThrow(Registries.ITEM).getOrThrow(fruit).getDefaultInstance());
             level.playSound(player, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
             level.setBlock(pos, state.setValue(AGE, 0), 2);
             return InteractionResult.sidedSuccess(level.isClientSide());
@@ -174,8 +178,8 @@ public class BWGFruitBlock extends Block implements BonemealableBlock {
         builder.add(AGE);
     }
 
-    public @NotNull Item getFruit() {
-        return fruit.get().get();
+    public @NotNull Item getFruit(Level level) {
+        return level.registryAccess().registryOrThrow(Registries.ITEM).getOrThrow(fruit);
     }
 
     public @NotNull LeavesBlock getLeaves() {

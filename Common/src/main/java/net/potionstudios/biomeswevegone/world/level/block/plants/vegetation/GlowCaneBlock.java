@@ -2,6 +2,8 @@ package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
@@ -24,15 +26,13 @@ import net.minecraft.world.level.material.PushReaction;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.function.Supplier;
-
 public class GlowCaneBlock extends SugarCaneBlock implements SimpleWaterloggedBlock {
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    private final Supplier<Supplier<Item>> shoot;
+    private final ResourceKey<Item> shoot;
 
-    public GlowCaneBlock(Supplier<Supplier<Item>> shoot) {
+    public GlowCaneBlock(ResourceKey<Item> shoot) {
         super(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY).lightLevel(level -> 10));
         this.shoot = shoot;
         this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, false).setValue(AGE, 0));
@@ -82,7 +82,7 @@ public class GlowCaneBlock extends SugarCaneBlock implements SimpleWaterloggedBl
 
     @Override
     public @NotNull ItemStack getCloneItemStack(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state) {
-        return this.shoot.get().get().getDefaultInstance();
+        return level.registryAccess().registryOrThrow(Registries.ITEM).getOrThrow(shoot).getDefaultInstance();
     }
 
     @Override

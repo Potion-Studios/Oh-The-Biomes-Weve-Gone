@@ -2,6 +2,7 @@ package net.potionstudios.biomeswevegone.world.level.block.plants.bush;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -25,7 +26,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.potionstudios.biomeswevegone.world.entity.oddion.Oddion;
-import net.potionstudios.biomeswevegone.world.item.BWGItems;
+import net.potionstudios.biomeswevegone.references.BWGItems;
 import org.jetbrains.annotations.NotNull;
 
 public class OddionCrop extends BWGBerryBush {
@@ -34,7 +35,7 @@ public class OddionCrop extends BWGBerryBush {
     public static final BooleanProperty HATCHING = BooleanProperty.create("hatching");
 
     public OddionCrop() {
-        super(() -> BWGItems.ODDION_BULB, false);
+        super(BWGItems.ODDION_BULB, false);
         this.registerDefaultState(this.stateDefinition.any().setValue(HATCHING, false).setValue(TIMER, 0));
     }
 
@@ -58,7 +59,7 @@ public class OddionCrop extends BWGBerryBush {
     }
 
     private void maxAgeHarvest(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player) {
-        popResource(level, pos, new ItemStack(BWGItems.ODDION_BULB.get(), 2));
+        popResource(level, pos, new ItemStack(level.registryAccess().registryOrThrow(Registries.ITEM).getOrThrow(item), 2));
         level.playSound(player, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
         BlockState blockState = state.setValue(AGE, 1).setValue(TIMER, 0).setValue(HATCHING, false);
         level.setBlock(pos, blockState, 2);

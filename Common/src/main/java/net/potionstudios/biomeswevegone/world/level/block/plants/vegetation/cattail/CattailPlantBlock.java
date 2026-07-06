@@ -2,6 +2,8 @@ package net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cat
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.item.BlockItem;
@@ -21,20 +23,18 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.function.Supplier;
-
 public class CattailPlantBlock extends DoublePlantBlock implements SimpleWaterloggedBlock {
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    private final Supplier<Supplier<Item>> sprout;
+    private final ResourceKey<Item> sprout;
 
-    public CattailPlantBlock(BlockBehaviour.Properties properties, Supplier<Supplier<Item>> sprout) {
+    public CattailPlantBlock(BlockBehaviour.Properties properties, ResourceKey<Item> sprout) {
         super(properties);
         this.sprout = sprout;
         this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER).setValue(WATERLOGGED, false));
     }
 
-    public CattailPlantBlock(Supplier<Supplier<Item>> sprout) {
+    public CattailPlantBlock(ResourceKey<Item> sprout) {
         this(BlockBehaviour.Properties.of().noCollission().noCollission().sound(SoundType.WET_GRASS).strength(0.0F), sprout);
     }
 
@@ -68,11 +68,11 @@ public class CattailPlantBlock extends DoublePlantBlock implements SimpleWaterlo
 
     @Override
     public @NotNull ItemStack getCloneItemStack(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state) {
-        return sprout.get().get().getDefaultInstance();
+        return level.registryAccess().registryOrThrow(Registries.ITEM).getOrThrow(sprout).getDefaultInstance();
     }
 
-    public BlockItem getSprout() {
-        return (BlockItem) sprout.get().get();
+    public BlockItem getSprout(Level level) {
+        return (BlockItem) level.registryAccess().registryOrThrow(Registries.ITEM).getOrThrow(sprout);
     }
 
     @Override
