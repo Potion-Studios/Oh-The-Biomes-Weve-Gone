@@ -2969,6 +2969,84 @@ public static final ResourceKey<ConfiguredFeature<?, ?>> BOREALIS_ICE_FEATURE = 
                     .build()
     );
 
+    private static final Supplier<AttachedToLeavesDecorator> VETAL_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.1F, 2, 0, BWGWood.FLOWERING_PALISADE_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.VETAL_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PALISADE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("palisade_tree1",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/palisade/palisade_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/palisade/palisade_canopy1"))
+                    .height(BiasedToBottomInt.of(5, 6))
+                    .logProvider(BlockStateProvider.simple(BWGWood.PALISADE.logstem().defaultBlockState().getBlock()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.PALISADE_LEAVES.get().defaultBlockState(), 9)
+                            .add(BWGWood.FLOWERING_PALISADE_LEAVES.get().defaultBlockState(), 1)
+//                            .add(BWGWood.RIPE_PALISADE_LEAVES.get().defaultBlockState())
+                    ))
+                    .logTarget(Set.of(BWGWood.PALISADE.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.PALISADE_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(VETAL_FRUIT.get()))
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PALISADE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("palisade_tree2",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/palisade/palisade_trunk2"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/palisade/palisade_canopy2"))
+                    .height(BiasedToBottomInt.of(4, 5))
+                    .logProvider(BlockStateProvider.simple(BWGWood.PALISADE.logstem().defaultBlockState()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.PALISADE_LEAVES.get().defaultBlockState(), 9)
+                            .add(BWGWood.FLOWERING_PALISADE_LEAVES.get().defaultBlockState(), 1)
+                    ))
+                    .logTarget(Set.of(BWGWood.PALISADE.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.PALISADE_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(VETAL_FRUIT.get()))
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PALISADE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("palisade_tree3",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/palisade/palisade_trunk3"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/palisade/palisade_canopy3"))
+                    .height(BiasedToBottomInt.of(4, 5))
+                    .logProvider(BlockStateProvider.simple(BWGWood.PALISADE.logstem().defaultBlockState().getBlock()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.PALISADE_LEAVES.get().defaultBlockState(), 9)
+                            .add(BWGWood.FLOWERING_PALISADE_LEAVES.get().defaultBlockState(), 1)
+                    ))
+                    .logTarget(Set.of(BWGWood.PALISADE.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.PALISADE_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(VETAL_FRUIT.get()))
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PALISADE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("palisade_tree4",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/palisade/palisade_trunk4"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/palisade/palisade_canopy4"))
+                    .height(BiasedToBottomInt.of(4, 6))
+                    .logProvider(BlockStateProvider.simple(BWGWood.PALISADE.logstem().defaultBlockState().getBlock()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.PALISADE_LEAVES.get().defaultBlockState(), 9)
+                            .add(BWGWood.FLOWERING_PALISADE_LEAVES.get().defaultBlockState(), 1)
+                    ))
+                    .logTarget(Set.of(BWGWood.PALISADE.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.PALISADE_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(VETAL_FRUIT.get()))
+                    .build()
+    );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PINE_LARGE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("large_pine_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
@@ -5320,6 +5398,18 @@ public static final ResourceKey<ConfiguredFeature<?, ?>> BOREALIS_ICE_FEATURE = 
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PALM_TREE2)), 0.25F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PALM_TREE3)), 0.25F)),
                         PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PALM_TREE4)));
+            }
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PALISADE_TREES = ConfiguredFeaturesUtil.createConfiguredFeature("palisade_trees",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PALISADE_TREE1)), 0.2F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PALISADE_TREE2)), 0.2F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PALISADE_TREE3)), 0.2F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PALISADE_TREE4)));
             }
     );
 

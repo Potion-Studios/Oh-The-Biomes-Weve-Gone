@@ -145,6 +145,14 @@ public class BWGTreeGrowers {
                     .build(),
             SimpleWeightedRandomList.single(BWGOverworldTreeConfiguredFeatures.PALM_TREE4));
 
+    public static final Supplier<TreeGrower> PALISADE = () -> new BWGTreeGrower("palisade",
+            new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
+                    .add(BWGOverworldTreeConfiguredFeatures.PALISADE_TREE1)
+                    .add(BWGOverworldTreeConfiguredFeatures.PALISADE_TREE2)
+                    .add(BWGOverworldTreeConfiguredFeatures.PALISADE_TREE3)
+                    .add(BWGOverworldTreeConfiguredFeatures.PALISADE_TREE4)
+                    .build());
+
     public static final Supplier<TreeGrower> PINE = () -> new TreeGrower("pine",
             0.5f,
             Optional.of(BWGOverworldTreeConfiguredFeatures.PINE_LARGE_TREE1),

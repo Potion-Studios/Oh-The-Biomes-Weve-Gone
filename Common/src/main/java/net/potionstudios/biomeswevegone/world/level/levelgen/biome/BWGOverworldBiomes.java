@@ -1110,13 +1110,13 @@ class BWGOverworldBiomes {
     protected static Biome palisadeGrove(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
         addRawGeneration(generationSettings, BWGPlacedFeatures.PALISADE_LAKE);
-//        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.CRAG_BAMBOO);
-//        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.CRAG_BUSHES);
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.PALISADE_TREES);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.CRAG_LAKE_VEGETATION);
-        BiomeDefaultFeatures.addPlainGrass(generationSettings);
+
         addVegetal(generationSettings, VegetationPlacements.PATCH_SUNFLOWER);
         // BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
-        BiomeDefaultFeatures.addDefaultGrass(generationSettings);
+        BiomeDefaultFeatures.addSavannaGrass(generationSettings);
+        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 

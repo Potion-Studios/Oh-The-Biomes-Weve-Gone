@@ -1,0 +1,96 @@
+{
+  "type": "ohthetreesyoullgrow:tree_from_nbt_v1",
+  "config": {
+    "base_location": "biomeswevegone:features/trees/palisade/palisade_trunk4",
+    "can_grow_on_filter": {
+      "type": "minecraft:matching_block_tag",
+      "tag": "minecraft:dirt"
+    },
+    "can_leaves_place_filter": {
+      "type": "minecraft:replaceable"
+    },
+    "can_logs_place_filter": {
+      "type": "minecraft:replaceable"
+    },
+    "canopy_location": "biomeswevegone:features/trees/palisade/palisade_canopy4",
+    "decorators": [
+      {
+        "type": "ohthetreesyoullgrow:attached_to_fruit_leaves",
+        "block_provider": {
+          "type": "minecraft:randomized_int_state_provider",
+          "property": "age",
+          "source": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "biomeswevegone:vetal_fruit",
+              "Properties": {
+                "age": "0"
+              }
+            }
+          },
+          "values": {
+            "type": "minecraft:uniform",
+            "max_inclusive": 3,
+            "min_inclusive": 0
+          }
+        },
+        "directions": [
+          "down"
+        ],
+        "exclusion_radius_xz": 2,
+        "exclusion_radius_y": 0,
+        "leaves_block": "biomeswevegone:flowering_palisade_leaves",
+        "probability": 0.1,
+        "required_empty_blocks": 2
+      }
+    ],
+    "height": {
+      "type": "minecraft:biased_to_bottom",
+      "max_inclusive": 6,
+      "min_inclusive": 4
+    },
+    "leaves_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "biomeswevegone:palisade_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 9
+        },
+        {
+          "data": {
+            "Name": "biomeswevegone:flowering_palisade_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 1
+        }
+      ]
+    },
+    "leaves_target": [
+      "biomeswevegone:palisade_leaves"
+    ],
+    "log_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "biomeswevegone:palisade_log",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    },
+    "log_target": [
+      "biomeswevegone:palisade_log"
+    ],
+    "place_from_nbt": []
+  }
+}
