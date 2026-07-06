@@ -1,6 +1,7 @@
 package net.potionstudios.biomeswevegone.world.level.block.plants.bush;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -18,7 +19,7 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.potionstudios.biomeswevegone.world.item.BWGItems;
+import net.potionstudios.biomeswevegone.references.BWGItems;
 import org.jetbrains.annotations.NotNull;
 
 public class WhitePuffballBlock extends BWGBerryBush {
@@ -27,7 +28,7 @@ public class WhitePuffballBlock extends BWGBerryBush {
 	private static final VoxelShape MID_GROWTH_SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
 	public WhitePuffballBlock() {
-		super(() -> BWGItems.WHITE_PUFFBALL_SPORES, false);
+		super(BWGItems.WHITE_PUFFBALL_SPORES, false);
 	}
 
 	@Override
@@ -62,8 +63,8 @@ public class WhitePuffballBlock extends BWGBerryBush {
 		int age = state.getValue(AGE);
 		if (age > 1) {
 			int numberOfItems = 1 + level.random.nextInt(2);
-			popResource(level, pos, new ItemStack(item.get().get(), numberOfItems + ((age == MAX_AGE) ? 1 : 0)));
-			popResource(level, pos, BWGItems.WHITE_PUFFBALL_CAP.get().getDefaultInstance());
+			popResource(level, pos, new ItemStack(level.registryAccess().registryOrThrow(Registries.ITEM).getOrThrow(item), numberOfItems + ((age == MAX_AGE) ? 1 : 0)));
+			popResource(level, pos, net.potionstudios.biomeswevegone.world.item.BWGItems.WHITE_PUFFBALL_CAP.get().getDefaultInstance());
 			level.playSound(player, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
             BlockState blockState = state.setValue(AGE, 0);
             level.setBlock(pos, blockState, 2);

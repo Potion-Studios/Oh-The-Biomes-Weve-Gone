@@ -1,6 +1,8 @@
 package net.potionstudios.biomeswevegone.world.level.block.plants.bush;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
@@ -22,26 +24,23 @@ import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.function.Supplier;
-
 public class BWGBerryBush extends SweetBerryBushBlock {
-
-    protected final Supplier<Supplier<Item>> item;
+    protected final ResourceKey<Item> item;
     private final boolean hurtEntityInside;
 
-    public BWGBerryBush(Properties properties, Supplier<Supplier<Item>> item, boolean hurtEntityInside) {
+    public BWGBerryBush(Properties properties, ResourceKey<Item> item, boolean hurtEntityInside) {
         super(properties);
         this.item = item;
         this.hurtEntityInside = hurtEntityInside;
     }
 
-    public BWGBerryBush(Supplier<Supplier<Item>> item, boolean hurtEntityInside) {
+    public BWGBerryBush(ResourceKey<Item> item, boolean hurtEntityInside) {
         this(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH), item, hurtEntityInside);
     }
 
     @Override
     public @NotNull ItemStack getCloneItemStack(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state) {
-        return item.get().get().getDefaultInstance();
+        return level.registryAccess().registryOrThrow(Registries.ITEM).getOrThrow(item).getDefaultInstance();
     }
 
     @Override
@@ -49,7 +48,7 @@ public class BWGBerryBush extends SweetBerryBushBlock {
         int age = state.getValue(AGE);
         if (age > 1) {
             int numberOfItems = 1 + level.random.nextInt(2);
-            popResource(level, pos, new ItemStack(item.get().get(), numberOfItems + ((age == MAX_AGE) ? 1 : 0)));
+            popResource(level, pos, new ItemStack(level.registryAccess().registryOrThrow(Registries.ITEM).getOrThrow(item), numberOfItems + ((age == MAX_AGE) ? 1 : 0)));
             level.playSound(player, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
             BlockState blockState = state.setValue(AGE, 1);
             level.setBlock(pos, blockState, 2);
