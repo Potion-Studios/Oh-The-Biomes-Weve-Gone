@@ -1,14 +1,11 @@
 package net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit;
 
-import com.google.common.base.Suppliers;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -26,58 +23,34 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.function.Supplier;
 
 public class BWGFruitBlock extends Block implements BonemealableBlock {
     public static final MapCodec<BWGFruitBlock> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
             propertiesCodec(),
             ResourceKey.codec(Registries.ITEM).fieldOf("fruit").forGetter(block -> block.fruit),
-            ResourceLocation.CODEC.fieldOf("leaves").forGetter(block -> BuiltInRegistries.BLOCK.getKey(block.leaves.get()))
+            ResourceKey.codec(Registries.BLOCK).fieldOf("leaves").forGetter(block -> block.leaves)
     ).apply(instance, BWGFruitBlock::new));
 
     public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
     public static final int MAX_AGE = 3;
 
     private final ResourceKey<Item> fruit;
-    private final Supplier<LeavesBlock> leaves;
+    private final ResourceKey<Block> leaves;
 
-    public BWGFruitBlock(Properties properties, ResourceKey<Item> fruit, String leaves) {
-        super(properties);
-        this.fruit = fruit;
-        this.leaves = Suppliers.memoize(() -> (LeavesBlock) BuiltInRegistries.BLOCK.get(BiomesWeveGone.id(leaves)));
-        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
-    }
-
-    public BWGFruitBlock(Properties properties, ResourceKey<Item> fruit, Supplier<LeavesBlock> leaves) {
+    public BWGFruitBlock(Properties properties, ResourceKey<Item> fruit, ResourceKey<Block> leaves) {
         super(properties);
         this.fruit = fruit;
         this.leaves = leaves;
-        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
-    }
-
-    public BWGFruitBlock(ResourceKey<Item> fruit, String leaves) {
-        this(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY), fruit, leaves);
-    }
-
-    public BWGFruitBlock(Properties properties, ResourceKey<Item> itemResourceKey, ResourceLocation resourceLocation) {
-        super(properties);
-        this.fruit = itemResourceKey;
-        this.leaves = Suppliers.memoize(() -> (LeavesBlock) BuiltInRegistries.BLOCK.get(resourceLocation));
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
 
@@ -124,7 +97,7 @@ public class BWGFruitBlock extends Block implements BonemealableBlock {
 
     @Override
     public boolean canSurvive(@NotNull BlockState state, LevelReader level, BlockPos pos) {
-        return level.getBlockState(pos.above()).is(this.leaves.get());
+        return level.getBlockState(pos.above()).is(leaves);
     }
 
     @Override
@@ -182,7 +155,11 @@ public class BWGFruitBlock extends Block implements BonemealableBlock {
         return level.registryAccess().registryOrThrow(Registries.ITEM).getOrThrow(fruit);
     }
 
-    public @NotNull LeavesBlock getLeaves() {
-        return leaves.get();
+    public @NotNull LeavesBlock getLeaves(Level level) {
+        return (LeavesBlock) level.registryAccess().registryOrThrow(Registries.BLOCK).getOrThrow(leaves);
+    }
+
+    public @NotNull ResourceKey<Block> getLeaves() {
+        return leaves;
     }
 }

@@ -20,14 +20,14 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.config.configs.BWGMiscConfig;
+import net.potionstudios.biomeswevegone.references.BWGBlockReferences;
 import net.potionstudios.biomeswevegone.sounds.BWGSounds;
-import net.potionstudios.biomeswevegone.references.BWGItems;
-import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
+import net.potionstudios.biomeswevegone.references.BWGItemReferences;
 import org.jetbrains.annotations.NotNull;
 
 public class SoulFruitBlock extends BWGFruitBlock {
 	public SoulFruitBlock() {
-		super(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY).lightLevel(light -> 14).mapColor(MapColor.COLOR_PURPLE).sound(new SoundType(0.25f, 1f, BWGSounds.SOUL_FRUIT_WAIL.get(), SoundEvents.GRASS_STEP, SoundEvents.SWEET_BERRY_BUSH_PLACE, SoundEvents.GRASS_HIT, SoundEvents.GRASS_FALL)), BWGItems.SOUL_FRUIT, BWGWood.FLOWERING_SPIRIT_LEAVES);
+		super(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY).lightLevel(light -> 14).mapColor(MapColor.COLOR_PURPLE).sound(new SoundType(0.25f, 1f, BWGSounds.SOUL_FRUIT_WAIL.get(), SoundEvents.GRASS_STEP, SoundEvents.SWEET_BERRY_BUSH_PLACE, SoundEvents.GRASS_HIT, SoundEvents.GRASS_FALL)), BWGItemReferences.SOUL_FRUIT, BWGBlockReferences.FLOWERING_SPIRIT_LEAVES);
 	}
 
 	@Override
