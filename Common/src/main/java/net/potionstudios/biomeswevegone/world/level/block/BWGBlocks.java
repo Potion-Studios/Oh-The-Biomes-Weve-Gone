@@ -16,8 +16,10 @@ import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
+import net.potionstudios.biomeswevegone.references.BWGBlockReferences;
 import net.potionstudios.biomeswevegone.tags.BWGBlockTags;
-import net.potionstudios.biomeswevegone.references.BWGItems;
+import net.potionstudios.biomeswevegone.references.BWGItemReferences;
+import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.custom.*;
 import net.potionstudios.biomeswevegone.world.level.block.plants.PottedBlock;
 import net.potionstudios.biomeswevegone.world.level.block.plants.bush.*;
@@ -94,7 +96,7 @@ public class BWGBlocks {
     public static final Supplier<IceBlock> BOREALIS_ICE = registerBlockItem("borealis_ice", () -> new IceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ICE).lightLevel(state -> 10)));
     public static final Supplier<IceBlock> PACKED_BOREALIS_ICE = registerBlockItem("packed_borealis_ice", () -> new IceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PACKED_ICE).lightLevel(state -> 10)));
 
-    public static final Supplier<BWGBerryBush> BLUEBERRY_BUSH = registerBlock("blueberry_bush", () -> new BWGBerryBush(BWGItems.BLUEBERRIES, true));
+    public static final Supplier<BWGBerryBush> BLUEBERRY_BUSH = registerBlock("blueberry_bush", () -> new BWGBerryBush(BWGItemReferences.BLUEBERRIES, true));
     public static final Supplier<FloweringBushBlock> FLOWERING_JACARANDA_BUSH = registerBlockItem("flowering_jacaranda_bush", () -> new FloweringBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA)));
     public static final PottedBlock JACARANDA_BUSH = createPottedVariant("jacaranda_bush",  () -> new FlowerableBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA), FLOWERING_JACARANDA_BUSH));
     public static final Supplier<FloweringBushBlock> FLOWERING_INDIGO_JACARANDA_BUSH = registerBlockItem("flowering_indigo_jacaranda_bush", () -> new FloweringBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA)));
@@ -214,17 +216,17 @@ public class BWGBlocks {
     public static final PottedBlock WINTER_SCILLA = createPottedVariant("winter_scilla", () -> new BWGPlacementBushBlock(BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), Block.box(3.0D, 0.0D, 3.0D, 13.0D, 11.0D, 13.0D), BWGBlockTags.SNOWY_PLANT_PLACEABLE));
 
     /** Cattails */
-    public static final Supplier<CattailPlantBlock> CATTAIL = registerBlock("cattail", () -> new CattailPlantBlock(BWGItems.CATTAIL_SPROUT));
+    public static final Supplier<CattailPlantBlock> CATTAIL = registerBlock("cattail", () -> new CattailPlantBlock(BWGItemReferences.CATTAIL_SPROUT));
     public static final Supplier<CattailSproutBlock> CATTAIL_SPROUT = registerBlock("cattail_sprout", () -> new CattailSproutBlock(CATTAIL));
 
-    public static final Supplier<FluorescentCattailPlantBlock> FLUORESCENT_CATTAIL = registerBlock("fluorescent_cattail", () -> new FluorescentCattailPlantBlock(BWGItems.FLUORESCENT_CATTAIL_SPROUT));
+    public static final Supplier<FluorescentCattailPlantBlock> FLUORESCENT_CATTAIL = registerBlock("fluorescent_cattail", () -> new FluorescentCattailPlantBlock(BWGItemReferences.FLUORESCENT_CATTAIL_SPROUT));
     public static final Supplier<CattailSproutBlock> FLUORESCENT_CATTAIL_SPROUT = registerBlock("fluorescent_cattail_sprout", () -> new CattailSproutBlock(FLUORESCENT_CATTAIL));
 
     /** GlowCane and Bottles */
-    public static final Supplier<GlowCaneBlock> BLUE_GLOWCANE = registerBlock("blue_glowcane", () -> new GlowCaneBlock(BWGItems.BLUE_GLOWCANE_SHOOT));
-    public static final Supplier<GlowCaneBlock> GREEN_GLOWCANE = registerBlock("green_glowcane", () -> new GlowCaneBlock(BWGItems.GREEN_GLOWCANE_SHOOT));
-    public static final Supplier<GlowCaneBlock> RED_GLOWCANE = registerBlock("red_glowcane", () -> new GlowCaneBlock(BWGItems.RED_GLOWCANE_SHOOT));
-    public static final Supplier<GlowCaneBlock> YELLOW_GLOWCANE = registerBlock("yellow_glowcane", () -> new GlowCaneBlock(BWGItems.YELLOW_GLOWCANE_SHOOT));
+    public static final Supplier<GlowCaneBlock> BLUE_GLOWCANE = registerBlock("blue_glowcane", () -> new GlowCaneBlock(BWGItemReferences.BLUE_GLOWCANE_SHOOT));
+    public static final Supplier<GlowCaneBlock> GREEN_GLOWCANE = registerBlock("green_glowcane", () -> new GlowCaneBlock(BWGItemReferences.GREEN_GLOWCANE_SHOOT));
+    public static final Supplier<GlowCaneBlock> RED_GLOWCANE = registerBlock("red_glowcane", () -> new GlowCaneBlock(BWGItemReferences.RED_GLOWCANE_SHOOT));
+    public static final Supplier<GlowCaneBlock> YELLOW_GLOWCANE = registerBlock("yellow_glowcane", () -> new GlowCaneBlock(BWGItemReferences.YELLOW_GLOWCANE_SHOOT));
 
     public static final Supplier<LanternBlock> BLUE_GLOW_BOTTLE = registerBlockItem("blue_glow_bottle", () -> new LanternBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN).lightLevel(light -> 14)));
     public static final Supplier<LanternBlock> GREEN_GLOW_BOTTLE = registerBlockItem("green_glow_bottle", () -> new LanternBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN).lightLevel(light -> 14)));
@@ -276,12 +278,12 @@ public class BWGBlocks {
     public static final Supplier<WaterlilyBlock> TINY_LILY_PADS = registerBlock("tiny_lily_pads", () -> new WaterlilyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD)));
     public static final Supplier<WaterlilyBlock> FLOWERING_TINY_LILY_PADS = registerBlock("flowering_tiny_lily_pads", () -> new WaterlilyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD)));
 
-    public static final Supplier<BWGFruitBlock> APPLE_FRUIT_BLOCK = registerBlock("apple_fruit", () -> new BWGFruitBlock(Items.APPLE.builtInRegistryHolder().key(), "ripe_orchard_leaves"));
-    public static final Supplier<BWGFruitBlock> BAOBAB_FRUIT_BLOCK = registerBlock("baobab_fruit", () -> new BWGFruitBlock(BWGItems.BAOBAB_FRUIT,"ripe_baobab_leaves"));
-    public static final Supplier<BWGFruitBlock> GREEN_APPLE_FRUIT_BLOCK = registerBlock("green_apple_fruit", () -> new BWGFruitBlock(BWGItems.GREEN_APPLE, "green_apple_skyris_leaves"));
-    public static final Supplier<BWGFruitBlock> YUCCA_FRUIT_BLOCK = registerBlock("yucca_fruit", () -> new BWGFruitBlock(BWGItems.YUCCA_FRUIT, "ripe_yucca_leaves"));
+    public static final Supplier<BWGFruitBlock> APPLE_FRUIT_BLOCK = registerBlock("apple_fruit", () -> new BWGFruitBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY), Items.APPLE.builtInRegistryHolder().key(), BWGBlockReferences.RIPE_ORCHARD_LEAVES));
+    public static final Supplier<BWGFruitBlock> BAOBAB_FRUIT_BLOCK = registerBlock("baobab_fruit", () -> new BWGFruitBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY), BWGItemReferences.BAOBAB_FRUIT,BWGBlockReferences.RIPE_BAOBAB_LEAVES));
+    public static final Supplier<BWGFruitBlock> GREEN_APPLE_FRUIT_BLOCK = registerBlock("green_apple_fruit", () -> new BWGFruitBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY), BWGItemReferences.GREEN_APPLE, BWGBlockReferences.GREEN_APPLE_SKYRIS_LEAVES));
+    public static final Supplier<BWGFruitBlock> YUCCA_FRUIT_BLOCK = registerBlock("yucca_fruit", () -> new BWGFruitBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY), BWGItemReferences.YUCCA_FRUIT, BWGBlockReferences.RIPE_YUCCA_LEAVES));
     public static final Supplier<SoulFruitBlock> SOUL_FRUIT_BLOCK = registerBlock("soul_fruit", SoulFruitBlock::new);
-    public static final Supplier<BWGFruitBlock> VETAL_FRUIT_BLOCK = registerBlock("vetal_fruit", () -> new BWGFruitBlock(BWGItems.VETAL, "ripe_palisade_leaves"));
+    public static final Supplier<BWGFruitBlock> VETAL_FRUIT_BLOCK = registerBlock("vetal_fruit", () -> new BWGFruitBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY), BWGItemReferences.VETAL, BWGBlockReferences.RIPE_PALISADE_LEAVES));
 
     public static final BWGBlockSet DACITE_SET = new BWGBlockSet("dacite", MapColor.TERRACOTTA_BROWN);
     public static final BWGBlockSet DACITE_BRICKS_SET = new BWGBlockSet("dacite_bricks", "dacite_brick", BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).mapColor(MapColor.TERRACOTTA_BROWN));
@@ -332,8 +334,8 @@ public class BWGBlocks {
     public static final Supplier<StairBlock> CATTAIL_THATCH_STAIRS = registerBlockItem("cattail_thatch_stairs", () -> new StairBlock(CATTAIL_THATCH.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(CATTAIL_THATCH.get())));
     public static final Supplier<WoolCarpetBlock> CATTAIL_THATCH_CARPET = registerBlockItem("cattail_thatch_carpet", () -> new WoolCarpetBlock(DyeColor.BROWN, BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.5f)));
 
-    public static final Supplier<AttachedStemBlock> ATTACHED_PALE_PUMPKIN_STEM = registerBlock("attached_pale_pumpkin_stem", () -> new AttachedStemBlock(BiomesWeveGone.key(Registries.BLOCK, "pale_pumpkin_stem"), BiomesWeveGone.key(Registries.BLOCK, "pale_pumpkin"), BWGItems.PALE_PUMPKIN_SEEDS, BlockBehaviour.Properties.ofFullCopy(Blocks.ATTACHED_PUMPKIN_STEM)));
-    public static final Supplier<StemBlock> PALE_PUMPKIN_STEM = registerBlock("pale_pumpkin_stem", () -> new StemBlock(BiomesWeveGone.key(Registries.BLOCK, "pale_pumpkin"), BiomesWeveGone.key(Registries.BLOCK,"attached_pale_pumpkin_stem"), BWGItems.PALE_PUMPKIN_SEEDS, BlockBehaviour.Properties.ofFullCopy(Blocks.PUMPKIN_STEM)));
+    public static final Supplier<AttachedStemBlock> ATTACHED_PALE_PUMPKIN_STEM = registerBlock("attached_pale_pumpkin_stem", () -> new AttachedStemBlock(BWGBlockReferences.PALE_PUMPKIN_STEM, BWGBlockReferences.PALE_PUMPKIN, BWGItemReferences.PALE_PUMPKIN_SEEDS, BlockBehaviour.Properties.ofFullCopy(Blocks.ATTACHED_PUMPKIN_STEM)));
+    public static final Supplier<StemBlock> PALE_PUMPKIN_STEM = registerBlock("pale_pumpkin_stem", () -> new StemBlock(BWGBlockReferences.PALE_PUMPKIN, BWGBlockReferences.ATTACHED_PALE_PUMPKIN_STEM, BWGItemReferences.PALE_PUMPKIN_SEEDS, BlockBehaviour.Properties.ofFullCopy(Blocks.PUMPKIN_STEM)));
     public static final Supplier<PalePumpkinBlock> PALE_PUMPKIN = registerBlockItem("pale_pumpkin", PalePumpkinBlock::new);
     public static final Supplier<EquipableCarvedPalePumpkinBlock> CARVED_PALE_PUMPKIN = registerBlockItem("carved_pale_pumpkin", EquipableCarvedPalePumpkinBlock::new);
     public static final Supplier<PaleCarvedPumpkinBlock> PALE_JACK_O_LANTERN = registerBlockItem("pale_jack_o_lantern", PaleCarvedPumpkinBlock::new);
@@ -377,14 +379,14 @@ public class BWGBlocks {
 
     public static <B extends Block> Supplier<B> registerBlockItem(String key, Supplier<B> blockSupplier) {
         Supplier<B> block = registerBlock(key, blockSupplier);
-        Supplier<Item> item = net.potionstudios.biomeswevegone.world.item.BWGItems.register(key, () -> new BlockItem(block.get(), new Item.Properties()));
+        Supplier<Item> item = BWGItems.register(key, () -> new BlockItem(block.get(), new Item.Properties()));
         BLOCK_ITEMS.add(item);
         return block;
     }
 
     public static <B extends Block> Supplier<B> registerBlockItemNoTab(String key, Supplier<B> blockSupplier) {
         Supplier<B> block = registerBlock(key, blockSupplier);
-        net.potionstudios.biomeswevegone.world.item.BWGItems.register(key, () -> new BlockItem(block.get(), new Item.Properties()));
+        BWGItems.register(key, () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 

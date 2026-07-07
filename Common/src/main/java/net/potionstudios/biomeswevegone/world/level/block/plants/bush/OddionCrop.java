@@ -26,7 +26,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.potionstudios.biomeswevegone.world.entity.oddion.Oddion;
-import net.potionstudios.biomeswevegone.references.BWGItems;
+import net.potionstudios.biomeswevegone.references.BWGItemReferences;
 import org.jetbrains.annotations.NotNull;
 
 public class OddionCrop extends BWGBerryBush {
@@ -35,7 +35,7 @@ public class OddionCrop extends BWGBerryBush {
     public static final BooleanProperty HATCHING = BooleanProperty.create("hatching");
 
     public OddionCrop() {
-        super(BWGItems.ODDION_BULB, false);
+        super(BWGItemReferences.ODDION_BULB, false);
         this.registerDefaultState(this.stateDefinition.any().setValue(HATCHING, false).setValue(TIMER, 0));
     }
 

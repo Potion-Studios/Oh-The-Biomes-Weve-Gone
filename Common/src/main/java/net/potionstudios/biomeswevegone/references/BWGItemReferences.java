@@ -5,7 +5,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 
-public class BWGItems {
+public class BWGItemReferences {
     public static final ResourceKey<Item> BAOBAB_FRUIT = createKey("baobab_fruit");
     public static final ResourceKey<Item> YUCCA_FRUIT = createKey("yucca_fruit");
     public static final ResourceKey<Item> GREEN_APPLE = createKey("green_apple");

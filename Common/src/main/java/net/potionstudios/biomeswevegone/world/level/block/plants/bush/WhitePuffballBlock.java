@@ -19,7 +19,7 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.potionstudios.biomeswevegone.references.BWGItems;
+import net.potionstudios.biomeswevegone.references.BWGItemReferences;
 import org.jetbrains.annotations.NotNull;
 
 public class WhitePuffballBlock extends BWGBerryBush {
@@ -28,7 +28,7 @@ public class WhitePuffballBlock extends BWGBerryBush {
 	private static final VoxelShape MID_GROWTH_SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
 	public WhitePuffballBlock() {
-		super(BWGItems.WHITE_PUFFBALL_SPORES, false);
+		super(BWGItemReferences.WHITE_PUFFBALL_SPORES, false);
 	}
 
 	@Override
