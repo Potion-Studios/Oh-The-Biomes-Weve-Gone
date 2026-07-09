@@ -176,15 +176,15 @@ public class ModelGenerators {
                             return createRotatedModels(models().getExistingFile(blockBWGTexture(BWGBlocks.CATTAIL.get(), "bottom")));
                         else
                             return createRotatedModels(models().withExistingParent(name(block) + "_" + state.getValue(FluorescentCattailPlantBlock.COLOR).getSerializedName(), BiomesWeveGone.id("block/template_cattail_top"))
-                                    .texture("sprout", blockBWGTexture(fluorescentCattailBlock.getSprout().getBlock(), state.getValue(FluorescentCattailPlantBlock.COLOR).getSerializedName())));
+                                    .texture("sprout", blockBWGTexture(BWGBlocks.FLUORESCENT_CATTAIL_SPROUT.get(), state.getValue(FluorescentCattailPlantBlock.COLOR).getSerializedName())));
                             }, FluorescentCattailPlantBlock.WATERLOGGED);
-                } else if (block instanceof CattailPlantBlock cattail) {
+                } else if (block instanceof CattailPlantBlock) {
                     getVariantBuilder(block)
                             .partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)
                             .addModels(createRotatedModels(models().getExistingFile(blockBWGTexture(BWGBlocks.CATTAIL.get(), "bottom"))))
                             .partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)
                             .addModels(createRotatedModels(models().withExistingParent(name(block), BiomesWeveGone.id("block/template_cattail_top"))
-                                    .texture("sprout", blockBWGTexture(cattail.getSprout().getBlock()))));
+                                    .texture("sprout", blockBWGTexture(BWGBlocks.CATTAIL_SPROUT.get()))));
                 } else if (block instanceof DoublePlantBlock)
                     createDoubleBlock((DoublePlantBlock) block);
                 else if (block instanceof FlowerBlock)

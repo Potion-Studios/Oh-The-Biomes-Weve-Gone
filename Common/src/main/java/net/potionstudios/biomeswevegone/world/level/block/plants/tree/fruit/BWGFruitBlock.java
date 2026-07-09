@@ -155,6 +155,10 @@ public class BWGFruitBlock extends Block implements BonemealableBlock {
         return level.registryAccess().registryOrThrow(Registries.ITEM).getOrThrow(fruit);
     }
 
+    public @NotNull ResourceKey<Item> getFruit() {
+        return fruit;
+    }
+
     public @NotNull LeavesBlock getLeaves(Level level) {
         return (LeavesBlock) level.registryAccess().registryOrThrow(Registries.BLOCK).getOrThrow(leaves);
     }
