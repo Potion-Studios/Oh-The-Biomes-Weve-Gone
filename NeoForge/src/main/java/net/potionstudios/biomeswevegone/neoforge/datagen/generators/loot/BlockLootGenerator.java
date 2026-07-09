@@ -4,6 +4,7 @@ import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
@@ -103,7 +104,7 @@ class BlockLootGenerator extends BlockLootSubProvider {
             else if (block instanceof CampfireBlock)
                 add(block, arg -> createSilkTouchDispatchTable(arg, this.applyExplosionCondition(arg, LootItem.lootTableItem(Items.CHARCOAL).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))))));
             else if (block instanceof BWGFruitBlock)
-                add(block, LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BWGFruitBlock.AGE, BWGFruitBlock.MAX_AGE))).add(LootItem.lootTableItem(((BWGFruitBlock) block).getFruit()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))))));
+                add(block, LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BWGFruitBlock.AGE, BWGFruitBlock.MAX_AGE))).add(LootItem.lootTableItem(this.registries.lookupOrThrow(Registries.ITEM).getOrThrow(((BWGFruitBlock) block).getFruit()).value()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))))));
             else if (block instanceof FlatVegetationBlock)
                 add(block, createShearsDispatchTable(block, LootItem.lootTableItem(block.asItem())));
             else if (block instanceof VineBlock)
