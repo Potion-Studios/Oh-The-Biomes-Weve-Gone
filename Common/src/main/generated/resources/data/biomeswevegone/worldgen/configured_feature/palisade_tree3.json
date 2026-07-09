@@ -39,7 +39,7 @@
         ],
         "exclusion_radius_xz": 2,
         "exclusion_radius_y": 0,
-        "leaves_block": "biomeswevegone:flowering_palisade_leaves",
+        "leaves_block": "biomeswevegone:ripe_palisade_leaves",
         "probability": 0.1,
         "required_empty_blocks": 2
       }
@@ -66,6 +66,17 @@
         {
           "data": {
             "Name": "biomeswevegone:flowering_palisade_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "biomeswevegone:ripe_palisade_leaves",
             "Properties": {
               "distance": "7",
               "persistent": "false",

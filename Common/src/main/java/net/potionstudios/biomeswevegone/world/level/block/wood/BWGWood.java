@@ -101,6 +101,8 @@ public class BWGWood {
     public static final PottedBlock RED_OAK_SAPLING = createNonSetSapling("red_oak", BWGTreeGrowers.RED_OAK, BlockTags.DIRT);
     public static final PottedBlock RED_SPRUCE_SAPLING = createNonSetSapling("red_spruce", BWGTreeGrowers.RED_SPRUCE, BlockTags.DIRT);
     public static final PottedBlock SILVER_MAPLE_SAPLING = createNonSetSapling("silver_maple", BWGTreeGrowers.SILVER_MAPLE, BlockTags.DIRT);
+    public static final PottedBlock TUSCANY_CYPRESS_SAPLING = createNonSetSapling("tuscany_cypress", BWGTreeGrowers.CYPRESS, BlockTags.DIRT);
+
     public static final PottedBlock YELLOW_BIRCH_SAPLING = createNonSetSapling("yellow_birch", BWGTreeGrowers.YELLOW_BIRCH, BlockTags.DIRT);
     public static final PottedBlock YELLOW_SPRUCE_SAPLING = createNonSetSapling("yellow_spruce", BWGTreeGrowers.YELLOW_SPRUCE, BlockTags.DIRT);
     public static final PottedBlock YUCCA_SAPLING = createNonSetSapling("yucca", BWGTreeGrowers.YUCCA, BlockTags.SAND);
@@ -138,6 +140,7 @@ public class BWGWood {
     public static final Supplier<LeavesBlock> SPIRIT_LEAVES = registerNonSetBlockItem("spirit_leaves", () -> new BWGLeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES).mapColor(MapColor.COLOR_LIGHT_GRAY), BWGParticles.SPIRIT_LEAVES));
     public static final Supplier<LeavesBlock> FLOWERING_SPIRIT_LEAVES = registerNonSetBlockItem("flowering_spirit_leaves", () -> new BWGLeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES).lightLevel(light -> 6).mapColor(MapColor.COLOR_LIGHT_GRAY), BWGParticles.SPIRIT_LEAVES));
     public static final Supplier<LeavesBlock> SKYRIS_LEAVES_GREEN_APPLE = registerLeaves("green_apple_skyris", BWGBlocks.GREEN_APPLE_FRUIT_BLOCK, 0.04F);
+    public static final Supplier<LeavesBlock> TUSCANY_CYPRESS_LEAVES = registerLeaves("tuscany_cypress");
     public static final Supplier<LeavesBlock> FLOWERING_SKYRIS_LEAVES = registerFloweringLeaves("flowering_skyris", BWGWood.SKYRIS_LEAVES_GREEN_APPLE, 0.02F);
     public static final Supplier<LeavesBlock> FLOWERING_IRONWOOD_LEAVES = registerLeaves("flowering_ironwood", BWGParticles.IRONWOOD_LEAVES);
     public static final Supplier<LeavesBlock> WHITE_SAKURA_LEAVES = registerSakuraLeaves("white_sakura", BWGParticles.WHITE_SAKURA_LEAVES);

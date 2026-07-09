@@ -1114,6 +1114,7 @@ class BWGOverworldBiomes {
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.CRAG_LAKE_VEGETATION);
 
         addVegetal(generationSettings, VegetationPlacements.PATCH_SUNFLOWER);
+        addVegetal(generationSettings, VegetationPlacements.FLOWER_CHERRY);
         // BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BiomeDefaultFeatures.addSavannaGrass(generationSettings);
         BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
