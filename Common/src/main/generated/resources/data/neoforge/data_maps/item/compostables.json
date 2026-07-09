@@ -609,6 +609,12 @@
     "biomeswevegone:tiny_lily_pads": {
       "chance": 0.65
     },
+    "biomeswevegone:tuscany_cypress_leaves": {
+      "chance": 0.3
+    },
+    "biomeswevegone:tuscany_cypress_sapling": {
+      "chance": 0.3
+    },
     "biomeswevegone:violet_leather_flower": {
       "chance": 0.65
     },

@@ -2969,7 +2969,7 @@ public static final ResourceKey<ConfiguredFeature<?, ?>> BOREALIS_ICE_FEATURE = 
                     .build()
     );
 
-    private static final Supplier<AttachedToLeavesDecorator> VETAL_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.1F, 2, 0, BWGWood.FLOWERING_PALISADE_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.VETAL_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+    private static final Supplier<AttachedToLeavesDecorator> VETAL_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.1F, 2, 0, BWGWood.RIPE_PALISADE_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.VETAL_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALISADE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("palisade_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
@@ -2981,7 +2981,7 @@ public static final ResourceKey<ConfiguredFeature<?, ?>> BOREALIS_ICE_FEATURE = 
                     .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
                             .add(BWGWood.PALISADE_LEAVES.get().defaultBlockState(), 9)
                             .add(BWGWood.FLOWERING_PALISADE_LEAVES.get().defaultBlockState(), 1)
-//                            .add(BWGWood.RIPE_PALISADE_LEAVES.get().defaultBlockState())
+                            .add(BWGWood.RIPE_PALISADE_LEAVES.get().defaultBlockState())
                     ))
                     .logTarget(Set.of(BWGWood.PALISADE.logstem().defaultBlockState().getBlock()))
                     .leavesTarget(Set.of(BWGWood.PALISADE_LEAVES.get().defaultBlockState().getBlock()))
@@ -3001,6 +3001,7 @@ public static final ResourceKey<ConfiguredFeature<?, ?>> BOREALIS_ICE_FEATURE = 
                     .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
                             .add(BWGWood.PALISADE_LEAVES.get().defaultBlockState(), 9)
                             .add(BWGWood.FLOWERING_PALISADE_LEAVES.get().defaultBlockState(), 1)
+                            .add(BWGWood.RIPE_PALISADE_LEAVES.get().defaultBlockState())
                     ))
                     .logTarget(Set.of(BWGWood.PALISADE.logstem().defaultBlockState().getBlock()))
                     .leavesTarget(Set.of(BWGWood.PALISADE_LEAVES.get().defaultBlockState().getBlock()))
@@ -3020,6 +3021,7 @@ public static final ResourceKey<ConfiguredFeature<?, ?>> BOREALIS_ICE_FEATURE = 
                     .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
                             .add(BWGWood.PALISADE_LEAVES.get().defaultBlockState(), 9)
                             .add(BWGWood.FLOWERING_PALISADE_LEAVES.get().defaultBlockState(), 1)
+                            .add(BWGWood.RIPE_PALISADE_LEAVES.get().defaultBlockState())
                     ))
                     .logTarget(Set.of(BWGWood.PALISADE.logstem().defaultBlockState().getBlock()))
                     .leavesTarget(Set.of(BWGWood.PALISADE_LEAVES.get().defaultBlockState().getBlock()))
@@ -3039,6 +3041,7 @@ public static final ResourceKey<ConfiguredFeature<?, ?>> BOREALIS_ICE_FEATURE = 
                     .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
                             .add(BWGWood.PALISADE_LEAVES.get().defaultBlockState(), 9)
                             .add(BWGWood.FLOWERING_PALISADE_LEAVES.get().defaultBlockState(), 1)
+                            .add(BWGWood.RIPE_PALISADE_LEAVES.get().defaultBlockState())
                     ))
                     .logTarget(Set.of(BWGWood.PALISADE.logstem().defaultBlockState().getBlock()))
                     .leavesTarget(Set.of(BWGWood.PALISADE_LEAVES.get().defaultBlockState().getBlock()))
