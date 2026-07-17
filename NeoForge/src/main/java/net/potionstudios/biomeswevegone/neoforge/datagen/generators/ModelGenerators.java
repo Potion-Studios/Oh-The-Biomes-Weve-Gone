@@ -16,7 +16,6 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.neoforged.neoforge.client.model.generators.*;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.client.BiomesWeveGoneClient;
 import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.item.custom.WreathItem;
@@ -499,6 +498,9 @@ public class ModelGenerators {
                 }
             });
 
+            getVariantBuilder(BWGBlocks.IRONWOOD_ROOTS.get()).forAllStatesExcept(state -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.IRONWOOD_ROOTS.get()) + (state.getValue(CaveVinesBlock.BERRIES) ? "_lit" : ""), blockBWGTexture(BWGBlocks.IRONWOOD_ROOTS.get(), state.getValue(CaveVinesBlock.BERRIES) ? "lit" : "")).renderType("cutout")).build(), CaveVinesBlock.AGE);
+            getVariantBuilder(BWGBlocks.IRONWOOD_ROOTS_PLANT.get()).forAllStates(state -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.IRONWOOD_ROOTS_PLANT.get()) + (state.getValue(CaveVinesPlantBlock.BERRIES) ? "_lit" : ""), blockBWGTexture(BWGBlocks.IRONWOOD_ROOTS_PLANT.get(), state.getValue(CaveVinesPlantBlock.BERRIES) ? "lit" : "")).renderType("cutout")).build());
+
             Arrays.stream(Wreath.Type.values()).forEach(type -> models().withExistingParent(BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString(), blockBWGTexture("template_wreath")).texture("wreath", BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString()).texture("particle", BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString()));
         }
 
@@ -552,6 +554,7 @@ public class ModelGenerators {
         }
 
         private ResourceLocation blockBWGTexture(Block block, String end) {
+            if (end.isEmpty()) return blockBWGTexture(block);
             return BiomesWeveGone.id(ModelProvider.BLOCK_FOLDER + "/" + key(block).getPath() + "_" + end);
         }
 

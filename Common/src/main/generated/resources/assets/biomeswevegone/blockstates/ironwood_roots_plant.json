@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "berries=false": {
+      "model": "biomeswevegone:block/ironwood_roots_plant"
+    },
+    "berries=true": {
+      "model": "biomeswevegone:block/ironwood_roots_plant_lit"
+    }
+  }
+}
