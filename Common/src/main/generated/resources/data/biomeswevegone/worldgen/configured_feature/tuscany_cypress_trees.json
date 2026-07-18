@@ -1,0 +1,53 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "biomeswevegone:tuscany_cypress_tree7",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.14,
+        "feature": {
+          "feature": "biomeswevegone:tuscany_cypress_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.14,
+        "feature": {
+          "feature": "biomeswevegone:tuscany_cypress_tree2",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.14,
+        "feature": {
+          "feature": "biomeswevegone:tuscany_cypress_tree3",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.14,
+        "feature": {
+          "feature": "biomeswevegone:tuscany_cypress_tree4",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.14,
+        "feature": {
+          "feature": "biomeswevegone:tuscany_cypress_tree5",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.14,
+        "feature": {
+          "feature": "biomeswevegone:tuscany_cypress_tree6",
+          "placement": []
+        }
+      }
+    ]
+  }
+}
