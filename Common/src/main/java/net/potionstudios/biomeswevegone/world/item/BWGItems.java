@@ -46,6 +46,7 @@ public class BWGItems {
     public static final Supplier<SpawnEggItem> MAN_O_WAR_SPAWN_EGG = registerSpawnEgg("man_o_war_spawn_egg", BWGEntityType.MAN_O_WAR::get, FastColor.ARGB32.color(210, 166, 246), FastColor.ARGB32.color(199, 165, 104));
     public static final Supplier<SpawnEggItem> PUMPKIN_WARDEN_SPAWN_EGG = registerSpawnEgg("pumpkin_warden_spawn_egg", BWGEntityType.PUMPKIN_WARDEN::get, FastColor.ARGB32.color(79, 57, 46), FastColor.ARGB32.color(192, 106, 5));
     public static final Supplier<SpawnEggItem> ODDION_SPAWN_EGG = registerSpawnEgg("oddion_spawn_egg", BWGEntityType.ODDION::get, FastColor.ARGB32.color(199, 165, 104), FastColor.ARGB32.color(210, 166, 246));
+    public static final Supplier<SpawnEggItem> BIZZAR_SPAWN_EGG = registerSpawnEgg("bizzar_spawn_egg", BWGEntityType.BIZZAR::get, FastColor.ARGB32.color(196, 159, 190), FastColor.ARGB32.color(184, 204, 198));
 
     public static final Supplier<MobBucketItem> MAN_O_WAR_BUCKET = registerMobBucket("man_o_war_bucket", BWGEntityType.MAN_O_WAR::get, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH);
 

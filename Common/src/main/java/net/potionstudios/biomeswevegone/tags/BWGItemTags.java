@@ -73,6 +73,8 @@ public final class BWGItemTags {
     public static final TagKey<Item> MAKES_2_WHITE_DYE = create("dye/makes_2_white");
     public static final TagKey<Item> MAKES_2_YELLOW_DYE = create("dye/makes_2_yellow");
 
+    public static final TagKey<Item> BIZZAR_FOOD = create("bizzar_food");
+
     private static TagKey<Item> create(String name) {
         return TagKey.create(Registries.ITEM, BiomesWeveGone.id(name));
     }

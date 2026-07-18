@@ -6,6 +6,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.PlatformHandler;
+import net.potionstudios.biomeswevegone.world.entity.bizzar.Bizzar;
 import net.potionstudios.biomeswevegone.world.entity.boats.BWGBoatEntity;
 import net.potionstudios.biomeswevegone.world.entity.boats.BWGChestBoatEntity;
 import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
@@ -27,6 +28,7 @@ public class BWGEntityType {
 	public static final Supplier<EntityType<ManOWar>> MAN_O_WAR = createEntity("man_o_war", ManOWar::new, MobCategory.WATER_CREATURE,0.6F, 1F, 0.7F);
 	public static final Supplier<EntityType<PumpkinWarden>> PUMPKIN_WARDEN = createEntity("pumpkin_warden", PumpkinWarden::new, MobCategory.MISC,0.64F, 1.1F, 0.9F);
 	public static final Supplier<EntityType<Oddion>> ODDION = createEntity("oddion", Oddion::new, MobCategory.CREATURE,0.5F, 0.75F, 0.37F);
+	public static final Supplier<EntityType<Bizzar>> BIZZAR = createEntity("bizzar", Bizzar::new, MobCategory.CREATURE,0.5F, 0.75F, 0.37F);
 
 	public static final Supplier<EntityType<BWGBoatEntity>> BWG_BOAT = createEntity("boat", BWGBoatEntity::new, MobCategory.MISC, EntityType.BOAT.getWidth(), EntityType.BOAT.getHeight(), 0.5625F, EntityType.BOAT.clientTrackingRange());
 	public static final Supplier<EntityType<BWGChestBoatEntity>> BWG_CHEST_BOAT = createEntity("chest_boat", BWGChestBoatEntity::new, MobCategory.MISC, EntityType.CHEST_BOAT.getWidth(), EntityType.CHEST_BOAT.getHeight(), 0.5625F, EntityType.CHEST_BOAT.clientTrackingRange());
@@ -56,6 +58,7 @@ public class BWGEntityType {
 		consumer.accept(MAN_O_WAR.get(), ManOWar.createAttributes().build());
 		consumer.accept(PUMPKIN_WARDEN.get(), PumpkinWarden.createAttributes().build());
 		consumer.accept(ODDION.get(), Oddion.createAttributes().build());
+		consumer.accept(BIZZAR.get(), Bizzar.createAttributes().build());
 	}
 
 	public static void entities() {
