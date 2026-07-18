@@ -24,7 +24,7 @@ loom {
 
     forge {
         convertAccessWideners(tasks.shadowJar, "biomeswevegone.accessWidener")
-//        mixinConfig("biomeswevegone-common.mixins.json")
+        mixinConfig("biomeswevegone-common.mixins.json")
     }
 
     runs.create("datagen") {
