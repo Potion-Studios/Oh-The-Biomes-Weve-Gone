@@ -28,9 +28,7 @@
     "water_fog_color": 2835532
   },
   "features": [
-    [
-      "biomeswevegone:palisade_lake"
-    ],
+    [],
     [
       "minecraft:lake_lava_underground"
     ],

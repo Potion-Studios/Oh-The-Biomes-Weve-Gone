@@ -42,6 +42,29 @@
         "leaves_block": "biomeswevegone:ripe_palisade_leaves",
         "probability": 0.1,
         "required_empty_blocks": 2
+      },
+      {
+        "type": "ohthetreesyoullgrow:attached_to_logs",
+        "block_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "biomeswevegone:shelf_fungi",
+            "Properties": {
+              "facing": "north",
+              "waterlogged": "false"
+            }
+          }
+        },
+        "directions": [
+          "west",
+          "north",
+          "south",
+          "east"
+        ],
+        "exclusion_radius_xz": 0,
+        "exclusion_radius_y": 1,
+        "probability": 0.3,
+        "required_empty_blocks": 2
       }
     ],
     "height": {

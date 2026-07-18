@@ -835,6 +835,7 @@ class BWGOverworldBiomes {
         BWGOverworldDefaultFeatures.addCloverPatches(generationSettings);
 //        BWGOverworldDefaultFeatures.addAnemones(generationSettings);
 //        BWGOverworldDefaultFeatures.addSages(generationSettings);
+        BWGOverworldDefaultFeatures.addShrub(generationSettings);
         BWGOverworldDefaultFeatures.addWhitePuffball(generationSettings);
 //        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.BISTORT);
 //        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.ANGELICA);
@@ -1110,7 +1111,7 @@ class BWGOverworldBiomes {
 
     protected static Biome palisadeGrove(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
-        addRawGeneration(generationSettings, BWGPlacedFeatures.PALISADE_LAKE);
+//        addRawGeneration(generationSettings, BWGPlacedFeatures.PALISADE_LAKE);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.PALISADE_TREES);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.CRAG_LAKE_VEGETATION);
 

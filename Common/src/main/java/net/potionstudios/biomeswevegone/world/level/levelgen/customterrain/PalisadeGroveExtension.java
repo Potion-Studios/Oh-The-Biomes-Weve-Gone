@@ -34,7 +34,7 @@ public class PalisadeGroveExtension {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         WeightedStateProvider topBlocksProvider = new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.PALISADE_GRASS_BLOCK.get().defaultBlockState(), 3).add(BWGBlocks.PALISADE_GRASS_BLOCK.get().defaultBlockState()));
 
-        WeightedStateProvider stonesProvider = new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.PALISADE_DIRT.get().defaultBlockState()).add(BWGBlocks.PALISADE_DIRT.get().defaultBlockState()).add(BWGBlocks.PALISADE_DIRT.get().defaultBlockState()));
+        WeightedStateProvider stonesProvider = new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BWGBlocks.PALISADE_DIRT.get().defaultBlockState()).add(BWGBlocks.DACITE_SET.getBase().defaultBlockState()).add(Blocks.ROOTED_DIRT.defaultBlockState()));
 
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {

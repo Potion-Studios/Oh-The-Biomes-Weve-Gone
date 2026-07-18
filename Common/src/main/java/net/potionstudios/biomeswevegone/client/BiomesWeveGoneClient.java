@@ -135,6 +135,7 @@ public class BiomesWeveGoneClient {
      */
     public static void registerParticles(BiConsumer<SimpleParticleType, Function<SpriteSet, ParticleProvider<SimpleParticleType>>> consumer) {
         consumer.accept(BWGParticles.FIREFLY.get(), FireFlyParticle.Provider::new);
+        consumer.accept(BWGParticles.BUTTERFLY.get(), FireFlyParticle.Provider::new);
         consumer.accept(BWGParticles.BOREALIS_GLINT.get(), FallingLeafParticle.Provider::new);
         consumer.accept(BWGParticles.WITCH_HAZEL_LEAVES.get(), FallingLeafParticle.Provider::new);
         consumer.accept(BWGParticles.WHITE_SAKURA_LEAVES.get(), FallingLeafParticle.Provider::new);

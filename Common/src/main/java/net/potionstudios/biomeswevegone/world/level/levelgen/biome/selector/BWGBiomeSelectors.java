@@ -18,6 +18,8 @@ public class BWGBiomeSelectors {
             {Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, BWGBiomes.LUSH_STACKS, Region.DEFERRED_PLACEHOLDER}
     });
 
+    //Region 1
+
     public static final ResourceKey<Biome>[][] MIDDLE_BIOMES_BWG = BiomeSelectorsUtil.create("middle_biomes/middle_biomes_biomes_weve_gone", "", new ResourceKey[][]{
             {BWGBiomes.CRIMSON_TUNDRA, BWGBiomes.CRIMSON_TUNDRA, BWGBiomes.CRIMSON_TUNDRA, BWGBiomes.FROSTED_TAIGA, BWGBiomes.FROSTED_TAIGA},
             {BWGBiomes.ASPEN_BOREAL, BWGBiomes.ASPEN_BOREAL, BWGBiomes.ASPEN_BOREAL, BWGBiomes.BLACK_FOREST, BWGBiomes.BLACK_FOREST},
