@@ -830,6 +830,7 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.TUSCANY_CYPRESS_TREES);
 //        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.TEMPERATE_GROVE_TREES);
         BWGOverworldDefaultFeatures.addCloverPatches(generationSettings);
 //        BWGOverworldDefaultFeatures.addAnemones(generationSettings);

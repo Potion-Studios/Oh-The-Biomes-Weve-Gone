@@ -2040,6 +2040,111 @@ public static final ResourceKey<ConfiguredFeature<?, ?>> BOREALIS_ICE_FEATURE = 
                     .build()
     );
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TUSCANY_CYPRESS_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("tuscany_cypress_tree1",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_canopy1"))
+                    .height(BiasedToBottomInt.of(3, 4))
+                    .logProvider(BlockStateProvider.simple(BWGWood.CYPRESS.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.TUSCANY_CYPRESS_LEAVES.get()))
+                    .logTarget(Set.of(BWGWood.CYPRESS.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.TUSCANY_CYPRESS_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TUSCANY_CYPRESS_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("tuscany_cypress_tree2",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_trunk2"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_canopy2"))
+                    .height(BiasedToBottomInt.of(3, 4))
+                    .logProvider(BlockStateProvider.simple(BWGWood.CYPRESS.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.TUSCANY_CYPRESS_LEAVES.get()))
+                    .logTarget(Set.of(BWGWood.CYPRESS.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.TUSCANY_CYPRESS_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TUSCANY_CYPRESS_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("tuscany_cypress_tree3",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_trunk3"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_canopy3"))
+                    .height(BiasedToBottomInt.of(3, 4))
+                    .logProvider(BlockStateProvider.simple(BWGWood.CYPRESS.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.TUSCANY_CYPRESS_LEAVES.get()))
+                    .logTarget(Set.of(BWGWood.CYPRESS.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.TUSCANY_CYPRESS_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TUSCANY_CYPRESS_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("tuscany_cypress_tree4",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_trunk4"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_canopy4"))
+                    .height(BiasedToBottomInt.of(3, 4))
+                    .logProvider(BlockStateProvider.simple(BWGWood.CYPRESS.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.TUSCANY_CYPRESS_LEAVES.get()))
+                    .logTarget(Set.of(BWGWood.CYPRESS.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.TUSCANY_CYPRESS_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TUSCANY_CYPRESS_TREE5 = ConfiguredFeaturesUtil.createConfiguredFeature("tuscany_cypress_tree5",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_trunk5"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_canopy5"))
+                    .height(BiasedToBottomInt.of(3, 4))
+                    .logProvider(BlockStateProvider.simple(BWGWood.CYPRESS.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.TUSCANY_CYPRESS_LEAVES.get()))
+                    .logTarget(Set.of(BWGWood.CYPRESS.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.TUSCANY_CYPRESS_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TUSCANY_CYPRESS_TREE6 = ConfiguredFeaturesUtil.createConfiguredFeature("tuscany_cypress_tree6",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_trunk6"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_canopy6"))
+                    .height(BiasedToBottomInt.of(2, 4))
+                    .logProvider(BlockStateProvider.simple(BWGWood.CYPRESS.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.TUSCANY_CYPRESS_LEAVES.get()))
+                    .logTarget(Set.of(BWGWood.CYPRESS.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.TUSCANY_CYPRESS_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TUSCANY_CYPRESS_TREE7 = ConfiguredFeaturesUtil.createConfiguredFeature("tuscany_cypress_tree7",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_trunk7"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_canopy7"))
+                    .height(BiasedToBottomInt.of(4, 6))
+                    .logProvider(BlockStateProvider.simple(BWGWood.CYPRESS.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.TUSCANY_CYPRESS_LEAVES.get()))
+                    .logTarget(Set.of(BWGWood.CYPRESS.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.TUSCANY_CYPRESS_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
+    );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> IRONWOOD_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("ironwood_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
             () -> new TreeFromStructureNBTConfig.Builder()
@@ -5413,6 +5518,21 @@ public static final ResourceKey<ConfiguredFeature<?, ?>> BOREALIS_ICE_FEATURE = 
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PALISADE_TREE2)), 0.2F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PALISADE_TREE3)), 0.2F)),
                         PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PALISADE_TREE4)));
+            }
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TUSCANY_CYPRESS_TREES = ConfiguredFeaturesUtil.createConfiguredFeature("tuscany_cypress_trees",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TUSCANY_CYPRESS_TREE1)), 0.14F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TUSCANY_CYPRESS_TREE2)), 0.14F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TUSCANY_CYPRESS_TREE3)), 0.14F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TUSCANY_CYPRESS_TREE4)), 0.14F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TUSCANY_CYPRESS_TREE5)), 0.14F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TUSCANY_CYPRESS_TREE6)), 0.14F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TUSCANY_CYPRESS_TREE7)));
             }
     );
 
