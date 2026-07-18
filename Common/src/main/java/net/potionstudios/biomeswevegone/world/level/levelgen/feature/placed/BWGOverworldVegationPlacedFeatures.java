@@ -21,6 +21,7 @@ public class BWGOverworldVegationPlacedFeatures {
     public static final ResourceKey<PlacedFeature> ROSE = createWorldSurfaceSquared("rose", BWGBlocks.ROSE.getFeature(), 1);
     public static final ResourceKey<PlacedFeature> BLACK_ROSE = createWorldSurfaceSquared("black_rose", BWGBlocks.BLACK_ROSE.getFeature(), 1);
     public static final ResourceKey<PlacedFeature> CYAN_ROSE = createWorldSurfaceSquared("cyan_rose", BWGBlocks.CYAN_ROSE.getFeature(), 1);
+    public static final ResourceKey<PlacedFeature> BLUE_ROSE = createWorldSurfaceSquared("blue_rose", BWGBlocks.BLUE_ROSE.getFeature(), 1);
     public static final ResourceKey<PlacedFeature> OSIRIA_ROSE = createWorldSurfaceSquared("osiria_rose", BWGBlocks.OSIRIA_ROSE.getFeature(), 1);
     public static final ResourceKey<PlacedFeature> WINTER_ROSE = createWorldSurfaceSquared("winter_rose", BWGOverworldVegetationConfiguredFeatures.WINTER_ROSE, 2);
     public static final ResourceKey<PlacedFeature> BLUE_ROSE_BUSH = createWorldSurfaceSquared("blue_rose_bush", BWGOverworldVegetationConfiguredFeatures.BLUE_ROSE_BUSH, 1);

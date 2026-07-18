@@ -22,7 +22,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:air"
+          "name": "biomeswevegone:vetal"
         }
       ],
       "rolls": 1.0

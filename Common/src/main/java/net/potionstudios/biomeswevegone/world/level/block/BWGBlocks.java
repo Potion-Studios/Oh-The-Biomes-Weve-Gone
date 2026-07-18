@@ -147,6 +147,7 @@ public class BWGBlocks {
     public static final FlowerBlockFeature OSIRIA_ROSE = registerFlower("osiria_rose", Block.box(5.0, 0.0, 5.0, 11.0, 12.0, 11.0));
     public static final FlowerBlockFeature BLACK_ROSE = registerFlower("black_rose", Block.box(5.0, 0.0, 5.0, 11.0, 12.0, 11.0));
     public static final FlowerBlockFeature CYAN_ROSE = registerFlower("cyan_rose", Block.box(5.0, 0.0, 5.0, 11.0, 12.0, 11.0));
+    public static final FlowerBlockFeature BLUE_ROSE = registerFlower("blue_rose", Block.box(5.0, 0.0, 5.0, 11.0, 12.0, 11.0));
     public static final Supplier<TallFlowerBlock> BLUE_ROSE_BUSH = registerTallFlower("blue_rose_bush");
     public static final Supplier<Block> ROSE_PETAL_BLOCK = registerBasicBlockWithItem("rose_petal_block", BlockBehaviour.Properties.ofFullCopy(Blocks.HAY_BLOCK).mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.AZALEA));
 

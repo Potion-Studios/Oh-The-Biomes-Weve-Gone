@@ -132,7 +132,7 @@ public class TagsGenerator {
             tag(BWGBlockTags.SHORT_ALLIUMS).add(Blocks.ALLIUM, BWGBlocks.PINK_ALLIUM.get(), BWGBlocks.WHITE_ALLIUM.get());
             tag(BWGBlockTags.ALLIUM_FLOWER_BUSHES).add(BWGBlocks.ALLIUM_FLOWER_BUSH.get(), BWGBlocks.PINK_ALLIUM_FLOWER_BUSH.get(), BWGBlocks.WHITE_ALLIUM_FLOWER_BUSH.get());
             tag(BWGBlockTags.ALLIUMS).addTag(BWGBlockTags.TALL_ALLIUMS).addTag(BWGBlockTags.SHORT_ALLIUMS).addTag(BWGBlockTags.ALLIUM_FLOWER_BUSHES);
-            tag(BWGBlockTags.ROSES).add(BWGBlocks.ROSE.get(), BWGBlocks.OSIRIA_ROSE.get(), BWGBlocks.BLACK_ROSE.get(), BWGBlocks.CYAN_ROSE.get(), BWGBlocks.WINTER_ROSE.get());
+            tag(BWGBlockTags.ROSES).add(BWGBlocks.ROSE.get(), BWGBlocks.OSIRIA_ROSE.get(), BWGBlocks.BLACK_ROSE.get(), BWGBlocks.CYAN_ROSE.get(), BWGBlocks.BLUE_ROSE.get(), BWGBlocks.WINTER_ROSE.get());
             tag(BWGBlockTags.TULIPS).add(Blocks.ORANGE_TULIP, Blocks.PINK_TULIP, Blocks.RED_TULIP, Blocks.WHITE_TULIP, BWGBlocks.CYAN_TULIP.get(), BWGBlocks.GREEN_TULIP.get(), BWGBlocks.MAGENTA_TULIP.get(), BWGBlocks.PURPLE_TULIP.get(), BWGBlocks.YELLOW_TULIP.get());
             tag(BWGBlockTags.AMARANTH).add(BWGBlocks.AMARANTH.get(), BWGBlocks.CYAN_AMARANTH.get(), BWGBlocks.MAGENTA_AMARANTH.get(), BWGBlocks.ORANGE_AMARANTH.get(), BWGBlocks.PURPLE_AMARANTH.get());
             tag(BWGBlockTags.SAGES).add(BWGBlocks.BLUE_SAGE.get(), BWGBlocks.PURPLE_SAGE.get(), BWGBlocks.WHITE_SAGE.get());
@@ -381,7 +381,7 @@ public class TagsGenerator {
 
             // Dye Recipes
             tag(BWGItemTags.MAKES_BLACK_DYE).add(BWGBlocks.BLACK_ROSE.getItem());
-            tag(BWGItemTags.MAKES_BLUE_DYE).add(BWGBlocks.BLUE_SAGE.getItem(), BWGBlocks.VIOLET_LEATHER_FLOWER.getItem(), BWGItems.BLUEBERRIES.get(), BWGItems.BLUE_GLOWCANE_POWDER.get());
+            tag(BWGItemTags.MAKES_BLUE_DYE).add(BWGBlocks.BLUE_ROSE.getItem(), BWGBlocks.BLUE_SAGE.getItem(), BWGBlocks.VIOLET_LEATHER_FLOWER.getItem(), BWGItems.BLUEBERRIES.get(), BWGItems.BLUE_GLOWCANE_POWDER.get());
             tag(BWGItemTags.MAKES_CYAN_DYE).add(BWGBlocks.CYAN_AMARANTH.getItem(), BWGBlocks.CYAN_ROSE.getItem(), BWGBlocks.CYAN_TULIP.getItem(), BWGBlocks.WINTER_CYCLAMEN.getItem());
             tag(BWGItemTags.MAKES_GREEN_DYE).add(BWGBlocks.GOLDEN_SPINED_CACTUS.getItem(), BWGBlocks.MINI_CACTUS.getItem(), BWGBlocks.PRICKLY_PEAR_CACTUS.getItem(), BWGBlocks.HORSEWEED.getItem(), BWGBlocks.WINTER_SUCCULENT.getItem(), BWGItems.GREEN_GLOWCANE_POWDER.get());
             tag(BWGItemTags.MAKES_LIGHT_BLUE_DYE).add(BWGBlocks.WINTER_SCILLA.getItem());
