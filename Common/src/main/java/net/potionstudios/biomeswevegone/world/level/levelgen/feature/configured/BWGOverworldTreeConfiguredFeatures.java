@@ -3092,7 +3092,7 @@ public static final ResourceKey<ConfiguredFeature<?, ?>> BOREALIS_ICE_FEATURE = 
                     .leavesTarget(Set.of(BWGWood.PALISADE_LEAVES.get().defaultBlockState().getBlock()))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
-                    .treeDecorators(ImmutableList.of(VETAL_FRUIT.get()))
+                    .treeDecorators(ImmutableList.of(VETAL_FRUIT.get(), SHELF_FUNGI.get()))
                     .build()
     );
 
@@ -3112,7 +3112,7 @@ public static final ResourceKey<ConfiguredFeature<?, ?>> BOREALIS_ICE_FEATURE = 
                     .leavesTarget(Set.of(BWGWood.PALISADE_LEAVES.get().defaultBlockState().getBlock()))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
-                    .treeDecorators(ImmutableList.of(VETAL_FRUIT.get()))
+                    .treeDecorators(ImmutableList.of(VETAL_FRUIT.get(), SHELF_FUNGI.get()))
                     .build()
     );
 
@@ -3132,7 +3132,7 @@ public static final ResourceKey<ConfiguredFeature<?, ?>> BOREALIS_ICE_FEATURE = 
                     .leavesTarget(Set.of(BWGWood.PALISADE_LEAVES.get().defaultBlockState().getBlock()))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
-                    .treeDecorators(ImmutableList.of(VETAL_FRUIT.get()))
+                    .treeDecorators(ImmutableList.of(VETAL_FRUIT.get(), SHELF_FUNGI.get()))
                     .build()
     );
 
@@ -3152,7 +3152,7 @@ public static final ResourceKey<ConfiguredFeature<?, ?>> BOREALIS_ICE_FEATURE = 
                     .leavesTarget(Set.of(BWGWood.PALISADE_LEAVES.get().defaultBlockState().getBlock()))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
-                    .treeDecorators(ImmutableList.of(VETAL_FRUIT.get()))
+                    .treeDecorators(ImmutableList.of(VETAL_FRUIT.get(), SHELF_FUNGI.get()))
                     .build()
     );
 

@@ -16,6 +16,7 @@ public class BWGParticles {
     public static final Supplier<SimpleParticleType> YELLOW_BIRCH_LEAVES = register("yellow_birch_leaves");
     public static final Supplier<SimpleParticleType> ORANGE_BIRCH_LEAVES = register("orange_birch_leaves");
     public static final Supplier<SimpleParticleType> RED_BIRCH_LEAVES = register("red_birch_leaves");
+    public static final Supplier<SimpleParticleType> BUTTERFLY = register("butterfly");
 
     public static final Supplier<SimpleParticleType> WITCH_HAZEL_LEAVES = register("witch_hazel_leaves");
     public static final Supplier<SimpleParticleType> SPIRIT_LEAVES = register("spirit_leaves");

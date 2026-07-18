@@ -498,8 +498,8 @@ public class ModelGenerators {
                 }
             });
 
-            getVariantBuilder(BWGBlocks.IRONWOOD_ROOTS.get()).forAllStatesExcept(state -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.IRONWOOD_ROOTS.get()) + (state.getValue(CaveVinesBlock.BERRIES) ? "_lit" : ""), blockBWGTexture(BWGBlocks.IRONWOOD_ROOTS.get(), state.getValue(CaveVinesBlock.BERRIES) ? "lit" : "")).renderType("cutout")).build(), CaveVinesBlock.AGE);
-            getVariantBuilder(BWGBlocks.IRONWOOD_ROOTS_PLANT.get()).forAllStates(state -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.IRONWOOD_ROOTS_PLANT.get()) + (state.getValue(CaveVinesPlantBlock.BERRIES) ? "_lit" : ""), blockBWGTexture(BWGBlocks.IRONWOOD_ROOTS_PLANT.get(), state.getValue(CaveVinesPlantBlock.BERRIES) ? "lit" : "")).renderType("cutout")).build());
+//            getVariantBuilder(BWGBlocks.IRONWOOD_ROOTS.get()).forAllStatesExcept(state -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.IRONWOOD_ROOTS.get()) + (state.getValue(CaveVinesBlock.BERRIES) ? "_lit" : ""), blockBWGTexture(BWGBlocks.IRONWOOD_ROOTS.get(), state.getValue(CaveVinesBlock.BERRIES) ? "lit" : "")).renderType("cutout")).build(), CaveVinesBlock.AGE);
+//            getVariantBuilder(BWGBlocks.IRONWOOD_ROOTS_PLANT.get()).forAllStates(state -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.IRONWOOD_ROOTS_PLANT.get()) + (state.getValue(CaveVinesPlantBlock.BERRIES) ? "_lit" : ""), blockBWGTexture(BWGBlocks.IRONWOOD_ROOTS_PLANT.get(), state.getValue(CaveVinesPlantBlock.BERRIES) ? "lit" : "")).renderType("cutout")).build());
 
             Arrays.stream(Wreath.Type.values()).forEach(type -> models().withExistingParent(BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString(), blockBWGTexture("template_wreath")).texture("wreath", BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString()).texture("particle", BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString()));
         }
