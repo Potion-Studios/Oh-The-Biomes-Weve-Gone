@@ -237,7 +237,7 @@ public class AdvancementGenerator extends AdvancementProvider {
                     .rewards(new AdvancementRewards.Builder().addLootTable(BiomesWeveGone.key(Registries.LOOT_TABLE, "blocks/pale_pumpkin")))
                     .addCriterion("forgotten_nostalgia", PlayerInteractTrigger.TriggerInstance.itemUsedOnEntity(ItemPredicate.Builder.item().of(registries.lookupOrThrow(Registries.ITEM), BWGItemTags.ROSES), Optional.of(EntityPredicate.wrap(EntityPredicate.Builder.entity().of(registries.lookupOrThrow(Registries.ENTITY_TYPE), BWGEntityType.PUMPKIN_WARDEN.get())))))
                     .display(
-                            BWGBlocks.ROSE.getBlock().asItem(),
+                            BWGBlocks.ROSE.getItem(),
                             translateAble("husbandry.forgotten_nostalgia.title"),
                             translateAble("husbandry.forgotten_nostalgia.description"),
                             null, AdvancementType.CHALLENGE, true, true, false)
