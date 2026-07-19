@@ -315,7 +315,7 @@ public class BWGOverworldSurfaceRules {
     );
 
     private static final SurfaceRules.RuleSource PALISADE_GROVE = biomeAbovePreliminarySurface(BWGBiomes.PALISADE_GROVE, SurfaceRules.sequence(
-            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), PEAT_SURFACE),
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), ROOTED_DIRT_SURFACE),
             PODZOL_DIRT_SURFACE
     ));
 
