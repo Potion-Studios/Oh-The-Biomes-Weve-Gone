@@ -132,6 +132,17 @@ public class BWGOverworldVegetationConfiguredFeatures {
             }
     );
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_ASPHODEL_FLOWERS = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_asphodel_flowers",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BWGBlocks.YELLOW_ASPHODEL.getFeature())), 0.45F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TALL_YELLOW_ASPHODEL)));
+            }
+    );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> AMARANTH_GRASSLAND_FLOWERS = ConfiguredFeaturesUtil.createConfiguredFeature("amaranth_grassland_flowers",
             Feature.RANDOM_SELECTOR,
             (configuredFeatureBootstrapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE), BWGBlocks.AMARANTH.getFeature(), BWGBlocks.MAGENTA_AMARANTH.getFeature(), BWGBlocks.ORANGE_AMARANTH.getFeature(), BWGBlocks.PURPLE_AMARANTH.getFeature(), BWGBlocks.CYAN_AMARANTH.getFeature())

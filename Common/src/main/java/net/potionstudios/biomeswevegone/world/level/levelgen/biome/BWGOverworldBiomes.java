@@ -1113,15 +1113,16 @@ class BWGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGenerationWithoutLava(placedFeatureGetter, carverGetter);
 //        addRawGeneration(generationSettings, BWGPlacedFeatures.PALISADE_LAKE);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.PALISADE_TREES);
-        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.CRAG_LAKE_VEGETATION);
 
-        addVegetal(generationSettings, VegetationPlacements.PATCH_SUNFLOWER);
         addVegetal(generationSettings, VegetationPlacements.FLOWER_CHERRY);
+        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.YELLOW_ASPHODEL_FLOWERS);
+
         // BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BiomeDefaultFeatures.addSavannaGrass(generationSettings);
         BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.BWG_OAK_TREES);
 
         BWGOverworldDefaultFeatures.addCloverPatches(generationSettings);
         BWGOverworldDefaultFeatures.addAnemones(generationSettings);
