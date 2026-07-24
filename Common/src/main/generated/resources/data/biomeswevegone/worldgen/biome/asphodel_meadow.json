@@ -28,7 +28,8 @@
       "minecraft:lake_lava_surface"
     ],
     [
-      "minecraft:amethyst_geode"
+      "minecraft:amethyst_geode",
+      "minecraft:large_dripstone"
     ],
     [
       "minecraft:monster_room",
@@ -67,7 +68,10 @@
       "minecraft:disk_clay",
       "minecraft:disk_gravel"
     ],
-    [],
+    [
+      "minecraft:dripstone_cluster",
+      "minecraft:pointed_dripstone"
+    ],
     [
       "minecraft:spring_water",
       "minecraft:spring_lava"
@@ -77,6 +81,7 @@
       "minecraft:patch_grass_savanna",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
+      "biomeswevegone:sparse_pine_trees",
       "biomeswevegone:asphodel_meadow_flowers",
       "biomeswevegone:clover_patch",
       "biomeswevegone:mushrooms"

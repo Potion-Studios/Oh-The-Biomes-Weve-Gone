@@ -156,9 +156,13 @@ class BWGOverworldBiomes {
 
         BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
+
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.SPARSE_PINE_TREES);
+
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.ASPHODEL_MEADOW_FLOWERS);
         BWGOverworldDefaultFeatures.addCloverPatches(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
+        BiomeDefaultFeatures.addDripstone(generationSettings);
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.farmAnimals(spawnSettings);
