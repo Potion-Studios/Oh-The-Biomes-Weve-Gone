@@ -1,5 +1,5 @@
 {
-  "feature": "biomeswevegone:rainforest_trees",
+  "feature": "biomeswevegone:pine_trees",
   "placement": [
     {
       "type": "minecraft:count",
@@ -7,11 +7,11 @@
         "type": "minecraft:weighted_list",
         "distribution": [
           {
-            "data": 18,
-            "weight": 3
+            "data": 0,
+            "weight": 4
           },
           {
-            "data": 26,
+            "data": 1,
             "weight": 1
           }
         ]
@@ -30,6 +30,12 @@
     },
     {
       "type": "minecraft:biome"
+    },
+    {
+      "type": "minecraft:noise_threshold_count",
+      "above_noise": 0,
+      "below_noise": 1,
+      "noise_level": 0.545
     }
   ]
 }
