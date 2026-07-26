@@ -160,6 +160,7 @@ class BWGOverworldBiomes {
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.SPARSE_PINE_TREES);
 
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.ASPHODEL_MEADOW_FLOWERS);
+        BWGOverworldDefaultFeatures.addExtraFlowerPatches(generationSettings);
         BWGOverworldDefaultFeatures.addCloverPatches(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
         BiomeDefaultFeatures.addDripstone(generationSettings);
@@ -868,8 +869,11 @@ class BWGOverworldBiomes {
 
         BWGOverworldDefaultFeatures.addLeafPile(generationSettings);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.JACARANDA_TREES);
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.GUIANA_SHIELD_TREES);
         BWGOverworldDefaultFeatures.addJacarandaBushes(generationSettings);
         BWGOverworldDefaultFeatures.addBWGTropicFlowers(generationSettings);
+        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.MAGENTA_PITCHER_PLANT);
+        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.CYAN_PITCHER_PLANT);
         BWGOverworldDefaultFeatures.addWhitePuffball(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
 
@@ -1129,6 +1133,7 @@ class BWGOverworldBiomes {
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.BWG_OAK_TREES);
 
         BWGOverworldDefaultFeatures.addCloverPatches(generationSettings);
+        BWGOverworldDefaultFeatures.addShrub(generationSettings);
         BWGOverworldDefaultFeatures.addAnemones(generationSettings);
         BWGOverworldDefaultFeatures.addSages(generationSettings);
         BWGOverworldDefaultFeatures.addWhitePuffball(generationSettings);
@@ -1668,6 +1673,7 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
+//        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.BWG_OAK_TREES);
         BWGOverworldDefaultFeatures.addOakBushes(generationSettings);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.FORGOTTEN_FOREST_TREES);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.FLORUS_TREES);

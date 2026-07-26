@@ -177,6 +177,10 @@ public class BWGOverworldDefaultFeatures {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.FLOWER_PATCHES);
     }
 
+    public static void addExtraFlowerPatches(BiomeGenerationSettings.Builder gen) {
+        addVegetal(gen, BWGOverworldVegationPlacedFeatures.FLOWER_PATCHES_EXTRA);
+    }
+
     public static void addLeatherFlowers(BiomeGenerationSettings.Builder gen) {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.LEATHER_FLOWERS);
     }
