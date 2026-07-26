@@ -34,6 +34,8 @@ public class BWGOverworldVegationPlacedFeatures {
     public static final ResourceKey<PlacedFeature> LEAF_PILE = createWorldSurfaceSquared("leaf_pile", BWGOverworldVegetationConfiguredFeatures.LEAF_PILE, 2);
     public static final ResourceKey<PlacedFeature> LEAF_PILE_ABUNDANT = createWorldSurfaceSquared("leaf_pile_abundant", BWGOverworldVegetationConfiguredFeatures.LEAF_PILE, 8);
     public static final ResourceKey<PlacedFeature> FLOWER_PATCHES = createWorldSurfaceSquared("flower_patches", BWGOverworldVegetationConfiguredFeatures.FLOWER_PATCH, 5);
+    public static final ResourceKey<PlacedFeature> FLOWER_PATCHES_EXTRA = createWorldSurfaceSquared("flower_patches_extra", BWGOverworldVegetationConfiguredFeatures.FLOWER_PATCH, 10);
+
     public static final ResourceKey<PlacedFeature> SAKURA_PETALS = createWorldSurfaceSquared("sakura_petals", BWGOverworldVegetationConfiguredFeatures.SAKURA_PETALS, 9);
 
     public static final ResourceKey<PlacedFeature> ALLIUM_SHRUBLAND_FLOWERS = createWorldSurfaceSquared("allium_shrubland_flowers", BWGOverworldVegetationConfiguredFeatures.ALLIUM_SHRUBLAND_FLOWERS, 20);
@@ -99,9 +101,9 @@ public class BWGOverworldVegationPlacedFeatures {
     public static final ResourceKey<PlacedFeature> LEATHER_FLOWERS = createWorldSurfaceSquared("leather_flowers", BWGOverworldVegetationConfiguredFeatures.LEATHER_FLOWERS, 2);
     public static final ResourceKey<PlacedFeature> WHITE_PUFFBALL = PlacedFeaturesUtil.createPlacedFeature("white_puffball", BWGOverworldVegetationConfiguredFeatures.WHITE_PUFFBALL, () -> VegetationPlacements.getMushroomPlacement(6, null));
 
-    public static final ResourceKey<PlacedFeature> JACARANDA_BUSHES = PlacedFeaturesUtil.createPlacedFeature("jacaranda_bushes", BWGOverworldVegetationConfiguredFeatures.JACARANDA_BUSHES, () -> List.of(RarityFilter.onAverageOnceEvery(40), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
+    public static final ResourceKey<PlacedFeature> JACARANDA_BUSHES = PlacedFeaturesUtil.createPlacedFeature("jacaranda_bushes", BWGOverworldVegetationConfiguredFeatures.JACARANDA_BUSHES, () -> List.of(RarityFilter.onAverageOnceEvery(80), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
     public static final ResourceKey<PlacedFeature> HYDRANGEAS = createWorldSurfaceSquared("hydrangeas", BWGOverworldVegetationConfiguredFeatures.HYDRANGEAS, 2);
-    public static final ResourceKey<PlacedFeature> SHRUB = createWorldSurfaceSquared("shrub", BWGOverworldVegetationConfiguredFeatures.SHRUB, 1);
+    public static final ResourceKey<PlacedFeature> SHRUB = createWorldSurfaceSquared("shrub", BWGOverworldVegetationConfiguredFeatures.SHRUB, 3);
     public static final ResourceKey<PlacedFeature> FIRECRACKER_BUSH = createWorldSurfaceSquared("firecracker_bush", BWGOverworldVegetationConfiguredFeatures.FIRECRACKER_BUSH, 3);
 
     public static final ResourceKey<PlacedFeature> SWAMP_WATER_VEGETATION = createWorldSurfaceSquared("swamp_water_vegetation", BWGOverworldVegetationConfiguredFeatures.SWAMP_WATER_VEGETATION, 20);

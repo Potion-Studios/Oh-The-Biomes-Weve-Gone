@@ -28,7 +28,7 @@
         }
       },
       {
-        "chance": 0.25,
+        "chance": 0.1,
         "feature": {
           "feature": "biomeswevegone:woodlands_tree1",
           "placement": []

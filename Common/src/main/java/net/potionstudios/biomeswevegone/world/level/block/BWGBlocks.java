@@ -374,7 +374,7 @@ public class BWGBlocks {
     }
 
     private static Supplier<TallFlowerBlock> registerTallGlowingFlower(String key) {
-        return registerBlockItem(key, () -> new BWGTallFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SUNFLOWER).lightLevel(state -> 10).noOcclusion()));
+        return registerBlockItem(key, () -> new BWGTallFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PITCHER_PLANT).lightLevel(state -> 10).noOcclusion()));
     }
 
     public static Supplier<Block> registerBasicBlockWithItem(String key, BlockBehaviour.Properties properties) {
