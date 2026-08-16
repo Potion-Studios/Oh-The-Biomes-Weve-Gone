@@ -5,7 +5,8 @@
 	"render_type": "minecraft:cutout",
 	"textures": {
 		"2": "biomeswevegone:block/flower_patch",
-		"3": "biomeswevegone:block/flower_patch_stem"
+		"3": "biomeswevegone:block/flower_patch_stem",
+		"particle": "biomeswevegone:block/flower_patch"
 	},
 	"elements": [
 		{
