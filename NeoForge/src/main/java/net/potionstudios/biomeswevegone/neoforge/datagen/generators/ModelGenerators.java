@@ -466,7 +466,7 @@ public class ModelGenerators {
                         ConfiguredModel.builder().modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.OLIVE_MOSS_SPROUTS.get()))).build();
             }, TreeBranchBlock.WATERLOGGED);
 
-            simpleBlockItem(BWGBlocks.OLIVE_MOSS_CARPET.get(), models().carpet(name(BWGBlocks.OLIVE_MOSS_CARPET.get()), blockTexture(BWGBlocks.OLIVE_MOSS_CARPET.get())).renderType("cutout"));
+            simpleBlockWithItem(BWGBlocks.OLIVE_MOSS_CARPET.get(), models().carpet(name(BWGBlocks.OLIVE_MOSS_CARPET.get()), blockTexture(BWGBlocks.OLIVE_MOSS_CARPET.get())));
 
             simpleBlockWithItem(BWGBlocks.WITCH_HAZEL_BLOSSOM.get(), models().getExistingFile(blockBWGTexture(BWGBlocks.WITCH_HAZEL_BLOSSOM.get())));
             simpleBlockWithItem(BWGWood.SPIRIT_ROOTS.get(), models().withExistingParent(name(BWGWood.SPIRIT_ROOTS.get()), "block/mangrove_roots").texture("side", BiomesWeveGone.id("block/spirit/roots_top")).texture("top", BiomesWeveGone.id("block/spirit/roots_side")).renderType("cutout_mipped"));
