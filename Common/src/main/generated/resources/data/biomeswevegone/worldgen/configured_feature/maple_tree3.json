@@ -10,7 +10,7 @@
       "type": "minecraft:replaceable"
     },
     "can_logs_place_filter": {
-      "type": "minecraft:replaceable"
+      "type": "minecraft:true"
     },
     "canopy_location": "biomeswevegone:features/trees/maple/maple_canopy3",
     "height": {
@@ -44,6 +44,7 @@
     "log_target": [
       "minecraft:oak_log"
     ],
-    "place_from_nbt": []
+    "place_from_nbt": [],
+    "tree_filter_behavior": "PIERCE"
   }
 }
