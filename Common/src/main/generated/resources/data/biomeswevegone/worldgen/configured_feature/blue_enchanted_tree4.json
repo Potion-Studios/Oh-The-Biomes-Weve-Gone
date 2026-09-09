@@ -10,7 +10,7 @@
       "type": "minecraft:replaceable"
     },
     "can_logs_place_filter": {
-      "type": "minecraft:replaceable"
+      "type": "minecraft:true"
     },
     "canopy_location": "biomeswevegone:features/trees/enchanted/enchanted_canopy_4",
     "height": 0,
@@ -54,6 +54,7 @@
     "log_target": [
       "biomeswevegone:blue_enchanted_wood"
     ],
-    "place_from_nbt": []
+    "place_from_nbt": [],
+    "tree_filter_behavior": "PIERCE"
   }
 }
