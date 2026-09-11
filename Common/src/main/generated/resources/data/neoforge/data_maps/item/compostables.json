@@ -192,6 +192,9 @@
     "biomeswevegone:fir_sapling": {
       "chance": 0.3
     },
+    "biomeswevegone:firecracker_flower_bush": {
+      "chance": 0.65
+    },
     "biomeswevegone:firecracker_leaves": {
       "chance": 0.3
     },
@@ -204,11 +207,17 @@
     "biomeswevegone:flowering_barrel_cactus": {
       "chance": 0.5
     },
+    "biomeswevegone:flowering_indigo_jacaranda_bush": {
+      "chance": 0.65
+    },
     "biomeswevegone:flowering_indigo_jacaranda_leaves": {
       "chance": 0.3
     },
     "biomeswevegone:flowering_ironwood_leaves": {
       "chance": 0.3
+    },
+    "biomeswevegone:flowering_jacaranda_bush": {
+      "chance": 0.65
     },
     "biomeswevegone:flowering_jacaranda_leaves": {
       "chance": 0.3
@@ -294,6 +303,9 @@
     "biomeswevegone:incan_lily": {
       "chance": 0.65
     },
+    "biomeswevegone:indigo_jacaranda_bush": {
+      "chance": 0.65
+    },
     "biomeswevegone:indigo_jacaranda_leaves": {
       "chance": 0.3
     },
@@ -308,6 +320,9 @@
     },
     "biomeswevegone:ironwood_sapling": {
       "chance": 0.3
+    },
+    "biomeswevegone:jacaranda_bush": {
+      "chance": 0.65
     },
     "biomeswevegone:jacaranda_leaves": {
       "chance": 0.3
@@ -518,6 +533,9 @@
     },
     "biomeswevegone:rosy_wreath": {
       "chance": 0.75
+    },
+    "biomeswevegone:shrub": {
+      "chance": 0.65
     },
     "biomeswevegone:silver_maple_leaves": {
       "chance": 0.3
