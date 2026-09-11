@@ -1,5 +1,6 @@
 package net.potionstudios.biomeswevegone.world.level.block;
 
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
@@ -22,11 +23,12 @@ public class BlockFeatures {
     public static void registerCompostables(BiConsumer<ItemLike, Float> consumer) {
         BWGBlocks.BLOCKS.forEach(object -> {
             Block block = object.get();
+            if (block.asItem().getDefaultInstance().is(Items.AIR)) return;
             if (block instanceof TallGrassBlock || block instanceof BWGDoublePlantBlock || block instanceof PinkPetalsBlock)
                 consumer.accept(block, 0.3F);
             else if (block instanceof VineBlock || block instanceof DesertPlantBlock || block instanceof BWGCactusBlock)
                 consumer.accept(block, 0.5F);
-            else if (block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof WaterlilyBlock || block instanceof MushroomBlock || block instanceof FlatVegetationBlock || block instanceof BWGPlacementBushBlock || block instanceof PumpkinBlock || block instanceof CarvedPumpkinBlock || block instanceof SporeBlossomBlock)
+            else if (block instanceof BushBlock || block instanceof PumpkinBlock || block instanceof CarvedPumpkinBlock || block instanceof SporeBlossomBlock)
                 consumer.accept(block, 0.65F);
             else if (block instanceof HugeMushroomBlock || block instanceof HayBlock)
                 consumer.accept(block, 0.85F);
