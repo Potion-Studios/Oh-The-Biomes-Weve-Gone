@@ -1,3 +1,6 @@
+# 2.6.1
+- Make all BushBlocks Compostable
+
 # 2.6.0 – Config Changes
 - Move worldgeneration config to json from json5 to match all other configs
 - Correctly update missing keys in json configs
