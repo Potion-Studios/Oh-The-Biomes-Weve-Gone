@@ -11,6 +11,7 @@ import software.bernie.geckolib.model.GeoModel;
 import java.util.Map;
 
 public class BizzarModel<T extends Bizzar> extends GeoModel<T> {
+	private static final ResourceLocation DEFAULT_TEXTURE = BiomesWeveGone.id("textures/entity/bizzar/snow.png");
 	private static final Map<DyeColor, ResourceLocation> BIZZAR_TEXTURES = Util.make(Maps.newEnumMap(DyeColor.class), (map) -> {
 		map.put(DyeColor.WHITE, BiomesWeveGone.id("textures/entity/bizzar/white.png"));
 		map.put(DyeColor.ORANGE, BiomesWeveGone.id("textures/entity/bizzar/orange.png"));
@@ -37,7 +38,7 @@ public class BizzarModel<T extends Bizzar> extends GeoModel<T> {
 
 	@Override
 	public ResourceLocation getTextureResource(T animatable) {
-		return BIZZAR_TEXTURES.getOrDefault(animatable.getColor(), BIZZAR_TEXTURES.get(DyeColor.WHITE));
+		return BIZZAR_TEXTURES.getOrDefault(animatable.getColor(), DEFAULT_TEXTURE);
 	}
 
 	@Override

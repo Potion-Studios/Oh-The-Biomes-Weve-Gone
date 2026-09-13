@@ -41,6 +41,9 @@ public final class BWGBlockTags {
     public static final TagKey<Block> SPRUCE_SAPLINGS = create("saplings/spruce");
     public static final TagKey<Block> BIRCH_SAPLINGS = create("saplings/birch");
 
+    /** Spawnable on **/
+    public static final TagKey<Block> BIZZAR_SPAWNABLE_ON = create("bizzar_spawnable_on");
+
     /** Storage Blocks **/
     public static final TagKey<Block> STORAGE_BLOCKS_ALLIUM = createCommon("storage_blocks/allium");
     public static final TagKey<Block> STORAGE_BLOCKS_PINK_ALLIUM = createCommon("storage_blocks/pink_allium");
