@@ -15,23 +15,35 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.monster.Enemy;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
+import software.bernie.geckolib.animation.*;
+import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import java.util.EnumSet;
+import java.util.List;
 import java.util.UUID;
 
 public class Bizzar extends TamableAnimal implements NeutralMob, GeoAnimatable {
 	private final AnimatableInstanceCache animatableInstanceCache = GeckoLibUtil.createInstanceCache(this);
+
+	private static final RawAnimation IDLE_SIT = RawAnimation.begin().thenLoop("idle_sit");
+	private static final RawAnimation IDLE_STAND = RawAnimation.begin().thenLoop("idle_stand");
+	private static final RawAnimation WALK = RawAnimation.begin().thenLoop("walk");
+
 	private static final EntityDataAccessor<Byte> DATA_DYE_ID = SynchedEntityData.defineId(Bizzar.class, EntityDataSerializers.BYTE);
 
 	private static int createBizzarColor(DyeColor dyeColor) {
@@ -52,15 +64,17 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoAnimatable {
 	protected void registerGoals() {
 		this.goalSelector.addGoal(1, new FloatGoal(this));
 		this.goalSelector.addGoal(2, new SitWhenOrderedToGoal(this));
-		this.goalSelector.addGoal(6, new FollowOwnerGoal(this, 1.0F, 10.0F, 2.0F));
+		this.goalSelector.addGoal(3, new FollowOwnerGoal(this, 1.0F, 10.0F, 2.0F));
+		this.goalSelector.addGoal(4, new BizzarBlizzardGoal(this));
 		this.goalSelector.addGoal(7, new BreedGoal(this, 1.0F));
+		this.goalSelector.addGoal(8, new TemptGoal(this, 1.25D, this::isFood, false));
 
 		this.goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 1.0F));
 		this.goalSelector.addGoal(10, new LookAtPlayerGoal(this, Player.class, 8.0F));
 		this.goalSelector.addGoal(10, new RandomLookAroundGoal(this));
 //		this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
 //		this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
-//		this.targetSelector.addGoal(3, (new HurtByTargetGoal(this)).setAlertOthers());
+		this.targetSelector.addGoal(3, (new HurtByTargetGoal(this)).setAlertOthers());
 	}
 
 	@Override
@@ -164,7 +178,7 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoAnimatable {
 
 	@Override
 	public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-
+		controllers.add(new AnimationController<GeoAnimatable>(this, "controller", 0, this::predicate));
 	}
 
 	@Override
@@ -172,8 +186,64 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoAnimatable {
 		return animatableInstanceCache;
 	}
 
+	private <E extends GeoAnimatable> PlayState predicate(@NotNull AnimationState<E> event) {
+		event.getController().transitionLength(0);
+		if (this.isInSittingPose())
+			return event.setAndContinue(IDLE_SIT);
+
+		if (event.isMoving())
+			return event.setAndContinue(WALK);
+
+		return event.setAndContinue(IDLE_STAND);
+	}
+
 	@Override
 	public double getTick(Object object) {
 		return 0;
+	}
+
+	private static class BizzarBlizzardGoal extends Goal {
+		private final Bizzar bizzar;
+		private int activeTicks = 0;
+		private int cooldownTicks = 0;
+
+        private BizzarBlizzardGoal(Bizzar bizzar) {
+            this.bizzar = bizzar;
+			this.setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK));
+        }
+
+        @Override
+		public boolean canUse() {
+			if (this.cooldownTicks > 0) {
+				this.cooldownTicks--;
+				return false;
+			}
+
+			if (bizzar.isOrderedToSit())
+				return false;
+
+			return !getNearbyHostiles().isEmpty();
+		}
+
+		@Override
+		public boolean canContinueToUse() {
+			return this.activeTicks < 300;
+		}
+
+		@Override
+		public void tick() {
+			activeTicks++;
+		}
+
+		@Override
+		public void stop() {
+			this.activeTicks = 0;
+			this.cooldownTicks = 500;
+		}
+
+		private List<Monster> getNearbyHostiles() {
+			AABB searchBox = this.bizzar.getBoundingBox().inflate(9.0D);
+			return this.bizzar.level().getEntitiesOfClass(Monster.class, searchBox);
+		}
 	}
 }
