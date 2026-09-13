@@ -16,6 +16,7 @@ public class BWGMobSpawnConfig {
     public static class BWGSpawnConfig {
         public boolean man_o_war = true;
         public boolean oddion = true;
+        public boolean bizzar = true;
     }
 
     public static void reload() {

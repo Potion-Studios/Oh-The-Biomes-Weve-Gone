@@ -1,5 +1,7 @@
 package net.potionstudios.biomeswevegone.world.entity.bizzar;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -9,25 +11,31 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.FastColor;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
-import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.phys.AABB;
+import net.potionstudios.biomeswevegone.config.configs.BWGMobSpawnConfig;
+import net.potionstudios.biomeswevegone.tags.BWGBlockTags;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoAnimatable;
+import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 import software.bernie.geckolib.animation.AnimationState;
@@ -37,14 +45,18 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.UUID;
 
-public class Bizzar extends TamableAnimal implements NeutralMob, GeoAnimatable {
+public class Bizzar extends TamableAnimal implements NeutralMob, GeoEntity {
 	private final AnimatableInstanceCache animatableInstanceCache = GeckoLibUtil.createInstanceCache(this);
 
-	private static final RawAnimation IDLE_SIT = RawAnimation.begin().thenLoop("idle_sit");
-	private static final RawAnimation IDLE_STAND = RawAnimation.begin().thenLoop("idle_stand");
-	private static final RawAnimation WALK = RawAnimation.begin().thenLoop("walk");
+	private static final RawAnimation IDLE_SIT = RawAnimation.begin().thenPlay("idle_sit");
+	private static final RawAnimation IDLE_STAND = RawAnimation.begin().thenPlay("idle_stand");
+	private static final RawAnimation IDLE_STAND_QUIRK1 = RawAnimation.begin().thenPlay("idle_stand_quirk1");
+	private static final RawAnimation WALK = RawAnimation.begin().thenPlay("walk");
+	private static final RawAnimation SUMMON = RawAnimation.begin().thenPlay("summon");
+	private static final RawAnimation TWIRL = RawAnimation.begin().thenPlay("twirl_transin").thenLoop("twirl");
 
 	private static final EntityDataAccessor<Byte> DATA_DYE_ID = SynchedEntityData.defineId(Bizzar.class, EntityDataSerializers.BYTE);
+	private static final EntityDataAccessor<Boolean> BLIZZARD = SynchedEntityData.defineId(Bizzar.class, EntityDataSerializers.BOOLEAN);
 
 	private static int createBizzarColor(DyeColor dyeColor) {
 		if (dyeColor == DyeColor.WHITE) {
@@ -64,8 +76,8 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoAnimatable {
 	protected void registerGoals() {
 		this.goalSelector.addGoal(1, new FloatGoal(this));
 		this.goalSelector.addGoal(2, new SitWhenOrderedToGoal(this));
-		this.goalSelector.addGoal(3, new FollowOwnerGoal(this, 1.0F, 10.0F, 2.0F));
-		this.goalSelector.addGoal(4, new BizzarBlizzardGoal(this));
+		this.goalSelector.addGoal(3, new BizzarBlizzardGoal(this));
+		this.goalSelector.addGoal(4, new FollowOwnerGoal(this, 1.0F, 10.0F, 2.0F));
 		this.goalSelector.addGoal(7, new BreedGoal(this, 1.0F));
 		this.goalSelector.addGoal(8, new TemptGoal(this, 1.25D, this::isFood, false));
 
@@ -81,6 +93,7 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoAnimatable {
 	protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
 		super.defineSynchedData(builder);
 		builder.define(DATA_DYE_ID, (byte) 0);
+		builder.define(BLIZZARD, false);
 	}
 
 	@Override
@@ -95,8 +108,12 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoAnimatable {
 		this.setColor(DyeColor.byId(compound.getByte("Color")));
 	}
 
+	public static boolean checkBizzarSpawnRules(EntityType<? extends Bizzar> entity, LevelAccessor world, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
+		return BWGMobSpawnConfig.INSTANCE.bizzar && world.getBlockState(pos.below()).is(BWGBlockTags.BIZZAR_SPAWNABLE_ON);
+	}
+
 	public static AttributeSupplier.Builder createAttributes() {
-		return TamableAnimal.createLivingAttributes().add(Attributes.FOLLOW_RANGE);
+		return TamableAnimal.createLivingAttributes().add(Attributes.FOLLOW_RANGE).add(Attributes.MOVEMENT_SPEED, 0.5);
 	}
 
 	public DyeColor getColor() {
@@ -131,7 +148,16 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoAnimatable {
 			this.tryToTame(player);
 			return InteractionResult.SUCCESS;
 		}
-		return super.mobInteract(player, hand);
+
+		InteractionResult interactionResult = super.mobInteract(player, hand);
+
+		if (!interactionResult.consumesAction() && this.isOwnedBy(player)) {
+			this.setOrderedToSit(!this.isOrderedToSit());
+			this.jumping = false;
+			this.navigation.stop();
+			this.setTarget(null);
+			return InteractionResult.SUCCESS_NO_ITEM_USED;
+		} else return interactionResult;
 	}
 
 	private void tryToTame(Player player) {
@@ -178,7 +204,7 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoAnimatable {
 
 	@Override
 	public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-		controllers.add(new AnimationController<GeoAnimatable>(this, "controller", 0, this::predicate));
+		controllers.add(new AnimationController<GeoAnimatable>(this, "controller", 4, this::predicate));
 	}
 
 	@Override
@@ -187,8 +213,10 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoAnimatable {
 	}
 
 	private <E extends GeoAnimatable> PlayState predicate(@NotNull AnimationState<E> event) {
-		event.getController().transitionLength(0);
-		if (this.isInSittingPose())
+		if (this.isBlizzarding())
+			return event.setAndContinue(TWIRL);
+
+		if (this.isOrderedToSit())
 			return event.setAndContinue(IDLE_SIT);
 
 		if (event.isMoving())
@@ -202,24 +230,76 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoAnimatable {
 		return 0;
 	}
 
+	public boolean isBlizzarding() {
+		return this.entityData.get(BLIZZARD);
+	}
+
+	public void setBlizzarding(boolean blizzarding) {
+		this.entityData.set(BLIZZARD, blizzarding);
+	}
+
+	@Override
+	public void tick() {
+		super.tick();
+
+		if (this.level().isClientSide() && isBlizzarding()) {
+			AABB area = this.getBoundingBox().inflate(9.0D);
+			double minX = area.minX;
+			double maxX = area.maxX;
+			double minY = this.getY();
+			double maxY = this.getY() + 9.0D;
+			double minZ = area.minZ;
+			double maxZ = area.maxZ;
+
+			for (int i = 0; i < 60; i++) {
+				double x = minX + this.random.nextDouble() * (maxX - minX);
+				double y = minY + this.random.nextDouble() * (maxY - minY);
+				double z = minZ + this.random.nextDouble() * (maxZ - minZ);
+
+				double velocityX = (this.random.nextDouble() - 0.5D) * 0.8D;
+				double velocityY = -0.1D - (this.random.nextDouble() * 0.15D);
+				double velocityZ = (this.random.nextDouble() - 0.5D) * 0.8D;
+
+				this.level().addParticle(
+						ParticleTypes.SNOWFLAKE,
+						x, y, z,
+						velocityX, velocityY, velocityZ
+				);
+
+				if (i % 3 == 0) {
+					this.level().addParticle(
+							ParticleTypes.CLOUD,
+							x, y, z,
+							velocityX * 0.5D, -0.02D, velocityZ * 0.5D
+					);
+				}
+			}
+		}
+	}
+
+	@Override
+	public boolean isAlliedTo(@NotNull Entity entity) {
+		return entity instanceof Bizzar || super.isAlliedTo(entity);
+	}
+
 	private static class BizzarBlizzardGoal extends Goal {
 		private final Bizzar bizzar;
 		private int activeTicks = 0;
 		private int cooldownTicks = 0;
 
-        private BizzarBlizzardGoal(Bizzar bizzar) {
-            this.bizzar = bizzar;
-			this.setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK));
-        }
+		private BizzarBlizzardGoal(Bizzar bizzar) {
+			this.bizzar = bizzar;
+			this.setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK, Flag.JUMP));
+		}
 
-        @Override
+		@Override
 		public boolean canUse() {
 			if (this.cooldownTicks > 0) {
 				this.cooldownTicks--;
 				return false;
 			}
 
-			if (bizzar.isOrderedToSit())
+			if (this.bizzar.isOrderedToSit())
 				return false;
 
 			return !getNearbyHostiles().isEmpty();
@@ -231,19 +311,45 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoAnimatable {
 		}
 
 		@Override
+		public void start() {
+			this.activeTicks = 0;
+			this.bizzar.setBlizzarding(true);
+
+			this.bizzar.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 300, 1, false, false, true));
+		}
+
+		@Override
 		public void tick() {
-			activeTicks++;
+			List<Monster> hostiles = getNearbyHostiles();
+			for (Monster hostile : hostiles) {
+				hostile.setTicksFrozen(Math.min(hostile.getTicksRequiredToFreeze() + 140, hostile.getTicksFrozen() + 3));
+
+				hostile.addEffect(new MobEffectInstance(
+						MobEffects.MOVEMENT_SLOWDOWN,
+						30,
+						2,
+						false,
+						false,
+						true
+				));
+
+				if (hostile.isFullyFrozen() && this.activeTicks % 40 == 0) {
+					hostile.hurt(hostile.damageSources().freeze(), 1.0F);
+				}
+			}
 		}
 
 		@Override
 		public void stop() {
 			this.activeTicks = 0;
 			this.cooldownTicks = 500;
+			this.bizzar.setBlizzarding(false);
+			this.bizzar.removeEffect(MobEffects.DAMAGE_RESISTANCE);
 		}
 
 		private List<Monster> getNearbyHostiles() {
 			AABB searchBox = this.bizzar.getBoundingBox().inflate(9.0D);
-			return this.bizzar.level().getEntitiesOfClass(Monster.class, searchBox);
+			return this.bizzar.level().getEntitiesOfClass(Monster.class, searchBox, EntitySelector.NO_SPECTATORS);
 		}
 	}
 }
