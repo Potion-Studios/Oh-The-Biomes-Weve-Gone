@@ -225,11 +225,6 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoEntity {
 		return event.setAndContinue(IDLE_STAND);
 	}
 
-	@Override
-	public double getTick(Object object) {
-		return 0;
-	}
-
 	public boolean isBlizzarding() {
 		return this.entityData.get(BLIZZARD);
 	}
