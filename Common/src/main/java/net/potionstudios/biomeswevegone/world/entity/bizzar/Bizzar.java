@@ -151,7 +151,7 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoEntity {
 
 		InteractionResult interactionResult = super.mobInteract(player, hand);
 
-		if (!interactionResult.consumesAction() && this.isOwnedBy(player)) {
+		if (!interactionResult.consumesAction() && this.isOwnedBy(player) && !isBlizzarding()) {
 			this.setOrderedToSit(!this.isOrderedToSit());
 			this.jumping = false;
 			this.navigation.stop();
@@ -246,14 +246,14 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoEntity {
 			double minZ = area.minZ;
 			double maxZ = area.maxZ;
 
-			for (int i = 0; i < 60; i++) {
+			for (int i = 0; i < 40; i++) {
 				double x = minX + this.random.nextDouble() * (maxX - minX);
 				double y = minY + this.random.nextDouble() * (maxY - minY);
 				double z = minZ + this.random.nextDouble() * (maxZ - minZ);
 
-				double velocityX = (this.random.nextDouble() - 0.5D) * 0.8D;
-				double velocityY = -0.1D - (this.random.nextDouble() * 0.15D);
-				double velocityZ = (this.random.nextDouble() - 0.5D) * 0.8D;
+				double velocityX = (this.random.nextDouble() - 0.5D) * 0.7D;
+				double velocityY = -0.1D - (this.random.nextDouble() * 0.12D);
+				double velocityZ = (this.random.nextDouble() - 0.5D) * 0.7D;
 
 				this.level().addParticle(
 						ParticleTypes.SNOWFLAKE,
@@ -315,6 +315,7 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoEntity {
 
 		@Override
 		public void tick() {
+			activeTicks++;
 			List<Monster> hostiles = getNearbyHostiles();
 			for (Monster hostile : hostiles) {
 				hostile.setTicksFrozen(Math.min(hostile.getTicksRequiredToFreeze() + 140, hostile.getTicksFrozen() + 3));
