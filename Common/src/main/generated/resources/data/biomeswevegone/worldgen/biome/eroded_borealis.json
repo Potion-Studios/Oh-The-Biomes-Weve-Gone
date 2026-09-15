@@ -154,6 +154,12 @@
         "maxCount": 2,
         "minCount": 1,
         "weight": 1
+      },
+      {
+        "type": "biomeswevegone:bizzar",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 1
       }
     ],
     "misc": [],

@@ -1492,6 +1492,7 @@ class BWGOverworldBiomes {
         addSpawn(spawnSettings, EntityType.WOLF, 8, 3, 4);
         addSpawn(spawnSettings, EntityType.STRAY, 85, 2, 3);
         addSpawn(spawnSettings, EntityType.POLAR_BEAR, 1, 1, 2);
+        addSpawn(spawnSettings, BWGEntityType.BIZZAR.get(), 1, 1, 2);
 
         float temperature = -0.5F;
         return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.3F).specialEffects((new BiomeSpecialEffects.Builder()).backgroundMusic(Musics.createGameMusic(BWGSounds.MUSIC_BIOME_ERODED_BOREALIS.get())).waterColor(4159204).waterFogColor(329011).grassColorOverride(10075903).foliageColorOverride(11510521).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientParticle(new AmbientParticleSettings(BWGParticles.BOREALIS_GLINT.get(), 0.00200F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
