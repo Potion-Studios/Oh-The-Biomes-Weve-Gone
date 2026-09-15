@@ -9,8 +9,6 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.FastColor;
-import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -52,20 +50,12 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoEntity {
 	private static final RawAnimation IDLE_STAND = RawAnimation.begin().thenPlay("idle_stand");
 	private static final RawAnimation IDLE_STAND_QUIRK1 = RawAnimation.begin().thenPlay("idle_stand_quirk1");
 	private static final RawAnimation WALK = RawAnimation.begin().thenPlay("walk");
-	private static final RawAnimation SUMMON = RawAnimation.begin().thenPlay("summon");
 	private static final RawAnimation TWIRL = RawAnimation.begin().thenPlay("twirl_transin").thenLoop("twirl");
 
 	private static final EntityDataAccessor<Byte> DATA_DYE_ID = SynchedEntityData.defineId(Bizzar.class, EntityDataSerializers.BYTE);
 	private static final EntityDataAccessor<Boolean> BLIZZARD = SynchedEntityData.defineId(Bizzar.class, EntityDataSerializers.BOOLEAN);
-
-	private static int createBizzarColor(DyeColor dyeColor) {
-		if (dyeColor == DyeColor.WHITE) {
-			return -1644826;
-		} else {
-			int i = dyeColor.getTextureDiffuseColor();
-			return FastColor.ARGB32.color(255, Mth.floor((float) FastColor.ARGB32.red(i) * 0.75F), Mth.floor((float) FastColor.ARGB32.green(i) * 0.75F), Mth.floor((float) FastColor.ARGB32.blue(i) * 0.75F));
-		}
-	}
+	@Nullable
+	private UUID persistentAngerTarget;
 
 	public Bizzar(EntityType<? extends TamableAnimal> entityType, Level level) {
 		super(entityType, level);
@@ -140,7 +130,6 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoEntity {
 					this.setColor(dyeItem.getDyeColor());
 					itemStack.shrink(1);
 				}
-
 				return InteractionResult.sidedSuccess(level().isClientSide());
 			}
 		} else if (!isTame() && isFood(itemStack) && !this.isAngry()) {
@@ -189,12 +178,12 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoEntity {
 
 	@Override
 	public @Nullable UUID getPersistentAngerTarget() {
-		return null;
+		return this.persistentAngerTarget;
 	}
 
 	@Override
 	public void setPersistentAngerTarget(@Nullable UUID persistentAngerTarget) {
-
+		this.persistentAngerTarget = persistentAngerTarget;
 	}
 
 	@Override
