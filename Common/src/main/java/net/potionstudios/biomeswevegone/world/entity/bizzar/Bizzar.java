@@ -10,6 +10,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.TimeUtil;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -19,6 +21,8 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.OwnerHurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.OwnerHurtTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
@@ -54,6 +58,8 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoEntity {
 
 	private static final EntityDataAccessor<Byte> DATA_DYE_ID = SynchedEntityData.defineId(Bizzar.class, EntityDataSerializers.BYTE);
 	private static final EntityDataAccessor<Boolean> BLIZZARD = SynchedEntityData.defineId(Bizzar.class, EntityDataSerializers.BOOLEAN);
+
+	private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
 	@Nullable
 	private UUID persistentAngerTarget;
 
@@ -74,8 +80,8 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoEntity {
 		this.goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 1.0F));
 		this.goalSelector.addGoal(10, new LookAtPlayerGoal(this, Player.class, 8.0F));
 		this.goalSelector.addGoal(10, new RandomLookAroundGoal(this));
-//		this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
-//		this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
+		this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
+		this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
 		this.targetSelector.addGoal(3, (new HurtByTargetGoal(this)).setAlertOthers());
 	}
 
@@ -188,7 +194,7 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoEntity {
 
 	@Override
 	public void startPersistentAngerTimer() {
-
+		this.setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME.sample(this.getRandom()));
 	}
 
 	@Override
