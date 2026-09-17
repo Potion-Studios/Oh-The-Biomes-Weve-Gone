@@ -501,6 +501,8 @@ public class ModelGenerators {
                 }
             });
 
+            simpleBlockWithItem(BWGBlocks.FROSTED_AMBER_BLOCK.get(), models().cubeAll(name(BWGBlocks.FROSTED_AMBER_BLOCK.get()), blockBWGTexture(BWGBlocks.FROSTED_AMBER_BLOCK.get())).renderType("transparent"));
+
 //            getVariantBuilder(BWGBlocks.IRONWOOD_ROOTS.get()).forAllStatesExcept(state -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.IRONWOOD_ROOTS.get()) + (state.getValue(CaveVinesBlock.BERRIES) ? "_lit" : ""), blockBWGTexture(BWGBlocks.IRONWOOD_ROOTS.get(), state.getValue(CaveVinesBlock.BERRIES) ? "lit" : "")).renderType("cutout")).build(), CaveVinesBlock.AGE);
 //            getVariantBuilder(BWGBlocks.IRONWOOD_ROOTS_PLANT.get()).forAllStates(state -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.IRONWOOD_ROOTS_PLANT.get()) + (state.getValue(CaveVinesPlantBlock.BERRIES) ? "_lit" : ""), blockBWGTexture(BWGBlocks.IRONWOOD_ROOTS_PLANT.get(), state.getValue(CaveVinesPlantBlock.BERRIES) ? "lit" : "")).renderType("cutout")).build());
 
