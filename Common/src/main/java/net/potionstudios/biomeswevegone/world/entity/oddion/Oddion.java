@@ -41,14 +41,14 @@ import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jspecify.annotations.NonNull;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animatable.manager.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.RawAnimation;
-import software.bernie.geckolib.animation.object.PlayState;
-import software.bernie.geckolib.animation.state.AnimationTest;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.animation.AnimationController;
+import com.geckolib.animation.RawAnimation;
+import com.geckolib.animation.object.PlayState;
+import com.geckolib.animation.state.AnimationTest;
+import com.geckolib.util.GeckoLibUtil;
 
 import java.util.function.IntFunction;
 
@@ -243,14 +243,14 @@ public class Oddion extends PathfinderMob implements GeoEntity {
         }
 
         float expansion = 0.5F;
-        for (int heartCount = 0; heartCount < level().random.nextInt(5, 10); heartCount++) {
+        for (int heartCount = 0; heartCount < level().getRandom().nextInt(5, 10); heartCount++) {
             double xSize = getBoundingBox().getXsize();
             double ySize = getBoundingBox().getYsize();
             double zSize = getBoundingBox().getZsize();
 
-            float randX = Mth.randomBetween(level().random, (float) -xSize - expansion, (float) xSize + expansion) / 2F;
-            float randY = Mth.randomBetween(level().random, (float) 0, (float) ySize + expansion);
-            float randZ = Mth.randomBetween(level().random, (float) -zSize - expansion, (float) zSize + expansion) / 2F;
+            float randX = Mth.randomBetween(level().getRandom(), (float) -xSize - expansion, (float) xSize + expansion) / 2F;
+            float randY = Mth.randomBetween(level().getRandom(), (float) 0, (float) ySize + expansion);
+            float randZ = Mth.randomBetween(level().getRandom(), (float) -zSize - expansion, (float) zSize + expansion) / 2F;
 
             level().addParticle(ParticleTypes.HEART, getX() + randX, getY() + randY, getZ() + randZ, 0.05, 0.1, 0.05);
         }

@@ -155,7 +155,7 @@ public class BWGSandSet {
                 .slab(getSandstoneSlab())
                 .chiseled(getChiseledSandstone())
                 .cut(getCutSandstone())
-                .dontGenerateRecipe()
+                .dontGenerateCraftingRecipe()
                 .getFamily();
     }
 

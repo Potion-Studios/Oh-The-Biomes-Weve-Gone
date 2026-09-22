@@ -1,7 +1,7 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.feature.configured;
 
 import com.mojang.datafixers.util.Pair;
-import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
+import net.potionstudios.biomeswevegone.world.level.levelgen.util.BlendingFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.WeightedList;

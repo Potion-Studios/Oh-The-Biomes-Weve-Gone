@@ -1,8 +1,9 @@
 package net.potionstudios.biomeswevegone.client;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.block.BlockColors;
+import net.minecraft.client.color.block.BlockTintSource;
+import net.minecraft.client.color.block.BlockTintSources;
 import net.minecraft.client.color.item.ItemTintSource;
 import net.minecraft.client.model.object.boat.BoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -12,8 +13,8 @@ import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.block.BlockAndTintGetter;
 import net.minecraft.client.renderer.blockentity.*;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -24,10 +25,11 @@ import net.minecraft.util.ARGB;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.FoliageColor;
-import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.level.levelgen.synth.ImprovedNoise;
@@ -44,18 +46,14 @@ import net.potionstudios.biomeswevegone.client.renderer.entity.oddion.OddionRend
 import net.potionstudios.biomeswevegone.client.renderer.entity.pumpkinwarden.PumpkinWardenRenderer;
 import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
-import net.potionstudios.biomeswevegone.world.level.block.custom.BWGSpreadableBlock;
 import net.potionstudios.biomeswevegone.world.level.block.entities.BWGBlockEntityType;
-import net.potionstudios.biomeswevegone.world.level.block.plants.cactus.BWGCactusBlock;
-import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.BWGFruitBlock;
-import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.GlowCaneBlock;
-import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.cattail.CattailSproutBlock;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -80,8 +78,8 @@ public class BiomesWeveGoneClient {
      * @param woodType the wood type to register
      */
     private static void registerWoodTypes(WoodType woodType) {
-        Sheets.SIGN_MATERIALS.put(woodType, Sheets.createSignMaterial(woodType));
-        Sheets.HANGING_SIGN_MATERIALS.put(woodType, Sheets.createHangingSignMaterial(woodType));
+        Sheets.SIGN_SPRITES.put(woodType, Sheets.SIGN_MAPPER.apply(Identifier.parse(woodType.name())));
+        Sheets.HANGING_SIGN_SPRITES.put(woodType, Sheets.HANGING_SIGN_MAPPER.apply(Identifier.parse(woodType.name())));
     }
 
     /**
@@ -106,7 +104,7 @@ public class BiomesWeveGoneClient {
      * @see BWGBlockEntityType
      */
     public static void registerBlockEntityRenderers(BiConsumer<BlockEntityType<? extends BlockEntity>, BlockEntityRendererProvider> consumer) {
-        consumer.accept(BWGBlockEntityType.SIGNS.get(), SignRenderer::new);
+        consumer.accept(BWGBlockEntityType.SIGNS.get(), StandingSignRenderer::new);
         consumer.accept(BWGBlockEntityType.HANGING_SIGNS.get(), HangingSignRenderer::new);
     }
 
@@ -145,46 +143,50 @@ public class BiomesWeveGoneClient {
         consumer.accept(BWGParticles.SPIRIT_LEAVES.get(), FallingLeavesParticle.PaleOakProvider::new);
     }
 
-    public static void registerBlockRenderTypes(BiConsumer<Block, ChunkSectionLayer> consumer) {
-        BWGWood.WOOD.forEach(entry -> {
-            ChunkSectionLayer type = renderTypeBlock(entry.get());
-            if (type != null) consumer.accept(entry.get(), type);
-        });
-        BWGBlocks.BLOCKS.forEach(entry -> {
-            ChunkSectionLayer type = renderTypeBlock(entry.get());
-            if (type != null) consumer.accept(entry.get(), type);
-        });
-        consumer.accept(BWGWood.MAPLE.door(), ChunkSectionLayer.TRANSLUCENT);
-        consumer.accept(BWGWood.MAPLE.trapdoor(), ChunkSectionLayer.TRANSLUCENT);
-    }
-
-    @Nullable
-    private static ChunkSectionLayer renderTypeBlock(Block block) {
-        if (block instanceof BWGFruitBlock || block instanceof DoorBlock || block instanceof TrapDoorBlock || block instanceof VegetationBlock || block instanceof GlowCaneBlock || block instanceof LanternBlock || block instanceof LeavesBlock || block instanceof VineBlock || block instanceof MangroveRootsBlock
-                || block instanceof FlowerPotBlock || block instanceof BWGCactusBlock || block instanceof CattailSproutBlock
-                || block instanceof BWGSpreadableBlock || block instanceof SporeBlossomBlock || block instanceof BaseCoralPlantTypeBlock)
-            return ChunkSectionLayer.CUTOUT;
-        else if (block instanceof StainedGlassPaneBlock || block instanceof HalfTransparentBlock)
-            return ChunkSectionLayer.TRANSLUCENT;
-        return null;
-    }
-
     /**
      * Registers the block colors.
      * @see BlockColors
      */
-    public static void registerBlockColors(BiConsumer<BlockColor, Block[]> consumer) {
-        consumer.accept((state, view, pos, tintIndex) -> view != null && pos != null ? BiomeColors.getAverageGrassColor(view, pos) : GrassColor.getDefaultColor(), new Block[] {BWGBlocks.FLOWER_PATCH.get(), BWGBlocks.TINY_LILY_PADS.get(), BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.WHITE_SAKURA_PETALS.get(), BWGBlocks.YELLOW_SAKURA_PETALS.get()});
-        consumer.accept((state, view, pos, tintIndex) -> view != null && pos != null ? BiomeColors.getAverageFoliageColor(view, pos) : FoliageColor.get(0.5D, 1.0D), new Block[] {
+    public static void registerBlockColors(BiConsumer<BlockTintSource, Block[]> consumer) {
+        consumer.accept(BlockTintSources.grass(), new Block[] {BWGBlocks.FLOWER_PATCH.get(), BWGBlocks.TINY_LILY_PADS.get(), BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.WHITE_SAKURA_PETALS.get(), BWGBlocks.YELLOW_SAKURA_PETALS.get()});
+        consumer.accept(new BlockTintSource() {
+            @Override
+            public int color(BlockState state) {
+                return FoliageColor.get(0.5D, 1.0D);
+            }
+
+            @Override
+            public int colorInWorld(BlockState state, BlockAndTintGetter view, BlockPos pos) {
+                return BiomeColors.getAverageFoliageColor(view, pos);
+            }
+        }, new Block[] {
                 BWGBlocks.CLOVER_PATCH.get(), BWGBlocks.LEAF_PILE.get(), BWGBlocks.POISON_IVY.get(), BWGWood.MAHOGANY.leaves(),
                 BWGWood.WILLOW.leaves(), BWGWood.MAPLE.leaves(), BWGWood.YUCCA_LEAVES.get(), BWGWood.FLOWERING_YUCCA_LEAVES.get(), BWGWood.RIPE_YUCCA_LEAVES.get(), BWGWood.CYPRESS.leaves()});
-        consumer.accept((state, view, pos, tintIndex) -> getBorealisIceColor(Objects.requireNonNullElse(pos, BlockPos.ZERO)), new Block[] {BWGBlocks.BOREALIS_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get()});
-        consumer.accept((state, view, pos, tintIndex) -> view != null && pos != null ? BiomeColors.getAverageWaterColor(view, pos) : -1, new Block[] {BWGBlocks.CARVED_BARREL_CACTUS.get()});
-        consumer.accept((state, view, pos, tintIndex) -> {
-            int age = state.getValue(StemBlock.AGE);
-            return ARGB.color(age * 32, 255 - age, age *4);
+        consumer.accept(new BlockTintSource() {
+            @Override
+            public int color(BlockState state) {
+                return getBorealisIceColor(BlockPos.ZERO);
+            }
+
+            @Override
+            public int colorInWorld(BlockState state, BlockAndTintGetter view, BlockPos pos) {
+                return getBorealisIceColor(Objects.requireNonNullElse(pos, BlockPos.ZERO));
+            }
+        }, new Block[] {BWGBlocks.BOREALIS_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get()});
+        consumer.accept(BlockTintSources.water(), new Block[] {BWGBlocks.CARVED_BARREL_CACTUS.get()});
+        consumer.accept(new BlockTintSource() {
+            @Override
+            public int color(BlockState state) {
+                int age = state.getValue(StemBlock.AGE);
+                return ARGB.color(age * 32, 255 - age, age * 4);
+            }
+
+            @Override
+            public Set<Property<?>> relevantProperties() {
+                return Set.of(StemBlock.AGE);
+            }
         }, new Block[] {BWGBlocks.PALE_PUMPKIN_STEM.get()});
-        consumer.accept((state, view, pos, tintIndex) -> -2046180, new Block[] {BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get()});
+        consumer.accept(BlockTintSources.constant(-2046180), new Block[] {BWGBlocks.ATTACHED_PALE_PUMPKIN_STEM.get()});
     }
 
     private static final ImprovedNoise NOISE = new ImprovedNoise(new XoroshiroRandomSource(1));

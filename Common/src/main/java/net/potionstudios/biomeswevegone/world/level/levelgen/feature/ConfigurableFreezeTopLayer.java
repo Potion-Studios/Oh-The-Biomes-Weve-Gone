@@ -7,7 +7,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SnowyDirtBlock;
+import net.minecraft.world.level.block.SnowyBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -43,14 +43,14 @@ public class ConfigurableFreezeTopLayer extends Feature<ConfigurableFreezeTopLay
                 mutableBlockPos2.set(mutableBlockPos).move(Direction.DOWN, 1);
                 Biome biome = worldGenLevel.getBiome(mutableBlockPos).value();
                 if (biome.shouldFreeze(worldGenLevel, mutableBlockPos2, false)) {
-                    worldGenLevel.setBlock(mutableBlockPos2, ice.getState(context.random(), mutableBlockPos2), 2);
+                    worldGenLevel.setBlock(mutableBlockPos2, ice.getState(worldGenLevel, context.random(), mutableBlockPos2), 2);
                 }
 
                 if (biome.shouldSnow(worldGenLevel, mutableBlockPos)) {
                     worldGenLevel.setBlock(mutableBlockPos, Blocks.SNOW.defaultBlockState(), 2);
                     BlockState blockState = worldGenLevel.getBlockState(mutableBlockPos2);
-                    if (blockState.hasProperty(SnowyDirtBlock.SNOWY)) {
-                        worldGenLevel.setBlock(mutableBlockPos2, blockState.setValue(SnowyDirtBlock.SNOWY, true), 2);
+                    if (blockState.hasProperty(SnowyBlock.SNOWY)) {
+                        worldGenLevel.setBlock(mutableBlockPos2, blockState.setValue(SnowyBlock.SNOWY, true), 2);
                     }
                 }
             }

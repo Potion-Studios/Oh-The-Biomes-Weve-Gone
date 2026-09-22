@@ -2,7 +2,6 @@
   "type": "minecraft:stonecutting",
   "ingredient": "biomeswevegone:polished_red_rock",
   "result": {
-    "count": 1,
     "id": "biomeswevegone:polished_red_rock_stairs"
   }
 }

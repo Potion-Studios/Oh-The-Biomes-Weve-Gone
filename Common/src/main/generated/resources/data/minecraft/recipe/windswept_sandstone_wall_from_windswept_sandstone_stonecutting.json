@@ -2,7 +2,6 @@
   "type": "minecraft:stonecutting",
   "ingredient": "biomeswevegone:windswept_sandstone",
   "result": {
-    "count": 1,
     "id": "biomeswevegone:windswept_sandstone_wall"
   }
 }

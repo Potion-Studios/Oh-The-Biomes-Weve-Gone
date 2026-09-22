@@ -1,5 +1,5 @@
 {
-  "type": "ohthetreesyoullgrow:tree_from_nbt_v1",
+  "type": "ohthetreesyoullgrow:tree_from_nbt_v2",
   "config": {
     "base_location": "biomeswevegone:features/trees/jacaranda/jacaranda_trunk_4",
     "can_grow_on_filter": {
@@ -9,39 +9,44 @@
     "can_leaves_place_filter": {
       "type": "minecraft:replaceable"
     },
+    "can_logs_place_filter": {
+      "type": "minecraft:replaceable"
+    },
     "canopy_location": "biomeswevegone:features/trees/jacaranda/jacaranda_canopy_4",
     "height": {
       "type": "minecraft:biased_to_bottom",
       "max_inclusive": 15,
       "min_inclusive": 5
     },
-    "leaves_provider": {
-      "type": "minecraft:weighted_state_provider",
-      "entries": [
-        {
-          "data": {
-            "Name": "biomeswevegone:flowering_jacaranda_leaves",
-            "Properties": {
-              "distance": "7",
-              "persistent": "false",
-              "waterlogged": "false"
-            }
+    "leaves_provider": [
+      {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "data": {
+              "Name": "biomeswevegone:flowering_jacaranda_leaves",
+              "Properties": {
+                "distance": "7",
+                "persistent": "false",
+                "waterlogged": "false"
+              }
+            },
+            "weight": 1
           },
-          "weight": 1
-        },
-        {
-          "data": {
-            "Name": "biomeswevegone:jacaranda_leaves",
-            "Properties": {
-              "distance": "7",
-              "persistent": "false",
-              "waterlogged": "false"
-            }
-          },
-          "weight": 4
-        }
-      ]
-    },
+          {
+            "data": {
+              "Name": "biomeswevegone:jacaranda_leaves",
+              "Properties": {
+                "distance": "7",
+                "persistent": "false",
+                "waterlogged": "false"
+              }
+            },
+            "weight": 4
+          }
+        ]
+      }
+    ],
     "leaves_target": [
       "minecraft:oak_leaves"
     ],
@@ -57,6 +62,6 @@
     "log_target": [
       "minecraft:oak_log"
     ],
-    "place_from_nbt": []
+    "replace_from_nbt": {}
   }
 }

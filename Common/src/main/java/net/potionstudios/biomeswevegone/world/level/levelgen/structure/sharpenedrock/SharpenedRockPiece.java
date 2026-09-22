@@ -66,7 +66,7 @@ public class SharpenedRockPiece extends StructurePiece {
 
     @Override
     public void postProcess(WorldGenLevel worldGenLevel, @NotNull StructureManager structureManager, @NotNull ChunkGenerator chunkGenerator, @NotNull RandomSource r, @NotNull BoundingBox boundingBox, @NotNull ChunkPos chunkPos, @NotNull BlockPos blockPos) {
-        RandomSource randomSource = RandomSource.create(worldGenLevel.getLevel().getServer().getWorldData().worldGenOptions().seed() + origin.asLong());
+        RandomSource randomSource = RandomSource.create(worldGenLevel.getLevel().getServer().getWorldGenSettings().options().seed() + origin.asLong());
 
 
         BlockStateProvider blocks = new WeightedStateProvider(WeightedList.<BlockState>builder().add(Blocks.WHITE_TERRACOTTA.defaultBlockState(), 10).add(Blocks.LIGHT_GRAY_TERRACOTTA.defaultBlockState(), 1).build());

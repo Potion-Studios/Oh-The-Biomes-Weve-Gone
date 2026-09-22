@@ -3,7 +3,7 @@ package net.potionstudios.biomeswevegone.fabric.mixin;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.AttachedStemBlock;
-import net.minecraft.world.level.block.FarmBlock;
+import net.minecraft.world.level.block.FarmlandBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,6 +18,6 @@ public abstract class AttachedStemBlockMixin {
      */
     @Inject(method = "mayPlaceOn", at = @At("RETURN"), cancellable = true)
     protected void mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue(state.getBlock() instanceof FarmBlock);
+        cir.setReturnValue(state.getBlock() instanceof FarmlandBlock);
     }
 }

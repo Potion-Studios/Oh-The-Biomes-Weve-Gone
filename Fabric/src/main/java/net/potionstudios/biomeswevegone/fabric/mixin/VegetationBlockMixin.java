@@ -2,7 +2,7 @@ package net.potionstudios.biomeswevegone.fabric.mixin;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.FarmBlock;
+import net.minecraft.world.level.block.FarmlandBlock;
 import net.minecraft.world.level.block.VegetationBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,6 +18,6 @@ public abstract class VegetationBlockMixin {
      */
     @Inject(method = "mayPlaceOn", at = @At("RETURN"), cancellable = true)
     protected void mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue(cir.getReturnValue() || state.getBlock() instanceof FarmBlock);
+        cir.setReturnValue(cir.getReturnValue() || state.getBlock() instanceof FarmlandBlock);
     }
 }

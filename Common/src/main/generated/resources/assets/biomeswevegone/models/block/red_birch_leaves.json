@@ -1,6 +1,5 @@
 {
   "parent": "minecraft:block/leaves",
-  "render_type": "minecraft:cutout_mipped",
   "textures": {
     "all": "biomeswevegone:block/red_birch_leaves"
   }

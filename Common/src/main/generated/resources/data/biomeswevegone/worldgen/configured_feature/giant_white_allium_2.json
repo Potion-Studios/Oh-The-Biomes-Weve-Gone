@@ -1,5 +1,5 @@
 {
-  "type": "ohthetreesyoullgrow:tree_from_nbt_v1",
+  "type": "ohthetreesyoullgrow:tree_from_nbt_v2",
   "config": {
     "base_location": "biomeswevegone:features/trees/giant_allium/giant_allium_trunk2",
     "can_grow_on_filter": {
@@ -9,18 +9,23 @@
     "can_leaves_place_filter": {
       "type": "minecraft:replaceable"
     },
+    "can_logs_place_filter": {
+      "type": "minecraft:replaceable"
+    },
     "canopy_location": "biomeswevegone:features/trees/giant_allium/giant_allium_canopy2",
     "height": {
       "type": "minecraft:biased_to_bottom",
       "max_inclusive": 7,
       "min_inclusive": 3
     },
-    "leaves_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "biomeswevegone:white_allium_petal_block"
+    "leaves_provider": [
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "biomeswevegone:white_allium_petal_block"
+        }
       }
-    },
+    ],
     "leaves_target": [
       "minecraft:stone"
     ],
@@ -36,6 +41,6 @@
     "log_target": [
       "minecraft:oak_log"
     ],
-    "place_from_nbt": []
+    "replace_from_nbt": {}
   }
 }

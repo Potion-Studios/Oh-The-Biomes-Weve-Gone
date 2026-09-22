@@ -19,6 +19,7 @@ import net.potionstudios.biomeswevegone.neoforge.datagen.generators.*;
 import net.potionstudios.biomeswevegone.neoforge.datagen.generators.loot.GlobalLootModifiersGenerator;
 import net.potionstudios.biomeswevegone.neoforge.datagen.generators.loot.LootGenerator;
 import net.potionstudios.biomeswevegone.world.damagesource.BWGDamageTypes;
+import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
 import net.potionstudios.biomeswevegone.world.timeline.BWGTimelines;
 import net.potionstudios.biomeswevegone.world.item.jukebox.BWGJukeBoxSongs;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
@@ -46,6 +47,8 @@ class DataGeneratorsRegister {
     @SubscribeEvent
     protected static void gatherData(final GatherDataEvent.Client event) {
         BWGBiomeModifiers.init();
+        BWGVillagerTrades.makeTrades();
+        BWGVillagerTrades.makeWanderingTrades();
         DataGenerator generator = event.getGenerator();
         PackOutput output = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
@@ -83,6 +86,8 @@ class DataGeneratorsRegister {
             .add(Registries.STRUCTURE_SET, context -> BWGStructureSets.STRUCTURE_SET_FACTORIES.forEach((structureSetResourceKey, structureSetFactory) -> context.register(structureSetResourceKey, structureSetFactory.generate(context.lookup(Registries.STRUCTURE)))))
             .add(Registries.PROCESSOR_LIST, pContext -> BWGStructureProcessorLists.STRUCTURE_PROCESSOR_LIST_FACTORIES.forEach((structureProcessorListResourceKey, processorListFactory) -> pContext.register(structureProcessorListResourceKey, processorListFactory.generate(pContext.lookup(Registries.PROCESSOR_LIST)))))
             .add(Registries.DAMAGE_TYPE, pContext -> BWGDamageTypes.DAMAGE_TYPE_FACTORIES.forEach(((damageTypeResourceKey, damageTypeFactory) -> pContext.register(damageTypeResourceKey, damageTypeFactory.generate(pContext)))))
+            .add(Registries.VILLAGER_TRADE, pContext -> BWGVillagerTrades.VILLAGER_TRADE_FACTORIES.forEach((villagerTradeResourceKey, villagerTradeFactory) -> pContext.register(villagerTradeResourceKey, villagerTradeFactory.generate(pContext))))
+            .add(Registries.TRADE_SET, pContext -> BWGVillagerTrades.TRADE_SET_FACTORIES.forEach((tradeSetResourceKey, tradeSetFactory) -> pContext.register(tradeSetResourceKey, tradeSetFactory.generate(pContext))))
             .add(Registries.JUKEBOX_SONG, pContext -> BWGJukeBoxSongs.JUKEBOX_SONG_FACTORIES.forEach((songResourceKey, songFactory) -> pContext.register(songResourceKey, songFactory.generate(pContext))))
             .add(Registries.TIMELINE, pContext -> BWGTimelines.TIMELINE_FACTORIES.forEach((timelineResourceKey, timelineFactory) -> pContext.register(timelineResourceKey, timelineFactory.generate(pContext))))
             .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, pContext -> BWGBiomeModifiers.BIOME_MODIFIERS_FACTORIES.forEach((id, modifier) -> pContext.register(ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, id), new BiomeModifiers.AddFeaturesBiomeModifier(

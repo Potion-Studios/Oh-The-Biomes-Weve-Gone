@@ -6,33 +6,33 @@
       "blending_function_picker": [
         {
           "data": {
-            "type": "corgilib:ease_out_cubic"
+            "type": "ease_out_cubic"
           },
           "weight": 1
         },
         {
           "data": {
-            "type": "corgilib:ease_in_circ",
+            "type": "ease_in_circ",
             "exponent": 2.0
           },
           "weight": 1
         },
         {
           "data": {
-            "type": "corgilib:ease_out_quint"
+            "type": "ease_out_quint"
           },
           "weight": 1
         },
         {
           "data": {
-            "type": "corgilib:ease_out_elastic",
+            "type": "ease_out_elastic",
             "intensity": 10.0
           },
           "weight": 1
         },
         {
           "data": {
-            "type": "corgilib:ease_out_bounce"
+            "type": "ease_out_bounce"
           },
           "weight": 1
         }
@@ -66,10 +66,16 @@
           }
         },
         "check": {
-          "type": "minecraft:matching_blocks",
-          "blocks": [
-            "minecraft:air",
-            "minecraft:water"
+          "type": "minecraft:any_of",
+          "predicates": [
+            {
+              "type": "minecraft:matching_block_tag",
+              "tag": "minecraft:air"
+            },
+            {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:water"
+            }
           ]
         }
       },

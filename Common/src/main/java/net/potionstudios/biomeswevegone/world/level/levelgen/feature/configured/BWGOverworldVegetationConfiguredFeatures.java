@@ -2,14 +2,12 @@ package net.potionstudios.biomeswevegone.world.level.levelgen.feature.configured
 
 import com.google.common.collect.ImmutableList;
 import dev.corgitaco.ohthetreesyoullgrow.world.level.levelgen.feature.TYGFeatures;
-import dev.corgitaco.ohthetreesyoullgrow.world.level.levelgen.feature.configurations.TreeFromStructureNBTConfig;
+import dev.corgitaco.ohthetreesyoullgrow.world.level.levelgen.feature.configurations.TreeFromStructureNBTConfigV2;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.VegetationFeatures;
-import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.WeightedList;
@@ -24,7 +22,6 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
@@ -84,8 +81,11 @@ public class BWGOverworldVegetationConfiguredFeatures {
             (configuredFeatureBootstrapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE), FLOWER_PATCH, CLOVER_PATCH)
     );
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_SAKURA_PETALS = ConfiguredFeaturesUtil.createConfiguredFeature("white_sakura_petals", Feature.FLOWER, () -> new RandomPatchConfiguration(96, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(createPetalBlockStateList(BWGBlocks.WHITE_SAKURA_PETALS))))));
-    public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_SAKURA_PETALS = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_sakura_petals", Feature.FLOWER, () -> new RandomPatchConfiguration(96, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(createPetalBlockStateList(BWGBlocks.YELLOW_SAKURA_PETALS))))));
+    // NOTE: Feature.FLOWER / Feature.RANDOM_PATCH were removed in 26.1.2 - the patch spread (tries/xzSpread/ySpread)
+    // now lives in placement modifiers on the PlacedFeature rather than in a RandomPatchConfiguration wrapper.
+    // These are defined as the plain SIMPLE_BLOCK feature directly.
+    public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_SAKURA_PETALS = ConfiguredFeaturesUtil.createConfiguredFeature("white_sakura_petals", Feature.SIMPLE_BLOCK, () -> new SimpleBlockConfiguration(new WeightedStateProvider(createPetalBlockStateList(BWGBlocks.WHITE_SAKURA_PETALS))));
+    public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_SAKURA_PETALS = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_sakura_petals", Feature.SIMPLE_BLOCK, () -> new SimpleBlockConfiguration(new WeightedStateProvider(createPetalBlockStateList(BWGBlocks.YELLOW_SAKURA_PETALS))));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_PETALS = ConfiguredFeaturesUtil.createConfiguredFeature("sakura_petals",
             Feature.RANDOM_SELECTOR,
@@ -205,7 +205,7 @@ public class BWGOverworldVegetationConfiguredFeatures {
                 return new RandomFeatureConfiguration(ImmutableList.of(
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(MINI_CACTI), SAND_FILTER), 0.15F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PRICKLY_PEAR_CACTI), SAND_FILTER), 0.15F),
-                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(VegetationFeatures.PATCH_CACTUS), SAND_FILTER), 0.15F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(VegetationFeatures.CACTUS), SAND_FILTER), 0.15F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(ALOE_VERA), SAND_FILTER), 0.3F)),
                         PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(GOLDEN_SPINED_CACTI), SAND_FILTER));
             }
@@ -276,25 +276,23 @@ public class BWGOverworldVegetationConfiguredFeatures {
                     BWGBlocks.PEACH_LEATHER_FLOWER.getFeature(), BWGBlocks.VIOLET_LEATHER_FLOWER.getFeature()
             ));
 
+    // NOTE: Feature.RANDOM_PATCH / RandomPatchConfiguration were removed in 26.1.2 - the patch spread and the
+    // ON_WATER_FILTER/IN_REPLACEABLE_FILTER placement filters previously carried by the wrapped PlacedFeature
+    // now belong on the PlacedFeature that references this ConfiguredFeature (out of scope for this file).
+    // Defined here as the plain SIMPLE_BLOCK feature directly.
     public static final ResourceKey<ConfiguredFeature<?, ?>> TINY_LILY_PAD = ConfiguredFeaturesUtil.createConfiguredFeature("tiny_lily_pad",
-            Feature.RANDOM_PATCH,
-            () -> new RandomPatchConfiguration(10, 7, 3,
-                    PlacedFeaturesUtil.createPlacedFeatureDirect(ConfiguredFeaturesUtil.createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BWGBlocks.TINY_LILY_PADS.get()))), ON_WATER_FILTER, IN_REPLACEABLE_FILTER)
-            )
+            Feature.SIMPLE_BLOCK,
+            () -> new SimpleBlockConfiguration(BlockStateProvider.simple(BWGBlocks.TINY_LILY_PADS.get()))
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_TINY_LILY_PAD = ConfiguredFeaturesUtil.createConfiguredFeature("flowering_tiny_lily_pad",
-            Feature.RANDOM_PATCH,
-            () -> new RandomPatchConfiguration(10, 7, 3,
-                    PlacedFeaturesUtil.createPlacedFeatureDirect(ConfiguredFeaturesUtil.createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BWGBlocks.FLOWERING_TINY_LILY_PADS.get()))), ON_WATER_FILTER, IN_REPLACEABLE_FILTER)
-            )
+            Feature.SIMPLE_BLOCK,
+            () -> new SimpleBlockConfiguration(BlockStateProvider.simple(BWGBlocks.FLOWERING_TINY_LILY_PADS.get()))
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WATER_SILK = ConfiguredFeaturesUtil.createConfiguredFeature("water_silk",
-            Feature.RANDOM_PATCH,
-            () -> new RandomPatchConfiguration(10, 7, 3,
-                    PlacedFeaturesUtil.createPlacedFeatureDirect(ConfiguredFeaturesUtil.createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BWGBlocks.WATER_SILK.get()))), ON_WATER_FILTER, IN_REPLACEABLE_FILTER)
-            )
+            Feature.SIMPLE_BLOCK,
+            () -> new SimpleBlockConfiguration(BlockStateProvider.simple(BWGBlocks.WATER_SILK.get()))
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SWAMP_WATER_VEGETATION = ConfiguredFeaturesUtil.createConfiguredFeature("swamp_water_vegetation",
@@ -342,67 +340,67 @@ public class BWGOverworldVegetationConfiguredFeatures {
                 return new RandomFeatureConfiguration(ImmutableList.of(
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TINY_LILY_PAD), ON_WATER_FILTER), 0.1875F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(CATTAILS), BlockPredicateFilter.forPredicate(BlockPredicate.noFluid(new BlockPos(0, -1, 0)))), 0.25F),
-                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(VegetationFeatures.PATCH_WATERLILY), ON_WATER_FILTER), 0.1875F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(VegetationFeatures.WATERLILY), ON_WATER_FILTER), 0.1875F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(WATER_SILK), ON_WATER_FILTER), 0.1875F)
                 ), PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(FLOWERING_TINY_LILY_PAD), ON_WATER_FILTER));
             }
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_GREEN_MUSHROOM1 = ConfiguredFeaturesUtil.createConfiguredFeature("huge_green_mushroom1",
-            TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig.Builder()
+            TYGFeatures.TREE_FROM_NBT_V2,
+            () -> new TreeFromStructureNBTConfigV2.Builder()
                     .baseLocation(BiomesWeveGone.id("features/mushrooms/green_mushroom/green_mushroom_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/mushrooms/green_mushroom/green_mushroom_canopy1"))
                     .height(BiasedToBottomInt.of(6, 8))
                     .logProvider(BlockStateProvider.simple(BWGBlocks.WHITE_MUSHROOM_STEM.get()))
                     .leavesProvider(BlockStateProvider.simple(BWGBlocks.GREEN_MUSHROOM_BLOCK.get()))
                     .logTarget(Set.of(BWGBlocks.WHITE_MUSHROOM_STEM.get()))
-                    .leavesTarget(Set.of(BWGBlocks.GREEN_MUSHROOM_BLOCK.get()))
+                    .leavesTarget(List.of(BWGBlocks.GREEN_MUSHROOM_BLOCK.get()))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
                     .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_GREEN_MUSHROOM2 = ConfiguredFeaturesUtil.createConfiguredFeature("huge_green_mushroom1",
-            TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig.Builder()
+            TYGFeatures.TREE_FROM_NBT_V2,
+            () -> new TreeFromStructureNBTConfigV2.Builder()
                     .baseLocation(BiomesWeveGone.id("features/mushrooms/green_mushroom/green_mushroom_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/mushrooms/green_mushroom/green_mushroom_canopy2"))
                     .height(BiasedToBottomInt.of(6, 8))
                     .logProvider(BlockStateProvider.simple(BWGBlocks.WHITE_MUSHROOM_STEM.get()))
                     .leavesProvider(BlockStateProvider.simple(BWGBlocks.GREEN_MUSHROOM_BLOCK.get()))
                     .logTarget(Set.of(BWGBlocks.WHITE_MUSHROOM_STEM.get()))
-                    .leavesTarget(Set.of(BWGBlocks.GREEN_MUSHROOM_BLOCK.get()))
+                    .leavesTarget(List.of(BWGBlocks.GREEN_MUSHROOM_BLOCK.get()))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
                     .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_WEEPING_MILKCAP1 = ConfiguredFeaturesUtil.createConfiguredFeature("huge_weeping_milkcap1",
-            TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig.Builder()
+            TYGFeatures.TREE_FROM_NBT_V2,
+            () -> new TreeFromStructureNBTConfigV2.Builder()
                     .baseLocation(BiomesWeveGone.id("features/mushrooms/weeping_milkcap/weeping_milkcap_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/mushrooms/weeping_milkcap/weeping_milkcap_canopy1"))
                     .height(BiasedToBottomInt.of(6, 8))
                     .logProvider(BlockStateProvider.simple(BWGBlocks.BROWN_MUSHROOM_STEM.get()))
                     .leavesProvider(BlockStateProvider.simple(BWGBlocks.WEEPING_MILKCAP_MUSHROOM_BLOCK.get()))
                     .logTarget(Set.of(BWGBlocks.BROWN_MUSHROOM_STEM.get()))
-                    .leavesTarget(Set.of(BWGBlocks.WEEPING_MILKCAP_MUSHROOM_BLOCK.get()))
+                    .leavesTarget(List.of(BWGBlocks.WEEPING_MILKCAP_MUSHROOM_BLOCK.get()))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
                     .build()
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_WOOD_BLEWIT1 = ConfiguredFeaturesUtil.createConfiguredFeature("huge_wood_blewit1",
-            TYGFeatures.TREE_FROM_NBT_V1,
-            () -> new TreeFromStructureNBTConfig.Builder()
+            TYGFeatures.TREE_FROM_NBT_V2,
+            () -> new TreeFromStructureNBTConfigV2.Builder()
                     .baseLocation(BiomesWeveGone.id("features/mushrooms/wood_blewit/wood_blewit_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/mushrooms/wood_blewit/wood_blewit_canopy1"))
                     .height(BiasedToBottomInt.of(6, 8))
                     .logProvider(BlockStateProvider.simple(BWGBlocks.BROWN_MUSHROOM_STEM.get()))
                     .leavesProvider(BlockStateProvider.simple(BWGBlocks.WOOD_BLEWIT_MUSHROOM_BLOCK.get()))
                     .logTarget(Set.of(BWGBlocks.BROWN_MUSHROOM_STEM.get()))
-                    .leavesTarget(Set.of(BWGBlocks.WOOD_BLEWIT_MUSHROOM_BLOCK.get()))
+                    .leavesTarget(List.of(BWGBlocks.WOOD_BLEWIT_MUSHROOM_BLOCK.get()))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
                     .build()
@@ -445,8 +443,12 @@ public class BWGOverworldVegetationConfiguredFeatures {
         return createFlowerConfiguredFeature(id, flowerBlock, 15);
     }
 
+    // NOTE: Feature.FLOWER / Feature.RANDOM_PATCH / VegetationFeatures.grassPatch / FeatureUtils.simplePatchConfiguration
+    // were removed in 26.1.2 - the "tries" patch-spread behavior now lives in placement modifiers on the PlacedFeature,
+    // not in the ConfiguredFeature. These helpers now return the plain SIMPLE_BLOCK feature; the "tries" parameter is
+    // retained for API compatibility with callers but no longer affects this ConfiguredFeature directly.
     private static ResourceKey<ConfiguredFeature<?, ?>> createFlowerConfiguredFeature(String id, Supplier<? extends Block> flowerBlock, int tries) {
-        return ConfiguredFeaturesUtil.createConfiguredFeature(id, Feature.FLOWER, () -> VegetationFeatures.grassPatch(SimpleStateProvider.simple(flowerBlock.get().defaultBlockState()), tries));
+        return ConfiguredFeaturesUtil.createConfiguredFeature(id, Feature.SIMPLE_BLOCK, () -> new SimpleBlockConfiguration(SimpleStateProvider.simple(flowerBlock.get().defaultBlockState())));
     }
 
     private static ResourceKey<ConfiguredFeature<?, ?>> createPatchConfiguredFeature(String id, Supplier<? extends Block> block, int tries) {
@@ -454,7 +456,7 @@ public class BWGOverworldVegetationConfiguredFeatures {
     }
 
     private static ResourceKey<ConfiguredFeature<?, ?>> createPatchConfiguredFeatureState(String id, Supplier<? extends BlockState> state, int tries) {
-        return ConfiguredFeaturesUtil.createConfiguredFeature(id, Feature.RANDOM_PATCH, () -> FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(state.get())), List.of(), tries));
+        return ConfiguredFeaturesUtil.createConfiguredFeature(id, Feature.SIMPLE_BLOCK, () -> new SimpleBlockConfiguration(BlockStateProvider.simple(state.get())));
     }
 
 

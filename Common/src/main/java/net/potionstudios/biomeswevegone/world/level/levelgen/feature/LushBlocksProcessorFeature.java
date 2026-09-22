@@ -58,7 +58,7 @@ public class LushBlocksProcessorFeature extends Feature<NoneFeatureConfiguration
                                 int offsetHeight = level.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, mutableBlockPos.getX(), mutableBlockPos.getZ());
                                 if (level.getBlockState(mutableBlockPos).isAir() && mutableBlockPos.getY() > offsetHeight) {
                                     mutableBlockPos.set(minWorldX + x, y, minWorldZ + z);
-                                    chunk.setBlockState(mutableBlockPos, lushStatesProvider.getState(context.random(), mutableBlockPos));
+                                    chunk.setBlockState(mutableBlockPos, lushStatesProvider.getState(level, context.random(), mutableBlockPos));
                                 }
                             }
                         }

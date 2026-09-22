@@ -12,7 +12,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.potionstudios.biomeswevegone.tags.BWGBiomeTags;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
@@ -54,24 +53,22 @@ public final class BoneMealHandler {
                 ((BonemealableBlock) blockState.getBlock()).performBonemeal(level, random, blockPos2, blockState2);
 
             if (blockState2.isAir()) {
-                Holder<PlacedFeature> holder;
                 if (random.nextInt(8) == 0) {
-                    List<ConfiguredFeature<?, ?>> list = level.getBiome(blockPos2).value().getGenerationSettings().getFlowerFeatures();
+                    List<ConfiguredFeature<?, ?>> list = level.getBiome(blockPos2).value().getGenerationSettings().getBoneMealFeatures();
                     if (list.isEmpty()) continue;
 
-                    holder = randomizeFlower ? getRandElement(list, random) : ((RandomPatchConfiguration) list.getFirst().config()).feature();
+                    ConfiguredFeature<?, ?> configuredFeature = randomizeFlower ? getRandElement(list, random) : list.getFirst();
+                    configuredFeature.place(level, level.getChunkSource().getGenerator(), random, blockPos2);
                 } else {
                     if (optional.isEmpty()) continue;
-                    holder = optional.get();
+                    optional.get().value().place(level, level.getChunkSource().getGenerator(), random, blockPos2);
                 }
-
-                holder.value().place(level, level.getChunkSource().getGenerator(), random, blockPos2);
             }
         }
         return true;
     }
 
-    private static Holder<PlacedFeature> getRandElement(List<ConfiguredFeature<?, ?>> list, RandomSource random) {
-        return ((RandomPatchConfiguration) list.get(random.nextInt(list.size())).config()).feature();
+    private static ConfiguredFeature<?, ?> getRandElement(List<ConfiguredFeature<?, ?>> list, RandomSource random) {
+        return list.get(random.nextInt(list.size()));
     }
 }

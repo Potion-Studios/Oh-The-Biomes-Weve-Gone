@@ -62,7 +62,7 @@ public class NoiseSphere extends Feature<NoiseSphereConfig> { // TODO: Add Confi
             cache.forEach(pos -> {
                 mutableBlockPos.set(pos);
                 if (blockPlacement.getFirst().test(level, mutableBlockPos)) {
-                    level.setBlock(mutableBlockPos, blockPlacement.getSecond().getState(random, mutableBlockPos), 2);
+                    level.setBlock(mutableBlockPos, blockPlacement.getSecond().getState(level, random, mutableBlockPos), 2);
                 }
             });
         }

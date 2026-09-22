@@ -1,9 +1,7 @@
 package net.potionstudios.biomeswevegone.forge;
 
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.npc.villager.VillagerTrades;
 import net.minecraft.world.entity.npc.villager.VillagerType;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ShovelItem;
@@ -16,12 +14,8 @@ import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.level.BlockEvent;
-import net.minecraftforge.event.village.VillagerTradesEvent;
-import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.bus.BusGroup;
 import net.potionstudios.biomeswevegone.util.BoneMealHandler;
-import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
-import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTypes;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import net.potionstudios.biomeswevegone.world.item.brewing.BWGBrewingRecipes;
@@ -30,7 +24,6 @@ import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
 
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Used for Vanilla compatibility on the Forge platform.
@@ -51,11 +44,6 @@ public class VanillaCompatForge {
     public static void registerVanillaCompatEvents(final BusGroup bus) {
         BlockEvent.BlockToolModificationEvent.BUS.addListener(VanillaCompatForge::registerTillables);
         FurnaceFuelBurnTimeEvent.BUS.addListener(VanillaCompatForge::registerFuels);
-        if (!BWGTradesConfig.INSTANCE.trades.disableTrades.value()) {
-            VillagerTradesEvent.BUS.addListener(VanillaCompatForge::onVillagerTrade);
-            if (BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value())
-                WandererTradesEvent.BUS.addListener(VanillaCompatForge::onWanderingTrade);
-        }
         BrewingRecipeRegisterEvent.BUS.addListener(VanillaCompatForge::registerBrewingRecipes);
         BonemealEvent.BUS.addListener(VanillaCompatForge::onBoneMealUse);
         PlayerInteractEvent.EntityInteractSpecific.BUS.addListener(VanillaCompatForge::onVillagerInteract);
@@ -85,29 +73,6 @@ public class VanillaCompatForge {
         BlockFeatures.registerFurnaceFuels((block, burnTime) -> {
             if (event.getItemStack().is(block.asItem())) event.setBurnTime(burnTime);
         });
-    }
-
-    /**
-     * Register villager trades.
-     * @see VillagerTradesEvent
-     */
-    private static void onVillagerTrade(final VillagerTradesEvent event) {
-        if (BWGVillagerTrades.TRADES.containsKey(event.getType())) {
-            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
-            BWGVillagerTrades.TRADES.get(event.getType())
-                    .forEach((level, offers) -> {
-                        List<VillagerTrades.ItemListing> tradeList = trades.get(level);
-                        tradeList.addAll(offers);
-                    });
-        }
-    }
-
-    /**
-     * Register wandering trader trades.
-     * @see WandererTradesEvent
-     */
-    private static void onWanderingTrade(final WandererTradesEvent event) {
-        BWGVillagerTrades.WANDERING_TRADER_TRADES.forEach((level, offers) -> event.getPools().add(new WandererTradesEvent.Pool(offers, level)));
     }
 
     /**

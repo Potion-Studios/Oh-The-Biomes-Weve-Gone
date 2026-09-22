@@ -5,7 +5,6 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.Dynamic;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.GlobalPos;
 import net.minecraft.core.Holder;
@@ -31,6 +30,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.ActivityData;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -67,15 +67,16 @@ import net.potionstudios.biomeswevegone.world.level.block.entities.PumpkinBurrow
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jspecify.annotations.NonNull;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animatable.manager.AnimatableManager;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.animation.object.LoopType;
-import software.bernie.geckolib.animation.object.PlayState;
-import software.bernie.geckolib.animation.state.AnimationTest;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.animation.*;
+import com.geckolib.animation.object.LoopType;
+import com.geckolib.animation.object.PlayState;
+import com.geckolib.animation.state.AnimationTest;
+import com.geckolib.util.GeckoLibUtil;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.BiPredicate;
@@ -127,6 +128,25 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
             SensorType.HURT_BY
     );
 
+    private static final Brain.Provider<PumpkinWarden> BRAIN_PROVIDER = Brain.provider(
+            MEMORY_TYPES,
+            SENSOR_TYPES,
+            pumpkinWarden -> List.of(
+                    ActivityData.create(Activity.CORE, PumpkinWardenGoalPackages.getCorePackage()),
+                    ActivityData.create(Activity.PLAY, PumpkinWardenGoalPackages.getPlayPackage()),
+                    ActivityData.create(Activity.IDLE, PumpkinWardenGoalPackages.getIdlePackage()),
+                    ActivityData.create(Activity.WORK, PumpkinWardenGoalPackages.getWorkPackage()),
+                    ActivityData.create(Activity.REST, PumpkinWardenGoalPackages.getRestPackage()),
+                    ActivityData.create(Activity.PANIC, PumpkinWardenGoalPackages.getPanicPackage()),
+                    ActivityData.create(Activity.HIDE, PumpkinWardenGoalPackages.getHidePackage()),
+                    ActivityData.create(
+                            Activity.MEET,
+                            PumpkinWardenGoalPackages.getMeetPackage(),
+                            ImmutableSet.of(Pair.of(MemoryModuleType.MEETING_POINT, MemoryStatus.VALUE_PRESENT))
+                    )
+            )
+    );
+
     public static final Map<MemoryModuleType<GlobalPos>, BiPredicate<PumpkinWarden, Holder<PoiType>>> POI_MEMORIES = ImmutableMap.of(
             MemoryModuleType.HOME, (pumpkinWarden, holder) -> holder.is(BWGPoiTypes.PUMPKIN_BURROW),
             MemoryModuleType.MEETING_POINT, (pumpkinWarden, holder) -> holder.is(PoiTypes.MEETING)
@@ -134,8 +154,8 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
 
     public PumpkinWarden(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
-        setPathfindingMalus(PathType.DANGER_FIRE, 16.0F);
-        setPathfindingMalus(PathType.DAMAGE_FIRE, -1.0F);
+        setPathfindingMalus(PathType.FIRE_IN_NEIGHBOR, 16.0F);
+        setPathfindingMalus(PathType.FIRE, -1.0F);
         getNavigation().setCanOpenDoors(true);
         getNavigation().setCanFloat(true);
     }
@@ -146,13 +166,8 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    protected Brain.@NotNull Provider<?> brainProvider() {
-        return Brain.provider(MEMORY_TYPES, SENSOR_TYPES);
-    }
-
-    @Override
-    protected @NotNull Brain<?> makeBrain(@NotNull Dynamic<?> dynamic) {
-        Brain<PumpkinWarden> brain = (Brain<PumpkinWarden>) super.makeBrain(dynamic);
+    protected @NotNull Brain<PumpkinWarden> makeBrain(Brain.@NotNull Packed packedBrain) {
+        Brain<PumpkinWarden> brain = BRAIN_PROVIDER.makeBrain(this, packedBrain);
         registerBrainGoals(brain);
         return brain;
     }
@@ -160,25 +175,12 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
     private void refreshBrain(ServerLevel serverLevel) {
         Brain<PumpkinWarden> brain = this.getBrain();
         brain.stopAll(serverLevel, this);
-        this.brain = brain.copyWithoutBehaviors();
+        this.brain = BRAIN_PROVIDER.makeBrain(this, brain.pack());
         this.registerBrainGoals(this.getBrain());
     }
 
     private void registerBrainGoals(Brain<PumpkinWarden> brain) {
         brain.setSchedule(BWGEnvironmentAttributes.PUMPKIN_WARDEN_ACTIVITY.get());
-        brain.addActivity(Activity.CORE, PumpkinWardenGoalPackages.getCorePackage());
-        brain.addActivity(Activity.PLAY, PumpkinWardenGoalPackages.getPlayPackage());
-        brain.addActivity(Activity.IDLE, PumpkinWardenGoalPackages.getIdlePackage());
-        brain.addActivity(Activity.WORK, PumpkinWardenGoalPackages.getWorkPackage());
-        brain.addActivity(Activity.REST, PumpkinWardenGoalPackages.getRestPackage());
-        brain.addActivity(Activity.PANIC, PumpkinWardenGoalPackages.getPanicPackage());
-        brain.addActivity(Activity.HIDE, PumpkinWardenGoalPackages.getHidePackage());
-        brain.addActivityWithConditions(
-                Activity.MEET,
-                PumpkinWardenGoalPackages.getMeetPackage(),
-                ImmutableSet.of(Pair.of(MemoryModuleType.MEETING_POINT, MemoryStatus.VALUE_PRESENT))
-        );
-        brain.setCoreActivities(ImmutableSet.of(Activity.CORE));
         brain.setDefaultActivity(Activity.PLAY);
         if (isHiding()) brain.setActiveActivityIfPossible(Activity.HIDE);
         else brain.setActiveActivityIfPossible(Activity.PLAY);

@@ -26,7 +26,7 @@ public class BlockFeatures {
                 consumer.accept(block, 0.3F);
             else if (block instanceof VineBlock || block instanceof DesertPlantBlock || block instanceof BWGCactusBlock)
                 consumer.accept(block, 0.5F);
-            else if (block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof WaterlilyBlock || block instanceof MushroomBlock || block instanceof FlatVegetationBlock || block instanceof BWGPlacementBushBlock || block instanceof PumpkinBlock || block instanceof CarvedPumpkinBlock || block instanceof SporeBlossomBlock)
+            else if (block instanceof FlowerBlock || block instanceof TallFlowerBlock || block instanceof LilyPadBlock || block instanceof MushroomBlock || block instanceof FlatVegetationBlock || block instanceof BWGPlacementBushBlock || block instanceof PumpkinBlock || block instanceof CarvedPumpkinBlock || block instanceof SporeBlossomBlock)
                 consumer.accept(block, 0.65F);
             else if (block instanceof HugeMushroomBlock || block instanceof HayBlock)
                 consumer.accept(block, 0.85F);

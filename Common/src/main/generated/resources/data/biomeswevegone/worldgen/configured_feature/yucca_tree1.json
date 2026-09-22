@@ -1,5 +1,5 @@
 {
-  "type": "ohthetreesyoullgrow:tree_from_nbt_v1",
+  "type": "ohthetreesyoullgrow:tree_from_nbt_v2",
   "config": {
     "base_location": "biomeswevegone:features/trees/yucca/yucca_trunk1",
     "can_grow_on_filter": {
@@ -7,6 +7,9 @@
       "tag": "minecraft:sand"
     },
     "can_leaves_place_filter": {
+      "type": "minecraft:replaceable"
+    },
+    "can_logs_place_filter": {
       "type": "minecraft:replaceable"
     },
     "canopy_location": "biomeswevegone:features/trees/yucca/yucca_canopy1",
@@ -46,44 +49,46 @@
       "max_inclusive": 2,
       "min_inclusive": 1
     },
-    "leaves_provider": {
-      "type": "minecraft:weighted_state_provider",
-      "entries": [
-        {
-          "data": {
-            "Name": "biomeswevegone:yucca_leaves",
-            "Properties": {
-              "distance": "7",
-              "persistent": "false",
-              "waterlogged": "false"
-            }
+    "leaves_provider": [
+      {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "data": {
+              "Name": "biomeswevegone:yucca_leaves",
+              "Properties": {
+                "distance": "7",
+                "persistent": "false",
+                "waterlogged": "false"
+              }
+            },
+            "weight": 10
           },
-          "weight": 10
-        },
-        {
-          "data": {
-            "Name": "biomeswevegone:flowering_yucca_leaves",
-            "Properties": {
-              "distance": "7",
-              "persistent": "false",
-              "waterlogged": "false"
-            }
+          {
+            "data": {
+              "Name": "biomeswevegone:flowering_yucca_leaves",
+              "Properties": {
+                "distance": "7",
+                "persistent": "false",
+                "waterlogged": "false"
+              }
+            },
+            "weight": 2
           },
-          "weight": 2
-        },
-        {
-          "data": {
-            "Name": "biomeswevegone:ripe_yucca_leaves",
-            "Properties": {
-              "distance": "7",
-              "persistent": "false",
-              "waterlogged": "false"
-            }
-          },
-          "weight": 1
-        }
-      ]
-    },
+          {
+            "data": {
+              "Name": "biomeswevegone:ripe_yucca_leaves",
+              "Properties": {
+                "distance": "7",
+                "persistent": "false",
+                "waterlogged": "false"
+              }
+            },
+            "weight": 1
+          }
+        ]
+      }
+    ],
     "leaves_target": [
       "minecraft:oak_leaves"
     ],
@@ -100,6 +105,6 @@
       "minecraft:oak_log"
     ],
     "max_log_depth": 4,
-    "place_from_nbt": []
+    "replace_from_nbt": {}
   }
 }

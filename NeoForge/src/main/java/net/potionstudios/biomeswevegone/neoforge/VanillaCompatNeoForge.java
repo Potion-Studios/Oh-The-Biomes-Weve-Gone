@@ -1,12 +1,11 @@
 package net.potionstudios.biomeswevegone.neoforge;
 
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.npc.villager.VillagerTrades;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.FireBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.IEventBus;
@@ -15,41 +14,53 @@ import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.player.BonemealEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
-import net.neoforged.neoforge.event.village.VillagerTradesEvent;
-import net.neoforged.neoforge.event.village.WandererTradesEvent;
 import net.potionstudios.biomeswevegone.util.BoneMealHandler;
-import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
-import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import net.potionstudios.biomeswevegone.world.item.brewing.BWGBrewingRecipes;
 import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
 
+import java.lang.invoke.MethodHandle;
+import java.lang.invoke.MethodHandles;
+import java.lang.invoke.MethodType;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Used for Vanilla compatibility on the Forge platform.
  * @author Joseph T. McQuigg
  */
 public class VanillaCompatNeoForge {
+    // FireBlock#setFlammable is private with no public equivalent, so it must be invoked reflectively.
+    private static final MethodHandle SET_FLAMMABLE = resolveSetFlammable();
+
+    private static MethodHandle resolveSetFlammable() {
+        try {
+            var lookup = MethodHandles.privateLookupIn(FireBlock.class, MethodHandles.lookup());
+            return lookup.findVirtual(FireBlock.class, "setFlammable", MethodType.methodType(void.class, net.minecraft.world.level.block.Block.class, int.class, int.class));
+        } catch (ReflectiveOperationException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void init() {
         ToolInteractions.registerStrippableBlocks((block, stripped) -> {
             AxeItem.STRIPPABLES = new HashMap<>(AxeItem.STRIPPABLES);
             AxeItem.STRIPPABLES.put(block, stripped);
         });
-        BlockFeatures.registerFlammable(((FireBlock) Blocks.FIRE)::setFlammable);
+        BlockFeatures.registerFlammable((block, igniteOdds, burnOdds) -> {
+            try {
+                SET_FLAMMABLE.invoke((FireBlock) Blocks.FIRE, block, igniteOdds, burnOdds);
+            } catch (Throwable e) {
+                throw new RuntimeException(e);
+            }
+        });
         ToolInteractions.registerFlattenables(ShovelItem.FLATTENABLES::put);
+        BlockFeatures.registerCompostables((item, chance) -> ComposterBlock.COMPOSTABLES.put(item.asItem(), chance.floatValue()));
     }
 
     public static void registerVanillaCompatEvents(final IEventBus bus) {
         bus.addListener(VanillaCompatNeoForge::registerTillables);
-        if (!BWGTradesConfig.INSTANCE.trades.disableTrades.value()) {
-            bus.addListener(VanillaCompatNeoForge::onVillagerTrade);
-            if (BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value())
-                bus.addListener(VanillaCompatNeoForge::onWanderingTrade);
-        }
         bus.addListener(VanillaCompatNeoForge::onBoneMealUse);
         bus.addListener(VanillaCompatNeoForge::registerBrewingRecipes);
         bus.addListener(VanillaCompatNeoForge::onVillagerInteract);
@@ -69,31 +80,6 @@ public class VanillaCompatNeoForge {
             else if (state.is(BWGBlocks.PEAT.get()))
                 event.setFinalState(Blocks.FARMLAND.defaultBlockState());
         }
-    }
-
-    /**
-     * Register villager trades.
-     * @see VillagerTradesEvent
-     */
-    private static void onVillagerTrade(final VillagerTradesEvent event) {
-        if (BWGVillagerTrades.TRADES.containsKey(event.getType())) {
-            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
-            BWGVillagerTrades.TRADES.get(event.getType())
-                    .forEach((level, offers) -> {
-                        List<VillagerTrades.ItemListing> tradeList = trades.get(level);
-                        tradeList.addAll(offers);
-                    });
-        }
-    }
-
-    /**
-     * Register wandering trader trades.
-     * @see WandererTradesEvent
-     */
-    private static void onWanderingTrade(final WandererTradesEvent event) {
-        BWGVillagerTrades.WANDERING_TRADER_TRADES.forEach((level, offers) -> {
-            for (VillagerTrades.ItemListing itemListing : offers) event.getGenericTrades().add(itemListing);
-        });
     }
 
     /**

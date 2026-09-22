@@ -2,7 +2,6 @@
   "type": "minecraft:stonecutting",
   "ingredient": "biomeswevegone:mossy_stone",
   "result": {
-    "count": 1,
     "id": "biomeswevegone:mossy_stone_stairs"
   }
 }

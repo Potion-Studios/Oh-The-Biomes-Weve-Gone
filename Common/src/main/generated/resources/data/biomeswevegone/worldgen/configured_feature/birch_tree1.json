@@ -1,5 +1,5 @@
 {
-  "type": "ohthetreesyoullgrow:tree_from_nbt_v1",
+  "type": "ohthetreesyoullgrow:tree_from_nbt_v2",
   "config": {
     "base_location": "biomeswevegone:features/trees/birch/birch_tree_trunk1",
     "can_grow_on_filter": {
@@ -7,6 +7,9 @@
       "tag": "minecraft:dirt"
     },
     "can_leaves_place_filter": {
+      "type": "minecraft:replaceable"
+    },
+    "can_logs_place_filter": {
       "type": "minecraft:replaceable"
     },
     "canopy_location": "biomeswevegone:features/trees/birch/birch_tree_canopy1",
@@ -40,17 +43,19 @@
       "max_inclusive": 10,
       "min_inclusive": 3
     },
-    "leaves_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "minecraft:birch_leaves",
-        "Properties": {
-          "distance": "7",
-          "persistent": "false",
-          "waterlogged": "false"
+    "leaves_provider": [
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:birch_leaves",
+          "Properties": {
+            "distance": "7",
+            "persistent": "false",
+            "waterlogged": "false"
+          }
         }
       }
-    },
+    ],
     "leaves_target": [
       "minecraft:oak_leaves"
     ],
@@ -66,6 +71,6 @@
     "log_target": [
       "minecraft:birch_log"
     ],
-    "place_from_nbt": []
+    "replace_from_nbt": {}
   }
 }

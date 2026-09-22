@@ -41,10 +41,10 @@ public class BloomingAloeVeraBlock extends DoublePlantBlock {
     }
 
     private void use(@NotNull Level level, @NotNull BlockPos pos) {
-        level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1, 0.8f + level.random.nextFloat() * 0.4f);
-        popResource(level, pos, new ItemStack(BWGBlocks.ALOE_VERA.get().asItem(), level.random.nextInt(1, 3)));
+        level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1, 0.8f + level.getRandom().nextFloat() * 0.4f);
+        popResource(level, pos, new ItemStack(BWGBlocks.ALOE_VERA.get().asItem(), level.getRandom().nextInt(1, 3)));
         level.setBlockAndUpdate(level.getBlockState(pos.below()).is(BlockTags.SAND) ? pos : pos.below(), BWGBlocks.ALOE_VERA.get().defaultBlockState());
-        level.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + level.random.nextDouble(), pos.getY() + 1.0D, pos.getZ() + level.random.nextDouble(), 0.0D, 0.0D, 0.0D);
+        level.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + level.getRandom().nextDouble(), pos.getY() + 1.0D, pos.getZ() + level.getRandom().nextDouble(), 0.0D, 0.0D, 0.0D);
     }
 
     @Override

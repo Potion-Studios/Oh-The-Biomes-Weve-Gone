@@ -87,7 +87,7 @@ public class LargeLakePiece extends StructurePiece {
         BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
 
 
-        ChunkAccess chunk = worldGenLevel.getChunk(chunkPos.x, chunkPos.z);
+        ChunkAccess chunk = worldGenLevel.getChunk(chunkPos.x(), chunkPos.z());
 
         boolean[] placedWater = new boolean[16 * 16];
 
@@ -195,7 +195,7 @@ public class LargeLakePiece extends StructurePiece {
             } else if (y <= depth + 3) {
 
                 if (y < waterGenY) {
-                    chunk.setBlockState(mutableBlockPos, stateProvider.getState(random, mutableBlockPos));
+                    chunk.setBlockState(mutableBlockPos, stateProvider.getState(worldGenLevel, random, mutableBlockPos));
                 } else {
                     chunk.setBlockState(mutableBlockPos, topBlocks[Math.min(origin.getY() - y, topBlocks.length - 1)]);
                     ((RandomTickScheduler) chunk).scheduleRandomTick(mutableBlockPos.immutable());

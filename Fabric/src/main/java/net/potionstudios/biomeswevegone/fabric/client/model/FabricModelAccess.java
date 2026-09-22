@@ -1,16 +1,16 @@
 package net.potionstudios.biomeswevegone.fabric.client.model;
 
 import com.google.auto.service.AutoService;
+import net.fabricmc.fabric.api.client.model.loading.v1.FabricModelManager;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.block.BlockRenderDispatcher;
-import net.minecraft.client.renderer.block.model.BlockStateModel;
+import net.minecraft.client.renderer.block.dispatch.BlockStateModel;
 import net.potionstudios.biomeswevegone.client.model.ModelAccess;
 import net.potionstudios.biomeswevegone.fabric.client.BiomesWeveGoneClientFabric;
 
 @AutoService(ModelAccess.class)
 public class FabricModelAccess implements ModelAccess {
     @Override
-    public BlockStateModel getModel(String name, BlockRenderDispatcher blockRenderDispatcher) {
-        return Minecraft.getInstance().getModelManager().getModel(BiomesWeveGoneClientFabric.EXTRA_MODELS.get(name));
+    public BlockStateModel getModel(String name) {
+        return ((FabricModelManager) Minecraft.getInstance().getModelManager()).getModel(BiomesWeveGoneClientFabric.EXTRA_MODELS.get(name));
     }
 }

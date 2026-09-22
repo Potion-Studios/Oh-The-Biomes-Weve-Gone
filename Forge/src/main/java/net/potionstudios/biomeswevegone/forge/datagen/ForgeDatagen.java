@@ -19,6 +19,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.forge.loot.AddItemModifier;
+import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.modifiers.BWGBiomeModifiers;
 import org.jetbrains.annotations.NotNull;
@@ -33,6 +34,8 @@ class ForgeDatagen {
 
     @SubscribeEvent
     protected static void gatherData(final GatherDataEvent event) {
+        BWGVillagerTrades.makeTrades();
+        BWGVillagerTrades.makeWanderingTrades();
         DataGenerator generator = event.getGenerator();
         PackOutput output = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
@@ -48,7 +51,9 @@ class ForgeDatagen {
                     HolderSet.direct(Arrays.stream(modifier.biomes()).map(biome -> pContext.lookup(Registries.BIOME).getOrThrow(biome)).collect(Collectors.toList())),
                     HolderSet.direct(pContext.lookup(Registries.PLACED_FEATURE).getOrThrow(modifier.feature())),
                     modifier.step()
-            ))));
+            ))))
+            .add(Registries.VILLAGER_TRADE, pContext -> BWGVillagerTrades.VILLAGER_TRADE_FACTORIES.forEach((villagerTradeResourceKey, villagerTradeFactory) -> pContext.register(villagerTradeResourceKey, villagerTradeFactory.generate(pContext))))
+            .add(Registries.TRADE_SET, pContext -> BWGVillagerTrades.TRADE_SET_FACTORIES.forEach((tradeSetResourceKey, tradeSetFactory) -> pContext.register(tradeSetResourceKey, tradeSetFactory.generate(pContext))));
 
     private static class GlobalLootModifiersGenerator extends GlobalLootModifierProvider {
 

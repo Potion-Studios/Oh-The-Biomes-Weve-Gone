@@ -12,19 +12,11 @@ architectury {
 val minecraftVersion = providers.gradleProperty("minecraft_version").get()
 
 configurations {
-    create("common")
-    "common" {
-        isCanBeResolved = true
-        isCanBeConsumed = false
-    }
-    create("shadowBundle")
-    compileClasspath.get().extendsFrom(configurations["common"])
-    runtimeClasspath.get().extendsFrom(configurations["common"])
-    getByName("developmentNeoForge").extendsFrom(configurations["common"])
-    "shadowBundle" {
-        isCanBeResolved = true
-        isCanBeConsumed = false
-    }
+    val common = register("common")
+    register("shadowCommon")
+    compileClasspath.get().extendsFrom(common.get())
+    runtimeClasspath.get().extendsFrom(common.get())
+    named("developmentNeoForge") { extendsFrom(common.get()) }
 }
 
 loom {
@@ -38,27 +30,28 @@ loom {
             "--existing", project(":Common").file("src/main/resources").absolutePath
         )
     }
+
+    neoForge.convertAccessWideners(tasks.shadowJar, "biomeswevegone.accessWidener")
 }
 
 dependencies {
     neoForge("net.neoforged:neoforge:${providers.gradleProperty("neoforge_version").get()}")
 
-    "common"(project(":Common", "namedElements")) { isTransitive = false }
-    "shadowBundle"(project(":Common", "transformProductionNeoForge"))
+    "common"(project(":Common")) { isTransitive = false }
+    "shadowCommon"(project(":Common", "transformProductionNeoForge"))
 
-    modLocalRuntime("me.djtheredstoner:DevAuth-neoforge:${providers.gradleProperty("devauth_version").get()}")
+    localRuntime("me.djtheredstoner:DevAuth-neoforge:${providers.gradleProperty("devauth_version").get()}")
 
-    modApi("com.github.glitchfiend:TerraBlender-neoforge:$minecraftVersion-${providers.gradleProperty("terrablender_version").get()}")
-    modApi("dev.corgitaco:Corgilib-NeoForge:$minecraftVersion-${providers.gradleProperty("corgilib_version").get()}")
-    modApi("dev.corgitaco:Oh-The-Trees-Youll-Grow-neoforge:$minecraftVersion-${providers.gradleProperty("ohthetreesyoullgrow_version").get()}")
-    modApi("software.bernie.geckolib:geckolib-neoforge-$minecraftVersion:${providers.gradleProperty("geckolib_version").get()}")
+    api("com.github.glitchfiend:TerraBlender-neoforge:$minecraftVersion-${providers.gradleProperty("terrablender_version").get()}")
+    api("dev.corgitaco.ohthetreesyoullgrow:ohthetreesyoullgrow-neoforge-$minecraftVersion:${providers.gradleProperty("ohthetreesyoullgrow_version").get()}")
+    api("com.geckolib:geckolib-neoforge-$minecraftVersion:${providers.gradleProperty("geckolib_version").get()}")
     compileOnly("net.luckperms:api:5.4")
 
-    modCompileOnly("mcp.mobius.waila:wthit-api:neo-${providers.gradleProperty("WTHIT").get()}")
-    modLocalRuntime("mcp.mobius.waila:wthit:neo-${providers.gradleProperty("WTHIT").get()}")
-    modLocalRuntime("lol.bai:badpackets:neo-${providers.gradleProperty("badPackets").get()}")
+    compileOnly("mcp.mobius.waila:wthit-api:neo-${providers.gradleProperty("WTHIT").get()}")
+    localRuntime("mcp.mobius.waila:wthit:neo-${providers.gradleProperty("WTHIT").get()}")
+    localRuntime("lol.bai:badpackets:neo-${providers.gradleProperty("badPackets").get()}")
 
-    modApi("com.github.glitchfiend:SereneSeasons-neoforge:$minecraftVersion-21.11.0.1")
+    api("com.github.glitchfiend:SereneSeasons-neoforge:$minecraftVersion-26.1.2.0.3")
 }
 
 tasks {
@@ -70,23 +63,21 @@ tasks {
         }
     }
 
+    jar.get().archiveClassifier.set("raw")
+
     shadowJar {
+        dependsOn(jar)
+        from(zipTree(jar.get().archiveFile))
         exclude("net/potionstudios/biomeswevegone/neoforge/datagen/**",
             "architectury.common.json", ".cache/**")
-        configurations = listOf(project.configurations.getByName("shadowBundle"))
-        archiveClassifier.set("dev-shadow")
-    }
-
-    remapJar {
-        inputFile.set(shadowJar.get().archiveFile)
-        dependsOn(shadowJar)
-        atAccessWideners.add("biomeswevegone.accesswidener")
+        configurations = listOf(project.configurations.getByName("shadowCommon"))
+        archiveClassifier.set(null)
     }
 }
 
 publisher {
     setLoaders(ModLoader.NEOFORGE)
-    curseDepends.required.set(mutableListOf("terrablender-neoforge", "geckolib", "corgilib", "oh-the-trees-youll-grow"))
-    modrinthDepends.required.set(mutableListOf("terrablender", "geckolib", "corgilib", "oh-the-trees-youll-grow"))
+    curseDepends.required.set(mutableListOf("terrablender-neoforge", "geckolib", "oh-the-trees-youll-grow"))
+    modrinthDepends.required.set(mutableListOf("terrablender", "geckolib", "oh-the-trees-youll-grow"))
     curseDepends.optional.set(mutableListOf("wthit-forge"))
 }

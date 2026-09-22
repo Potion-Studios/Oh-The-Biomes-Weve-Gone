@@ -1,6 +1,5 @@
 package net.potionstudios.biomeswevegone.fabric;
 
-import corgitaco.corgilib.fabric.CorgiLibFabric;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
@@ -27,7 +26,6 @@ public class BiomesWeveGoneFabric implements ModInitializer {
     }
 
     public static void initializeBiomesWeveGone(String initializedFrom) {
-        CorgiLibFabric.initializeCorgiLib(initializedFrom);
         if (firstInitializedFrom != null) {
             BiomesWeveGone.LOGGER.debug("Attempted to Initialize Oh The Biomes We've Gone (BWG) from \"{}\" but BWG already was initialized from \"{}\", this should not be a problem.", initializedFrom, firstInitializedFrom);
             return;

@@ -4,18 +4,20 @@ import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.clock.WorldClock;
+import net.minecraft.world.clock.WorldClocks;
 import net.minecraft.world.entity.schedule.Activity;
 import net.minecraft.world.timeline.Timeline;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.attribute.BWGEnvironmentAttributes;
 
 import java.util.Map;
-import java.util.function.Supplier;
+import java.util.function.Function;
 
 public interface BWGTimelines {
 	Map<ResourceKey<Timeline>, TimelineFactory> TIMELINE_FACTORIES = new Reference2ObjectOpenHashMap<>();
 
-	ResourceKey<Timeline> PUMPKIN_WARDEN = register("pumpkin_warden", () -> Timeline.builder()
+	ResourceKey<Timeline> PUMPKIN_WARDEN = register("pumpkin_warden", clock -> Timeline.builder(clock)
 			.setPeriodTicks(24000)
 			.addTrack(BWGEnvironmentAttributes.PUMPKIN_WARDEN_ACTIVITY.get(), (builder -> builder
 					.addKeyframe(10, Activity.IDLE)
@@ -26,9 +28,9 @@ public interface BWGTimelines {
 					.addKeyframe(10000, Activity.PLAY)
 					.addKeyframe(12000, Activity.REST))));
 
-	private static ResourceKey<Timeline> register(String id, Supplier<Timeline.Builder> timelineBuilder) {
+	private static ResourceKey<Timeline> register(String id, Function<net.minecraft.core.Holder<WorldClock>, Timeline.Builder> timelineBuilder) {
 		ResourceKey<Timeline> key = BiomesWeveGone.key(Registries.TIMELINE, id);
-		TIMELINE_FACTORIES.put(key, context -> timelineBuilder.get().build());
+		TIMELINE_FACTORIES.put(key, context -> timelineBuilder.apply(context.lookup(Registries.WORLD_CLOCK).getOrThrow(WorldClocks.OVERWORLD)).build());
 		return key;
 	}
 

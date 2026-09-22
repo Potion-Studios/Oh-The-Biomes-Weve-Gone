@@ -46,7 +46,7 @@ public class PalePumpkinBlock extends PumpkinBlock {
                     (double)pos.getZ() + 0.5 + (double)direction2.getStepZ() * 0.65,
                     new ItemStack(BWGItems.PALE_PUMPKIN_SEEDS.get(), 4)
             );
-            itemEntity.setDeltaMovement(0.05 * (double)direction2.getStepX() + level.random.nextDouble() * 0.02, 0.05, 0.05 * (double)direction2.getStepZ() + level.random.nextDouble() * 0.02);
+            itemEntity.setDeltaMovement(0.05 * (double)direction2.getStepX() + level.getRandom().nextDouble() * 0.02, 0.05, 0.05 * (double)direction2.getStepZ() + level.getRandom().nextDouble() * 0.02);
             level.addFreshEntity(itemEntity);
             stack.hurtAndBreak(1, player, hand.asEquipmentSlot());
             level.gameEvent(player, GameEvent.SHEAR, pos);

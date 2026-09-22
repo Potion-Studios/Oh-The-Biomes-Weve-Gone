@@ -257,8 +257,8 @@ public class BWGBlocks {
     public static final Supplier<BloomingAloeVeraBlock> BLOOMING_ALOE_VERA = registerBlock("blooming_aloe_vera", BloomingAloeVeraBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.0f).sound(SoundType.WET_GRASS).noOcclusion().noCollision().pushReaction(PushReaction.DESTROY));
 
     /** Lily Pads */
-    public static final Supplier<WaterlilyBlock> TINY_LILY_PADS = registerBlock("tiny_lily_pads", WaterlilyBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD));
-    public static final Supplier<WaterlilyBlock> FLOWERING_TINY_LILY_PADS = registerBlock("flowering_tiny_lily_pads", WaterlilyBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD));
+    public static final Supplier<LilyPadBlock> TINY_LILY_PADS = registerBlock("tiny_lily_pads", LilyPadBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD));
+    public static final Supplier<LilyPadBlock> FLOWERING_TINY_LILY_PADS = registerBlock("flowering_tiny_lily_pads", LilyPadBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD));
 
     public static final Supplier<BWGFruitBlock> APPLE_FRUIT_BLOCK = registerBlock("apple_fruit", properties -> new BWGFruitBlock(properties, () -> () -> Items.APPLE, "ripe_orchard_leaves"), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY));
     public static final Supplier<BWGFruitBlock> BAOBAB_FRUIT_BLOCK = registerBlock("baobab_fruit", properties -> new BWGFruitBlock(properties, () -> BWGItems.BAOBAB_FRUIT,"ripe_baobab_leaves"), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY));
@@ -274,7 +274,7 @@ public class BWGBlocks {
     public static final BWGBlockSet DACITE_COBBLESTONE_SET = new BWGBlockSet("dacite_cobblestone", BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE).mapColor(MapColor.TERRACOTTA_WHITE));
     public static final Supplier<RotatedPillarBlock> DACITE_PILLAR = registerBlockItem("dacite_pillar", RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).mapColor(MapColor.TERRACOTTA_WHITE));
     public static final BWGBlockSet DACITE_TILES_SET = new BWGBlockSet("dacite_tiles", "dacite_tile", MapColor.TERRACOTTA_WHITE);
-    public static final Supplier<SnowyDirtBlock> PODZOL_DACITE = registerBlockItem("podzol_dacite", SnowyDirtBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).mapColor(MapColor.TERRACOTTA_WHITE));
+    public static final Supplier<SnowyBlock> PODZOL_DACITE = registerBlockItem("podzol_dacite", SnowyBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).mapColor(MapColor.TERRACOTTA_WHITE));
     public static final Supplier<BWGSpreadableBlock> OVERGROWN_DACITE = registerBlockItem("overgrown_dacite", properties -> new BWGSpreadableBlock(properties, DACITE_SET::getBase), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).randomTicks());
 
     public static final BWGBlockSet WHITE_DACITE_SET = new BWGBlockSet("white_dacite", MapColor.TERRACOTTA_WHITE);
@@ -285,7 +285,7 @@ public class BWGBlocks {
     public static final BWGBlockSet WHITE_DACITE_COBBLESTONE_SET = new BWGBlockSet("white_dacite_cobblestone", BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE).mapColor(MapColor.TERRACOTTA_WHITE));
     public static final Supplier<RotatedPillarBlock> WHITE_DACITE_PILLAR = registerBlockItem("white_dacite_pillar", RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).mapColor(MapColor.TERRACOTTA_WHITE));
     public static final BWGBlockSet WHITE_DACITE_TILES_SET = new BWGBlockSet("white_dacite_tiles", "white_dacite_tile", MapColor.TERRACOTTA_WHITE);
-    public static final Supplier<SnowyDirtBlock> WHITE_PODZOL_DACITE = registerBlockItem("white_podzol_dacite", SnowyDirtBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).mapColor(MapColor.TERRACOTTA_WHITE));
+    public static final Supplier<SnowyBlock> WHITE_PODZOL_DACITE = registerBlockItem("white_podzol_dacite", SnowyBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).mapColor(MapColor.TERRACOTTA_WHITE));
     public static final Supplier<BWGSpreadableBlock> WHITE_OVERGROWN_DACITE = registerBlockItem("white_overgrown_dacite", properties -> new BWGSpreadableBlock(properties, WHITE_DACITE_SET::getBase), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).randomTicks());
 
     public static final Supplier<BWGSpreadableBlock> OVERGROWN_STONE = registerBlockItem("overgrown_stone", properties -> new BWGSpreadableBlock(properties, () -> Blocks.STONE), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).randomTicks());
@@ -305,15 +305,15 @@ public class BWGBlocks {
     public static final Supplier<Block> PACKED_PALE_MUD = registerBasicBlockWithItem("packed_pale_mud", BlockBehaviour.Properties.ofFullCopy(Blocks.PACKED_MUD));
     public static final BWGBlockSet PALE_MUD_BRICKS_SET = new BWGBlockSet("pale_mud_bricks", BlockBehaviour.Properties.ofFullCopy(Blocks.MUD_BRICKS));
 
-    public static final Supplier<Block> WATER_SILK = registerBlock("water_silk", WaterlilyBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD).noCollision().mapColor(MapColor.COLOR_GREEN));
+    public static final Supplier<Block> WATER_SILK = registerBlock("water_silk", LilyPadBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD).noCollision().mapColor(MapColor.COLOR_GREEN));
 
     public static final Supplier<HayBlock> CATTAIL_THATCH = registerBlockItem("cattail_thatch", HayBlock::new, BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.5f));
     public static final Supplier<SlabBlock> CATTAIL_THATCH_SLAB = registerBlockItem("cattail_thatch_slab", SlabBlock::new, BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.5f));
     public static final Supplier<StairBlock> CATTAIL_THATCH_STAIRS = registerBlockItem("cattail_thatch_stairs", properties -> new StairBlock(CATTAIL_THATCH.get().defaultBlockState(), properties), BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.5f));
     public static final Supplier<WoolCarpetBlock> CATTAIL_THATCH_CARPET = registerBlockItem("cattail_thatch_carpet", properties -> new WoolCarpetBlock(DyeColor.BROWN, properties), BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.5f));
 
-    public static final Supplier<AttachedStemBlock> ATTACHED_PALE_PUMPKIN_STEM = registerBlock("attached_pale_pumpkin_stem", properties -> new AttachedStemBlock(key("pale_pumpkin_stem"), key("pale_pumpkin"), BiomesWeveGone.key(Registries.ITEM, "pale_pumpkin_seeds"), properties), BlockBehaviour.Properties.ofFullCopy(Blocks.ATTACHED_PUMPKIN_STEM));
-    public static final Supplier<StemBlock> PALE_PUMPKIN_STEM = registerBlock("pale_pumpkin_stem", properties -> new StemBlock(key("pale_pumpkin"), key("attached_pale_pumpkin_stem"), BiomesWeveGone.key(Registries.ITEM, "pale_pumpkin_seeds"), properties), BlockBehaviour.Properties.ofFullCopy(Blocks.PUMPKIN_STEM));
+    public static final Supplier<AttachedStemBlock> ATTACHED_PALE_PUMPKIN_STEM = registerBlock("attached_pale_pumpkin_stem", properties -> new AttachedStemBlock(key("pale_pumpkin_stem"), key("pale_pumpkin"), BiomesWeveGone.key(Registries.ITEM, "pale_pumpkin_seeds"), BlockTags.SUPPORTS_PUMPKIN_STEM, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.ATTACHED_PUMPKIN_STEM));
+    public static final Supplier<StemBlock> PALE_PUMPKIN_STEM = registerBlock("pale_pumpkin_stem", properties -> new StemBlock(key("pale_pumpkin"), key("attached_pale_pumpkin_stem"), BiomesWeveGone.key(Registries.ITEM, "pale_pumpkin_seeds"), BlockTags.SUPPORTS_PUMPKIN_STEM, BlockTags.SUPPORTS_PUMPKIN_STEM_FRUIT, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.PUMPKIN_STEM));
     public static final Supplier<PalePumpkinBlock> PALE_PUMPKIN = registerBlockItem("pale_pumpkin", PalePumpkinBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.PUMPKIN).mapColor(MapColor.TERRACOTTA_WHITE));
     public static final Supplier<PaleCarvedPumpkinBlock> CARVED_PALE_PUMPKIN = registerBlockItem("carved_pale_pumpkin", PaleCarvedPumpkinBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CARVED_PUMPKIN).mapColor(MapColor.TERRACOTTA_WHITE), new Item.Properties().useBlockDescriptionPrefix().component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.HEAD).setSwappable(false).setCameraOverlay(BiomesWeveGone.id("misc/palepumpkinblur")).build()));
     public static final Supplier<PaleCarvedPumpkinBlock> PALE_JACK_O_LANTERN = registerBlockItem("pale_jack_o_lantern", PaleCarvedPumpkinBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.JACK_O_LANTERN).mapColor(MapColor.TERRACOTTA_WHITE));

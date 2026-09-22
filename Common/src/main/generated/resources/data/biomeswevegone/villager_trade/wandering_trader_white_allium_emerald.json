@@ -1,0 +1,10 @@
+{
+  "gives": {
+    "id": "biomeswevegone:white_allium"
+  },
+  "max_uses": 13.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "id": "minecraft:emerald"
+  }
+}

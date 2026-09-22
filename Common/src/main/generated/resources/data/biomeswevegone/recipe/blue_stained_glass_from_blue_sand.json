@@ -5,7 +5,6 @@
   "experience": 0.1,
   "ingredient": "biomeswevegone:blue_sand",
   "result": {
-    "count": 1,
     "id": "minecraft:blue_stained_glass"
   }
 }

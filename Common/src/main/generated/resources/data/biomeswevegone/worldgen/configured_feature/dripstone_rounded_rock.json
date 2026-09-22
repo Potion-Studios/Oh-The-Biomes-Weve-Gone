@@ -4,7 +4,7 @@
     "blending_function": [
       {
         "data": {
-          "type": "corgilib:ease_in_circ",
+          "type": "ease_in_circ",
           "exponent": 0.8
         },
         "weight": 4
@@ -19,10 +19,16 @@
           }
         },
         "check": {
-          "type": "minecraft:matching_blocks",
-          "blocks": [
-            "minecraft:air",
-            "minecraft:water"
+          "type": "minecraft:any_of",
+          "predicates": [
+            {
+              "type": "minecraft:matching_block_tag",
+              "tag": "minecraft:air"
+            },
+            {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:water"
+            }
           ]
         }
       },

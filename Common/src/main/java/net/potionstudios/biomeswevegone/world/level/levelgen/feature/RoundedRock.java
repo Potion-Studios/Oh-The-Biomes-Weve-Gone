@@ -2,7 +2,7 @@ package net.potionstudios.biomeswevegone.world.level.levelgen.feature;
 
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
-import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
+import net.potionstudios.biomeswevegone.world.level.levelgen.util.BlendingFunction;
 import it.unimi.dsi.fastutil.longs.LongOpenHashSet;
 import it.unimi.dsi.fastutil.longs.LongSet;
 import net.minecraft.core.BlockPos;
@@ -65,7 +65,7 @@ public class RoundedRock extends Feature<RoundedRockConfig> {
             cached.forEach(pos -> {
                 mutableBlockPos.set(pos);
                 if (blockPlacement.getFirst().test(context.level(), mutableBlockPos)) {
-                    context.level().setBlock(mutableBlockPos, blockPlacement.getSecond().getState(random, mutableBlockPos), 2);
+                    context.level().setBlock(mutableBlockPos, blockPlacement.getSecond().getState(context.level(), random, mutableBlockPos), 2);
                 }
             });
         }

@@ -1,5 +1,5 @@
 {
-  "feature": "minecraft:patch_grass_jungle",
+  "feature": "minecraft:grass_jungle",
   "placement": [
     {
       "type": "minecraft:count",

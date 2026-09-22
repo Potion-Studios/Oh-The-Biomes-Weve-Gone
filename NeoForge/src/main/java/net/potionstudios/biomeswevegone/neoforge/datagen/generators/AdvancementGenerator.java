@@ -80,7 +80,7 @@ public class AdvancementGenerator extends AdvancementProvider {
                     .addCriterion("inside_quicksand", EnterBlockTrigger.TriggerInstance.entersBlock(BWGBlocks.QUICKSAND.get()))
                     .addCriterion("inside_red_quicksand", EnterBlockTrigger.TriggerInstance.entersBlock(BWGBlocks.RED_QUICKSAND.get()))
                     .display(
-                            BWGBlocks.QUICKSAND.get().asItem().getDefaultInstance(),
+                            BWGBlocks.QUICKSAND.get().asItem(),
                             translateAble("adventure.inside_quicksand.title"),
                             translateAble("adventure.inside_quicksand.description"),
                             null,
@@ -95,7 +95,7 @@ public class AdvancementGenerator extends AdvancementProvider {
                     .addCriterion("prairie_house", PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(registries.holderOrThrow(BWGStructures.PRAIRIE_HOUSE))))
                     .addCriterion("abondoned_prairie_house", PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(registries.holderOrThrow(BWGStructures.ABANDONED_PRAIRIE_HOUSE))))
                     .display(
-                            BWGBlocks.PRAIRIE_GRASS.get().asItem().getDefaultInstance(),
+                            BWGBlocks.PRAIRIE_GRASS.get().asItem(),
                             translateAble("adventure.little_house_on_the_prairie.title"),
                             translateAble("adventure.little_house_on_the_prairie.description"),
                             null,

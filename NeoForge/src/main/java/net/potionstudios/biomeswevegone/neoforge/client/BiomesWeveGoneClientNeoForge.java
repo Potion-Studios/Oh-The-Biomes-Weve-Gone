@@ -1,7 +1,6 @@
 package net.potionstudios.biomeswevegone.neoforge.client;
 
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.block.model.BlockStateModel;
+import net.minecraft.client.renderer.block.dispatch.BlockStateModel;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -16,6 +15,7 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.client.BiomesWeveGoneClient;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,13 +35,12 @@ public class BiomesWeveGoneClientNeoForge {
     public BiomesWeveGoneClientNeoForge(final IEventBus eventBus) {
         eventBus.addListener((FMLClientSetupEvent event) -> {
             BiomesWeveGoneClient.onInitialize();
-            BiomesWeveGoneClient.registerBlockRenderTypes(ItemBlockRenderTypes::setRenderLayer);
         });
         eventBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> BiomesWeveGoneClient.registerEntityRenderers(event::registerEntityRenderer));
         eventBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> BiomesWeveGoneClient.registerBlockEntityRenderers(event::registerBlockEntityRenderer));
         eventBus.addListener((RegisterParticleProvidersEvent event) -> BiomesWeveGoneClient.registerParticles((type, spriteProviderFactory) -> event.registerSpriteSet(type, spriteProviderFactory::apply)));
         eventBus.addListener((EntityRenderersEvent.RegisterLayerDefinitions event) -> BiomesWeveGoneClient.registerLayerDefinitions(event::registerLayerDefinition));
-        eventBus.addListener((RegisterColorHandlersEvent.Block event) -> BiomesWeveGoneClient.registerBlockColors(event::register));
+        eventBus.addListener((RegisterColorHandlersEvent.BlockTintSources event) -> BiomesWeveGoneClient.registerBlockColors((tintSource, blocks) -> event.register(List.of(tintSource), blocks)));
         eventBus.addListener((RegisterColorHandlersEvent.ItemTintSources event) -> BiomesWeveGoneClient.registerItemTintSources(event::register));
         eventBus.addListener((ModelEvent.RegisterStandalone event) -> BiomesWeveGoneClient.registerAdditionalModels((name) -> {
             StandaloneModelKey<BlockStateModel> key = new StandaloneModelKey<>(() -> BiomesWeveGone.MOD_ID + ":" + name);

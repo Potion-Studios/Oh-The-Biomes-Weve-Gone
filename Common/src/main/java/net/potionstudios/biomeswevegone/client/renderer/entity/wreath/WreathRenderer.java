@@ -3,25 +3,26 @@ package net.potionstudios.biomeswevegone.client.renderer.entity.wreath;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.renderer.SubmitNodeCollector;
-import net.minecraft.client.renderer.block.BlockRenderDispatcher;
+import net.minecraft.client.renderer.block.dispatch.BlockStateModelPart;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.phys.Vec3;
 import net.potionstudios.biomeswevegone.client.model.ModelAccess;
 import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import org.jetbrains.annotations.NotNull;
 
-public class WreathRenderer extends EntityRenderer<Wreath, WreathRenderState> {
-	private final BlockRenderDispatcher blockRenderer;
+import java.util.ArrayList;
+import java.util.List;
 
+public class WreathRenderer extends EntityRenderer<Wreath, WreathRenderState> {
 	public WreathRenderer(EntityRendererProvider.Context context) {
 		super(context);
-		this.blockRenderer = context.getBlockRenderDispatcher();
 	}
 
     @Override
@@ -46,13 +47,13 @@ public class WreathRenderer extends EntityRenderer<Wreath, WreathRenderState> {
         if (!renderState.isInvisible) {
             poseStack.pushPose();
             poseStack.translate(-0.5, -0.5, -0.5);
+            List<BlockStateModelPart> modelParts = new ArrayList<>();
+            ModelAccess.MODEL_ACCESS.getModel(renderState.type.getSerializedName() + "_wreath").collectParts(RandomSource.create(42L), modelParts);
             nodeCollector.submitBlockModel(
                     poseStack,
-                    RenderTypes.entityCutoutNoCullZOffset(TextureAtlas.LOCATION_BLOCKS),
-                    ModelAccess.MODEL_ACCESS.getModel(renderState.type.getSerializedName() + "_wreath", blockRenderer),
-                    1.0F,
-                    1.0F,
-                    1.0F,
+                    RenderTypes.entityCutoutZOffset(TextureAtlas.LOCATION_BLOCKS),
+                    modelParts,
+                    new int[0],
                     renderState.lightCoords,
                     OverlayTexture.NO_OVERLAY,
                     renderState.outlineColor);

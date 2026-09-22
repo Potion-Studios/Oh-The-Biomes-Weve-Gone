@@ -2,7 +2,6 @@
   "type": "minecraft:stonecutting",
   "ingredient": "biomeswevegone:rocky_stone",
   "result": {
-    "count": 1,
     "id": "biomeswevegone:rocky_stone_stairs"
   }
 }

@@ -11,7 +11,6 @@
       "translate": "advancements.biomeswevegone.description.root"
     },
     "icon": {
-      "count": 1,
       "id": "biomeswevegone:bwg_logo"
     },
     "show_toast": false,

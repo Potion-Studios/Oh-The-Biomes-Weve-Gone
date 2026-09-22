@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.util.KeyDispatchDataCodec;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.util.valueproviders.IntProviders;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.SurfaceRules;
@@ -17,8 +18,8 @@ public record BandsRuleSource(WeightedList<BlockState> bandStates, IntProvider b
 	public static final KeyDispatchDataCodec<BandsRuleSource> CODEC = KeyDispatchDataCodec.of(RecordCodecBuilder.mapCodec(builder ->
 			builder.group(
 					WeightedList.codec(BlockState.CODEC).fieldOf("band_states").forGetter(bandsRuleSource -> bandsRuleSource.bandStates),
-					IntProvider.POSITIVE_CODEC.fieldOf("band_size").forGetter(bandsRuleSource -> bandsRuleSource.bandSizeProvider),
-					IntProvider.POSITIVE_CODEC.fieldOf("bands_count").forGetter(bandsRuleSource -> bandsRuleSource.bandsCountProvider),
+					IntProviders.POSITIVE_CODEC.fieldOf("band_size").forGetter(bandsRuleSource -> bandsRuleSource.bandSizeProvider),
+					IntProviders.POSITIVE_CODEC.fieldOf("bands_count").forGetter(bandsRuleSource -> bandsRuleSource.bandsCountProvider),
 					Codec.FLOAT.fieldOf("frequency").forGetter(bandsRuleSource -> bandsRuleSource.frequency),
 					Codec.INT.fieldOf("noise_scale").forGetter(bandsRuleSource -> bandsRuleSource.noiseScale)
 			).apply(builder, BandsRuleSource::new))

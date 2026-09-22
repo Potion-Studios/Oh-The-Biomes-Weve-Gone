@@ -2,7 +2,7 @@ package net.potionstudios.biomeswevegone.world.level.levelgen.structure.sharpene
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
+import net.potionstudios.biomeswevegone.world.level.levelgen.util.BlendingFunction;
 import it.unimi.dsi.fastutil.Pair;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import net.minecraft.core.BlockPos;
@@ -77,14 +77,14 @@ public class SharpenedRockStructure extends Structure {
             int[] heightCache = createHeightCache(radius, origin);
 
             generateFromCache(radius, heightCache, origin, quaternion, false, (rotatedPos, unRotatedPos) -> {
-                Pair<Pair<MutableBoolean, MutableBoolean>, BoundingBox> entry = chunks.computeIfAbsent(ChunkPos.asLong(rotatedPos), aLong -> Pair.of(Pair.of(new MutableBoolean(true), new MutableBoolean(false)), new BoundingBox(rotatedPos)));
+                Pair<Pair<MutableBoolean, MutableBoolean>, BoundingBox> entry = chunks.computeIfAbsent(ChunkPos.pack(rotatedPos), aLong -> Pair.of(Pair.of(new MutableBoolean(true), new MutableBoolean(false)), new BoundingBox(rotatedPos)));
                 entry.right().encapsulate(rotatedPos);
                 entry.left().left().setTrue();
                 return true;
             });
 
             generateFromCache(radius, heightCache, origin, quaternion, true, (rotatedPos, unRotatedPos) -> {
-                Pair<Pair<MutableBoolean, MutableBoolean>, BoundingBox> entry = chunks.computeIfAbsent(ChunkPos.asLong(rotatedPos), aLong -> Pair.of(Pair.of(new MutableBoolean(false), new MutableBoolean(true)), new BoundingBox(rotatedPos)));
+                Pair<Pair<MutableBoolean, MutableBoolean>, BoundingBox> entry = chunks.computeIfAbsent(ChunkPos.pack(rotatedPos), aLong -> Pair.of(Pair.of(new MutableBoolean(false), new MutableBoolean(true)), new BoundingBox(rotatedPos)));
                 entry.right().encapsulate(rotatedPos);
                 entry.left().right().setTrue();
                 return true;

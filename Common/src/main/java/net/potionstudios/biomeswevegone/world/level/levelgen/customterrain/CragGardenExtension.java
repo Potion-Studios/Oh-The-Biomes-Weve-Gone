@@ -7,6 +7,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -23,10 +24,10 @@ import java.util.function.Function;
 
 public class CragGardenExtension {
 
-    public static void runCragGardenExtension(Function<BlockPos, Holder<Biome>> biomeGetter, ChunkAccess chunk, long worldSeed, NormalNoise.NoiseParameters noiseParameters, NormalNoise.NoiseParameters cliffSpacingParams) {
+    public static void runCragGardenExtension(WorldGenLevel worldGenLevel, Function<BlockPos, Holder<Biome>> biomeGetter, ChunkAccess chunk, long worldSeed, NormalNoise.NoiseParameters noiseParameters, NormalNoise.NoiseParameters cliffSpacingParams) {
         ChunkPos pos = chunk.getPos();
         RandomSource randomSource = new XoroshiroRandomSource(worldSeed);
-        RandomSource chunkRandom = new XoroshiroRandomSource(pos.toLong() + worldSeed);
+        RandomSource chunkRandom = new XoroshiroRandomSource(pos.pack() + worldSeed);
 
         NormalNoise normalNoise = NormalNoise.create(randomSource, noiseParameters);
         NormalNoise cliffJumpNoise = NormalNoise.create(randomSource, cliffSpacingParams);
@@ -62,10 +63,10 @@ public class CragGardenExtension {
 
                 for (int y = -5; y <= currentSurfaceHeight; y++) {
                     mutable.set(worldX, y + landHeight, worldZ);
-                    BlockState state = stonesProvider.getState(chunkRandom, mutable);
+                    BlockState state = stonesProvider.getState(worldGenLevel, chunkRandom, mutable);
 
                     if (y == currentSurfaceHeight && chunk.getBlockState(mutable.move(Direction.UP)).getFluidState().isEmpty()) {
-                        state = topBlocksProvider.getState(chunkRandom, mutable);
+                        state = topBlocksProvider.getState(worldGenLevel, chunkRandom, mutable);
                         mutable.move(Direction.DOWN);
                     }
 

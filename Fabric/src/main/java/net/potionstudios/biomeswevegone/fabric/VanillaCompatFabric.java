@@ -4,17 +4,15 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
-import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.*;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.npc.villager.VillagerType;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
-import net.potionstudios.biomeswevegone.BiomesWeveGone;
-import net.potionstudios.biomeswevegone.config.configs.BWGTradesConfig;
-import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTrades;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.potionstudios.biomeswevegone.world.entity.npc.BWGVillagerTypes;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
 import net.potionstudios.biomeswevegone.world.item.BWGItems;
@@ -33,18 +31,13 @@ public class VanillaCompatFabric {
     public static void init() {
         ToolInteractions.registerStrippableBlocks(StrippableBlockRegistry::register);
         BlockFeatures.registerFlammable(FlammableBlockRegistry.getDefaultInstance()::add);
-        BlockFeatures.registerFurnaceFuels((item, burnTime) -> FuelRegistryEvents.BUILD.register(((builder, context) -> builder.add(item, burnTime))));
-        BlockFeatures.registerCompostables(CompostingChanceRegistry.INSTANCE::add);
+        BlockFeatures.registerFurnaceFuels((item, burnTime) -> FuelValueEvents.BUILD.register(((builder, context) -> builder.add(item, burnTime))));
+        BlockFeatures.registerCompostables(ComposterBlock.COMPOSTABLES::put);
         ToolInteractions.registerFlattenables(FlattenableBlockRegistry::register);
         ToolInteractions.registerTillables((block, pair) -> TillableBlockRegistry.register(block, pair.getFirst(), pair.getSecond()));
         registerBiomeModifiers();
         registerLootModifiers();
-        if (!BWGTradesConfig.INSTANCE.trades.disableTrades.value()) {
-            registerTrades();
-            if (BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value())
-                registerWanderingTrades();
-        }
-        FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> BWGBrewingRecipes.buildBrewingRecipes(builder::addMix));
+        FabricPotionBrewingBuilder.BUILD.register(builder -> BWGBrewingRecipes.buildBrewingRecipes((from, item, to) -> builder.registerPotionRecipe(from, Ingredient.of(item), to)));
         BWGVillagerTypes.setVillagerBiomes(VillagerType.BY_BIOME::put);
         UseEntityCallback.EVENT.register(((player, level, interactionHand, entity, entityHitResult) -> PumpkinWarden.villagerToPumpkinWarden(entity, player.getItemInHand(interactionHand), level) ? InteractionResult.SUCCESS : InteractionResult.PASS));
     }
@@ -66,30 +59,13 @@ public class VanillaCompatFabric {
             if (key.equals(BuiltInLootTables.SNIFFER_DIGGING))
                 tableBuilder.withPool(LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1))
-                        .with(LootItem.lootTableItem(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get()).build())
-                        .with(LootItem.lootTableItem(BWGItems.BLUE_GLOWCANE_SHOOT.get()).build())
-                        .with(LootItem.lootTableItem(BWGItems.GREEN_GLOWCANE_SHOOT.get()).build())
-                        .with(LootItem.lootTableItem(BWGItems.RED_GLOWCANE_SHOOT.get()).build())
-                        .with(LootItem.lootTableItem(BWGItems.YELLOW_GLOWCANE_SHOOT.get()).build())
-                        .with(LootItem.lootTableItem(BWGItems.PALE_PUMPKIN_SEEDS.get()).build()));
+                        .add(LootItem.lootTableItem(BWGItems.FLUORESCENT_CATTAIL_SPROUT.get()))
+                        .add(LootItem.lootTableItem(BWGItems.BLUE_GLOWCANE_SHOOT.get()))
+                        .add(LootItem.lootTableItem(BWGItems.GREEN_GLOWCANE_SHOOT.get()))
+                        .add(LootItem.lootTableItem(BWGItems.RED_GLOWCANE_SHOOT.get()))
+                        .add(LootItem.lootTableItem(BWGItems.YELLOW_GLOWCANE_SHOOT.get()))
+                        .add(LootItem.lootTableItem(BWGItems.PALE_PUMPKIN_SEEDS.get())));
         });
     }
 
-    private static void registerTrades() {
-        BWGVillagerTrades.makeTrades();
-        if (BWGVillagerTrades.TRADES.isEmpty()) return;
-        BWGVillagerTrades.TRADES.forEach((villagerProfession, offersMap) ->
-                offersMap.forEach((level, offers) ->
-                        TradeOfferHelper.registerVillagerOffers(villagerProfession, level, factory -> factory.addAll(offers))
-                )
-        );
-    }
-
-    private static void registerWanderingTrades() {
-        if (!BWGTradesConfig.INSTANCE.wanderingTraderTrades.enableBWGItemsTrades.value()) return;
-        BWGVillagerTrades.makeWanderingTrades();
-        BWGVillagerTrades.WANDERING_TRADER_TRADES.forEach((level, offers) ->
-                TradeOfferHelper.registerWanderingTraderOffers(factory -> factory.addAll(BiomesWeveGone.id("wandering_trader_trades"), offers))
-        );
-    }
 }
