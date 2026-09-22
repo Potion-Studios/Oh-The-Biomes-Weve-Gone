@@ -47,7 +47,7 @@ import java.util.function.Supplier;
 public class BWGOverworldTreeConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ARAUCARIA_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("araucaria_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/araucaria/araucaria_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/araucaria/araucaria_tree_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -62,7 +62,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ARAUCARIA_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("araucaria_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/araucaria/araucaria_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/araucaria/araucaria_tree_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -82,7 +82,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ANCIENT_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("ancient_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/ancient/ancient_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/ancient/ancient_tree_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -98,7 +98,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ANCIENT_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("ancient_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/ancient/ancient_tree_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/ancient/ancient_tree_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -113,7 +113,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ANCIENT_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("ancient_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/ancient/ancient_tree_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/ancient/ancient_tree_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -129,7 +129,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ASPEN_SHRUB1 = ConfiguredFeaturesUtil.createConfiguredFeature("aspen_shrub1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/aspen-shrub/aspen_shrub_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/aspen-shrub/aspen_shrub_canopy1"))
                     .height(ConstantInt.ZERO)
@@ -143,7 +143,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ASPEN_SHRUB2 = ConfiguredFeaturesUtil.createConfiguredFeature("aspen_shrub2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/aspen-shrub/aspen_shrub_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/aspen-shrub/aspen_shrub_canopy2"))
                     .height(ConstantInt.ZERO)
@@ -158,7 +158,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ASPEN_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("aspen_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/aspen/aspen_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/aspen/aspen_canopy1"))
                     .height(BiasedToBottomInt.of(7, 12))
@@ -173,7 +173,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ASPEN_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("aspen_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/aspen/aspen_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/aspen/aspen_canopy2"))
                     .height(BiasedToBottomInt.of(7, 12))
@@ -188,7 +188,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ASPEN_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("aspen_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/aspen/aspen_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/aspen/aspen_canopy3"))
                     .height(BiasedToBottomInt.of(6, 10))
@@ -203,7 +203,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ASPEN_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("aspen_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/aspen/aspen_trunk4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/aspen/aspen_canopy4"))
                     .height(BiasedToBottomInt.of(6, 10))
@@ -218,7 +218,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ASPEN_TREE5 = ConfiguredFeaturesUtil.createConfiguredFeature("aspen_tree5",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/aspen/aspen_trunk5"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/aspen/aspen_canopy5"))
                     .height(BiasedToBottomInt.of(6, 12))
@@ -238,7 +238,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BAOBAB_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("baobab_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/baobab/baobab_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/baobab/baobab_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -257,7 +257,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BAOBAB_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("baobab_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/baobab/baobab_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/baobab/baobab_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -276,7 +276,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BAOBAB_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("baobab_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/baobab/baobab_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/baobab/baobab_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -296,7 +296,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("birch_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_canopy1"))
                     .height(BiasedToBottomInt.of(3, 10))
@@ -312,7 +312,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("birch_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_canopy2"))
                     .height(BiasedToBottomInt.of(3, 10))
@@ -328,7 +328,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("birch_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_canopy3"))
                     .height(BiasedToBottomInt.of(3, 10))
@@ -344,7 +344,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("birch_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_canopy4"))
                     .height(BiasedToBottomInt.of(3, 10))
@@ -360,7 +360,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_BIRCH_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_birch_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -374,7 +374,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_BIRCH_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_birch_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -388,7 +388,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_BIRCH_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_birch_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -402,7 +402,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_BIRCH_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_birch_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_canopy4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -417,7 +417,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_ORANGE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("orange_birch_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -431,7 +431,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_ORANGE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("orange_birch_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -445,7 +445,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_ORANGE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("orange_birch_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -459,7 +459,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_ORANGE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("orange_birch_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_canopy4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -474,7 +474,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_BIRCH_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("red_birch_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -488,7 +488,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_BIRCH_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("red_birch_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -502,7 +502,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_BIRCH_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("red_birch_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -516,7 +516,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_BIRCH_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("red_birch_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_canopy4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -531,7 +531,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_BIRCH_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_birch_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -545,7 +545,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_BIRCH_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_birch_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -559,7 +559,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_BIRCH_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_birch_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -573,7 +573,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_BIRCH_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_birch_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_tree_canopy4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -588,7 +588,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUFF_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("bluff_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/bluff/bluff_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/bluff/bluff_canopy1"))
                     .height(BiasedToBottomInt.of(1, 2))
@@ -602,7 +602,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUFF_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("bluff_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/bluff/bluff_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/bluff/bluff_canopy2"))
                     .height(BiasedToBottomInt.of(1, 2))
@@ -617,7 +617,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_BOREAL_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("birch_boreal_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_yellow_boreal_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_yellow_boreal_canopy"))
                     .height(BiasedToBottomInt.of(3, 5))
@@ -632,7 +632,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_YELLOW_BOREAL_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("birch_yellow_boreal_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/birch/birch_boreal_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/birch/birch_boreal_canopy1"))
                     .height(BiasedToBottomInt.of(3, 5))
@@ -647,7 +647,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> OAK_BUSH1 = ConfiguredFeaturesUtil.createConfiguredFeature("oak_bush1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/bush/trunk_bush1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/bush/canopy_bush1"))
                     .height(BiasedToBottomInt.of(1, 2))
@@ -662,7 +662,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> JUNGLE_BUSH1 = ConfiguredFeaturesUtil.createConfiguredFeature("jungle_bush1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/bush/trunk_bush1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/bush/canopy_bush1"))
                     .height(BiasedToBottomInt.of(1, 2))
@@ -677,7 +677,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_WHITE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("white_sakura_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/sakura/sakura_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/sakura/sakura_canopy1"))
                     .height(BiasedToBottomInt.of(1, 3))
@@ -691,7 +691,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_WHITE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("white_sakura_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/sakura/sakura_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/sakura/sakura_canopy2"))
                     .height(BiasedToBottomInt.of(1, 4))
@@ -705,7 +705,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_WHITE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("white_sakura_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/sakura/sakura_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/sakura/sakura_canopy3"))
                     .height(BiasedToBottomInt.of(4, 9))
@@ -719,7 +719,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_WHITE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("white_sakura_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/sakura/sakura_trunk4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/sakura/sakura_canopy4"))
                     .height(BiasedToBottomInt.of(6, 16))
@@ -733,7 +733,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_WHITE_TREE5 = ConfiguredFeaturesUtil.createConfiguredFeature("white_sakura_tree5",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/sakura/sakura_trunk5"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/sakura/sakura_canopy5"))
                     .height(BiasedToBottomInt.of(7, 16))
@@ -747,7 +747,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_WHITE_TREE6 = ConfiguredFeaturesUtil.createConfiguredFeature("white_sakura_tree6",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/sakura/sakura_trunk6"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/sakura/sakura_canopy6"))
                     .height(BiasedToBottomInt.of(7, 16))
@@ -761,7 +761,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_WHITE_TREE7 = ConfiguredFeaturesUtil.createConfiguredFeature("white_sakura_tree7",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/sakura/sakura_trunk7"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/sakura/sakura_canopy7"))
                     .height(BiasedToBottomInt.of(5, 14))
@@ -776,7 +776,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_YELLOW_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_sakura_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/sakura/sakura_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/sakura/sakura_canopy1"))
                     .height(BiasedToBottomInt.of(1, 3))
@@ -790,7 +790,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_YELLOW_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_sakura_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/sakura/sakura_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/sakura/sakura_canopy2"))
                     .height(BiasedToBottomInt.of(1, 4))
@@ -804,7 +804,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_YELLOW_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_sakura_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/sakura/sakura_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/sakura/sakura_canopy3"))
                     .height(BiasedToBottomInt.of(4, 9))
@@ -818,7 +818,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_YELLOW_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_sakura_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/sakura/sakura_trunk4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/sakura/sakura_canopy4"))
                     .height(BiasedToBottomInt.of(7, 16))
@@ -832,7 +832,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_YELLOW_TREE5 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_sakura_tree5",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/sakura/sakura_trunk5"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/sakura/sakura_canopy5"))
                     .height(BiasedToBottomInt.of(7, 16))
@@ -846,7 +846,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_YELLOW_TREE6 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_sakura_tree6",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/sakura/sakura_trunk6"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/sakura/sakura_canopy6"))
                     .height(BiasedToBottomInt.of(6, 16))
@@ -860,7 +860,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_YELLOW_TREE7 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_sakura_tree7",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/sakura/sakura_trunk7"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/sakura/sakura_canopy7"))
                     .height(BiasedToBottomInt.of(6, 13))
@@ -875,7 +875,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> CIKA_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("cika_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/cika/cika_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/cika/cika_canopy1"))
                     .height(BiasedToBottomInt.of(14, 21))
@@ -889,7 +889,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> CIKA_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("cika_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/cika/cika_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/cika/cika_canopy2"))
                     .height(BiasedToBottomInt.of(5, 12))
@@ -903,7 +903,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> CIKA_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("cika_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/cika/cika_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/cika/cika_canopy3"))
                     .height(BiasedToBottomInt.of(7, 18))
@@ -918,7 +918,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONIFER_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("conifer_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/conifer/conifer_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/conifer/conifer_canopy1"))
                     .height(BiasedToBottomInt.of(19, 25))
@@ -933,7 +933,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONIFER_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("conifer_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/conifer/conifer_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/conifer/conifer_canopy2"))
                     .height(BiasedToBottomInt.of(23, 30))
@@ -948,7 +948,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONIFER_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("conifer_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/conifer/conifer_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/conifer/conifer_canopy3"))
                     .height(BiasedToBottomInt.of(26, 35))
@@ -963,7 +963,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONIFER_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("conifer_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/conifer/conifer_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/conifer/conifer_canopy4"))
                     .height(BiasedToBottomInt.of(25, 35))
@@ -978,7 +978,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONIFER_TREE5 = ConfiguredFeaturesUtil.createConfiguredFeature("conifer_tree5",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/conifer/conifer_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/conifer/conifer_canopy5"))
                     .height(BiasedToBottomInt.of(7, 11))
@@ -993,7 +993,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONIFER_TREE6 = ConfiguredFeaturesUtil.createConfiguredFeature("conifer_tree6",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/conifer/conifer_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/conifer/conifer_canopy6"))
                     .height(BiasedToBottomInt.of(10, 15))
@@ -1008,7 +1008,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONIFER_TREE7 = ConfiguredFeaturesUtil.createConfiguredFeature("conifer_tree7",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/conifer/conifer_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/conifer/conifer_canopy7"))
                     .height(BiasedToBottomInt.of(11, 18))
@@ -1023,7 +1023,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONIFER_TREE8 = ConfiguredFeaturesUtil.createConfiguredFeature("conifer_tree8",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/conifer/conifer_trunk8"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/conifer/conifer_canopy8"))
                     .height(BiasedToBottomInt.of(12, 18))
@@ -1041,7 +1041,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("cypress_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/cypress/cypress_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/cypress/cypress_canopy1"))
                     .height(BiasedToBottomInt.of(14, 16))
@@ -1056,7 +1056,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("cypress_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/cypress/cypress_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/cypress/cypress_canopy2"))
                     .height(BiasedToBottomInt.of(10, 13))
@@ -1071,7 +1071,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("cypress_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/cypress/cypress_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/cypress/cypress_canopy3"))
                     .height(BiasedToBottomInt.of(10, 13))
@@ -1087,7 +1087,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WITCH_HAZEL1 = ConfiguredFeaturesUtil.createConfiguredFeature("witch_hazel1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_trunk_1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_canopy_1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -1105,7 +1105,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WITCH_HAZEL2 = ConfiguredFeaturesUtil.createConfiguredFeature("witch_hazel2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_trunk_2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_canopy_2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -1123,7 +1123,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WITCH_HAZEL3 = ConfiguredFeaturesUtil.createConfiguredFeature("witch_hazel3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_trunk_3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_canopy_3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -1141,7 +1141,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WITCH_HAZEL4 = ConfiguredFeaturesUtil.createConfiguredFeature("witch_hazel4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_trunk_4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_canopy_4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -1159,7 +1159,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WITCH_HAZEL5 = ConfiguredFeaturesUtil.createConfiguredFeature("witch_hazel5",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_trunk_5"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/witch-hazel/witch-hazel_canopy_5"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -1177,7 +1177,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> FIRECRACKER_SHRUB = ConfiguredFeaturesUtil.createConfiguredFeature("firecracker_shrub",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/meadow/meadow_shrub_canopy1"))
                     .height(ConstantInt.ZERO)
@@ -1192,7 +1192,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> FIRECRACKER_SHRUB2 = ConfiguredFeaturesUtil.createConfiguredFeature("firecracker_shrub2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/meadow/meadow_shrub_canopy1"))
                     .height(ConstantInt.ZERO)
@@ -1207,7 +1207,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> FIRECRACKER_BUSH1 = ConfiguredFeaturesUtil.createConfiguredFeature("firecracker_bush1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/bush/trunk_bush1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/bush/canopy_bush1"))
                     .height(BiasedToBottomInt.of(1, 2))
@@ -1222,7 +1222,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> EBONY_BUSH1 = ConfiguredFeaturesUtil.createConfiguredFeature("ebony_bush1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/ebony/ebony_bush_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/ebony/ebony_canopy2"))
                     .height(ConstantInt.ZERO)
@@ -1237,7 +1237,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> EBONY_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("ebony_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/ebony/ebony_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/ebony/ebony_canopy1"))
                     .height(BiasedToBottomInt.of(4, 6))
@@ -1252,7 +1252,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> EBONY_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("ebony_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/ebony/ebony_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/ebony/ebony_canopy2"))
                     .height(BiasedToBottomInt.of(4, 6))
@@ -1267,7 +1267,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("holly_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/holly/holly_canopy1"))
                     .height(BiasedToBottomInt.of(10, 16))
@@ -1284,7 +1284,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("holly_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/holly/holly_canopy2"))
                     .height(BiasedToBottomInt.of(8, 14))
@@ -1301,7 +1301,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("holly_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/holly/holly_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/holly/holly_canopy3"))
                     .height(BiasedToBottomInt.of(2, 12))
@@ -1318,7 +1318,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("holly_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/holly/holly_canopy4"))
                     .height(BiasedToBottomInt.of(10, 16))
@@ -1335,7 +1335,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ENCHANTED_SAPLING_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("blue_enchanted_sapling_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_1"))
                     .height(BiasedToBottomInt.of(2, 5))
@@ -1350,7 +1350,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ENCHANTED_SAPLING_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("blue_enchanted_sapling_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_2"))
                     .height(BiasedToBottomInt.of(2, 5))
@@ -1365,7 +1365,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ENCHANTED_SAPLING_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("blue_enchanted_sapling_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_3"))
                     .height(BiasedToBottomInt.of(2, 5))
@@ -1380,7 +1380,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ENCHANTED_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("blue_enchanted_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_1"))
                     .height(BiasedToBottomInt.of(1, 5))
@@ -1397,7 +1397,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ENCHANTED_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("blue_enchanted_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_2"))
                     .height(BiasedToBottomInt.of(1, 5))
@@ -1414,7 +1414,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ENCHANTED_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("blue_enchanted_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_3"))
                     .height(BiasedToBottomInt.of(1, 5))
@@ -1431,7 +1431,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ENCHANTED_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("blue_enchanted_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_4"))
                     .height(ConstantInt.ZERO)
@@ -1448,7 +1448,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_ENCHANTED_SAPLING_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("green_enchanted_sapling_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_1"))
                     .height(BiasedToBottomInt.of(2, 5))
@@ -1463,7 +1463,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_ENCHANTED_SAPLING_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("green_enchanted_sapling_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_2"))
                     .height(BiasedToBottomInt.of(2, 5))
@@ -1478,7 +1478,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_ENCHANTED_SAPLING_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("green_enchanted_sapling_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_3"))
                     .height(BiasedToBottomInt.of(2, 5))
@@ -1493,7 +1493,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_ENCHANTED_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("green_enchanted_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_1"))
                     .height(BiasedToBottomInt.of(2, 5))
@@ -1511,7 +1511,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_ENCHANTED_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("green_enchanted_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_2"))
                     .height(BiasedToBottomInt.of(2, 5))
@@ -1529,7 +1529,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_ENCHANTED_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("green_enchanted_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_3"))
                     .height(BiasedToBottomInt.of(2, 5))
@@ -1547,7 +1547,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_ENCHANTED_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("green_enchanted_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_trunk_4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/enchanted/enchanted_canopy_4"))
                     .height(BiasedToBottomInt.of(2, 5))
@@ -1564,7 +1564,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> JACARANDA_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("jacaranda_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -1581,7 +1581,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> JACARANDA_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("jacaranda_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -1598,7 +1598,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> JACARANDA_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("jacaranda_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -1615,7 +1615,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> JACARANDA_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("jacaranda_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -1632,7 +1632,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> INDIGO_JACARANDA_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("indigo_jacaranda_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -1649,7 +1649,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> INDIGO_JACARANDA_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("indigo_jacaranda_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -1666,7 +1666,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> INDIGO_JACARANDA_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("indigo_jacaranda_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -1683,7 +1683,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> INDIGO_JACARANDA_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("indigo_jacaranda_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_trunk_4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/jacaranda/jacaranda_canopy_4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -1702,7 +1702,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> YUCCA_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("yucca_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/yucca/yucca_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/yucca/yucca_canopy1"))
                     .height(BiasedToBottomInt.of(1, 2))
@@ -1721,7 +1721,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> YUCCA_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("yucca_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/yucca/yucca_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/yucca/yucca_canopy2"))
                     .height(BiasedToBottomInt.of(5, 8))
@@ -1740,7 +1740,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_MANGROVE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("white_mangrove_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_base1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -1756,7 +1756,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_MANGROVE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("white_mangrove_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_base2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -1772,7 +1772,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_MANGROVE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("white_mangrove_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_base3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -1788,7 +1788,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_MANGROVE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("white_mangrove_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_base4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_canopy4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -1804,7 +1804,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_MANGROVE_TREE5 = ConfiguredFeaturesUtil.createConfiguredFeature("white_mangrove_tree5",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_base5"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/white_mangrove/white_mangrove_canopy5"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -1820,7 +1820,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> IRONWOOD_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("ironwood_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy1"))
                     .height(BiasedToBottomInt.of(5, 10))
@@ -1835,7 +1835,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> IRONWOOD_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("ironwood_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy2"))
                     .height(BiasedToBottomInt.of(5, 10))
@@ -1850,7 +1850,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> IRONWOOD_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("ironwood_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy3"))
                     .height(BiasedToBottomInt.of(5, 10))
@@ -1865,7 +1865,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> IRONWOOD_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("ironwood_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy4"))
                     .height(BiasedToBottomInt.of(5, 10))
@@ -1880,7 +1880,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_IRONWOOD_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("flowering_ironwood_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy1"))
                     .height(BiasedToBottomInt.of(5, 10))
@@ -1897,7 +1897,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_IRONWOOD_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("flowering_ironwood_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy2"))
                     .height(BiasedToBottomInt.of(5, 10))
@@ -1914,7 +1914,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_IRONWOOD_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("flowering_ironwood_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy3"))
                     .height(BiasedToBottomInt.of(5, 10))
@@ -1931,7 +1931,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_IRONWOOD_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("flowering_ironwood_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_trunk4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/ironwood/ironwood_canopy4"))
                     .height(BiasedToBottomInt.of(5, 10))
@@ -1948,7 +1948,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MAPLE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("maple_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy1"))
                     .height(BiasedToBottomInt.of(4, 6))
@@ -1963,7 +1963,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MAPLE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("maple_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy2"))
                     .height(BiasedToBottomInt.of(4, 6))
@@ -1978,7 +1978,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MAPLE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("maple_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy3"))
                     .height(BiasedToBottomInt.of(4, 6))
@@ -1993,7 +1993,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MAPLE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("maple_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy4"))
                     .height(BiasedToBottomInt.of(4, 6))
@@ -2008,7 +2008,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MAPLE_TREE5 = ConfiguredFeaturesUtil.createConfiguredFeature("maple_tree5",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy5"))
                     .height(BiasedToBottomInt.of(4, 6))
@@ -2023,7 +2023,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MAPLE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("red_maple_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy1"))
                     .height(BiasedToBottomInt.of(4, 6))
@@ -2038,7 +2038,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MAPLE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("red_maple_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy2"))
                     .height(BiasedToBottomInt.of(4, 6))
@@ -2053,7 +2053,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MAPLE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("red_maple_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy3"))
                     .height(BiasedToBottomInt.of(4, 6))
@@ -2068,7 +2068,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MAPLE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("red_maple_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy4"))
                     .height(BiasedToBottomInt.of(4, 6))
@@ -2083,7 +2083,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_MAPLE_TREE5 = ConfiguredFeaturesUtil.createConfiguredFeature("red_maple_tree5",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy5"))
                     .height(BiasedToBottomInt.of(4, 6))
@@ -2098,7 +2098,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SILVER_MAPLE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("silver_maple_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy1"))
                     .height(BiasedToBottomInt.of(4, 6))
@@ -2113,7 +2113,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SILVER_MAPLE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("silver_maple_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy2"))
                     .height(BiasedToBottomInt.of(4, 6))
@@ -2128,7 +2128,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SILVER_MAPLE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("silver_maple_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy3"))
                     .height(BiasedToBottomInt.of(4, 6))
@@ -2143,7 +2143,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SILVER_MAPLE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("silver_maple_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy4"))
                     .height(BiasedToBottomInt.of(4, 6))
@@ -2158,7 +2158,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SILVER_MAPLE_TREE5 = ConfiguredFeaturesUtil.createConfiguredFeature("silver_maple_tree5",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/maple/maple_trunk4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/maple/maple_canopy5"))
                     .height(BiasedToBottomInt.of(4, 6))
@@ -2174,7 +2174,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MEADOW_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("meadow_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/meadow/meadow_canopy1"))
                     .height(BiasedToBottomInt.of(6, 8))
@@ -2189,7 +2189,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MEADOW_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("meadow_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/meadow/meadow_canopy2"))
                     .height(BiasedToBottomInt.of(6, 8))
@@ -2204,7 +2204,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MEADOW_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("meadow_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/meadow/meadow_canopy3"))
                     .height(BiasedToBottomInt.of(6, 8))
@@ -2220,7 +2220,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> OAK_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("oak_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/oak_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/oak_canopy1"))
                     .height(BiasedToBottomInt.of(1, 2))
@@ -2236,7 +2236,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> OAK_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("oak_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/oak_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/oak_canopy2"))
                     .height(BiasedToBottomInt.of(1, 2))
@@ -2252,7 +2252,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> OAK_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("oak_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/oak_canopy3"))
                     .height(BiasedToBottomInt.of(5, 6))
@@ -2268,7 +2268,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> OAK_TREE_LARGE1 = ConfiguredFeaturesUtil.createConfiguredFeature("large_oak_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/large_oak_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/large_oak_canopy1"))
                     .height(BiasedToBottomInt.of(2, 4))
@@ -2284,7 +2284,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> OAK_TREE_LARGE2 = ConfiguredFeaturesUtil.createConfiguredFeature("large_oak_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/large_oak_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/large_oak_canopy2"))
                     .height(BiasedToBottomInt.of(1, 3))
@@ -2300,7 +2300,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> OAK_TREE_LARGE3 = ConfiguredFeaturesUtil.createConfiguredFeature("large_oak_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/large_oak_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/large_oak_canopy3"))
                     .height(BiasedToBottomInt.of(1, 3))
@@ -2317,7 +2317,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_OAK_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("red_oak_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/oak_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/red_oak_canopy1"))
                     .height(BiasedToBottomInt.of(1, 2))
@@ -2332,7 +2332,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_OAK_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("red_oak_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/oak_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/red_oak_canopy2"))
                     .height(BiasedToBottomInt.of(1, 2))
@@ -2347,7 +2347,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_OAK_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("red_oak_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/red_oak_canopy3"))
                     .height(BiasedToBottomInt.of(5, 6))
@@ -2362,7 +2362,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_OAK_TREE_LARGE1 = ConfiguredFeaturesUtil.createConfiguredFeature("large_red_oak_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/large_oak_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/large_red_oak_canopy1"))
                     .height(BiasedToBottomInt.of(2, 4))
@@ -2377,7 +2377,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_OAK_TREE_LARGE2 = ConfiguredFeaturesUtil.createConfiguredFeature("large_red_oak_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/large_oak_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/large_red_oak_canopy2"))
                     .height(BiasedToBottomInt.of(1, 3))
@@ -2391,7 +2391,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_OAK_TREE_LARGE3 = ConfiguredFeaturesUtil.createConfiguredFeature("large_red_oak_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/large_oak_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/large_red_oak_canopy3"))
                     .height(BiasedToBottomInt.of(1, 3))
@@ -2406,7 +2406,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_OAK_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_oak_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/oak_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/brown_oak_canopy1"))
                     .height(BiasedToBottomInt.of(1, 2))
@@ -2421,7 +2421,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_OAK_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_oak_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/oak_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/brown_oak_canopy2"))
                     .height(BiasedToBottomInt.of(1, 2))
@@ -2436,7 +2436,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_OAK_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_oak_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/brown_oak_canopy3"))
                     .height(BiasedToBottomInt.of(5, 6))
@@ -2451,7 +2451,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_OAK_TREE_LARGE1 = ConfiguredFeaturesUtil.createConfiguredFeature("large_brown_oak_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/large_oak_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/large_brown_oak_canopy1"))
                     .height(BiasedToBottomInt.of(2, 4))
@@ -2466,7 +2466,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_OAK_TREE_LARGE2 = ConfiguredFeaturesUtil.createConfiguredFeature("large_brown_oak_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/large_oak_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/large_brown_oak_canopy2"))
                     .height(BiasedToBottomInt.of(1, 3))
@@ -2481,7 +2481,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_OAK_TREE_LARGE3 = ConfiguredFeaturesUtil.createConfiguredFeature("large_brown_oak_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/large_oak_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/large_brown_oak_canopy3"))
                     .height(BiasedToBottomInt.of(1, 3))
@@ -2496,7 +2496,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_OAK_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("orange_oak_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/oak_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/orange_oak_canopy1"))
                     .height(BiasedToBottomInt.of(1, 2))
@@ -2511,7 +2511,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_OAK_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("orange_oak_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/oak_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/orange_oak_canopy2"))
                     .height(BiasedToBottomInt.of(1, 2))
@@ -2526,7 +2526,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_OAK_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("orange_oak_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/orange_oak_canopy3"))
                     .height(BiasedToBottomInt.of(5, 6))
@@ -2541,7 +2541,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_OAK_TREE_LARGE1 = ConfiguredFeaturesUtil.createConfiguredFeature("large_orange_oak_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/large_oak_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/large_orange_oak_canopy1"))
                     .height(BiasedToBottomInt.of(2, 4))
@@ -2556,7 +2556,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_OAK_TREE_LARGE2 = ConfiguredFeaturesUtil.createConfiguredFeature("large_orange_oak_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/large_oak_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/large_orange_oak_canopy2"))
                     .height(BiasedToBottomInt.of(1, 3))
@@ -2571,7 +2571,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_OAK_TREE_LARGE3 = ConfiguredFeaturesUtil.createConfiguredFeature("large_orange_oak_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/large_oak_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/large_orange_oak_canopy2"))
                     .height(BiasedToBottomInt.of(1, 3))
@@ -2589,7 +2589,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORCHARD_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("orchard_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/orchard/orchard_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/orchard/orchard_canopy1"))
                     .height(BiasedToBottomInt.of(6, 10))
@@ -2609,7 +2609,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORCHARD_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("orchard_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/orchard/orchard_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/orchard/orchard_canopy2"))
                     .height(BiasedToBottomInt.of(6, 11))
@@ -2629,7 +2629,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORCHARD_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("orchard_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/orchard/orchard_canopy3"))
                     .height(UniformInt.of(8, 11))
@@ -2649,7 +2649,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORCHARD_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("orchard_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/large_oak_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/large_oak_canopy1"))
                     .height(BiasedToBottomInt.of(2, 4))
@@ -2669,7 +2669,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORCHARD_TREE5 = ConfiguredFeaturesUtil.createConfiguredFeature("orchard_tree5",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/oak/large_oak_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/oak/large_oak_canopy2"))
                     .height(BiasedToBottomInt.of(1, 3))
@@ -2689,7 +2689,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALM_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("palm_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/palm/palm_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/palm/palm_canopy1"))
                     .height(ConstantInt.of(1))
@@ -2704,7 +2704,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALM_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("palm_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/palm/palm_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/palm/palm_canopy2"))
                     .height(BiasedToBottomInt.of(3, 4))
@@ -2719,7 +2719,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALM_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("palm_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/palm/palm_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/palm/palm_canopy3"))
                     .height(BiasedToBottomInt.of(1, 2))
@@ -2734,7 +2734,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALM_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("palm_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/palm/palm_trunk4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/palm/palm_canopy4"))
                     .height(BiasedToBottomInt.of(3, 4))
@@ -2750,7 +2750,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PINE_LARGE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("large_pine_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/pine/large_pine_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/pine/large_pine_canopy2"))
                     .height(BiasedToBottomInt.of(7, 9))
@@ -2765,7 +2765,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PINE_LARGE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("large_pine_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/pine/large_pine_canopy1"))
                     .height(BiasedToBottomInt.of(7, 9))
@@ -2780,7 +2780,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PINE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("pine_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/pine/pine_canopy1"))
                     .height(BiasedToBottomInt.of(9, 12))
@@ -2795,7 +2795,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PINE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("pine_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/pine/pine_canopy2"))
                     .height(BiasedToBottomInt.of(9, 12))
@@ -2810,7 +2810,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALO_VERDE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("palo_verde_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/palo-verde/palo_verde_canopy1"))
                     .height(BiasedToBottomInt.of(1, 4))
@@ -2827,7 +2827,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALO_VERDE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("palo_verde_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/palo-verde/palo_verde_canopy2"))
                     .height(BiasedToBottomInt.of(1, 4))
@@ -2844,7 +2844,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RAINBOW_EUCALYPTUS_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("rainbow_eucalyptus_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/rainbow-eucalyptus/rainbow_eucalyptus_tree_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -2863,7 +2863,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RAINBOW_EUCALYPTUS_LARGE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("rainbow_eucalyptus_large_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/rainbow-eucalyptus/rainbow_eucalyptus_tree_large_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/rainbow-eucalyptus/rainbow_eucalyptus_tree_large_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -2882,7 +2882,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> REDWOOD_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("redwood_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/redwood/redwood_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/redwood/redwood_tree_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -2897,7 +2897,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> REDWOOD_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("redwood_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/redwood/redwood_tree_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/redwood/redwood_tree_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -2912,7 +2912,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> REDWOOD_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("redwood_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/redwood/redwood_tree_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/redwood/redwood_tree_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -2927,7 +2927,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SHRUB_MEADOW = ConfiguredFeaturesUtil.createConfiguredFeature("meadow_shrub1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/meadow/meadow_shrub_canopy1"))
                     .height(ConstantInt.ZERO)
@@ -2942,7 +2942,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SHRUB_MEADOW2 = ConfiguredFeaturesUtil.createConfiguredFeature("meadow_shrub2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/meadow/meadow_shrub_canopy2"))
                     .height(ConstantInt.ZERO)
@@ -2957,7 +2957,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SHRUB_PRAIRIE1 = ConfiguredFeaturesUtil.createConfiguredFeature("prairie_shrub1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/prairie/prairie_shrub_canopy1"))
                     .height(ConstantInt.ZERO)
@@ -2972,7 +2972,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SHRUB_PRAIRIE2 = ConfiguredFeaturesUtil.createConfiguredFeature("prairie_shrub2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/prairie/prairie_shrub_canopy2"))
                     .height(ConstantInt.ZERO)
@@ -2990,7 +2990,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYRIS_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("skyris_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/skyris/skyris_trunk_1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/skyris/skyris_canopy_1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3013,7 +3013,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYRIS_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("skyris_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/skyris/skyris_trunk_2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/skyris/skyris_canopy_2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3036,7 +3036,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYRIS_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("skyris_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/skyris/skyris_trunk_3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/skyris/skyris_canopy_3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3059,7 +3059,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYRIS_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("skyris_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/skyris/skyris_trunk_4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/skyris/skyris_canopy_4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3082,7 +3082,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYRIS_TREE5 = ConfiguredFeaturesUtil.createConfiguredFeature("skyris_tree5",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/skyris/skyris_trunk_5"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/skyris/skyris_canopy_5"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3105,7 +3105,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYRIS_TREE6 = ConfiguredFeaturesUtil.createConfiguredFeature("skyris_tree6",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/skyris/skyris_trunk_6"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/skyris/skyris_canopy_6"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3128,7 +3128,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3143,7 +3143,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3158,7 +3158,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3173,7 +3173,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3188,7 +3188,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_TREE_MEDIUM1 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_tree_medium1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3203,7 +3203,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_TREE_MEDIUM2 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_tree_medium2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3218,7 +3218,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_TREE_MEDIUM3 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_tree_medium3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3233,7 +3233,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_TREE_MEDIUM4 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_tree_medium4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3248,7 +3248,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_TREE_LARGE1 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_tree_large1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_large_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_large_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3264,7 +3264,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     //Yellow Spruce
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_YELLOW_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_yellow_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3279,7 +3279,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_YELLOW_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_yellow_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3294,7 +3294,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_YELLOW_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_yellow_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3309,7 +3309,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_YELLOW_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_yellow_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3324,7 +3324,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_YELLOW_TREE_MEDIUM1 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_yellow_tree_medium1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3339,7 +3339,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_YELLOW_TREE_MEDIUM2 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_yellow_tree_medium2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3354,7 +3354,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_YELLOW_TREE_MEDIUM3 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_yellow_tree_medium3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3369,7 +3369,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_YELLOW_TREE_MEDIUM4 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_yellow_tree_medium4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3384,7 +3384,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_YELLOW_TREE_LARGE1 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_yellow_tree_large1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_large_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_large_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3400,7 +3400,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     //Orange Spruce
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_ORANGE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_orange_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3415,7 +3415,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_ORANGE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_orange_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3430,7 +3430,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_ORANGE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_orange_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3445,7 +3445,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_ORANGE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_orange_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3460,7 +3460,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_ORANGE_TREE_MEDIUM1 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_orange_tree_medium1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3475,7 +3475,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_ORANGE_TREE_MEDIUM2 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_orange_tree_medium2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3490,7 +3490,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_ORANGE_TREE_MEDIUM3 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_orange_tree_medium3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3505,7 +3505,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_ORANGE_TREE_MEDIUM4 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_orange_tree_medium4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3520,7 +3520,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRUCE_ORANGE_TREE_LARGE1 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_orange_tree_large1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_large_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_large_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3536,7 +3536,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     //Red Spruce
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_SPRUCE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_red_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3551,7 +3551,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_SPRUCE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_red_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3566,7 +3566,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_SPRUCE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_red_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3581,7 +3581,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_SPRUCE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_red_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3596,7 +3596,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_SPRUCE_TREE_MEDIUM1 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_red_tree_medium1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3611,7 +3611,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_SPRUCE_TREE_MEDIUM2 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_red_tree_medium2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3626,7 +3626,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_SPRUCE_TREE_MEDIUM3 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_red_tree_medium3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3641,7 +3641,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_SPRUCE_TREE_MEDIUM4 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_red_tree_medium4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3656,7 +3656,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_SPRUCE_TREE_LARGE1 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_red_tree_large1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_large_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_large_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3671,7 +3671,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_SPRUCE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_blue_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3686,7 +3686,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_SPRUCE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_blue_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3701,7 +3701,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_SPRUCE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_blue_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3716,7 +3716,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_SPRUCE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_blue_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_canopy4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3731,7 +3731,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_SPRUCE_TREE_MEDIUM1 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_blue_tree_medium1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3746,7 +3746,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_SPRUCE_TREE_MEDIUM2 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_blue_tree_medium2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3761,7 +3761,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_SPRUCE_TREE_MEDIUM3 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_blue_tree_medium3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3776,7 +3776,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_SPRUCE_TREE_MEDIUM4 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_blue_tree_medium4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_medium_canopy4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3791,7 +3791,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_SPRUCE_TREE_LARGE1 = ConfiguredFeaturesUtil.createConfiguredFeature("spruce_blue_tree_large1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_large_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spruce/spruce_tree_large_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3805,7 +3805,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> TROPICAL_SHRUB1 = ConfiguredFeaturesUtil.createConfiguredFeature("tropical_shrub1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/generic_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/mahogany/tropical_shrub_canopy1"))
                     .height(ConstantInt.ZERO)
@@ -3821,7 +3821,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MAHOGANY_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("mahogany_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/mahogany/mahogany_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/mahogany/mahogany_tree_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3837,7 +3837,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MAHOGANY_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("mahogany_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/mahogany/mahogany_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/mahogany/mahogany_tree_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3853,7 +3853,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MAHOGANY_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("mahogany_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/mahogany/mahogany_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/mahogany/mahogany_tree_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3869,7 +3869,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MAHOGANY_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("mahogany_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/mahogany/mahogany_tree_trunk4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/mahogany/mahogany_tree_canopy4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3885,7 +3885,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> FORGOTTEN_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("forgotten_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/forgotten/forgotten_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/forgotten/forgotten_tree_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3901,7 +3901,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WOODLANDS_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("woodlands_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/woodlands/woodlands_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/woodlands/woodlands_tree_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3917,7 +3917,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WOODLANDS_TREE_LARGE1 = ConfiguredFeaturesUtil.createConfiguredFeature("woodlands_tree_large1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/woodlands/woodlands_tree_large_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/woodlands/woodlands_tree_large_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3933,7 +3933,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WOODLANDS_TREE_LARGE2 = ConfiguredFeaturesUtil.createConfiguredFeature("woodlands_tree_large2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/woodlands/woodlands_tree_large_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/woodlands/woodlands_tree_large_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3949,7 +3949,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WOODLANDS_STUMP1 = ConfiguredFeaturesUtil.createConfiguredFeature("woodlands_stump1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/woodlands/woodlands_stump_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/woodlands/woodlands_stump_canopy1"))
                     .height(BiasedToBottomInt.of(2, 5))
@@ -3964,7 +3964,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILLOW_DEAD_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("dead_willow_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/willow/dead_willow_trunk"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/willow/dead_willow_canopy"))
                     .height(BiasedToBottomInt.of(5, 7))
@@ -3979,7 +3979,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILLOW_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("willow_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/willow/willow_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/willow/willow_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -3995,7 +3995,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILLOW_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("willow_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/willow/willow_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/willow/willow_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -4011,7 +4011,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILLOW_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("willow_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/willow/willow_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/willow/willow_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -4027,7 +4027,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILLOW_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("willow_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/willow/willow_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/willow/willow_canopy4"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -4046,7 +4046,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPIRIT_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("spirit_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spirit/spirit_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spirit/spirit_tree_canopy1"))
                     .height(BiasedToBottomInt.of(8, 15))
@@ -4064,7 +4064,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPIRIT_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("spirit_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spirit/spirit_tree_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spirit/spirit_tree_canopy2"))
                     .height(BiasedToBottomInt.of(8, 15))
@@ -4082,7 +4082,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPIRIT_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("spirit_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spirit/spirit_tree_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spirit/spirit_tree_canopy3"))
                     .height(BiasedToBottomInt.of(8, 15))
@@ -4100,7 +4100,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPIRIT_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("spirit_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spirit/spirit_tree_trunk4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spirit/spirit_tree_canopy4"))
                     .height(BiasedToBottomInt.of(8, 15))
@@ -4118,7 +4118,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALE_OAK_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("pale_oak_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/pale/pale_oak_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/pale/pale_oak_canopy1"))
                     .height(BiasedToBottomInt.of(1, 4))
@@ -4137,7 +4137,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BASE_SPIRIT_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("base_spirit_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spirit/spirit_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spirit/spirit_tree_canopy1"))
                     .height(BiasedToBottomInt.of(8, 15))
@@ -4154,7 +4154,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BASE_SPIRIT_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("base_spirit_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spirit/spirit_tree_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spirit/spirit_tree_canopy2"))
                     .height(BiasedToBottomInt.of(8, 15))
@@ -4171,7 +4171,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BASE_SPIRIT_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("base_spirit_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spirit/spirit_tree_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spirit/spirit_tree_canopy3"))
                     .height(BiasedToBottomInt.of(8, 15))
@@ -4188,7 +4188,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BASE_SPIRIT_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("base_spirit_tree4",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/spirit/spirit_tree_trunk4"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/spirit/spirit_tree_canopy4"))
                     .height(BiasedToBottomInt.of(8, 15))
@@ -4205,7 +4205,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZELKOVA_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("zelkova_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/zelkova/zelkova_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/zelkova/zelkova_tree_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -4219,7 +4219,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZELKOVA_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("zelkova_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/zelkova/zelkova_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/zelkova/zelkova_tree_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -4233,7 +4233,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZELKOVA_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("zelkova_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/zelkova/zelkova_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/zelkova/zelkova_tree_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -4248,7 +4248,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZELKOVA_BROWN_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_zelkova_tree1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/zelkova/zelkova_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/zelkova/zelkova_tree_canopy1"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -4262,7 +4262,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZELKOVA_BROWN_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_zelkova_tree2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/zelkova/zelkova_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/zelkova/zelkova_tree_canopy2"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -4276,7 +4276,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZELKOVA_BROWN_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_zelkova_tree3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/zelkova/zelkova_tree_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/zelkova/zelkova_tree_canopy3"))
                     .height(BiasedToBottomInt.of(5, 15))
@@ -4291,7 +4291,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GIANT_ALLIUM_1 = ConfiguredFeaturesUtil.createConfiguredFeature("giant_allium_1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/giant_allium/giant_allium_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/giant_allium/giant_allium_canopy1"))
                     .height(BiasedToBottomInt.of(3, 7))
@@ -4306,7 +4306,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GIANT_ALLIUM_2 = ConfiguredFeaturesUtil.createConfiguredFeature("giant_allium_2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/giant_allium/giant_allium_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/giant_allium/giant_allium_canopy2"))
                     .height(BiasedToBottomInt.of(3, 7))
@@ -4321,7 +4321,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GIANT_ALLIUM_3 = ConfiguredFeaturesUtil.createConfiguredFeature("giant_allium_3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/giant_allium/giant_allium_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/giant_allium/giant_allium_canopy3"))
                     .height(BiasedToBottomInt.of(3, 7))
@@ -4336,7 +4336,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GIANT_PINK_ALLIUM_1 = ConfiguredFeaturesUtil.createConfiguredFeature("giant_pink_allium_1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/giant_allium/giant_allium_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/giant_allium/giant_allium_canopy1"))
                     .height(BiasedToBottomInt.of(3, 7))
@@ -4351,7 +4351,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GIANT_PINK_ALLIUM_2 = ConfiguredFeaturesUtil.createConfiguredFeature("giant_pink_allium_2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/giant_allium/giant_allium_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/giant_allium/giant_allium_canopy2"))
                     .height(BiasedToBottomInt.of(3, 7))
@@ -4366,7 +4366,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GIANT_PINK_ALLIUM_3 = ConfiguredFeaturesUtil.createConfiguredFeature("giant_pink_allium_3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/giant_allium/giant_allium_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/giant_allium/giant_allium_canopy3"))
                     .height(BiasedToBottomInt.of(3, 7))
@@ -4381,7 +4381,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GIANT_WHITE_ALLIUM_1 = ConfiguredFeaturesUtil.createConfiguredFeature("giant_white_allium_1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/giant_allium/giant_allium_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/giant_allium/giant_allium_canopy1"))
                     .height(BiasedToBottomInt.of(3, 7))
@@ -4396,7 +4396,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GIANT_WHITE_ALLIUM_2 = ConfiguredFeaturesUtil.createConfiguredFeature("giant_white_allium_2",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/giant_allium/giant_allium_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/giant_allium/giant_allium_canopy2"))
                     .height(BiasedToBottomInt.of(3, 7))
@@ -4411,7 +4411,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GIANT_WHITE_ALLIUM_3 = ConfiguredFeaturesUtil.createConfiguredFeature("giant_white_allium_3",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/giant_allium/giant_allium_trunk3"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/giant_allium/giant_allium_canopy3"))
                     .height(BiasedToBottomInt.of(3, 7))
@@ -4426,7 +4426,7 @@ public class BWGOverworldTreeConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLORUS_ROSE_1 = ConfiguredFeaturesUtil.createConfiguredFeature("florus_rose_1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/florus/florus_rose_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/florus/florus_rose_canopy1"))
                     .height(BiasedToBottomInt.of(2, 5))
@@ -4440,7 +4440,7 @@ public class BWGOverworldTreeConfiguredFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLORUS_THORN_1 = ConfiguredFeaturesUtil.createConfiguredFeature("florus_thorn_1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/trees/florus/florus_thorn_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/trees/florus/florus_thorn_canopy1"))
                     .height(BiasedToBottomInt.of(2, 5))

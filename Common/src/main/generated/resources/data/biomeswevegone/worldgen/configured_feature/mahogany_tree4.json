@@ -10,7 +10,7 @@
       "type": "minecraft:replaceable"
     },
     "can_logs_place_filter": {
-      "type": "minecraft:replaceable"
+      "type": "minecraft:true"
     },
     "canopy_location": "biomeswevegone:features/trees/mahogany/mahogany_tree_canopy4",
     "decorators": [
@@ -62,6 +62,7 @@
     "log_target": [
       "minecraft:oak_log"
     ],
-    "replace_from_nbt": {}
+    "replace_from_nbt": {},
+    "tree_filter_behavior": "PIERCE"
   }
 }

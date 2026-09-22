@@ -1,6 +1,8 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.feature.configured;
 
 import com.google.common.collect.ImmutableList;
+import dev.corgitaco.ohthetreesyoullgrow.world.level.levelgen.feature.configurations.TreeFromStructureNBTConfigV2;
+import dev.corgitaco.ohthetreesyoullgrow.world.level.levelgen.feature.configurations.TreeLogFilterBehavior;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -13,6 +15,7 @@ import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
@@ -35,6 +38,12 @@ import java.util.function.Supplier;
 public class ConfiguredFeaturesUtil {
 
     public static final Map<ResourceKey<ConfiguredFeature<?, ?>>, ConfiguredFeatureFactory> CONFIGURED_FEATURES_FACTORIES = new Reference2ObjectOpenHashMap<>();
+
+    public static TreeFromStructureNBTConfigV2.Builder legacyTreeDensity(TreeFromStructureNBTConfigV2.Builder builder) {
+        return builder
+                .logsPlacementFilter(BlockPredicate.alwaysTrue())
+                .treeLogFilterBehavior(TreeLogFilterBehavior.PIERCE);
+    }
 
     public static FallenTreeConfiguration.FallenTreeConfigurationBuilder createFallenTrees(Block logBlock, int minLength, int maxLength) {
         return new FallenTreeConfiguration.FallenTreeConfigurationBuilder(BlockStateProvider.simple(logBlock), UniformInt.of(minLength, maxLength))

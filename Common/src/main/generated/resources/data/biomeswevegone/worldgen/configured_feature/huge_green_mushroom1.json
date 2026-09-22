@@ -10,7 +10,7 @@
       "type": "minecraft:replaceable"
     },
     "can_logs_place_filter": {
-      "type": "minecraft:replaceable"
+      "type": "minecraft:true"
     },
     "canopy_location": "biomeswevegone:features/mushrooms/green_mushroom/green_mushroom_canopy2",
     "height": {
@@ -54,6 +54,7 @@
     "log_target": [
       "biomeswevegone:white_mushroom_stem"
     ],
-    "replace_from_nbt": {}
+    "replace_from_nbt": {},
+    "tree_filter_behavior": "PIERCE"
   }
 }

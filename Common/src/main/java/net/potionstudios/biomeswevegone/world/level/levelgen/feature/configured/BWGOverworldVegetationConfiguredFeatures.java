@@ -348,7 +348,7 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_GREEN_MUSHROOM1 = ConfiguredFeaturesUtil.createConfiguredFeature("huge_green_mushroom1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/mushrooms/green_mushroom/green_mushroom_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/mushrooms/green_mushroom/green_mushroom_canopy1"))
                     .height(BiasedToBottomInt.of(6, 8))
@@ -363,7 +363,7 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_GREEN_MUSHROOM2 = ConfiguredFeaturesUtil.createConfiguredFeature("huge_green_mushroom1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/mushrooms/green_mushroom/green_mushroom_trunk2"))
                     .canopyLocation(BiomesWeveGone.id("features/mushrooms/green_mushroom/green_mushroom_canopy2"))
                     .height(BiasedToBottomInt.of(6, 8))
@@ -378,7 +378,7 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_WEEPING_MILKCAP1 = ConfiguredFeaturesUtil.createConfiguredFeature("huge_weeping_milkcap1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/mushrooms/weeping_milkcap/weeping_milkcap_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/mushrooms/weeping_milkcap/weeping_milkcap_canopy1"))
                     .height(BiasedToBottomInt.of(6, 8))
@@ -393,7 +393,7 @@ public class BWGOverworldVegetationConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_WOOD_BLEWIT1 = ConfiguredFeaturesUtil.createConfiguredFeature("huge_wood_blewit1",
             TYGFeatures.TREE_FROM_NBT_V2,
-            () -> new TreeFromStructureNBTConfigV2.Builder()
+            () -> ConfiguredFeaturesUtil.legacyTreeDensity(new TreeFromStructureNBTConfigV2.Builder())
                     .baseLocation(BiomesWeveGone.id("features/mushrooms/wood_blewit/wood_blewit_trunk1"))
                     .canopyLocation(BiomesWeveGone.id("features/mushrooms/wood_blewit/wood_blewit_canopy1"))
                     .height(BiasedToBottomInt.of(6, 8))

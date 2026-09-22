@@ -32,7 +32,7 @@ public class VanillaCompatFabric {
         ToolInteractions.registerStrippableBlocks(StrippableBlockRegistry::register);
         BlockFeatures.registerFlammable(FlammableBlockRegistry.getDefaultInstance()::add);
         BlockFeatures.registerFurnaceFuels((item, burnTime) -> FuelValueEvents.BUILD.register(((builder, context) -> builder.add(item, burnTime))));
-        BlockFeatures.registerCompostables(ComposterBlock.COMPOSTABLES::put);
+//        BlockFeatures.registerCompostables(ComposterBlock.COMPOSTABLES::put);
         ToolInteractions.registerFlattenables(FlattenableBlockRegistry::register);
         ToolInteractions.registerTillables((block, pair) -> TillableBlockRegistry.register(block, pair.getFirst(), pair.getSecond()));
         registerBiomeModifiers();
