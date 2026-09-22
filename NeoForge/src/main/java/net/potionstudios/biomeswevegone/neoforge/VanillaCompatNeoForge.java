@@ -5,7 +5,6 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.FireBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.IEventBus;
@@ -21,9 +20,6 @@ import net.potionstudios.biomeswevegone.world.item.tools.ToolInteractions;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.BlockFeatures;
 
-import java.lang.invoke.MethodHandle;
-import java.lang.invoke.MethodHandles;
-import java.lang.invoke.MethodType;
 import java.util.HashMap;
 
 /**
@@ -31,32 +27,13 @@ import java.util.HashMap;
  * @author Joseph T. McQuigg
  */
 public class VanillaCompatNeoForge {
-    // FireBlock#setFlammable is private with no public equivalent, so it must be invoked reflectively.
-    private static final MethodHandle SET_FLAMMABLE = resolveSetFlammable();
-
-    private static MethodHandle resolveSetFlammable() {
-        try {
-            var lookup = MethodHandles.privateLookupIn(FireBlock.class, MethodHandles.lookup());
-            return lookup.findVirtual(FireBlock.class, "setFlammable", MethodType.methodType(void.class, net.minecraft.world.level.block.Block.class, int.class, int.class));
-        } catch (ReflectiveOperationException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     public static void init() {
         ToolInteractions.registerStrippableBlocks((block, stripped) -> {
             AxeItem.STRIPPABLES = new HashMap<>(AxeItem.STRIPPABLES);
             AxeItem.STRIPPABLES.put(block, stripped);
         });
-        BlockFeatures.registerFlammable((block, igniteOdds, burnOdds) -> {
-            try {
-                SET_FLAMMABLE.invoke((FireBlock) Blocks.FIRE, block, igniteOdds, burnOdds);
-            } catch (Throwable e) {
-                throw new RuntimeException(e);
-            }
-        });
+        BlockFeatures.registerFlammable(((FireBlock) Blocks.FIRE)::setFlammable);
         ToolInteractions.registerFlattenables(ShovelItem.FLATTENABLES::put);
-        BlockFeatures.registerCompostables((item, chance) -> ComposterBlock.COMPOSTABLES.put(item.asItem(), chance.floatValue()));
     }
 
     public static void registerVanillaCompatEvents(final IEventBus bus) {
