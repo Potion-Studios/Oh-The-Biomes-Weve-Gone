@@ -3,9 +3,9 @@ name: Build Gradle for Pull Request
 on:
   pull_request:
     branches:
-      - 1.21.11
-      - 1.21.1
       - 1.20.1
+      - 1.21.1
+      - 1.21.11
     types:
       - synchronize
       - opened
@@ -16,11 +16,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Set up JDK 21
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v6
         with:
-          distribution: adopt
+          distribution: oracle
           java-version: 21
           cache: gradle
 
