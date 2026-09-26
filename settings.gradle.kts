@@ -7,7 +7,7 @@ pluginManagement.repositories {
 }
 
 plugins {
-    id("com.gradle.develocity") version("4.4.2")
+    id("com.gradle.develocity") version("4.6.0")
 }
 
 develocity.buildScan {
