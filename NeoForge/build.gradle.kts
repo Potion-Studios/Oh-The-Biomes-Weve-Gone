@@ -1,7 +1,5 @@
 import com.hypherionmc.modpublisher.properties.ModLoader
 
-evaluationDependsOn(":Common")
-
 plugins {
     id("com.gradleup.shadow")
 }
@@ -30,7 +28,7 @@ configurations {
 }
 
 loom {
-    accessWidenerPath.set(project(":Common").loom.accessWidenerPath)
+    accessWidenerPath.set(project(":Common").file("src/main/resources/biomeswevegone.accesswidener"))
 
     runs.create("datagen") {
         data()
