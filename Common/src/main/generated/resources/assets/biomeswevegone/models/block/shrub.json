@@ -1,56 +1,7 @@
 {
-	"format_version": "1.21.11",
-	"credit": "Made with Blockbench",
-	"parent": "block/block",
-	"ambientocclusion": true,
-	"render_type": "cutout_mipped",
-	"textures": {
-		"0": "biomeswevegone:block/shrub_base",
-		"1": "biomeswevegone:block/shrub",
-		"particle": "biomeswevegone:block/shrub_base"
-	},
-	"elements": [
-		{
-			"name": "Side1",
-			"from": [0.8, 0, 8],
-			"to": [15.2, 16, 8],
-			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8], "rescale": true},
-			"faces": {
-				"north": {"uv": [0, 0, 16, 16], "texture": "#1"},
-				"east": {"uv": [0, 0, 0, 0], "texture": "#1"},
-				"south": {"uv": [0, 0, 16, 16], "texture": "#1"},
-				"west": {"uv": [0, 0, 0, 0], "texture": "#1"},
-				"up": {"uv": [0, 0, 0, 0], "texture": "#1"},
-				"down": {"uv": [0, 0, 0, 0], "texture": "#1"}
-			}
-		},
-		{
-			"name": "Side2",
-			"from": [8, 0, 0.8],
-			"to": [8, 16, 15.2],
-			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8], "rescale": true},
-			"faces": {
-				"north": {"uv": [0, 0, 0, 0], "texture": "#1"},
-				"east": {"uv": [0, 0, 16, 16], "texture": "#1"},
-				"south": {"uv": [0, 0, 0, 0], "texture": "#1"},
-				"west": {"uv": [0, 0, 16, 16], "texture": "#1"},
-				"up": {"uv": [0, 0, 0, 0], "texture": "#1"},
-				"down": {"uv": [0, 0, 0, 0], "texture": "#1"}
-			}
-		},
-		{
-			"name": "Bush Center",
-			"from": [3, 4, 3],
-			"to": [13, 12, 13],
-			"rotation": {"angle": 0, "axis": "y", "origin": [3, 7, 4]},
-			"faces": {
-				"north": {"uv": [3, 4, 13, 12], "texture": "#0"},
-				"east": {"uv": [3, 4, 13, 12], "texture": "#0"},
-				"south": {"uv": [3, 4, 13, 12], "texture": "#0"},
-				"west": {"uv": [3, 4, 13, 12], "texture": "#0"},
-				"up": {"uv": [3, 2, 13, 12], "texture": "#0"},
-				"down": {"uv": [3, 2, 13, 12], "texture": "#0"}
-			}
-		}
-	]
+  "parent": "minecraft:block/cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cross": "biomeswevegone:block/shrub"
+  }
 }
