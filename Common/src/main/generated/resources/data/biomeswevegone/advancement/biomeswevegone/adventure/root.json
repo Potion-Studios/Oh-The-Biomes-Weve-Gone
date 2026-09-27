@@ -625,22 +625,6 @@
       },
       "trigger": "minecraft:location"
     },
-    "biomeswevegone:pine_barrens": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "biomes": "biomeswevegone:pine_barrens"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
     "biomeswevegone:prairie": {
       "conditions": {
         "player": [
@@ -1002,7 +986,6 @@
       "biomeswevegone:overgrowth_woodlands",
       "biomeswevegone:pale_bog",
       "biomeswevegone:palisade_grove",
-      "biomeswevegone:pine_barrens",
       "biomeswevegone:prairie",
       "biomeswevegone:pumpkin_valley",
       "biomeswevegone:rainbow_beach",

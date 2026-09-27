@@ -22,7 +22,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:air"
+          "name": "biomeswevegone:baobab_fruit"
         }
       ],
       "rolls": 1.0
