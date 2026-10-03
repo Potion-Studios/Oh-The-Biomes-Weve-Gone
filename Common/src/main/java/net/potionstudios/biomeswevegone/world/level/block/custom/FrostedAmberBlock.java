@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
@@ -54,14 +55,45 @@ public class FrostedAmberBlock extends BaseEntityBlock {
     }
 
     @Override
+    protected void onRemove(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState newState, boolean movedByPiston) {
+        if (!state.is(newState.getBlock())) {
+            if (level.getBlockEntity(pos) instanceof FrostedAmberBlockEntity frostedAmberBlockEntity) {
+                if (frostedAmberBlockEntity.getEmptyBottles() > 0)
+                    Containers.dropItemStack(
+                            level, pos.getX(), pos.getY(), pos.getZ(),
+                            new ItemStack(Items.GLASS_BOTTLE, frostedAmberBlockEntity.getEmptyBottles())
+                    );
+                if (frostedAmberBlockEntity.getFullBottles() > 0)
+                    Containers.dropItemStack(
+                            level, pos.getX(), pos.getY(), pos.getZ(),
+                            new ItemStack(BWGItems.FROST_AMBER_BOTTLE.get(), frostedAmberBlockEntity.getFullBottles())
+                    );
+            }
+            super.onRemove(state, level, pos, newState, movedByPiston);
+        }
+    }
+
+    @Override
     protected @NotNull InteractionResult useWithoutItem(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull BlockHitResult hitResult) {
         if (!level.isClientSide()) {
             if (level.getBlockEntity(pos) instanceof FrostedAmberBlockEntity blockEntity) {
-                if (blockEntity.getFullBottles() > 0) {
-                    blockEntity.removeFullBottles(blockEntity.getFullBottles());
-                    player.addItem(new ItemStack(BWGItems.FROST_AMBER_BOTTLE.get(), blockEntity.getFullBottles()));
-                    return InteractionResult.SUCCESS;
+                if (player.isShiftKeyDown()) {
+                    int fullBottles = blockEntity.getFullBottles();
+                    if (fullBottles > 0) {
+                        blockEntity.removeFullBottles(fullBottles);
+                        player.addItem(new ItemStack(BWGItems.FROST_AMBER_BOTTLE.get(), fullBottles));
+                        return InteractionResult.SUCCESS;
+                    }
+                } else {
+                    int emptyBottles = blockEntity.getEmptyBottles();
+                    if (emptyBottles > 0) {
+                        level.setBlockAndUpdate(pos, state.setValue(CONVERTING, false));
+                        player.addItem(new ItemStack(Items.GLASS_BOTTLE, emptyBottles));
+                        blockEntity.removeEmptyBottles(emptyBottles);
+                        return InteractionResult.SUCCESS;
+                    }
                 }
+
             }
         }
         return super.useWithoutItem(state, level, pos, player, hitResult);
@@ -76,7 +108,7 @@ public class FrostedAmberBlock extends BaseEntityBlock {
                 else {
                     player.getItemInHand(hand).shrink(1);
                     blockEntity.addBottle();
-                    return ItemInteractionResult.CONSUME;
+                    return ItemInteractionResult.SUCCESS;
                 }
             }
         }

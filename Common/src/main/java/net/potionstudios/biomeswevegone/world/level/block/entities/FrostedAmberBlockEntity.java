@@ -50,6 +50,10 @@ public class FrostedAmberBlockEntity extends BlockEntity {
         fullBottles -= amount;
     }
 
+    public void removeEmptyBottles(int amount) {
+        emptyBottles -= amount;
+    }
+
     public boolean isFull() {
         return emptyBottles + fullBottles >= 64;
     }
