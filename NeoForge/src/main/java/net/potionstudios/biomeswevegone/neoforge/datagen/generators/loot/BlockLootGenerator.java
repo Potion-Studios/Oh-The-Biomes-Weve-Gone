@@ -247,6 +247,8 @@ class BlockLootGenerator extends BlockLootSubProvider {
                                                 .otherwise(LootItem.lootTableItem(BWGItems.PUMPKIN_BURROW.get()))
                                 )
                 ));
+
+        add(BWGBlocks.FROSTED_AMBER_BLOCK.get(), noDrop());
     }
 
     private LootTable.Builder createFruitLeavesDrops(LeavesBlock leaves, Block saplingBlock, Item fruit, float... chances) {
