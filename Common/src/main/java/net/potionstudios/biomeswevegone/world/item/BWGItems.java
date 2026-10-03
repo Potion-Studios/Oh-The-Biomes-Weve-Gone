@@ -1,5 +1,6 @@
 package net.potionstudios.biomeswevegone.world.item;
 
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvent;
@@ -11,6 +12,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
@@ -19,6 +21,7 @@ import net.potionstudios.biomeswevegone.component.BWGDataComponents;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import net.potionstudios.biomeswevegone.world.item.custom.CampfireExplodingBlockItem;
+import net.potionstudios.biomeswevegone.world.item.custom.FrostedAmberBottleItem;
 import net.potionstudios.biomeswevegone.world.item.custom.PowderItem;
 import net.potionstudios.biomeswevegone.world.item.custom.WreathItem;
 import net.potionstudios.biomeswevegone.world.item.jukebox.BWGJukeBoxSongs;
@@ -105,6 +108,8 @@ public class BWGItems {
     public static final Supplier<WreathItem> PETAL_WREATH = registerSimpleItem("petal_wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.PETAL));
     public static final Supplier<WreathItem> ROSY_WREATH = registerSimpleItem("rosy_wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.ROSY));
     public static final Supplier<WreathItem> WINTER_ROSY_WREATH = registerSimpleItem("winter_rosy_wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.WINTER_ROSY));
+
+    public static final Supplier<FrostedAmberBottleItem> FROST_AMBER_BOTTLE = registerSimpleItem("frost_amber_bottle", () -> new FrostedAmberBottleItem(new Item.Properties()));
 
     private static Supplier<SpawnEggItem> registerSpawnEgg(String id, Supplier<EntityType<? extends Mob>> entity, int backgroundColor, int highlightColor) {
         Supplier<SpawnEggItem> supplier = PlatformHandler.PLATFORM_HANDLER.createSpawnEgg(entity, backgroundColor, highlightColor);
