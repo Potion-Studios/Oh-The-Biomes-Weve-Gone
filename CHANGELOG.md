@@ -1,3 +1,6 @@
+# 2.6.2
+- Fix Accidental Removal of Config Check for NeoForge Biome Modifiers
+
 # 2.6.1
 - Make all BushBlocks Compostable
 - Fix Salem Meeting Point 2 referencing biomeswevegone:village/common/cats instead of minecraft:village/common/cats

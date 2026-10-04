@@ -1,4 +1,10 @@
 {
+  "neoforge:conditions": [
+    {
+      "type": "biomeswevegone:vanilla_feature_config",
+      "feature": "biomeswevegone:vanilla/flower_default"
+    }
+  ],
   "type": "neoforge:add_features",
   "biomes": [
     "minecraft:old_growth_pine_taiga",
