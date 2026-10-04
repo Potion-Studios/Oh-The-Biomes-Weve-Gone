@@ -578,6 +578,15 @@ public class RecipeGenerator extends RecipeProvider {
                 .save(recipeOutput);
 
         oneToOneConversionRecipe(recipeOutput, Items.STICK, BWGBlocks.WITCH_HAZEL_BRANCH.get(), "sticks");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.BLACK_ICE.get(), 8)
+                .define('#', Ingredient.of(Items.ICE, Items.BLUE_ICE))
+                .define('X', Tags.Items.DYES_BLACK)
+                .pattern("###")
+                .pattern("#X#")
+                .pattern("###")
+                .unlockedBy(getHasName(Items.ICE), has(Items.ICE))
+                .save(recipeOutput);
     }
 
     private static void oneToOneConversionRecipe(RecipeOutput recipeOutput, ItemLike result, TagKey<Item> ingredient) {

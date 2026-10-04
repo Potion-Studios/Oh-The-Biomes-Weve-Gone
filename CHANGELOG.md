@@ -2,6 +2,7 @@
 - Make all BushBlocks Compostable
 - Fix Salem Meeting Point 2 referencing biomeswevegone:village/common/cats instead of minecraft:village/common/cats
 - Fix Husk Spawning in Frosted Coniferous Forest
+- Add Recipe for Black Ice
 
 # 2.6.0 – Config Changes
 - Move worldgeneration config to json from json5 to match all other configs
