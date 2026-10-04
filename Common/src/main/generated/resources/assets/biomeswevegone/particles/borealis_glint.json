@@ -1,5 +1,7 @@
 {
   "textures": [
-    "biomeswevegone:borealis_glint"
+    "biomeswevegone:borealis_glint_0",
+    "biomeswevegone:borealis_glint_1",
+    "biomeswevegone:borealis_glint_2"
   ]
 }

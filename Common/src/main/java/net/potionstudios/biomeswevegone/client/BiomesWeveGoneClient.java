@@ -136,20 +136,24 @@ public class BiomesWeveGoneClient {
     public static void registerParticles(BiConsumer<SimpleParticleType, Function<SpriteSet, ParticleProvider<SimpleParticleType>>> consumer) {
         consumer.accept(BWGParticles.FIREFLY.get(), FireFlyParticle.Provider::new);
         consumer.accept(BWGParticles.BUTTERFLY.get(), FireFlyParticle.Provider::new);
-        consumer.accept(BWGParticles.BOREALIS_GLINT.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.WITCH_HAZEL_LEAVES.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.WHITE_SAKURA_LEAVES.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.YELLOW_SAKURA_LEAVES.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.RED_MAPLE_LEAVES.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.SILVER_MAPLE_LEAVES.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.IRONWOOD_LEAVES.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.SPIRIT.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.SPIRIT_LEAVES.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.YELLOW_BIRCH_LEAVES.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.ORANGE_BIRCH_LEAVES.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.RED_BIRCH_LEAVES.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.BROWN_BIRCH_LEAVES.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.PALISADE_LEAVES.get(), FallingLeafParticle.Provider::new);
+        consumer.accept(BWGParticles.BOREALIS_GLINT.get(), FallingLeafParticle.PaleOakProvider::new);
+        consumer.accept(BWGParticles.WITCH_HAZEL_LEAVES.get(), FallingLeafParticle.PaleOakProvider::new);
+        consumer.accept(BWGParticles.WHITE_SAKURA_LEAVES.get(), FallingLeafParticle.CherryProvider::new);
+        consumer.accept(BWGParticles.YELLOW_SAKURA_LEAVES.get(), FallingLeafParticle.CherryProvider::new);
+        consumer.accept(BWGParticles.RED_MAPLE_LEAVES.get(), FallingLeafParticle.PaleOakProvider::new);
+        consumer.accept(BWGParticles.SILVER_MAPLE_LEAVES.get(), FallingLeafParticle.PaleOakProvider::new);
+        consumer.accept(BWGParticles.IRONWOOD_LEAVES.get(), FallingLeafParticle.CherryProvider::new);
+        consumer.accept(BWGParticles.SPIRIT.get(), FireFlyParticle.Provider::new);
+        consumer.accept(BWGParticles.SPIRIT_LEAVES.get(), FallingLeafParticle.PaleOakProvider::new);
+        consumer.accept(BWGParticles.YELLOW_BIRCH_LEAVES.get(), FallingLeafParticle.PaleOakProvider::new);
+        consumer.accept(BWGParticles.ORANGE_BIRCH_LEAVES.get(), FallingLeafParticle.PaleOakProvider::new);
+        consumer.accept(BWGParticles.RED_BIRCH_LEAVES.get(), FallingLeafParticle.PaleOakProvider::new);
+        consumer.accept(BWGParticles.BROWN_BIRCH_LEAVES.get(), FallingLeafParticle.PaleOakProvider::new);
+        consumer.accept(BWGParticles.PALISADE_LEAVES.get(), FallingLeafParticle.CherryProvider::new);
+        consumer.accept(BWGParticles.ALLIUM_POLLEN.get(), FallingLeafParticle.CherryProvider::new);
+        consumer.accept(BWGParticles.WHITE_ALLIUM_POLLEN.get(), FallingLeafParticle.CherryProvider::new);
+        consumer.accept(BWGParticles.PINK_ALLIUM_POLLEN.get(), FallingLeafParticle.CherryProvider::new);
+
     }
 
     public static void registerItemProperties(TriConsumer<Item, ResourceLocation, ClampedItemPropertyFunction> consumer) {

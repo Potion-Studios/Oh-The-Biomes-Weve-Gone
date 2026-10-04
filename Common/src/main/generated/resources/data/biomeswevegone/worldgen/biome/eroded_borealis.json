@@ -27,7 +27,7 @@
       "options": {
         "type": "biomeswevegone:borealis_glint"
       },
-      "probability": 0.002
+      "probability": 0.001
     },
     "sky_color": 8625919,
     "water_color": 4159204,
