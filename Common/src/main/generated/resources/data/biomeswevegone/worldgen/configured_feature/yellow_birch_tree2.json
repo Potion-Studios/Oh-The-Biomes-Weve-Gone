@@ -10,7 +10,7 @@
       "type": "minecraft:replaceable"
     },
     "can_logs_place_filter": {
-      "type": "minecraft:replaceable"
+      "type": "minecraft:true"
     },
     "canopy_location": "biomeswevegone:features/trees/birch/birch_tree_canopy2",
     "decorators": [],
@@ -50,6 +50,6 @@
     "orientation": "STANDARD",
     "place_from_nbt": [],
     "random_rotation": true,
-    "tree_filter_behavior": "BLOCK"
+    "tree_filter_behavior": "PIERCE"
   }
 }
