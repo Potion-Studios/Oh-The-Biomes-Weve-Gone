@@ -17,6 +17,7 @@ public class BWGParticles {
     public static final Supplier<SimpleParticleType> ORANGE_BIRCH_LEAVES = register("orange_birch_leaves");
     public static final Supplier<SimpleParticleType> RED_BIRCH_LEAVES = register("red_birch_leaves");
     public static final Supplier<SimpleParticleType> BUTTERFLY = register("butterfly");
+    public static final Supplier<SimpleParticleType> LEAF = register("leaf");
 
     public static final Supplier<SimpleParticleType> WITCH_HAZEL_LEAVES = register("witch_hazel_leaves");
     public static final Supplier<SimpleParticleType> SPIRIT_LEAVES = register("spirit_leaves");
@@ -29,6 +30,10 @@ public class BWGParticles {
     public static final Supplier<SimpleParticleType> FIREFLY = register("firefly");
     public static final Supplier<SimpleParticleType> SPIRIT = register("spirit");
     public static final Supplier<SimpleParticleType> PALISADE_LEAVES = register("palisade_leaves");
+
+    public static final Supplier<SimpleParticleType> ALLIUM_POLLEN = register("allium_pollen");
+    public static final Supplier<SimpleParticleType> WHITE_ALLIUM_POLLEN = register("white_allium_pollen");
+    public static final Supplier<SimpleParticleType> PINK_ALLIUM_POLLEN = register("pink_allium_pollen");
 
 
     private static Supplier<SimpleParticleType> register(String id) {

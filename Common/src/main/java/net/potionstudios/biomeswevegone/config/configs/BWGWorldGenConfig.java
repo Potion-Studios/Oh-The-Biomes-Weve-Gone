@@ -29,7 +29,7 @@ public class BWGWorldGenConfig {
                 .sorted(Comparator.comparing(ResourceLocation::toString))
                 .collect(Collectors.toMap(loc -> loc, loc -> true, (a, b) -> a, LinkedHashMap::new));
 
-        enabledBiomes.replace(BWGBiomes.ERODED_BOREALIS.location(), false);
+        enabledBiomes.replace(BWGBiomes.ERODED_BOREALIS.location(), true);
         return enabledBiomes;
     }
 

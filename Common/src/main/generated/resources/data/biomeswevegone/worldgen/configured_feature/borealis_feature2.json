@@ -15,7 +15,7 @@
     "canopy_location": "biomeswevegone:features/borealis/borealis_canopy2",
     "height": {
       "type": "minecraft:biased_to_bottom",
-      "max_inclusive": 30,
+      "max_inclusive": 50,
       "min_inclusive": 11
     },
     "leaves_provider": {

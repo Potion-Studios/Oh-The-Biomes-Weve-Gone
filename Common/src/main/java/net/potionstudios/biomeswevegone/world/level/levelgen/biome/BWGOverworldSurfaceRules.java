@@ -48,6 +48,7 @@ public class BWGOverworldSurfaceRules {
     private static final SurfaceRules.RuleSource COARSE_DIRT_DIRT_SURFACE = SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.COARSE_DIRT), makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT));
 
     private static final SurfaceRules.RuleSource SANDY_DIRT_SURFACE = SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.SANDY_DIRT.get()), makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.SANDY_DIRT.get()));
+    private static final SurfaceRules.RuleSource OLIVE_MOSS_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.OLIVE_MOSS_BLOCK.get())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.OLIVE_MOSS_BLOCK.get()));
 
 
     private static final SurfaceRules.RuleSource NOISE_COARSE_DIRT = makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D), COARSE_DIRT_DIRT_SURFACE);
@@ -414,6 +415,16 @@ public class BWGOverworldSurfaceRules {
             makeifTrueRule(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), TUFF_STONE_SURFACE)
     ));
 
+    private static final SurfaceRules.RuleSource TUSCANY_PLAINS = biomeAbovePreliminarySurface(BWGBiomes.TUSCANY_PLAINS, SurfaceRules.sequence(
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
+                    SurfaceRules.sequence(
+                            makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.GRASS_BLOCK),
+                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT)
+                    )),
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), GRASS_DIRT_DIRT_SURFACE),
+            OLIVE_MOSS_SURFACE
+    ));
+
     private static final SurfaceRules.RuleSource CYPRESS_WETLANDS = biomeAbovePreliminarySurface(BWGBiomes.CYPRESS_WETLANDS, SurfaceRules.sequence(
             makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
                     SurfaceRules.sequence(
@@ -493,6 +504,7 @@ public class BWGOverworldSurfaceRules {
                 SIERRA_BADLANDS,
                 SKYRIS_VALE,
                 ASPHODEL_MEADOW,
+                TUSCANY_PLAINS,
                 WEEPING_WITCH_FOREST,
                 WINDSWEPT_DESERT,
                 CYPRESS_WETLANDS

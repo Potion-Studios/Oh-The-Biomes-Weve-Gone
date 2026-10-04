@@ -25,9 +25,12 @@ public class ParticleDescriptionGenerator extends ParticleDescriptionProvider {
 	@Override
 	protected void addDescriptions() {
 		sprite(BWGParticles.FIREFLY.get(), BiomesWeveGone.id("firefly"));
-		sprite(BWGParticles.BOREALIS_GLINT.get(), BiomesWeveGone.id("borealis_glint"));
+		spriteSet(BWGParticles.BOREALIS_GLINT.get(), BiomesWeveGone.id("borealis_glint"), 3, false);
 		sprite(BWGParticles.IRONWOOD_LEAVES.get(), BiomesWeveGone.id("ironwood_leaves"));
 		sprite(BWGParticles.SPIRIT.get(), BiomesWeveGone.id("spirit"));
+		sprite(BWGParticles.ALLIUM_POLLEN.get(), BiomesWeveGone.id("allium_pollen"));
+		sprite(BWGParticles.WHITE_ALLIUM_POLLEN.get(), BiomesWeveGone.id("white_allium_pollen"));
+		sprite(BWGParticles.PINK_ALLIUM_POLLEN.get(), BiomesWeveGone.id("pink_allium_pollen"));
 		spriteSet(BWGParticles.RED_MAPLE_LEAVES.get(), BiomesWeveGone.id("red_maple"), 4, false);
 		spriteSet(BWGParticles.SILVER_MAPLE_LEAVES.get(), BiomesWeveGone.id("silver_maple"), 4, false);
 		spriteSet(BWGParticles.YELLOW_SAKURA_LEAVES.get(), BiomesWeveGone.id("yellow_sakura"), 8, false);
@@ -40,5 +43,6 @@ public class ParticleDescriptionGenerator extends ParticleDescriptionProvider {
 		spriteSet(BWGParticles.ORANGE_BIRCH_LEAVES.get(), BiomesWeveGone.id("orange_birch"), 4, false);
 		spriteSet(BWGParticles.PALISADE_LEAVES.get(), BiomesWeveGone.id("palisade"), 5, false);
 		spriteSet(BWGParticles.BUTTERFLY.get(), BiomesWeveGone.id("butterfly"), 7, false);
+
 	}
 }
