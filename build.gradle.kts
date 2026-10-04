@@ -99,7 +99,7 @@ subprojects {
             apiKeys {
                 curseforge(getPublishingCredentials().first)
                 modrinth(getPublishingCredentials().second)
-                github(project.properties["github_token"].toString())
+                github(providers.gradleProperty("github_token").orNull)
             }
             displayName.set(base.archivesName.get() + "-${project.version}")
             artifact.set(project.tasks.getByName("remapJar"))

@@ -9,7 +9,7 @@ architectury {
     forge()
 }
 
-val minecraftVersion = project.properties["minecraft_version"] as String
+val minecraftVersion = providers.gradleProperty("minecraft_version").get()
 
 configurations {
     create("common")
@@ -48,31 +48,31 @@ loom {
 }
 
 dependencies {
-    forge("net.minecraftforge:forge:$minecraftVersion-${project.properties["forge_version"]}")
+    forge("net.minecraftforge:forge:$minecraftVersion-${providers.gradleProperty("forge_version").get()}")
 
     "common"(project(":Common", "namedElements")) { isTransitive = false }
     "shadowBundle"(project(":Common", "transformProductionForge"))
 
-    modLocalRuntime("me.djtheredstoner:DevAuth-forge-latest:${project.properties["devauth_version"]}")  { isTransitive = false }
+    modLocalRuntime("me.djtheredstoner:DevAuth-forge-latest:${providers.gradleProperty("devauth_version").get()}")  { isTransitive = false }
 
     implementation("com.eliotlash.mclib:mclib:20")
     forgeRuntimeLibrary("com.eliotlash.mclib:mclib:20")
-    modApi("com.github.glitchfiend:TerraBlender-forge:$minecraftVersion-${project.properties["terrablender_version"]}")
-    modApi("dev.corgitaco:Corgilib-Forge:$minecraftVersion-${project.properties["corgilib_version"]}")
-    modApi("dev.corgitaco:Oh-The-Trees-Youll-Grow-forge:$minecraftVersion-${project.properties["ohthetreesyoullgrow_version"]}")
-    modApi("software.bernie.geckolib:geckolib-forge-$minecraftVersion:${project.properties["geckolib_version"]}")
+    modApi("com.github.glitchfiend:TerraBlender-forge:$minecraftVersion-${providers.gradleProperty("terrablender_version").get()}")
+    modApi("dev.corgitaco:Corgilib-Forge:$minecraftVersion-${providers.gradleProperty("corgilib_version").get()}")
+    modApi("dev.corgitaco:Oh-The-Trees-Youll-Grow-forge:$minecraftVersion-${providers.gradleProperty("ohthetreesyoullgrow_version").get()}")
+    modApi("software.bernie.geckolib:geckolib-forge-$minecraftVersion:${providers.gradleProperty("geckolib_version").get()}")
 
-    modCompileOnly("mcp.mobius.waila:wthit-api:forge-${project.properties["WTHIT"]}")
-    modLocalRuntime("mcp.mobius.waila:wthit:forge-${project.properties["WTHIT"]}")
-    modLocalRuntime("lol.bai:badpackets:forge-${project.properties["badPackets"]}")
+    modCompileOnly("mcp.mobius.waila:wthit-api:forge-${providers.gradleProperty("WTHIT").get()}")
+    modLocalRuntime("mcp.mobius.waila:wthit:forge-${providers.gradleProperty("WTHIT").get()}")
+    modLocalRuntime("lol.bai:badpackets:forge-${providers.gradleProperty("badPackets").get()}")
 
     modLocalRuntime("maven.modrinth:cyanide:4.1.1")
 
     modApi("com.github.glitchfiend:SereneSeasons-forge:$minecraftVersion-9.1.0.3")
     modLocalRuntime("com.github.glitchfiend:GlitchCore-forge:$minecraftVersion-0.0.1.1")
 
-    compileOnly("io.github.llamalad7:mixinextras-common:0.5.4")?.let { annotationProcessor(it) }
-    include("io.github.llamalad7:mixinextras-forge:0.5.4")?.let { implementation(it) }
+    compileOnly("io.github.llamalad7:mixinextras-common:0.5.5")?.let { annotationProcessor(it) }
+    include("io.github.llamalad7:mixinextras-forge:0.5.5")?.let { implementation(it) }
 }
 
 tasks {

@@ -477,6 +477,15 @@ public class RecipeGenerator extends RecipeProvider {
         oneToTwoConversionRecipe(writer, Items.PINK_DYE, BWGItemTags.MAKES_2_PINK_DYE);
         oneToTwoConversionRecipe(writer, Items.PURPLE_DYE, BWGItemTags.MAKES_2_PURPLE_DYE);
         oneToTwoConversionRecipe(writer, Items.WHITE_DYE, BWGItemTags.MAKES_2_WHITE_DYE);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.BLACK_ICE.get(), 8)
+                .define('#', Ingredient.of(Items.ICE, Items.BLUE_ICE))
+                .define('X', Tags.Items.DYES_BLACK)
+                .pattern("###")
+                .pattern("#X#")
+                .pattern("###")
+                .unlockedBy(getHasName(Items.ICE), has(Items.ICE))
+                .save(writer);
     }
 
     private static void oneToOneConversionRecipe(Consumer<FinishedRecipe> recipeOutput, ItemLike result, TagKey<Item> ingredient) {
