@@ -429,7 +429,7 @@ class BWGOverworldBiomes {
         addSpawn(spawnSettings, EntityType.FOX, 8, 2, 4);
         addSpawn(spawnSettings, EntityType.BAT, 10, 8, 8);
         addSpawn(spawnSettings, EntityType.SPIDER, 100, 4, 4);
-        addSpawn(spawnSettings, snowy ? EntityType.HUSK : EntityType.ZOMBIE, 100, 4, 4);
+        addSpawn(spawnSettings, EntityType.ZOMBIE, 100, 4, 4);
         addSpawn(spawnSettings, EntityType.SKELETON, 100, 4, 4);
         addSpawn(spawnSettings, EntityType.ZOMBIE_VILLAGER, 25, 1, 1);
         addSpawn(spawnSettings, EntityType.CREEPER, 100, 4, 4);
