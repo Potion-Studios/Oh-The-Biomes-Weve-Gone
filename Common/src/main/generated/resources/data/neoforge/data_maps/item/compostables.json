@@ -6,19 +6,7 @@
     }
   ],
   "values": {
-    "biomeswevegone:allium_flower_bush": {
-      "chance": 0.65
-    },
     "biomeswevegone:aloe_vera": {
-      "chance": 0.65
-    },
-    "biomeswevegone:alpine_bellflower": {
-      "chance": 0.65
-    },
-    "biomeswevegone:amaranth": {
-      "chance": 0.65
-    },
-    "biomeswevegone:angelica": {
       "chance": 0.65
     },
     "biomeswevegone:araucaria_leaves": {
@@ -48,15 +36,6 @@
     "biomeswevegone:beach_grass": {
       "chance": 0.3
     },
-    "biomeswevegone:begonia": {
-      "chance": 0.65
-    },
-    "biomeswevegone:bistort": {
-      "chance": 0.65
-    },
-    "biomeswevegone:black_rose": {
-      "chance": 0.65
-    },
     "biomeswevegone:blooming_witch_hazel_leaves": {
       "chance": 0.3
     },
@@ -68,12 +47,6 @@
     },
     "biomeswevegone:blue_glowcane_shoot": {
       "chance": 0.5
-    },
-    "biomeswevegone:blue_rose_bush": {
-      "chance": 0.65
-    },
-    "biomeswevegone:blue_sage": {
-      "chance": 0.65
     },
     "biomeswevegone:blue_spruce_leaves": {
       "chance": 0.3
@@ -107,9 +80,6 @@
     },
     "biomeswevegone:brown_zelkova_sapling": {
       "chance": 0.3
-    },
-    "biomeswevegone:california_poppy": {
-      "chance": 0.65
     },
     "biomeswevegone:carved_barrel_cactus": {
       "chance": 0.5
@@ -150,20 +120,8 @@
     "biomeswevegone:cooked_yucca_fruit": {
       "chance": 0.75
     },
-    "biomeswevegone:crocus": {
-      "chance": 0.65
-    },
-    "biomeswevegone:cyan_amaranth": {
-      "chance": 0.65
-    },
     "biomeswevegone:cyan_pitcher_plant": {
       "chance": 0.85
-    },
-    "biomeswevegone:cyan_rose": {
-      "chance": 0.65
-    },
-    "biomeswevegone:cyan_tulip": {
-      "chance": 0.65
     },
     "biomeswevegone:cypress_leaves": {
       "chance": 0.3
@@ -171,20 +129,11 @@
     "biomeswevegone:cypress_sapling": {
       "chance": 0.3
     },
-    "biomeswevegone:daffodil": {
-      "chance": 0.65
-    },
-    "biomeswevegone:delphinium": {
-      "chance": 0.65
-    },
     "biomeswevegone:ebony_leaves": {
       "chance": 0.3
     },
     "biomeswevegone:ebony_sapling": {
       "chance": 0.3
-    },
-    "biomeswevegone:fairy_slipper": {
-      "chance": 0.65
     },
     "biomeswevegone:fir_leaves": {
       "chance": 0.3
@@ -234,17 +183,11 @@
     "biomeswevegone:flowering_spirit_leaves": {
       "chance": 0.3
     },
-    "biomeswevegone:flowering_tiny_lily_pads": {
-      "chance": 0.65
-    },
     "biomeswevegone:flowering_yucca_leaves": {
       "chance": 0.3
     },
     "biomeswevegone:fluorescent_cattail_sprout": {
       "chance": 0.5
-    },
-    "biomeswevegone:foxglove": {
-      "chance": 0.65
     },
     "biomeswevegone:golden_spined_cactus": {
       "chance": 0.5
@@ -267,17 +210,8 @@
     "biomeswevegone:green_glowcane_shoot": {
       "chance": 0.5
     },
-    "biomeswevegone:green_mushroom": {
-      "chance": 0.65
-    },
     "biomeswevegone:green_mushroom_block": {
       "chance": 0.85
-    },
-    "biomeswevegone:green_tulip": {
-      "chance": 0.65
-    },
-    "biomeswevegone:guzmania": {
-      "chance": 0.65
     },
     "biomeswevegone:holly_berry_leaves": {
       "chance": 0.3
@@ -291,16 +225,10 @@
     "biomeswevegone:holly_wreath": {
       "chance": 0.75
     },
-    "biomeswevegone:horseweed": {
-      "chance": 0.65
-    },
     "biomeswevegone:hydrangea_bush": {
       "chance": 0.65
     },
     "biomeswevegone:hydrangea_hedge": {
-      "chance": 0.65
-    },
-    "biomeswevegone:incan_lily": {
       "chance": 0.65
     },
     "biomeswevegone:indigo_jacaranda_bush": {
@@ -311,9 +239,6 @@
     },
     "biomeswevegone:indigo_jacaranda_sapling": {
       "chance": 0.3
-    },
-    "biomeswevegone:iris": {
-      "chance": 0.65
     },
     "biomeswevegone:ironwood_leaves": {
       "chance": 0.3
@@ -330,29 +255,11 @@
     "biomeswevegone:jacaranda_sapling": {
       "chance": 0.3
     },
-    "biomeswevegone:japanese_orchid": {
-      "chance": 0.65
-    },
-    "biomeswevegone:kovan_flower": {
-      "chance": 0.65
-    },
-    "biomeswevegone:lazarus_bellflower": {
-      "chance": 0.65
-    },
     "biomeswevegone:leaf_pile": {
-      "chance": 0.65
-    },
-    "biomeswevegone:lollipop_flower": {
-      "chance": 0.65
-    },
-    "biomeswevegone:magenta_amaranth": {
       "chance": 0.65
     },
     "biomeswevegone:magenta_pitcher_plant": {
       "chance": 0.85
-    },
-    "biomeswevegone:magenta_tulip": {
-      "chance": 0.65
     },
     "biomeswevegone:mahogany_leaves": {
       "chance": 0.3
@@ -378,17 +285,11 @@
     "biomeswevegone:oddion_wreath": {
       "chance": 0.75
     },
-    "biomeswevegone:orange_amaranth": {
-      "chance": 0.65
-    },
     "biomeswevegone:orange_birch_leaves": {
       "chance": 0.3
     },
     "biomeswevegone:orange_birch_sapling": {
       "chance": 0.3
-    },
-    "biomeswevegone:orange_daisy": {
-      "chance": 0.65
     },
     "biomeswevegone:orange_oak_leaves": {
       "chance": 0.3
@@ -407,9 +308,6 @@
     },
     "biomeswevegone:orchard_sapling": {
       "chance": 0.3
-    },
-    "biomeswevegone:osiria_rose": {
-      "chance": 0.65
     },
     "biomeswevegone:pale_jack_o_lantern": {
       "chance": 0.65
@@ -432,9 +330,6 @@
     "biomeswevegone:palo_verde_sapling": {
       "chance": 0.3
     },
-    "biomeswevegone:peach_leather_flower": {
-      "chance": 0.65
-    },
     "biomeswevegone:petal_wreath": {
       "chance": 0.75
     },
@@ -444,18 +339,6 @@
     "biomeswevegone:pine_sapling": {
       "chance": 0.3
     },
-    "biomeswevegone:pink_allium": {
-      "chance": 0.65
-    },
-    "biomeswevegone:pink_allium_flower_bush": {
-      "chance": 0.65
-    },
-    "biomeswevegone:pink_anemone": {
-      "chance": 0.65
-    },
-    "biomeswevegone:pink_daffodil": {
-      "chance": 0.65
-    },
     "biomeswevegone:poison_ivy": {
       "chance": 0.5
     },
@@ -464,18 +347,6 @@
     },
     "biomeswevegone:prickly_pear_cactus": {
       "chance": 0.5
-    },
-    "biomeswevegone:protea_flower": {
-      "chance": 0.65
-    },
-    "biomeswevegone:purple_amaranth": {
-      "chance": 0.65
-    },
-    "biomeswevegone:purple_sage": {
-      "chance": 0.65
-    },
-    "biomeswevegone:purple_tulip": {
-      "chance": 0.65
     },
     "biomeswevegone:rainbow_eucalyptus_leaves": {
       "chance": 0.3
@@ -516,9 +387,6 @@
     "biomeswevegone:redwood_sapling": {
       "chance": 0.3
     },
-    "biomeswevegone:richea": {
-      "chance": 0.65
-    },
     "biomeswevegone:ripe_baobab_leaves": {
       "chance": 0.3
     },
@@ -527,9 +395,6 @@
     },
     "biomeswevegone:ripe_yucca_leaves": {
       "chance": 0.3
-    },
-    "biomeswevegone:rose": {
-      "chance": 0.65
     },
     "biomeswevegone:rosy_wreath": {
       "chance": 0.75
@@ -542,9 +407,6 @@
     },
     "biomeswevegone:silver_maple_sapling": {
       "chance": 0.3
-    },
-    "biomeswevegone:silver_vase_flower": {
-      "chance": 0.65
     },
     "biomeswevegone:skyris_leaves": {
       "chance": 0.3
@@ -570,44 +432,14 @@
     "biomeswevegone:spirit_sapling": {
       "chance": 0.3
     },
-    "biomeswevegone:tall_allium": {
-      "chance": 0.65
-    },
     "biomeswevegone:tall_beach_grass": {
       "chance": 0.3
-    },
-    "biomeswevegone:tall_pink_allium": {
-      "chance": 0.65
     },
     "biomeswevegone:tall_prairie_grass": {
       "chance": 0.3
     },
-    "biomeswevegone:tall_white_allium": {
-      "chance": 0.65
-    },
-    "biomeswevegone:tiny_lily_pads": {
-      "chance": 0.65
-    },
-    "biomeswevegone:violet_leather_flower": {
-      "chance": 0.65
-    },
-    "biomeswevegone:water_silk": {
-      "chance": 0.65
-    },
-    "biomeswevegone:weeping_milkcap": {
-      "chance": 0.65
-    },
     "biomeswevegone:weeping_milkcap_mushroom_block": {
       "chance": 0.85
-    },
-    "biomeswevegone:white_allium": {
-      "chance": 0.65
-    },
-    "biomeswevegone:white_allium_flower_bush": {
-      "chance": 0.65
-    },
-    "biomeswevegone:white_anemone": {
-      "chance": 0.65
     },
     "biomeswevegone:white_mangrove_leaves": {
       "chance": 0.3
@@ -622,9 +454,6 @@
       "chance": 0.65
     },
     "biomeswevegone:white_puffball_spores": {
-      "chance": 0.65
-    },
-    "biomeswevegone:white_sage": {
       "chance": 0.65
     },
     "biomeswevegone:white_sakura_leaves": {
@@ -654,9 +483,6 @@
     "biomeswevegone:winter_scilla": {
       "chance": 0.65
     },
-    "biomeswevegone:winter_succulent": {
-      "chance": 0.65
-    },
     "biomeswevegone:witch_hazel_blossom": {
       "chance": 0.65
     },
@@ -669,9 +495,6 @@
     "biomeswevegone:witch_hazel_sapling": {
       "chance": 0.3
     },
-    "biomeswevegone:wood_blewit": {
-      "chance": 0.65
-    },
     "biomeswevegone:wood_blewit_mushroom_block": {
       "chance": 0.85
     },
@@ -683,9 +506,6 @@
     },
     "biomeswevegone:yellow_birch_sapling": {
       "chance": 0.3
-    },
-    "biomeswevegone:yellow_daffodil": {
-      "chance": 0.65
     },
     "biomeswevegone:yellow_glowcane_shoot": {
       "chance": 0.5
@@ -704,9 +524,6 @@
     },
     "biomeswevegone:yellow_spruce_sapling": {
       "chance": 0.3
-    },
-    "biomeswevegone:yellow_tulip": {
-      "chance": 0.65
     },
     "biomeswevegone:yucca_fruit": {
       "chance": 0.65

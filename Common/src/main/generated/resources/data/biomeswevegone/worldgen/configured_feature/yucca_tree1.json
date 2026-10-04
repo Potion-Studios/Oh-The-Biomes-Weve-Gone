@@ -9,6 +9,9 @@
     "can_leaves_place_filter": {
       "type": "minecraft:replaceable"
     },
+    "can_logs_place_filter": {
+      "type": "minecraft:replaceable"
+    },
     "canopy_location": "biomeswevegone:features/trees/yucca/yucca_canopy1",
     "decorators": [
       {
@@ -46,6 +49,7 @@
       "max_inclusive": 2,
       "min_inclusive": 1
     },
+    "height_limit_behavior": "DEFAULT",
     "leaves_provider": {
       "type": "minecraft:weighted_state_provider",
       "entries": [
@@ -100,6 +104,9 @@
       "minecraft:oak_log"
     ],
     "max_log_depth": 4,
-    "place_from_nbt": []
+    "orientation": "STANDARD",
+    "place_from_nbt": [],
+    "random_rotation": true,
+    "tree_filter_behavior": "BLOCK"
   }
 }

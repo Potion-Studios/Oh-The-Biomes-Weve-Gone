@@ -9,8 +9,13 @@
     "can_leaves_place_filter": {
       "type": "minecraft:replaceable"
     },
+    "can_logs_place_filter": {
+      "type": "minecraft:replaceable"
+    },
     "canopy_location": "biomeswevegone:features/trees/aspen-shrub/aspen_shrub_canopy2",
+    "decorators": [],
     "height": 0,
+    "height_limit_behavior": "DEFAULT",
     "leaves_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -38,6 +43,9 @@
       "minecraft:oak_log"
     ],
     "max_log_depth": 1,
-    "place_from_nbt": []
+    "orientation": "STANDARD",
+    "place_from_nbt": [],
+    "random_rotation": true,
+    "tree_filter_behavior": "BLOCK"
   }
 }

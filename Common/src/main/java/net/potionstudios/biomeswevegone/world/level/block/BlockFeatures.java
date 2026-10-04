@@ -24,7 +24,7 @@ public class BlockFeatures {
         BWGBlocks.BLOCKS.forEach(object -> {
             Block block = object.get();
             if (block.asItem().getDefaultInstance().is(Items.AIR)) return;
-            if (block instanceof TallGrassBlock || block instanceof BWGDoublePlantBlock || block instanceof PinkPetalsBlock)
+            if (block instanceof TallGrassBlock || block instanceof BWGDoublePlantBlock || block instanceof FlowerBedBlock)
                 consumer.accept(block, 0.3F);
             else if (block instanceof VineBlock || block instanceof DesertPlantBlock || block instanceof BWGCactusBlock)
                 consumer.accept(block, 0.5F);

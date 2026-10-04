@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": [
+      "minecraft:ice",
+      "minecraft:blue_ice"
+    ],
+    "X": "#c:dyes/black"
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "biomeswevegone:black_ice"
+  }
+}

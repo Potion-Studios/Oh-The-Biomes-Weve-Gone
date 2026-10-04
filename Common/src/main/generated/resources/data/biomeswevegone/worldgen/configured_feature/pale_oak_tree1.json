@@ -9,6 +9,9 @@
     "can_leaves_place_filter": {
       "type": "minecraft:replaceable"
     },
+    "can_logs_place_filter": {
+      "type": "minecraft:replaceable"
+    },
     "canopy_location": "biomeswevegone:features/trees/pale/pale_oak_canopy1",
     "decorators": [
       {
@@ -47,6 +50,7 @@
       "max_inclusive": 4,
       "min_inclusive": 1
     },
+    "height_limit_behavior": "DEFAULT",
     "leaves_provider": {
       "type": "minecraft:weighted_state_provider",
       "entries": [
@@ -106,6 +110,9 @@
       "minecraft:oak_log"
     ],
     "max_log_depth": 10,
-    "place_from_nbt": []
+    "orientation": "STANDARD",
+    "place_from_nbt": [],
+    "random_rotation": true,
+    "tree_filter_behavior": "BLOCK"
   }
 }

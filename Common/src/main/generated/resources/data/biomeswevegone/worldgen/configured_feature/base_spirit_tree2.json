@@ -9,12 +9,17 @@
     "can_leaves_place_filter": {
       "type": "minecraft:replaceable"
     },
+    "can_logs_place_filter": {
+      "type": "minecraft:replaceable"
+    },
     "canopy_location": "biomeswevegone:features/trees/spirit/spirit_tree_canopy2",
+    "decorators": [],
     "height": {
       "type": "minecraft:biased_to_bottom",
       "max_inclusive": 15,
       "min_inclusive": 8
     },
+    "height_limit_behavior": "DEFAULT",
     "leaves_provider": {
       "type": "minecraft:weighted_state_provider",
       "entries": [
@@ -72,6 +77,9 @@
       "biomeswevegone:spirit_log"
     ],
     "max_log_depth": 10,
-    "place_from_nbt": []
+    "orientation": "STANDARD",
+    "place_from_nbt": [],
+    "random_rotation": true,
+    "tree_filter_behavior": "BLOCK"
   }
 }
