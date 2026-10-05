@@ -7,6 +7,7 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -14,6 +15,7 @@ import net.minecraft.util.TimeUtil;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
@@ -32,6 +34,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.phys.AABB;
 import net.potionstudios.biomeswevegone.config.configs.BWGMobSpawnConfig;
+import net.potionstudios.biomeswevegone.sounds.BWGSounds;
 import net.potionstudios.biomeswevegone.tags.BWGBlockTags;
 import net.potionstudios.biomeswevegone.tags.BWGItemTags;
 import org.jetbrains.annotations.NotNull;
@@ -50,11 +53,17 @@ import java.util.UUID;
 public class Bizzar extends TamableAnimal implements NeutralMob, GeoEntity {
 	private final AnimatableInstanceCache animatableInstanceCache = GeckoLibUtil.createInstanceCache(this);
 
-	private static final RawAnimation IDLE_SIT = RawAnimation.begin().thenPlay("idle_sit");
-	private static final RawAnimation IDLE_STAND = RawAnimation.begin().thenPlay("idle_stand");
-	private static final RawAnimation IDLE_STAND_QUIRK1 = RawAnimation.begin().thenPlay("idle_stand_quirk1");
-	private static final RawAnimation WALK = RawAnimation.begin().thenPlay("walk");
-	private static final RawAnimation TWIRL = RawAnimation.begin().thenPlay("twirl_transin").thenLoop("twirl");
+	private static final RawAnimation IDLE_SIT = RawAnimation.begin().thenPlay("snow.model.idle_sit");
+	private static final RawAnimation IDLE_SIT2 = RawAnimation.begin().thenPlay("snow.model.idle_sit2");
+	private static final RawAnimation IDLE_SIT3 = RawAnimation.begin().thenPlay("snow.model.idle_sit3");
+	private static final RawAnimation IDLE_STAND = RawAnimation.begin().thenPlay("snow.model.idle_stand");
+	private static final RawAnimation IDLE_STAND2 = RawAnimation.begin().thenPlay("snow.model.idle_stand2");
+	private static final RawAnimation IDLE_STAND3 = RawAnimation.begin().thenPlay("snow.model.idle_stand3");
+	private static final RawAnimation IDLE_STAND4 = RawAnimation.begin().thenPlay("snow.model.idle_stand4");
+	private static final RawAnimation IDLE_STAND5 = RawAnimation.begin().thenPlay("snow.model.idle_stand5");
+	private static final RawAnimation IDLE_STAND6 = RawAnimation.begin().thenPlay("snow.model.idle_stand6");
+	private static final RawAnimation WALK = RawAnimation.begin().thenPlay("snow.model.walk2");
+	private static final RawAnimation TWIRL = RawAnimation.begin().thenPlay("snow.model.twirl_transin").thenLoop("snow.model.twirl");
 
 	private static final EntityDataAccessor<Byte> DATA_DYE_ID = SynchedEntityData.defineId(Bizzar.class, EntityDataSerializers.BYTE);
 	private static final EntityDataAccessor<Boolean> BLIZZARD = SynchedEntityData.defineId(Bizzar.class, EntityDataSerializers.BOOLEAN);
@@ -77,7 +86,7 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoEntity {
 		this.goalSelector.addGoal(7, new BreedGoal(this, 1.0F));
 		this.goalSelector.addGoal(8, new TemptGoal(this, 1.25D, this::isFood, false));
 
-		this.goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 1.0F));
+		this.goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 0.5F));
 		this.goalSelector.addGoal(10, new LookAtPlayerGoal(this, Player.class, 8.0F));
 		this.goalSelector.addGoal(10, new RandomLookAroundGoal(this));
 		this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
@@ -172,6 +181,24 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoEntity {
 		return null;
 	}
 
+	@Nullable
+	@Override
+	protected SoundEvent getHurtSound(@NotNull DamageSource damageSource) {
+		return BWGSounds.BIZZAR_HURT.get();
+	}
+
+	@Nullable
+	@Override
+	protected SoundEvent getDeathSound() {
+		return BWGSounds.BIZZAR_DEATH.get();
+	}
+
+	@Nullable
+	@Override
+	protected SoundEvent getAmbientSound() {
+		return BWGSounds.BIZZAR_AMBIENT.get();
+	}
+
 	@Override
 	public int getRemainingPersistentAngerTime() {
 		return 0;
@@ -211,13 +238,32 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoEntity {
 		if (this.isBlizzarding())
 			return event.setAndContinue(TWIRL);
 
+		AnimationController<E> controller = event.getController();
+		RawAnimation currentAnimation = controller.getCurrentRawAnimation();
+		boolean finished = controller.hasAnimationFinished() || currentAnimation == null;
+
 		if (this.isOrderedToSit())
-			return event.setAndContinue(IDLE_SIT);
+         if (finished || (!currentAnimation.equals(IDLE_SIT) && !currentAnimation.equals(IDLE_SIT2) && !currentAnimation.equals(IDLE_SIT3)))
+			return switch (getRandom().nextInt(25)) {
+				case 1, 2, 3, 4, 5 -> event.setAndContinue(IDLE_SIT3);
+				case 11, 12, 13, 14, 15 -> event.setAndContinue(IDLE_SIT2);
+				default -> event.setAndContinue(IDLE_SIT);
+			};
 
 		if (event.isMoving())
 			return event.setAndContinue(WALK);
 
-		return event.setAndContinue(IDLE_STAND);
+		if (finished || (!currentAnimation.equals(IDLE_STAND) && !currentAnimation.equals(IDLE_STAND2) && !currentAnimation.equals(IDLE_STAND3) && !currentAnimation.equals(IDLE_STAND4) && !currentAnimation.equals(IDLE_STAND5) && !currentAnimation.equals(IDLE_STAND6)))
+			return switch (getRandom().nextInt(50)) {
+				case 0 -> event.setAndContinue(IDLE_STAND6);
+				case 1, 2, 3, 4, 5 -> event.setAndContinue(IDLE_STAND5);
+				case 6, 7, 8, 9, 10 -> event.setAndContinue(IDLE_STAND4);
+				case 11, 12, 13, 14, 15 -> event.setAndContinue(IDLE_STAND3);
+				case 16, 17, 18, 19, 20 -> event.setAndContinue(IDLE_STAND2);
+				default -> event.setAndContinue(IDLE_STAND);
+			};
+
+		return PlayState.CONTINUE;
 	}
 
 	public boolean isBlizzarding() {

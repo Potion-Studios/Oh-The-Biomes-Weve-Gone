@@ -1,7 +1,42 @@
 {
+  "bizzar.ambient": {
+    "sounds": [
+      "biomeswevegone:entity/bizzar/bizzar_ambient"
+    ],
+    "subtitle": "subtitles.entity.bizzar_ambient"
+  },
+  "bizzar.ambient2": {
+    "sounds": [
+      "biomeswevegone:entity/bizzar/bizzar_ambient2"
+    ],
+    "subtitle": "subtitles.entity.bizzar_ambient2"
+  },
+  "bizzar.die": {
+    "sounds": [
+      "biomeswevegone:entity/bizzar/bizzar_death"
+    ],
+    "subtitle": "subtitles.entity.bizzar_death"
+  },
+  "bizzar.happy": {
+    "sounds": [
+      "biomeswevegone:entity/bizzar/bizzar_blizzard_start"
+    ],
+    "subtitle": "subtitles.entity.bizzar_blizzard_start"
+  },
+  "bizzar.hurt": {
+    "sounds": [
+      "biomeswevegone:entity/bizzar/bizzar_hurt"
+    ],
+    "subtitle": "subtitles.entity.bizzar_hurt"
+  },
   "music.overworld.crag_gardens": {
     "sounds": [
       "biomeswevegone:music/overworld/crag_gardens"
+    ]
+  },
+  "music.overworld.crimson_tundra": {
+    "sounds": [
+      "biomeswevegone:music/overworld/crimson_tundra"
     ]
   },
   "music.overworld.eroded_borealis": {
@@ -17,6 +52,11 @@
   "music.overworld.pale_bog": {
     "sounds": [
       "biomeswevegone:music/overworld/pale_bog"
+    ]
+  },
+  "music.overworld.palisade_grove": {
+    "sounds": [
+      "biomeswevegone:music/overworld/palisade_grove"
     ]
   },
   "music_disc.better_days": {

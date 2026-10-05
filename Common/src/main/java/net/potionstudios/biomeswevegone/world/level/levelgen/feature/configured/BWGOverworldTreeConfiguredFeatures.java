@@ -1258,6 +1258,50 @@ public static final ResourceKey<ConfiguredFeature<?, ?>> BOREALIS_ICE_FEATURE = 
                     PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BOREALIS_FEATURE2)));
         }
 );
+    //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    /// BLACK ICE "TREE"
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLACK_ICE_FEATURE1 = ConfiguredFeaturesUtil.createConfiguredFeature("black_ice_feature1",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/borealis/borealis_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/borealis/borealis_canopy1"))
+                    .height(BiasedToBottomInt.of(6, 45))
+                    .logProvider(BlockStateProvider.simple(BWGBlocks.BLACK_ICE.get()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGBlocks.PACKED_BLACK_ICE.get()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(14)
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLACK_ICE_FEATURE2 = ConfiguredFeaturesUtil.createConfiguredFeature("black_ice_feature2",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/borealis/borealis_trunk2"))
+                    .canopyLocation(BiomesWeveGone.id("features/borealis/borealis_canopy2"))
+                    .height(BiasedToBottomInt.of(11, 50))
+                    .logProvider(BlockStateProvider.simple(BWGBlocks.BLACK_ICE.get()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGBlocks.PACKED_BLACK_ICE.get()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(14)
+                    .build()
+    );
+
+
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLACK_ICE_FEATURE = ConfiguredFeaturesUtil.createConfiguredFeature("black_ice_feature",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BLACK_ICE_FEATURE1)), 0.35F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BLACK_ICE_FEATURE2)));
+            }
+    );
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     public static final Supplier<AttachedToLogsDecorator> WITCH_HAZEL_BLOSSOM = () -> new AttachedToLogsDecorator(0.1F, 15, 15, SimpleStateProvider.simple(BWGBlocks.WITCH_HAZEL_BLOSSOM.get()), 3, List.of(Direction.DOWN));
     public static final Supplier<AttachedToLogsDecorator> WITCH_HAZEL_BRANCH = () -> new AttachedToLogsDecorator(0.65F, 0, 1, SimpleStateProvider.simple(BWGBlocks.WITCH_HAZEL_BRANCH.get()), 2, List.of(Direction.WEST, Direction.NORTH, Direction.SOUTH, Direction.EAST));
