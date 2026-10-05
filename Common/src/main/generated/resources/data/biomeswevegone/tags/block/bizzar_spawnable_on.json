@@ -1,5 +1,7 @@
 {
   "values": [
-    "#biomeswevegone:borealis_ice"
+    "#biomeswevegone:borealis_ice",
+    "#minecraft:dirt",
+    "minecraft:snow_block"
   ]
 }

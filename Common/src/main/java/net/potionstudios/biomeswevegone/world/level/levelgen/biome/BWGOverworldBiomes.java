@@ -950,7 +950,7 @@ class BWGOverworldBiomes {
         addSpawn(spawnSettings, EntityType.FOX, 8, 2, 4);
 
         float temperature = 0.25F;
-        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(6586199).foliageColorOverride(15564058).fogColor(12638463).skyColor(15564058).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(6586199).foliageColorOverride(15564058).fogColor(15384402).skyColor(15384402).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     protected static Biome coconinoMeadow(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1326,6 +1326,7 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.BLACK_ICE_FEATURE);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.WINTER_ROSE);
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
@@ -1486,13 +1487,13 @@ class BWGOverworldBiomes {
 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnSettings);
-        addSpawn(spawnSettings, EntityType.ALLAY, 1, 1, 1);
+        addSpawn(spawnSettings, EntityType.ALLAY, 5, 1, 1);
         addSpawn(spawnSettings, EntityType.RABBIT, 10, 2, 3);
         addSpawn(spawnSettings, EntityType.FOX, 8, 2, 4);
         addSpawn(spawnSettings, EntityType.WOLF, 8, 3, 4);
         addSpawn(spawnSettings, EntityType.STRAY, 85, 2, 3);
         addSpawn(spawnSettings, EntityType.POLAR_BEAR, 1, 1, 2);
-        addSpawn(spawnSettings, BWGEntityType.BIZZAR.get(), 1, 1, 2);
+        addSpawn(spawnSettings, BWGEntityType.BIZZAR.get(), 15, 2, 5);
 
         float temperature = -0.5F;
         return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(temperature).downfall(0.3F).specialEffects((new BiomeSpecialEffects.Builder()).backgroundMusic(Musics.createGameMusic(BWGSounds.MUSIC_BIOME_ERODED_BOREALIS.get())).waterColor(4159204).waterFogColor(329011).grassColorOverride(10075903).foliageColorOverride(11510521).fogColor(12638463).skyColor(OverworldBiomes.calculateSkyColor(temperature)).ambientParticle(new AmbientParticleSettings(BWGParticles.BOREALIS_GLINT.get(), 0.00100F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();

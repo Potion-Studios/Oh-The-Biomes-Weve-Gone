@@ -58,10 +58,10 @@ public class BWGBerryBush extends SweetBerryBushBlock {
         return InteractionResult.PASS;
     }
 
-    @Override
-    public void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity) {
-        if (hurtEntityInside) super.entityInside(state, level, pos, entity);
-    }
+//    @Override
+//    public void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity) {
+//        if (hurtEntityInside) super.entityInside(state, level, pos, entity);
+//    }
 
     /**
      * Overrides the path type for mobs walking through the bush.getBlockPathType

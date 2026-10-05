@@ -129,7 +129,7 @@
         "type": "minecraft:allay",
         "maxCount": 1,
         "minCount": 1,
-        "weight": 1
+        "weight": 5
       },
       {
         "type": "minecraft:rabbit",
@@ -157,9 +157,9 @@
       },
       {
         "type": "biomeswevegone:bizzar",
-        "maxCount": 2,
-        "minCount": 1,
-        "weight": 1
+        "maxCount": 5,
+        "minCount": 2,
+        "weight": 15
       }
     ],
     "misc": [],
