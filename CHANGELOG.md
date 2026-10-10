@@ -1,3 +1,6 @@
+# 2.6.3
+- Update schedule tick signature.
+
 # 2.6.2
 - Fix Accidental Removal of Config Check for NeoForge Biome Modifiers
 

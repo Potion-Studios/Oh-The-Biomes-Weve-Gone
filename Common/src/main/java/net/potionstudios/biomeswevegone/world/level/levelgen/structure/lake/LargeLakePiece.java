@@ -198,7 +198,7 @@ public class LargeLakePiece extends StructurePiece {
                     chunk.setBlockState(mutableBlockPos, stateProvider.getState(random, mutableBlockPos), false);
                 } else {
                     chunk.setBlockState(mutableBlockPos, topBlocks[Math.min(origin.getY() - y, topBlocks.length - 1)], false);
-                    ((RandomTickScheduler) chunk).scheduleRandomTick(mutableBlockPos.immutable());
+                    ((RandomTickScheduler) chunk).ohthetreesyoullgrow$scheduleRandomTick(mutableBlockPos.immutable());
                     chunk.markPosForPostprocessing(mutableBlockPos);
                 }
 
@@ -244,7 +244,7 @@ public class LargeLakePiece extends StructurePiece {
 
             chunk.setBlockState(mutableBlockPos, topBlocks[y], false);
 
-            ((RandomTickScheduler) chunk).scheduleRandomTick(mutableBlockPos.immutable());
+            ((RandomTickScheduler) chunk).ohthetreesyoullgrow$scheduleRandomTick(mutableBlockPos.immutable());
             chunk.markPosForPostprocessing(mutableBlockPos);
         }
     }

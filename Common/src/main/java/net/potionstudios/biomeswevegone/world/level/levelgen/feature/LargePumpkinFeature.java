@@ -79,7 +79,7 @@ public class LargePumpkinFeature extends Feature<NoneFeatureConfiguration> {
                         if (y == -radius) {
                             ChunkAccess chunk = level.getChunk(mutableBlockPos);
                             if (chunk instanceof RandomTickScheduler randomTickScheduler) {
-                                randomTickScheduler.scheduleRandomTick(mutableBlockPos.move(Direction.DOWN));
+                                randomTickScheduler.ohthetreesyoullgrow$scheduleRandomTick(mutableBlockPos.move(Direction.DOWN));
                             }
                         }
                     }

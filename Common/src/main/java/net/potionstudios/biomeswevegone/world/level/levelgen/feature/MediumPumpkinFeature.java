@@ -69,7 +69,7 @@ public class MediumPumpkinFeature extends Feature<NoneFeatureConfiguration> {
                         ChunkAccess chunk = level.getChunk(mutable);
 
                         if (chunk instanceof RandomTickScheduler randomTickScheduler) {
-                            randomTickScheduler.scheduleRandomTick(mutable);
+                            randomTickScheduler.ohthetreesyoullgrow$scheduleRandomTick(mutable);
                         }
                     }
                 }
