@@ -1,3 +1,6 @@
+# 1.8.2
+- Update schedule tick signature.
+
 # 1.8.1
 - Make all BushBlocks Compostable
 - Fix Salem Meeting Point 2 referencing biomeswevegone:village/common/cats instead of minecraft:village/common/cats
