@@ -1,5 +1,7 @@
 import com.hypherionmc.modpublisher.properties.ModLoader
 
+evaluationDependsOn(":Common")
+
 plugins {
     id("com.gradleup.shadow")
 }
