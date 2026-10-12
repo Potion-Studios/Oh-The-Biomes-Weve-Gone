@@ -42,7 +42,7 @@ public class BWGWood {
     public static final ArrayList<Supplier<? extends Item>> WOOD_BLOCK_ITEMS = new ArrayList<>();
     public static final ArrayList<Supplier<? extends Block>> NONSET_WOOD = new ArrayList<>();
 
-    public static final BWGWoodSet ASPEN = new BWGWoodSet(new BlockSetType ("aspen"), MapColor.QUARTZ, BWGTreeGrowers.ASPEN, false);
+    public static final BWGWoodSet ASPEN = new BWGWoodSet(new BlockSetType("aspen"), MapColor.QUARTZ, BWGTreeGrowers.ASPEN, false);
     public static final BWGWoodSet BAOBAB = new BWGWoodSet("baobab", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.BAOBAB);
     public static final BWGWoodSet BLUE_ENCHANTED = new BWGWoodSet("blue_enchanted", MapColor.COLOR_BLUE, BWGTreeGrowers.BLUE_ENCHANTED, true);
     public static final Supplier<ImbuedBlock> IMBUED_BLUE_ENCHANTED_WOOD = registerBlockItem("imbued_blue_enchanted_wood", () -> new ImbuedBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE)));
