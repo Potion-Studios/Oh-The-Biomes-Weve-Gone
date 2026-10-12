@@ -61,7 +61,7 @@ public class BiomesWeveGoneClientFabric implements ClientModInitializer, ModelLo
     }
 
     private void renderTypeBlock(Block block) {
-        if (block instanceof BWGFruitBlock || block instanceof DoorBlock || block instanceof TrapDoorBlock || block instanceof BushBlock || block instanceof GlowCaneBlock || block instanceof LanternBlock)
+        if (block instanceof BWGFruitBlock || block instanceof DoorBlock || block instanceof TrapDoorBlock || block instanceof BushBlock || block instanceof GlowCaneBlock || block instanceof LanternBlock || block instanceof GrowingPlantBlock)
             BlockRenderLayerMap.INSTANCE.putBlock(block, RenderType.cutout());
         else if (block instanceof LeavesBlock || block instanceof VineBlock || block instanceof MangroveRootsBlock
                 || block instanceof FlowerPotBlock || block instanceof BWGCactusBlock || block instanceof CattailSproutBlock

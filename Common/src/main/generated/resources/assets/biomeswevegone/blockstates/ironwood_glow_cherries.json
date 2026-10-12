@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "berries=false": {
+      "model": "biomeswevegone:block/ironwood_glow_cherries"
+    },
+    "berries=true": {
+      "model": "biomeswevegone:block/ironwood_glow_cherries_lit"
+    }
+  }
+}

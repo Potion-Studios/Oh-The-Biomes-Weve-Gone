@@ -21,6 +21,7 @@ public class BWGItemReferences {
     public static final ResourceKey<Item> RED_GLOWCANE_SHOOT = createKey("red_glowcane_shoot");
     public static final ResourceKey<Item> YELLOW_GLOWCANE_SHOOT = createKey("yellow_glowcane_shoot");
     public static final ResourceKey<Item> PALE_PUMPKIN_SEEDS = createKey("pale_pumpkin_seeds");
+    public static final ResourceKey<Item> IRONWOOD_GLOW_CHERRIES = createKey("ironwood_glow_cherries");
 
     private static ResourceKey<Item> createKey(String id) {
         return BiomesWeveGone.key(Registries.ITEM, id);

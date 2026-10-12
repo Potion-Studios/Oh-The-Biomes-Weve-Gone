@@ -13,7 +13,9 @@
       "type": "minecraft:true"
     },
     "canopy_location": "biomeswevegone:features/trees/meadow/meadow_shrub_canopy1",
+    "decorators": [],
     "height": 0,
+    "height_limit_behavior": "DEFAULT",
     "leaves_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -40,7 +42,10 @@
     "log_target": [
       "minecraft:dark_oak_log"
     ],
+    "max_log_depth": 5,
+    "orientation": "STANDARD",
     "place_from_nbt": [],
+    "random_rotation": true,
     "tree_filter_behavior": "PIERCE"
   }
 }

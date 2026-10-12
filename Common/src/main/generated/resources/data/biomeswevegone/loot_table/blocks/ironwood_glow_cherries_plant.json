@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "biomeswevegone:ironwood_glow_cherries_plant",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "berries": "true"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "biomeswevegone:ironwood_glow_cherries"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "biomeswevegone:blocks/ironwood_glow_cherries_plant"
+}
