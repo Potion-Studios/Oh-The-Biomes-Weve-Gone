@@ -2,6 +2,6 @@
   "parent": "minecraft:block/leaves",
   "render_type": "minecraft:cutout_mipped",
   "textures": {
-    "all": "biomeswevegone:block/aspen/leaves"
+    "all": "biomeswevegone:block/aspen_leaves"
   }
 }

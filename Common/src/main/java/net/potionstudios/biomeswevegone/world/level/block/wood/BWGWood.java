@@ -42,7 +42,7 @@ public class BWGWood {
     public static final ArrayList<Supplier<? extends Item>> WOOD_BLOCK_ITEMS = new ArrayList<>();
     public static final ArrayList<Supplier<? extends Block>> NONSET_WOOD = new ArrayList<>();
 
-    public static final BWGWoodSet ASPEN = new BWGWoodSet("aspen", MapColor.QUARTZ, BWGTreeGrowers.ASPEN);
+    public static final BWGWoodSet ASPEN = new BWGWoodSet(new BlockSetType ("aspen"), MapColor.QUARTZ, BWGTreeGrowers.ASPEN, false);
     public static final BWGWoodSet BAOBAB = new BWGWoodSet("baobab", MapColor.TERRACOTTA_WHITE, BWGTreeGrowers.BAOBAB);
     public static final BWGWoodSet BLUE_ENCHANTED = new BWGWoodSet("blue_enchanted", MapColor.COLOR_BLUE, BWGTreeGrowers.BLUE_ENCHANTED, true);
     public static final Supplier<ImbuedBlock> IMBUED_BLUE_ENCHANTED_WOOD = registerBlockItem("imbued_blue_enchanted_wood", () -> new ImbuedBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE)));
@@ -107,6 +107,7 @@ public class BWGWood {
     public static final PottedBlock YELLOW_SPRUCE_SAPLING = createNonSetSapling("yellow_spruce", BWGTreeGrowers.YELLOW_SPRUCE, BlockTags.DIRT);
     public static final PottedBlock YUCCA_SAPLING = createNonSetSapling("yucca", BWGTreeGrowers.YUCCA, BlockTags.SAND);
 
+    public static final Supplier<LeavesBlock> ASPEN_LEAVES = registerLeaves("aspen", BWGParticles.ASPEN_LEAVES);
     public static final Supplier<LeavesBlock> ARAUCARIA_LEAVES = registerLeaves("araucaria");
     public static final Supplier<LeavesBlock> RIPE_BAOBAB_LEAVES = registerLeaves("ripe_baobab", BWGBlocks.BAOBAB_FRUIT_BLOCK, 0.04F);
     public static final Supplier<LeavesBlock> FLOWERING_BAOBAB_LEAVES = registerFloweringLeaves("flowering_baobab", BWGWood.RIPE_BAOBAB_LEAVES, 0.02F);

@@ -35,6 +35,8 @@ public class BWGParticles {
     public static final Supplier<SimpleParticleType> WHITE_ALLIUM_POLLEN = register("white_allium_pollen");
     public static final Supplier<SimpleParticleType> PINK_ALLIUM_POLLEN = register("pink_allium_pollen");
 
+    public static final Supplier<SimpleParticleType> ASPEN_LEAVES = register("aspen_leaves");
+
 
     private static Supplier<SimpleParticleType> register(String id) {
         return PlatformHandler.PLATFORM_HANDLER.registerCreateParticle(id);

@@ -153,6 +153,7 @@ public class BiomesWeveGoneClient {
         consumer.accept(BWGParticles.ALLIUM_POLLEN.get(), FallingLeafParticle.CherryProvider::new);
         consumer.accept(BWGParticles.WHITE_ALLIUM_POLLEN.get(), FallingLeafParticle.CherryProvider::new);
         consumer.accept(BWGParticles.PINK_ALLIUM_POLLEN.get(), FallingLeafParticle.CherryProvider::new);
+        consumer.accept(BWGParticles.ASPEN_LEAVES.get(), FallingLeafParticle.CherryProvider::new);
 
     }
 
