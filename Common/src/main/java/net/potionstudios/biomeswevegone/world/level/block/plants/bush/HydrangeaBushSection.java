@@ -21,4 +21,12 @@ public enum HydrangeaBushSection implements StringRepresentable  {
     public @NotNull String getSerializedName() {
         return name;
     }
+
+    public boolean isTaller() {
+        return this == TALLER_BOTTOM || this == TALLER_MIDDLE || this == TALLER_TOP;
+    }
+
+    public boolean isTall() {
+        return this == TALL_BOTTOM || this == TALL_TOP;
+    }
 }

@@ -207,6 +207,15 @@ public class ModelGenerators {
                 else if (block instanceof HydrangeaHedgeBlock) {
                     defaultModelFile(block);
                     simpleBlockItemExistingModel(block);
+                } else if (block instanceof HydrangeaBushBlock) {
+                    getVariantBuilder(block).forAllStates(state -> switch (state.getValue(HydrangeaBushBlock.SECTION)) {
+                        case SINGLE -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.HYDRANGEA_BUSH.get()), blockBWGTexture(BWGBlocks.HYDRANGEA_BUSH.get())).renderType("cutout")).build();
+                        case TALL_TOP -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.HYDRANGEA_BUSH.get()) + "_tall_top", blockBWGTexture("tall_hydrangea_bush_top")).renderType("cutout")).build();
+                        case TALL_BOTTOM, TALLER_BOTTOM -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.HYDRANGEA_BUSH.get()) + "_bottom", blockBWGTexture("tall_hydrangea_bush_bottom")).renderType("cutout")).build();
+                        case TALLER_MIDDLE -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.HYDRANGEA_BUSH.get()) + "_taller_middle", blockBWGTexture("taller_hydrangea_bush_middle")).renderType("cutout")).build();
+                        case TALLER_TOP -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.HYDRANGEA_BUSH.get()) + "_taller_top", blockBWGTexture("taller_hydrangea_bush_middle")).renderType("cutout")).build();
+                    });
+                    simpleItemBlockTexture(block, blockBWGTexture(block));
                 } else if (block instanceof BWGPlacementBushBlock || block instanceof MushroomBlock || block instanceof AloeVeraBlock || block instanceof ShrubBlock)
                     createCrossBlock(block, "cutout");
                 else if (block instanceof WaterlilyBlock || block instanceof DirtPathBlock)

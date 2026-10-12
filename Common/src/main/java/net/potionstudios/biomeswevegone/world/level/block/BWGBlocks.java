@@ -101,7 +101,7 @@ public class BWGBlocks {
     public static final PottedBlock JACARANDA_BUSH = createPottedVariant("jacaranda_bush",  () -> new FlowerableBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA), FLOWERING_JACARANDA_BUSH));
     public static final Supplier<FloweringBushBlock> FLOWERING_INDIGO_JACARANDA_BUSH = registerBlockItem("flowering_indigo_jacaranda_bush", () -> new FloweringBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA)));
     public static final PottedBlock INDIGO_JACARANDA_BUSH = createPottedVariant("indigo_jacaranda_bush", () -> new FlowerableBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA), FLOWERING_INDIGO_JACARANDA_BUSH));
-    public static final PottedBlock HYDRANGEA_BUSH = createPottedVariant("hydrangea_bush", HydrangeaBushBlock::new);
+    public static final PottedBlock HYDRANGEA_BUSH = createPottedVariant("hydrangea_bush", () -> new HydrangeaBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA)));
     public static final Supplier<BushBlock> HYDRANGEA_HEDGE = registerBlockItem("hydrangea_hedge", HydrangeaHedgeBlock::new);
     public static final PottedBlock SHRUB = createPottedVariant("shrub", () -> new ShrubBlock(null));
     public static final PottedBlock FIRECRACKER_FLOWER_BUSH = createPottedVariant("firecracker_flower_bush", () -> new ShrubBlock(BWGTreeGrowers.FIRECRACKER));
