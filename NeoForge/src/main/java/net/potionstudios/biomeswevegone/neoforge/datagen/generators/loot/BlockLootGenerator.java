@@ -195,7 +195,7 @@ class BlockLootGenerator extends BlockLootSubProvider {
 
         fruitBush(BWGBlocks.BLUEBERRY_BUSH.get(), BWGItems.BLUEBERRIES.get());
 
-        add(BWGBlocks.IRONWOOD_ROOTS.get(), (block) -> createCaveVinesLikeDrop(block, BWGItems.IRONWOOD_GLOW_CHERRIES.get()));
+        add(BWGBlocks.IRONWOOD_GLOW_CHERRIES.get(), (block) -> createCaveVinesLikeDrop(block, BWGItems.IRONWOOD_GLOW_CHERRIES.get()));
         add(BWGBlocks.IRONWOOD_GLOW_CHERRIES_PLANT.get(), (block) -> createCaveVinesLikeDrop(block, BWGItems.IRONWOOD_GLOW_CHERRIES.get()));
 
         LootItemCondition.Builder holder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(BWGBlocks.ODDION_CROP.get())

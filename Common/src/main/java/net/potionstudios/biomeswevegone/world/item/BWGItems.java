@@ -1,6 +1,5 @@
 package net.potionstudios.biomeswevegone.world.item;
 
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvent;
@@ -13,7 +12,6 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
@@ -112,7 +110,7 @@ public class BWGItems {
 
     public static final Supplier<FrostedAmberBottleItem> FROST_AMBER_BOTTLE = registerSimpleItem("frost_amber_bottle", () -> new FrostedAmberBottleItem(new Item.Properties()));
 
-    public static final Supplier<Item> IRONWOOD_GLOW_CHERRIES = registerSimpleItem("ironwood_glow_cherries", () -> new ItemNameBlockItem(BWGBlocks.IRONWOOD_ROOTS.get(), new Item.Properties().food(Foods.GLOW_BERRIES)));
+    public static final Supplier<Item> IRONWOOD_GLOW_CHERRIES = registerSimpleItem("ironwood_glow_cherries", () -> new ItemNameBlockItem(BWGBlocks.IRONWOOD_GLOW_CHERRIES.get(), new Item.Properties().food(Foods.GLOW_BERRIES)));
 
     private static Supplier<SpawnEggItem> registerSpawnEgg(String id, Supplier<EntityType<? extends Mob>> entity, int backgroundColor, int highlightColor) {
         Supplier<SpawnEggItem> supplier = PlatformHandler.PLATFORM_HANDLER.createSpawnEgg(entity, backgroundColor, highlightColor);

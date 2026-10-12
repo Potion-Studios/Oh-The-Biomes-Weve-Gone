@@ -330,6 +330,9 @@
     "biomeswevegone:iris": {
       "chance": 0.65
     },
+    "biomeswevegone:ironwood_glow_cherries": {
+      "chance": 0.3
+    },
     "biomeswevegone:ironwood_leaves": {
       "chance": 0.3
     },
