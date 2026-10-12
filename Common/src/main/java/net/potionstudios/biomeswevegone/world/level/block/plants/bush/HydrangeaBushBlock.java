@@ -7,25 +7,30 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.BushBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.potionstudios.biomeswevegone.tags.BWGBlockTags;
-import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import org.jetbrains.annotations.NotNull;
 
 public class HydrangeaBushBlock extends BWGPlacementBushBlock implements BonemealableBlock {
+    public static final EnumProperty<HydrangeaBushSection> SECTION = EnumProperty.create("section", HydrangeaBushSection.class);
 
     private static final MapCodec<HydrangeaBushBlock> CODEC = simpleCodec(HydrangeaBushBlock::new);
 
-    public HydrangeaBushBlock() {
-        super(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA).noCollission(), Block.box(0, 0, 0, 16, 16, 16), BWGBlockTags.HYDRANGEA_BUSH_PLACEABLE);
-    }
-
     public HydrangeaBushBlock(Properties properties) {
         super(properties, Block.box(0, 0, 0, 16, 16, 16), BWGBlockTags.HYDRANGEA_BUSH_PLACEABLE);
+        this.registerDefaultState(this.getStateDefinition().any().setValue(SECTION, HydrangeaBushSection.SINGLE));
+    }
+
+    @Override
+    protected boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos) {
+        HydrangeaBushSection currentSection = state.getValue(SECTION);
+        if (currentSection == HydrangeaBushSection.TALLER_MIDDLE || currentSection == HydrangeaBushSection.TALLER_TOP || currentSection == HydrangeaBushSection.TALL_TOP)
+            return level.getBlockState(pos.below()).is(this);
+        return super.canSurvive(state, level, pos);
     }
 
     @Override
@@ -40,11 +45,17 @@ public class HydrangeaBushBlock extends BWGPlacementBushBlock implements Bonemea
 
     @Override
     public void performBonemeal(ServerLevel level, @NotNull RandomSource random, @NotNull BlockPos pos, @NotNull BlockState state) {
-        level.setBlockAndUpdate(pos, BWGBlocks.HYDRANGEA_HEDGE.get().defaultBlockState());
+        //level.setBlockAndUpdate(pos, BWGBlocks.HYDRANGEA_HEDGE.get().defaultBlockState());
     }
 
     @Override
     protected @NotNull MapCodec<? extends BushBlock> codec() {
         return CODEC;
     }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> builder) {
+        super.createBlockStateDefinition(builder.add(SECTION));
+    }
 }
+
