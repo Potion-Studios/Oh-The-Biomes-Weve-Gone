@@ -346,6 +346,9 @@ public class BWGBlocks {
     public static final Supplier<CaveVinesBlock> IRONWOOD_GLOW_CHERRIES = registerBlock("ironwood_glow_cherries", () -> new BWGCaveVinesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAVE_VINES), BWGItemReferences.IRONWOOD_GLOW_CHERRIES, () -> BWGBlocks.IRONWOOD_GLOW_CHERRIES_PLANT.get()));
     public static final Supplier<CaveVinesPlantBlock> IRONWOOD_GLOW_CHERRIES_PLANT = registerBlock("ironwood_glow_cherries_plant", () -> new BWGCaveVinesPlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAVE_VINES_PLANT), BWGItemReferences.IRONWOOD_GLOW_CHERRIES, BWGBlocks.IRONWOOD_GLOW_CHERRIES));
 
+    public static final Supplier<TreeBranchBlock> FIR_BRANCH = registerBlockItem("fir_branch", TreeBranchBlock::new);
+    public static final Supplier<TreeBranchBlock> FROSTED_FIR_BRANCH = registerBlockItem("frosted_fir_branch", TreeBranchBlock::new);
+
     private static FlowerBlockFeature registerFlower(String key) {
         Supplier<? extends Block> flower = registerBlockItem(key, () -> new BWGFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP).noOcclusion()));
         return new FlowerBlockFeature(key, flower);

@@ -41,7 +41,7 @@ public class BlockFeatures {
         });
         compostItems(consumer, 0.85F, BWGBlocks.CYAN_PITCHER_PLANT.get(), BWGBlocks.MAGENTA_PITCHER_PLANT.get());
 
-        compostItems(consumer, 0.3F, BWGItems.PALE_PUMPKIN_SEEDS.get(), BWGItems.BLUEBERRIES.get(), BWGBlocks.WITCH_HAZEL_BRANCH.get(), BWGItems.IRONWOOD_GLOW_CHERRIES.get());
+        compostItems(consumer, 0.3F, BWGItems.PALE_PUMPKIN_SEEDS.get(), BWGItems.BLUEBERRIES.get(), BWGBlocks.WITCH_HAZEL_BRANCH.get(), BWGBlocks.FIR_BRANCH.get(), BWGBlocks.FROSTED_FIR_BRANCH.get(), BWGItems.IRONWOOD_GLOW_CHERRIES.get());
         compostItems(consumer, 0.5f, BWGItems.BLUE_GLOWCANE_SHOOT.get(), BWGItems.GREEN_GLOWCANE_SHOOT.get(), BWGItems.RED_GLOWCANE_SHOOT.get(),
                 BWGItems.YELLOW_GLOWCANE_SHOOT.get(), BWGItems.CATTAIL_SPROUT.get(), BWGItems.FLUORESCENT_CATTAIL_SPROUT.get());
         compostItems(consumer, 0.65f, BWGItems.GREEN_APPLE.get(), BWGItems.BAOBAB_FRUIT.get(), BWGItems.SOUL_FRUIT.get(), BWGItems.YUCCA_FRUIT.get(),
@@ -99,6 +99,8 @@ public class BlockFeatures {
         consumer.accept(BWGBlocks.CATTAIL_THATCH_STAIRS.get(), 60, 20);
         consumer.accept(BWGBlocks.CATTAIL_THATCH_CARPET.get(), 60, 20);
 		consumer.accept(BWGBlocks.WITCH_HAZEL_BRANCH.get(), 30, 60);
+        consumer.accept(BWGBlocks.FIR_BRANCH.get(), 30, 60);
+        consumer.accept(BWGBlocks.FROSTED_FIR_BRANCH.get(), 30, 60);
     }
 
     public static void registerFurnaceFuels(BiConsumer<ItemLike, Integer> consumer) {
@@ -113,5 +115,7 @@ public class BlockFeatures {
         });
         consumer.accept(BWGBlocks.FORAGERS_TABLE.get(), 300);
         consumer.accept(BWGBlocks.WITCH_HAZEL_BRANCH.get().asItem(), 100);
+        consumer.accept(BWGBlocks.FIR_BRANCH.get().asItem(), 100);
+        consumer.accept(BWGBlocks.FROSTED_FIR_BRANCH.get().asItem(), 100);
     }
 }

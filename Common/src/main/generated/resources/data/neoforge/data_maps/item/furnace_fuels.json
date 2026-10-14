@@ -54,6 +54,9 @@
     "biomeswevegone:fir_bookshelf": {
       "burn_time": 300
     },
+    "biomeswevegone:fir_branch": {
+      "burn_time": 100
+    },
     "biomeswevegone:fir_crafting_table": {
       "burn_time": 300
     },
@@ -68,6 +71,9 @@
     },
     "biomeswevegone:frosted_fir_bookshelf": {
       "burn_time": 300
+    },
+    "biomeswevegone:frosted_fir_branch": {
+      "burn_time": 100
     },
     "biomeswevegone:frosted_fir_crafting_table": {
       "burn_time": 300
