@@ -515,6 +515,20 @@ public class ModelGenerators {
             getVariantBuilder(BWGBlocks.IRONWOOD_GLOW_CHERRIES.get()).forAllStatesExcept(state -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.IRONWOOD_GLOW_CHERRIES.get()) + (state.getValue(CaveVinesBlock.BERRIES) ? "_lit" : ""), blockBWGTexture(BWGBlocks.IRONWOOD_GLOW_CHERRIES.get(), state.getValue(CaveVinesBlock.BERRIES) ? "lit" : "")).renderType("cutout")).build(), CaveVinesBlock.AGE);
             getVariantBuilder(BWGBlocks.IRONWOOD_GLOW_CHERRIES_PLANT.get()).forAllStates(state -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.IRONWOOD_GLOW_CHERRIES_PLANT.get()) + (state.getValue(CaveVinesPlantBlock.BERRIES) ? "_lit" : ""), blockBWGTexture(BWGBlocks.IRONWOOD_GLOW_CHERRIES_PLANT.get(), state.getValue(CaveVinesPlantBlock.BERRIES) ? "lit" : "")).renderType("cutout")).build());
 
+            getVariantBuilder(BWGWood.FIR_CONE.get()).forAllStatesExcept(state -> {
+                if (state.getValue(BlockStateProperties.HANGING))
+                    return ConfiguredModel.builder().modelFile(models().getExistingFile(BiomesWeveGone.id("block/hanging_fir_cone"))).build();
+                else return ConfiguredModel.builder().modelFile(models().cross(name(BWGWood.FIR_CONE.get()), blockBWGTexture(BWGWood.FIR_CONE.get())).renderType("cutout")).build();
+            }, BlockStateProperties.STAGE);
+
+
+            getVariantBuilder(BWGWood.FROSTED_FIR_CONE.get()).forAllStatesExcept(state -> {
+                if (state.getValue(BlockStateProperties.HANGING))
+                    return ConfiguredModel.builder().modelFile(models().getExistingFile(BiomesWeveGone.id("block/hanging_frosted_fir_cone"))).build();
+                else return ConfiguredModel.builder().modelFile(models().cross(name(BWGWood.FROSTED_FIR_CONE.get()), blockBWGTexture(BWGWood.FROSTED_FIR_CONE.get())).renderType("cutout")).build();
+            }, BlockStateProperties.STAGE);
+            itemModels().basicItem(BWGWood.FROSTED_FIR_CONE.getItem());
+
             Arrays.stream(Wreath.Type.values()).forEach(type -> models().withExistingParent(BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString(), blockBWGTexture("template_wreath")).texture("wreath", BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString()).texture("particle", BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString()));
         }
 

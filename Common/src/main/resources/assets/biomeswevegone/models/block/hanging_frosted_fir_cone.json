@@ -1,9 +1,10 @@
 {
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
+	"render_type": "minecraft:cutout",
 	"textures": {
-		"0": "hanging_frosted_fir_cone",
-		"particle": "hanging_frosted_fir_cone"
+		"0": "biomeswevegone:block/hanging_frosted_fir_cone",
+		"particle": "biomeswevegone:block/hanging_frosted_fir_cone"
 	},
 	"elements": [
 		{

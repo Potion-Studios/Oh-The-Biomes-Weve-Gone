@@ -91,6 +91,8 @@ public class BWGWood {
     public static final PottedBlock BROWN_BIRCH_SAPLING = createNonSetSapling("brown_birch", BWGTreeGrowers.BROWN_BIRCH, BlockTags.DIRT);
     public static final PottedBlock BROWN_OAK_SAPLING = createNonSetSapling("brown_oak", BWGTreeGrowers.BROWN_OAK, BlockTags.DIRT);
     public static final PottedBlock BROWN_ZELKOVA_SAPLING = createNonSetSapling("brown_zelkova", BWGTreeGrowers.BROWN_ZELKOVA, BlockTags.DIRT);
+    public static final PottedBlock FIR_CONE = new PottedBlock("fir_cone", registerBlockItem("fir_cone", () -> new BWGConeBlock(BWGTreeGrowers.FIR.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING))));
+    public static final PottedBlock FROSTED_FIR_CONE = new PottedBlock("frosted_fir_cone", registerBlockItem("frosted_fir_cone", () -> new BWGConeBlock(BWGTreeGrowers.FIR.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING))));
     public static final PottedBlock INDIGO_JACARANDA_SAPLING = createNonSetSapling("indigo_jacaranda", BWGTreeGrowers.INDIGO_JACARANDA, BlockTags.DIRT);
     public static final PottedBlock ORANGE_BIRCH_SAPLING = createNonSetSapling("orange_birch", BWGTreeGrowers.ORANGE_BIRCH, BlockTags.DIRT);
     public static final PottedBlock ORANGE_OAK_SAPLING = createNonSetSapling("orange_oak", BWGTreeGrowers.ORANGE_OAK, BlockTags.DIRT);

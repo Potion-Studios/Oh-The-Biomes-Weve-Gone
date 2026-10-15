@@ -192,6 +192,9 @@
     "biomeswevegone:fir_branch": {
       "chance": 0.3
     },
+    "biomeswevegone:fir_cone": {
+      "chance": 0.3
+    },
     "biomeswevegone:fir_leaves": {
       "chance": 0.3
     },
@@ -259,6 +262,9 @@
       "chance": 0.65
     },
     "biomeswevegone:frosted_fir_branch": {
+      "chance": 0.3
+    },
+    "biomeswevegone:frosted_fir_cone": {
       "chance": 0.3
     },
     "biomeswevegone:frosted_fir_leaves": {

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "biomeswevegone:block/frosted_fir_cone"
+    },
+    "hanging=true": {
+      "model": "biomeswevegone:block/hanging_frosted_fir_cone"
+    }
+  }
+}
