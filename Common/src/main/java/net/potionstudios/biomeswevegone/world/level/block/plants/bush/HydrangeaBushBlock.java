@@ -57,7 +57,7 @@ public class HydrangeaBushBlock extends BWGPlacementBushBlock implements Bonemea
 
     @Override
     public void performBonemeal(@NotNull ServerLevel level, @NotNull RandomSource random, @NotNull BlockPos pos, @NotNull BlockState state) {
-        //level.setBlockAndUpdate(pos, BWGBlocks.HYDRANGEA_HEDGE.get().defaultBlockState());
+        addSegment(level, pos);
     }
 
     @Override

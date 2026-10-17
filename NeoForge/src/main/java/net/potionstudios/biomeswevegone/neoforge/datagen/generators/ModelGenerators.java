@@ -213,7 +213,7 @@ public class ModelGenerators {
                         case TALL_TOP -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.HYDRANGEA_BUSH.get()) + "_tall_top", blockBWGTexture("tall_hydrangea_bush_top")).renderType("cutout")).build();
                         case TALL_BOTTOM, TALLER_BOTTOM -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.HYDRANGEA_BUSH.get()) + "_bottom", blockBWGTexture("tall_hydrangea_bush_bottom")).renderType("cutout")).build();
                         case TALLER_MIDDLE -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.HYDRANGEA_BUSH.get()) + "_taller_middle", blockBWGTexture("taller_hydrangea_bush_middle")).renderType("cutout")).build();
-                        case TALLER_TOP -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.HYDRANGEA_BUSH.get()) + "_taller_top", blockBWGTexture("taller_hydrangea_bush_middle")).renderType("cutout")).build();
+                        case TALLER_TOP -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.HYDRANGEA_BUSH.get()) + "_taller_top", blockBWGTexture("taller_hydrangea_bush_top")).renderType("cutout")).build();
                     });
                     simpleItemBlockTexture(block, blockBWGTexture(block));
                 } else if (block instanceof BWGPlacementBushBlock || block instanceof MushroomBlock || block instanceof AloeVeraBlock || block instanceof ShrubBlock)
@@ -520,7 +520,7 @@ public class ModelGenerators {
                     return ConfiguredModel.builder().modelFile(models().getExistingFile(BiomesWeveGone.id("block/hanging_fir_cone"))).build();
                 else return ConfiguredModel.builder().modelFile(models().cross(name(BWGWood.FIR_CONE.get()), blockBWGTexture(BWGWood.FIR_CONE.get())).renderType("cutout")).build();
             }, BlockStateProperties.STAGE);
-
+            itemModels().basicItem(BWGWood.FIR_CONE.getItem());
 
             getVariantBuilder(BWGWood.FROSTED_FIR_CONE.get()).forAllStatesExcept(state -> {
                 if (state.getValue(BlockStateProperties.HANGING))
