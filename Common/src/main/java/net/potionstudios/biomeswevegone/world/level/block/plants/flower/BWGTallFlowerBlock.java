@@ -55,7 +55,7 @@ public class BWGTallFlowerBlock extends TallFlowerBlock {
 
     @Override
     public void animateTick(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, RandomSource random) {
-        if (random.nextDouble() > 0.1) return;
+        if (random.nextDouble() > 0.05) return;
         BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
 
         mutableBlockPos.set(pos.getX() + random.nextInt(-6, 6), pos.getY() + random.nextInt(-1, 3), pos.getZ() + random.nextInt(-6, 6));

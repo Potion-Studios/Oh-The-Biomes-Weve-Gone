@@ -216,9 +216,12 @@ public class ModelGenerators {
                         case TALLER_TOP -> ConfiguredModel.builder().modelFile(models().cross(name(BWGBlocks.HYDRANGEA_BUSH.get()) + "_taller_top", blockBWGTexture("taller_hydrangea_bush_top")).renderType("cutout")).build();
                     });
                     simpleItemBlockTexture(block, blockBWGTexture(block));
-                } else if (block instanceof BWGPlacementBushBlock || block instanceof MushroomBlock || block instanceof AloeVeraBlock || block instanceof ShrubBlock)
-                    createCrossBlock(block, "cutout");
-                else if (block instanceof WaterlilyBlock || block instanceof DirtPathBlock)
+                } else if (block instanceof BWGPlacementBushBlock || block instanceof MushroomBlock || block instanceof AloeVeraBlock || block instanceof ShrubBlock) {
+                    if (block.defaultBlockState().is(BWGBlocks.SHRUB.get())) {
+                        simpleBlock(block, models().getExistingFile(BiomesWeveGone.id("block/shrub")));
+                        simpleItemBlockTexture(block, name(block));
+                    } else createCrossBlock(block, "cutout");
+                } else if (block instanceof WaterlilyBlock || block instanceof DirtPathBlock)
                     rotatableBlock(block);
                 else if (block instanceof IronBarsBlock) {
                     paneBlockWithRenderType((IronBarsBlock) block, blockBWGTexture(name(block).replace("_pane", "")), blockBWGTexture(block, "top"), "translucent");
@@ -420,7 +423,6 @@ public class ModelGenerators {
             simpleItemBlockTexture(BWGBlocks.LEAF_PILE.get(), name(BWGBlocks.LEAF_PILE.get()));
             simpleItemBlockTexture(BWGBlocks.CLOVER_PATCH.get(), name(BWGBlocks.CLOVER_PATCH.get()));
             simpleItemBlockTexture(BWGBlocks.FLOWER_PATCH.get(), name(BWGBlocks.FLOWER_PATCH.get()));
-//            simpleItemBlockTexture(BWGBlocks.SHRUB.get(), name(BWGBlocks.SHRUB.get()));
 
             rotatableBlock(BWGBlocks.LEAF_PILE.get());
             simpleBlockWithItem(BWGBlocks.PALE_PUMPKIN.get(), models().withExistingParent(name(BWGBlocks.PALE_PUMPKIN.get()), "block/pumpkin").texture("end", blockBWGTexture(BWGBlocks.PALE_PUMPKIN.get(), "top")).texture("side", blockBWGTexture(BWGBlocks.PALE_PUMPKIN.get(), "side")));
@@ -480,7 +482,6 @@ public class ModelGenerators {
             simpleBlockWithItem(BWGBlocks.WITCH_HAZEL_BLOSSOM.get(), models().getExistingFile(blockBWGTexture(BWGBlocks.WITCH_HAZEL_BLOSSOM.get())));
             simpleBlockWithItem(BWGWood.SPIRIT_ROOTS.get(), models().withExistingParent(name(BWGWood.SPIRIT_ROOTS.get()), "block/mangrove_roots").texture("side", BiomesWeveGone.id("block/spirit/roots_top")).texture("top", BiomesWeveGone.id("block/spirit/roots_side")).renderType("cutout_mipped"));
 
-//            registerPatchBlockStates(BWGBlocks.SHRUB.get(), new String[]{"shrub"});
             registerPatchBlockStates(BWGBlocks.CLOVER_PATCH.get(), new String[]{"clover_patch", "clover_patch2", "clover_patch3", "clover_patch4"});
             registerPatchBlockStates(BWGBlocks.FLOWER_PATCH.get(), new String[]{"flower_patch", "flower_patch2", "flower_patch3", "flower_patch4", "flower_patch5", "flower_patch6"});
             registerPatchBlockStates(BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), new String[]{"flowering_tiny_lily_pads", "flowering_tiny_lily_pads2"});
@@ -530,7 +531,7 @@ public class ModelGenerators {
             itemModels().basicItem(BWGWood.FROSTED_FIR_CONE.getItem());
 
             simpleBlock(BWGWood.FROSTED_AMBER_FIR_CONE.get(), models().withExistingParent(name(BWGWood.FROSTED_AMBER_FIR_CONE.get()), BiomesWeveGone.id("block/hanging_cone")).texture("cone", blockTexture(BWGWood.FROSTED_AMBER_FIR_CONE.get())));
-            //itemModels().basicItem(BWGWood.FROSTED_AMBER_FIR_CONE.get().asItem());
+            itemModels().basicItem(BWGWood.FROSTED_AMBER_FIR_CONE.get().asItem());
 
             Arrays.stream(Wreath.Type.values()).forEach(type -> models().withExistingParent(BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString(), blockBWGTexture("template_wreath")).texture("wreath", BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString()).texture("particle", BiomesWeveGone.id("block/" + type.getSerializedName() + "_wreath").toString()));
         }

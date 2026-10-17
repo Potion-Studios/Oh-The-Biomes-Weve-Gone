@@ -1,9 +1,7 @@
 {
-	"format_version": "1.21.11",
-	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"ambientocclusion": true,
-	"render_type": "cutout_mipped",
+	"render_type": "minecraft:cutout_mipped",
 	"textures": {
 		"0": "biomeswevegone:block/shrub_base",
 		"1": "biomeswevegone:block/shrub",
