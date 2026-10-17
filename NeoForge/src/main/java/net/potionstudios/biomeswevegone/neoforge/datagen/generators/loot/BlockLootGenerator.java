@@ -252,6 +252,7 @@ class BlockLootGenerator extends BlockLootSubProvider {
                 ));
 
         add(BWGBlocks.FROSTED_AMBER_BLOCK.get(), noDrop());
+        dropOther(BWGWood.FROSTED_AMBER_FIR_CONE.get(), BWGWood.FROSTED_FIR_CONE.getItem());
     }
 
     private LootTable.Builder createFruitLeavesDrops(LeavesBlock leaves, Block saplingBlock, Item fruit, float... chances) {
