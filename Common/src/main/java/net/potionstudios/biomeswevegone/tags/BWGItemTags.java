@@ -45,6 +45,7 @@ public final class BWGItemTags {
     public static final TagKey<Item> OAK_SAPLINGS = create("saplings/oak");
     public static final TagKey<Item> SPRUCE_SAPLINGS = create("saplings/spruce");
     public static final TagKey<Item> BIRCH_SAPLINGS = create("saplings/birch");
+    public static final TagKey<Item> CONES = create("cones");
 
     public static final TagKey<Item> STORAGE_BLOCKS_ALLIUM = createCommon("storage_blocks/allium");
     public static final TagKey<Item> STORAGE_BLOCKS_PINK_ALLIUM = createCommon("storage_blocks/pink_allium");

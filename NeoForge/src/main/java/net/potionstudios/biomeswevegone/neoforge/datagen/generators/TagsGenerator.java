@@ -23,6 +23,8 @@ import net.potionstudios.biomeswevegone.world.item.BWGItems;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.plants.vegetation.GlowCaneBlock;
 import net.potionstudios.biomeswevegone.world.level.block.sand.BWGSandSet;
+import net.potionstudios.biomeswevegone.world.level.block.wood.AmberFirConeBlock;
+import net.potionstudios.biomeswevegone.world.level.block.wood.BWGConeBlock;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
@@ -115,7 +117,8 @@ public class TagsGenerator {
                 else if (blocks.get() instanceof LeavesBlock) {
                     tag(BlockTags.MINEABLE_WITH_HOE).add(blocks.get());
                     tag(BlockTags.LEAVES).add(blocks.get());
-                }
+                } else if (blocks.get() instanceof BWGConeBlock || blocks.get() instanceof AmberFirConeBlock)
+                    tag(BWGBlockTags.CONES).add(blocks.get());
                 else tag(BlockTags.MINEABLE_WITH_AXE).add(blocks.get());
             });
             BWGSandSet.getSandSets().forEach(set -> {
@@ -351,6 +354,7 @@ public class TagsGenerator {
             copy(BWGBlockTags.OAK_SAPLINGS, BWGItemTags.OAK_SAPLINGS);
             copy(BWGBlockTags.SPRUCE_SAPLINGS, BWGItemTags.SPRUCE_SAPLINGS);
             copy(BWGBlockTags.BIRCH_SAPLINGS, BWGItemTags.BIRCH_SAPLINGS);
+            copy(BWGBlockTags.CONES, BWGItemTags.CONES);
 
             tag(BWGItemTags.GLOWCANE_POWDER).add(BWGItems.BLUE_GLOWCANE_POWDER.get(), BWGItems.GREEN_GLOWCANE_POWDER.get(), BWGItems.RED_GLOWCANE_POWDER.get(), BWGItems.YELLOW_GLOWCANE_POWDER.get());
             tag(BWGItemTags.GLOWCANE_SHOOT).add(BWGItems.BLUE_GLOWCANE_SHOOT.get(), BWGItems.GREEN_GLOWCANE_SHOOT.get(), BWGItems.RED_GLOWCANE_SHOOT.get(), BWGItems.YELLOW_GLOWCANE_SHOOT.get());

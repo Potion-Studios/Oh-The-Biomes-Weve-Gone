@@ -40,6 +40,7 @@ public final class BWGBlockTags {
     public static final TagKey<Block> OAK_SAPLINGS = create("saplings/oak");
     public static final TagKey<Block> SPRUCE_SAPLINGS = create("saplings/spruce");
     public static final TagKey<Block> BIRCH_SAPLINGS = create("saplings/birch");
+    public static final TagKey<Block> CONES = create("cones");
 
     /** Spawnable on **/
     public static final TagKey<Block> BIZZAR_SPAWNABLE_ON = create("bizzar_spawnable_on");
