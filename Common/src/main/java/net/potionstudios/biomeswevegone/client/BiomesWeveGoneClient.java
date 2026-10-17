@@ -191,7 +191,7 @@ public class BiomesWeveGoneClient {
     public static void registerBlockItemColors(Consumer<Block[]> consumer) {
         consumer.accept(new Block[]{BWGBlocks.TINY_LILY_PADS.get(), BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), BWGBlocks.CLOVER_PATCH.get(), BWGBlocks.LEAF_PILE.get(), BWGBlocks.POISON_IVY.get()
                 , BWGWood.MAHOGANY.leaves(), BWGWood.WILLOW.leaves(), BWGWood.MAPLE.leaves(), BWGWood.YUCCA_LEAVES.get(), BWGWood.FLOWERING_YUCCA_LEAVES.get(), BWGWood.RIPE_YUCCA_LEAVES.get(),
-                BWGWood.CYPRESS.leaves(), BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.PALISADE_GRASS_BLOCK.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get()});
+                BWGWood.CYPRESS.leaves(), BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.PALISADE_GRASS_BLOCK.get(), BWGBlocks.BOREALIS_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get()});
     }
     
     private static final ImprovedNoise NOISE = new ImprovedNoise(new XoroshiroRandomSource(1));
