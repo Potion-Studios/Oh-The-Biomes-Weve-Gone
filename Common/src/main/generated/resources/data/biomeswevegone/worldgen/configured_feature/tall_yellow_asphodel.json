@@ -10,7 +10,8 @@
             "state": {
               "Name": "biomeswevegone:tall_yellow_asphodel",
               "Properties": {
-                "half": "lower"
+                "half": "lower",
+                "sheared": "false"
               }
             }
           }

@@ -10,7 +10,8 @@
             "state": {
               "Name": "biomeswevegone:tall_white_allium",
               "Properties": {
-                "half": "lower"
+                "half": "lower",
+                "sheared": "false"
               }
             }
           }

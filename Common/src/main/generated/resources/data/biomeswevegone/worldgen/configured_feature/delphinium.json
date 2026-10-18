@@ -10,7 +10,8 @@
             "state": {
               "Name": "biomeswevegone:delphinium",
               "Properties": {
-                "half": "lower"
+                "half": "lower",
+                "sheared": "false"
               }
             }
           }

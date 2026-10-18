@@ -10,7 +10,8 @@
             "state": {
               "Name": "biomeswevegone:cyan_pitcher_plant",
               "Properties": {
-                "half": "lower"
+                "half": "lower",
+                "sheared": "false"
               }
             }
           }
