@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "biomeswevegone:block/frosted_fir_branch",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "biomeswevegone:block/frosted_fir_branch"
+    },
+    "facing=south": {
+      "model": "biomeswevegone:block/frosted_fir_branch",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "biomeswevegone:block/frosted_fir_branch",
+      "y": 270
+    }
+  }
+}

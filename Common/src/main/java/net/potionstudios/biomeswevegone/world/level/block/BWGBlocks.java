@@ -121,15 +121,15 @@ public class BWGBlocks {
     /** Alliums */
     public static final Supplier<TallFlowerBlock> TALL_ALLIUM = registerTallFlower("tall_allium", BWGTreeGrowers.GIANT_ALLIUM);
     public static final FlowerBlockFeature ALLIUM_FLOWER_BUSH = registerFlower("allium_flower_bush", Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0), TALL_ALLIUM);
-    public static final Supplier<Block> ALLIUM_PETAL_BLOCK = registerCubeAllBlockItem("allium_petal_block", () -> new AlliumPetalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.HAY_BLOCK).mapColor(MapColor.COLOR_MAGENTA).sound(SoundType.AZALEA), BWGParticles.ALLIUM_POLLEN));
+    public static final Supplier<Block> ALLIUM_PETAL_BLOCK = registerCubeAllBlockItem("allium_petal_block", () -> new AlliumPetalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.HAY_BLOCK).mapColor(MapColor.COLOR_MAGENTA).lightLevel((level) -> 9).sound(SoundType.AZALEA), BWGParticles.ALLIUM_POLLEN));
     public static final FlowerBlockFeature PINK_ALLIUM = registerFlower("pink_allium", Block.box(5.0, 0.0, 5.0, 11.0, 14.0, 11.0));
     public static final Supplier<TallFlowerBlock> TALL_PINK_ALLIUM = registerTallFlower("tall_pink_allium", BWGTreeGrowers.GIANT_PINK_ALLIUM);
     public static final FlowerBlockFeature PINK_ALLIUM_FLOWER_BUSH = registerFlower("pink_allium_flower_bush", Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0), TALL_PINK_ALLIUM);
-    public static final Supplier<Block> PINK_ALLIUM_PETAL_BLOCK = registerCubeAllBlockItem("pink_allium_petal_block", () -> new AlliumPetalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.HAY_BLOCK).mapColor(MapColor.COLOR_PINK).sound(SoundType.AZALEA), BWGParticles.PINK_ALLIUM_POLLEN));
+    public static final Supplier<Block> PINK_ALLIUM_PETAL_BLOCK = registerCubeAllBlockItem("pink_allium_petal_block", () -> new AlliumPetalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.HAY_BLOCK).mapColor(MapColor.COLOR_PINK).lightLevel((level) -> 9).sound(SoundType.AZALEA), BWGParticles.PINK_ALLIUM_POLLEN));
     public static final FlowerBlockFeature WHITE_ALLIUM = registerFlower("white_allium", Block.box(5.0, 0.0, 5.0, 11.0, 14.0, 11.0));
     public static final Supplier<TallFlowerBlock> TALL_WHITE_ALLIUM = registerTallFlower("tall_white_allium", BWGTreeGrowers.GIANT_WHITE_ALLIUM);
     public static final FlowerBlockFeature WHITE_ALLIUM_FLOWER_BUSH = registerFlower("white_allium_flower_bush", Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0), TALL_WHITE_ALLIUM);
-    public static final Supplier<Block> WHITE_ALLIUM_PETAL_BLOCK = registerCubeAllBlockItem("white_allium_petal_block", () -> new AlliumPetalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.HAY_BLOCK).mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.AZALEA), BWGParticles.WHITE_ALLIUM_POLLEN));
+    public static final Supplier<Block> WHITE_ALLIUM_PETAL_BLOCK = registerCubeAllBlockItem("white_allium_petal_block", () -> new AlliumPetalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.HAY_BLOCK).mapColor(MapColor.TERRACOTTA_WHITE).lightLevel((level) -> 9).sound(SoundType.AZALEA), BWGParticles.WHITE_ALLIUM_POLLEN));
 
     /**Asphodels */
     public static final Supplier<TallFlowerBlock> TALL_WHITE_ASPHODEL = registerTallFlower("tall_white_asphodel");

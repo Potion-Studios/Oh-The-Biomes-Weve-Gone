@@ -1712,6 +1712,7 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.ZELKOVA_TREES);
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.BROWN_ZELKOVA_TREES);
         BWGOverworldDefaultFeatures.addBlueBerryBush(generationSettings);
         BWGOverworldDefaultFeatures.addLushBlueBerryBush(generationSettings);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.KOVAN_FLOWER);

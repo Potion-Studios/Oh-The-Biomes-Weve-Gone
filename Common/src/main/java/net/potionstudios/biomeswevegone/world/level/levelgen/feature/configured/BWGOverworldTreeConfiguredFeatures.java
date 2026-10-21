@@ -79,7 +79,8 @@ public class BWGOverworldTreeConfiguredFeatures {
     public static final Supplier<GlowBerryDecorator> GLOW_BERRY_DECORATOR = () -> new GlowBerryDecorator(ConstantFloat.of(0.1F), UniformInt.of(2, 6), UniformFloat.of(0.25F, 0.5F));
     public static final Supplier<AttachedToLogsDecorator> MOSS_CARPET = () -> new AttachedToLogsDecorator(0.9F, 0, 0, SimpleStateProvider.simple(Blocks.MOSS_CARPET), 1, List.of(Direction.UP));
     public static final Supplier<AttachedToLogsDecorator> SHELF_FUNGI = () -> new AttachedToLogsDecorator(0.3F, 0, 1, SimpleStateProvider.simple(BWGBlocks.SHELF_FUNGI.get()), 2, List.of(Direction.WEST, Direction.NORTH, Direction.SOUTH, Direction.EAST));
-
+    public static final Supplier<AttachedToLogsDecorator> FIR_BRANCH = () -> new AttachedToLogsDecorator(0.55F, 0, 1, SimpleStateProvider.simple(BWGBlocks.FIR_BRANCH.get()), 2, List.of(Direction.WEST, Direction.NORTH, Direction.SOUTH, Direction.EAST));
+    public static final Supplier<AttachedToLogsDecorator> FROSTED_FIR_BRANCH = () -> new AttachedToLogsDecorator(0.55F, 0, 1, SimpleStateProvider.simple(BWGBlocks.FROSTED_FIR_BRANCH.get()), 2, List.of(Direction.WEST, Direction.NORTH, Direction.SOUTH, Direction.EAST));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ANCIENT_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("ancient_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
@@ -935,6 +936,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FIR_BRANCH.get()))
                     .build()
 
     );
@@ -950,6 +952,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FIR_BRANCH.get()))
                     .build()
 
     );
@@ -965,6 +968,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FIR_BRANCH.get()))
                     .build()
 
     );
@@ -980,6 +984,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FIR_BRANCH.get()))
                     .build()
 
     );
@@ -995,6 +1000,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FIR_BRANCH.get()))
                     .build()
 
     );
@@ -1010,6 +1016,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FIR_BRANCH.get()))
                     .build()
 
     );
@@ -1025,6 +1032,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FIR_BRANCH.get()))
                     .build()
 
     );
@@ -1040,6 +1048,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FIR_BRANCH.get()))
                     .build()
     );
 
@@ -1058,6 +1067,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FROSTED_FIR_BRANCH.get()))
                     .build()
 
     );
@@ -1073,6 +1083,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FROSTED_FIR_BRANCH.get()))
                     .build()
 
     );
@@ -1088,6 +1099,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FROSTED_FIR_BRANCH.get()))
                     .build()
 
     );
@@ -1103,6 +1115,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FROSTED_FIR_BRANCH.get()))
                     .build()
 
     );
@@ -1118,6 +1131,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FROSTED_FIR_BRANCH.get()))
                     .build()
 
     );
@@ -1133,6 +1147,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FROSTED_FIR_BRANCH.get()))
                     .build()
 
     );
@@ -1148,6 +1163,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FROSTED_FIR_BRANCH.get()))
                     .build()
 
     );
@@ -1163,6 +1179,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FROSTED_FIR_BRANCH.get()))
                     .build()
     );
 
@@ -1178,6 +1195,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(BWGWood.FIR.leaves()))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FROSTED_FIR_BRANCH.get()))
                     .build()
     );
 
@@ -1193,6 +1211,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(BWGWood.FIR.leaves()))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FROSTED_FIR_BRANCH.get()))
                     .build()
     );
 

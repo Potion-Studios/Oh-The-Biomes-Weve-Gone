@@ -94,6 +94,8 @@ public class ModelGenerators {
             simpleItem(BWGBlocks.MAGENTA_PITCHER_PLANT.get().asItem(), "magenta_pitcher_plant");
             simpleItemBlockTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get());
             simpleItemBlockTexture(BWGBlocks.OLIVE_MOSS_SPROUTS.get());
+            simpleItemBlockTexture(BWGBlocks.FIR_BRANCH.get());
+            simpleItemBlockTexture(BWGBlocks.FROSTED_FIR_BRANCH.get());
 
             getBuilder(name(BWGItems.PUMPKIN_BURROW.get()))
                     .parent(new ModelFile.UncheckedModelFile("biomeswevegone:block/pumpkin_burrow"))
@@ -452,6 +454,30 @@ public class ModelGenerators {
                     return ConfiguredModel.builder().modelFile(jack).build();
                 return new ConfiguredModel[0];
             });
+
+            models().withExistingParent(name(BWGBlocks.FIR_BRANCH.get()), mcLoc("block/coral_wall_fan")).texture("fan", blockBWGTexture(BWGBlocks.FIR_BRANCH.get())).renderType("cutout_mipped");
+            getVariantBuilder(BWGBlocks.FIR_BRANCH.get()).forAllStatesExcept(state -> switch (state.getValue(TreeBranchBlock.FACING)) {
+                case EAST ->
+                        ConfiguredModel.builder().rotationY(90).modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.FIR_BRANCH.get()))).build();
+                case WEST ->
+                        ConfiguredModel.builder().rotationY(270).modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.FIR_BRANCH.get()))).build();
+                case SOUTH ->
+                        ConfiguredModel.builder().rotationY(180).modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.FIR_BRANCH.get()))).build();
+                default ->
+                        ConfiguredModel.builder().modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.FIR_BRANCH.get()))).build();
+            }, TreeBranchBlock.WATERLOGGED);
+
+            models().withExistingParent(name(BWGBlocks.FROSTED_FIR_BRANCH.get()), mcLoc("block/coral_wall_fan")).texture("fan", blockBWGTexture(BWGBlocks.FROSTED_FIR_BRANCH.get())).renderType("cutout_mipped");
+            getVariantBuilder(BWGBlocks.FROSTED_FIR_BRANCH.get()).forAllStatesExcept(state -> switch (state.getValue(TreeBranchBlock.FACING)) {
+                case EAST ->
+                        ConfiguredModel.builder().rotationY(90).modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.FROSTED_FIR_BRANCH.get()))).build();
+                case WEST ->
+                        ConfiguredModel.builder().rotationY(270).modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.FROSTED_FIR_BRANCH.get()))).build();
+                case SOUTH ->
+                        ConfiguredModel.builder().rotationY(180).modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.FROSTED_FIR_BRANCH.get()))).build();
+                default ->
+                        ConfiguredModel.builder().modelFile(models().getExistingFile(blockBWGTexture(BWGBlocks.FROSTED_FIR_BRANCH.get()))).build();
+            }, TreeBranchBlock.WATERLOGGED);
 
             models().withExistingParent(name(BWGBlocks.WITCH_HAZEL_BRANCH.get()), mcLoc("block/coral_wall_fan")).texture("fan", blockBWGTexture(BWGBlocks.WITCH_HAZEL_BRANCH.get())).renderType("cutout_mipped");
             getVariantBuilder(BWGBlocks.WITCH_HAZEL_BRANCH.get()).forAllStatesExcept(state -> switch (state.getValue(TreeBranchBlock.FACING)) {
