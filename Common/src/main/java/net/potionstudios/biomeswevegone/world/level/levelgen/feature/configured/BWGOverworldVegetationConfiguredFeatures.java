@@ -63,7 +63,8 @@ public class BWGOverworldVegetationConfiguredFeatures {
                 return new RandomFeatureConfiguration(ImmutableList.of(
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BWGBlocks.OSIRIA_ROSE.getFeature())), 0.2F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BLUE_ROSE_BUSH)), 0.3F),
-                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BWGBlocks.ROSE.getFeature())), 0.25F)),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BWGBlocks.BLUE_ROSE.getFeature())), 0.15F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BWGBlocks.ROSE.getFeature())), 0.15F)),
                         PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(ROSE_BUSH)));
             }
     );

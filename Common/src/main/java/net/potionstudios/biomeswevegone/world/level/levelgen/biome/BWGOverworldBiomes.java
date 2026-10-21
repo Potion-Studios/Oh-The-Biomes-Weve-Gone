@@ -417,6 +417,7 @@ class BWGOverworldBiomes {
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.SAKURA_PETALS);
         BWGOverworldDefaultFeatures.addFlowerPatches(generationSettings);
         BWGOverworldDefaultFeatures.addCloverPatches(generationSettings);
+        BWGOverworldDefaultFeatures.addOsiriaRose(generationSettings);
 //        BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
         BWGOverworldDefaultFeatures.addBWGMushrooms(generationSettings);
 
@@ -1183,6 +1184,7 @@ class BWGOverworldBiomes {
         BWGOverworldDefaultFeatures.addOakBushes(generationSettings);
         BWGOverworldDefaultFeatures.addAnemones(generationSettings);
         BWGOverworldDefaultFeatures.addRose(generationSettings);
+        BWGOverworldDefaultFeatures.addOsiriaRose(generationSettings);
         BWGOverworldDefaultFeatures.addBlueRoseBush(generationSettings);
         BWGOverworldDefaultFeatures.addFairySlipper(generationSettings);
         BWGOverworldDefaultFeatures.addWhitePuffball(generationSettings);

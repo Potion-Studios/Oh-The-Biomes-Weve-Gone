@@ -96,6 +96,14 @@ public class BWGOverworldDefaultFeatures {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.ROSE);
     }
 
+    public static void addBlueRose(BiomeGenerationSettings.Builder gen) {
+        addVegetal(gen, BWGOverworldVegationPlacedFeatures.BLUE_ROSE);
+    }
+
+    public static void addOsiriaRose(BiomeGenerationSettings.Builder gen) {
+        addVegetal(gen, BWGOverworldVegationPlacedFeatures.OSIRIA_ROSE);
+    }
+
     public static void addBlueBerryBush(BiomeGenerationSettings.Builder gen) {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.BLUE_BERRY_BUSH);
     }
