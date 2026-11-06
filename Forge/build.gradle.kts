@@ -25,7 +25,7 @@ loom {
     accessWidenerPath.set(project(":Common").loom.accessWidenerPath)
 
     forge {
-        convertAccessWideners(tasks.shadowJar, "biomeswevegone.accessWidener")
+        convertAccessWideners(tasks.shadowJar, "biomeswevegone.accesswidener")
         mixinConfig("biomeswevegone-common.mixins.json")
     }
 
