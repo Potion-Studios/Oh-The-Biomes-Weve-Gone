@@ -33,7 +33,7 @@ loom {
         )
     }
 
-    neoForge.convertAccessWideners(tasks.shadowJar, "biomeswevegone.accessWidener")
+    neoForge.convertAccessWideners(tasks.shadowJar, "biomeswevegone.accesswidener")
 }
 
 dependencies {
