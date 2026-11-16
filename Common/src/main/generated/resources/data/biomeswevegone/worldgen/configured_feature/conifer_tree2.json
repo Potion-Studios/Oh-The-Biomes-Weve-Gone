@@ -36,6 +36,27 @@
         "exclusion_radius_y": 1,
         "probability": 0.55,
         "required_empty_blocks": 2
+      },
+      {
+        "type": "ohthetreesyoullgrow:attached_to_fruit_leaves",
+        "block_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "biomeswevegone:fir_cone",
+            "Properties": {
+              "hanging": "true",
+              "stage": "0"
+            }
+          }
+        },
+        "directions": [
+          "down"
+        ],
+        "exclusion_radius_xz": 2,
+        "exclusion_radius_y": 0,
+        "leaves_block": "biomeswevegone:fir_leaves",
+        "probability": 0.2,
+        "required_empty_blocks": 2
       }
     ],
     "height": {

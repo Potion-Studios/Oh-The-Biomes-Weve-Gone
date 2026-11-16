@@ -270,6 +270,9 @@
     "biomeswevegone:frosted_fir_leaves": {
       "chance": 0.3
     },
+    "biomeswevegone:frosted_fir_sapling": {
+      "chance": 0.3
+    },
     "biomeswevegone:frosted_grass": {
       "chance": 0.3
     },

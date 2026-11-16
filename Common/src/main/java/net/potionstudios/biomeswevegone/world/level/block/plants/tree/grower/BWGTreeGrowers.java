@@ -79,6 +79,21 @@ public class BWGTreeGrowers {
                     .build(),
 		    SimpleWeightedRandomList.single(BWGOverworldTreeConfiguredFeatures.CONIFER_TREE8));
 
+    public static final Supplier<TreeGrower> FROSTED_FIR = () -> new BWGMegaTreeGrower("frosted_fir",
+            new SimpleWeightedRandomList.Builder<ResourceKey<ConfiguredFeature<?, ?>>>()
+                    .add(BWGOverworldTreeConfiguredFeatures.FROSTED_FIR_TREE1)
+                    .add(BWGOverworldTreeConfiguredFeatures.FROSTED_FIR_TREE2)
+                    .add(BWGOverworldTreeConfiguredFeatures.FROSTED_FIR_TREE3)
+                    .add(BWGOverworldTreeConfiguredFeatures.FROSTED_FIR_TREE4)
+                    .add(BWGOverworldTreeConfiguredFeatures.FROSTED_FIR_TREE5)
+                    .add(BWGOverworldTreeConfiguredFeatures.FROSTED_FIR_TREE6)
+                    .add(BWGOverworldTreeConfiguredFeatures.FROSTED_FIR_TREE7)
+                    .add(BWGOverworldTreeConfiguredFeatures.FROSTED_FIR_TREE8)
+                    .add(BWGOverworldTreeConfiguredFeatures.FROSTED_FIR_TREE9)
+                    .build(),
+            SimpleWeightedRandomList.single(BWGOverworldTreeConfiguredFeatures.FROSTED_FIR_TREE10));
+
+
     public static final Supplier<TreeGrower> GREEN_ENCHANTED = () -> new TreeGrower("green_enchanted",
             0.5f,
             Optional.of(BWGOverworldTreeConfiguredFeatures.GREEN_ENCHANTED_SAPLING_TREE3),
