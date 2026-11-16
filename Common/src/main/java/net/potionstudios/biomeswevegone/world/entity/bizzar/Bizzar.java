@@ -196,7 +196,7 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoEntity {
 	@Nullable
 	@Override
 	protected SoundEvent getAmbientSound() {
-		return BWGSounds.BIZZAR_AMBIENT.get();
+		return getRandom().nextBoolean() ? BWGSounds.BIZZAR_AMBIENT.get() : BWGSounds.BIZZAR_AMBIENT2.get();
 	}
 
 	@Override
@@ -350,8 +350,8 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoEntity {
 		public void start() {
 			this.activeTicks = 0;
 			this.bizzar.setBlizzarding(true);
-
 			this.bizzar.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 300, 1, false, false, true));
+			this.bizzar.playSound(BWGSounds.BIZZAR_BLIZZARD_START.get(), 1.0F, 1.0F);
 		}
 
 		@Override
