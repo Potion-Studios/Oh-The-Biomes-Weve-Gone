@@ -62,6 +62,7 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoEntity {
 	private static final RawAnimation IDLE_STAND4 = RawAnimation.begin().thenPlay("snow.model.idle_stand4");
 	private static final RawAnimation IDLE_STAND5 = RawAnimation.begin().thenPlay("snow.model.idle_stand5");
 	private static final RawAnimation IDLE_STAND6 = RawAnimation.begin().thenPlay("snow.model.idle_stand6");
+	private static final RawAnimation HOP = RawAnimation.begin().thenPlay("snow.model.walk");
 	private static final RawAnimation WALK = RawAnimation.begin().thenPlay("snow.model.walk2");
 	private static final RawAnimation TWIRL = RawAnimation.begin().thenPlay("snow.model.twirl_transin").thenLoop("snow.model.twirl");
 
@@ -359,7 +360,8 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoEntity {
 			activeTicks++;
 			List<Monster> hostiles = getNearbyHostiles();
 			for (Monster hostile : hostiles) {
-				hostile.setTicksFrozen(Math.min(hostile.getTicksRequiredToFreeze() + 140, hostile.getTicksFrozen() + 3));
+				hostile.setIsInPowderSnow(true);
+				hostile.setTicksFrozen(activeTicks);
 
 				hostile.addEffect(new MobEffectInstance(
 						MobEffects.MOVEMENT_SLOWDOWN,
