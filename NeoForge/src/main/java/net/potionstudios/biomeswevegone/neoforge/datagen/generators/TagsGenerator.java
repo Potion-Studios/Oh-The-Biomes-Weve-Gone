@@ -209,7 +209,7 @@ public class TagsGenerator {
             tag(BlockTags.RABBITS_SPAWNABLE_ON).add(BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.PALISADE_GRASS_BLOCK.get(), BWGBlocks.RED_ROCK_SET.getBase());
             tag(BlockTags.FOXES_SPAWNABLE_ON).add(BWGBlocks.PALISADE_GRASS_BLOCK.get(),BWGBlocks.LUSH_GRASS_BLOCK.get(),BWGBlocks.BOG_PODZOL.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.WHITE_PODZOL_DACITE.get());
             tag(BlockTags.WOLVES_SPAWNABLE_ON).add(BWGBlocks.PALISADE_GRASS_BLOCK.get(),BWGBlocks.LUSH_GRASS_BLOCK.get(),BWGBlocks.BOG_PODZOL.get(), BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.WHITE_PODZOL_DACITE.get());
-            tag(BWGBlockTags.BIZZAR_SPAWNABLE_ON).addTag(BWGBlockTags.BOREALIS_ICE).addTags(BlockTags.DIRT).add(Blocks.SNOW_BLOCK);
+            tag(BWGBlockTags.BIZZAR_SPAWNABLE_ON).addTag(BWGBlockTags.BOREALIS_ICE).addTag(BlockTags.DIRT).add(Blocks.SNOW_BLOCK);
 
             tag(BlockTags.FROG_PREFER_JUMP_TO).add(BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), BWGBlocks.TINY_LILY_PADS.get());
             tag(BlockTags.SNAPS_GOAT_HORN).add(BWGBlocks.PACKED_BLACK_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get());
@@ -533,6 +533,7 @@ public class TagsGenerator {
 
         @Override
         protected void addTags(HolderLookup.@NotNull Provider provider) {
+            tag(EntityTypeTags.FREEZE_IMMUNE_ENTITY_TYPES).add(BWGEntityType.BIZZAR.get());
             tag(EntityTypeTags.CAN_BREATHE_UNDER_WATER).add(BWGEntityType.MAN_O_WAR.get());
             tag(EntityTypeTags.AQUATIC).add(BWGEntityType.MAN_O_WAR.get());
             tag(Tags.EntityTypes.BOATS).add(BWGEntityType.BWG_BOAT.get(), BWGEntityType.BWG_CHEST_BOAT.get());

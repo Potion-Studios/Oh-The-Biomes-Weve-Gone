@@ -358,24 +358,11 @@ public class Bizzar extends TamableAnimal implements NeutralMob, GeoEntity {
 		@Override
 		public void tick() {
 			activeTicks++;
-			List<Monster> hostiles = getNearbyHostiles();
-			for (Monster hostile : hostiles) {
-				hostile.setIsInPowderSnow(true);
-				hostile.setTicksFrozen(activeTicks);
-
-				hostile.addEffect(new MobEffectInstance(
-						MobEffects.MOVEMENT_SLOWDOWN,
-						30,
-						2,
-						false,
-						false,
-						true
-				));
-
-				if (hostile.isFullyFrozen() && this.activeTicks % 40 == 0) {
-					hostile.hurt(hostile.damageSources().freeze(), 1.0F);
+			for (Monster hostile : getNearbyHostiles())
+				if (hostile.canFreeze()) {
+					int required = hostile.getTicksRequiredToFreeze();
+					hostile.setTicksFrozen(required + 4);
 				}
-			}
 		}
 
 		@Override
