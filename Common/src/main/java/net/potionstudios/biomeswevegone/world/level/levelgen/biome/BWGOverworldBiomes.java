@@ -837,6 +837,7 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.TUSCANY_CYPRESS_TREES);
+        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.PRAIRIE_GRASS_PATCH);
 //        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.TEMPERATE_GROVE_TREES);
         BWGOverworldDefaultFeatures.addCloverPatches(generationSettings);
 //        BWGOverworldDefaultFeatures.addAnemones(generationSettings);

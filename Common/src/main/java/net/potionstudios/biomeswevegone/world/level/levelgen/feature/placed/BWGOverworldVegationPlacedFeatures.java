@@ -53,6 +53,8 @@ public class BWGOverworldVegationPlacedFeatures {
     public static final ResourceKey<PlacedFeature> PATCH_BEACH_GRASS = PlacedFeaturesUtil.createPlacedFeature("patch_beach_grass", BWGOverworldVegetationConfiguredFeatures.BEACH_GRASSES, () -> List.of(InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
     public static final ResourceKey<PlacedFeature> PRAIRIE_GRASS = PlacedFeaturesUtil.createPlacedFeature("prairie_grass", BWGOverworldVegetationConfiguredFeatures.PRAIRIE_GRASS, () -> List.of(CountPlacement.of(25), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
     public static final ResourceKey<PlacedFeature> PRAIRIE_GRASS_BONEMEAL = PlacedFeaturesUtil.createPlacedFeature("prairie_grass_bonemeal", BWGOverworldVegetationConfiguredFeatures.SINGLE_PRAIRIE_GRASS, () -> List.of(new PlacementModifier[]{PlacementUtils.isEmpty()}));
+    public static final ResourceKey<PlacedFeature> PRAIRIE_GRASS_PATCH = PlacedFeaturesUtil.createPlacedFeature("prairie_grass_patch", BWGOverworldVegetationConfiguredFeatures.PRAIRIE_GRASS, () -> List.of(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
+
 
     public static final ResourceKey<PlacedFeature> FROSTED_GRASS = PlacedFeaturesUtil.createPlacedFeature("frosted_grass", BWGOverworldVegetationConfiguredFeatures.FROSTED_GRASS, () -> List.of(CountPlacement.of(25), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
 
