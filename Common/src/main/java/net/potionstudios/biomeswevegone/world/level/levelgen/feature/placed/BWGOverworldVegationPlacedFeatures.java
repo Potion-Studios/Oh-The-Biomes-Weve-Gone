@@ -1,12 +1,17 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed;
 
+import net.minecraft.core.Direction;
 import net.minecraft.data.worldgen.features.CaveFeatures;
 import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
@@ -129,6 +134,23 @@ public class BWGOverworldVegationPlacedFeatures {
     public static final ResourceKey<PlacedFeature> LARGE_PUMPKIN = PlacedFeaturesUtil.createPlacedFeature("large_pumpkin", BWGOverworldVegetationConfiguredFeatures.LARGE_PUMPKIN, () -> List.of(CountPlacement.of(5), RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
     public static final ResourceKey<PlacedFeature> MEDIUM_PUMPKIN = PlacedFeaturesUtil.createPlacedFeature("medium_pumpkin", BWGOverworldVegetationConfiguredFeatures.MEDIUM_PUMPKIN, () -> List.of(CountPlacement.of(6), RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
     public static final ResourceKey<PlacedFeature> SMALL_PUMPKIN = PlacedFeaturesUtil.createPlacedFeature("small_pumpkin", VegetationFeatures.PATCH_PUMPKIN, () -> List.of(CountPlacement.of(9), RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
+
+    public static final ResourceKey<PlacedFeature> IRONWOOD_VINES = PlacedFeaturesUtil.createPlacedFeature("ironwood_vines", BWGOverworldVegetationConfiguredFeatures.IRONWOOD_VINES, () -> List.of(
+            CountPlacement.of(188),
+            InSquarePlacement.spread(),
+            HeightRangePlacement.uniform(
+                    VerticalAnchor.absolute(60),
+                    VerticalAnchor.top()),
+            EnvironmentScanPlacement.scanningFor(Direction.UP,
+                    BlockPredicate.anyOf(
+                            BlockPredicate.matchesBlocks(Blocks.GRANITE, Blocks.PACKED_MUD),
+                            BlockPredicate.matchesTag(BlockTags.DIRT)
+                    ),
+                    BlockPredicate.ONLY_IN_AIR_PREDICATE,
+                    12),
+            RandomOffsetPlacement.vertical(ConstantInt.of(-1)),
+            BiomeFilter.biome()
+    ));
 
     private static ResourceKey<PlacedFeature> createWorldSurfaceSquared(String id, ResourceKey<ConfiguredFeature<?, ?>> feature, int count) {
         return  PlacedFeaturesUtil.createPlacedFeature(id, feature, () -> VegetationPlacements.worldSurfaceSquaredWithCount(count));

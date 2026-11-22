@@ -1433,6 +1433,7 @@ class BWGOverworldBiomes {
     protected static Biome ironwoodGour(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder generationSettings = setupDefaultOverworldGeneration(placedFeatureGetter, carverGetter);
 
+        addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.IRONWOOD_VINES);
         BiomeDefaultFeatures.addSavannaGrass(generationSettings);
         BiomeDefaultFeatures.addSavannaTrees(generationSettings);
         BiomeDefaultFeatures.addWarmFlowers(generationSettings);

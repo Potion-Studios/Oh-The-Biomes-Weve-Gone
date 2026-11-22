@@ -13,20 +13,16 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.util.valueproviders.BiasedToBottomInt;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.PinkPetalsBlock;
+import net.minecraft.util.valueproviders.*;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
@@ -475,7 +471,35 @@ public class BWGOverworldVegetationConfiguredFeatures {
             NoneFeatureConfiguration::new
     );
 
-
+    public static final ResourceKey<ConfiguredFeature<?, ?>> IRONWOOD_VINES = ConfiguredFeaturesUtil.createConfiguredFeature("ironwood_vines",
+            Feature.BLOCK_COLUMN,
+            () -> new BlockColumnConfiguration(
+                    List.of(
+                            BlockColumnConfiguration.layer(
+                                    new WeightedListInt(
+                                            SimpleWeightedRandomList.<IntProvider>builder().add(UniformInt.of(0, 19), 2).add(UniformInt.of(0, 2), 3).add(UniformInt.of(0, 6), 10).build()
+                                    ),
+                                    new WeightedStateProvider(
+                                            SimpleWeightedRandomList.<BlockState>builder()
+                                                    .add(BWGBlocks.IRONWOOD_GLOW_CHERRIES_PLANT.get().defaultBlockState(), 4)
+                                                    .add(BWGBlocks.IRONWOOD_GLOW_CHERRIES_PLANT.get().defaultBlockState().setValue(CaveVines.BERRIES, true), 1)
+                                    )
+                            ),
+                            BlockColumnConfiguration.layer(ConstantInt.of(1), new RandomizedIntStateProvider(
+                                    new WeightedStateProvider(
+                                            SimpleWeightedRandomList.<BlockState>builder()
+                                                    .add(BWGBlocks.IRONWOOD_GLOW_CHERRIES.get().defaultBlockState(), 4)
+                                                    .add(BWGBlocks.IRONWOOD_GLOW_CHERRIES.get().defaultBlockState().setValue(CaveVines.BERRIES, true), 1)
+                                    ),
+                                    CaveVinesBlock.AGE,
+                                    UniformInt.of(23, 25)
+                            ))
+                    ),
+                    Direction.DOWN,
+                    BlockPredicate.ONLY_IN_AIR_PREDICATE,
+                    true
+            )
+    );
 
     private static SimpleWeightedRandomList.Builder<BlockState> createPetalBlockStateList(Supplier<? extends Block> block) {
         SimpleWeightedRandomList.Builder<BlockState> builder = SimpleWeightedRandomList.builder();
