@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomeswevegone:tnt_from_bwg_sand"
+        "recipe": "minecraft:tnt_from_bwg_sand"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "biomeswevegone:tnt_from_bwg_sand"
+      "minecraft:tnt_from_bwg_sand"
     ]
   }
 }
