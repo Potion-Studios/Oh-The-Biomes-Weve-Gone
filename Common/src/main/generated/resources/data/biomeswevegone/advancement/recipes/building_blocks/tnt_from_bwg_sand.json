@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_any_sand": {
+    "has_gunpowder": {
       "conditions": {
         "items": [
           {
-            "items": "#minecraft:sand"
+            "items": "minecraft:gunpowder"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_any_sand"
+      "has_gunpowder"
     ]
   ],
   "rewards": {
