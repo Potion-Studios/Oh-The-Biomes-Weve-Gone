@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomeswevegone:birch_planks_from_palo_verde_logs"
+        "recipe": "biomeswevegone:birch_hanging_sign"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "biomeswevegone:birch_planks_from_palo_verde_logs"
+      "biomeswevegone:birch_hanging_sign"
     ]
   }
 }
