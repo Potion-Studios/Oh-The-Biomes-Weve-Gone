@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_logs": {
+    "has_gunpowder": {
       "conditions": {
         "items": [
           {
-            "items": "#biomeswevegone:palo_verde_logs"
+            "items": "minecraft:gunpowder"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "biomeswevegone:birch_planks_from_palo_verde_logs"
+        "recipe": "minecraft:tnt_from_bwg_sand"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_logs"
+      "has_gunpowder"
     ]
   ],
   "rewards": {
     "recipes": [
-      "biomeswevegone:birch_planks_from_palo_verde_logs"
+      "minecraft:tnt_from_bwg_sand"
     ]
   }
 }
