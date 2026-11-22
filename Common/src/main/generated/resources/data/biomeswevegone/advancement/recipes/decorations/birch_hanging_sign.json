@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "item": "biomeswevegone:stripped_palo_verde_log"
+            "items": "biomeswevegone:stripped_palo_verde_log"
           }
         ]
       },
