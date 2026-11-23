@@ -51,6 +51,8 @@ public class BWGOverworldSurfaceRules {
     private static final SurfaceRules.RuleSource SANDY_DIRT_SURFACE = SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.SANDY_DIRT.get()), makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.SANDY_DIRT.get()));
     private static final SurfaceRules.RuleSource OLIVE_MOSS_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.OLIVE_MOSS_BLOCK.get())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.OLIVE_MOSS_BLOCK.get()));
 
+    private static final SurfaceRules.RuleSource CRIMSON_PODZOL_DIRT_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.BOG_PODZOL.get())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT));
+
 
     private static final SurfaceRules.RuleSource NOISE_COARSE_DIRT = makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D), COARSE_DIRT_DIRT_SURFACE);
     private static final SurfaceRules.RuleSource PODZOL_DIRT_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.PODZOL)), makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT));
@@ -140,7 +142,7 @@ public class BWGOverworldSurfaceRules {
                             makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.LUSH_DIRT.get())
                     )),
             CRIMSON_ROCKY_STONE_SURFACE,
-            PEAT_SURFACE
+            CRIMSON_PODZOL_DIRT_SURFACE
     ));
 
     private static final SurfaceRules.RuleSource CYPRESS_MANGROVE = SurfaceRules.ifTrue(
@@ -222,6 +224,16 @@ public class BWGOverworldSurfaceRules {
                     )),
             makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), NOISE_COARSE_DIRT),
             PEAT_SURFACE
+    ));
+
+    private static final SurfaceRules.RuleSource MAPLE_TAIGA = biomeAbovePreliminarySurface(BWGBiomes.MAPLE_TAIGA, SurfaceRules.sequence(
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
+                    SurfaceRules.sequence(
+                            makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.GRASS_BLOCK),
+                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT)
+                    )),
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), NOISE_COARSE_DIRT),
+            PODZOL_DIRT_SURFACE
     ));
 
     private static final SurfaceRules.RuleSource FRAGMENT_JUNGLE = biomeAbovePreliminarySurface(BWGBiomes.FRAGMENT_JUNGLE, SurfaceRules.sequence(
@@ -486,6 +498,7 @@ public class BWGOverworldSurfaceRules {
                 CONIFEROUS_FOREST,
                 CYPRESS_MANGROVE,
                 CRIMSON_TUNDRA,
+                MAPLE_TAIGA,
                 DACITE_RIDGES,
                 DACITE_SHORE,
                 DEAD_SEA,

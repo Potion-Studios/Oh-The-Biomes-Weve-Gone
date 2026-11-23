@@ -184,6 +184,7 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
         BWGOverworldDefaultFeatures.addLeafPileAbundant(generationSettings);
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.SPARSE_AUTUMNAL_OAK_TREES);
         BWGOverworldDefaultFeatures.addMeadowShrubs(generationSettings);
         BWGOverworldDefaultFeatures.addCloverPatches(generationSettings);
         BWGOverworldDefaultFeatures.addOakBushes(generationSettings);
@@ -317,6 +318,7 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addRareBerryBushes(generationSettings);
 
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.BLACK_FOREST_TREES);
+
         BWGOverworldDefaultFeatures.addBlueBerryBush(generationSettings);
         BWGOverworldDefaultFeatures.addLushBlueBerryBush(generationSettings);
         BWGOverworldDefaultFeatures.addAnemones(generationSettings);
@@ -353,6 +355,7 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.CANADIAN_SHIELD_TREES);
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.AUTUMNAL_SPRUCE_TREES);
 
         BWGOverworldDefaultFeatures.addSparseSpruceTrees(generationSettings);
         BWGOverworldDefaultFeatures.addSparseAspenTreesShrubs(generationSettings);
@@ -384,7 +387,7 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
-        BWGOverworldDefaultFeatures.addSparseRedOrangeSpruceTrees(generationSettings);
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.SPARSE_AUTUMNAL_SPRUCE_TREES);
         BWGOverworldDefaultFeatures.addCloverPatches(generationSettings);
         BWGOverworldDefaultFeatures.addRose(generationSettings);
 
@@ -442,7 +445,7 @@ class BWGOverworldBiomes {
 
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.BROWN_BIRCH_TREES);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.CIKA_TREES);
-        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.ORANGE_BIRCH_TREES);
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.AUTUMNAL_SPRUCE_TREES);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.LARGE_PUMPKIN);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.MEDIUM_PUMPKIN);
         BWGOverworldDefaultFeatures.addBlueBerryBush(generationSettings);
@@ -932,8 +935,8 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
-        BWGOverworldDefaultFeatures.addSparseSpruceTrees(generationSettings);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.MAPLE_TAIGA_TREES);
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.AUTUMNAL_OAK_TREES);
         BWGOverworldDefaultFeatures.addOakBushes(generationSettings);
 
         BWGOverworldDefaultFeatures.addSparseAspenTreesShrubs(generationSettings);
