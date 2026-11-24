@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "hanging_sign",
+  "group": "shelf",
   "key": {
     "#": [
       "biomeswevegone:stripped_palo_verde_log",
