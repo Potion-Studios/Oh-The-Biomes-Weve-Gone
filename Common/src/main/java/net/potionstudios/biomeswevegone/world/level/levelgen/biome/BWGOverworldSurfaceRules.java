@@ -232,7 +232,7 @@ public class BWGOverworldSurfaceRules {
                             makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.GRASS_BLOCK),
                             makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT)
                     )),
-            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), NOISE_COARSE_DIRT),
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), PEAT_SURFACE),
             PODZOL_DIRT_SURFACE
     ));
 

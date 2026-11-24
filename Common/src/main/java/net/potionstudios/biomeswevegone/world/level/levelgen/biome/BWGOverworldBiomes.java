@@ -1480,6 +1480,7 @@ class BWGOverworldBiomes {
         BiomeDefaultFeatures.addRareBerryBushes(generationSettings);
 
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.FROSTED_FIR_TREES);
+        addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.SPARSE_BLUE_SPRUCE_TREES);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.HOLLY_TREES);
         addVegetal(generationSettings, BWGOverworldTreePlacedFeatures.BOREALIS_ICE_FEATURE);
         addVegetal(generationSettings, BWGOverworldVegationPlacedFeatures.FROSTED_GRASS);

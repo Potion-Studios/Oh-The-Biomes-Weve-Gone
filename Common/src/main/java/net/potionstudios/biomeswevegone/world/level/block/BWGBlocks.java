@@ -97,7 +97,7 @@ public class BWGBlocks {
     public static final Supplier<IceBlock> BOREALIS_ICE = registerBlockItem("borealis_ice", () -> new IceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ICE).lightLevel(state -> 10)));
     public static final Supplier<IceBlock> PACKED_BOREALIS_ICE = registerBlockItem("packed_borealis_ice", () -> new IceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PACKED_ICE).lightLevel(state -> 10)));
 
-    public static final Supplier<BWGBerryBush> BLUEBERRY_BUSH = registerBlock("blueberry_bush", () -> new BWGBerryBush(BWGItemReferences.BLUEBERRIES, true));
+    public static final Supplier<BWGBerryBush> BLUEBERRY_BUSH = registerBlock("blueberry_bush", () -> new BWGBerryBush(BWGItemReferences.BLUEBERRIES, false));
     public static final Supplier<FloweringBushBlock> FLOWERING_JACARANDA_BUSH = registerBlockItem("flowering_jacaranda_bush", () -> new FloweringBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA)));
     public static final PottedBlock JACARANDA_BUSH = createPottedVariant("jacaranda_bush",  () -> new FlowerableBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA), FLOWERING_JACARANDA_BUSH));
     public static final Supplier<FloweringBushBlock> FLOWERING_INDIGO_JACARANDA_BUSH = registerBlockItem("flowering_indigo_jacaranda_bush", () -> new FloweringBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA)));

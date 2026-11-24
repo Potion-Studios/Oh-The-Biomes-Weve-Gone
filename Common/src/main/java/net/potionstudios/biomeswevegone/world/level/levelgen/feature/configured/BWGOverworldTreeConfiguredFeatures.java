@@ -5261,7 +5261,7 @@ public static final ResourceKey<ConfiguredFeature<?, ?>> BOREALIS_ICE_FEATURE = 
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BLUE_SPRUCE_TREE_MEDIUM2)), 0.111F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BLUE_SPRUCE_TREE_MEDIUM3)), 0.111F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BLUE_SPRUCE_TREE_MEDIUM4)), 0.111F)),
-                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BLUE_SPRUCE_TREE1)));
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BLUE_SPRUCE_TREE_LARGE1)));
             }
     );
 
