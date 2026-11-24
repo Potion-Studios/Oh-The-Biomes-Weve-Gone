@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "biomeswevegone:block/chiseled_frosted_amber_bricks",
+    "side": "biomeswevegone:block/chiseled_frosted_amber_bricks",
+    "top": "biomeswevegone:block/chiseled_frosted_amber_bricks"
+  }
+}

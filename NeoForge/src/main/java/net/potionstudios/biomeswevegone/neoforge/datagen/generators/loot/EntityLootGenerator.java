@@ -47,6 +47,14 @@ class EntityLootGenerator extends EntityLootSubProvider {
                                 .add(LootItem.lootTableItem(Items.PHANTOM_MEMBRANE)
                                         .apply(EnchantedCountIncreaseFunction.lootingMultiplier(registries, UniformGenerator.between(0.0f, 1.0f)))
                 )));
+
+        add(BWGEntityType.BIZZAR.get(), LootTable.lootTable()
+                .withPool(
+                        LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1))
+                                .add(LootItem.lootTableItem(Items.SNOWBALL)
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0f, 3.0f))))
+                ));
     }
 
     @Override

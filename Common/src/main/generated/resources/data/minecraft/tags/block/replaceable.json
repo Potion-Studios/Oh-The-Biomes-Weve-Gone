@@ -1,10 +1,13 @@
 {
   "values": [
     "biomeswevegone:beach_grass",
+    "biomeswevegone:frosted_grass",
     "biomeswevegone:poison_ivy",
     "biomeswevegone:prairie_grass",
+    "biomeswevegone:short_frosted_grass",
     "biomeswevegone:skyris_vine",
     "biomeswevegone:tall_beach_grass",
+    "biomeswevegone:tall_frosted_grass",
     "biomeswevegone:tall_prairie_grass"
   ]
 }

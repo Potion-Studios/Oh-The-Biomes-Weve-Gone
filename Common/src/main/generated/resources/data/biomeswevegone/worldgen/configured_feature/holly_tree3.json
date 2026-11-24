@@ -13,11 +13,13 @@
       "type": "minecraft:true"
     },
     "canopy_location": "biomeswevegone:features/trees/holly/holly_canopy3",
+    "decorators": [],
     "height": {
       "type": "minecraft:biased_to_bottom",
       "max_inclusive": 12,
       "min_inclusive": 2
     },
+    "height_limit_behavior": "DEFAULT",
     "leaves_provider": {
       "type": "minecraft:weighted_state_provider",
       "entries": [
@@ -61,7 +63,9 @@
       "minecraft:oak_log"
     ],
     "max_log_depth": 6,
+    "orientation": "STANDARD",
     "place_from_nbt": [],
+    "random_rotation": true,
     "tree_filter_behavior": "PIERCE"
   }
 }

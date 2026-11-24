@@ -13,20 +13,16 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.util.valueproviders.BiasedToBottomInt;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.PinkPetalsBlock;
+import net.minecraft.util.valueproviders.*;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
@@ -63,7 +59,8 @@ public class BWGOverworldVegetationConfiguredFeatures {
                 return new RandomFeatureConfiguration(ImmutableList.of(
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BWGBlocks.OSIRIA_ROSE.getFeature())), 0.2F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BLUE_ROSE_BUSH)), 0.3F),
-                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BWGBlocks.ROSE.getFeature())), 0.25F)),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BWGBlocks.BLUE_ROSE.getFeature())), 0.15F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BWGBlocks.ROSE.getFeature())), 0.15F)),
                         PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(ROSE_BUSH)));
             }
     );
@@ -115,6 +112,34 @@ public class BWGOverworldVegetationConfiguredFeatures {
             }
     );
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_WHITE_ASPHODEL = createPatchConfiguredFeature("tall_white_asphodel", BWGBlocks.TALL_WHITE_ASPHODEL, 10);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_PINK_ASPHODEL = createPatchConfiguredFeature("tall_pink_asphodel", BWGBlocks.TALL_PINK_ASPHODEL, 10);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_YELLOW_ASPHODEL = createPatchConfiguredFeature("tall_yellow_asphodel", BWGBlocks.TALL_YELLOW_ASPHODEL, 10);
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ASPHODEL_MEADOW_FLOWERS = ConfiguredFeaturesUtil.createConfiguredFeature("asphodel_meadow_flowers",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TALL_WHITE_ASPHODEL)), 0.2F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TALL_PINK_ASPHODEL)), 0.2F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BWGBlocks.WHITE_ASPHODEL.getFeature())), 0.3F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BWGBlocks.PINK_ASPHODEL.getFeature())));
+            }
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_ASPHODEL_FLOWERS = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_asphodel_flowers",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BWGBlocks.YELLOW_ASPHODEL.getFeature())), 0.45F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TALL_YELLOW_ASPHODEL)));
+            }
+    );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> AMARANTH_GRASSLAND_FLOWERS = ConfiguredFeaturesUtil.createConfiguredFeature("amaranth_grassland_flowers",
             Feature.RANDOM_SELECTOR,
             (configuredFeatureBootstrapContext) -> ConfiguredFeaturesUtil.createRandomWeightedConfiguredFeature(configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE), BWGBlocks.AMARANTH.getFeature(), BWGBlocks.MAGENTA_AMARANTH.getFeature(), BWGBlocks.ORANGE_AMARANTH.getFeature(), BWGBlocks.PURPLE_AMARANTH.getFeature(), BWGBlocks.CYAN_AMARANTH.getFeature())
@@ -163,6 +188,21 @@ public class BWGOverworldVegetationConfiguredFeatures {
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TALL_BEACH_GRASS_PATCH), SAND_FILTER), 0.33F)),
                         PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BEACH_GRASS), SAND_FILTER)
                 );
+            }
+    );
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SHORT_FROSTED_GRASS_PATCH = ConfiguredFeaturesUtil.createPatchConfiguredFeatureWithBlock("short_frosted_grass_patch", BWGBlocks.SHORT_FROSTED_GRASS, 30);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_GRASS_PATCH = ConfiguredFeaturesUtil.createPatchConfiguredFeatureWithBlock("frosted_grass_patch", BWGBlocks.FROSTED_GRASS, 30);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_FROSTED_GRASS_PATCH = ConfiguredFeaturesUtil.createPatchConfiguredFeatureWithBlock("tall_frosted_grass_patch", BWGBlocks.TALL_FROSTED_GRASS, 20);
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_GRASS = ConfiguredFeaturesUtil.createConfiguredFeature("frosted_grass",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(SHORT_FROSTED_GRASS_PATCH)), 0.25F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(FROSTED_GRASS_PATCH)), 0.70F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TALL_FROSTED_GRASS_PATCH)));
             }
     );
 
@@ -431,7 +471,35 @@ public class BWGOverworldVegetationConfiguredFeatures {
             NoneFeatureConfiguration::new
     );
 
-
+    public static final ResourceKey<ConfiguredFeature<?, ?>> IRONWOOD_VINES = ConfiguredFeaturesUtil.createConfiguredFeature("ironwood_vines",
+            Feature.BLOCK_COLUMN,
+            () -> new BlockColumnConfiguration(
+                    List.of(
+                            BlockColumnConfiguration.layer(
+                                    new WeightedListInt(
+                                            SimpleWeightedRandomList.<IntProvider>builder().add(UniformInt.of(0, 19), 2).add(UniformInt.of(0, 2), 3).add(UniformInt.of(0, 6), 10).build()
+                                    ),
+                                    new WeightedStateProvider(
+                                            SimpleWeightedRandomList.<BlockState>builder()
+                                                    .add(BWGBlocks.IRONWOOD_GLOW_CHERRIES_PLANT.get().defaultBlockState(), 4)
+                                                    .add(BWGBlocks.IRONWOOD_GLOW_CHERRIES_PLANT.get().defaultBlockState().setValue(CaveVines.BERRIES, true), 1)
+                                    )
+                            ),
+                            BlockColumnConfiguration.layer(ConstantInt.of(1), new RandomizedIntStateProvider(
+                                    new WeightedStateProvider(
+                                            SimpleWeightedRandomList.<BlockState>builder()
+                                                    .add(BWGBlocks.IRONWOOD_GLOW_CHERRIES.get().defaultBlockState(), 4)
+                                                    .add(BWGBlocks.IRONWOOD_GLOW_CHERRIES.get().defaultBlockState().setValue(CaveVines.BERRIES, true), 1)
+                                    ),
+                                    CaveVinesBlock.AGE,
+                                    UniformInt.of(23, 25)
+                            ))
+                    ),
+                    Direction.DOWN,
+                    BlockPredicate.ONLY_IN_AIR_PREDICATE,
+                    true
+            )
+    );
 
     private static SimpleWeightedRandomList.Builder<BlockState> createPetalBlockStateList(Supplier<? extends Block> block) {
         SimpleWeightedRandomList.Builder<BlockState> builder = SimpleWeightedRandomList.builder();

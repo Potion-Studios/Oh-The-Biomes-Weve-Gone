@@ -4,6 +4,7 @@ import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
@@ -47,7 +48,6 @@ class BlockLootGenerator extends BlockLootSubProvider {
     protected BlockLootGenerator(HolderLookup.Provider registries) {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags(), registries);
     }
-
 
     @Override
     protected void generate() {
@@ -103,7 +103,7 @@ class BlockLootGenerator extends BlockLootSubProvider {
             else if (block instanceof CampfireBlock)
                 add(block, arg -> createSilkTouchDispatchTable(arg, this.applyExplosionCondition(arg, LootItem.lootTableItem(Items.CHARCOAL).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))))));
             else if (block instanceof BWGFruitBlock)
-                add(block, LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BWGFruitBlock.AGE, BWGFruitBlock.MAX_AGE))).add(LootItem.lootTableItem(((BWGFruitBlock) block).getFruit()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))))));
+                add(block, LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BWGFruitBlock.AGE, BWGFruitBlock.MAX_AGE))).add(LootItem.lootTableItem(this.registries.lookupOrThrow(Registries.ITEM).getOrThrow(((BWGFruitBlock) block).getFruit()).value()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))))));
             else if (block instanceof FlatVegetationBlock)
                 add(block, createShearsDispatchTable(block, LootItem.lootTableItem(block.asItem())));
             else if (block instanceof VineBlock)
@@ -124,7 +124,9 @@ class BlockLootGenerator extends BlockLootSubProvider {
 
         add(BWGBlocks.TALL_PRAIRIE_GRASS.get(), createDoublePlantWithSeedDrops(BWGBlocks.TALL_PRAIRIE_GRASS.get(), BWGBlocks.PRAIRIE_GRASS.get()));
         add(BWGBlocks.TALL_BEACH_GRASS.get(), createDoublePlantWithSeedDrops(BWGBlocks.TALL_BEACH_GRASS.get(), BWGBlocks.BEACH_GRASS.get()));
+        add(BWGBlocks.TALL_FROSTED_GRASS.get(), createDoublePlantWithSeedDrops(BWGBlocks.TALL_FROSTED_GRASS.get(), BWGBlocks.FROSTED_GRASS.get()));
 
+        add(BWGWood.ASPEN_LEAVES.get(), createLeavesDrops(BWGWood.ASPEN_LEAVES.get(), BWGWood.ASPEN.sapling().get(), NORMAL_LEAVES_SAPLING_CHANCES));
         add(BWGWood.PALO_VERDE_LEAVES.get(), createLeavesDrops(BWGWood.PALO_VERDE_LEAVES.get(), BWGWood.PALO_VERDE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         add(BWGWood.FLOWERING_PALO_VERDE_LEAVES.get(), createLeavesDrops(BWGWood.FLOWERING_PALO_VERDE_LEAVES.get(), BWGWood.PALO_VERDE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         add(BWGWood.FLOWERING_BAOBAB_LEAVES.get(), createLeavesDrops(BWGWood.FLOWERING_BAOBAB_LEAVES.get(), BWGWood.BAOBAB.sapling().get(), NORMAL_LEAVES_SAPLING_CHANCES));
@@ -145,11 +147,15 @@ class BlockLootGenerator extends BlockLootSubProvider {
         add(BWGWood.ORCHARD_LEAVES.get(), createLeavesDrops(BWGWood.ORCHARD_LEAVES.get(), BWGWood.ORCHARD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         add(BWGWood.FLOWERING_ORCHARD_LEAVES.get(), createLeavesDrops(BWGWood.FLOWERING_ORCHARD_LEAVES.get(), BWGWood.ORCHARD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         add(BWGWood.RIPE_ORCHARD_LEAVES.get(), createFruitLeavesDrops(BWGWood.RIPE_ORCHARD_LEAVES.get(), BWGWood.ORCHARD_SAPLING.get(), Items.APPLE, NORMAL_LEAVES_SAPLING_CHANCES));
-        add(BWGWood.RED_BIRCH_LEAVES.get(), createLeavesDrops(BWGWood.RED_BIRCH_LEAVES.get(), BWGWood.RED_BIRCH_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+	    add(BWGWood.FLOWERING_PALISADE_LEAVES.get(), createLeavesDrops(BWGWood.FLOWERING_PALISADE_LEAVES.get(), BWGWood.PALISADE.sapling().get(), NORMAL_LEAVES_SAPLING_CHANCES));
+	    add(BWGWood.RIPE_PALISADE_LEAVES.get(), createFruitLeavesDrops(BWGWood.RIPE_PALISADE_LEAVES.get(), BWGWood.PALISADE.sapling().get(), BWGItems.VETAL.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+	    add(BWGWood.PALISADE_LEAVES.get(), createLeavesDrops(BWGWood.PALISADE_LEAVES.get(), BWGWood.PALISADE.sapling().get(), NORMAL_LEAVES_SAPLING_CHANCES));
+		add(BWGWood.RED_BIRCH_LEAVES.get(), createLeavesDrops(BWGWood.RED_BIRCH_LEAVES.get(), BWGWood.RED_BIRCH_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         add(BWGWood.RED_MAPLE_LEAVES.get(), createLeavesDrops(BWGWood.RED_MAPLE_LEAVES.get(), BWGWood.RED_MAPLE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         add(BWGWood.RED_OAK_LEAVES.get(), createLeavesDrops(BWGWood.RED_OAK_LEAVES.get(), BWGWood.RED_OAK_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         add(BWGWood.RED_SPRUCE_LEAVES.get(), createLeavesDrops(BWGWood.RED_SPRUCE_LEAVES.get(), BWGWood.RED_SPRUCE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         add(BWGWood.SILVER_MAPLE_LEAVES.get(), createLeavesDrops(BWGWood.SILVER_MAPLE_LEAVES.get(), BWGWood.SILVER_MAPLE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        add(BWGWood.TUSCANY_CYPRESS_LEAVES.get(), createLeavesDrops(BWGWood.TUSCANY_CYPRESS_LEAVES.get(), BWGWood.TUSCANY_CYPRESS_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         add(BWGWood.YELLOW_BIRCH_LEAVES.get(), createLeavesDrops(BWGWood.YELLOW_BIRCH_LEAVES.get(), BWGWood.YELLOW_BIRCH_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         add(BWGWood.YELLOW_SPRUCE_LEAVES.get(), createLeavesDrops(BWGWood.YELLOW_SPRUCE_LEAVES.get(), BWGWood.YELLOW_SPRUCE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         add(BWGWood.YUCCA_LEAVES.get(), createLeavesDrops(BWGWood.YUCCA_LEAVES.get(), BWGWood.YUCCA_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
@@ -172,6 +178,9 @@ class BlockLootGenerator extends BlockLootSubProvider {
         dropOther(BWGBlocks.SANDY_FARMLAND.get(), BWGBlocks.SANDY_DIRT.get());
         dropOther(BWGBlocks.SANDY_DIRT_PATH.get(), BWGBlocks.SANDY_DIRT.get());
 
+        add(BWGBlocks.PALISADE_GRASS_BLOCK.get(), block -> createSingleItemTableWithSilkTouch(block, BWGBlocks.PALISADE_DIRT.get()));
+        dropOther(BWGBlocks.PALISADE_DIRT_PATH.get(), BWGBlocks.PALISADE_DIRT.get());
+        
         add(BWGBlocks.WHITE_DACITE_SET.getBase(), createSingleItemTableWithSilkTouch(BWGBlocks.WHITE_DACITE_SET.getBase(), BWGBlocks.WHITE_DACITE_COBBLESTONE_SET.getBase()));
         add(BWGBlocks.WHITE_PODZOL_DACITE.get(), createSingleItemTableWithSilkTouch(BWGBlocks.WHITE_PODZOL_DACITE.get(), BWGBlocks.WHITE_DACITE_COBBLESTONE_SET.getBase()));
         add(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), createSingleItemTableWithSilkTouch(BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.WHITE_DACITE_COBBLESTONE_SET.getBase()));
@@ -179,12 +188,16 @@ class BlockLootGenerator extends BlockLootSubProvider {
         add(BWGBlocks.PODZOL_DACITE.get(), createSingleItemTableWithSilkTouch(BWGBlocks.PODZOL_DACITE.get(), BWGBlocks.DACITE_COBBLESTONE_SET.getBase()));
         add(BWGBlocks.OVERGROWN_DACITE.get(), createSingleItemTableWithSilkTouch(BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.DACITE_COBBLESTONE_SET.getBase()));
         add(BWGBlocks.OVERGROWN_STONE.get(), createSingleItemTableWithSilkTouch(BWGBlocks.OVERGROWN_STONE.get(), Blocks.COBBLESTONE));
+        add(BWGBlocks.BOG_PODZOL.get(), createSingleItemTableWithSilkTouch(BWGBlocks.BOG_PODZOL.get(), Blocks.DIRT));
 
         add(BWGBlocks.GREEN_MUSHROOM_BLOCK.get(), createMushroomBlockDrop(BWGBlocks.GREEN_MUSHROOM_BLOCK.get(), BWGBlocks.GREEN_MUSHROOM.get()));
         add(BWGBlocks.WEEPING_MILKCAP_MUSHROOM_BLOCK.get(), createMushroomBlockDrop(BWGBlocks.WEEPING_MILKCAP_MUSHROOM_BLOCK.get(), BWGBlocks.WEEPING_MILKCAP.get()));
         add(BWGBlocks.WOOD_BLEWIT_MUSHROOM_BLOCK.get(), createMushroomBlockDrop(BWGBlocks.WOOD_BLEWIT_MUSHROOM_BLOCK.get(), BWGBlocks.WOOD_BLEWIT.get()));
 
         fruitBush(BWGBlocks.BLUEBERRY_BUSH.get(), BWGItems.BLUEBERRIES.get());
+
+        add(BWGBlocks.IRONWOOD_GLOW_CHERRIES.get(), (block) -> createCaveVinesLikeDrop(block, BWGItems.IRONWOOD_GLOW_CHERRIES.get()));
+        add(BWGBlocks.IRONWOOD_GLOW_CHERRIES_PLANT.get(), (block) -> createCaveVinesLikeDrop(block, BWGItems.IRONWOOD_GLOW_CHERRIES.get()));
 
         LootItemCondition.Builder holder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(BWGBlocks.ODDION_CROP.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(OddionCrop.AGE, 3));
@@ -237,6 +250,9 @@ class BlockLootGenerator extends BlockLootSubProvider {
                                                 .otherwise(LootItem.lootTableItem(BWGItems.PUMPKIN_BURROW.get()))
                                 )
                 ));
+
+        add(BWGBlocks.FROSTED_AMBER_BLOCK.get(), noDrop());
+        dropOther(BWGWood.FROSTED_AMBER_FIR_CONE.get(), BWGWood.FROSTED_FIR_CONE.getItem());
     }
 
     private LootTable.Builder createFruitLeavesDrops(LeavesBlock leaves, Block saplingBlock, Item fruit, float... chances) {
@@ -280,6 +296,10 @@ class BlockLootGenerator extends BlockLootSubProvider {
                                 )
                 )
         );
+    }
+
+    private LootTable.Builder createCaveVinesLikeDrop(Block block, Item fruit) {
+        return LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(fruit)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(net.minecraft.advancements.critereon.StatePropertiesPredicate.Builder.properties().hasProperty(CaveVines.BERRIES, true))));
     }
 
     @Override

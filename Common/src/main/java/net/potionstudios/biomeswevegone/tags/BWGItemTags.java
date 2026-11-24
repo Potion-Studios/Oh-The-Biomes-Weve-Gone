@@ -35,6 +35,7 @@ public final class BWGItemTags {
     public static final TagKey<Item> RED_ROCK_BRICKS = create("red_rock_bricks");
     public static final TagKey<Item> DACITE_BRICKS = create("dacite_bricks");
     public static final TagKey<Item> WHITE_DACITE_BRICKS = create("white_dacite_bricks");
+    public static final TagKey<Item> FROSTED_AMBER_BRICKS = create("frosted_amber_bricks");
 
     public static final TagKey<Item> GLOWCANE_POWDER = create("glowcane_powder");
     public static final TagKey<Item> GLOWCANE_SHOOT = create("glowcane_shoot");
@@ -44,6 +45,7 @@ public final class BWGItemTags {
     public static final TagKey<Item> OAK_SAPLINGS = create("saplings/oak");
     public static final TagKey<Item> SPRUCE_SAPLINGS = create("saplings/spruce");
     public static final TagKey<Item> BIRCH_SAPLINGS = create("saplings/birch");
+    public static final TagKey<Item> CONES = create("cones");
 
     public static final TagKey<Item> STORAGE_BLOCKS_ALLIUM = createCommon("storage_blocks/allium");
     public static final TagKey<Item> STORAGE_BLOCKS_PINK_ALLIUM = createCommon("storage_blocks/pink_allium");
@@ -70,6 +72,9 @@ public final class BWGItemTags {
     public static final TagKey<Item> MAKES_2_PINK_DYE = create("dye/makes_2_pink");
     public static final TagKey<Item> MAKES_2_PURPLE_DYE = create("dye/makes_2_purple");
     public static final TagKey<Item> MAKES_2_WHITE_DYE = create("dye/makes_2_white");
+    public static final TagKey<Item> MAKES_2_YELLOW_DYE = create("dye/makes_2_yellow");
+
+    public static final TagKey<Item> BIZZAR_FOOD = create("bizzar_food");
 
     private static TagKey<Item> create(String name) {
         return TagKey.create(Registries.ITEM, BiomesWeveGone.id(name));

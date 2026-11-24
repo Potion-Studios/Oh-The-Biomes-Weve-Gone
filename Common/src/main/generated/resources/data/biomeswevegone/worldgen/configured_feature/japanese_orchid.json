@@ -10,7 +10,8 @@
             "state": {
               "Name": "biomeswevegone:japanese_orchid",
               "Properties": {
-                "half": "lower"
+                "half": "lower",
+                "sheared": "false"
               }
             }
           }

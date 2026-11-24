@@ -38,6 +38,7 @@ import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.client.particle.BWGParticles;
 import net.potionstudios.biomeswevegone.client.particle.particles.FallingLeafParticle;
 import net.potionstudios.biomeswevegone.client.particle.particles.FireFlyParticle;
+import net.potionstudios.biomeswevegone.client.renderer.entity.bizzar.BizzarRenderer;
 import net.potionstudios.biomeswevegone.client.renderer.entity.boat.BWGBoatRenderer;
 import net.potionstudios.biomeswevegone.client.renderer.entity.wreath.WreathRenderer;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
@@ -93,6 +94,7 @@ public class BiomesWeveGoneClient {
         consumer.accept(BWGEntityType.MAN_O_WAR.get(), ManOWarRenderer::new);
         consumer.accept(BWGEntityType.PUMPKIN_WARDEN.get(), PumpkinWardenRenderer::new);
         consumer.accept(BWGEntityType.ODDION.get(), OddionRenderer::new);
+        consumer.accept(BWGEntityType.BIZZAR.get(), BizzarRenderer::new);
         consumer.accept(BWGEntityType.BWG_BOAT.get(), context -> new BWGBoatRenderer(context, false));
         consumer.accept(BWGEntityType.BWG_CHEST_BOAT.get(), context -> new BWGBoatRenderer(context, true));
         consumer.accept(BWGEntityType.WREATH.get(), WreathRenderer::new);
@@ -133,15 +135,27 @@ public class BiomesWeveGoneClient {
      */
     public static void registerParticles(BiConsumer<SimpleParticleType, Function<SpriteSet, ParticleProvider<SimpleParticleType>>> consumer) {
         consumer.accept(BWGParticles.FIREFLY.get(), FireFlyParticle.Provider::new);
-        consumer.accept(BWGParticles.BOREALIS_GLINT.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.WITCH_HAZEL_LEAVES.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.WHITE_SAKURA_LEAVES.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.YELLOW_SAKURA_LEAVES.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.RED_MAPLE_LEAVES.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.SILVER_MAPLE_LEAVES.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.IRONWOOD_LEAVES.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.SPIRIT.get(), FallingLeafParticle.Provider::new);
-        consumer.accept(BWGParticles.SPIRIT_LEAVES.get(), FallingLeafParticle.Provider::new);
+        consumer.accept(BWGParticles.BUTTERFLY.get(), FireFlyParticle.Provider::new);
+        consumer.accept(BWGParticles.BOREALIS_GLINT.get(), FallingLeafParticle.PaleOakProvider::new);
+        consumer.accept(BWGParticles.WITCH_HAZEL_LEAVES.get(), FallingLeafParticle.PaleOakProvider::new);
+        consumer.accept(BWGParticles.WHITE_SAKURA_LEAVES.get(), FallingLeafParticle.CherryProvider::new);
+        consumer.accept(BWGParticles.YELLOW_SAKURA_LEAVES.get(), FallingLeafParticle.CherryProvider::new);
+        consumer.accept(BWGParticles.RED_MAPLE_LEAVES.get(), FallingLeafParticle.PaleOakProvider::new);
+        consumer.accept(BWGParticles.SILVER_MAPLE_LEAVES.get(), FallingLeafParticle.PaleOakProvider::new);
+        consumer.accept(BWGParticles.IRONWOOD_LEAVES.get(), FallingLeafParticle.CherryProvider::new);
+        consumer.accept(BWGParticles.SPIRIT.get(), FireFlyParticle.Provider::new);
+        consumer.accept(BWGParticles.SPIRIT_LEAVES.get(), FallingLeafParticle.PaleOakProvider::new);
+        consumer.accept(BWGParticles.YELLOW_BIRCH_LEAVES.get(), FallingLeafParticle.PaleOakProvider::new);
+        consumer.accept(BWGParticles.ORANGE_BIRCH_LEAVES.get(), FallingLeafParticle.PaleOakProvider::new);
+        consumer.accept(BWGParticles.RED_BIRCH_LEAVES.get(), FallingLeafParticle.PaleOakProvider::new);
+        consumer.accept(BWGParticles.BROWN_BIRCH_LEAVES.get(), FallingLeafParticle.PaleOakProvider::new);
+        consumer.accept(BWGParticles.PALISADE_LEAVES.get(), FallingLeafParticle.CherryProvider::new);
+        consumer.accept(BWGParticles.ALLIUM_POLLEN.get(), FallingLeafParticle.CherryProvider::new);
+        consumer.accept(BWGParticles.WHITE_ALLIUM_POLLEN.get(), FallingLeafParticle.CherryProvider::new);
+        consumer.accept(BWGParticles.PINK_ALLIUM_POLLEN.get(), FallingLeafParticle.CherryProvider::new);
+        consumer.accept(BWGParticles.ASPEN_LEAVES.get(), FallingLeafParticle.CherryProvider::new);
+        consumer.accept(BWGParticles.BIRD.get(), FireFlyParticle.Provider::new);
+
     }
 
     public static void registerItemProperties(TriConsumer<Item, ResourceLocation, ClampedItemPropertyFunction> consumer) {
@@ -158,7 +172,7 @@ public class BiomesWeveGoneClient {
      * @see BlockColors
      */
     public static void registerBlockColors(BiConsumer<BlockColor, Block[]> consumer) {
-        consumer.accept((state, view, pos, tintIndex) -> view != null && pos != null ? BiomeColors.getAverageGrassColor(view, pos) : GrassColor.getDefaultColor(), new Block[] {BWGBlocks.FLOWER_PATCH.get(), BWGBlocks.TINY_LILY_PADS.get(), BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.WHITE_SAKURA_PETALS.get(), BWGBlocks.YELLOW_SAKURA_PETALS.get()});
+        consumer.accept((state, view, pos, tintIndex) -> view != null && pos != null ? BiomeColors.getAverageGrassColor(view, pos) : GrassColor.getDefaultColor(), new Block[] {BWGBlocks.FLOWER_PATCH.get(), BWGBlocks.TINY_LILY_PADS.get(), BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get(), BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.PALISADE_GRASS_BLOCK.get(), BWGBlocks.WHITE_SAKURA_PETALS.get(), BWGBlocks.YELLOW_SAKURA_PETALS.get()});
         consumer.accept((state, view, pos, tintIndex) -> view != null && pos != null ? BiomeColors.getAverageFoliageColor(view, pos) : FoliageColor.get(0.5D, 1.0D), new Block[] {
                 BWGBlocks.CLOVER_PATCH.get(), BWGBlocks.LEAF_PILE.get(), BWGBlocks.POISON_IVY.get(), BWGWood.MAHOGANY.leaves(),
                 BWGWood.WILLOW.leaves(), BWGWood.MAPLE.leaves(), BWGWood.YUCCA_LEAVES.get(), BWGWood.FLOWERING_YUCCA_LEAVES.get(), BWGWood.RIPE_YUCCA_LEAVES.get(), BWGWood.CYPRESS.leaves()});
@@ -178,7 +192,7 @@ public class BiomesWeveGoneClient {
     public static void registerBlockItemColors(Consumer<Block[]> consumer) {
         consumer.accept(new Block[]{BWGBlocks.TINY_LILY_PADS.get(), BWGBlocks.FLOWERING_TINY_LILY_PADS.get(), BWGBlocks.CLOVER_PATCH.get(), BWGBlocks.LEAF_PILE.get(), BWGBlocks.POISON_IVY.get()
                 , BWGWood.MAHOGANY.leaves(), BWGWood.WILLOW.leaves(), BWGWood.MAPLE.leaves(), BWGWood.YUCCA_LEAVES.get(), BWGWood.FLOWERING_YUCCA_LEAVES.get(), BWGWood.RIPE_YUCCA_LEAVES.get(),
-                BWGWood.CYPRESS.leaves(), BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get()});
+                BWGWood.CYPRESS.leaves(), BWGBlocks.LUSH_GRASS_BLOCK.get(), BWGBlocks.PALISADE_GRASS_BLOCK.get(), BWGBlocks.BOREALIS_ICE.get(), BWGBlocks.PACKED_BOREALIS_ICE.get(), BWGBlocks.OVERGROWN_DACITE.get(), BWGBlocks.WHITE_OVERGROWN_DACITE.get(), BWGBlocks.OVERGROWN_STONE.get()});
     }
     
     private static final ImprovedNoise NOISE = new ImprovedNoise(new XoroshiroRandomSource(1));

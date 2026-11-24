@@ -1,12 +1,17 @@
 package net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed;
 
+import net.minecraft.core.Direction;
 import net.minecraft.data.worldgen.features.CaveFeatures;
 import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
@@ -21,6 +26,7 @@ public class BWGOverworldVegationPlacedFeatures {
     public static final ResourceKey<PlacedFeature> ROSE = createWorldSurfaceSquared("rose", BWGBlocks.ROSE.getFeature(), 1);
     public static final ResourceKey<PlacedFeature> BLACK_ROSE = createWorldSurfaceSquared("black_rose", BWGBlocks.BLACK_ROSE.getFeature(), 1);
     public static final ResourceKey<PlacedFeature> CYAN_ROSE = createWorldSurfaceSquared("cyan_rose", BWGBlocks.CYAN_ROSE.getFeature(), 1);
+    public static final ResourceKey<PlacedFeature> BLUE_ROSE = createWorldSurfaceSquared("blue_rose", BWGBlocks.BLUE_ROSE.getFeature(), 1);
     public static final ResourceKey<PlacedFeature> OSIRIA_ROSE = createWorldSurfaceSquared("osiria_rose", BWGBlocks.OSIRIA_ROSE.getFeature(), 1);
     public static final ResourceKey<PlacedFeature> WINTER_ROSE = createWorldSurfaceSquared("winter_rose", BWGOverworldVegetationConfiguredFeatures.WINTER_ROSE, 2);
     public static final ResourceKey<PlacedFeature> BLUE_ROSE_BUSH = createWorldSurfaceSquared("blue_rose_bush", BWGOverworldVegetationConfiguredFeatures.BLUE_ROSE_BUSH, 1);
@@ -33,11 +39,15 @@ public class BWGOverworldVegationPlacedFeatures {
     public static final ResourceKey<PlacedFeature> LEAF_PILE = createWorldSurfaceSquared("leaf_pile", BWGOverworldVegetationConfiguredFeatures.LEAF_PILE, 2);
     public static final ResourceKey<PlacedFeature> LEAF_PILE_ABUNDANT = createWorldSurfaceSquared("leaf_pile_abundant", BWGOverworldVegetationConfiguredFeatures.LEAF_PILE, 8);
     public static final ResourceKey<PlacedFeature> FLOWER_PATCHES = createWorldSurfaceSquared("flower_patches", BWGOverworldVegetationConfiguredFeatures.FLOWER_PATCH, 5);
+    public static final ResourceKey<PlacedFeature> FLOWER_PATCHES_EXTRA = createWorldSurfaceSquared("flower_patches_extra", BWGOverworldVegetationConfiguredFeatures.FLOWER_PATCH, 10);
+
     public static final ResourceKey<PlacedFeature> SAKURA_PETALS = createWorldSurfaceSquared("sakura_petals", BWGOverworldVegetationConfiguredFeatures.SAKURA_PETALS, 9);
 
     public static final ResourceKey<PlacedFeature> ALLIUM_SHRUBLAND_FLOWERS = createWorldSurfaceSquared("allium_shrubland_flowers", BWGOverworldVegetationConfiguredFeatures.ALLIUM_SHRUBLAND_FLOWERS, 20);
     public static final ResourceKey<PlacedFeature> AMARANTH_GRASSLAND_FLOWERS = createWorldSurfaceSquared("amaranth_grassland_flowers", BWGOverworldVegetationConfiguredFeatures.AMARANTH_GRASSLAND_FLOWERS,30);
     public static final ResourceKey<PlacedFeature> ROSE_FIELD_FLOWERS = createWorldSurfaceSquared("rose_field_flowers", BWGOverworldVegetationConfiguredFeatures.ROSE_FIELD_FLOWERS, 25);
+    public static final ResourceKey<PlacedFeature> ASPHODEL_MEADOW_FLOWERS = createWorldSurfaceSquared("asphodel_meadow_flowers", BWGOverworldVegetationConfiguredFeatures.ASPHODEL_MEADOW_FLOWERS, 16);
+    public static final ResourceKey<PlacedFeature> YELLOW_ASPHODEL_FLOWERS = createWorldSurfaceSquared("yellow_asphodel_flowers", BWGOverworldVegetationConfiguredFeatures.YELLOW_ASPHODEL_FLOWERS, 10);
 
     public static final ResourceKey<PlacedFeature> BLUE_BERRY_BUSH = PlacedFeaturesUtil.createPlacedFeature("blue_berry_bush", BWGOverworldVegetationConfiguredFeatures.PATCH_BLUEBERRY, () -> List.of(RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
     public static final ResourceKey<PlacedFeature> BLUE_BERRY_BUSH_LUSH = PlacedFeaturesUtil.createPlacedFeature("blue_berry_bush_lush", BWGOverworldVegetationConfiguredFeatures.PATCH_BLUEBERRY, () -> List.of(RarityFilter.onAverageOnceEvery(24), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
@@ -48,6 +58,11 @@ public class BWGOverworldVegationPlacedFeatures {
     public static final ResourceKey<PlacedFeature> PATCH_BEACH_GRASS = PlacedFeaturesUtil.createPlacedFeature("patch_beach_grass", BWGOverworldVegetationConfiguredFeatures.BEACH_GRASSES, () -> List.of(InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
     public static final ResourceKey<PlacedFeature> PRAIRIE_GRASS = PlacedFeaturesUtil.createPlacedFeature("prairie_grass", BWGOverworldVegetationConfiguredFeatures.PRAIRIE_GRASS, () -> List.of(CountPlacement.of(25), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
     public static final ResourceKey<PlacedFeature> PRAIRIE_GRASS_BONEMEAL = PlacedFeaturesUtil.createPlacedFeature("prairie_grass_bonemeal", BWGOverworldVegetationConfiguredFeatures.SINGLE_PRAIRIE_GRASS, () -> List.of(new PlacementModifier[]{PlacementUtils.isEmpty()}));
+    public static final ResourceKey<PlacedFeature> PRAIRIE_GRASS_PATCH = PlacedFeaturesUtil.createPlacedFeature("prairie_grass_patch", BWGOverworldVegetationConfiguredFeatures.PRAIRIE_GRASS, () -> List.of(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
+
+
+    public static final ResourceKey<PlacedFeature> FROSTED_GRASS = PlacedFeaturesUtil.createPlacedFeature("frosted_grass", BWGOverworldVegetationConfiguredFeatures.FROSTED_GRASS, () -> List.of(CountPlacement.of(25), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
+
 
     public static final ResourceKey<PlacedFeature> WINDSWEPT_DESERT_VEGETATION = createWorldSurfaceSquared("windswept_desert_vegetation", BWGOverworldVegetationConfiguredFeatures.WINDSWEPT_DESERT_VEGETATION, 8);
     public static final ResourceKey<PlacedFeature> MOJAVE_DESERT_VEGETATION = createWorldSurfaceSquared("mojave_desert_vegetation", BWGOverworldVegetationConfiguredFeatures.MOJAVE_DESERT_VEGETATION, 2);
@@ -62,6 +77,8 @@ public class BWGOverworldVegationPlacedFeatures {
     public static final ResourceKey<PlacedFeature> FOXGLOVES =  createWorldSurfaceSquared("foxgloves", BWGOverworldVegetationConfiguredFeatures.FOXGLOVE, 1);
     public static final ResourceKey<PlacedFeature> CROCUS = createWorldSurfaceSquared("crocus", BWGBlocks.CROCUS.getFeature(), 1);
     public static final ResourceKey<PlacedFeature> FAIRY_SLIPPER = createWorldSurfaceSquared("fairy_slipper", BWGBlocks.FAIRY_SLIPPER.getFeature(), 1);
+    public static final ResourceKey<PlacedFeature> FROSTED_FAIRY_SLIPPER_ABUNDANT = createWorldSurfaceSquared("frosted_fairy_slipper_abundant", BWGBlocks.FROSTED_FAIRY_SLIPPER.getFeature(), 8);
+
     public static final ResourceKey<PlacedFeature> PINK_ALLIUMS = createWorldSurfaceSquared("pink_alliums", BWGBlocks.PINK_ALLIUM.getFeature(), 2);
     public static final ResourceKey<PlacedFeature> WHITE_ALLIUMS = createWorldSurfaceSquared("white_alliums", BWGBlocks.WHITE_ALLIUM.getFeature(), 2);
     public static final ResourceKey<PlacedFeature> LOLLIPOP_FLOWERS = createWorldSurfaceSquared("lollipop_flowers", BWGBlocks.LOLLIPOP_FLOWER.getFeature(), 1);
@@ -91,9 +108,9 @@ public class BWGOverworldVegationPlacedFeatures {
     public static final ResourceKey<PlacedFeature> LEATHER_FLOWERS = createWorldSurfaceSquared("leather_flowers", BWGOverworldVegetationConfiguredFeatures.LEATHER_FLOWERS, 2);
     public static final ResourceKey<PlacedFeature> WHITE_PUFFBALL = PlacedFeaturesUtil.createPlacedFeature("white_puffball", BWGOverworldVegetationConfiguredFeatures.WHITE_PUFFBALL, () -> VegetationPlacements.getMushroomPlacement(6, null));
 
-    public static final ResourceKey<PlacedFeature> JACARANDA_BUSHES = PlacedFeaturesUtil.createPlacedFeature("jacaranda_bushes", BWGOverworldVegetationConfiguredFeatures.JACARANDA_BUSHES, () -> List.of(RarityFilter.onAverageOnceEvery(40), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
+    public static final ResourceKey<PlacedFeature> JACARANDA_BUSHES = PlacedFeaturesUtil.createPlacedFeature("jacaranda_bushes", BWGOverworldVegetationConfiguredFeatures.JACARANDA_BUSHES, () -> List.of(RarityFilter.onAverageOnceEvery(80), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
     public static final ResourceKey<PlacedFeature> HYDRANGEAS = createWorldSurfaceSquared("hydrangeas", BWGOverworldVegetationConfiguredFeatures.HYDRANGEAS, 2);
-    public static final ResourceKey<PlacedFeature> SHRUB = createWorldSurfaceSquared("shrub", BWGOverworldVegetationConfiguredFeatures.SHRUB, 1);
+    public static final ResourceKey<PlacedFeature> SHRUB = createWorldSurfaceSquared("shrub", BWGOverworldVegetationConfiguredFeatures.SHRUB, 3);
     public static final ResourceKey<PlacedFeature> FIRECRACKER_BUSH = createWorldSurfaceSquared("firecracker_bush", BWGOverworldVegetationConfiguredFeatures.FIRECRACKER_BUSH, 3);
 
     public static final ResourceKey<PlacedFeature> SWAMP_WATER_VEGETATION = createWorldSurfaceSquared("swamp_water_vegetation", BWGOverworldVegetationConfiguredFeatures.SWAMP_WATER_VEGETATION, 20);
@@ -117,6 +134,23 @@ public class BWGOverworldVegationPlacedFeatures {
     public static final ResourceKey<PlacedFeature> LARGE_PUMPKIN = PlacedFeaturesUtil.createPlacedFeature("large_pumpkin", BWGOverworldVegetationConfiguredFeatures.LARGE_PUMPKIN, () -> List.of(CountPlacement.of(5), RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
     public static final ResourceKey<PlacedFeature> MEDIUM_PUMPKIN = PlacedFeaturesUtil.createPlacedFeature("medium_pumpkin", BWGOverworldVegetationConfiguredFeatures.MEDIUM_PUMPKIN, () -> List.of(CountPlacement.of(6), RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
     public static final ResourceKey<PlacedFeature> SMALL_PUMPKIN = PlacedFeaturesUtil.createPlacedFeature("small_pumpkin", VegetationFeatures.PATCH_PUMPKIN, () -> List.of(CountPlacement.of(9), RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
+
+    public static final ResourceKey<PlacedFeature> IRONWOOD_VINES = PlacedFeaturesUtil.createPlacedFeature("ironwood_vines", BWGOverworldVegetationConfiguredFeatures.IRONWOOD_VINES, () -> List.of(
+            CountPlacement.of(188),
+            InSquarePlacement.spread(),
+            HeightRangePlacement.uniform(
+                    VerticalAnchor.absolute(60),
+                    VerticalAnchor.top()),
+            EnvironmentScanPlacement.scanningFor(Direction.UP,
+                    BlockPredicate.anyOf(
+                            BlockPredicate.matchesBlocks(Blocks.GRANITE, Blocks.PACKED_MUD),
+                            BlockPredicate.matchesTag(BlockTags.DIRT)
+                    ),
+                    BlockPredicate.ONLY_IN_AIR_PREDICATE,
+                    12),
+            RandomOffsetPlacement.vertical(ConstantInt.of(-1)),
+            BiomeFilter.biome()
+    ));
 
     private static ResourceKey<PlacedFeature> createWorldSurfaceSquared(String id, ResourceKey<ConfiguredFeature<?, ?>> feature, int count) {
         return  PlacedFeaturesUtil.createPlacedFeature(id, feature, () -> VegetationPlacements.worldSurfaceSquaredWithCount(count));

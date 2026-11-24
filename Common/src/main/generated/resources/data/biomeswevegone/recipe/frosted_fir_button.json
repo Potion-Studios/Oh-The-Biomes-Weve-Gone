@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "biomeswevegone:frosted_fir_planks"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "biomeswevegone:frosted_fir_button"
+  }
+}

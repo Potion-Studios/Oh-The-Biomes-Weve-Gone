@@ -10,6 +10,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
@@ -19,6 +20,7 @@ import net.potionstudios.biomeswevegone.component.BWGDataComponents;
 import net.potionstudios.biomeswevegone.world.entity.BWGEntityType;
 import net.potionstudios.biomeswevegone.world.entity.decoration.Wreath;
 import net.potionstudios.biomeswevegone.world.item.custom.CampfireExplodingBlockItem;
+import net.potionstudios.biomeswevegone.world.item.custom.FrostedAmberBottleItem;
 import net.potionstudios.biomeswevegone.world.item.custom.PowderItem;
 import net.potionstudios.biomeswevegone.world.item.custom.WreathItem;
 import net.potionstudios.biomeswevegone.world.item.jukebox.BWGJukeBoxSongs;
@@ -46,6 +48,7 @@ public class BWGItems {
     public static final Supplier<SpawnEggItem> MAN_O_WAR_SPAWN_EGG = registerSpawnEgg("man_o_war_spawn_egg", BWGEntityType.MAN_O_WAR::get, FastColor.ARGB32.color(210, 166, 246), FastColor.ARGB32.color(199, 165, 104));
     public static final Supplier<SpawnEggItem> PUMPKIN_WARDEN_SPAWN_EGG = registerSpawnEgg("pumpkin_warden_spawn_egg", BWGEntityType.PUMPKIN_WARDEN::get, FastColor.ARGB32.color(79, 57, 46), FastColor.ARGB32.color(192, 106, 5));
     public static final Supplier<SpawnEggItem> ODDION_SPAWN_EGG = registerSpawnEgg("oddion_spawn_egg", BWGEntityType.ODDION::get, FastColor.ARGB32.color(199, 165, 104), FastColor.ARGB32.color(210, 166, 246));
+    public static final Supplier<SpawnEggItem> BIZZAR_SPAWN_EGG = registerSpawnEgg("bizzar_spawn_egg", BWGEntityType.BIZZAR::get, FastColor.ARGB32.color(196, 159, 190), FastColor.ARGB32.color(184, 204, 198));
 
     public static final Supplier<MobBucketItem> MAN_O_WAR_BUCKET = registerMobBucket("man_o_war_bucket", BWGEntityType.MAN_O_WAR::get, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH);
 
@@ -72,19 +75,21 @@ public class BWGItems {
     public static final Supplier<Item> COOKED_YUCCA_FRUIT = registerSimpleItem("cooked_yucca_fruit", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).saturationModifier(0.4f).build())));
     public static final Supplier<Item> GREEN_APPLE = registerSimpleItem("green_apple", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.35f).build())));
     public static final Supplier<Item> GREEN_APPLE_PIE = registerSimpleItem("green_apple_pie", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(0.4f).effect(new MobEffectInstance(MobEffects.DIG_SPEED, 200, 0), 1.0F).build())));
+    public static final Supplier<Item> VETAL = registerSimpleItem("vetal", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(0.35f).build())));
+
 
     public static final Supplier<Item> BLUEBERRIES = registerSimpleItem("blueberries", () -> new ItemNameBlockItem(BWGBlocks.BLUEBERRY_BUSH.get() , new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.1f).build())));
     public static final Supplier<Item> BLUEBERRY_PIE = registerSimpleItem("blueberry_pie", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(0.3f).effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0), 1.0F).build())));
 
     public static final Supplier<Item> ODDION_BULB = registerSimpleItem("oddion_bulb", () -> new ItemNameBlockItem(BWGBlocks.ODDION_CROP.get(), new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.35f).build())));
     public static final Supplier<Item> COOKED_ODDION_BULB = registerSimpleItem("cooked_oddion_bulb", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).saturationModifier(0.5f).build())));
-    public static final Supplier<Item> ALLIUM_ODDION_SOUP = registerSimpleItem("allium_oddion_soup", () -> new Item((new Item.Properties()).stacksTo(1).food((new FoodProperties.Builder()).nutrition(8).saturationModifier(1f).usingConvertsTo(Items.BOWL).build())));
+    public static final Supplier<Item> ALLIUM_ODDION_SOUP = registerSimpleItem("allium_oddion_soup", () -> new Item((new Item.Properties()).stacksTo(16).food((new FoodProperties.Builder()).nutrition(8).saturationModifier(1f).usingConvertsTo(Items.BOWL).build())));
     public static final Supplier<Item> BLOOMING_ODDION = registerSimpleItem("blooming_oddion", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(9).saturationModifier(1.2f).build())));
 
     public static final Supplier<Item> WHITE_PUFFBALL_SPORES = registerSimpleItem("white_puffball_spores", () -> new ItemNameBlockItem(BWGBlocks.WHITE_PUFFBALL.get(), new Item.Properties()));
     public static final Supplier<Item> WHITE_PUFFBALL_CAP = registerSimpleItem("white_puffball_cap", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationModifier(0.2f).build())));
     public static final Supplier<Item> COOKED_WHITE_PUFFBALL_CAP = registerSimpleItem("cooked_white_puffball_cap", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationModifier(0.6f).build())));
-    public static final Supplier<Item> WHITE_PUFFBALL_STEW = registerSimpleItem("white_puffball_stew", () -> new Item((new Item.Properties()).stacksTo(1).food((new FoodProperties.Builder()).nutrition(9).saturationModifier(1F).usingConvertsTo(Items.BOWL).build())));
+    public static final Supplier<Item> WHITE_PUFFBALL_STEW = registerSimpleItem("white_puffball_stew", () -> new Item((new Item.Properties()).stacksTo(16).food((new FoodProperties.Builder()).nutrition(9).saturationModifier(1F).usingConvertsTo(Items.BOWL).build())));
 
     public static final Supplier<Item> ALOE_VERA_JUICE = registerSimpleItem("aloe_vera_juice", () -> new HoneyBottleItem(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).stacksTo(16).food(new FoodProperties.Builder().nutrition(3).saturationModifier(1.0F).build())));
 
@@ -102,6 +107,10 @@ public class BWGItems {
     public static final Supplier<WreathItem> PETAL_WREATH = registerSimpleItem("petal_wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.PETAL));
     public static final Supplier<WreathItem> ROSY_WREATH = registerSimpleItem("rosy_wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.ROSY));
     public static final Supplier<WreathItem> WINTER_ROSY_WREATH = registerSimpleItem("winter_rosy_wreath", () -> new WreathItem(new Item.Properties(), Wreath.Type.WINTER_ROSY));
+
+    public static final Supplier<FrostedAmberBottleItem> FROST_AMBER_BOTTLE = registerSimpleItem("frost_amber_bottle", () -> new FrostedAmberBottleItem(new Item.Properties()));
+
+    public static final Supplier<Item> IRONWOOD_GLOW_CHERRIES = registerSimpleItem("ironwood_glow_cherries", () -> new ItemNameBlockItem(BWGBlocks.IRONWOOD_GLOW_CHERRIES.get(), new Item.Properties().food(Foods.GLOW_BERRIES)));
 
     private static Supplier<SpawnEggItem> registerSpawnEgg(String id, Supplier<EntityType<? extends Mob>> entity, int backgroundColor, int highlightColor) {
         Supplier<SpawnEggItem> supplier = PlatformHandler.PLATFORM_HANDLER.createSpawnEgg(entity, backgroundColor, highlightColor);

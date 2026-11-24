@@ -28,7 +28,7 @@ configurations {
 }
 
 loom {
-    accessWidenerPath.set(project(":Common").loom.accessWidenerPath)
+    accessWidenerPath.set(project(":Common").file("src/main/resources/biomeswevegone.accesswidener"))
 
     runs.create("datagen") {
         data()

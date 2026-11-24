@@ -68,6 +68,10 @@ public class BWGOverworldDefaultFeatures {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.FAIRY_SLIPPER);
     }
 
+    public static void addAbundantFrostedFairySlipper(BiomeGenerationSettings.Builder gen) {
+        addVegetal(gen, BWGOverworldVegationPlacedFeatures.FROSTED_FAIRY_SLIPPER_ABUNDANT);
+    }
+
     public static void addHugeMushrooms(BiomeGenerationSettings.Builder gen) {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.HUGE_MUSHROOMS);
     }
@@ -90,6 +94,14 @@ public class BWGOverworldDefaultFeatures {
 
     public static void addRose(BiomeGenerationSettings.Builder gen) {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.ROSE);
+    }
+
+    public static void addBlueRose(BiomeGenerationSettings.Builder gen) {
+        addVegetal(gen, BWGOverworldVegationPlacedFeatures.BLUE_ROSE);
+    }
+
+    public static void addOsiriaRose(BiomeGenerationSettings.Builder gen) {
+        addVegetal(gen, BWGOverworldVegationPlacedFeatures.OSIRIA_ROSE);
     }
 
     public static void addBlueBerryBush(BiomeGenerationSettings.Builder gen) {
@@ -171,6 +183,10 @@ public class BWGOverworldDefaultFeatures {
 
     public static void addFlowerPatches(BiomeGenerationSettings.Builder gen) {
         addVegetal(gen, BWGOverworldVegationPlacedFeatures.FLOWER_PATCHES);
+    }
+
+    public static void addExtraFlowerPatches(BiomeGenerationSettings.Builder gen) {
+        addVegetal(gen, BWGOverworldVegationPlacedFeatures.FLOWER_PATCHES_EXTRA);
     }
 
     public static void addLeatherFlowers(BiomeGenerationSettings.Builder gen) {

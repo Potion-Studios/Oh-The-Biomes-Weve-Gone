@@ -1,7 +1,22 @@
 {
   "variants": {
-    "": {
+    "section=single": {
       "model": "biomeswevegone:block/hydrangea_bush"
+    },
+    "section=tall_bottom": {
+      "model": "biomeswevegone:block/hydrangea_bush_bottom"
+    },
+    "section=tall_top": {
+      "model": "biomeswevegone:block/hydrangea_bush_tall_top"
+    },
+    "section=taller_bottom": {
+      "model": "biomeswevegone:block/hydrangea_bush_bottom"
+    },
+    "section=taller_middle": {
+      "model": "biomeswevegone:block/hydrangea_bush_taller_middle"
+    },
+    "section=taller_top": {
+      "model": "biomeswevegone:block/hydrangea_bush_taller_top"
     }
   }
 }

@@ -34,6 +34,7 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TrunkVineDecora
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.world.level.block.BWGBlocks;
 import net.potionstudios.biomeswevegone.world.level.block.plants.tree.fruit.BWGFruitBlock;
+import net.potionstudios.biomeswevegone.world.level.block.wood.BWGConeBlock;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.ImbuedBlock;
 import net.potionstudios.biomeswevegone.world.level.levelgen.feature.placed.PlacedFeaturesUtil;
@@ -79,7 +80,11 @@ public class BWGOverworldTreeConfiguredFeatures {
     public static final Supplier<GlowBerryDecorator> GLOW_BERRY_DECORATOR = () -> new GlowBerryDecorator(ConstantFloat.of(0.1F), UniformInt.of(2, 6), UniformFloat.of(0.25F, 0.5F));
     public static final Supplier<AttachedToLogsDecorator> MOSS_CARPET = () -> new AttachedToLogsDecorator(0.9F, 0, 0, SimpleStateProvider.simple(Blocks.MOSS_CARPET), 1, List.of(Direction.UP));
     public static final Supplier<AttachedToLogsDecorator> SHELF_FUNGI = () -> new AttachedToLogsDecorator(0.3F, 0, 1, SimpleStateProvider.simple(BWGBlocks.SHELF_FUNGI.get()), 2, List.of(Direction.WEST, Direction.NORTH, Direction.SOUTH, Direction.EAST));
+    public static final Supplier<AttachedToLogsDecorator> FIR_BRANCH = () -> new AttachedToLogsDecorator(0.55F, 0, 1, SimpleStateProvider.simple(BWGBlocks.FIR_BRANCH.get()), 2, List.of(Direction.WEST, Direction.NORTH, Direction.SOUTH, Direction.EAST));
+    public static final Supplier<AttachedToLogsDecorator> FROSTED_FIR_BRANCH = () -> new AttachedToLogsDecorator(0.55F, 0, 1, SimpleStateProvider.simple(BWGBlocks.FROSTED_FIR_BRANCH.get()), 2, List.of(Direction.WEST, Direction.NORTH, Direction.SOUTH, Direction.EAST));
 
+    private static final Supplier<AttachedToLeavesDecorator> FIR_CONE = () -> new AttachedToFruitLeavesDecorator(0.2F, 2, 0, BWGWood.FIR.leaves(), SimpleStateProvider.simple(BWGWood.FIR_CONE.get().defaultBlockState().setValue(BWGConeBlock.HANGING, true)), 2, List.of(Direction.DOWN));
+    private static final Supplier<AttachedToLeavesDecorator> FROSTED_FIR_CONE = () -> new AttachedToFruitLeavesDecorator(0.2F, 2, 0, BWGWood.FROSTED_FIR.leaves(), SimpleStateProvider.simple(BWGWood.FROSTED_FIR_CONE.get().defaultBlockState().setValue(BWGConeBlock.HANGING, true)), 2, List.of(Direction.DOWN));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ANCIENT_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("ancient_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
@@ -135,7 +140,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .canopyLocation(BiomesWeveGone.id("features/trees/aspen-shrub/aspen_shrub_canopy1"))
                     .height(ConstantInt.ZERO)
                     .logProvider(BlockStateProvider.simple(BWGWood.ASPEN.logstem()))
-                    .leavesProvider(BlockStateProvider.simple(BWGWood.ASPEN.leaves()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.ASPEN_LEAVES.get()))
                     .logTarget(Set.of(Blocks.OAK_LOG))
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
@@ -149,7 +154,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .canopyLocation(BiomesWeveGone.id("features/trees/aspen-shrub/aspen_shrub_canopy2"))
                     .height(ConstantInt.ZERO)
                     .logProvider(BlockStateProvider.simple(BWGWood.ASPEN.logstem()))
-                    .leavesProvider(BlockStateProvider.simple(BWGWood.ASPEN.leaves()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.ASPEN_LEAVES.get()))
                     .logTarget(Set.of(Blocks.OAK_LOG))
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
@@ -164,7 +169,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .canopyLocation(BiomesWeveGone.id("features/trees/aspen/aspen_canopy1"))
                     .height(BiasedToBottomInt.of(7, 12))
                     .logProvider(BlockStateProvider.simple(BWGWood.ASPEN.logstem()))
-                    .leavesProvider(BlockStateProvider.simple(BWGWood.ASPEN.leaves()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.ASPEN_LEAVES.get()))
                     .logTarget(Set.of(Blocks.OAK_LOG))
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
@@ -179,7 +184,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .canopyLocation(BiomesWeveGone.id("features/trees/aspen/aspen_canopy2"))
                     .height(BiasedToBottomInt.of(7, 12))
                     .logProvider(BlockStateProvider.simple(BWGWood.ASPEN.logstem()))
-                    .leavesProvider(BlockStateProvider.simple(BWGWood.ASPEN.leaves()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.ASPEN_LEAVES.get()))
                     .logTarget(Set.of(Blocks.OAK_LOG))
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
@@ -194,7 +199,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .canopyLocation(BiomesWeveGone.id("features/trees/aspen/aspen_canopy3"))
                     .height(BiasedToBottomInt.of(6, 10))
                     .logProvider(BlockStateProvider.simple(BWGWood.ASPEN.logstem()))
-                    .leavesProvider(BlockStateProvider.simple(BWGWood.ASPEN.leaves()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.ASPEN_LEAVES.get()))
                     .logTarget(Set.of(Blocks.OAK_LOG))
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
@@ -209,7 +214,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .canopyLocation(BiomesWeveGone.id("features/trees/aspen/aspen_canopy4"))
                     .height(BiasedToBottomInt.of(6, 10))
                     .logProvider(BlockStateProvider.simple(BWGWood.ASPEN.logstem()))
-                    .leavesProvider(BlockStateProvider.simple(BWGWood.ASPEN.leaves()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.ASPEN_LEAVES.get()))
                     .logTarget(Set.of(Blocks.OAK_LOG))
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
@@ -224,7 +229,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .canopyLocation(BiomesWeveGone.id("features/trees/aspen/aspen_canopy5"))
                     .height(BiasedToBottomInt.of(6, 12))
                     .logProvider(BlockStateProvider.simple(BWGWood.ASPEN.logstem()))
-                    .leavesProvider(BlockStateProvider.simple(BWGWood.ASPEN.leaves()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.ASPEN_LEAVES.get()))
                     .logTarget(Set.of(Blocks.OAK_LOG))
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
@@ -333,7 +338,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .height(BiasedToBottomInt.of(3, 10))
                     .logProvider(BlockStateProvider.simple(Blocks.BIRCH_LOG))
                     .leavesProvider(BlockStateProvider.simple(Blocks.BIRCH_LEAVES))
-                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .logTarget(Set.of(Blocks.BIRCH_LOG))
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
@@ -369,6 +374,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(SHELF_FUNGI.get()))
                     .build()
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_BIRCH_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_birch_tree2",
@@ -397,6 +403,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(SHELF_FUNGI.get()))
                     .build()
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_BIRCH_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("brown_birch_tree4",
@@ -426,6 +433,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(SHELF_FUNGI.get()))
                     .build()
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_ORANGE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("orange_birch_tree2",
@@ -468,6 +476,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(SHELF_FUNGI.get()))
                     .build()
     );
 
@@ -497,6 +506,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(SHELF_FUNGI.get()))
                     .build()
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_BIRCH_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("red_birch_tree3",
@@ -511,6 +521,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(SHELF_FUNGI.get()))
                     .build()
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RED_BIRCH_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("red_birch_tree4",
@@ -540,6 +551,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(SHELF_FUNGI.get()))
                     .build()
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_BIRCH_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_birch_tree2",
@@ -568,6 +580,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(SHELF_FUNGI.get()))
                     .build()
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_BIRCH_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("yellow_birch_tree4",
@@ -927,6 +940,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FIR_BRANCH.get(), FIR_CONE.get()))
                     .build()
 
     );
@@ -942,6 +956,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FIR_BRANCH.get(), FIR_CONE.get()))
                     .build()
 
     );
@@ -957,6 +972,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FIR_BRANCH.get(), FIR_CONE.get()))
                     .build()
 
     );
@@ -972,6 +988,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FIR_BRANCH.get(), FIR_CONE.get()))
                     .build()
 
     );
@@ -987,6 +1004,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FIR_BRANCH.get(), FIR_CONE.get()))
                     .build()
 
     );
@@ -1002,6 +1020,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FIR_BRANCH.get(), FIR_CONE.get()))
                     .build()
 
     );
@@ -1017,6 +1036,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FIR_BRANCH.get(), FIR_CONE.get()))
                     .build()
 
     );
@@ -1032,9 +1052,280 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .leavesTarget(Set.of(Blocks.OAK_LEAVES))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FIR_BRANCH.get(), FIR_CONE.get()))
                     .build()
     );
 
+    //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    /// FROSTED FIR TREES
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_FIR_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("frosted_fir_tree1",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/conifer/conifer_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/conifer/conifer_canopy1"))
+                    .height(BiasedToBottomInt.of(19, 25))
+                    .logProvider(BlockStateProvider.simple(BWGWood.FROSTED_FIR.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.FROSTED_FIR.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FROSTED_FIR_BRANCH.get(), FROSTED_FIR_CONE.get()))
+                    .build()
+
+    );
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_FIR_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("frosted_fir_tree2",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/conifer/conifer_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/conifer/conifer_canopy2"))
+                    .height(BiasedToBottomInt.of(23, 30))
+                    .logProvider(BlockStateProvider.simple(BWGWood.FROSTED_FIR.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.FROSTED_FIR.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FROSTED_FIR_BRANCH.get(), FROSTED_FIR_CONE.get()))
+                    .build()
+
+    );
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_FIR_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("frosted_fir_tree3",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/conifer/conifer_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/conifer/conifer_canopy3"))
+                    .height(BiasedToBottomInt.of(26, 35))
+                    .logProvider(BlockStateProvider.simple(BWGWood.FROSTED_FIR.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.FROSTED_FIR.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FROSTED_FIR_BRANCH.get(), FROSTED_FIR_CONE.get()))
+                    .build()
+
+    );
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_FIR_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("frosted_fir_tree4",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/conifer/conifer_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/conifer/conifer_canopy4"))
+                    .height(BiasedToBottomInt.of(25, 35))
+                    .logProvider(BlockStateProvider.simple(BWGWood.FROSTED_FIR.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.FROSTED_FIR.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FROSTED_FIR_BRANCH.get(), FROSTED_FIR_CONE.get()))
+                    .build()
+
+    );
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_FIR_TREE5 = ConfiguredFeaturesUtil.createConfiguredFeature("frosted_fir_tree5",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/conifer/conifer_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/conifer/conifer_canopy5"))
+                    .height(BiasedToBottomInt.of(7, 11))
+                    .logProvider(BlockStateProvider.simple(BWGWood.FROSTED_FIR.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.FROSTED_FIR.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FROSTED_FIR_BRANCH.get(), FROSTED_FIR_CONE.get()))
+                    .build()
+
+    );
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_FIR_TREE6 = ConfiguredFeaturesUtil.createConfiguredFeature("frosted_fir_tree6",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/conifer/conifer_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/conifer/conifer_canopy6"))
+                    .height(BiasedToBottomInt.of(10, 13))
+                    .logProvider(BlockStateProvider.simple(BWGWood.FROSTED_FIR.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.FROSTED_FIR.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FROSTED_FIR_BRANCH.get(), FROSTED_FIR_CONE.get()))
+                    .build()
+
+    );
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_FIR_TREE7 = ConfiguredFeaturesUtil.createConfiguredFeature("frosted_fir_tree7",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/conifer/conifer_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/conifer/conifer_canopy7"))
+                    .height(BiasedToBottomInt.of(11, 15))
+                    .logProvider(BlockStateProvider.simple(BWGWood.FROSTED_FIR.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.FROSTED_FIR.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FROSTED_FIR_BRANCH.get(), FROSTED_FIR_CONE.get()))
+                    .build()
+
+    );
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_FIR_TREE8 = ConfiguredFeaturesUtil.createConfiguredFeature("frosted_fir_tree8",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/conifer/conifer_trunk8"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/conifer/conifer_canopy8"))
+                    .height(BiasedToBottomInt.of(12, 15))
+                    .logProvider(BlockStateProvider.simple(BWGWood.FROSTED_FIR.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.FROSTED_FIR.leaves()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FROSTED_FIR_BRANCH.get(), FROSTED_FIR_CONE.get()))
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_FIR_TREE9 = ConfiguredFeaturesUtil.createConfiguredFeature("frosted_fir_tree9",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/conifer/fir_large_tree_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/conifer/fir_large_tree_canopy1"))
+                    .height(BiasedToBottomInt.of(8, 18))
+                    .logProvider(BlockStateProvider.simple(BWGWood.FROSTED_FIR.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.FROSTED_FIR.leaves()))
+                    .logTarget(Set.of(BWGWood.FIR.logstem()))
+                    .leavesTarget(Set.of(BWGWood.FIR.leaves()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FROSTED_FIR_BRANCH.get(), FROSTED_FIR_CONE.get()))
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_FIR_TREE10 = ConfiguredFeaturesUtil.createConfiguredFeature("frosted_fir_tree10",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/conifer/fir_large_tree_trunk2"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/conifer/fir_large_tree_canopy2"))
+                    .height(BiasedToBottomInt.of(8, 18))
+                    .logProvider(BlockStateProvider.simple(BWGWood.FROSTED_FIR.logstem()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGWood.FROSTED_FIR.leaves()))
+                    .logTarget(Set.of(BWGWood.FIR.logstem()))
+                    .leavesTarget(Set.of(BWGWood.FIR.leaves()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(14)
+                    .treeDecorators(ImmutableList.of(FROSTED_FIR_BRANCH.get(), FROSTED_FIR_CONE.get()))
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_FIR_TREES = ConfiguredFeaturesUtil.createConfiguredFeature("frosted_fir_trees",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(FROSTED_FIR_TREE1)), 0.05F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(FROSTED_FIR_TREE2)), 0.05F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(FROSTED_FIR_TREE3)), 0.05F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(FROSTED_FIR_TREE4)), 0.05F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(FROSTED_FIR_TREE5)), 0.1F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(FROSTED_FIR_TREE6)), 0.1F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(FROSTED_FIR_TREE7)), 0.1F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(FROSTED_FIR_TREE8)), 0.1F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(FROSTED_FIR_TREE9)), 0.2F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(FROSTED_FIR_TREE10)));
+            }
+    );
+
+    //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/// BOREALIS ICE "TREE"
+
+public static final ResourceKey<ConfiguredFeature<?, ?>> BOREALIS_FEATURE1 = ConfiguredFeaturesUtil.createConfiguredFeature("borealis_feature1",
+        TYGFeatures.TREE_FROM_NBT_V1,
+        () -> new TreeFromStructureNBTConfig.Builder()
+                .baseLocation(BiomesWeveGone.id("features/borealis/borealis_trunk1"))
+                .canopyLocation(BiomesWeveGone.id("features/borealis/borealis_canopy1"))
+                .height(BiasedToBottomInt.of(6, 45))
+                .logProvider(BlockStateProvider.simple(BWGBlocks.BOREALIS_ICE.get()))
+                .leavesProvider(SimpleStateProvider.simple(BWGBlocks.PACKED_BOREALIS_ICE.get()))
+                .logTarget(Set.of(Blocks.OAK_LOG))
+                .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                .maxLogDepth(14)
+                .build()
+);
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BOREALIS_FEATURE2 = ConfiguredFeaturesUtil.createConfiguredFeature("borealis_feature2",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/borealis/borealis_trunk2"))
+                    .canopyLocation(BiomesWeveGone.id("features/borealis/borealis_canopy2"))
+                    .height(BiasedToBottomInt.of(11, 50))
+                    .logProvider(BlockStateProvider.simple(BWGBlocks.BOREALIS_ICE.get()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGBlocks.PACKED_BOREALIS_ICE.get()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(14)
+                    .build()
+    );
+
+
+
+public static final ResourceKey<ConfiguredFeature<?, ?>> BOREALIS_ICE_FEATURE = ConfiguredFeaturesUtil.createConfiguredFeature("borealis_ice_feature",
+        Feature.RANDOM_SELECTOR,
+        (configuredFeatureBootstrapContext) -> {
+            HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+            return new RandomFeatureConfiguration(ImmutableList.of(
+                    new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BOREALIS_FEATURE1)), 0.35F)),
+                    PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BOREALIS_FEATURE2)));
+        }
+);
+    //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    /// BLACK ICE "TREE"
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLACK_ICE_FEATURE1 = ConfiguredFeaturesUtil.createConfiguredFeature("black_ice_feature1",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/borealis/borealis_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/borealis/borealis_canopy1"))
+                    .height(BiasedToBottomInt.of(6, 45))
+                    .logProvider(BlockStateProvider.simple(BWGBlocks.BLACK_ICE.get()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGBlocks.PACKED_BLACK_ICE.get()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(14)
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLACK_ICE_FEATURE2 = ConfiguredFeaturesUtil.createConfiguredFeature("black_ice_feature2",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/borealis/borealis_trunk2"))
+                    .canopyLocation(BiomesWeveGone.id("features/borealis/borealis_canopy2"))
+                    .height(BiasedToBottomInt.of(11, 50))
+                    .logProvider(BlockStateProvider.simple(BWGBlocks.BLACK_ICE.get()))
+                    .leavesProvider(SimpleStateProvider.simple(BWGBlocks.PACKED_BLACK_ICE.get()))
+                    .logTarget(Set.of(Blocks.OAK_LOG))
+                    .leavesTarget(Set.of(Blocks.OAK_LEAVES))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(14)
+                    .build()
+    );
+
+
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLACK_ICE_FEATURE = ConfiguredFeaturesUtil.createConfiguredFeature("black_ice_feature",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BLACK_ICE_FEATURE1)), 0.35F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BLACK_ICE_FEATURE2)));
+            }
+    );
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     public static final Supplier<AttachedToLogsDecorator> WITCH_HAZEL_BLOSSOM = () -> new AttachedToLogsDecorator(0.1F, 15, 15, SimpleStateProvider.simple(BWGBlocks.WITCH_HAZEL_BLOSSOM.get()), 3, List.of(Direction.DOWN));
     public static final Supplier<AttachedToLogsDecorator> WITCH_HAZEL_BRANCH = () -> new AttachedToLogsDecorator(0.65F, 0, 1, SimpleStateProvider.simple(BWGBlocks.WITCH_HAZEL_BRANCH.get()), 2, List.of(Direction.WEST, Direction.NORTH, Direction.SOUTH, Direction.EAST));
 
@@ -1814,6 +2105,111 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
                     .treeDecorators(ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get()))
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TUSCANY_CYPRESS_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("tuscany_cypress_tree1",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_canopy1"))
+                    .height(BiasedToBottomInt.of(3, 4))
+                    .logProvider(BlockStateProvider.simple(BWGWood.CYPRESS.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.TUSCANY_CYPRESS_LEAVES.get()))
+                    .logTarget(Set.of(BWGWood.CYPRESS.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.TUSCANY_CYPRESS_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TUSCANY_CYPRESS_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("tuscany_cypress_tree2",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_trunk2"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_canopy2"))
+                    .height(BiasedToBottomInt.of(3, 4))
+                    .logProvider(BlockStateProvider.simple(BWGWood.CYPRESS.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.TUSCANY_CYPRESS_LEAVES.get()))
+                    .logTarget(Set.of(BWGWood.CYPRESS.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.TUSCANY_CYPRESS_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TUSCANY_CYPRESS_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("tuscany_cypress_tree3",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_trunk3"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_canopy3"))
+                    .height(BiasedToBottomInt.of(3, 4))
+                    .logProvider(BlockStateProvider.simple(BWGWood.CYPRESS.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.TUSCANY_CYPRESS_LEAVES.get()))
+                    .logTarget(Set.of(BWGWood.CYPRESS.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.TUSCANY_CYPRESS_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TUSCANY_CYPRESS_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("tuscany_cypress_tree4",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_trunk4"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_canopy4"))
+                    .height(BiasedToBottomInt.of(3, 4))
+                    .logProvider(BlockStateProvider.simple(BWGWood.CYPRESS.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.TUSCANY_CYPRESS_LEAVES.get()))
+                    .logTarget(Set.of(BWGWood.CYPRESS.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.TUSCANY_CYPRESS_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TUSCANY_CYPRESS_TREE5 = ConfiguredFeaturesUtil.createConfiguredFeature("tuscany_cypress_tree5",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_trunk5"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_canopy5"))
+                    .height(BiasedToBottomInt.of(3, 4))
+                    .logProvider(BlockStateProvider.simple(BWGWood.CYPRESS.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.TUSCANY_CYPRESS_LEAVES.get()))
+                    .logTarget(Set.of(BWGWood.CYPRESS.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.TUSCANY_CYPRESS_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TUSCANY_CYPRESS_TREE6 = ConfiguredFeaturesUtil.createConfiguredFeature("tuscany_cypress_tree6",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_trunk6"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_canopy6"))
+                    .height(BiasedToBottomInt.of(2, 4))
+                    .logProvider(BlockStateProvider.simple(BWGWood.CYPRESS.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.TUSCANY_CYPRESS_LEAVES.get()))
+                    .logTarget(Set.of(BWGWood.CYPRESS.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.TUSCANY_CYPRESS_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TUSCANY_CYPRESS_TREE7 = ConfiguredFeaturesUtil.createConfiguredFeature("tuscany_cypress_tree7",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_trunk7"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/tuscany_cypress/tuscany_cypress_canopy7"))
+                    .height(BiasedToBottomInt.of(4, 6))
+                    .logProvider(BlockStateProvider.simple(BWGWood.CYPRESS.logstem()))
+                    .leavesProvider(BlockStateProvider.simple(BWGWood.TUSCANY_CYPRESS_LEAVES.get()))
+                    .logTarget(Set.of(BWGWood.CYPRESS.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.TUSCANY_CYPRESS_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
                     .build()
     );
 
@@ -2746,6 +3142,87 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .build()
     );
 
+    private static final Supplier<AttachedToLeavesDecorator> VETAL_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.1F, 2, 0, BWGWood.RIPE_PALISADE_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BWGBlocks.VETAL_FRUIT_BLOCK.get().defaultBlockState()), BWGFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PALISADE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("palisade_tree1",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/palisade/palisade_trunk1"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/palisade/palisade_canopy1"))
+                    .height(BiasedToBottomInt.of(5, 6))
+                    .logProvider(BlockStateProvider.simple(BWGWood.PALISADE.logstem().defaultBlockState().getBlock()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.PALISADE_LEAVES.get().defaultBlockState(), 9)
+                            .add(BWGWood.FLOWERING_PALISADE_LEAVES.get().defaultBlockState(), 1)
+                            .add(BWGWood.RIPE_PALISADE_LEAVES.get().defaultBlockState())
+                    ))
+                    .logTarget(Set.of(BWGWood.PALISADE.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.PALISADE_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(VETAL_FRUIT.get(), SHELF_FUNGI.get()))
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PALISADE_TREE2 = ConfiguredFeaturesUtil.createConfiguredFeature("palisade_tree2",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/palisade/palisade_trunk2"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/palisade/palisade_canopy2"))
+                    .height(BiasedToBottomInt.of(4, 5))
+                    .logProvider(BlockStateProvider.simple(BWGWood.PALISADE.logstem().defaultBlockState()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.PALISADE_LEAVES.get().defaultBlockState(), 9)
+                            .add(BWGWood.FLOWERING_PALISADE_LEAVES.get().defaultBlockState(), 1)
+                            .add(BWGWood.RIPE_PALISADE_LEAVES.get().defaultBlockState())
+                    ))
+                    .logTarget(Set.of(BWGWood.PALISADE.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.PALISADE_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(VETAL_FRUIT.get(), SHELF_FUNGI.get()))
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PALISADE_TREE3 = ConfiguredFeaturesUtil.createConfiguredFeature("palisade_tree3",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/palisade/palisade_trunk3"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/palisade/palisade_canopy3"))
+                    .height(BiasedToBottomInt.of(4, 5))
+                    .logProvider(BlockStateProvider.simple(BWGWood.PALISADE.logstem().defaultBlockState().getBlock()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.PALISADE_LEAVES.get().defaultBlockState(), 9)
+                            .add(BWGWood.FLOWERING_PALISADE_LEAVES.get().defaultBlockState(), 1)
+                            .add(BWGWood.RIPE_PALISADE_LEAVES.get().defaultBlockState())
+                    ))
+                    .logTarget(Set.of(BWGWood.PALISADE.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.PALISADE_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(VETAL_FRUIT.get(), SHELF_FUNGI.get()))
+                    .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PALISADE_TREE4 = ConfiguredFeaturesUtil.createConfiguredFeature("palisade_tree4",
+            TYGFeatures.TREE_FROM_NBT_V1,
+            () -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(BiomesWeveGone.id("features/trees/palisade/palisade_trunk4"))
+                    .canopyLocation(BiomesWeveGone.id("features/trees/palisade/palisade_canopy4"))
+                    .height(BiasedToBottomInt.of(4, 6))
+                    .logProvider(BlockStateProvider.simple(BWGWood.PALISADE.logstem().defaultBlockState().getBlock()))
+                    .leavesProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BWGWood.PALISADE_LEAVES.get().defaultBlockState(), 9)
+                            .add(BWGWood.FLOWERING_PALISADE_LEAVES.get().defaultBlockState(), 1)
+                            .add(BWGWood.RIPE_PALISADE_LEAVES.get().defaultBlockState())
+                    ))
+                    .logTarget(Set.of(BWGWood.PALISADE.logstem().defaultBlockState().getBlock()))
+                    .leavesTarget(Set.of(BWGWood.PALISADE_LEAVES.get().defaultBlockState().getBlock()))
+                    .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
+                    .maxLogDepth(5)
+                    .treeDecorators(ImmutableList.of(VETAL_FRUIT.get(), SHELF_FUNGI.get()))
+                    .build()
+    );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PINE_LARGE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("large_pine_tree1",
             TYGFeatures.TREE_FROM_NBT_V1,
@@ -2805,6 +3282,18 @@ public class BWGOverworldTreeConfiguredFeatures {
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .maxLogDepth(5)
                     .build()
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PINE_TREES = ConfiguredFeaturesUtil.createConfiguredFeature("pine_trees",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PINE_LARGE_TREE1)), 0.25F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PINE_LARGE_TREE2)), 0.25F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PINE_TREE1)), 0.25F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PINE_TREE2)));
+            }
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALO_VERDE_TREE1 = ConfiguredFeaturesUtil.createConfiguredFeature("palo_verde_tree1",
@@ -4772,7 +5261,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BLUE_SPRUCE_TREE_MEDIUM2)), 0.111F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BLUE_SPRUCE_TREE_MEDIUM3)), 0.111F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BLUE_SPRUCE_TREE_MEDIUM4)), 0.111F)),
-                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BLUE_SPRUCE_TREE1)));
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BLUE_SPRUCE_TREE_LARGE1)));
             }
     );
 
@@ -4933,6 +5422,30 @@ public class BWGOverworldTreeConfiguredFeatures {
             }
     );
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_BIRCH_TREES = ConfiguredFeaturesUtil.createConfiguredFeature("brown_birch_trees",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BROWN_BIRCH_TREE1)), 0.33F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BROWN_BIRCH_TREE2)), 0.33F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BROWN_BIRCH_TREE3)), 0.33F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BROWN_BIRCH_TREE4)));
+            }
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> RED_BIRCH_TREES = ConfiguredFeaturesUtil.createConfiguredFeature("red_birch_trees",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(RED_BIRCH_TREE1)), 0.33F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(RED_BIRCH_TREE2)), 0.33F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(RED_BIRCH_TREE3)), 0.33F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(RED_BIRCH_TREE4)));
+            }
+    );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_ZELKOVA_TREES = ConfiguredFeaturesUtil.createConfiguredFeature("brown_zelkova_trees",
             Feature.RANDOM_SELECTOR,
             (configuredFeatureBootstrapContext) -> {
@@ -5076,6 +5589,33 @@ public class BWGOverworldTreeConfiguredFeatures {
             }
     );
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PALISADE_TREES = ConfiguredFeaturesUtil.createConfiguredFeature("palisade_trees",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PALISADE_TREE1)), 0.2F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PALISADE_TREE2)), 0.2F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PALISADE_TREE3)), 0.2F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PALISADE_TREE4)));
+            }
+    );
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TUSCANY_CYPRESS_TREES = ConfiguredFeaturesUtil.createConfiguredFeature("tuscany_cypress_trees",
+            Feature.RANDOM_SELECTOR,
+            (configuredFeatureBootstrapContext) -> {
+                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
+                return new RandomFeatureConfiguration(ImmutableList.of(
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TUSCANY_CYPRESS_TREE1)), 0.14F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TUSCANY_CYPRESS_TREE2)), 0.14F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TUSCANY_CYPRESS_TREE3)), 0.14F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TUSCANY_CYPRESS_TREE4)), 0.14F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TUSCANY_CYPRESS_TREE5)), 0.14F),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TUSCANY_CYPRESS_TREE6)), 0.14F)),
+                        PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TUSCANY_CYPRESS_TREE7)));
+            }
+    );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_SAKURA_TREES = ConfiguredFeaturesUtil.createConfiguredFeature("white_sakura_trees",
             Feature.RANDOM_SELECTOR,
             (configuredFeatureBootstrapContext) -> {
@@ -5199,7 +5739,7 @@ public class BWGOverworldTreeConfiguredFeatures {
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(ANCIENT_TREE1)), 0.15F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(ANCIENT_TREE2)), 0.15F),
                         new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(ANCIENT_TREE3)), 0.15F),
-                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(WOODLANDS_TREE1)), 0.25F)),
+                        new WeightedPlacedFeature(PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(WOODLANDS_TREE1)), 0.1F)),
                         PlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(FORGOTTEN_TREE1)));
             }
     );

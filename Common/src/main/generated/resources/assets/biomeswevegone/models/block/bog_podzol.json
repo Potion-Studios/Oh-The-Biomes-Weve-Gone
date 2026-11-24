@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "minecraft:block/dirt",
+    "side": "biomeswevegone:block/bog_podzol_side",
+    "top": "biomeswevegone:block/bog_podzol_top"
+  }
+}

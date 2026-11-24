@@ -52,6 +52,7 @@ public class LangGenerator extends LanguageProvider {
         add(BWGEntityType.MAN_O_WAR.get(), "Man O' War");
         add(BWGEntityType.PUMPKIN_WARDEN.get(), "Pumpkin Warden");
         add(BWGEntityType.ODDION.get(), "Oddion");
+        add(BWGEntityType.BIZZAR.get(), "Bizzar");
         add(BWGEntityType.BWG_BOAT.get(), "Boat");
         add(BWGEntityType.BWG_CHEST_BOAT.get(), "Boat with Chest");
         BWGBiomes.BIOME_FACTORIES.forEach((key, factory) -> add("biome." + BiomesWeveGone.MOD_ID + "." + key.location().getPath(), getBiomeName(key)));

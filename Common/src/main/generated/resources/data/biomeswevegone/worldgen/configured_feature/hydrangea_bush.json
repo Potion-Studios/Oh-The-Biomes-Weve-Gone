@@ -8,7 +8,10 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "biomeswevegone:hydrangea_bush"
+              "Name": "biomeswevegone:hydrangea_bush",
+              "Properties": {
+                "section": "single"
+              }
             }
           }
         }

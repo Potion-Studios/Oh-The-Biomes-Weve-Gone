@@ -54,6 +54,9 @@
     "biomeswevegone:fir_bookshelf": {
       "burn_time": 300
     },
+    "biomeswevegone:fir_branch": {
+      "burn_time": 100
+    },
     "biomeswevegone:fir_crafting_table": {
       "burn_time": 300
     },
@@ -64,6 +67,15 @@
       "burn_time": 300
     },
     "biomeswevegone:foragers_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:frosted_fir_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:frosted_fir_branch": {
+      "burn_time": 100
+    },
+    "biomeswevegone:frosted_fir_crafting_table": {
       "burn_time": 300
     },
     "biomeswevegone:green_enchanted_bookshelf": {
@@ -100,6 +112,12 @@
       "burn_time": 300
     },
     "biomeswevegone:maple_crafting_table": {
+      "burn_time": 300
+    },
+    "biomeswevegone:palisade_bookshelf": {
+      "burn_time": 300
+    },
+    "biomeswevegone:palisade_crafting_table": {
       "burn_time": 300
     },
     "biomeswevegone:palm_bookshelf": {

@@ -27,7 +27,7 @@ configurations {
     }
 }
 
-loom.accessWidenerPath.set(project(":Common").loom.accessWidenerPath)
+loom.accessWidenerPath.set(project(":Common").file("src/main/resources/biomeswevegone.accesswidener"))
 
 dependencies {
     modImplementation("net.fabricmc:fabric-loader:${providers.gradleProperty("fabric_loader_version").get()}")

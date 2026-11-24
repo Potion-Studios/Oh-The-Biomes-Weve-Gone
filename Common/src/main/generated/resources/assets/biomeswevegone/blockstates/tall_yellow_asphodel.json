@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "biomeswevegone:block/tall_yellow_asphodel_bottom"
+    },
+    "half=upper": {
+      "model": "biomeswevegone:block/tall_yellow_asphodel_top"
+    }
+  }
+}

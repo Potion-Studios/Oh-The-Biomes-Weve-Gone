@@ -21,7 +21,14 @@
         }
       },
       {
-        "chance": 0.25,
+        "chance": 0.15,
+        "feature": {
+          "feature": "biomeswevegone:blue_rose",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.15,
         "feature": {
           "feature": "biomeswevegone:rose",
           "placement": []

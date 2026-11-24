@@ -10,7 +10,8 @@
             "state": {
               "Name": "biomeswevegone:foxglove",
               "Properties": {
-                "half": "lower"
+                "half": "lower",
+                "sheared": "false"
               }
             }
           }

@@ -52,7 +52,7 @@ public class BWGFruitLeavesBlock extends LeavesBlock implements BonemealableBloc
     @Override
     protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
         if (player.isCreative() && !level.isClientSide())
-            if (stack.getItem().getDefaultInstance().is(fruitBlock.get().getFruit()) && level.getBlockState(pos.below()).isAir()) {
+            if (stack.getItem().getDefaultInstance().is(fruitBlock.get().getFruit(level)) && level.getBlockState(pos.below()).isAir()) {
                 placeFruit(level, pos.below());
                 return ItemInteractionResult.SUCCESS;
             }

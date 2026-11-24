@@ -124,6 +124,11 @@ public class BWGOverworldConfiguredFeatures {
             () -> FeatureConfiguration.NONE
     );
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PALISADE_LAKE = ConfiguredFeaturesUtil.createConfiguredFeature("palisade_lake",
+            BWGFeatures.PALISADE_LAKE,
+            () -> FeatureConfiguration.NONE
+    );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> JUNGLE_PILLAR = ConfiguredFeaturesUtil.createConfiguredFeature("jungle_pillar",
             BWGFeatures.PILLAR,
             () -> new PillarFeature.Config(

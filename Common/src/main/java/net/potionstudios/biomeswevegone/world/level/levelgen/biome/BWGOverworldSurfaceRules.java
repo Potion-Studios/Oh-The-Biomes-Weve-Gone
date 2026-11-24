@@ -40,13 +40,18 @@ public class BWGOverworldSurfaceRules {
 
     private static final SurfaceRules.RuleSource WHITE_OVERGROWN_DACITE_DACITE_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.WHITE_OVERGROWN_DACITE.get())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.WHITE_DACITE_SET.getBase()));
     private static final SurfaceRules.RuleSource WHITE_OVERGROWN_PODZOL_DACITE_STONE_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.WHITE_PODZOL_DACITE.get())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.WHITE_DACITE_SET.getBase()));
+    private static final SurfaceRules.RuleSource TUFF_STONE_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.TUFF)), makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.TUFF));
 
     private static final SurfaceRules.RuleSource OVERGROWN_DACITE_DACITE_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.OVERGROWN_DACITE.get())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.DACITE_SET.getBase()));
     private static final SurfaceRules.RuleSource OVERGROWN_PODZOL_DACITE_STONE_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.PODZOL_DACITE.get())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.DACITE_SET.getBase()));
     private static final SurfaceRules.RuleSource LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.LUSH_GRASS_BLOCK.get())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.LUSH_DIRT.get()));
     private static final SurfaceRules.RuleSource COARSE_DIRT_DIRT_SURFACE = SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.COARSE_DIRT), makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT));
+    private static final SurfaceRules.RuleSource PALISADE_DIRT_DIRT_SURFACE = SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.PALISADE_DIRT.get()), makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.PALISADE_DIRT.get()));
 
     private static final SurfaceRules.RuleSource SANDY_DIRT_SURFACE = SurfaceRules.sequence(makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.SANDY_DIRT.get()), makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.SANDY_DIRT.get()));
+    private static final SurfaceRules.RuleSource OLIVE_MOSS_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.OLIVE_MOSS_BLOCK.get())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.OLIVE_MOSS_BLOCK.get()));
+
+    private static final SurfaceRules.RuleSource CRIMSON_PODZOL_DIRT_SURFACE = SurfaceRules.sequence(makeifTrueRule(WATER_CHECK, makeifTrueRule(SurfaceRules.ON_FLOOR, BWGBlocks.BOG_PODZOL.get())), makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT));
 
 
     private static final SurfaceRules.RuleSource NOISE_COARSE_DIRT = makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D), COARSE_DIRT_DIRT_SURFACE);
@@ -137,7 +142,7 @@ public class BWGOverworldSurfaceRules {
                             makeifTrueRule(SurfaceRules.UNDER_FLOOR, BWGBlocks.LUSH_DIRT.get())
                     )),
             CRIMSON_ROCKY_STONE_SURFACE,
-            PEAT_SURFACE
+            CRIMSON_PODZOL_DIRT_SURFACE
     ));
 
     private static final SurfaceRules.RuleSource CYPRESS_MANGROVE = SurfaceRules.ifTrue(
@@ -219,6 +224,16 @@ public class BWGOverworldSurfaceRules {
                     )),
             makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), NOISE_COARSE_DIRT),
             PEAT_SURFACE
+    ));
+
+    private static final SurfaceRules.RuleSource MAPLE_TAIGA = biomeAbovePreliminarySurface(BWGBiomes.MAPLE_TAIGA, SurfaceRules.sequence(
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
+                    SurfaceRules.sequence(
+                            makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.GRASS_BLOCK),
+                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT)
+                    )),
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), PEAT_SURFACE),
+            PODZOL_DIRT_SURFACE
     ));
 
     private static final SurfaceRules.RuleSource FRAGMENT_JUNGLE = biomeAbovePreliminarySurface(BWGBiomes.FRAGMENT_JUNGLE, SurfaceRules.sequence(
@@ -314,6 +329,11 @@ public class BWGOverworldSurfaceRules {
             )
     );
 
+    private static final SurfaceRules.RuleSource PALISADE_GROVE = biomeAbovePreliminarySurface(BWGBiomes.PALISADE_GROVE, SurfaceRules.sequence(
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), ROOTED_DIRT_SURFACE),
+            PODZOL_DIRT_SURFACE
+    ));
+
     private static final SurfaceRules.RuleSource PUMPKIN_VALLEY = biomeAbovePreliminarySurface(BWGBiomes.PUMPKIN_VALLEY, SurfaceRules.sequence(
             makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
                     SurfaceRules.sequence(
@@ -396,6 +416,38 @@ public class BWGOverworldSurfaceRules {
             makeifTrueRule(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), BWGBlocks.WHITE_DACITE_SET.getBase())
     ));
 
+    private static final SurfaceRules.RuleSource ASPHODEL_MEADOW = biomeAbovePreliminarySurface(BWGBiomes.ASPHODEL_MEADOW, SurfaceRules.sequence(
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
+                    SurfaceRules.sequence(
+                            makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.GRASS_BLOCK),
+                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT)
+                    )),
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), TUFF_STONE_SURFACE),
+            LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE,
+            makeifTrueRule(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), TUFF_STONE_SURFACE),
+            makeifTrueRule(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), TUFF_STONE_SURFACE)
+    ));
+
+    private static final SurfaceRules.RuleSource TUSCANY_PLAINS = biomeAbovePreliminarySurface(BWGBiomes.TUSCANY_PLAINS, SurfaceRules.sequence(
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
+                    SurfaceRules.sequence(
+                            makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.GRASS_BLOCK),
+                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT)
+                    )),
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), GRASS_DIRT_DIRT_SURFACE),
+            OLIVE_MOSS_SURFACE
+    ));
+
+    private static final SurfaceRules.RuleSource FIRECRACKER_CHAPARRAL = biomeAbovePreliminarySurface(BWGBiomes.FIRECRACKER_CHAPARRAL, SurfaceRules.sequence(
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
+                    SurfaceRules.sequence(
+                            makeifTrueRule(SurfaceRules.ON_FLOOR, Blocks.GRASS_BLOCK),
+                            makeifTrueRule(SurfaceRules.UNDER_FLOOR, Blocks.DIRT)
+                    )),
+            makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(-0.95D), COARSE_DIRT_DIRT_SURFACE),
+            PALISADE_DIRT_DIRT_SURFACE
+    ));
+
     private static final SurfaceRules.RuleSource CYPRESS_WETLANDS = biomeAbovePreliminarySurface(BWGBiomes.CYPRESS_WETLANDS, SurfaceRules.sequence(
             makeifTrueRule(SurfaceRuleData.surfaceNoiseAbove(1.75D),
                     SurfaceRules.sequence(
@@ -446,6 +498,7 @@ public class BWGOverworldSurfaceRules {
                 CONIFEROUS_FOREST,
                 CYPRESS_MANGROVE,
                 CRIMSON_TUNDRA,
+                MAPLE_TAIGA,
                 DACITE_RIDGES,
                 DACITE_SHORE,
                 DEAD_SEA,
@@ -464,6 +517,7 @@ public class BWGOverworldSurfaceRules {
                 OVERGROWTH_WOODLANDS,
                 PALE_BOG,
                 PUMPKIN_VALLEY,
+                PALISADE_GROVE,
                 RAINBOW_BEACH,
                 RED_ROCK_VALLEY,
                 RED_ROCK_PEAKS,
@@ -473,9 +527,12 @@ public class BWGOverworldSurfaceRules {
                 //SHATTERED_GLACIER,
                 SIERRA_BADLANDS,
                 SKYRIS_VALE,
+                ASPHODEL_MEADOW,
+                TUSCANY_PLAINS,
                 WEEPING_WITCH_FOREST,
                 WINDSWEPT_DESERT,
-                CYPRESS_WETLANDS
+                CYPRESS_WETLANDS,
+                FIRECRACKER_CHAPARRAL
                 );
     }
 

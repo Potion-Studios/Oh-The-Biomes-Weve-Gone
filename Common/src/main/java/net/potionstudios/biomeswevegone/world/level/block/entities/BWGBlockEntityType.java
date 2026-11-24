@@ -33,6 +33,11 @@ public class BWGBlockEntityType {
             BWGBlocks.PUMPKIN_BURROW.get()
     ));
 
+    public static final Supplier<BlockEntityType<FrostedAmberBlockEntity>> FROSTED_AMBER = register("frosted_amber", () -> BlockEntityType.Builder.of(
+            FrostedAmberBlockEntity::new,
+            BWGBlocks.FROSTED_AMBER_BLOCK.get()
+    ));
+
     private static <T extends BlockEntity> Supplier<BlockEntityType<T>> register(String key, Supplier<BlockEntityType.Builder<T>> builder) {
         return PlatformHandler.PLATFORM_HANDLER.registerBlockEntity(key, builder);
     }

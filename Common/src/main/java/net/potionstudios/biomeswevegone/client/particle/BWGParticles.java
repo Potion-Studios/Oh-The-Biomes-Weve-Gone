@@ -12,6 +12,14 @@ import java.util.function.Supplier;
  */
 public class BWGParticles {
 
+    public static final Supplier<SimpleParticleType> BROWN_BIRCH_LEAVES = register("brown_birch_leaves");
+    public static final Supplier<SimpleParticleType> YELLOW_BIRCH_LEAVES = register("yellow_birch_leaves");
+    public static final Supplier<SimpleParticleType> ORANGE_BIRCH_LEAVES = register("orange_birch_leaves");
+    public static final Supplier<SimpleParticleType> RED_BIRCH_LEAVES = register("red_birch_leaves");
+    public static final Supplier<SimpleParticleType> BUTTERFLY = register("butterfly");
+    public static final Supplier<SimpleParticleType> LEAF = register("leaf");
+    public static final Supplier<SimpleParticleType> BIRD = register("bird");
+
     public static final Supplier<SimpleParticleType> WITCH_HAZEL_LEAVES = register("witch_hazel_leaves");
     public static final Supplier<SimpleParticleType> SPIRIT_LEAVES = register("spirit_leaves");
     public static final Supplier<SimpleParticleType> WHITE_SAKURA_LEAVES = register("white_sakura_leaves");
@@ -22,6 +30,13 @@ public class BWGParticles {
     public static final Supplier<SimpleParticleType> BOREALIS_GLINT = register("borealis_glint");
     public static final Supplier<SimpleParticleType> FIREFLY = register("firefly");
     public static final Supplier<SimpleParticleType> SPIRIT = register("spirit");
+    public static final Supplier<SimpleParticleType> PALISADE_LEAVES = register("palisade_leaves");
+
+    public static final Supplier<SimpleParticleType> ALLIUM_POLLEN = register("allium_pollen");
+    public static final Supplier<SimpleParticleType> WHITE_ALLIUM_POLLEN = register("white_allium_pollen");
+    public static final Supplier<SimpleParticleType> PINK_ALLIUM_POLLEN = register("pink_allium_pollen");
+
+    public static final Supplier<SimpleParticleType> ASPEN_LEAVES = register("aspen_leaves");
 
 
     private static Supplier<SimpleParticleType> register(String id) {

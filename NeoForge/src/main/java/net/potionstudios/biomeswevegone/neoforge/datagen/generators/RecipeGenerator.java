@@ -331,11 +331,16 @@ public class RecipeGenerator extends RecipeProvider {
                 .unlockedBy(getHasName(BWGItems.BLUEBERRIES.get()), has(BWGItems.BLUEBERRIES.get()))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BWGBlocks.CATTAIL_THATCH.get(), 4)
-                .define('#', BWGItems.CATTAIL_SPROUT.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BWGBlocks.OLIVE_MOSS_CARPET.get(), 3)
+                .define('#', BWGBlocks.OLIVE_MOSS_BLOCK.get())
                 .pattern("##")
-                .pattern("##")
-                .unlockedBy(getHasName(BWGItems.CATTAIL_SPROUT.get()), has(BWGItems.CATTAIL_SPROUT.get()))
+                .unlockedBy(getHasName(BWGBlocks.OLIVE_MOSS_BLOCK.get()), has(BWGBlocks.OLIVE_MOSS_BLOCK.get()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BWGBlocks.OLIVE_MOSS_SPROUTS.get(), 3)
+                .define('#', BWGBlocks.OLIVE_MOSS_BLOCK.get())
+                .pattern("#")
+                .unlockedBy(getHasName(BWGBlocks.OLIVE_MOSS_BLOCK.get()), has(BWGBlocks.OLIVE_MOSS_BLOCK.get()))
                 .save(recipeOutput);
 
         slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CATTAIL_THATCH_SLAB.get(), BWGBlocks.CATTAIL_THATCH.get());
@@ -510,6 +515,7 @@ public class RecipeGenerator extends RecipeProvider {
         oneToTwoConversionRecipe(recipeOutput, Items.PINK_DYE, BWGItemTags.MAKES_2_PINK_DYE);
         oneToTwoConversionRecipe(recipeOutput, Items.PURPLE_DYE, BWGItemTags.MAKES_2_PURPLE_DYE);
         oneToTwoConversionRecipe(recipeOutput, Items.WHITE_DYE, BWGItemTags.MAKES_2_WHITE_DYE);
+        oneToTwoConversionRecipe(recipeOutput, Items.YELLOW_DYE, BWGItemTags.MAKES_2_YELLOW_DYE);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BWGItems.WREATH.get())
                 .define('#', ItemTags.LEAVES)
@@ -578,6 +584,10 @@ public class RecipeGenerator extends RecipeProvider {
                 .save(recipeOutput);
 
         oneToOneConversionRecipe(recipeOutput, Items.STICK, BWGBlocks.WITCH_HAZEL_BRANCH.get(), "sticks");
+
+        chiseledBuilder(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.CHISELED_FROSTED_AMBER_BRICKS_SET.getBase(), Ingredient.of(BWGBlocks.FROSTED_AMBER_BRICKS_SET.getSlab()))
+                .unlockedBy("has_tag", has(BWGItemTags.FROSTED_AMBER_BRICKS))
+                .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BWGBlocks.BLACK_ICE.get(), 8)
                 .define('#', Ingredient.of(Items.ICE, Items.BLUE_ICE))

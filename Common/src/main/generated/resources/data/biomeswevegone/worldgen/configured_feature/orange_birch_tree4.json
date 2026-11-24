@@ -13,11 +13,37 @@
       "type": "minecraft:true"
     },
     "canopy_location": "biomeswevegone:features/trees/birch/birch_tree_canopy4",
+    "decorators": [
+      {
+        "type": "ohthetreesyoullgrow:attached_to_logs",
+        "block_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "biomeswevegone:shelf_fungi",
+            "Properties": {
+              "facing": "north",
+              "waterlogged": "false"
+            }
+          }
+        },
+        "directions": [
+          "west",
+          "north",
+          "south",
+          "east"
+        ],
+        "exclusion_radius_xz": 0,
+        "exclusion_radius_y": 1,
+        "probability": 0.3,
+        "required_empty_blocks": 2
+      }
+    ],
     "height": {
       "type": "minecraft:biased_to_bottom",
       "max_inclusive": 15,
       "min_inclusive": 5
     },
+    "height_limit_behavior": "DEFAULT",
     "leaves_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -44,7 +70,10 @@
     "log_target": [
       "minecraft:birch_log"
     ],
+    "max_log_depth": 5,
+    "orientation": "STANDARD",
     "place_from_nbt": [],
+    "random_rotation": true,
     "tree_filter_behavior": "PIERCE"
   }
 }

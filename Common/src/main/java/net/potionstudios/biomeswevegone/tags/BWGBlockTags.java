@@ -31,6 +31,7 @@ public final class BWGBlockTags {
     public static final TagKey<Block> RED_ROCK_BRICKS = create("red_rock_bricks");
     public static final TagKey<Block> DACITE_BRICKS = create("dacite_bricks");
     public static final TagKey<Block> WHITE_DACITE_BRICKS = create("white_dacite_bricks");
+    public static final TagKey<Block> FROSTED_AMBER_BRICKS = create("frosted_amber_bricks");
 
     public static final TagKey<Block> GLOWCANE = create("glowcane");
     public static final TagKey<Block> GLOW_BOTTLE = create("glow_bottle");
@@ -39,6 +40,10 @@ public final class BWGBlockTags {
     public static final TagKey<Block> OAK_SAPLINGS = create("saplings/oak");
     public static final TagKey<Block> SPRUCE_SAPLINGS = create("saplings/spruce");
     public static final TagKey<Block> BIRCH_SAPLINGS = create("saplings/birch");
+    public static final TagKey<Block> CONES = create("cones");
+
+    /** Spawnable on **/
+    public static final TagKey<Block> BIZZAR_SPAWNABLE_ON = create("bizzar_spawnable_on");
 
     /** Storage Blocks **/
     public static final TagKey<Block> STORAGE_BLOCKS_ALLIUM = createCommon("storage_blocks/allium");

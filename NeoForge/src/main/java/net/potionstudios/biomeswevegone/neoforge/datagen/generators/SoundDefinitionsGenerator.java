@@ -34,7 +34,15 @@ public class SoundDefinitionsGenerator extends SoundDefinitionsProvider {
         add(BWGSounds.MUSIC_BIOME_PALE_BOG.get().value(), definition().with(sound(BiomesWeveGone.id("music/overworld/pale_bog"))));
         add(BWGSounds.MUSIC_BIOME_CRAG_GARDENS.get().value(), definition().with(sound(BiomesWeveGone.id("music/overworld/crag_gardens"))));
         add(BWGSounds.MUSIC_BIOME_ERODED_BOREALIS.get().value(), definition().with(sound(BiomesWeveGone.id("music/overworld/eroded_borealis"))));
+        add(BWGSounds.MUSIC_BIOME_CRIMSON_TUNDRA.get().value(), definition().with(sound(BiomesWeveGone.id("music/overworld/crimson_tundra"))));
         add(BWGSounds.MUSIC_BIOME_FORGOTTEN_FOREST.get().value(), definition().with(sound(BiomesWeveGone.id("music/overworld/forgotten_forest"))));
+        add(BWGSounds.MUSIC_BIOME_PALISADE_GROVE.get().value(), definition().with(sound(BiomesWeveGone.id("music/overworld/palisade_grove"))));
+
+        add(BWGSounds.BIZZAR_AMBIENT, definition().with(sound(BiomesWeveGone.id("entity/bizzar/bizzar_ambient"))).subtitle(subtitle("entity.bizzar_ambient")));
+        add(BWGSounds.BIZZAR_AMBIENT2, definition().with(sound(BiomesWeveGone.id("entity/bizzar/bizzar_ambient2"))).subtitle(subtitle("entity.bizzar_ambient2")));
+        add(BWGSounds.BIZZAR_HURT, definition().with(sound(BiomesWeveGone.id("entity/bizzar/bizzar_hurt"))).subtitle(subtitle("entity.bizzar_hurt")));
+        add(BWGSounds.BIZZAR_DEATH, definition().with(sound(BiomesWeveGone.id("entity/bizzar/bizzar_death"))).subtitle(subtitle("entity.bizzar_death")));
+        add(BWGSounds.BIZZAR_BLIZZARD_START, definition().with(sound(BiomesWeveGone.id("entity/bizzar/bizzar_blizzard_start"))).subtitle(subtitle("entity.bizzar_blizzard_start")));
     }
 
     private String subtitle(String subtitle) {

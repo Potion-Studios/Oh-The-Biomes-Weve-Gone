@@ -1,0 +1,6 @@
+{
+  "parent": "biomeswevegone:block/hanging_cone",
+  "textures": {
+    "cone": "biomeswevegone:block/frosted_amber_fir_cone"
+  }
+}
