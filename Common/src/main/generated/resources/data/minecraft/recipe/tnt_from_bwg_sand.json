@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "#minecraft:sand",
+    "*": "minecraft:gunpowder"
+  },
+  "pattern": [
+    "*#*",
+    "#*#",
+    "*#*"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:tnt"
+  }
+}
