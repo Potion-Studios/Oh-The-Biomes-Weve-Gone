@@ -1,5 +1,6 @@
 # 2.6.4
 - Fix Pumpkin Warden popping in and out of burrow at dawn/dusk
+- Fix Surface Rules bleeding underground and replacing bedrock with BWG Blocks
 
 # 2.6.3
 - Update schedule tick signature.
