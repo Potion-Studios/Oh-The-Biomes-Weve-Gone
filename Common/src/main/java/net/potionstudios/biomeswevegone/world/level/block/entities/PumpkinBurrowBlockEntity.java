@@ -15,6 +15,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
+import net.minecraft.world.entity.schedule.Activity;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -22,6 +23,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.potionstudios.biomeswevegone.BiomesWeveGone;
 import net.potionstudios.biomeswevegone.component.BWGDataComponents;
 import net.potionstudios.biomeswevegone.world.entity.pumpkinwarden.PumpkinWarden;
+import net.potionstudios.biomeswevegone.world.entity.schedule.BWGSchedule;
 import net.potionstudios.biomeswevegone.world.level.block.custom.PumpkinBurrowBlock;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -143,7 +145,7 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, PumpkinBurrowBlockEntity blockEntity) {
-        if (!blockEntity.isEmpty() && level.isDay() && level.getRandom().nextBoolean()) {
+        if (!blockEntity.isEmpty() && level.getRandom().nextBoolean() && !BWGSchedule.PUMPKIN_WARDEN.get().getActivityAt((int) level.getDayTime()).equals(Activity.REST)) {
                 Entity entity = blockEntity.stored.createEntity(level);
                 if (entity instanceof PumpkinWarden pumpkinWarden) {
                     Direction direction = state.getValue(PumpkinBurrowBlock.FACING);
