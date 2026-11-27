@@ -56,6 +56,7 @@
       "max_inclusive": 15,
       "min_inclusive": 8
     },
+    "height_limit_behavior": "DEFAULT",
     "leaves_provider": {
       "type": "minecraft:weighted_state_provider",
       "entries": [
@@ -113,7 +114,9 @@
       "biomeswevegone:spirit_log"
     ],
     "max_log_depth": 10,
+    "orientation": "STANDARD",
     "place_from_nbt": [],
+    "random_rotation": true,
     "tree_filter_behavior": "PIERCE"
   }
 }

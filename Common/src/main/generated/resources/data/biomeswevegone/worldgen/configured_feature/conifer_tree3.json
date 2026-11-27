@@ -13,11 +13,13 @@
       "type": "minecraft:true"
     },
     "canopy_location": "biomeswevegone:features/trees/conifer/conifer_canopy3",
+    "decorators": [],
     "height": {
       "type": "minecraft:biased_to_bottom",
       "max_inclusive": 35,
       "min_inclusive": 26
     },
+    "height_limit_behavior": "DEFAULT",
     "leaves_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -45,7 +47,9 @@
       "minecraft:oak_log"
     ],
     "max_log_depth": 14,
+    "orientation": "STANDARD",
     "place_from_nbt": [],
+    "random_rotation": true,
     "tree_filter_behavior": "PIERCE"
   }
 }

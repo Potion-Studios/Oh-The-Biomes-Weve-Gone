@@ -59,6 +59,7 @@
       "max_inclusive": 15,
       "min_inclusive": 5
     },
+    "height_limit_behavior": "DEFAULT",
     "leaves_provider": {
       "type": "minecraft:weighted_state_provider",
       "entries": [
@@ -101,7 +102,10 @@
     "log_target": [
       "minecraft:oak_log"
     ],
+    "max_log_depth": 5,
+    "orientation": "STANDARD",
     "place_from_nbt": [],
+    "random_rotation": true,
     "tree_filter_behavior": "PIERCE"
   }
 }

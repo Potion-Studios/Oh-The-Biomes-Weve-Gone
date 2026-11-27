@@ -375,6 +375,7 @@ public class TagsGenerator {
             tag(ItemTags.EQUIPPABLE_ENCHANTABLE).add(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem());
             tag(ItemTags.VANISHING_ENCHANTABLE).add(BWGBlocks.CARVED_PALE_PUMPKIN.get().asItem());
             tag(ItemTags.PIGLIN_REPELLENTS).add(BWGItems.SOUL_FRUIT.get());
+            tag(ItemTags.SMELTS_TO_GLASS).add(BWGBlocks.WINDSWEPT_SAND_SET.getSand().asItem(), BWGBlocks.CRACKED_SAND.get().asItem(), BWGBlocks.CRACKED_RED_SAND.get().asItem(), BWGBlocks.QUICKSAND.get().asItem(), BWGBlocks.RED_QUICKSAND.get().asItem());
             tag(BWGItemTags.WREATHS).add(BWGItems.WREATH.get(), BWGItems.HOLLY_WREATH.get(), BWGItems.MUSHROOM_WREATH.get(), BWGItems.ODDION_WREATH.get(), BWGItems.PETAL_WREATH.get(), BWGItems.ROSY_WREATH.get(), BWGItems.WINTER_ROSY_WREATH.get());
 
             // Dye Recipes
