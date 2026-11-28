@@ -1,6 +1,7 @@
 # 4.4.3
 - Fix Pumpkin Warden Schedule not applying
 - Fix Pumpkin Warden popping in and out of burrow at dawn/dusk
+- Fix Surface Rules bleeding underground and replacing bedrock with BWG Blocks
 
 # 4.4.2
 - Update schedule tick signature.
