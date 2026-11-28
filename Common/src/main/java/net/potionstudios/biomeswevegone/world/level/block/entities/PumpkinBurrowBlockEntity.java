@@ -16,6 +16,7 @@ import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
+import net.minecraft.world.entity.schedule.Activity;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -31,6 +32,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Optional;
 
 public class PumpkinBurrowBlockEntity extends BlockEntity {
     private static final List<String> IGNORED_TAGS = List.of(
@@ -150,15 +152,18 @@ public class PumpkinBurrowBlockEntity extends BlockEntity {
         if (!blockEntity.isEmpty() && level.isBrightOutside() && level.getRandom().nextBoolean()) {
             Entity entity = blockEntity.stored.createEntity(level);
             if (entity instanceof PumpkinWarden pumpkinWarden) {
-                Direction direction = state.getValue(PumpkinBurrowBlock.FACING);
-                BlockPos blockPos = pos.relative(direction);
-                if (level.getBlockState(blockPos).getCollisionShape(level, blockPos).isEmpty()) {
-                    pumpkinWarden.setPos(blockPos.getX() + 0.5, blockPos.getY(), blockPos.getZ() + 0.5);
-                    pumpkinWarden.stopSleeping();
-                    pumpkinWarden.getBrain().setMemory(MemoryModuleType.HOME, new GlobalPos(level.dimension(), pos));
-                    level.addFreshEntity(pumpkinWarden);
-                    blockEntity.stored = Occupant.EMPTY;
-                    level.setBlockAndUpdate(pos, state.setValue(PumpkinBurrowBlock.OCCUPIED, false));
+                Optional<Activity> activity = pumpkinWarden.getBrain().getActiveNonCoreActivity();
+                if (activity.isPresent() && !activity.get().equals(Activity.REST)) {
+                    Direction direction = state.getValue(PumpkinBurrowBlock.FACING);
+                    BlockPos blockPos = pos.relative(direction);
+                    if (level.getBlockState(blockPos).getCollisionShape(level, blockPos).isEmpty()) {
+                        pumpkinWarden.setPos(blockPos.getX() + 0.5, blockPos.getY(), blockPos.getZ() + 0.5);
+                        pumpkinWarden.stopSleeping();
+                        pumpkinWarden.getBrain().setMemory(MemoryModuleType.HOME, new GlobalPos(level.dimension(), pos));
+                        level.addFreshEntity(pumpkinWarden);
+                        blockEntity.stored = Occupant.EMPTY;
+                        level.setBlockAndUpdate(pos, state.setValue(PumpkinBurrowBlock.OCCUPIED, false));
+                    }
                 }
             }
         }
