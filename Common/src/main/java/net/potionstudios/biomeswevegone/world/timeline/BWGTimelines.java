@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 public interface BWGTimelines {
 	Map<ResourceKey<Timeline>, TimelineFactory> TIMELINE_FACTORIES = new Reference2ObjectOpenHashMap<>();
 
-	ResourceKey<Timeline> PUMPKIN_WARDEN = register("pumpkin_warden", () -> Timeline.builder()
+	ResourceKey<Timeline> PUMPKIN_WARDEN = register("pumpkin_warden_schedule", () -> Timeline.builder()
 			.setPeriodTicks(24000)
 			.addTrack(BWGEnvironmentAttributes.PUMPKIN_WARDEN_ACTIVITY.get(), (builder -> builder
 					.addKeyframe(10, Activity.IDLE)

@@ -29,7 +29,9 @@ import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWood;
 import net.potionstudios.biomeswevegone.world.level.block.wood.BWGWoodSet;
 import net.potionstudios.biomeswevegone.world.level.levelgen.biome.BWGBiomes;
 import net.potionstudios.biomeswevegone.world.level.levelgen.structure.BWGStructures;
+import net.potionstudios.biomeswevegone.world.timeline.BWGTimelines;
 import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 import sereneseasons.init.ModTags;
 
 import java.util.*;
@@ -50,6 +52,7 @@ public class TagsGenerator {
         generator.addProvider(run, new PoiTagGenerator(output, lookupProvider));
         generator.addProvider(run, new DamageTypeTagGenerator(output, lookupProvider));
         generator.addProvider(run, new EnchantmentTagGenerator(output, lookupProvider));
+        generator.addProvider(run, new TimelineTagsGenerator(output, lookupProvider));
     }
 
     private static void sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(Map<?, TagBuilder> tags) {
@@ -577,6 +580,18 @@ public class TagsGenerator {
         @Override
         protected void addTags(HolderLookup.@NotNull Provider provider) {
             tag(BWGEnchantmentTags.PREVENTS_PUMPKIN_WARDENS_SPAWNS_WHEN_MINING).add(Enchantments.SILK_TOUCH);
+        }
+    }
+
+    private static class TimelineTagsGenerator extends TimelineTagsProvider {
+
+        private TimelineTagsGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+            super(output, lookupProvider);
+        }
+
+        @Override
+        protected void addTags(HolderLookup.@NonNull Provider provider) {
+            tag(TimelineTags.UNIVERSAL).add(BWGTimelines.PUMPKIN_WARDEN);
         }
     }
 }

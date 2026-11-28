@@ -1,3 +1,6 @@
+# 4.4.3
+- Fix Pumpkin Warden Schedule not applying
+
 # 4.4.2
 - Update schedule tick signature.
 
